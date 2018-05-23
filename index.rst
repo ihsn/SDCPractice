@@ -8,7 +8,7 @@
 
 July 2016
 
-Version 1.1
+Version 1.2
 
 Affiliations: Thijs Benschop, Consultant The World Bank, Cathrine
 Machingauta, The World Bank, Matthew Welch, The World Bank
@@ -2816,7 +2816,7 @@ values that are not outliers. This method is implemented in *sdcMicro*
 in the function dRiskRMD(), which is an extension of the dRisk()
 function. This method is illustrated in the case studies in Chapter 9.
 
-Global risk 
+Global risk
 ------------
 
 To construct one aggregate risk measure at the global level for the
@@ -4460,7 +4460,7 @@ groups of size :math:`n_{i}` for all groups :math:`i` in
 :math:`1,\ \ldots,\ g`. This maximizes the within-group homogeneity,
 which is measured by the within-groups sum of squares (SSE)
 
-.. math:: \text{SSE} = \sum_{i = 1}^{g}{\sum_{j = 1}^{n_{i}}{\left( x_{\text{ij}} - {\overline{x}}_{i} \right)^{T}\left( x_{\text{ij}} - {\overline{x}}_{i} \right)}}\ 
+.. math:: \text{SSE} = \sum_{i = 1}^{g}{\sum_{j = 1}^{n_{i}}{\left( x_{\text{ij}} - {\overline{x}}_{i} \right)^{T}\left( x_{\text{ij}} - {\overline{x}}_{i} \right)}}\
 
 The lower the SSE, the higher the within-group homogeneity. The group
 sizes can differ amongst groups, but often groups of equal size are used
@@ -4958,7 +4958,7 @@ Overview.” *Proceedings of the International Conference on Information
 and Knowledge Engineering (IKE 2012)*, (pp.65-71).Las Vegas, USA.
 http://arxiv.org/ftp/arxiv/papers/1309/1309.3958.pdf
 
-Rank swapping 
+Rank swapping
 ~~~~~~~~~~~~~~
 
 Data swapping is based on interchanging values of a certain variable
@@ -5587,7 +5587,7 @@ measures are based on the mean squared error, the mean absolute error or
 the mean variation of the individual cells. We refer to Domingo-Ferrer
 and Torra (2001) for a complete overview of these measures.
 
-IL1s information loss measure 
+IL1s information loss measure
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Alternatively, we can also compare the actual data and quantify the
@@ -5728,7 +5728,7 @@ determine income inequality
 
 ``## [1] 67.13218``
 
- Regression 
+ Regression
 ------------
 
 Besides comparing covariance and correlation matrices, regressions are a
@@ -6272,7 +6272,7 @@ Example 7.4: Reading in an *Excel* file
 | file <- **read.csv**\ (fname, header = TRUE, sep = ",", dec = ".")
 | *# reads the data into the data frame called file, the first line
   contains the variable names, fields are separated with commas, decimal
-  points are indicated with ‘.’* 
+  points are indicated with ‘.’*
 
 Example 7.5: Reading in an *SPSS* file
 
@@ -6917,7 +6917,7 @@ file by regionid and random HID*
 file$HIDrandom <- 1:n *# renumber the households in randomized order to
 1-n*
 
-Computation time 
+Computation time
 -----------------
 
 Some SDC methods can take a very long time to evaluate in terms of
@@ -7530,7 +7530,7 @@ the utility measures are an estimate with a variance and therefore it is
 useful to construct confidence intervals in addition to the point
 estimates for the utility measures.**
 
-Step 8: Choice and application of SDC methods 
+Step 8: Choice and application of SDC methods
 ----------------------------------------------
 
 The choice of SDC methods depends on the need for data protection (as
