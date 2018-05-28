@@ -973,7 +973,7 @@ Introduction
 ============
 
 National statistics agencies are mandated to collect
-microdata [#foot13]_ from surveys and censuses to inform and
+microdata\ ` [13]_ <#foot7>`__ from surveys and censuses to inform and
 measure policy effectiveness. In almost all countries, statistics acts
 and privacy laws govern these activities. These laws require that
 agencies protect the identity of respondents, but may also require that
@@ -1116,7 +1116,7 @@ for SDC called *sdcMicro* as well as the statistical software *R*.
 package was developed and is maintained by Matthias Templ, Alexander
 Kowarik and Bernhard Meindl. `See and the GitHub of the developers. The
 GitHub repository can also be used to submit bugs found in the
-package. [foot14]_ <\l>`__ The statistical software *R* and the *sdcMicro*
+package. [14]_ <\l>`__ The statistical software *R* and the *sdcMicro*
 package, as well as any other packages needed for the SDC process, are
 freely available from the Comprehensive R Archive Network (CRAN) mirrors
 (http://cran.r-project.org/). The software is available for Linux,
@@ -1131,7 +1131,7 @@ This guide does not provide a review of all other available packages for
 implementing the SDC process. Our concern is more with providing
 practical insight into the application of the methods. We would,
 however, like to highlight one particular other software package that is
-commonly used by agencies: μ-ARGUS [foot15]_. μ-ARGUS is
+commonly used by agencies: μ-ARGUS\ ` [15]_ <#foot9>`__. μ-ARGUS is
 developed by Statistics Netherlands. *sdcMicro* and μ-ARGUS are both
 widely used in statistics offices in the European Union and implement
 many of the same methods.
@@ -1189,7 +1189,7 @@ alter the data so that the data can be published or released without
 revealing the confidential information it contains, while, at the same
 time, limit information loss due to the anonymization of the data. In
 this guide, we discuss only disclosure control for
-microdata. [foot18]_ Microdata are datasets that provide
+microdata.\ ` [18]_ <#foot12>`__ Microdata are datasets that provide
 information on a set of variables for each individual respondent.
 Respondents can be natural persons, but also legal entities such as
 companies.
@@ -1869,12 +1869,12 @@ Table 4.1: Example dataset showing sample frequencies, population
 frequencies and individual disclosure risk
 
 +-------+-------+-------+-------+-------+-------+-------+-------+-------+
-| No    | Res   | Gen   | Edu   | Lab   | Weight| .. m  | .. ma | risk  |
-|       | idenc | der   | catio | or    |       | th::  | th::  |       |
-|       | e     |       | n     | statu |       | \mat  | \math |       |
-|       |       |       | level | s     |       | {f}   | {F}   |       |
-|       |       |       |       |       |       | _{\m  | _{\ma |       |
-|       |       |       |       |       |       | thbf  | thbf{ |       |
+| **No* | **Res | **Gen | **Edu | **Lab | **Wei | .. ma | .. ma | **ris |
+| *     | idenc | der** | catio | or    | ght** | th::  | th::  | k**   |
+|       | e**   |       | n     | statu |       | \math | \math |       |
+|       |       |       | level | s**   |       | bf{f} | bf{F} |       |
+|       |       |       | **    |       |       | _{\ma | _{\ma |       |
+|       |       |       |       |       |       | thbf{ | thbf{ |       |
 |       |       |       |       |       |       | k}}   | k}}   |       |
 +=======+=======+=======+=======+=======+=======+=======+=======+=======+
 | 1     | Urban | Femal | Secon | Emplo | 180   | 2     | 360   | 0.005 |
@@ -1942,13 +1942,14 @@ function freq() displays the sample frequency for the keys constructed
 on a defined set of quasi-identifiers. Example 4.1 corresponds to the
 data in Table 4.1.
 
-Example 4.1: Calculating :math:`\mathbf{f}_{\mathbf{k}}` using *sdcMicro*
+Example 4.1: Calculating :math:`\mathbf{f}_{\mathbf{k}}` using
+*sdcMicro*
 
-.. code-block:: R
+| *# Frequency of the particular combination of key variables (keys) for
+  each record in the sample*
+| **freq**\ (sdcInitial, type = 'fk')
 
-    # Frequency of the particular combination of key variables (keys) for each record in the sample
-    freq(sdcInitial, type = 'fk')
-    2 2 1 2 1 2 1 1 2 2
+``2 2 1 2 1 2 1 1 2 2``
 
 For sample data, it is more interesting to look at :math:`F_{k}\ `, the
 population frequency of a combination of quasi-identifiers (key)
@@ -1991,15 +1992,17 @@ for each key.
 Example 4.2: Calculating the sample and population frequencies using
 *sdcMicro*
 
-.. code-block:: R
+*# Sample frequency of individual’s key*
 
-    # Sample frequency of individual’s key
-    freq(sdcInitial, type = 'fk')
-    2 2 1 2 1 2 1 1 2 2
+**freq**\ (sdcInitial, type = 'fk')
 
-    # Population frequency of individual’s key
-    freq(sdcInitial, type = 'Fk')
-    360 360 215 152 186 152 180 215 262 262
+``2 2 1 2 1 2 1 1 2 2``
+
+*# Population frequency of individual’s key*
+
+**freq**\ (sdcInitial, type = 'Fk')
+
+``360 360 215 152 186 152 180 215 262 262``
 
 In practice, this approach leads to conservative risk estimates, as it
 does not adequately take the sampling methods into account. In this
@@ -2027,22 +2030,20 @@ example. The risk measures are also presented in Table 4.1.
 
 Example 4.3: The individual risk slot in the *sdcMicro* object
 
-.. code-block:: R
+sdcInitial@risk$individual
 
-    sdcInitial@risk$individual
+````\ ``risk``\ ````\ ````\ ``fk``\ ````\ ``Fk``
 
-    ````\ ``risk``\ ````\ ````\ ``fk``\ ````\ ``Fk``
-
-    | ``[1,]``\ ``0.005424520``\ ``2``\ ``360``
-    | ``[2,]``\ ``0.005424520``\ ``2``\ ``360``
-    | ``[3,]``\ ``0.025096439``\ ``1``\ ``215``
-    | ``[4,]``\ ``0.012563425``\ ``2``\ ``152``
-    | ``[5,]``\ ``0.028247279``\ ``1``\ ``186``
-    | ``[6,]``\ ``0.012563425``\ ``2``\ ``152``
-    | ``[7,]``\ ``0.029010932``\ ``1``\ ``180``
-    | ``[8,]``\ ``0.025096439``\ ``1``\ ``215``
-    | ``[9,]``\ ``0.007403834``\ ``2``\ ``262``
-    | ``[10,]``\ ``0.007403834``\ ``2``\ ``262``
+| ``[1,]``\ ``0.005424520``\ ``2``\ ``360``
+| ``[2,]``\ ``0.005424520``\ ``2``\ ``360``
+| ``[3,]``\ ``0.025096439``\ ``1``\ ``215``
+| ``[4,]``\ ``0.012563425``\ ``2``\ ``152``
+| ``[5,]``\ ``0.028247279``\ ``1``\ ``186``
+| ``[6,]``\ ``0.012563425``\ ``2``\ ``152``
+| ``[7,]``\ ``0.029010932``\ ``1``\ ``180``
+| ``[8,]``\ ``0.025096439``\ ``1``\ ``215``
+| ``[9,]``\ ``0.007403834``\ ``2``\ ``262``
+| ``[10,]``\ ``0.007403834``\ ``2``\ ``262``
 
 The main factors influencing the individual risk are the sample
 frequencies :math:`f_{k}` and the sampling design weights :math:`w_{i}`.
@@ -2107,17 +2108,15 @@ are given. In the example, four observations violate 2-anonimity and all
 Example 4.4: Using the print() function to display observations
 violating k-anonymity
 
-.. code-block:: R
+**print**\ (sdcInitial, 'kAnon')
 
-    print(sdcInitial, 'kAnon')
-
-    | ``Number of observations violating``
-    | ``-  2-anonymity:``\ ``4``
-    | ``-  3-anonymity:  10``
-    | ``--------------------------``
-    | ``Percentage of observations violating``
-    | ``-  2-anonymity:``\ ``40 %``
-    | ``-  3-anonymity:``\ ``100 %``
+| ``Number of observations violating``
+| ``-  2-anonymity:``\ ``4``
+| ``-  3-anonymity:  10``
+| ``--------------------------``
+| ``Percentage of observations violating``
+| ``-  2-anonymity:``\ ``40 %``
+| ``-  3-anonymity:``\ ``100 %``
 
 For other levels of :math:`k`-anonymity, it is possible to compute the
 number of violating individuals by using the sample frequency counts in
@@ -2133,9 +2132,8 @@ on local suppression. In many institutions, typically required
 thresholds for :math:`k`-anonymity are 3 and 5.
 
 Example 4.5: Computing k-anonymity violations for other values of k
-.. code-block:: R
 
-    sum(sdcInitial@risk$individual[,2] < k)
+**sum**\ (sdcInitial@risk$individual[,2] < k)
 
 It is important to note that missing values (‘NA’s in
 *R*\ ` [28]_ <#foot24>`__) are treated as if they were any other value.
@@ -2290,24 +2288,23 @@ data in Table 4.3.
 
 Example 4.6: :math:`\mathbf{l}`-diversity function in *sdcMicro*
 
-.. code-block:: R
+*# Computing l-diversity*
 
-    # Computing l-diversity
+| sdcInitial <- **ldiversity**\ (obj = sdcInitial, ldiv_index =
+  **c**\ ("Health"), l_recurs_c = 2, missing = NA)
+| *# Output for l-diversity*
+| sdcInitial@risk$ldiversity
 
-    | sdcInitial <- **ldiversity**\ (obj = sdcInitial, ldiv_index = c("Health"), l_recurs_c = 2, missing = NA)
-    | # Output for l-diversity
-    | sdcInitial@risk$ldiversity
+| ``--------------------------``
+| ``L-Diversity Measures``
+| ``--------------------------``
+| ``Min.  1st Qu.  Median    Mean   3rd Qu.    Max.``
+| ``1.0   1.0      1.0       1.4    2.0        2.0``
 
-    | ``--------------------------``
-    | ``L-Diversity Measures``
-    | ``--------------------------``
-    | ``Min.  1st Qu.  Median    Mean   3rd Qu.    Max.``
-    | ``1.0   1.0      1.0       1.4    2.0        2.0``
+| *# l-diversity score for each record*
+| sdcInitial@risk$ldiversity[,'Health_Distinct_Ldiversity']
 
-    | # l-diversity score for each record
-    | sdcInitial@risk$ldiversity[,'Health_Distinct_Ldiversity']
-
-    [1] 1 1 1 2 1 2 1 1 2 2
+``[1] 1 1 1 2 1 2 1 1 2 2``
 
 :math:`l`-diversity is useful if the data contains categorical sensitive
 variables that are not quasi-identifiers themselves. It is not possible
@@ -2616,38 +2613,36 @@ object. The syntax in Example 4.7 shows how to retrieve the output.
 
 Example 4.7: Evaluating SUDA scores
 
-.. code-block:: R
+| *# Evaluating SUDA scores for the specified variables*
+| sdcInitial <- **suda2**\ (obj = sdcInitial, missing = NA)
 
-    # Evaluating SUDA scores for the specified variables
-    sdcInitial <- suda2(obj = sdcInitial, missing = NA)
+| *# The results are saved in the risk slot of the sdcMicro object*
+| *# SUDA scores*
+| sdcInitial@risk$suda2$score
 
-    # The results are saved in the risk slot of the sdcMicro object
-    # SUDA scores
-    sdcInitial@risk$suda2$score
+``[1] 0.00 0.00 1.75 0.00 3.25 0.00 1.75 2.75 0.00 0.00``
 
-    [1] 0.00 0.00 1.75 0.00 3.25 0.00 1.75 2.75 0.00 0.00
+| *# DIS-SUDA scores*
+| sdcInitial@risk$suda2$disScore
 
-    # DIS-SUDA scores
-    sdcInitial@risk$suda2$disScore
+| ``[1] 0.000000000 0.000000000 0.005120313 0.000000000 0.010702061``
+| ``[6] 0.000000000 0.005120313 0.008775093 0.000000000 0.000000000``
 
-    [1] 0.000000000 0.000000000 0.005120313 0.000000000 0.010702061
-    [6] 0.000000000 0.005120313 0.008775093 0.000000000 0.000000000
+| *# Summary of DIS-SUDA scores*
+| sdcInitial@risk$suda2
 
-    # Summary of DIS-SUDA scores
-    sdcInitial@risk$suda2
-
-    Dis suda scores table:
-    - - - - - - - - - - -
-    thresholds number
-    1        > 0      6
-    2      > 0.1      4
-    3      > 0.2      0
-    4      > 0.3      0
-    5      > 0.4      0
-    6      > 0.5      0
-    7      > 0.6      0
-    8      > 0.7      0
-    - - - - - - - - - - -
+| ``Dis suda scores table:``
+| ``- - - - - - - - - - -``
+| ``thresholds number``
+| ``1        > 0      6``
+| ``2      > 0.1      4``
+| ``3      > 0.2      0``
+| ``4      > 0.3      0``
+| ``5      > 0.4      0``
+| ``6      > 0.5      0``
+| ``7      > 0.6      0``
+| ``8      > 0.7      0``
+| ``- - - - - - - - - - -``
 
 To compare DIS scores before and after applying SDC methods, it may be
 useful to use histograms or density plots of these scores. Example 4.8
@@ -2662,14 +2657,13 @@ them to the base for risk changes.
 
 Example 4.8: Histogram and density plots of DIS-SUDA scores
 
-.. code-block:: R
+| *# Plot a histogram of disScore*
+| **hist**\ (sdcInitial@risk$suda2$disScore, main = 'Histogram of
+  DIS-SUDA scores')
 
-    # Plot a histogram of disScore
-    hist(sdcInitial@risk$suda2$disScore, main = 'Histogram of DIS-SUDA scores')
-
-    # Density plot
-    density <- density(sdcInitial@risk$suda2$disScore)
-    plot(density, main = 'Density plot of DIS-SUDA scores')
+| *# Density plot*
+| density <- **density**\ (sdcInitial@risk$suda2$disScore)
+| **plot**\ (density, main = 'Density plot of DIS-SUDA scores')
 
 |image1|
 
@@ -2757,10 +2751,10 @@ interval of 0.1 times the standard deviation around the original values.
 
 Example 4.9 Example with the function dRisk()
 
-.. code-block:: R
+**dRisk**\ (obj = sdcObj@origData[,compExp], xm =
+sdcObj@manipNumVars[,compExp], k = 0.1)
 
-    dRisk(obj = sdcObj@origData[,compExp], xm = sdcObj@manipNumVars[,compExp], k = 0.1)
-    [1] 1
+``[1] 1``
 
 For most values, this is a satisfactory approach. It is not a sufficient
 measure for outliers, however. After perturbation, outliers will stay
@@ -2798,13 +2792,13 @@ percentile. Example 4.10 provides an illustration for the 90\ :sup:`th`
 percentile.
 
 Example 4.10: Computing 90 % percentile of variable income
-.. code-block:: R
-    
-    # Compute the 90 % percentile for the variable income*
-    perc90 <- **quantile**\ (file[,'income'], 0.90, na.rm = TRUE)
 
-    # Show the ID of observations with values for income larger than the 90 % percentile
-    file[(file[, 'income'] >= perc90), 'ID']
+| *# Compute the 90 % percentile for the variable income*
+| perc90 <- **quantile**\ (file[,'income'], 0.90, na.rm = TRUE)
+
+| *# Show the ID of observations with values for income larger than the
+  90 % percentile*
+| file[(file[, 'income'] >= perc90), 'ID']
 
 A second approach for outlier detection is a posteriori measure
 comparing the treated and raw data. An interval is constructed around
@@ -2849,12 +2843,10 @@ average re-identification probability is 0.01582 or 0.1582 %.
 
 Example 4.11: Computation of the global risk measure
 
-.. code-block:: R
+| *# Global risk (average re-identification probability)*
+| sdcInitial@risk$global$risk
 
-    # Global risk (average re-identification probability)*
-    sdcInitial@risk$global$risk
-    
-    [1] 0.01582
+[1] 0.01582
 
 The global risk in the example data in Table 4.1 is 0.01582, which is
 the expected proportion of all individuals in the sample that could be
@@ -2871,12 +2863,10 @@ threshold, as shown in the next section.
 
 Example 4.12: Computation of expected number of re-identifications
 
-.. code-block:: R
+| *# Global risk (expected number of reidentifications)*
+| sdcInitial@risk$global$risk_ER
 
-    # Global risk (expected number of reidentifications)
-    sdcInitial@risk$global$risk_ER
-
-	[1] 0.1582
+[1] 0.1582
 
 Count of individuals with risks larger than a certain threshold
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -2892,12 +2882,12 @@ would count the number of observations with an individual
 re-identification risk higher than 5%. In the example, no individual has
 a higher disclosure risk than 0.05.
 
-Example 4.13: Number of individuals with individual risk higher than the threshold 0.05
-.. code-block:: R
+Example 4.13: Number of individuals with individual risk higher than the
+threshold 0.05
 
-    sum(sdcInitial@risk$individual[,1] > 0.05)
+**sum**\ (sdcInitial@risk$individual[,1] > 0.05)
 
-	[1] 0
+[1] 0
 
 These calculations can then be used to treat data for individuals whose
 risk values are above a predetermined threshold. We will see later that
@@ -2941,13 +2931,11 @@ computed. Example 4.14 shows how to display these risk measures.
 Example 4.14: Computation of household risk and expected number of
 re-identifications
 
-.. code-block:: R
+| *# Household risk*
+| sdcInitial@risk$global$hier_risk
 
-    # Household risk
-    sdcInitial@risk$global$hier_risk
-
-    # Household risk (expected number of reidentifications
-    sdcInitial@risk$global$hier_risk_ER
+| *# Household risk (expected number of reidentifications*
+| sdcInitial@risk$global$hier_risk_ER
 
 **NOTE: The size of a household is an important identifier itself,
 especially for large households. Suppression of the actual size variable
@@ -13477,12 +13465,11 @@ http://www.ihsn.org/home/software/disclosure-control-toolbox
 Brand, R. (2002). Microdata Protection through Noise Addition. In J.
 Domingo-Ferrer (Ed.), *Inference Control in Statistical Databases - From
 Theory to Practice* (Vol. Lecture Notes in Computer Science Series
-Volume 2316, pp. 97-116). Berlin Heidelberg, Germany: Springer.
-Burgert, C. R., Colston, J., Roy, T., & Zachary, B. (2013). *Geographic
+Volume 2316, pp. 97-116). Berlin Heidelberg, Germany: Springer.Burgert,
+C. R., Colston, J., Roy, T., & Zachary, B. (2013). *Geographic
 Displacement Procedure and Georeferenced Data Release Policy for the
 Demographic and Health Surveys.* DHS Spatial Analysis Report No.
-7.
-Dalenius, T., & Reiss, S. (1978). Data-swapping: A Technique for
+7.Dalenius, T., & Reiss, S. (1978). Data-swapping: A Technique for
 Disclosure Control (extended abstract). *American Statistical
 Association Proceedings of the Section on Survey Research Methods*, (pp.
 191-194).De Waal, A., & Willenborg, L. (1999). Information Loss Through
@@ -13575,47 +13562,47 @@ Disclosure Risk Assessment in Perturbative Microdata Protection.
 Bui, L. T. (2008). *Success in Evolutionary Computation.* Springer
 Science & Business Media.
 
-.. [#foot1]
+.. [1]
    http://www.nss.gov.au/nss/home.nsf/pages/Confidentiality+-+Glossary
 
-.. [#foot2]
+.. [2]
    http://stats.oecd.org/glossary
 
-.. [#foot3]
+.. [3]
    Australian Bureau of Statistics,
    http://www.nss.gov.au/nss/home.nsf/pages/Confidentiality+-+Glossary
 
-.. [#foot4]
+.. [4]
    Australian Bureau of Statistics,
    http://www.nss.gov.au/nss/home.nsf/pages/Confidentiality+-+Glossary
 
-.. [#foot5]
+.. [5]
    http://stats.oecd.org/glossary
 
-.. [#foot6]
+.. [6]
    OECD, http://stats.oecd.org/glossary
 
-.. [#foot7]
+.. [7]
    http://www.nss.gov.au/nss/home.nsf/pages/Confidentiality+-+Glossary
 
-.. [#foot8]
+.. [8]
    http://stats.oecd.org/glossary
 
-.. [#foot9]
+.. [9]
    Australian Bureau of Statistics,
    http://www.nss.gov.au/nss/home.nsf/pages/Confidentiality+-+Glossary
 
-.. [#foot10]
+.. [10]
    Australian Bureau of Statistics,
    http://www.nss.gov.au/nss/home.nsf/pages/Confidentiality+-+Glossary
 
-.. [#foot11]
+.. [11]
    http://stats.oecd.org/glossary
 
-.. [#foot12]
+.. [12]
    OECD, http://stats.oecd.org/glossary
 
-.. [#foot13]
+.. [13]
    Microdata are unit-level data obtained from sample surveys, censuses
    and administrative systems. They provide information about
    characteristics of individual people or entities such as households,
@@ -13627,37 +13614,37 @@ Science & Business Media.
    measuring the impact and results of projects, interventions and
    policies.
 
-.. [#foot14]
+.. [14]
    http://cran.r-project.org/web/packages/sdcMicro/index.html\ \ \ https://github.com/alexkowa/sdcMicro
 
-.. [#foot15]
+.. [15]
    μ-ARGUS is available at: http://neon.vb.cbs.nl/casc/mu.htm. The
    software was recently ported to open source.
 
-.. [#foot16]
+.. [16]
    There are many free resources for learning *R* available on the web.
    One place to start would be the CRAN *R* Project page:
    http://cran.r-project.org/other-docs.html
 
-.. [#foot17]
+.. [17]
    The developers of *sdcMicro* have also developed a graphical user
    interface (GUI) for the package, which is contained in the *R*
    package *sdcMicroGUI* and available from the CRAN mirrors. The GUI,
    however, does not implement the full functionality of the *sdcMicro*
    package and is not discussed in this guide.
 
-.. [#foot18]
+.. [18]
    There is another strand of literature on the anonymization of tabular
    data, see e.g., Hundepool et al. (2012).
 
-.. [#foot19]
+.. [19]
    See Section 5 in Dupriez and Boyko (2010) as to who the users of
    microdata are and to whom microdata should be made available.
 
-.. [#foot20]
+.. [20]
    Appendix B provides an example of a blanket agreement.
 
-.. [#foot21]
+.. [21]
    Recoding a continuous variable is sometimes useful in cases where the
    data contains only a few continuous variables. We will see in Section
    3 that many methods used for risk calculation depend on whether the
@@ -13665,59 +13652,68 @@ Science & Business Media.
    measurement of risk if the data contains only categorical or only
    continuous variables.
 
-.. [#foot22]
-   This is discussed in greater detail in the following sections. In
+.. [22]
+    This is discussed in greater detail in the following sections. In
    cases where the number of possible values is large, recoding the
    variable, or parts of the set it takes values on, to obtain fewer
    distinct values is recommended.
 
-.. [#foot23]
-   Besides variables collected at the higher hierarchical level, also
+.. [23]
+    Besides variables collected at the higher hierarchical level, also
    variables collected at the lower level but with no (or little)
    variation within the groups formed by the hierarchical structure
    should be treated as higher level variables. An example could be
    mother tongue, where most households are monolingual, but the
    variable is collected at the individual level.
 
-.. [#foot24]
-   Religion, for example, can be shared by all household members in
+.. [24]
+    Religion, for example, can be shared by all household members in
    some countries, whereas in other countries this variable is measured
    at the individual level and mixed-religion households exist.
 
-.. [#foot25]
-   The code examples in this guide are based on *sdcMicro* objects. An
+.. [25]
+    The code examples in this guide are based on *sdcMicro* objects. An
    *sdcMicro* object contains, amongst others, the data and identifies
    all the specified key variables. The code below creates a data.frame
    with the data from Table 4.1 and the *sdcMicro* objects “sdcInitial”
    used in most examples in this section.
 
-   .. code-block R
-   
-       library(sdcMicro)
-       
-       # Set up dataset
-       
-       data <- as.data.frame(cbind(as.factor(c('Urban',
-       'Urban', 'Urban', 'Urban', 'Rural', 'Urban', 'Urban', 'Urban',
-       'Urban', 'Urban')),
-       as.factor**\ \ (**c**\ \ ('Female', 'Female', 'Female', 'Male',
-       'Female', 'Male', 'Female', 'Male', 'Female', 'Female')),
-       as.factor(c('Sec in', 'Sec in', 'Prim in', 'Sec com', 'Sec com', 'Sec com', 'Prim com', 'Post-sec', 'Sec in', 'Sec in')), 
-       as.factor(c('Emp', 'Emp', 'Non-LF', 'Emp', 'Unemp', 'Emp', 'Non-LF', 'Unemp', 'Non-LF','Non-LF')),
-       as.factor(c('yes', 'yes', 'yes', 'yes', 'yes', 'no', 'no', 'yes', 'no', 'yes')),
-       c(180, 180, 215, 76, 186, 76, 180, 215, 186, 76)))
-       
-       # Specify variable names*
-       
-       names(data) <- c('Residence', 'Gender', 'Educ', 'Lstat', 'Health', 'Weights')
-       
-       # Set up sdcMicro object with specified quasi-identifiers and weight variable
-       
-       sdcInitial <- createSdcObj(dat = data, 
-       keyVars = c('Residence', 'Gender', 'Educ', 'Lstat'), weightVar = 'Weights')
+   **library**\ \ (sdcMicro)
 
-.. [#foot26]
-   The assumptions for this risk measure are strict and the risk is
+   *# Set up dataset*
+
+   | data <-
+     **as.data.frame**\ \ (**cbind**\ \ (**as.factor**\ \ (**c**\ \ ('Urban',
+     'Urban', 'Urban', 'Urban', 'Rural', 'Urban', 'Urban', 'Urban',
+     'Urban', 'Urban')),
+   | **as.factor**\ \ (**c**\ \ ('Female', 'Female', 'Female', 'Male',
+     'Female', 'Male', 'Female', 'Male', 'Female', 'Female')),
+   | **as.factor**\ \ (**c**\ \ ('Sec in', 'Sec in', 'Prim in', 'Sec
+     com', 'Sec com', 'Sec com', 'Prim com', 'Post-sec', 'Sec in', 'Sec
+     in')),
+   | **as.factor**\ \ (**c**\ \ ('Emp', 'Emp', 'Non-LF', 'Emp', 'Unemp',
+     'Emp',
+
+   | 'Non-LF', 'Unemp', 'Non-LF','Non-LF')),
+   | **as.factor**\ \ (**c**\ \ ('yes', 'yes', 'yes', 'yes', 'yes',
+     'no', 'no', 'yes', 'no', 'yes')),
+   | **c**\ \ (180, 180, 215, 76, 186, 76, 180, 215, 186, 76)
+   | ))
+
+   *# Specify variable names*
+
+   **names**\ \ (data) <- **c**\ \ ('Residence', 'Gender', 'Educ',
+   'Lstat', 'Health', 'Weights')
+
+   *# Set up sdcMicro object with specified quasi-identifiers and weight
+   variable*
+
+   sdcInitial <- **createSdcObj**\ \ (dat = data, keyVars =
+   **c**\ \ ('Residence', 'Gender', 'Educ', 'Lstat'), weightVar =
+   'Weights')
+
+.. [26]
+    The assumptions for this risk measure are strict and the risk is
    estimated in many cases higher than the actual risk. Among other
    assumptions, it is assumed that all individuals in the sample are
    also included in the external file used by the intruder to match
@@ -13733,12 +13729,12 @@ Science & Business Media.
    people move or change jobs and makes correct matching impossible. The
    assumptions assume a worst-case scenario.
 
-.. [#foot27]
-   See Section 7.5 for more information on slots and the *sdcMicro*
+.. [27]
+    See Section 7.5 for more information on slots and the *sdcMicro*
    object structure.
 
-.. [#foot28]
-   In *sdcMicro* it is important to use the standard missing value code
+.. [28]
+    In *sdcMicro* it is important to use the standard missing value code
    NA instead of other codes, such as 9999 or strings. In Chapter 6, we
    further discuss how to set other missing value codes to NA in *R*.
    This is necessary to ensure that the methods in *sdcMicro* function
@@ -13746,83 +13742,83 @@ Science & Business Media.
    value codes are interpreted as a distinct factor level in the case of
    categorical variables.
 
-.. [#foot29]
-   Alternatively, the sensitive variables can be specified when
+.. [29]
+    Alternatively, the sensitive variables can be specified when
    creating the *sdcMicro* object using the function createSdcObj() in
    the *sensibleVar* argument. This is further explained in Section 7.5.
    In that case, the argument *ldiv_index* does not have to be specified
    in the ldiversity() function. and the variables in the *sensibleVar*
    argument will automatically be used to compute :math:`l`-diversity.
 
-.. [#foot30]
-   Besides distinct :math:`l`-diversity, there are other
+.. [30]
+    Besides distinct :math:`l`-diversity, there are other
    :math:`l`-diversity methods: entropy and recursive. Distinct
    :math:`l`-diversity is most commonly used.
 
-.. [#foot31]
-   There are more combinations of quasi-identifiers that make record 5
+.. [31]
+    There are more combinations of quasi-identifiers that make record 5
    unique (e.g., {‘Rural’, ‘Female’} and {‘Female’, ‘Secondary
    Complete’, ‘Unemployed’}. These combinations, however, are not
    considered MSUs because they do not fulfill the **minimal** subset
    requirement. They contain subsets that are MSUs.
 
-.. [#foot32]
+.. [32]
    OECD, http://stats.oecd.org/glossary
 
-.. [#foot33]
+.. [33]
    The third record has one MSU, {‘Primary incomplete’}; the seventh
    record has one MSU, {‘Primary complete’}; and the eighth record has
    three MSUs, {‘Urban, Unemployed’}, {‘Male, Unemployed’} and
    {‘Post-secondary’}.
 
-.. [#foot34]
-   We also show code examples in *R,* which are drawn from findings we
+.. [34]
+    We also show code examples in *R,* which are drawn from findings we
    gathered by applying these methods to a large collection of datasets.
 
-.. [#foot35]
-   Here the *sdcMicro* object “sdcIntial“ contains a dataset with 2,500
+.. [35]
+    Here the *sdcMicro* object “sdcIntial“ contains a dataset with 2,500
    individuals and 103 variables. We selected five quasi-identifiers:
    “sizeRes”, “age”, “gender”, “region”, and “ethnicity”.
 
-.. [#foot36]
-   This approach works only for semi-continuous variables, because in
+.. [36]
+    This approach works only for semi-continuous variables, because in
    the case of continuous variables, there might be values that are
    between the lower interval boundary and the lower interval boundary
    minus the small number. For example, using this for income, we would
    have an interval (9999, 19999] and the value 9999.5 would be
    misclassified as belonging to the interval [10000, 19999].
 
-.. [#foot37]
-   In *R* suppressed values are recoded NA, the standard missing value
+.. [37]
+    In *R* suppressed values are recoded NA, the standard missing value
    code.
 
-.. [#foot38]
-   In *R* suppressed values are recoded NA, the standard missing value
+.. [38]
+    In *R* suppressed values are recoded NA, the standard missing value
    code.
 
-.. [#foot39]
-   Here the *sdcMicro* object “sdcIntial“ contains a dataset with 2,500
+.. [39]
+    Here the *sdcMicro* object “sdcIntial“ contains a dataset with 2,500
    individuals and 103 variables. We selected five quasi-identifiers:
    “sizeRes”, “age”, “gender”, “region”, and “ethnicity”.
 
-.. [#foot40]
-   This can be assessed with utility measures.
+.. [40]
+    This can be assessed with utility measures.
 
-.. [#foot41]
-   I2D2 is a dataset with data related to the labor market.
+.. [41]
+    I2D2 is a dataset with data related to the labor market.
 
-.. [#foot42]
-   The 5,045 is the expectation computed as 5,000 \* 1 + 500 \* 0.05 +
+.. [42]
+    The 5,045 is the expectation computed as 5,000 \* 1 + 500 \* 0.05 +
    400 \* 0.05.
 
-.. [#foot43]
-   This means that the vector with the tabulation of the absolute
+.. [43]
+    This means that the vector with the tabulation of the absolute
    frequencies of the different categories in the original data is an
    eigenvector of the transition matrix that corresponds to the unit
    eigenvalue.
 
-.. [#foot44]
-   In this example and the following examples in this section, the
+.. [44]
+    In this example and the following examples in this section, the
    *sdcMicro* object “sdcIntial“ contains a dataset with 2,000
    individuals and 39 variables. We selected five categorical
    quasi-identifiers and 9 variables for PRAM: “ROOF”, “TOILET”,
@@ -13831,14 +13827,14 @@ Science & Business Media.
    requirements of this particular dataset and for illustrative
    purposes.
 
-.. [#foot45]
-   The PRAM method in *sdcMicro* sometimes produces the following
+.. [45]
+    The PRAM method in *sdcMicro* sometimes produces the following
    error: Error in factor(xpramed, labels = lev) : invalid 'labels';
    length 6 should be 1 or 5. Under some circumstances, changing the
    seed can solve this error.
 
-.. [#foot46]
-   This can also be achieved with multidimensional transition matrices.
+.. [46]
+    This can also be achieved with multidimensional transition matrices.
    In that case, the probability is not specified for ‘male’ ->
    ‘female’, but for ‘male’ + ‘rural’ -> ‘female’ + ‘rural’ and for
    ‘male’ + ‘urban’ -> ‘female’ + ‘urban’. This is not implemented in
@@ -13846,38 +13842,38 @@ Science & Business Media.
    separately. In the example here, this could be done by specifying
    gender as strata variable in the pram() function in *sdcMicro*.
 
-.. [#foot47]
+.. [47]
    Microaggregation can also be used for categorical data, as long as
    there is a possibility to form groups and an aggregate replacement
    for the values in the group can be calculated. This is the case for
    ordinal variables.
 
-.. [#foot48]
-   Here all groups can have different sizes (i.e., number of
+.. [48]
+    Here all groups can have different sizes (i.e., number of
    individuals in a group). In practice, the search for homogeneous
    groups is simplified by imposing equal group sizes for all groups.
 
-.. [#foot49]
-   In this example and the following examples in this section, the
+.. [49]
+    In this example and the following examples in this section, the
    *sdcMicro* object “sdcIntial“ contains a dataset with 2,000
    individuals and 39 variables. We selected five categorical
    quasi-identifiers and three continuous quasi-identifiers: “INC”,
    “EXP” and “WEALTH”.
 
-.. [#foot50]
+.. [50]
    Also the homogeneity in the groups will be generally lower, leading
    to larger changes, higher protection, but also more information loss,
    unless the strata variable correlates with the microaggregation
    variable.
 
-.. [#foot51]
-   Common values for :math:`\alpha` are between 0.5 and 2. The default
+.. [51]
+    Common values for :math:`\alpha` are between 0.5 and 2. The default
    value in the *sdcMicro* function addNoise() is 150, which is too
    large for most datasets; the level of noise should be set in the
    argument ‘noise’.
 
-.. [#foot52]
-   In this example and the following examples in this section, the
+.. [52]
+    In this example and the following examples in this section, the
    *sdcMicro* object “sdcIntial“ contains a dataset with 2,000
    individuals and 39 variables. We selected five categorical
    quasi-identifiers and 12 continuous quasi-identifiers. These are the
@@ -13885,44 +13881,44 @@ Science & Business Media.
    “THOUSEXP”, “TFURNEXP”, “THLTHEXP”, “TTRANSEXP”, “TCOMMEXP”,
    “TRECEXP”, “TEDUEXP”, “TRESTHOTEXP”, “TMISCEXP“.
 
-.. [#foot53]
-   The Shapiro-Wilk test is implemented in the function shapiro.test()
+.. [53]
+    The Shapiro-Wilk test is implemented in the function shapiro.test()
    from the package *stats* in *R*. The Jarque-Bera test has several
    implementations in *R*, for example, in the function
    jarque.bera.test() from the package *tseries*.
 
-.. [#foot54]
-   In *sdcMicro*, there are several other methods for shuffling
+.. [54]
+    In *sdcMicro*, there are several other methods for shuffling
    implemented, including ‘ds’, ‘mvn’ and ‘mlm’. See the Help option for
    the shuffle function in *sdcMicro* for details on methods ‘ds’, ‘mvm’
    and ‘mlm’.
 
-.. [#foot55]
-   Even if the dataset does not contain an explicit variable with
+.. [55]
+    Even if the dataset does not contain an explicit variable with
    household size, this information can be easily extracted from the
    data and should be taken into account. Section 7.6 shows how to
    create a variable “household size” based on the household IDs.
 
-.. [#foot56]
-   More information on census microdata at ONS is available on their
+.. [56]
+    More information on census microdata at ONS is available on their
    website:
    http://www.ons.gov.uk/ons/guide-method/census/2011/census-data/census-microdata/index.html
 
-.. [#foot57]
-   More information on the anonymization of these files is available on
+.. [57]
+    More information on the anonymization of these files is available on
    the website of the U.S. Census Bureau:
    https://www.census.gov/population/www/cen2000/pums/index.html
 
-.. [#foot58]
-   It is possible to release data files for different groups of users,
+.. [58]
+    It is possible to release data files for different groups of users,
    e.g., PUF and SUF. All information in the less detailed file,
    however, must also be included in the more detailed file to prevent
    unintended disclosure. Datasets released in data enclaves can be
    customized for the user, since the risk that they will be combined
    with other version is zero.
 
-.. [#foot59]
-   Here the *sdcMicro* object “sdcIntial“ contains a dataset with 2,500
+.. [59]
+    Here the *sdcMicro* object “sdcIntial“ contains a dataset with 2,500
    individuals and 103 variables. We selected three categorical
    quasi-identifiers: “URBRUR”, “REGION”, “RELIG” and “MARITAL” and
    several continuous quasi-identifiers relating to income and
@@ -13930,73 +13926,73 @@ Science & Business Media.
    SDC methods to this *sdcMicro* object, such as local suppression,
    PRAM and additive noise addition.
 
-.. [#foot60]
-   Often it is also useful to search the internet for help on specific
+.. [60]
+    Often it is also useful to search the internet for help on specific
    functions in *R*. There are many fora where *R* users discuss issues
    they encounter. One particularly useful site is stackoverflow.com.
 
-.. [#foot61]
-   A dataframe is an object class in *R*, which is similar to a data
+.. [61]
+    A dataframe is an object class in *R*, which is similar to a data
    table or matrix.
 
-.. [#foot62]
-   Not all functions are compatible with all versions of the respective
+.. [62]
+    Not all functions are compatible with all versions of the respective
    software package. We refer to the help files of the read and write
    functions for more information.
 
-.. [#foot63]
-   The function read.dta() in the package *foreign* does not support
+.. [63]
+    The function read.dta() in the package *foreign* does not support
    the *STATA* file format from *STATA* 13 and *STATA* 14. Two solutions
    are to use the ‘saveold’ command in *STATA* 13 or 14 that saves the
    file in the old format that can be read by the function read.dta().
    Alternatively, one could use the function read.dta13() from the
    package *readstata13*.
 
-.. [#foot64]
-   The function read.dta() in the package *foreign* does not support
+.. [64]
+    The function read.dta() in the package *foreign* does not support
    the *STATA* file format from *STATA* 13 and *STATA* 14. Two solutions
    are to use the ‘saveold’ command in *STATA* 13 or 14 that saves the
    file in the old format that can be read by the function read.dta().
    Alternatively, one could use the function read.dta13() from the
    package *readstata13*.
 
-.. [#foot65]
-   This is regardless of the class of the variable in *R*. See Section
+.. [65]
+    This is regardless of the class of the variable in *R*. See Section
    7.4 for more on classes in *R*.
 
-.. [#foot66]
-   Class *sdcMicroObj* has S4 objects, which have slots or attributes
+.. [66]
+    Class *sdcMicroObj* has S4 objects, which have slots or attributes
    and allow for object-oriented programming.
 
-.. [#foot67]
-   Unless otherwise specified in the arguments of the function.
+.. [67]
+    Unless otherwise specified in the arguments of the function.
 
-.. [#foot68]
-   Here a scenario refers to a combination of SDC methods and their
+.. [68]
+    Here a scenario refers to a combination of SDC methods and their
    parameters.
 
-.. [#foot69]
-   The server has 512 GB RAM and four processors each with 16 cores,
+.. [69]
+    The server has 512 GB RAM and four processors each with 16 cores,
    translating to 64 cores total.
 
-.. [#foot70]
-   The following website provides an overview of parallelization
+.. [70]
+    The following website provides an overview of parallelization
    packages and solutions in *R*:
    http://cran.r-project.org/web/views/HighPerformanceComputing.html.
    **NOTE: Solutions are platform-dependent and therefore our solution
    is not further presented.**
 
-.. [#foot71]
+.. [71]
    Other methods and guidance on treating datasets where household size
    is a quasi-identifier are discussed in Section 5.5.
 
-.. [#foot72]
-   For illustrative purposes, we only show this evaluation for the
+.. [72]
+    For illustrative purposes, we only show this evaluation for the
    expenditure variables. It can be easily copied for the income
    variables. The results are similar.
 
-.. [#foot73]
-   To compute the GINI coefficient, bootstrap to construct the
+.. [73]
+    To compute the GINI coefficient, bootstrap to construct the
    confidence intervals and plot the Lorenz curve we used the *R*
    packages *laeken, reldist, bootstrap* and *ineq*.
 

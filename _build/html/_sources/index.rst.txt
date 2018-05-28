@@ -1116,7 +1116,7 @@ for SDC called *sdcMicro* as well as the statistical software *R*.
 package was developed and is maintained by Matthias Templ, Alexander
 Kowarik and Bernhard Meindl. `See and the GitHub of the developers. The
 GitHub repository can also be used to submit bugs found in the
-package. [foot14]_ <\l>`__ The statistical software *R* and the *sdcMicro*
+package. [14]_ <\l>`__ The statistical software *R* and the *sdcMicro*
 package, as well as any other packages needed for the SDC process, are
 freely available from the Comprehensive R Archive Network (CRAN) mirrors
 (http://cran.r-project.org/). The software is available for Linux,
@@ -1131,7 +1131,7 @@ This guide does not provide a review of all other available packages for
 implementing the SDC process. Our concern is more with providing
 practical insight into the application of the methods. We would,
 however, like to highlight one particular other software package that is
-commonly used by agencies: μ-ARGUS [foot15]_. μ-ARGUS is
+commonly used by agencies: μ-ARGUS\ ` [15]_ <#foot9>`__. μ-ARGUS is
 developed by Statistics Netherlands. *sdcMicro* and μ-ARGUS are both
 widely used in statistics offices in the European Union and implement
 many of the same methods.
@@ -1189,7 +1189,7 @@ alter the data so that the data can be published or released without
 revealing the confidential information it contains, while, at the same
 time, limit information loss due to the anonymization of the data. In
 this guide, we discuss only disclosure control for
-microdata. [foot18]_ Microdata are datasets that provide
+microdata.\ ` [18]_ <#foot12>`__ Microdata are datasets that provide
 information on a set of variables for each individual respondent.
 Respondents can be natural persons, but also legal entities such as
 companies.
@@ -13575,44 +13575,44 @@ Disclosure Risk Assessment in Perturbative Microdata Protection.
 Bui, L. T. (2008). *Success in Evolutionary Computation.* Springer
 Science & Business Media.
 
-.. [#foot1]
+.. [1]
    http://www.nss.gov.au/nss/home.nsf/pages/Confidentiality+-+Glossary
 
-.. [#foot2]
+.. [2]
    http://stats.oecd.org/glossary
 
-.. [#foot3]
+.. [3]
    Australian Bureau of Statistics,
    http://www.nss.gov.au/nss/home.nsf/pages/Confidentiality+-+Glossary
 
-.. [#foot4]
+.. [4]
    Australian Bureau of Statistics,
    http://www.nss.gov.au/nss/home.nsf/pages/Confidentiality+-+Glossary
 
-.. [#foot5]
+.. [5]
    http://stats.oecd.org/glossary
 
-.. [#foot6]
+.. [6]
    OECD, http://stats.oecd.org/glossary
 
-.. [#foot7]
+.. [7]
    http://www.nss.gov.au/nss/home.nsf/pages/Confidentiality+-+Glossary
 
-.. [#foot8]
+.. [8]
    http://stats.oecd.org/glossary
 
-.. [#foot9]
+.. [9]
    Australian Bureau of Statistics,
    http://www.nss.gov.au/nss/home.nsf/pages/Confidentiality+-+Glossary
 
-.. [#foot10]
+.. [10]
    Australian Bureau of Statistics,
    http://www.nss.gov.au/nss/home.nsf/pages/Confidentiality+-+Glossary
 
-.. [#foot11]
+.. [11]
    http://stats.oecd.org/glossary
 
-.. [#foot12]
+.. [12]
    OECD, http://stats.oecd.org/glossary
 
 .. [#foot13]
@@ -13627,37 +13627,37 @@ Science & Business Media.
    measuring the impact and results of projects, interventions and
    policies.
 
-.. [#foot14]
+.. [14]
    http://cran.r-project.org/web/packages/sdcMicro/index.html\ \ \ https://github.com/alexkowa/sdcMicro
 
-.. [#foot15]
+.. [15]
    μ-ARGUS is available at: http://neon.vb.cbs.nl/casc/mu.htm. The
    software was recently ported to open source.
 
-.. [#foot16]
+.. [16]
    There are many free resources for learning *R* available on the web.
    One place to start would be the CRAN *R* Project page:
    http://cran.r-project.org/other-docs.html
 
-.. [#foot17]
+.. [17]
    The developers of *sdcMicro* have also developed a graphical user
    interface (GUI) for the package, which is contained in the *R*
    package *sdcMicroGUI* and available from the CRAN mirrors. The GUI,
    however, does not implement the full functionality of the *sdcMicro*
    package and is not discussed in this guide.
 
-.. [#foot18]
+.. [18]
    There is another strand of literature on the anonymization of tabular
    data, see e.g., Hundepool et al. (2012).
 
-.. [#foot19]
+.. [19]
    See Section 5 in Dupriez and Boyko (2010) as to who the users of
    microdata are and to whom microdata should be made available.
 
-.. [#foot20]
+.. [20]
    Appendix B provides an example of a blanket agreement.
 
-.. [#foot21]
+.. [21]
    Recoding a continuous variable is sometimes useful in cases where the
    data contains only a few continuous variables. We will see in Section
    3 that many methods used for risk calculation depend on whether the
@@ -13665,13 +13665,13 @@ Science & Business Media.
    measurement of risk if the data contains only categorical or only
    continuous variables.
 
-.. [#foot22]
+.. [22]
    This is discussed in greater detail in the following sections. In
    cases where the number of possible values is large, recoding the
    variable, or parts of the set it takes values on, to obtain fewer
    distinct values is recommended.
 
-.. [#foot23]
+.. [23]
    Besides variables collected at the higher hierarchical level, also
    variables collected at the lower level but with no (or little)
    variation within the groups formed by the hierarchical structure
@@ -13679,12 +13679,12 @@ Science & Business Media.
    mother tongue, where most households are monolingual, but the
    variable is collected at the individual level.
 
-.. [#foot24]
+.. [24]
    Religion, for example, can be shared by all household members in
    some countries, whereas in other countries this variable is measured
    at the individual level and mixed-religion households exist.
 
-.. [#foot25]
+.. [25]
    The code examples in this guide are based on *sdcMicro* objects. An
    *sdcMicro* object contains, amongst others, the data and identifies
    all the specified key variables. The code below creates a data.frame
@@ -13716,7 +13716,7 @@ Science & Business Media.
        sdcInitial <- createSdcObj(dat = data, 
        keyVars = c('Residence', 'Gender', 'Educ', 'Lstat'), weightVar = 'Weights')
 
-.. [#foot26]
+.. [26]
    The assumptions for this risk measure are strict and the risk is
    estimated in many cases higher than the actual risk. Among other
    assumptions, it is assumed that all individuals in the sample are
@@ -13733,11 +13733,11 @@ Science & Business Media.
    people move or change jobs and makes correct matching impossible. The
    assumptions assume a worst-case scenario.
 
-.. [#foot27]
+.. [27]
    See Section 7.5 for more information on slots and the *sdcMicro*
    object structure.
 
-.. [#foot28]
+.. [28]
    In *sdcMicro* it is important to use the standard missing value code
    NA instead of other codes, such as 9999 or strings. In Chapter 6, we
    further discuss how to set other missing value codes to NA in *R*.
@@ -13746,7 +13746,7 @@ Science & Business Media.
    value codes are interpreted as a distinct factor level in the case of
    categorical variables.
 
-.. [#foot29]
+.. [29]
    Alternatively, the sensitive variables can be specified when
    creating the *sdcMicro* object using the function createSdcObj() in
    the *sensibleVar* argument. This is further explained in Section 7.5.
@@ -13754,37 +13754,37 @@ Science & Business Media.
    in the ldiversity() function. and the variables in the *sensibleVar*
    argument will automatically be used to compute :math:`l`-diversity.
 
-.. [#foot30]
+.. [30]
    Besides distinct :math:`l`-diversity, there are other
    :math:`l`-diversity methods: entropy and recursive. Distinct
    :math:`l`-diversity is most commonly used.
 
-.. [#foot31]
+.. [31]
    There are more combinations of quasi-identifiers that make record 5
    unique (e.g., {‘Rural’, ‘Female’} and {‘Female’, ‘Secondary
    Complete’, ‘Unemployed’}. These combinations, however, are not
    considered MSUs because they do not fulfill the **minimal** subset
    requirement. They contain subsets that are MSUs.
 
-.. [#foot32]
+.. [32]
    OECD, http://stats.oecd.org/glossary
 
-.. [#foot33]
+.. [33]
    The third record has one MSU, {‘Primary incomplete’}; the seventh
    record has one MSU, {‘Primary complete’}; and the eighth record has
    three MSUs, {‘Urban, Unemployed’}, {‘Male, Unemployed’} and
    {‘Post-secondary’}.
 
-.. [#foot34]
+.. [34]
    We also show code examples in *R,* which are drawn from findings we
    gathered by applying these methods to a large collection of datasets.
 
-.. [#foot35]
+.. [35]
    Here the *sdcMicro* object “sdcIntial“ contains a dataset with 2,500
    individuals and 103 variables. We selected five quasi-identifiers:
    “sizeRes”, “age”, “gender”, “region”, and “ethnicity”.
 
-.. [#foot36]
+.. [36]
    This approach works only for semi-continuous variables, because in
    the case of continuous variables, there might be values that are
    between the lower interval boundary and the lower interval boundary
@@ -13792,36 +13792,36 @@ Science & Business Media.
    have an interval (9999, 19999] and the value 9999.5 would be
    misclassified as belonging to the interval [10000, 19999].
 
-.. [#foot37]
+.. [37]
    In *R* suppressed values are recoded NA, the standard missing value
    code.
 
-.. [#foot38]
+.. [38]
    In *R* suppressed values are recoded NA, the standard missing value
    code.
 
-.. [#foot39]
+.. [39]
    Here the *sdcMicro* object “sdcIntial“ contains a dataset with 2,500
    individuals and 103 variables. We selected five quasi-identifiers:
    “sizeRes”, “age”, “gender”, “region”, and “ethnicity”.
 
-.. [#foot40]
+.. [40]
    This can be assessed with utility measures.
 
-.. [#foot41]
+.. [41]
    I2D2 is a dataset with data related to the labor market.
 
-.. [#foot42]
+.. [42]
    The 5,045 is the expectation computed as 5,000 \* 1 + 500 \* 0.05 +
    400 \* 0.05.
 
-.. [#foot43]
+.. [43]
    This means that the vector with the tabulation of the absolute
    frequencies of the different categories in the original data is an
    eigenvector of the transition matrix that corresponds to the unit
    eigenvalue.
 
-.. [#foot44]
+.. [44]
    In this example and the following examples in this section, the
    *sdcMicro* object “sdcIntial“ contains a dataset with 2,000
    individuals and 39 variables. We selected five categorical
@@ -13831,13 +13831,13 @@ Science & Business Media.
    requirements of this particular dataset and for illustrative
    purposes.
 
-.. [#foot45]
+.. [45]
    The PRAM method in *sdcMicro* sometimes produces the following
    error: Error in factor(xpramed, labels = lev) : invalid 'labels';
    length 6 should be 1 or 5. Under some circumstances, changing the
    seed can solve this error.
 
-.. [#foot46]
+.. [46]
    This can also be achieved with multidimensional transition matrices.
    In that case, the probability is not specified for ‘male’ ->
    ‘female’, but for ‘male’ + ‘rural’ -> ‘female’ + ‘rural’ and for
@@ -13846,37 +13846,37 @@ Science & Business Media.
    separately. In the example here, this could be done by specifying
    gender as strata variable in the pram() function in *sdcMicro*.
 
-.. [#foot47]
+.. [47]
    Microaggregation can also be used for categorical data, as long as
    there is a possibility to form groups and an aggregate replacement
    for the values in the group can be calculated. This is the case for
    ordinal variables.
 
-.. [#foot48]
+.. [48]
    Here all groups can have different sizes (i.e., number of
    individuals in a group). In practice, the search for homogeneous
    groups is simplified by imposing equal group sizes for all groups.
 
-.. [#foot49]
+.. [49]
    In this example and the following examples in this section, the
    *sdcMicro* object “sdcIntial“ contains a dataset with 2,000
    individuals and 39 variables. We selected five categorical
    quasi-identifiers and three continuous quasi-identifiers: “INC”,
    “EXP” and “WEALTH”.
 
-.. [#foot50]
+.. [50]
    Also the homogeneity in the groups will be generally lower, leading
    to larger changes, higher protection, but also more information loss,
    unless the strata variable correlates with the microaggregation
    variable.
 
-.. [#foot51]
+.. [51]
    Common values for :math:`\alpha` are between 0.5 and 2. The default
    value in the *sdcMicro* function addNoise() is 150, which is too
    large for most datasets; the level of noise should be set in the
    argument ‘noise’.
 
-.. [#foot52]
+.. [52]
    In this example and the following examples in this section, the
    *sdcMicro* object “sdcIntial“ contains a dataset with 2,000
    individuals and 39 variables. We selected five categorical
@@ -13885,35 +13885,35 @@ Science & Business Media.
    “THOUSEXP”, “TFURNEXP”, “THLTHEXP”, “TTRANSEXP”, “TCOMMEXP”,
    “TRECEXP”, “TEDUEXP”, “TRESTHOTEXP”, “TMISCEXP“.
 
-.. [#foot53]
+.. [53]
    The Shapiro-Wilk test is implemented in the function shapiro.test()
    from the package *stats* in *R*. The Jarque-Bera test has several
    implementations in *R*, for example, in the function
    jarque.bera.test() from the package *tseries*.
 
-.. [#foot54]
+.. [54]
    In *sdcMicro*, there are several other methods for shuffling
    implemented, including ‘ds’, ‘mvn’ and ‘mlm’. See the Help option for
    the shuffle function in *sdcMicro* for details on methods ‘ds’, ‘mvm’
    and ‘mlm’.
 
-.. [#foot55]
+.. [55]
    Even if the dataset does not contain an explicit variable with
    household size, this information can be easily extracted from the
    data and should be taken into account. Section 7.6 shows how to
    create a variable “household size” based on the household IDs.
 
-.. [#foot56]
+.. [56]
    More information on census microdata at ONS is available on their
    website:
    http://www.ons.gov.uk/ons/guide-method/census/2011/census-data/census-microdata/index.html
 
-.. [#foot57]
+.. [57]
    More information on the anonymization of these files is available on
    the website of the U.S. Census Bureau:
    https://www.census.gov/population/www/cen2000/pums/index.html
 
-.. [#foot58]
+.. [58]
    It is possible to release data files for different groups of users,
    e.g., PUF and SUF. All information in the less detailed file,
    however, must also be included in the more detailed file to prevent
@@ -13921,7 +13921,7 @@ Science & Business Media.
    customized for the user, since the risk that they will be combined
    with other version is zero.
 
-.. [#foot59]
+.. [59]
    Here the *sdcMicro* object “sdcIntial“ contains a dataset with 2,500
    individuals and 103 variables. We selected three categorical
    quasi-identifiers: “URBRUR”, “REGION”, “RELIG” and “MARITAL” and
@@ -13930,21 +13930,21 @@ Science & Business Media.
    SDC methods to this *sdcMicro* object, such as local suppression,
    PRAM and additive noise addition.
 
-.. [#foot60]
+.. [60]
    Often it is also useful to search the internet for help on specific
    functions in *R*. There are many fora where *R* users discuss issues
    they encounter. One particularly useful site is stackoverflow.com.
 
-.. [#foot61]
+.. [61]
    A dataframe is an object class in *R*, which is similar to a data
    table or matrix.
 
-.. [#foot62]
+.. [62]
    Not all functions are compatible with all versions of the respective
    software package. We refer to the help files of the read and write
    functions for more information.
 
-.. [#foot63]
+.. [63]
    The function read.dta() in the package *foreign* does not support
    the *STATA* file format from *STATA* 13 and *STATA* 14. Two solutions
    are to use the ‘saveold’ command in *STATA* 13 or 14 that saves the
@@ -13952,7 +13952,7 @@ Science & Business Media.
    Alternatively, one could use the function read.dta13() from the
    package *readstata13*.
 
-.. [#foot64]
+.. [64]
    The function read.dta() in the package *foreign* does not support
    the *STATA* file format from *STATA* 13 and *STATA* 14. Two solutions
    are to use the ‘saveold’ command in *STATA* 13 or 14 that saves the
@@ -13960,42 +13960,42 @@ Science & Business Media.
    Alternatively, one could use the function read.dta13() from the
    package *readstata13*.
 
-.. [#foot65]
+.. [65]
    This is regardless of the class of the variable in *R*. See Section
    7.4 for more on classes in *R*.
 
-.. [#foot66]
+.. [66]
    Class *sdcMicroObj* has S4 objects, which have slots or attributes
    and allow for object-oriented programming.
 
-.. [#foot67]
+.. [67]
    Unless otherwise specified in the arguments of the function.
 
-.. [#foot68]
+.. [68]
    Here a scenario refers to a combination of SDC methods and their
    parameters.
 
-.. [#foot69]
+.. [69]
    The server has 512 GB RAM and four processors each with 16 cores,
    translating to 64 cores total.
 
-.. [#foot70]
+.. [70]
    The following website provides an overview of parallelization
    packages and solutions in *R*:
    http://cran.r-project.org/web/views/HighPerformanceComputing.html.
    **NOTE: Solutions are platform-dependent and therefore our solution
    is not further presented.**
 
-.. [#foot71]
+.. [71]
    Other methods and guidance on treating datasets where household size
    is a quasi-identifier are discussed in Section 5.5.
 
-.. [#foot72]
+.. [72]
    For illustrative purposes, we only show this evaluation for the
    expenditure variables. It can be easily copied for the income
    variables. The results are similar.
 
-.. [#foot73]
+.. [73]
    To compute the GINI coefficient, bootstrap to construct the
    confidence intervals and plot the Lorenz curve we used the *R*
    packages *laeken, reldist, bootstrap* and *ineq*.
