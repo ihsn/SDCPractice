@@ -611,7 +611,7 @@ Glossary
 |                                   | learns something that they did    |
 |                                   | not already know about another    |
 |                                   | person or organization through    |
-|                                   | released data.\ `1 <#foot1>`__    |
+|                                   | released data. [#foot1]_          |
 |                                   | See also Identity disclosure,     |
 |                                   | Attribute disclosure and          |
 |                                   | Inferential disclosure.           |
@@ -622,7 +622,7 @@ Glossary
 |                                   | information is possible or if     |
 |                                   | exact disclosure is possible with |
 |                                   | a high level of                   |
-|                                   | confidence.\ `2 <#foot2>`__       |
+|                                   | confidence. [#foot2]_             |
 |                                   | Disclosure risk also refers to    |
 |                                   | the probability that successful   |
 |                                   | disclosure could occur.           |
@@ -663,7 +663,7 @@ Glossary
 |                                   | lity+-+Glossary#4>`__,            |
 |                                   | but through a combination of      |
 |                                   | unique characteristics in key     |
-|                                   | variables.\ ` [9]_ <#foot3>`__    |
+|                                   | variables. [#foot9]_              |
 +-----------------------------------+-----------------------------------+
 | Inferential disclosure            | Inferential disclosure occurs if  |
 |                                   | an intruder is able to determine  |
@@ -805,8 +805,7 @@ Glossary
 |                                   | probabilities. It is thus         |
 |                                   | intentional misclassification     |
 |                                   | with known misclassification      |
-|                                   | probabilities. `OECD,             |
-|                                   |  [11]_ <\l>`__                    |
+|                                   | probabilities. OECD, [#foot11]_   |
 +-----------------------------------+-----------------------------------+
 | Probabilistic methods             | Anonymization methods that depend |
 |                                   | on a probability mechanism or a   |
@@ -826,7 +825,7 @@ Glossary
 |                                   | and the organization receiving it |
 |                                   | and which describes the degree of |
 |                                   | protection which will be          |
-|                                   | provided." `5 <#foot5>`__         |
+|                                   | provided." [#foot5]_              |
 +-----------------------------------+-----------------------------------+
 | Public Use File (PUF)             | Type of release of microdata      |
 |                                   | file, which is freely available   |
@@ -880,7 +879,7 @@ Glossary
 | Release                           | Dissemination – the release to    |
 |                                   | users of information obtained     |
 |                                   | through a statistical activity.   |
-|                                   | `5 <#foot5>`__                    |
+|                                   | [#foot5]_                         |
 +-----------------------------------+-----------------------------------+
 | Respondents                       | Individuals or units of           |
 |                                   | observation whose                 |
@@ -1116,7 +1115,7 @@ for SDC called *sdcMicro* as well as the statistical software *R*.
 package was developed and is maintained by Matthias Templ, Alexander
 Kowarik and Bernhard Meindl. `See and the GitHub of the developers. The
 GitHub repository can also be used to submit bugs found in the
-package. [foot14]_ <\l>`__ The statistical software *R* and the *sdcMicro*
+package. [#foot14]_ The statistical software *R* and the *sdcMicro*
 package, as well as any other packages needed for the SDC process, are
 freely available from the Comprehensive R Archive Network (CRAN) mirrors
 (http://cran.r-project.org/). The software is available for Linux,
@@ -1131,7 +1130,7 @@ This guide does not provide a review of all other available packages for
 implementing the SDC process. Our concern is more with providing
 practical insight into the application of the methods. We would,
 however, like to highlight one particular other software package that is
-commonly used by agencies: μ-ARGUS [foot15]_. μ-ARGUS is
+commonly used by agencies: μ-ARGUS [#foot15]_. μ-ARGUS is
 developed by Statistics Netherlands. *sdcMicro* and μ-ARGUS are both
 widely used in statistics offices in the European Union and implement
 many of the same methods.
@@ -1139,10 +1138,10 @@ many of the same methods.
 The user needs some knowledge of *R* to use *sdcMicro*. It is beyond the
 scope of this guide to teach the use of *R*, but we do provide
 throughout the guide code examples on how to implement the necessary
-routines in *R*.\ ` [16]_ <#foot10>`__ We also present a number of case
+routines in *R*. [#foot16]_ We also present a number of case
 studies that include the code for the anonymization of a number of demo
 datasets using *R*. Through these case studies, we demonstrate a number
-of approaches to the anonymization process in *R*. ` [17]_ <#foot11>`__
+of approaches to the anonymization process in *R*. [#foot17]_ 
 
 Outline of this guide
 ~~~~~~~~~~~~~~~~~~~~~
@@ -1189,7 +1188,7 @@ alter the data so that the data can be published or released without
 revealing the confidential information it contains, while, at the same
 time, limit information loss due to the anonymization of the data. In
 this guide, we discuss only disclosure control for
-microdata. [foot18]_ Microdata are datasets that provide
+microdata. [#foot18]_ Microdata are datasets that provide
 information on a set of variables for each individual respondent.
 Respondents can be natural persons, but also legal entities such as
 companies.
@@ -1326,7 +1325,7 @@ IHSN, this section extracts from an excellent guide published by Dupriez
 and Boyko (2010).
 
 The trade-off between risk and utility in the anonymization process
-depends greatly on who the users are\ ` [19]_ <#foot13>`__ and under
+depends greatly on who the users are [#foot19]_ and under
 what conditions a microdata file is released. Generally, three types of
 data release methods are practiced and apply to different target groups.
 
@@ -1372,7 +1371,7 @@ data release methods are practiced and apply to different target groups.
    agreement between the data producer and external bona fide users –
    trustworthy users with legitimate need to access the data. Such an
    agreement should govern access and use of such microdata
-   files\ ` [20]_ <#foot14>`__. Sometimes, licensing agreements are only
+   files [#foot20]_. Sometimes, licensing agreements are only
    entered into with users affiliated to an appropriate sponsoring
    institution. i.e., research centers, universities or development
    partners. It is further recommended that, before entering into a data
@@ -1652,14 +1651,14 @@ the validity of risk measures.
 -  **Continuous** variables can take on an infinite number of values in
    a given set. Examples are income, body height and size of land plot.
    Continuous variables can be transformed into categorical variables by
-   constructing intervals (such as income bands).\ ` [21]_ <#foot15>`__
+   constructing intervals (such as income bands). [#foot21]_
 
 -  **Semi-continuous** variables are continuous variables that take on
    values that are limited to a finite set. An example is age measured
    in years, which could take on values in the set {0, 1, …, 100}. The
    finite nature of the values for these variables means that they can
    be treated as categorical variables for the purpose of
-   SDC.\ ` [22]_ <#foot16>`__
+   SDC. [#foot22]_
 
 Apart from these classifications of variables, the SDC process further
 classifies variables according to their sensitivity or confidentiality.
@@ -1762,12 +1761,12 @@ We will see that this hierarchical structure is important to take into
 consideration when measuring disclosure risk. For hierarchical data,
 information collected at the higher hierarchical level (e.g., household
 level) would be the same for all individuals in the group belonging to
-that higher hierarchical level (e.g., household).\ ` [23]_ <#foot17>`__
+that higher hierarchical level (e.g., household). [#foot23]_
 Some typical examples of variables that would have the same values for
 all members of the same higher hierarchical unit are, in the case of
 households, those relating to housing and household income. These
 variables differ from survey to survey and from country to
-country.\ ` [24]_ <#foot18>`__ This hierarchical structure creates a
+country. [#foot24]_ This hierarchical structure creates a
 further level of disclosure risk for two reasons: 1) if one individual
 in the household is re-identified, the household structure allows for
 re-identification of the other household members in the same household,
@@ -1869,13 +1868,13 @@ Table 4.1: Example dataset showing sample frequencies, population
 frequencies and individual disclosure risk
 
 +-------+-------+-------+-------+-------+-------+-------+-------+-------+
-| No    | Res   | Gen   | Edu   | Lab   | Weight| .. m  | .. ma | risk  |
+| No    | Res   | Gen   | Edu   | Lab   | Weight| `.. m | `.. ma| risk  |
 |       | idenc | der   | catio | or    |       | th::  | th::  |       |
 |       | e     |       | n     | statu |       | \mat  | \math |       |
 |       |       |       | level | s     |       | {f}   | {F}   |       |
 |       |       |       |       |       |       | _{\m  | _{\ma |       |
 |       |       |       |       |       |       | thbf  | thbf{ |       |
-|       |       |       |       |       |       | k}}   | k}}   |       |
+|       |       |       |       |       |       | k}}`  | k}}`  |       |
 +=======+=======+=======+=======+=======+=======+=======+=======+=======+
 | 1     | Urban | Femal | Secon | Emplo | 180   | 2     | 360   | 0.005 |
 |       |       | e     | dary  | yed   |       |       |       | 4     |
@@ -1933,8 +1932,8 @@ This is done by using the *sdcMicro* function freq(). A value of 2 for
 an observation means that in the sample, there is one more individual
 with exactly the same combination of values for the selected key
 variables. In Example 4.1, the function freq() is applied to
-“sdcInitial”, which is an *sdcMicro* object. Footnote
-` [25]_ <#foot19>`__ shows how to initialize the *sdcMicro* object for
+“sdcInitial”, which is an *sdcMicro* object. Footnote [#foot25]_ 
+shows how to initialize the *sdcMicro* object for
 this example. For a complete discussion of *sdcMicro* objects as well as
 instructions on how to create *sdcMicro* objects, we refer to Section
 7.5. *sdcMicro* objects are used when doing SDC with *sdcMicro*. The
@@ -1950,10 +1949,10 @@ Example 4.1: Calculating :math:`\mathbf{f}_{\mathbf{k}}` using *sdcMicro*
     freq(sdcInitial, type = 'fk')
     2 2 1 2 1 2 1 1 2 2
 
-For sample data, it is more interesting to look at :math:`F_{k}\ `, the
+For sample data, it is more interesting to look at :math:`F_{k}`, the
 population frequency of a combination of quasi-identifiers (key)
 :math:`k`, which is the number of individuals in the population with the
-key that corresponds to key :math:`\text{\ k}`. The population frequency
+key that corresponds to key :math:`k`. The population frequency
 is unknown if the microdata is a sample and not a census. Under certain
 assumptions, the expected value of the population frequencies can be
 computed using the sample design weight :math:`w_{i}` (in a simple
@@ -1973,14 +1972,14 @@ the probability of re-identification in the worst-case scenario and can
 be interpreted as disclosure risk. Individuals with the same key have
 the same frequencies, i.e., the frequency of the key.
 
-If :math:`F_{k} = 1`, the key :math:`\text{\ k}` is both a sample and a
+If :math:`F_{k} = 1`, the key :math:`k` is both a sample and a
 population unique and the disclosure risk would be 1. Population uniques
 are an important factor to consider when evaluating risk, and deserve
 special attention. Table 4.1 also shows :math:`F_{k}` for the example
 dataset. This is further discussed in the case studies in Chapter 9.
 
 Besides :math:`f_{k}`, the sample frequency of key
-:math:`\text{k\ }`\ (i.e., the number of individuals in the sample with
+:math:`k` (i.e., the number of individuals in the sample with
 the combination of quasi-identifiers corresponding to the combination
 specified in key :math:`k`) and :math:`F_{k}`, the estimated population
 frequency of key :math:`k`, can be displayed in *sdcMicro*. Example 4.2
@@ -2009,7 +2008,7 @@ information loss will be higher than was necessary) when applying SDC
 measures. Instead, a Bayesian approach to risk measurement is
 recommended, where the posterior distribution of :math:`F_{k}` is used
 (see e.g., Hundepool et al., 2012) to estimate an individual risk
-measure\ :math:`\ r_{k}` for each key :math:`k`.
+measure :math:`r_{k}` for each key :math:`k`.
 
 The risk measure :math:`r_{k}` is, as :math:`f_{k}` and :math:`F_{k}`,
 the same for all individuals sharing the same pattern of values of key
@@ -2018,7 +2017,7 @@ variables and is referred to as individual risk. The values
 for the individuals or as the probability for a successful match with
 individuals chosen at random from an external data file with the same
 values of the key variables. This risk measure is based on certain
-assumptions\ ` [26]_ <#foot21>`__, which are strict and may lead to a
+assumptions` [#foot26]_, which are strict and may lead to a
 relatively conservative risk measure. In *sdcMicro*, the risk measure
 :math:`r_{k}` is automatically computed when creating an *sdcMicro*
 object and saved in the “risk” slot\ ` [27]_ <#foot22>`__. Example 4.3
@@ -2111,13 +2110,13 @@ violating k-anonymity
 
     print(sdcInitial, 'kAnon')
 
-    | ``Number of observations violating``
-    | ``-  2-anonymity:``\ ``4``
-    | ``-  3-anonymity:  10``
-    | ``--------------------------``
-    | ``Percentage of observations violating``
-    | ``-  2-anonymity:``\ ``40 %``
-    | ``-  3-anonymity:``\ ``100 %``
+    Number of observations violating
+    -  2-anonymity: 4
+    -  3-anonymity: 10
+    --------------------------
+    Percentage of observations violating
+    -  2-anonymity: 40 %
+    -  3-anonymity: 100 %
 
 For other levels of :math:`k`-anonymity, it is possible to compute the
 number of violating individuals by using the sample frequency counts in
@@ -2138,7 +2137,7 @@ Example 4.5: Computing k-anonymity violations for other values of k
     sum(sdcInitial@risk$individual[,2] < k)
 
 It is important to note that missing values (‘NA’s in
-*R*\ ` [28]_ <#foot24>`__) are treated as if they were any other value.
+*R*\ [foot28]_) are treated as if they were any other value.
 Two individuals with keys {‘Male’, NA, ‘Employed’} and {‘Male’,
 ‘Secondary complete’, ‘Employed’} share the same key, and similarly,
 {‘Male’, NA, ‘Employed’} and {‘Male’, ‘Secondary incomplete’,
@@ -2155,9 +2154,9 @@ Table 4.2: Example dataset to illustrate the effect of missing values on
 k-anonymity
 
 +-------------+-------------+-------------+-------------+-------------+
-| **No**      | **Gender**  | **Education | **Labor     | .. math:: \ |
-|             |             | level**     | status**    | mathbf{f}_{ |
-|             |             |             |             | \mathbf{k}} |
+|    No       |   Gender    |   Education | Labor status|`.. math:: \ |
+|             |             | level       | status      | mathbf{f}_{ |
+|             |             |             |             | \mathbf{k}}`|
 +=============+=============+=============+=============+=============+
 | 1           | Male        | Secondary   | Employed    | 2           |
 |             |             | complete    |             |             |
@@ -2209,12 +2208,12 @@ dataset by matching an individual to one of these individuals.
 Table 4.3: l-diversity illustration
 
 +--------+--------+--------+--------+--------+--------+--------+--------+
-| **No** | **Resi | **Gend | **Educ | **Labo | **Heal | .. mat | :math: |
-|        | dence* | er**   | ation  | r      | th**   | h:: \m | `\math |
-|        | *      |        | level* | status |        | athbf{ | bf{l}` |
-|        |        |        | *      | **     |        | f}_{\m | \ **-d |
+|   No   |   Resi |   Gend |   Educ |   Labo |   Heal | .. mat | :math: |
+|        | dence  | er     | ation  | r      | th     | h:: \m | `\math |
+|        |        |        | level  | status |        | athbf{ | bf{l}` |
+|        |        |        |        |        |        | f}_{\m | \   -d |
 |        |        |        |        |        |        | athbf{ | iversi |
-|        |        |        |        |        |        | k}}    | ty**   |
+|        |        |        |        |        |        | k}}    | ty     |
 +========+========+========+========+========+========+========+========+
 | 1      | Urban  | Female | Second | Employ | yes    | 2      | 1      |
 |        |        |        | ary    | ed     |        |        |        |
@@ -2280,8 +2279,8 @@ always only satisfy 1-diversity.
 To compute :math:`l`-diversity for sensitive variables in *sdcMicro*,
 the function ldiversity() can be used. This is illustrated in Example
 4.6. As arguments, we specify the names of the sensitive
-variables\ ` [29]_ <#foot25>`__ in the file as well as a constant for
-recursive :math:`l`-diversity,` [30]_ <#foot26>`__ and the code for
+variables [#foot29]_ in the file as well as a constant for
+recursive :math:`l`-diversity, [#foot30]_ and the code for
 missing values in the data. The output is saved in the “risk” slot of
 the *sdcMicro* object. The result shows the minimum, maximum, mean and
 quantiles of the :math:`l`-diversity scores for all individuals in the
@@ -2294,18 +2293,18 @@ Example 4.6: :math:`\mathbf{l}`-diversity function in *sdcMicro*
 
     # Computing l-diversity
 
-    | sdcInitial <- **ldiversity**\ (obj = sdcInitial, ldiv_index = c("Health"), l_recurs_c = 2, missing = NA)
-    | # Output for l-diversity
-    | sdcInitial@risk$ldiversity
+    sdcInitial <- **ldiversity**\ (obj = sdcInitial, ldiv_index = c("Health"), l_recurs_c = 2, missing = NA)
+    # Output for l-diversity
+    sdcInitial@risk$ldiversity
 
-    | ``--------------------------``
-    | ``L-Diversity Measures``
-    | ``--------------------------``
-    | ``Min.  1st Qu.  Median    Mean   3rd Qu.    Max.``
-    | ``1.0   1.0      1.0       1.4    2.0        2.0``
+    --------------------------
+    L-Diversity Measures
+    --------------------------
+    Min.  1st Qu.  Median    Mean   3rd Qu.    Max.
+    1.0   1.0      1.0       1.4    2.0        2.0
 
-    | # l-diversity score for each record
-    | sdcInitial@risk$ldiversity[,'Health_Distinct_Ldiversity']
+    # l-diversity score for each record
+    sdcInitial@risk$ldiversity[,'Health_Distinct_Ldiversity']
 
     [1] 1 1 1 2 1 2 1 1 2 2
 
@@ -2358,60 +2357,60 @@ variables.
 Table 4.4: Sample uniques and special uniques
 
 +-------+-------+-------+-------+-------+-------+-------+-------+-------+
-| **No* | **Res | **Gen | **Edu | **Lab | **Wgt | .. ma | .. ma | **ris |
-| *     | idenc | der** | catio | or    | **    | th::  | th::  | k**   |
-|       | e**   |       | n     | statu |       | \math | \math |       |
-|       |       |       | level | s**   |       | bf{f} | bf{F} |       |
-|       |       |       | **    |       |       | _{\ma | _{\ma |       |
+|   No  |   Res | Gender|   Edu |   Lab |   Wgt | .. ma | .. ma | risk  |
+|       | idenc |       | catio | or    |       | th::  | th::  |       |
+|       | e     |       | n     | statu |       | \math | \math |       |
+|       |       |       | level | s     |       | bf{f} | bf{F} |       |
+|       |       |       |       |       |       | _{\ma | _{\ma |       |
 |       |       |       |       |       |       | thbf{ | thbf{ |       |
 |       |       |       |       |       |       | k}}   | k}}   |       |
 +=======+=======+=======+=======+=======+=======+=======+=======+=======+
-| 1     | Urban | Femal | Secon | Emplo | 180   | 2     | 360   | 0.005 |
-|       |       | e     | dary  | yed   |       |       |       | 4     |
+| 1     | Urban | Female| Secon | Emplo | 180   | 2     | 360   | 0.0054|
+|       |       |       | dary  | yed   |       |       |       |       |
 |       |       |       | incom |       |       |       |       |       |
 |       |       |       | plete |       |       |       |       |       |
 +-------+-------+-------+-------+-------+-------+-------+-------+-------+
-| 2     | Urban | Femal | Secon | Emplo | 180   | 2     | 360   | 0.005 |
-|       |       | e     | dary  | yed   |       |       |       | 4     |
+| 2     | Urban | Female| Secon | Emplo | 180   | 2     | 360   | 0.0054|
+|       |       |       | dary  | yed   |       |       |       |       |
 |       |       |       | incom |       |       |       |       |       |
 |       |       |       | plete |       |       |       |       |       |
 +-------+-------+-------+-------+-------+-------+-------+-------+-------+
-| 3     | Urban | Femal | Prima | Non-L | 215   | 1     | 215   | 0.025 |
-|       |       | e     | ry    | F     |       |       |       | 1     |
+| 3     | Urban | Female| Prima | Non-L | 215   | 1     | 215   | 0.0251|
+|       |       |       | ry    | F     |       |       |       |       |
 |       |       |       | incom |       |       |       |       |       |
 |       |       |       | plete |       |       |       |       |       |
 +-------+-------+-------+-------+-------+-------+-------+-------+-------+
-| 4     | Urban | Male  | Secon | Emplo | 76    | 2     | 152   | 0.012 |
-|       |       |       | dary  | yed   |       |       |       | 6     |
+| 4     | Urban | Male  | Secon | Emplo | 76    | 2     | 152   | 0.0126|
+|       |       |       | dary  | yed   |       |       |       |       |
 |       |       |       | compl |       |       |       |       |       |
 |       |       |       | ete   |       |       |       |       |       |
 +-------+-------+-------+-------+-------+-------+-------+-------+-------+
-| 5     | Rural | Femal | Secon | Unemp | 186   | 1     | 186   | 0.028 |
-|       |       | e     | dary  | loyed |       |       |       | 2     |
+| 5     | Rural | Femal | Secon | Unemp | 186   | 1     | 186   | 0.0282|
+|       |       | e     | dary  | loyed |       |       |       |       |
 |       |       |       | compl |       |       |       |       |       |
 |       |       |       | ete   |       |       |       |       |       |
 +-------+-------+-------+-------+-------+-------+-------+-------+-------+
-| 6     | Urban | Male  | Secon | Emplo | 76    | 2     | 152   | 0.012 |
-|       |       |       | dary  | yed   |       |       |       | 6     |
+| 6     | Urban | Male  | Secon | Emplo | 76    | 2     | 152   | 0.0126|
+|       |       |       | dary  | yed   |       |       |       |       |
 |       |       |       | compl |       |       |       |       |       |
 |       |       |       | ete   |       |       |       |       |       |
 +-------+-------+-------+-------+-------+-------+-------+-------+-------+
-| 7     | Urban | Femal | Prima | Non-L | 180   | 1     | 180   | 0.029 |
-|       |       | e     | ry    | F     |       |       |       | 0     |
+| 7     | Urban | Femal | Prima | Non-L | 180   | 1     | 180   | 0.0290|
+|       |       | e     | ry    | F     |       |       |       |       |
 |       |       |       | compl |       |       |       |       |       |
 |       |       |       | ete   |       |       |       |       |       |
 +-------+-------+-------+-------+-------+-------+-------+-------+-------+
-| 8     | Urban | Male  | Post- | Unemp | 215   | 1     | 215   | 0.025 |
-|       |       |       | secon | loyed |       |       |       | 1     |
+| 8     | Urban | Male  | Post- | Unemp | 215   | 1     | 215   | 0.0251|
+|       |       |       | secon | loyed |       |       |       |       |
 |       |       |       | dary  |       |       |       |       |       |
 +-------+-------+-------+-------+-------+-------+-------+-------+-------+
-| 9     | Urban | Femal | Secon | Non-L | 186   | 2     | 262   | 0.007 |
-|       |       | e     | dary  | F     |       |       |       | 4     |
+| 9     | Urban | Femal | Secon | Non-L | 186   | 2     | 262   | 0.0074|
+|       |       | e     | dary  | F     |       |       |       |       |
 |       |       |       | incom |       |       |       |       |       |
 |       |       |       | plete |       |       |       |       |       |
 +-------+-------+-------+-------+-------+-------+-------+-------+-------+
-| 10    | Urban | Femal | Secon | Non-L | 76    | 2     | 262   | 0.007 |
-|       |       | e     | dary  | F     |       |       |       | 4     |
+| 10    | Urban | Femal | Secon | Non-L | 76    | 2     | 262   | 0.0074|
+|       |       | e     | dary  | F     |       |       |       |       |
 |       |       |       | incom |       |       |       |       |       |
 |       |       |       | plete |       |       |       |       |       |
 +-------+-------+-------+-------+-------+-------+-------+-------+-------+
@@ -2488,7 +2487,7 @@ MSUs are assigned a higher SUDA score, which also reflects the higher
 risk. The SUDA score ranks the individuals according to their level of
 risk. The higher the SUDA score, the riskier the sample unique.
 
-*Calculating SUDA scores – a simplified example*
+ Calculating SUDA scores – a simplified example*
 
 To illustrate how SUDA scores are calculated, we compute the SUDA scores
 for the sample uniques in the data in Table 4.5, which replicates the
@@ -2512,10 +2511,10 @@ special uniques and are assigned the score 0.
 Table 4.5: Illustrating the calculation of SUDA and DIS-SUDA scores
 
 +--------+--------+--------+--------+--------+--------+--------+--------+
-| **No** | **Resi | **Gend | **Educ | **Labo | .. mat | **SUDA | **DIS- |
-|        | dence* | er**   | ation  | r      | h:: \m | score* | SUDA** |
-|        | *      |        | level* | status | athbf{ | *      |        |
-|        |        |        | *      | **     | f}_{\m |        |        |
+|   No   |   Resi |   Gend |   Educ |   Labo | .. mat |   SUDA |   DIS- |
+|        | dence  | er     | ation  | r      | h:: \m | score  | SUDA   |
+|        |        |        | level  | status | athbf{ |        |        |
+|        |        |        |        |        | f}_{\m |        |        |
 |        |        |        |        |        | athbf{ |        |        |
 |        |        |        |        |        | k}}    |        |        |
 +========+========+========+========+========+========+========+========+
@@ -3059,9 +3058,9 @@ the *sdcMicro* package.
 Table 5.1: SDC methods and corresponding functions in *sdcMicro*
 
 +-----------------+-----------------+-----------------+-----------------+
-| **Method**      | **Classificatio | **Data-type**   | **Function in   |
-|                 | n               |                 | sdcMicro**      |
-|                 | of SDC method** |                 |                 |
+|   Method        |   Classificatio |   Data-type     |   Function in   |
+|                 | n               |                 | sdcMicro        |
+|                 | of SDC method   |                 |                 |
 +=================+=================+=================+=================+
 | Global recoding | non-perturbativ | continuous and  | `globalRecode < |
 |                 | e,              | categorical     | http://www.rdoc |
@@ -3183,7 +3182,7 @@ Table 5.2: Illustration of effect of recoding on frequency counts of
 keys
 
 +---------------------+----------+----------+------------+-----------------+
-| **Before recoding** |
+| Before recoding                                                          |
 +=====================+==========+==========+============+=================+
 | *Individual*        | *Region* | *Gender* | *Religion* | .. math:: f_{k} |
 +---------------------+----------+----------+------------+-----------------+
@@ -3207,7 +3206,7 @@ keys
 +---------------------+----------+----------+------------+-----------------+
 | 10                  | Region 5 | Male     | Muslim     | 1               |
 +---------------------+----------+----------+------------+-----------------+
-| **After recoding**  |          |          |            |                 |
+|   After recoding                                                         |
 +---------------------+----------+----------+------------+-----------------+
 | *Individual*        | *Region* | *Gender* | *Religion* | .. math:: f_{k} |
 +---------------------+----------+----------+------------+-----------------+
@@ -3253,9 +3252,9 @@ Table 5.3: Illustration of the effect of recoding on the theoretically
 possible number of combinations an a dataset
 
 +-------------+-------------+-------------+-------------+-------------+
-| *Number of  | *Region*    | *Marital    | *Age*       | *Possible   |
-| categories* |             | status*     |             | combination |
-|             |             |             |             | s*          |
+|  Number of  |  Region     |  Marital    |  Age        |  Possible   |
+| categories  |             | status      |             | combination |
+|             |             |             |             | s           |
 +=============+=============+=============+=============+=============+
 | before      | 20          | 8           | 100         | 16,000      |
 | recoding    |             |             |             |             |
@@ -3655,20 +3654,14 @@ Table 5.4: Local suppression illustration - sample data before and after
 suppression
 
 +---------+---------+---------+---------+---------+---------+---------+
-| **Varia | **Befor | **After |
-| ble**   | e       | local   |
-|         | local   | suppres |
-|         | suppres | sion**  |
-|         | sion**  |         |
+|Variable | Before local suppression    | After local suppression     |
 +=========+=========+=========+=========+=========+=========+=========+
-| *ID*    | *Gender | *Region | *Educat | *Gender | *Region | *Educat |
-|         | *       | *       | ion*    | *       | *       | ion*    |
+| ID      |  Gender | Region  | Educat  |  Gender |  Region | Educat  |
+|         |         |         | ion*    |         |         | ion     |
 +---------+---------+---------+---------+---------+---------+---------+
 | 1       | female  | rural   | higher  | female  | rural   | NA/miss |
-|         |         |         |         |         |         | ing\ `  |
-|         |         |         |         |         |         | [38]_ < |
-|         |         |         |         |         |         | #foot33 |
-|         |         |         |         |         |         | >`__    |
+|         |         |         |         |         |         | ing     |
+|         |         |         |         |         |         |[foot38]_|
 +---------+---------+---------+---------+---------+---------+---------+
 | 2       | male    | rural   | higher  | male    | rural   | higher  |
 +---------+---------+---------+---------+---------+---------+---------+
@@ -3958,22 +3951,22 @@ approach, as the algorithm would take longer in the first place.
 Table 5.6 Effect of the all-\ *m* approach on k-anonymity
 
 +---------+---------+---------+---------+---------+---------+---------+
-| **Argum | **Numbe | **Total | **Runni |
-| ents**  | r       | number  | ng      |
-|         | of      | of      | time    |
-|         | violato | suppres | (second |
-|         | rs      | sions** | s)**    |
-|         | for     |         |         |
-|         | differe |         |         |
-|         | nt      |         |         |
-|         | levels  |         |         |
-|         | of      |         |         |
-|         | k-anony |         |         |
-|         | mity    |         |         |
-|         | on      |         |         |
-|         | complet |         |         |
-|         | e       |         |         |
-|         | set**   |         |         |
+| **Argum | **Numbe                               | **Total | **Runni |
+| ents**  | r                                     | number  | ng      |
+|         | of                                    | of      | time    |
+|         | violato                               | suppres | (second |
+|         | rs                                    | sions** | s)**    |
+|         | for                                   |         |         |
+|         | differe                               |         |         |
+|         | nt                                    |         |         |
+|         | levels                                |         |         |
+|         | of                                    |         |         |
+|         | k-anony                               |         |         |
+|         | mity                                  |         |         |
+|         | on                                    |         |         |
+|         | complet                               |         |         |
+|         | e                                     |         |         |
+|         | set**                                 |         |         |
 +=========+=========+=========+=========+=========+=========+=========+
 | *k*     | *combs* | *k = 2* | *k = 3* | *k = 5* |         |         |
 +---------+---------+---------+---------+---------+---------+---------+
@@ -4126,14 +4119,9 @@ disclosed from other variables for that record is correct.
 Table 5.7: Sample data before and after perturbation
 
 +---------+---------+---------+---------+---------+---------+---------+
-| **Varia | **Origi | **After |
-| ble**   | nal     | perturb |
-|         | data**  | ing     |
-|         |         | the     |
-|         |         | data**  |
+| Variable|   Original data             | After perturbing the data   |
 +=========+=========+=========+=========+=========+=========+=========+
-| **ID**  | **Gende | **Regio | **Educa | **Gende | **Regio | **Educa |
-|         | r**     | n**     | tion**  | r**     | n**     | tion**  |
+|   ID    | Gender  | Region  |Education| Gender  | Region  |Education|
 +---------+---------+---------+---------+---------+---------+---------+
 | 1       | female  | rural   | higher  | female  | rural   | higher  |
 +---------+---------+---------+---------+---------+---------+---------+
@@ -4306,11 +4294,8 @@ Table 5.10: Cross-tabulation of variable “region” and variable “gender”
 before and after invariant PRAM
 
 +-------------+-------------+-------------+-------------+-------------+
-|             | **Tabulatio | **Tabulatio |
-|             | n           | n           |
-|             | before      | after       |
-|             | PRAM**      | invariant   |
-|             |             | PRAM**      |
+|             | Tabulation before PRAM    | Tabulation after invariant|
+|             |                           | PRAM                      |
 +=============+=============+=============+=============+=============+
 | **Value**   | **male**    | **female**  | **male**    | **female**  |
 +-------------+-------------+-------------+-------------+-------------+
@@ -4566,11 +4551,7 @@ only on income.
 Table 5.12: Illustration of multivariate microaggregation
 
 +--------+--------+--------+--------+--------+--------+--------+--------+
-| **ID** | **Grou | **Befo | **Afte |
-|        | p**    | re     | r      |
-|        |        | microa | microa |
-|        |        | ggrega | ggrega |
-|        |        | tion** | tion** |
+|   ID   | Group  | Before microaggregation  |   After microaggregation |
 +========+========+========+========+========+========+========+========+
 |        |        | *Incom | *Exp*  | *Wealt | *Incom | *Exp*  | *Wealt |
 |        |        | e*     |        | h*     | e*     |        | h*     |
@@ -4680,7 +4661,6 @@ in *sdcMicro*
 +-----------------------------------+-----------------------------------+
 | influence                         | grouping is based on clustering   |
 |                                   | and aggregation is performed      |
-|                                   |                                   |
 |                                   | within clusters                   |
 +-----------------------------------+-----------------------------------+
 
@@ -6847,25 +6827,14 @@ household ID (first digit).
 Table 7.3 Illustration of randomizing order of records in a dataset
 
 +-------+-------+-------+-------+-------+-------+-------+-------+-------+
-| **Ori | **Dat | **Dat |
-| ginal | aset  | aset  |
-| datas | with  | for   |
-| et**  | rando | relea |
-|       | mized | se    |
-|       | house | order |
-|       | hold  | ed    |
-|       | IDs** | by    |
-|       |       | the   |
-|       |       | new   |
-|       |       | rando |
-|       |       | mized |
-|       |       | house |
-|       |       | hold  |
-|       |       | ID**  |
+| Ori   | Dataset with randomize| Dataset for release ordered by the new|
+| ginal | household IDs         | randomized household ID               |
+| datas |                       |                                       |
+| et    |                       |                                       |
 +=======+=======+=======+=======+=======+=======+=======+=======+=======+
-| **Hou | **Reg | **Dis | **Ran | **Reg | **Dis | **Ran | **Reg | **Dis |
-| sehol | ion** | trict | domiz | ion** | trict | domiz | ion** | trict |
-| d     |       | **    | ed    |       | **    | ed    |       | **    |
+|   Hou |   Reg |   Dis |   Ran |   Reg |   Dis |   Ran |   Reg |   Dis |
+| sehol | ion   | trict | domiz | ion   | trict | domiz | ion   | trict |
+| d     |       |       | ed    |       |       | ed    |       |       |
 | ID**  |       |       | house |       |       | house |       |       |
 |       |       |       | hold  |       |       | hold  |       |       |
 |       |       |       | ID**  |       |       | ID**  |       |       |
@@ -6960,12 +6929,10 @@ Table 7.4: Computation times of different methods on datasets of
 different sizes
 
 +-----------------+-----------------+-----------------+-----------------+
-| **Dataset with  | **Dataset with  |
-| 5,000           | 45,000          |
-| observations**  | observations**  |
+| Dataset with 5,000 observations   | Dataset with 45,000 obervations   |
 +=================+=================+=================+=================+
-| **Methods**     | **Computation   | **Methods**     | **Computation   |
-|                 | time (hours)**  |                 | time (hours)**  |
+|   Methods       |   Computation   |   Methods       |   Computation   |
+|                 | time (hours)    |                 | time (hours)    |
 +-----------------+-----------------+-----------------+-----------------+
 | Top coding age, | 11              | Top coding age, | 268             |
 | local           |                 | local           |                 |
@@ -7009,26 +6976,26 @@ Table 7.5: Number of categories (complexity), record uniqueness and
 computation times
 
 +------+------+------+------+------+------+------+------+------+------+
-| **Sa | **Nu | **Pe | **Ex |
-| mple | mber | rcen | ecut |
-| Size | of   | tage | ion  |
-| **   | cate | of   | time |
-|      | gori | obse | in   |
-|      | es   | rvat | hour |
-|      | per  | ions | s**  |
-|      | quas | viol |      |
-|      | i-id | atin |      |
-|      | enti | g    |      |
-|      | fier | k    |      |
-|      | (com | anon |      |
-|      | plex | ymit |      |
-|      | ity) | y    |      |
-|      | **   | befo |      |
-|      |      | re   |      |
-|      |      | anon |      |
-|      |      | ymiz |      |
-|      |      | atio |      |
-|      |      | n**  |      |
+|   Sa |   Nu                                    |   Pe | Execution   |
+| mple | mber                                    | rcen | time        |
+| Size | of                                      | tage | in hours    |
+|      | cate                                    | of   |             |
+|      | gori                                    | obse |             |
+|      | es                                      | rvat |             |
+|      | per                                     | ions |             |
+|      | quas                                    | viol |             |
+|      | i-id                                    | atin |             |
+|      | enti                                    | g    |             |
+|      | fier                                    | k    |             |
+|      | (com                                    | anon |             |
+|      | plex                                    | ymit |             |       
+|      | ity)                                    | y    |             |       
+|      |                                         | befo |             |
+|      |                                         | re   |             |
+|      |                                         | anon |             |
+|      |                                         | ymiz |             |
+|      |                                         | atio |             |
+|      |                                         | n    |             |
 +======+======+======+======+======+======+======+======+======+======+
 |      | Wate | Toil | Occu | Reli | Ethn | Regi | k3   | k5   |      |
 |      | r    | et   | pati | gion | icit | on   |      |      |      |
@@ -7262,8 +7229,7 @@ Table 8.1: Illustration of merging variables without information loss
 for SDC process
 
 +---------+---------+---------+---------+---------+---------+---------+
-| **Befor | **After |
-| e**     | **      |
+| Before                                          | **After           |
 +=========+=========+=========+=========+=========+=========+=========+
 | **In    | **Emplo | **Secto | **Secto | **Secto | **In    | **Emplo |
 | labor   | yed**   | r       | r       | r       | labor   | yed**   |
@@ -9685,13 +9651,9 @@ tabulations in Appendix A confirm these results.
 Table 9.17: Net enrollment in primary and secondary education by gender
 
 +---------+---------+---------+---------+---------+---------+---------+
-|         | **Prima | **Secon |
-|         | ry      | dary    |
-|         | educati | educati |
-|         | on**    | on**    |
+|         | Primary education           | Secondary education         |
 +=========+=========+=========+=========+=========+=========+=========+
-|         | **Total | **Male* | **Femal | **Total | **Male* | **Femal |
-|         | **      | *       | e**     | **      | *       | e**     |
+|         | Total   |  Male   | Female  | Total   |  Male   | Female  |
 +---------+---------+---------+---------+---------+---------+---------+
 | **Befor | 72.6%   | 74.2%   | 70.9%   | 42.0%   | 44.8%   | 39.1%   |
 | e**     |         |         |         |         |         |         |
@@ -10704,10 +10666,7 @@ Table 9.21: Number of suppressions by variable after local suppression
 with and without importance vector
 
 +-----------------+-----------------+-----------------+-----------------+
-| **Key           | **Number of     |
-| variable**      | suppressions    |
-|                 | and proportion  |
-|                 | of total**      |
+| Key variable    | Number of suppressions and proportion of total      |
 +=================+=================+=================+=================+
 |                 | *No importance  | *Importance     | *Importance     |
 |                 | vector*         | HHSIZE, URBRUR, | HHSIZE, REGION, |
@@ -11099,13 +11058,12 @@ individuals.
 Table 9.23: Number of records violating k-anonimity
 
 +-------------+-------------+-------------+-------------+-------------+
-|             | **sdcCombin | **sdcCombin |
-|             | ed**        | edAll**     |
+|             | sdcCombined               | sdcCombinedAll            |
 +=============+=============+=============+=============+=============+
-| **k-anonymi | **Number of | **Percentag | **Number of | **Percentag |
-| ty**        | records     | e           | records     | e           |
-|             | violating** | of total    | violating** | of total    |
-|             |             | records**   |             | records**   |
+| k-anonymity | Number of   | Percentage  | Number of   | Percentage  |
+|             | records     |             | records     |             |
+|             | violating   | of total    | violating   | of total    |
+|             |             | records     |             | records     |
 +-------------+-------------+-------------+-------------+-------------+
 | 2           | 0           | 0.0 %       | 4,048       | 40.2 %      |
 +-------------+-------------+-------------+-------------+-------------+
@@ -12305,7 +12263,7 @@ Anonymization methods applied to household-level variables:
 Selected (key) variables:
 
 +-----------------+-------------+----------+------------+-------------+---------------+
-| Household level |
+| Household level                                                                     |
 +=================+=============+==========+============+=============+===============+
 | *categorical*   | URBRUR      | REGION   | HHSIZE     | OWNAGLAND   | RELIG         |
 +-----------------+-------------+----------+------------+-------------+---------------+
@@ -12488,8 +12446,7 @@ Data utility of continuous scaled key variables:
 **Univariate summary:**
 
 +---------+---------+---------+---------+---------+---------+---------+
-|         | **Min.* | **1\ st | **Media | **Mean* | **3\ rd | **Max.* |
-|         | *       | Qu**    | n**     | *       | Qu.**   | *       |
+|         | Min.    | 1st Qu. |Median   | Mean    | 3rd Qu. | Max.    |
 +=========+=========+=========+=========+=========+=========+=========+
 | TANHHEX | 0       | 0,2     | 1       | 6,689   | 2,421   | 1214    |
 | P       |         |         |         |         |         |         |
@@ -12632,7 +12589,7 @@ Criteria IL1: 0.01219892
 **Individual-level variables**
 
 +----------------------+---------------+----------+-----------+--------+-------+
-| **Individual level** |
+| **Individual level**                                                         |
 +======================+===============+==========+===========+========+=======+
 | *categorical*        | GENDER        | REL      | MARITAL   | AGEYRS | EDUCY |
 +----------------------+---------------+----------+-----------+--------+-------+
@@ -12696,13 +12653,10 @@ Expected Percentage of Reidentifications (hierarchical risk): 0.1% (~
 10 combinations of categories with highest risk:
 
 +-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+
-|     |     |     |     |     |     |     |     |     | **f | **F |
-|     | **G | **R | **M | **A | **E | **E | **A | **I | k** | k** |
-|     | EDN | EL* | ARI | GEY | DUC | DYR | TSC | NDU |     |     |
-|     | ER* | *   | TAL | RS* | Y** | SAT | HOO | STR |     |     |
-|     | *   |     | **  | *   |     | CUR | L** | Y1* |     |     |
-|     |     |     |     |     |     | RAT |     | *   |     |     |
-|     |     |     |     |     |     | **  |     |     |     |     |
+|     | GEN | REL | ARI |AGEY |EDUCY|EDYR |ATSC |INDU |   fk|   Fk|
+|     | DER |     | TAL | RS  |     | SAT | HOOL| STR |     |     |
+|     |     |     |     |     |     | CUR |     | Y1  |     |     |
+|     |     |     |     |     |     | RAT |     |     |     |     |
 +=====+=====+=====+=====+=====+=====+=====+=====+=====+=====+=====+
 | 1   | **1 | 1   | 3   | 38  | 6   | NA  | 0   | 9   | 1   | 73. |
 |     | **  |     |     |     |     |     |     |     |     | 31  |
@@ -13156,11 +13110,9 @@ Data utility of continuous scaled key variables:
 **Univariate summary:**
 
 +---------+---------+---------+---------+---------+---------+---------+
-|         | **Min.* | **1\ st | **Media | **Mean* | **3\ rd | **Max.* |
-|         | *       | Qu**    | n**     | *       | Qu.**   | *       |
+|         | Min.    | 1st Qu. | Median  | Mean    |3rd Qu.  | Max.    |
 +=========+=========+=========+=========+=========+=========+=========+
-| TANHHEX | 498     | 15,170  | 17,090  | 24,340  | 23,260  | 353,230 |
-| P       |         |         |         |         |         |         |
+| TANHHEXP| 498     | 15,170  | 17,090  | 24,340  | 23,260  | 353,230 |
 +---------+---------+---------+---------+---------+---------+---------+
 | TANHHEX | 827     | 14,700  | 17,060  | 23,420  | 22,750  | 83,963  |
 | P.m     |         |         |         |         |         |         |
@@ -13240,10 +13192,8 @@ Expected Percentage of Re-identifications (hierarchical risk): 0.02%
 10 combinations of categories with highest risk:
 
 +-------+-------+-------+-------+-------+-------+-------+-------+-------+
-|       |    ** |    ** |    ** |    ** |    ** |    ** | **fk* | **Fk* |
-|       | GEDNE | REL** | MARIT | AGEYR | EDUCY | INDUS | *     | *     |
-|       | R**   |       | AL**  | S**   | **    | TRY1* |       |       |
-|       |       |       |       |       |       | *     |       |       |
+|       | GENDER| REL   |MARITAL| AGEYRS| EDUCY | INDUS |  fk   |  Fk   |
+|       | R     |       |       |       |       | TRY1  |       |       |
 +=======+=======+=======+=======+=======+=======+=======+=======+=======+
 | 1     | 1     | 1     | 2     | 50    | 1     | 7     | 2     | 324.9 |
 |       |       |       |       |       |       |       |       | 275   |
@@ -13662,9 +13612,9 @@ Science & Business Media.
    data contains only a few continuous variables. We will see in Section
    3 that many methods used for risk calculation depend on whether the
    variables are categorical. We will also see that it is easier for the
-   measurement of risk if the data contains only categorical or only
+   measurement of risk if the data contains only categorical or only 
    continuous variables.
-
+   
 .. [#foot22]
    This is discussed in greater detail in the following sections. In
    cases where the number of possible values is large, recoding the
