@@ -1,0 +1,428 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Introduction &mdash; Readthedocs  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Glossary and list of acronyms" href="glossary_acr.html" />
+    <link rel="prev" title="Statistical Disclosure Control for Microdata: A Practice Guide" href="index.html" /> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Readthedocs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Practice guide</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#building-a-knowledge-base">Building a knowledge base</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#using-this-guide">Using this guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#outline-of-this-guide">Outline of this guide</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="glossary_acr.html">Glossary and list of acronyms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SDC_intro.html">Statistical Disclosure Control (SDC): An Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SDC_intro.html#release-types">Release Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="measure_risk.html">Measuring Risk</a></li>
+<li class="toctree-l1"><a class="reference internal" href="anon_methods.html">Anonymization Methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="utility.html">Measuring Utility and Information Loss</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sdcMicro.html">SDC with <em>sdcMicro</em> in <em>R</em>: Setting Up Your Data and more</a></li>
+<li class="toctree-l1"><a class="reference internal" href="process.html">The SDC Process</a></li>
+<li class="toctree-l1"><a class="reference internal" href="appendices.html">Appendices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bibliography.html"><strong>Bibliography</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="lists.html">Lists</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lists.html#list-of-tables">List of Tables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lists.html#list-of-figures">List of Figures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lists.html#list-of-examples">List of Examples</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Case studies</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="case_studies.html">Case Study (Illustrating the SDC Process)</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Readthedocs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Introduction</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/intro.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="introduction">
+<h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
+<p>National statistics agencies are mandated to collect
+microdata <a href="#id9"><span class="problematic" id="id1">[#foot13]_</span></a> from surveys and censuses to inform and
+measure policy effectiveness. In almost all countries, statistics acts
+and privacy laws govern these activities. These laws require that
+agencies protect the identity of respondents, but may also require that
+agencies disseminate the results and, in appropriate cases, the
+microdata. Data producers who are not part of national statistics
+agencies are also often subject to restrictions, through privacy laws or
+strict codes of conduct and ethics that require a similar commitment to
+privacy protection. This has to be balanced against the increasing
+requirement from funders that data produced using donor funds be made
+publically available.</p>
+<p>This tension between complying with confidentiality requirements while
+at the same time requiring that microdata be released means that a
+demand exists for practical solutions for applying Statistical
+Disclosure Control (SDC), also known as microdata anonymization. The
+provision of adequate solutions and technical support has the potential
+to “unlock” a large number of datasets.</p>
+<p>The <a class="reference external" href="http://ihsn.org">International Household Survey Network</a> (IHSN)
+and the World Bank have contributed to successful programs that have
+generated tools, resources and guidelines for the curation, preservation
+and dissemination of microdata and resulted in the documentation of
+thousands of surveys by countries and agencies across the world. While
+these programs have ensured substantial improvements in the preservation
+of data and dissemination of good quality metadata, many agencies are
+still reluctant to allow access to the microdata. The reasons are
+technical, legal, ethical and political, and sometimes involve a fear of
+being criticized for not providing perfect data. When combined with the
+tools and guidelines already developed by the IHSN/World Bank for the
+curation, preservation and dissemination of microdata, tools and
+guidelines for the anonymization of microdata should further reduce or
+remove some of these obstacles.</p>
+<p>Working with the IHSN, PARIS21 (OECD), Statistics Austria and the Vienna
+University of Technology, the World Bank has contributed to the
+development of an open source software package for SDC, called
+<em>sdcMicro</em>. The package was developed for use with the open source <em>R</em>
+statistical software, available from the Comprehensive R Archive Network
+(CRAN) at <a class="reference external" href="http://cran.us.r-project.org">http://cran.us.r-project.org</a>. The package includes numerous
+methods for the assessment and reduction of disclosure risk in
+microdata.</p>
+<p>Ensuring that a free open source solution is available to agencies was
+an important step forward, but not a sufficient one. There is still
+limited consolidated and reported knowledge on the impact of disclosure
+risk reduction methods on data utility. This limited access to knowledge
+combined with a lack of experience in using the tools and methods makes
+it difficult for many agencies to implement optimal solutions, i.e.,
+solutions that meet their obligations towards both privacy protection
+and the release of data useful for policy monitoring and evaluation.
+This practice guide attempts to fill this critical gap by:</p>
+<ol class="lowerroman simple">
+<li>consolidating knowledge gained at the World Bank through
+experiments conducted during a large-scale evaluation of
+anonymization techniques</li>
+<li>translating the experience and key results into practical
+guidelines</li>
+</ol>
+<p>It should be stressed that SDC is only one part of the data release
+process, and its application must be considered within the complete data
+release framework. The level and methods of SDC depend on the laws of
+the country, the sensitivity of the data and the access policy (i.e.,
+who will gain access) considered for release. Agencies that are
+currently releasing data are already using many of the methods described
+in this guide and applying appropriate access polices to their data
+before release. The primary objective of this guide is to provide a
+primer to those new to the process who are looking for guidance on both
+theory and practical implementation. This guide is not intended to
+prescribe or advocate for changes in methods that specific data
+producers are already using and which they have designed to fit and
+comply with their existing data release policies.</p>
+<p>The guide seeks to provide practical steps to those agencies that want
+to unlock access to their data in a safe way and ensure that the data
+remain fit for purpose.</p>
+<div class="section" id="building-a-knowledge-base">
+<h2>Building a knowledge base<a class="headerlink" href="#building-a-knowledge-base" title="Permalink to this headline">¶</a></h2>
+<p>The release of data is important, as it allows researchers and
+policymakers to replicate officially published results, generate new
+insights into issues, avoid duplication of surveys and provide greater
+returns to the investment in the survey process.</p>
+<p>Both the production of reports, with aggregate tables of indicators and
+statistics, and the release of microdata result in privacy challenges to
+the producer. In the past, for many agencies, the only requirement was
+to release a report and some key indicators. The recent movement around
+Open Data, Open Government and transparency means that agencies are
+under greater pressure to release their microdata to allow broader use
+of data collected through public and donor funds. This guide focuses on
+the methods and processes for the release of microdata.</p>
+<p>Releasing data in a safe way is required to protect the integrity of the
+statistical system, by ensuring agencies honor their commitment to
+respondents to protect their identity. Agencies do not widely share, in
+substantial detail, their knowledge and experience using SDC and the
+processes for creating safe data with other agencies. This makes it
+difficult for agencies new to the process to implement solutions. To
+fill this experience and knowledge gap, we evaluated the use of a broad
+suite of SDC methods on a range of survey microdata covering important
+development topics related to health, labor, education, poverty and
+inequality. The data we used were all previously treated to make them
+safe for release. Given that their producers had already treated these
+data, it was not possible, nor was it our goal, to pass any judgment on
+the safety of these data, many of which are in the public domain The
+focus was rather on measuring the effects that various methods would
+have on the risk-utility trade-off for microdata produced to measure
+common development indicators. We used the experience from this
+large-scale experimentation to inform our discussion of the processes
+and methods in this guide.</p>
+<p><strong>Important:</strong> At no point was any attempt made to re-identify, through
+matching or any other method, any respondents in the surveys we used in
+building our knowledge base. All risk assessments were based on
+frequencies and probabilities.</p>
+</div>
+<div class="section" id="using-this-guide">
+<h2>Using this guide<a class="headerlink" href="#using-this-guide" title="Permalink to this headline">¶</a></h2>
+<p>The methods discussed in this guide originate from a large body of
+literature on SDC. The processes underlying many of the methods are the
+subject of extensive academic research and many, if not all, of them are
+used extensively by agencies experienced in preparing microdata for
+release.</p>
+<p>Where possible, for each method and topic, we provide elaborate
+examples, references to the original or seminal work describing the
+methods and algorithms in detail and recommended readings. This, when
+combined with the discussion of the method and practical considerations
+in this guide, should allow the reader to understand the methods and
+their strengths and weaknesses. It should also provide enough detail for
+readers to use an existing software solution to implement the methods or
+program the methods in statistical software of their choice.</p>
+<p>For the examples in this guide, we use the open source and free package
+for SDC called <em>sdcMicro</em> as well as the statistical software <em>R</em>.
+<em>sdcMicro</em> is an add-on package to the statistical software <em>R</em>. The
+package was developed and is maintained by Matthias Templ, Alexander
+Kowarik and Bernhard Meindl. <a href="#id2"><span class="problematic" id="id3">`</span></a>See and the GitHub of the developers. The
+GitHub repository can also be used to submit bugs found in the
+package. <a href="#id10"><span class="problematic" id="id4">[#foot14]_</span></a> The statistical software <em>R</em> and the <em>sdcMicro</em>
+package, as well as any other packages needed for the SDC process, are
+freely available from the Comprehensive R Archive Network (CRAN) mirrors
+(<a class="reference external" href="http://cran.r-project.org/">http://cran.r-project.org/</a>). The software is available for Linux,
+Windows and Macintosh operating systems. We chose to use <em>R</em> and
+<em>sdcMicro</em> because it is freely available, accommodates all main data
+formats and is easy to adapt by the user. The World Bank, through the
+IHSN, has also provided funding towards the development of the
+<em>sdcMicro</em> package to ensure it meets the requirements of the agencies
+we support.</p>
+<p>This guide does not provide a review of all other available packages for
+implementing the SDC process. Our concern is more with providing
+practical insight into the application of the methods. We would,
+however, like to highlight one particular other software package that is
+commonly used by agencies: μ-ARGUS <a href="#id11"><span class="problematic" id="id5">[#foot15]_</span></a>. μ-ARGUS is
+developed by Statistics Netherlands. <em>sdcMicro</em> and μ-ARGUS are both
+widely used in statistics offices in the European Union and implement
+many of the same methods.</p>
+<p>The user needs some knowledge of <em>R</em> to use <em>sdcMicro</em>. It is beyond the
+scope of this guide to teach the use of <em>R</em>, but we do provide
+throughout the guide code examples on how to implement the necessary
+routines in <em>R</em>. <a href="#id12"><span class="problematic" id="id6">[#foot16]_</span></a> We also present a number of case
+studies that include the code for the anonymization of a number of demo
+datasets using <em>R</em>. Through these case studies, we demonstrate a number
+of approaches to the anonymization process in <em>R</em>. <a href="#id13"><span class="problematic" id="id7">[#foot17]_</span></a></p>
+</div>
+<div class="section" id="outline-of-this-guide">
+<h2>Outline of this guide<a class="headerlink" href="#outline-of-this-guide" title="Permalink to this headline">¶</a></h2>
+<p>This guide is divided into the following main sections:</p>
+<ol class="lowerroman simple">
+<li>Section 2 is a primer on SDC.</li>
+<li>Section 3 gives an introduction to different release types for
+microdata.</li>
+<li>Sections 4 to 6 cover SDC methods, risk and utility measurement.
+Here the goal is to provide knowledge that allows the reader to
+independently apply and execute the SDC process. This section is
+enriched with real examples as well as code snippets from the
+<em>sdcMicro</em> package. The interested reader can also find more
+information in the references and recommended readings at the end
+of each section.</li>
+<li>Section 7 gives an overview of issues encountered when carrying
+out anonymization with the <em>sdcMicro</em> package in <em>R</em>, which exceed
+basic <em>R</em> knowledge. This section also includes tips and solutions
+to some of the common issues and problems that might be
+encountered when applying SDC methods in <em>R</em> with <em>sdcMicro.</em></li>
+<li>Section 8 provides a step-by-step guide to disclosure control,
+which draws upon the knowledge presented in the previous sections.</li>
+<li>Section 9 presents a number of detailed case studies that
+demonstrate the use of the methods, their implementation in
+<em>sdcMicro</em> and the process that should be followed to reach the
+optimal risk-utility solution.</li>
+</ol>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="glossary_acr.html" class="btn btn-neutral float-right" title="Glossary and list of acronyms" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="Statistical Disclosure Control for Microdata: A Practice Guide" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Matthew Welch.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
