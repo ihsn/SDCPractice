@@ -2137,7 +2137,7 @@ Example 4.5: Computing k-anonymity violations for other values of k
     sum(sdcInitial@risk$individual[,2] < k)
 
 It is important to note that missing values (‘NA’s in
-*R*\ [foot28]_) are treated as if they were any other value.
+*R* [#foot28]_) are treated as if they were any other value.
 Two individuals with keys {‘Male’, NA, ‘Employed’} and {‘Male’,
 ‘Secondary complete’, ‘Employed’} share the same key, and similarly,
 {‘Male’, NA, ‘Employed’} and {‘Male’, ‘Secondary incomplete’,
@@ -2356,64 +2356,59 @@ variables.
 
 Table 4.4: Sample uniques and special uniques
 
-+-------+-------+-------+-------+-------+-------+-------+-------+-------+
-|   No  |   Res | Gender|   Edu |   Lab |   Wgt | .. ma | .. ma | risk  |
-|       | idenc |       | catio | or    |       | th::  | th::  |       |
-|       | e     |       | n     | statu |       | \math | \math |       |
-|       |       |       | level | s     |       | bf{f} | bf{F} |       |
-|       |       |       |       |       |       | _{\ma | _{\ma |       |
-|       |       |       |       |       |       | thbf{ | thbf{ |       |
-|       |       |       |       |       |       | k}}   | k}}   |       |
-+=======+=======+=======+=======+=======+=======+=======+=======+=======+
-| 1     | Urban | Female| Secon | Emplo | 180   | 2     | 360   | 0.0054|
-|       |       |       | dary  | yed   |       |       |       |       |
-|       |       |       | incom |       |       |       |       |       |
-|       |       |       | plete |       |       |       |       |       |
-+-------+-------+-------+-------+-------+-------+-------+-------+-------+
-| 2     | Urban | Female| Secon | Emplo | 180   | 2     | 360   | 0.0054|
-|       |       |       | dary  | yed   |       |       |       |       |
-|       |       |       | incom |       |       |       |       |       |
-|       |       |       | plete |       |       |       |       |       |
-+-------+-------+-------+-------+-------+-------+-------+-------+-------+
-| 3     | Urban | Female| Prima | Non-L | 215   | 1     | 215   | 0.0251|
-|       |       |       | ry    | F     |       |       |       |       |
-|       |       |       | incom |       |       |       |       |       |
-|       |       |       | plete |       |       |       |       |       |
-+-------+-------+-------+-------+-------+-------+-------+-------+-------+
-| 4     | Urban | Male  | Secon | Emplo | 76    | 2     | 152   | 0.0126|
-|       |       |       | dary  | yed   |       |       |       |       |
-|       |       |       | compl |       |       |       |       |       |
-|       |       |       | ete   |       |       |       |       |       |
-+-------+-------+-------+-------+-------+-------+-------+-------+-------+
-| 5     | Rural | Femal | Secon | Unemp | 186   | 1     | 186   | 0.0282|
-|       |       | e     | dary  | loyed |       |       |       |       |
-|       |       |       | compl |       |       |       |       |       |
-|       |       |       | ete   |       |       |       |       |       |
-+-------+-------+-------+-------+-------+-------+-------+-------+-------+
-| 6     | Urban | Male  | Secon | Emplo | 76    | 2     | 152   | 0.0126|
-|       |       |       | dary  | yed   |       |       |       |       |
-|       |       |       | compl |       |       |       |       |       |
-|       |       |       | ete   |       |       |       |       |       |
-+-------+-------+-------+-------+-------+-------+-------+-------+-------+
-| 7     | Urban | Femal | Prima | Non-L | 180   | 1     | 180   | 0.0290|
-|       |       | e     | ry    | F     |       |       |       |       |
-|       |       |       | compl |       |       |       |       |       |
-|       |       |       | ete   |       |       |       |       |       |
-+-------+-------+-------+-------+-------+-------+-------+-------+-------+
-| 8     | Urban | Male  | Post- | Unemp | 215   | 1     | 215   | 0.0251|
-|       |       |       | secon | loyed |       |       |       |       |
-|       |       |       | dary  |       |       |       |       |       |
-+-------+-------+-------+-------+-------+-------+-------+-------+-------+
-| 9     | Urban | Femal | Secon | Non-L | 186   | 2     | 262   | 0.0074|
-|       |       | e     | dary  | F     |       |       |       |       |
-|       |       |       | incom |       |       |       |       |       |
-|       |       |       | plete |       |       |       |       |       |
-+-------+-------+-------+-------+-------+-------+-------+-------+-------+
-| 10    | Urban | Femal | Secon | Non-L | 76    | 2     | 262   | 0.0074|
-|       |       | e     | dary  | F     |       |       |       |       |
-|       |       |       | incom |       |       |       |       |       |
-|       |       |       | plete |       |       |       |       |       |
-+-------+-------+-------+-------+-------+-------+-------+-------+-------+
++-------+----------+--------+-----------+--------+-------+------------------------+---------------------+-------+
+|   No  | Residence| Gender |Education  |Labor   |   Wgt |        .. math:: f_{k} | .. math:: F_{k}     |  Risk |
+|       |          |        | level     | status |       |                        |                     |       |
++=======+==========+========+===========+========+=======+========================+=====================+=======+
+| 1     | Urban    | Female | Secon     |Employed| 180   | 2                      | 360                 | 0.0054|
+|       |          |        | dary      |        |       |                        |                     |       |
+|       |          |        | incom     |        |       |                        |                     |       |
+|       |          |        | plete     |        |       |                        |                     |       |
++-------+----------+--------+-----------+--------+-------+------------------------+---------------------+-------+
+| 2     | Urban    | Female | Secon     |Employed| 180   | 2                      | 360                 | 0.0054|
+|       |          |        | dary      |        |       |                        |                     |       |
+|       |          |        | incom     |        |       |                        |                     |       |
+|       |          |        | plete     |        |       |                        |                     |       |
++-------+----------+--------+-----------+--------+-------+------------------------+---------------------+-------+
+| 3     | Urban    | Female | Prima     | Non-LF | 215   | 1                      | 215                 | 0.0251|
+|       |          |        | ry        |        |       |                        |                     |       |
+|       |          |        | incom     |        |       |                        |                     |       |
+|       |          |        | plete     |        |       |                        |                     |       |
++-------+----------+--------+-----------+--------+-------+------------------------+---------------------+-------+
+| 4     | Urban    | Male   | Secon     |Employed| 76    | 2                      | 152                 | 0.0126|
+|       |          |        | dary      |        |       |                        |                     |       |
+|       |          |        | compl     |        |       |                        |                     |       |
+|       |          |        | ete       |        |       |                        |                     |       |
++-------+----------+--------+-----------+--------+-------+------------------------+---------------------+-------+
+| 5     | Rural    | Femal  | Secon     | Unemp  | 186   | 1                      | 186                 | 0.0282|
+|       |          | e      | dary      | loyed  |       |                        |                     |       |
+|       |          |        | compl     |        |       |                        |                     |       |
+|       |          |        | ete       |        |       |                        |                     |       |
++-------+----------+--------+-----------+--------+-------+------------------------+---------------------+-------+
+| 6     | Urban    | Male   | Secon     |Employed| 76    | 2                      | 152                 | 0.0126|
+|       |          |        | dary      |        |       |                        |                     |       |
+|       |          |        | compl     |        |       |                        |                     |       |
+|       |          |        | ete       |        |       |                        |                     |       |
++-------+----------+--------+-----------+--------+-------+------------------------+---------------------+-------+
+| 7     | Urban    | Femal  | Prima     | Non-LF | 180   | 1                      | 180                 | 0.0290|
+|       |          | e      | ry        | F      |       |                        |                     |       |
+|       |          |        | compl     |        |       |                        |                     |       |
+|       |          |        | ete       |        |       |                        |                     |       |
++-------+----------+--------+-----------+--------+-------+------------------------+---------------------+-------+
+| 8     | Urban    | Male   | Post-     |Employed| 215   | 1                      | 215                 | 0.0251|
+|       |          |        | secon     |        |       |                        |                     |       |
+|       |          |        | dary      |        |       |                        |                     |       |
++-------+----------+--------+-----------+--------+-------+------------------------+---------------------+-------+
+| 9     | Urban    | Femal  | Secon     | Non-LF | 186   | 2                      | 262                 | 0.0074|
+|       |          | e      | dary      |        |       |                        |                     |       |
+|       |          |        | incom     |        |       |                        |                     |       |
+|       |          |        | plete     |        |       |                        |                     |       |
++-------+----------+--------+-----------+--------+-------+------------------------+---------------------+-------+
+| 10    | Urban    | Femal  | Secon     | Non-LF | 76    | 2                      | 262                 | 0.0074|
+|       |          | e      | dary      |        |       |                        |                     |       |
+|       |          |        | incom     |        |       |                        |                     |       |
+|       |          |        | plete     |        |       |                        |                     |       |
++-------+----------+--------+-----------+--------+-------+------------------------+---------------------+-------+
 
 In addition to the records 3, 5, 7 and 8 in Table 4.4 being sample
 uniques with respect to the key variable set {“Residence”, “Gender”,
@@ -2510,63 +2505,40 @@ special uniques and are assigned the score 0.
 
 Table 4.5: Illustrating the calculation of SUDA and DIS-SUDA scores
 
-+--------+--------+--------+--------+--------+--------+--------+--------+
-|   No   |   Resi |   Gend |   Educ |   Labo | .. mat |   SUDA |   DIS- |
-|        | dence  | er     | ation  | r      | h:: \m | score  | SUDA   |
-|        |        |        | level  | status | athbf{ |        |        |
-|        |        |        |        |        | f}_{\m |        |        |
-|        |        |        |        |        | athbf{ |        |        |
-|        |        |        |        |        | k}}    |        |        |
-+========+========+========+========+========+========+========+========+
-| 1      | Urban  | Female | Second | Employ | 2      | 0      | 0.0000 |
-|        |        |        | ary    | ed     |        |        |        |
-|        |        |        | incomp |        |        |        |        |
-|        |        |        | lete   |        |        |        |        |
-+--------+--------+--------+--------+--------+--------+--------+--------+
-| 2      | Urban  | Female | Second | Employ | 2      | 0      | 0.0000 |
-|        |        |        | ary    | ed     |        |        |        |
-|        |        |        | incomp |        |        |        |        |
-|        |        |        | lete   |        |        |        |        |
-+--------+--------+--------+--------+--------+--------+--------+--------+
-| 3      | Urban  | Female | Primar | Non-LF | 1      | 6      | 0.0051 |
-|        |        |        | y      |        |        |        |        |
-|        |        |        | incomp |        |        |        |        |
-|        |        |        | lete   |        |        |        |        |
-+--------+--------+--------+--------+--------+--------+--------+--------+
-| 4      | Urban  | Male   | Second | Employ | 2      | 0      | 0.0000 |
-|        |        |        | ary    | ed     |        |        |        |
-|        |        |        | comple |        |        |        |        |
-|        |        |        | te     |        |        |        |        |
-+--------+--------+--------+--------+--------+--------+--------+--------+
-| 5      | Rural  | Female | Second | Unempl | 1      | 12     | 0.0107 |
-|        |        |        | ary    | oyed   |        |        |        |
-|        |        |        | comple |        |        |        |        |
-|        |        |        | te     |        |        |        |        |
-+--------+--------+--------+--------+--------+--------+--------+--------+
-| 6      | Urban  | Male   | Second | Employ | 2      | 0      | 0.0000 |
-|        |        |        | ary    | ed     |        |        |        |
-|        |        |        | comple |        |        |        |        |
-|        |        |        | te     |        |        |        |        |
-+--------+--------+--------+--------+--------+--------+--------+--------+
-| 7      | Urban  | Female | Primar | Non-LF | 1      | 6      | 0.0051 |
-|        |        |        | y      |        |        |        |        |
-|        |        |        | comple |        |        |        |        |
-|        |        |        | te     |        |        |        |        |
-+--------+--------+--------+--------+--------+--------+--------+--------+
-| 8      | Urban  | Male   | Post-s | Unempl | 1      | 10     | 0.0088 |
-|        |        |        | econda | oyed   |        |        |        |
-|        |        |        | ry     |        |        |        |        |
-+--------+--------+--------+--------+--------+--------+--------+--------+
-| 9      | Urban  | Female | Second | Non-LF | 2      | 0      | 0.0000 |
-|        |        |        | ary    |        |        |        |        |
-|        |        |        | incomp |        |        |        |        |
-|        |        |        | lete   |        |        |        |        |
-+--------+--------+--------+--------+--------+--------+--------+--------+
-| 10     | Urban  | Female | Second | Non-LF | 2      | 0      | 0.0000 |
-|        |        |        | ary    |        |        |        |        |
-|        |        |        | incomp |        |        |        |        |
-|        |        |        | lete   |        |        |        |        |
-+--------+--------+--------+--------+--------+--------+--------+--------+
+
++--------+----------+--------+--------------+-----------+-----------------+--------+--------+
+|   No   |Residence |  Gender|   Education  |   Labor   |  .. math:: f_{k}|   SUDA |   DIS- |
+|        |          |        | level        | status    |                 | score  | SUDA   |
++========+==========+========+==============+===========+=================+========+========+
+| 1      | Urban    | Female | Secondary    | Employed  | 2               | 0      | 0.0000 |
+|        |          |        | incomplete   |           |                 |        |        |
++--------+----------+--------+--------------+-----------+-----------------+--------+--------+
+| 2      | Urban    | Female | Secondary    | Employed  | 2               | 0      | 0.0000 |
+|        |          |        | incomplete   |           |                 |        |        |
++--------+----------+--------+--------------+-----------+-----------------+--------+--------+
+| 3      | Urban    | Female | Primary      | Non-LF    | 1               | 6      | 0.0051 |
+|        |          |        | incomplete   |           |                 |        |        |
++--------+----------+--------+--------------+-----------+-----------------+--------+--------+
+| 4      | Urban    | Male   | Secondary    | Employed  | 2               | 0      | 0.0000 |
+|        |          |        | complete     |           |                 |        |        |
++--------+----------+--------+--------------+-----------+-----------------+--------+--------+
+| 5      | Rural    | Female | Secondary    | Unemployed| 1               | 12     | 0.0107 |
+|        |          |        | complete     |           |                 |        |        |
++--------+----------+--------+--------------+-----------+-----------------+--------+--------+
+| 6      | Urban    | Male   | Secondary    | Employed  | 2               | 0      | 0.0000 |
+|        |          |        | complete     |           |                 |        |        |
++--------+----------+--------+--------------+-----------+-----------------+--------+--------+
+| 7      | Urban    | Female | Primary      | Non-LF    | 1               | 6      | 0.0051 |
+|        |          |        | complete     |           |                 |        |        |
++--------+----------+--------+--------------+-----------+-----------------+--------+--------+
+| 8      | Urban    | Male   |Post-secondary| Unemployed| 1               | 10     | 0.0088 |
++--------+----------+--------+--------------+-----------+-----------------+--------+--------+
+| 9      | Urban    | Female | Secondary    | Non-LF    | 2               | 0      | 0.0000 |
+|        |          |        | incomplete   |           |                 |        |        |
++--------+----------+--------+--------------+-----------+-----------------+--------+--------+
+| 10     | Urban    | Female | Secondary    | Non-LF    | 2               | 0      | 0.0000 |
+|        |          |        | incomplete   |           |                 |        |        |
++--------+----------+--------+--------------+-----------+-----------------+--------+--------+
 
 To estimate record-level disclosure risks, SUDA scores can be used in
 combination with the Data Intrusion Simulation (DIS) metric (Elliot and
@@ -2670,7 +2642,10 @@ Example 4.8: Histogram and density plots of DIS-SUDA scores
     density <- density(sdcInitial@risk$suda2$disScore)
     plot(density, main = 'Density plot of DIS-SUDA scores')
 
-|image1|
+.. image:: media/image2.png
+   :width: 2.97727in
+   :height: 2.66667in
+   :align: center
 
 Figure 4.2: Visualizations of DIS-SUDA scores
 
@@ -4805,7 +4780,9 @@ is preserved, but, with an increased level of noise, the variance of the
 perturbed data grows. After adding noise of magnitude 5, the
 distribution of the original data is completely destroyed.
 
-|figure58|
+.. image:: media/image9.png
+   :width: 6.48958in
+   :height: 3.23958in
 
 Figure 5.7: Frequency distribution of a continuous variable before and
 after noise addition
@@ -4846,7 +4823,9 @@ and multiplying the data with this vector. For more information on
 multiplicative noise masking and the properties of the data after
 masking, we refer to Kim and Winkler (2003).
 
-|figure58|
+.. image:: media/image10.png
+   :width: 6.48958in
+   :height: 3.23958in
 
 Figure 5.8: Noise levels and the impact on the value range (percentiles)
 
@@ -5838,8 +5817,10 @@ expected number of identifications, while not changing the gender
 coefficient and having a great overlap of the confidence interval with
 the confidence interval estimated from the original data.
 
-|C:\Users\thijs.benschop\AppData\Local\Microsoft\Windows\INetCache\Content.Word\figure62.png|
-
+.. image:: media/image12.png
+   :width: 6.48958in
+   :height: 3.25in
+   
 Figure 6.2: Effect of anonymization on the point estimates and
 confidence interval of the gender coefficient in the Mincer equation
 
@@ -5942,8 +5923,10 @@ Example 6.12: Creating boxplots for continuous variables
 
 **axis**\ (1, at = **c**\ (1,2), labels = **c**\ ('before, 'after'))
 
-|C:\Users\thijs.benschop\AppData\Local\Microsoft\Windows\INetCache\Content.Word\figure65.png|
-
+.. image:: media/image15.png
+   :width: 6.48958in
+   :height: 3.25in
+   
 Figure 6.5: Example of box plots of an expenditure variable before and
 after anonymization
 
@@ -7230,9 +7213,9 @@ for SDC process
 +---------+---------+---------+---------+---------+---------+---------+
 | Before                                          |  After            |
 +=========+=========+=========+=========+=========+=========+=========+
-|   In    |   Emplo |   Secto |   Secto |   Secto |   In    |   Emplo |
-| labor   | yed     | r       | r       | r       | labor   | yed     |
-| force   |         | A       | B       | C       | force   |         |
+| In      | Employed|Sector A | Sector B|Sector C | In      | Emplo   |
+| labor   |         |         |         |         | labor   | yed     |
+| force   |         |         |         |         | force   |         |
 +---------+---------+---------+---------+---------+---------+---------+
 | Yes     | Yes     | Missing | Yes     | Missing | Yes     | B       |
 +---------+---------+---------+---------+---------+---------+---------+
@@ -7847,8 +7830,7 @@ GENDER (sex, categorical)*
 Table 9.1 Overview of variables in dataset
 
 +-----------+-----------+-----------+-----------+-----------+-----------+
-|   No.     |   Variabl |   Descrip |   Level   |   Measure |   Values  |
-|           | e         | tion      |           | ment      |           |
+|   No.     | Variable  |Description|   Level   |Measurement|   Values  |
 |           | name      |           |           |           |           |
 +===========+===========+===========+===========+===========+===========+
 | 1         | IDH       | Household | HH        | -         | 1-2,000   |
@@ -9594,24 +9576,21 @@ Table 9.15: Number of suppressions by variable for different variations
 of local suppression
 
 +-------+-------+-------+-------+-------+-------+-------+-------+-------+
-|   Loc |   GEN |   REL |   MAR |   AGE |   EDU |   EDY |   ATS |   IND |
-| al    | DER   |       | ITAL  | YRS   | CY    | RSCUR | CHOOL | USTRY |
-| suppr |       |       |       |       |       | RAT   |       | 1     |
+| Loc   | GENDER|REL    |MARITAL|AGEYRS | EDUCY |EDYRS  | ATS   | IND   |
+| al    |       |       |       |       |       | CURRAT| CHOOL | USTRY1|
+| suppr |       |       |       |       |       |       |       |       |
 | essio |       |       |       |       |       |       |       |       |
 | n     |       |       |       |       |       |       |       |       |
 | optio |       |       |       |       |       |       |       |       |
 | ns    |       |       |       |       |       |       |       |       |
 +=======+=======+=======+=======+=======+=======+=======+=======+=======+
-|   k = | 0     | 34    | 0     | 195   | 0     | 3     | 0     | 21    |
-| 2, no |       |       |       |       |       |       |       |       |
-| imp   |       |       |       |       |       |       |       |       |
+| k = 2,| 0     | 34    | 0     | 195   | 0     | 3     | 0     | 21    |
+| no imp|       |       |       |       |       |       |       |       |
 +-------+-------+-------+-------+-------+-------+-------+-------+-------+
-|   k = | 0     | 323   | 0     | 0     | 0     | 0     | 0     | 0     |
-| 2,    |       |       |       |       |       |       |       |       |
+| k = 2,| 0     | 323   | 0     | 0     | 0     | 0     | 0     | 0     |
 | imp   |       |       |       |       |       |       |       |       |
 | on    |       |       |       |       |       |       |       |       |
-| AGEYR |       |       |       |       |       |       |       |       |
-| S     |       |       |       |       |       |       |       |       |
+| AGEYRS|       |       |       |       |       |       |       |       |
 +-------+-------+-------+-------+-------+-------+-------+-------+-------+
 
 **Step 9b: Re-measure risk (individual level)**
@@ -9884,8 +9863,7 @@ type, country and the dataset itself.
 Table 9.18: Overview of the variables in the dataset
 
 +-----------+-----------+-----------+-----------+-----------+-----------+
-|   No.     |   Variabl |   Descrip |   Level   |   Measure |   Values  |
-|           | e         | tion      |           | ment      |           |
+|   No.     |Variable   |Description|   Level   |Measurement|   Values  |
 |           | name      |           |           |           |           |
 +===========+===========+===========+===========+===========+===========+
 | 1         | IDH       | Household | HH        | -         | 1-2,000   |
@@ -12427,16 +12405,14 @@ Local suppressions
 
 Number of local suppressions:
 
-+-----------+-----------+-----------+-----------+-----------+-----------+
-|           |   URBRUR  |   REGION  |   HHSIZE  |   OWNAGLA |   RELIG   |
-|           |           |           |           | ND        |           |
-+===========+===========+===========+===========+===========+===========+
-| absolute  | 6         | 1         | 1         | 48        | 16        |
-+-----------+-----------+-----------+-----------+-----------+-----------+
-| relative  | 0.304%    | 0.051%    | 0.051%    | 2.435%    | 0.812%    |
-| (in       |           |           |           |           |           |
-| percent)  |           |           |           |           |           |
-+-----------+-----------+-----------+-----------+-----------+-----------+
++--------------+-----------+-----------+-----------+-----------+-----------+
+|              |   URBRUR  |   REGION  |   HHSIZE  | OWNAGLAND |   RELIG   |
++==============+===========+===========+===========+===========+===========+
+| absolute     | 6         | 1         | 1         | 48        | 16        |
++--------------+-----------+-----------+-----------+-----------+-----------+
+| relative     | 0.304%    | 0.051%    | 0.051%    | 2.435%    | 0.812%    |
+| (in percent) |           |           |           |           |           |
++--------------+-----------+-----------+-----------+-----------+-----------+
 
 Data utility of continuous scaled key variables:
 
@@ -12655,8 +12631,8 @@ Expected Percentage of Reidentifications (hierarchical risk): 0.1% (\~
 |     |     |     |     |     |     | CUR |     | Y1  |     |     |
 |     |     |     |     |     |     | RAT |     |     |     |     |
 +=====+=====+=====+=====+=====+=====+=====+=====+=====+=====+=====+
-| 1   | **1 | 1   | 3   | 38  | 6   | NA  | 0   | 9   | 1   | 73. |
-|     | **  |     |     |     |     |     |     |     |     | 31  |
+| 1   | 1   | 1   | 3   | 38  | 6   | NA  | 0   | 9   | 1   | 73. |
+|     |     |     |     |     |     |     |     |     |     | 31  |
 +-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+
 | 2   | 1   | 1   | 3   | 20  | 1   | NA  | 0   | 6   | 1   | 69. |
 |     |     |     |     |     |     |     |     |     |     | 53  |
@@ -13343,19 +13319,14 @@ Local suppressions
 
 Number of local suppressions:
 
-+---------+---------+---------+---------+---------+---------+---------+
-|         | **GENDE | **REL** | **MARIT | **AGEYR | **EDUCY | **INDUS |
-|         | R**     |         | AL**    | S**     | **      | TRY1**  |
-+=========+=========+=========+=========+=========+=========+=========+
-| absolut | 0       | 0       | 0       | 91      | 0       | 0       |
-| e       |         |         |         |         |         |         |
-+---------+---------+---------+---------+---------+---------+---------+
-| relativ | 0.00%   | 0.00%   | 0.00%   | 0.90%   | 0.00%   | 0.00%   |
-| e       |         |         |         |         |         |         |
-| (in     |         |         |         |         |         |         |
-| percent |         |         |         |         |         |         |
-| )       |         |         |         |         |         |         |
-+---------+---------+---------+---------+---------+---------+---------+
++------------+---------+---------+---------+---------+---------+---------+
+|            | GENDER  | REL     | MARITAL | AGEYRS  | EDUCY   |INDUSTRY1|
++============+=========+=========+=========+=========+=========+=========+
+| absolute   | 0       | 0       | 0       | 91      | 0       | 0       |
++------------+---------+---------+---------+---------+---------+---------+
+| relative   | 0.00%   | 0.00%   | 0.00%   | 0.90%   | 0.00%   | 0.00%   |
+|(in percent)|         |         |         |         |         |         |
++------------+---------+---------+---------+---------+---------+---------+
 
 **Case study 2- External report**
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -13408,8 +13379,10 @@ be published.
 **Appendix** **D: Execution Times for Multiple Scenarios Tested using Selected Sample Data**
 ============================================================================================
 
-|C:\Users\thijs.benschop\AppData\Local\Microsoft\Windows\INetCache\Content.Word\AppendixD_ExecutionTimes-1.png|
-
+.. image:: media/image22.png
+   :width: 5.10448in
+   :height: 7.80597in
+   
 **Description of anonymization scenarios**\ |image22|
 
 **Bibliography**
@@ -13950,9 +13923,6 @@ Science & Business Media.
 .. |Macintosh HD:Users:thijsbenschop:Copy:World Bank:Guidelines:Case studies:Rplot11.pdf| image:: media/image1.png
    :width: 6.03524in
    :height: 4.3072in
-.. |image1| image:: media/image2.png
-   :width: 2.97727in
-   :height: 2.66667in
 .. |Macintosh HD:Users:thijsbenschop:figure51.png| image:: media/image3.png
    :width: 6.5in
    :height: 3.25556in
@@ -13971,27 +13941,15 @@ Science & Business Media.
 .. |figure56| image:: media/image8.png
    :width: 6.48958in
    :height: 3.23958in
-.. |figure58| image:: media/image9.png
-   :width: 6.48958in
-   :height: 3.23958in
-.. |figure58| image:: media/image10.png
-   :width: 6.48958in
-   :height: 3.23958in
 .. |Macintosh HD:Users:thijsbenschop:Onedrive:World Bank:Guidelines:Plots:figure61.png| image:: media/image11.png
    :width: 6.5in
    :height: 3.25556in
-.. |C:\Users\thijs.benschop\AppData\Local\Microsoft\Windows\INetCache\Content.Word\figure62.png| image:: media/image12.png
-   :width: 6.48958in
-   :height: 3.25in
 .. |figure63| image:: media/image13.png
    :width: 6.48958in
    :height: 3.23958in
 .. |figure64| image:: media/image14.png
    :width: 6.48958in
    :height: 3.23958in
-.. |C:\Users\thijs.benschop\AppData\Local\Microsoft\Windows\INetCache\Content.Word\figure65.png| image:: media/image15.png
-   :width: 6.48958in
-   :height: 3.25in
 .. |figure67| image:: media/image16.png
    :width: 6.48958in
    :height: 3.23958in
@@ -14010,9 +13968,6 @@ Science & Business Media.
 .. |Macintosh HD:Users:thijsbenschop:Onedrive:World Bank:Guidelines:Plots:figure91.png| image:: media/image21.png
    :width: 6.5in
    :height: 3.25in
-.. |C:\Users\thijs.benschop\AppData\Local\Microsoft\Windows\INetCache\Content.Word\AppendixD_ExecutionTimes-1.png| image:: media/image22.png
-   :width: 5.10448in
-   :height: 7.80597in
 .. |image22| image:: media/image23.png
    :width: 6.5in
    :height: 6.53056in

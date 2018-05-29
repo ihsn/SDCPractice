@@ -2402,7 +2402,7 @@ thresholds for <span class="math notranslate nohighlight">\(k\)</span>-anonymity
 <blockquote>
 <div>sum(sdcInitial&#64;risk$individual[,2] &lt; k)</div></blockquote>
 <p>It is important to note that missing values (‘NA’s in
-<em>R</em>[foot28]) are treated as if they were any other value.
+<em>R</em> <a class="footnote-reference" href="#foot28" id="id26">[28]</a>) are treated as if they were any other value.
 Two individuals with keys {‘Male’, NA, ‘Employed’} and {‘Male’,
 ‘Secondary complete’, ‘Employed’} share the same key, and similarly,
 {‘Male’, NA, ‘Employed’} and {‘Male’, ‘Secondary incomplete’,
@@ -2769,50 +2769,38 @@ variables.</p>
 <p>Table 4.4: Sample uniques and special uniques</p>
 <table border="1" class="docutils">
 <colgroup>
+<col width="7%" />
+<col width="10%" />
+<col width="8%" />
 <col width="11%" />
-<col width="11%" />
-<col width="11%" />
-<col width="11%" />
-<col width="11%" />
-<col width="11%" />
-<col width="11%" />
-<col width="11%" />
-<col width="11%" />
+<col width="8%" />
+<col width="7%" />
+<col width="23%" />
+<col width="20%" />
+<col width="7%" />
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">No</th>
-<th class="head"><blockquote class="first">
-<div>Res</div></blockquote>
-<p class="last">idenc
-e</p>
-</th>
+<th class="head">Residence</th>
 <th class="head">Gender</th>
-<th class="head"><blockquote class="first">
-<div>Edu</div></blockquote>
-<p class="last">catio
-n
-level</p>
+<th class="head"><dl class="first last docutils">
+<dt>Education</dt>
+<dd>level</dd>
+</dl>
 </th>
-<th class="head"><blockquote class="first">
-<div>Lab</div></blockquote>
-<p class="last">or
-statu
-s</p>
+<th class="head"><dl class="first last docutils">
+<dt>Labor</dt>
+<dd>status</dd>
+</dl>
 </th>
 <th class="head">Wgt</th>
-<th class="head">th::
-math
-bf{f}
-_{ma
-thbf{
-k}}</th>
-<th class="head">th::
-math
-bf{F}
-_{ma
-thbf{
-k}}</th>
-<th class="head">risk</th>
+<th class="head"><div class="first last math notranslate nohighlight">
+\[f_{k}\]</div>
+</th>
+<th class="head"><div class="first last math notranslate nohighlight">
+\[F_{k}\]</div>
+</th>
+<th class="head">Risk</th>
 </tr>
 </thead>
 <tbody valign="top">
@@ -2823,8 +2811,7 @@ k}}</th>
 dary
 incom
 plete</td>
-<td>Emplo
-yed</td>
+<td>Employed</td>
 <td>180</td>
 <td>2</td>
 <td>360</td>
@@ -2837,8 +2824,7 @@ yed</td>
 dary
 incom
 plete</td>
-<td>Emplo
-yed</td>
+<td>Employed</td>
 <td>180</td>
 <td>2</td>
 <td>360</td>
@@ -2851,8 +2837,7 @@ yed</td>
 ry
 incom
 plete</td>
-<td>Non-L
-F</td>
+<td>Non-LF</td>
 <td>215</td>
 <td>1</td>
 <td>215</td>
@@ -2865,8 +2850,7 @@ F</td>
 dary
 compl
 ete</td>
-<td>Emplo
-yed</td>
+<td>Employed</td>
 <td>76</td>
 <td>2</td>
 <td>152</td>
@@ -2894,8 +2878,7 @@ loyed</td>
 dary
 compl
 ete</td>
-<td>Emplo
-yed</td>
+<td>Employed</td>
 <td>76</td>
 <td>2</td>
 <td>152</td>
@@ -2909,7 +2892,7 @@ e</td>
 ry
 compl
 ete</td>
-<td>Non-L
+<td>Non-LF
 F</td>
 <td>180</td>
 <td>1</td>
@@ -2922,8 +2905,7 @@ F</td>
 <td>Post-
 secon
 dary</td>
-<td>Unemp
-loyed</td>
+<td>Employed</td>
 <td>215</td>
 <td>1</td>
 <td>215</td>
@@ -2937,8 +2919,7 @@ e</td>
 dary
 incom
 plete</td>
-<td>Non-L
-F</td>
+<td>Non-LF</td>
 <td>186</td>
 <td>2</td>
 <td>262</td>
@@ -2952,8 +2933,7 @@ e</td>
 dary
 incom
 plete</td>
-<td>Non-L
-F</td>
+<td>Non-LF</td>
 <td>76</td>
 <td>2</td>
 <td>262</td>
@@ -3051,40 +3031,30 @@ special uniques and are assigned the score 0.</p>
 <p>Table 4.5: Illustrating the calculation of SUDA and DIS-SUDA scores</p>
 <table border="1" class="docutils">
 <colgroup>
+<col width="10%" />
+<col width="12%" />
+<col width="10%" />
+<col width="17%" />
 <col width="13%" />
-<col width="13%" />
-<col width="13%" />
-<col width="13%" />
-<col width="13%" />
-<col width="13%" />
-<col width="13%" />
-<col width="13%" />
+<col width="20%" />
+<col width="10%" />
+<col width="10%" />
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">No</th>
+<th class="head">Residence</th>
+<th class="head">Gender</th>
 <th class="head"><blockquote class="first">
-<div>Resi</div></blockquote>
-<p class="last">dence</p>
+<div>Education</div></blockquote>
+<p class="last">level</p>
 </th>
 <th class="head"><blockquote class="first">
-<div>Gend</div></blockquote>
-<p class="last">er</p>
+<div>Labor</div></blockquote>
+<p class="last">status</p>
 </th>
-<th class="head"><blockquote class="first">
-<div>Educ</div></blockquote>
-<p class="last">ation
-level</p>
+<th class="head"><div class="first last math notranslate nohighlight">
+\[f_{k}\]</div>
 </th>
-<th class="head"><blockquote class="first">
-<div>Labo</div></blockquote>
-<p class="last">r
-status</p>
-</th>
-<th class="head">h:: m
-athbf{
-f}_{m
-athbf{
-k}}</th>
 <th class="head"><blockquote class="first">
 <div>SUDA</div></blockquote>
 <p class="last">score</p>
@@ -3099,12 +3069,9 @@ k}}</th>
 <tr class="row-even"><td>1</td>
 <td>Urban</td>
 <td>Female</td>
-<td>Second
-ary
-incomp
-lete</td>
-<td>Employ
-ed</td>
+<td>Secondary
+incomplete</td>
+<td>Employed</td>
 <td>2</td>
 <td>0</td>
 <td>0.0000</td>
@@ -3112,12 +3079,9 @@ ed</td>
 <tr class="row-odd"><td>2</td>
 <td>Urban</td>
 <td>Female</td>
-<td>Second
-ary
-incomp
-lete</td>
-<td>Employ
-ed</td>
+<td>Secondary
+incomplete</td>
+<td>Employed</td>
 <td>2</td>
 <td>0</td>
 <td>0.0000</td>
@@ -3125,10 +3089,8 @@ ed</td>
 <tr class="row-even"><td>3</td>
 <td>Urban</td>
 <td>Female</td>
-<td>Primar
-y
-incomp
-lete</td>
+<td>Primary
+incomplete</td>
 <td>Non-LF</td>
 <td>1</td>
 <td>6</td>
@@ -3137,12 +3099,9 @@ lete</td>
 <tr class="row-odd"><td>4</td>
 <td>Urban</td>
 <td>Male</td>
-<td>Second
-ary
-comple
-te</td>
-<td>Employ
-ed</td>
+<td>Secondary
+complete</td>
+<td>Employed</td>
 <td>2</td>
 <td>0</td>
 <td>0.0000</td>
@@ -3150,12 +3109,9 @@ ed</td>
 <tr class="row-even"><td>5</td>
 <td>Rural</td>
 <td>Female</td>
-<td>Second
-ary
-comple
-te</td>
-<td>Unempl
-oyed</td>
+<td>Secondary
+complete</td>
+<td>Unemployed</td>
 <td>1</td>
 <td>12</td>
 <td>0.0107</td>
@@ -3163,12 +3119,9 @@ oyed</td>
 <tr class="row-odd"><td>6</td>
 <td>Urban</td>
 <td>Male</td>
-<td>Second
-ary
-comple
-te</td>
-<td>Employ
-ed</td>
+<td>Secondary
+complete</td>
+<td>Employed</td>
 <td>2</td>
 <td>0</td>
 <td>0.0000</td>
@@ -3176,10 +3129,8 @@ ed</td>
 <tr class="row-even"><td>7</td>
 <td>Urban</td>
 <td>Female</td>
-<td>Primar
-y
-comple
-te</td>
+<td>Primary
+complete</td>
 <td>Non-LF</td>
 <td>1</td>
 <td>6</td>
@@ -3188,11 +3139,8 @@ te</td>
 <tr class="row-odd"><td>8</td>
 <td>Urban</td>
 <td>Male</td>
-<td>Post-s
-econda
-ry</td>
-<td>Unempl
-oyed</td>
+<td>Post-secondary</td>
+<td>Unemployed</td>
 <td>1</td>
 <td>10</td>
 <td>0.0088</td>
@@ -3200,10 +3148,8 @@ oyed</td>
 <tr class="row-even"><td>9</td>
 <td>Urban</td>
 <td>Female</td>
-<td>Second
-ary
-incomp
-lete</td>
+<td>Secondary
+incomplete</td>
 <td>Non-LF</td>
 <td>2</td>
 <td>0</td>
@@ -3212,10 +3158,8 @@ lete</td>
 <tr class="row-odd"><td>10</td>
 <td>Urban</td>
 <td>Female</td>
-<td>Second
-ary
-incomp
-lete</td>
+<td>Secondary
+incomplete</td>
 <td>Non-LF</td>
 <td>2</td>
 <td>0</td>
@@ -3316,7 +3260,7 @@ density <span class="o">&lt;-</span> density<span class="p">(</span>sdcInitial<s
 plot<span class="p">(</span>density<span class="p">,</span> main <span class="o">=</span> <span class="s">&#39;Density plot of DIS-SUDA scores&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p><a class="reference internal" href="_images/image2.png"><img alt="image1" src="_images/image2.png" style="width: 2.97727in; height: 2.66667in;" /></a></p>
+<a class="reference internal image-reference" href="_images/image2.png"><img alt="_images/image2.png" class="align-center" src="_images/image2.png" style="width: 2.97727in; height: 2.66667in;" /></a>
 <p>Figure 4.2: Visualizations of DIS-SUDA scores</p>
 </div>
 </div>
@@ -3689,7 +3633,7 @@ e,
 deterministic</td>
 <td>continuous and
 categorical</td>
-<td><p class="first"><a href="#id79"><span class="problematic" id="id80">`globalRecode &lt;
+<td><p class="first"><a href="#id69"><span class="problematic" id="id70">`globalRecode &lt;
 http://www.rdoc
 umentation.org/
 packages/sdcMic
@@ -3708,7 +3652,7 @@ e,
 deterministic</td>
 <td>continuous and
 categorical</td>
-<td><p class="first"><a href="#id79"><span class="problematic" id="id81">`topBotCoding &lt;
+<td><p class="first"><a href="#id69"><span class="problematic" id="id71">`topBotCoding &lt;
 http://www.rdoc
 umentation.org/
 packages/sdcMic
@@ -3752,7 +3696,7 @@ probabilistic</td>
 <td>perturbative,
 probabilistic</td>
 <td>continuous</td>
-<td><a href="#id79"><span class="problematic" id="id82">`shuffle &lt;http:
+<td><a href="#id69"><span class="problematic" id="id72">`shuffle &lt;http:
 //www.rdocument
 ation.org/packa
 ges/sdcMicro/fu
@@ -5950,7 +5894,7 @@ noise grows respective to the variance of the data. The mean in the data
 is preserved, but, with an increased level of noise, the variance of the
 perturbed data grows. After adding noise of magnitude 5, the
 distribution of the original data is completely destroyed.</p>
-<p><a class="reference internal" href="_images/image10.png"><img alt="figure58" src="_images/image10.png" style="width: 6.48958in; height: 3.23958in;" /></a></p>
+<a class="reference internal image-reference" href="_images/image9.png"><img alt="_images/image9.png" src="_images/image9.png" style="width: 6.48958in; height: 3.23958in;" /></a>
 <p>Figure 5.7: Frequency distribution of a continuous variable before and
 after noise addition</p>
 <p>Figure 5.8 shows the value range of a variable before adding noise (no
@@ -5987,7 +5931,7 @@ easily implemented in base <em>R</em> by generating a vector of random numbers
 and multiplying the data with this vector. For more information on
 multiplicative noise masking and the properties of the data after
 masking, we refer to Kim and Winkler (2003).</p>
-<p><a class="reference internal" href="_images/image10.png"><img alt="figure58" src="_images/image10.png" style="width: 6.48958in; height: 3.23958in;" /></a></p>
+<a class="reference internal image-reference" href="_images/image10.png"><img alt="_images/image10.png" src="_images/image10.png" style="width: 6.48958in; height: 3.23958in;" /></a>
 <p>Figure 5.8: Noise levels and the impact on the value range (percentiles)</p>
 <p>If two or more variables are selected for noise addition, correlated
 noise addition is preferred to preserve the correlation structure in the
@@ -6987,7 +6931,7 @@ the different SDC methods. We would choose a method, which reduces the
 expected number of identifications, while not changing the gender
 coefficient and having a great overlap of the confidence interval with
 the confidence interval estimated from the original data.</p>
-<p><a href="#id73"><span class="problematic" id="id74">|C:\Users\thijs.benschop\AppData\Local\Microsoft\Windows\INetCache\Content.Word\figure62.png|</span></a></p>
+<a class="reference internal image-reference" href="_images/image12.png"><img alt="_images/image12.png" src="_images/image12.png" style="width: 6.48958in; height: 3.25in;" /></a>
 <p>Figure 6.2: Effect of anonymization on the point estimates and
 confidence interval of the gender coefficient in the Mincer equation</p>
 </div>
@@ -7077,7 +7021,7 @@ methods applied.</p>
 <p><strong>boxplot</strong>(<a class="reference external" href="mailto:sdcObj&#37;&#52;&#48;origData$TOTFOOD">sdcObj<span>&#64;</span>origData$TOTFOOD</a>, <a class="reference external" href="mailto:sdcObj&#37;&#52;&#48;manipNumVars$TOTFOOD">sdcObj<span>&#64;</span>manipNumVars$TOTFOOD</a>, xaxt
 = ‘n’, ylab = “Expenditure”)</p>
 <p><strong>axis</strong>(1, at = <strong>c</strong>(1,2), labels = <strong>c</strong>(‘before, ‘after’))</p>
-<p><a href="#id75"><span class="problematic" id="id76">|C:\Users\thijs.benschop\AppData\Local\Microsoft\Windows\INetCache\Content.Word\figure65.png|</span></a></p>
+<a class="reference internal image-reference" href="_images/image15.png"><img alt="_images/image15.png" src="_images/image15.png" style="width: 6.48958in; height: 3.25in;" /></a>
 <p>Figure 6.5: Example of box plots of an expenditure variable before and
 after anonymization</p>
 </div>
@@ -8742,39 +8686,18 @@ for SDC process</p>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td><blockquote class="first">
-<div>In</div></blockquote>
-<p class="last">labor
-force</p>
-</td>
-<td><blockquote class="first">
-<div>Emplo</div></blockquote>
-<p class="last">yed</p>
-</td>
-<td><blockquote class="first">
-<div>Secto</div></blockquote>
-<p class="last">r
-A</p>
-</td>
-<td><blockquote class="first">
-<div>Secto</div></blockquote>
-<p class="last">r
-B</p>
-</td>
-<td><blockquote class="first">
-<div>Secto</div></blockquote>
-<p class="last">r
-C</p>
-</td>
-<td><blockquote class="first">
-<div>In</div></blockquote>
-<p class="last">labor
-force</p>
-</td>
-<td><blockquote class="first">
-<div>Emplo</div></blockquote>
-<p class="last">yed</p>
-</td>
+<tr class="row-even"><td>In
+labor
+force</td>
+<td>Employed</td>
+<td>Sector A</td>
+<td>Sector B</td>
+<td>Sector C</td>
+<td>In
+labor
+force</td>
+<td>Emplo
+yed</td>
 </tr>
 <tr class="row-odd"><td>Yes</td>
 <td>Yes</td>
@@ -9376,20 +9299,11 @@ GENDER (sex, categorical)</em></p>
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">No.</th>
-<th class="head"><blockquote class="first">
-<div>Variabl</div></blockquote>
-<p class="last">e
-name</p>
-</th>
-<th class="head"><blockquote class="first">
-<div>Descrip</div></blockquote>
-<p class="last">tion</p>
-</th>
+<th class="head">Variable
+name</th>
+<th class="head">Description</th>
 <th class="head">Level</th>
-<th class="head"><blockquote class="first">
-<div>Measure</div></blockquote>
-<p class="last">ment</p>
-</th>
+<th class="head">Measurement</th>
 <th class="head">Values</th>
 </tr>
 </thead>
@@ -12147,54 +12061,32 @@ of local suppression</p>
 <col width="11%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head"><blockquote class="first">
-<div>Loc</div></blockquote>
-<p class="last">al
+<tr class="row-odd"><th class="head">Loc
+al
 suppr
 essio
 n
 optio
-ns</p>
-</th>
-<th class="head"><blockquote class="first">
-<div>GEN</div></blockquote>
-<p class="last">DER</p>
-</th>
+ns</th>
+<th class="head">GENDER</th>
 <th class="head">REL</th>
-<th class="head"><blockquote class="first">
-<div>MAR</div></blockquote>
-<p class="last">ITAL</p>
+<th class="head">MARITAL</th>
+<th class="head">AGEYRS</th>
+<th class="head">EDUCY</th>
+<th class="head"><dl class="first last docutils">
+<dt>EDYRS</dt>
+<dd>CURRAT</dd>
+</dl>
 </th>
-<th class="head"><blockquote class="first">
-<div>AGE</div></blockquote>
-<p class="last">YRS</p>
-</th>
-<th class="head"><blockquote class="first">
-<div>EDU</div></blockquote>
-<p class="last">CY</p>
-</th>
-<th class="head"><blockquote class="first">
-<div>EDY</div></blockquote>
-<p class="last">RSCUR
-RAT</p>
-</th>
-<th class="head"><blockquote class="first">
-<div>ATS</div></blockquote>
-<p class="last">CHOOL</p>
-</th>
-<th class="head"><blockquote class="first">
-<div>IND</div></blockquote>
-<p class="last">USTRY
-1</p>
-</th>
+<th class="head">ATS
+CHOOL</th>
+<th class="head">IND
+USTRY1</th>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td><blockquote class="first">
-<div>k =</div></blockquote>
-<p class="last">2, no
-imp</p>
-</td>
+<tr class="row-even"><td>k = 2,
+no imp</td>
 <td>0</td>
 <td>34</td>
 <td>0</td>
@@ -12204,14 +12096,10 @@ imp</p>
 <td>0</td>
 <td>21</td>
 </tr>
-<tr class="row-odd"><td><blockquote class="first">
-<div>k =</div></blockquote>
-<p class="last">2,
+<tr class="row-odd"><td>k = 2,
 imp
 on
-AGEYR
-S</p>
-</td>
+AGEYRS</td>
 <td>0</td>
 <td>323</td>
 <td>0</td>
@@ -12525,20 +12413,14 @@ type, country and the dataset itself.</p>
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">No.</th>
-<th class="head"><blockquote class="first">
-<div>Variabl</div></blockquote>
-<p class="last">e
-name</p>
+<th class="head"><dl class="first last docutils">
+<dt>Variable</dt>
+<dd>name</dd>
+</dl>
 </th>
-<th class="head"><blockquote class="first">
-<div>Descrip</div></blockquote>
-<p class="last">tion</p>
-</th>
+<th class="head">Description</th>
 <th class="head">Level</th>
-<th class="head"><blockquote class="first">
-<div>Measure</div></blockquote>
-<p class="last">ment</p>
-</th>
+<th class="head">Measurement</th>
 <th class="head">Values</th>
 </tr>
 </thead>
@@ -15957,22 +15839,19 @@ original data, the risk is approximately 100%.</p>
 <p>Number of local suppressions:</p>
 <table border="1" class="docutils">
 <colgroup>
-<col width="17%" />
-<col width="17%" />
-<col width="17%" />
-<col width="17%" />
-<col width="17%" />
-<col width="17%" />
+<col width="20%" />
+<col width="16%" />
+<col width="16%" />
+<col width="16%" />
+<col width="16%" />
+<col width="16%" />
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">&#160;</th>
 <th class="head">URBRUR</th>
 <th class="head">REGION</th>
 <th class="head">HHSIZE</th>
-<th class="head"><blockquote class="first">
-<div>OWNAGLA</div></blockquote>
-<p class="last">ND</p>
-</th>
+<th class="head">OWNAGLAND</th>
 <th class="head">RELIG</th>
 </tr>
 </thead>
@@ -15985,8 +15864,7 @@ original data, the risk is approximately 100%.</p>
 <td>16</td>
 </tr>
 <tr class="row-odd"><td>relative
-(in
-percent)</td>
+(in percent)</td>
 <td>0.304%</td>
 <td>0.051%</td>
 <td>0.051%</td>
@@ -16571,8 +16449,7 @@ Y1</dd>
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>1</td>
-<td><a href="#id69"><span class="problematic" id="id70">**</span></a>1
-**</td>
+<td>1</td>
 <td>1</td>
 <td>3</td>
 <td>38</td>
@@ -18893,7 +18770,7 @@ TRY1</th>
 <p>Number of local suppressions:</p>
 <table border="1" class="docutils">
 <colgroup>
-<col width="14%" />
+<col width="18%" />
 <col width="14%" />
 <col width="14%" />
 <col width="14%" />
@@ -18903,22 +18780,16 @@ TRY1</th>
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">&#160;</th>
-<th class="head"><strong>GENDE
-R</strong></th>
-<th class="head"><strong>REL</strong></th>
-<th class="head"><strong>MARIT
-AL</strong></th>
-<th class="head"><strong>AGEYR
-S</strong></th>
-<th class="head"><a href="#id71"><span class="problematic" id="id72">**</span></a>EDUCY
-**</th>
-<th class="head"><strong>INDUS
-TRY1</strong></th>
+<th class="head">GENDER</th>
+<th class="head">REL</th>
+<th class="head">MARITAL</th>
+<th class="head">AGEYRS</th>
+<th class="head">EDUCY</th>
+<th class="head">INDUSTRY1</th>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td>absolut
-e</td>
+<tr class="row-even"><td>absolute</td>
 <td>0</td>
 <td>0</td>
 <td>0</td>
@@ -18926,11 +18797,10 @@ e</td>
 <td>0</td>
 <td>0</td>
 </tr>
-<tr class="row-odd"><td>relativ
-e
-(in
-percent
-)</td>
+<tr class="row-odd"><td><blockquote class="first">
+<div>relative</div></blockquote>
+<p class="last">(in percent)</p>
+</td>
 <td>0.00%</td>
 <td>0.00%</td>
 <td>0.00%</td>
@@ -18977,7 +18847,7 @@ be published.</p>
 </div>
 <div class="section" id="appendix-d-execution-times-for-multiple-scenarios-tested-using-selected-sample-data">
 <h1><strong>Appendix</strong> <strong>D: Execution Times for Multiple Scenarios Tested using Selected Sample Data</strong><a class="headerlink" href="#appendix-d-execution-times-for-multiple-scenarios-tested-using-selected-sample-data" title="Permalink to this headline">¶</a></h1>
-<p><a href="#id77"><span class="problematic" id="id78">|C:\Users\thijs.benschop\AppData\Local\Microsoft\Windows\INetCache\Content.Word\AppendixD_ExecutionTimes-1.png|</span></a></p>
+<a class="reference internal image-reference" href="_images/image22.png"><img alt="_images/image22.png" src="_images/image22.png" style="width: 5.10448in; height: 7.80597in;" /></a>
 <p><strong>Description of anonymization scenarios</strong><a class="reference internal" href="_images/image23.png"><img alt="image22" src="_images/image23.png" style="width: 6.5in; height: 6.53056in;" /></a></p>
 </div>
 <div class="section" id="bibliography">
@@ -19306,7 +19176,7 @@ object structure.</td></tr>
 <table class="docutils footnote" frame="void" id="foot28" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label">[28]</td><td>In <em>sdcMicro</em> it is important to use the standard missing value code
+<tr><td class="label"><a class="fn-backref" href="#id26">[28]</a></td><td>In <em>sdcMicro</em> it is important to use the standard missing value code
 NA instead of other codes, such as 9999 or strings. In Chapter 6, we
 further discuss how to set other missing value codes to NA in <em>R</em>.
 This is necessary to ensure that the methods in <em>sdcMicro</em> function
