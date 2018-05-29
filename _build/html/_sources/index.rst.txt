@@ -779,7 +779,7 @@ Glossary
 |                                   | widow. On their own age, 20 and   |
 |                                   | widow are not unusual values, but |
 |                                   | their combination may             |
-|                                   | be.\ ` [10]_ <#foot4>`__          |
+|                                   | be. [#foot10]_                    |
 +-----------------------------------+-----------------------------------+
 | Perturbative methods              | Anonymization methods that alter  |
 |                                   | values slightly to limit          |
@@ -931,7 +931,7 @@ Glossary
 |                                   | step and are usually based on     |
 |                                   | restricting the amount of or      |
 |                                   | modifying the data                |
-|                                   | released.\ ` [12]_ <#foot6>`__    |
+|                                   | released. [#foot12]_              |
 +-----------------------------------+-----------------------------------+
 | Suppression                       | Data suppression involves not     |
 |                                   | releasing information that is     |
@@ -2020,7 +2020,7 @@ values of the key variables. This risk measure is based on certain
 assumptions` [#foot26]_, which are strict and may lead to a
 relatively conservative risk measure. In *sdcMicro*, the risk measure
 :math:`r_{k}` is automatically computed when creating an *sdcMicro*
-object and saved in the “risk” slot\ ` [27]_ <#foot22>`__. Example 4.3
+object and saved in the “risk” slot [#foot27]_. Example 4.3
 shows how to retrieve the risk measures using *sdcMicro* for our
 example. The risk measures are also presented in Table 4.1.
 
@@ -2427,11 +2427,11 @@ combination of them, {‘Secondary complete’, ‘Unemployed’} makes record 5
 unique. This variable subset is referred to as the Minimal Sample Unique
 (MSU) as any smaller subset of this set of variables is not unique (in
 this case {‘Secondary complete’} and {‘Unemployed’}). It is an MSU of
-size 2.\ `Error! Bookmark not defined. <#foot28>`__ This holds as well
+size 2.[#foot33]_ This holds as well
 for three other combinations in record 5, i.e., {‘Female’, ‘Unemployed’}
 and {‘Female’, ‘Secondary Complete’}, which are also MSUs of size 2 and
 {‘Rural’} of size 1. In total, record 5 has four
-MSUs\ ` [31]_ <#foot27>`__. To determine if a set is an MSU of size
+MSUs [#foot31]_. To determine if a set is an MSU of size
 :math:`k`, we check whether it fulfills the minimal requirement. It
 suffices to check whether all subsets of size :math:`k`-1 of the MSU are
 unique. If any of these subsets are also unique in the sample, the set
@@ -2477,7 +2477,7 @@ ranks the individuals according to their level of risk.
 
 For each MSU of size :math:`k` contained in a given record, a score is
 computed by :math:`\prod_{i = k}^{M}{(ATT - i)}`, where :math:`M` is the
-user-specified maximum size of MSUs\ ` [32]_ <#foot5>`__, and
+user-specified maximum size of MSUs [#foot32]_, and
 :math:`\text{ATT}` is the total number of attributes or variables in the
 dataset. By definition, the smaller the size :math:`k` of the MSU, the
 larger the score for the MSU, which reflects greater risk (see Elliot et
@@ -2503,7 +2503,7 @@ Secondary Complete} is
 :math:`\prod_{i = 2}^{3}\left( 4 - i \right) = 2*1 = 2`. The SUDA score
 for the fifth record in Table 4.5 is then :math:`6 + 2 + 2 + 2 = 12`,
 which is the sum of these four scores per MSU. The SUDA scores for the
-other sample uniques are computed accordingly\ ` [33]_ <#foot29>`__. The
+other sample uniques are computed accordingly [#foot33]_. The
 values that are in the MSUs in the sample uniques are shaded in Table
 4.5. Records that are not sample uniques (:math:`f_{k} > 1`) cannot be
 special uniques and are assigned the score 0.
@@ -2994,7 +2994,7 @@ are implementable in *R* by using the *sdcMicro* package. We discuss for
 every method for what type of data the method is suitable, both in terms
 of data characteristics and type of data. Furthermore, options such as
 specific parameters for each method are discussed as well as their
-impacts.\ ` [34]_ <#foot30>`__ These findings are meant as guidance but
+impacts. [#foot34]_ These findings are meant as guidance but
 should be used with caution, since every dataset has different
 characteristics and our findings may not always address your particular
 dataset. The last three sections of this chapter are on the
@@ -3345,7 +3345,7 @@ reduce the detail in continuous variables.
 groupVars()*
 
 Assume that an object of class *sdcMicro* was created, which is called
-“sdcInitial”\ ` [35]_ <#foot31>`__ (see Section 7.5 how to create
+“sdcInitial” [#foot35]_ (see Section 7.5 how to create
 objects of class *sdcMicro*). In Example 5.1, the variable “sizeRes” has
 four different categories: ‘capital, large city’, ‘small city’, town’,
 and ‘countryside’). The first three are recoded or regrouped as ‘urban’
@@ -3470,7 +3470,7 @@ To construct **right-open** intervals, e.g., in our example, for age
 intervals [0,14), [15, 65), [66, 100), we present two alternatives for
 global recoding:
 
--  A work-around for semi-continuous variables\ ` [36]_ <#foot32>`__
+-  A work-around for semi-continuous variables [#foot36]_ 
    that would allow for the globalRecode() to be used would be
    subtracting a small number from the boundary intervals, thus allowing
    the desired intervals to be created. In the following example,
@@ -3653,28 +3653,28 @@ data users. In this example we find “gender” more important than
 Table 5.4: Local suppression illustration - sample data before and after
 suppression
 
-+---------+---------+---------+---------+---------+---------+---------+
-|Variable | Before local suppression    | After local suppression     |
-+=========+=========+=========+=========+=========+=========+=========+
-| ID      |  Gender | Region  | Educat  |  Gender |  Region | Educat  |
-|         |         |         | ion*    |         |         | ion     |
-+---------+---------+---------+---------+---------+---------+---------+
-| 1       | female  | rural   | higher  | female  | rural   | NA/miss |
-|         |         |         |         |         |         | ing     |
-|         |         |         |         |         |         |[foot38]_|
-+---------+---------+---------+---------+---------+---------+---------+
-| 2       | male    | rural   | higher  | male    | rural   | higher  |
-+---------+---------+---------+---------+---------+---------+---------+
-| 3       | male    | rural   | higher  | male    | rural   | higher  |
-+---------+---------+---------+---------+---------+---------+---------+
-| 4       | male    | rural   | higher  | male    | rural   | higher  |
-+---------+---------+---------+---------+---------+---------+---------+
-| 5       | female  | rural   | lower   | female  | rural   | lower   |
-+---------+---------+---------+---------+---------+---------+---------+
-| 6       | female  | rural   | lower   | female  | rural   | lower   |
-+---------+---------+---------+---------+---------+---------+---------+
-| 7       | female  | rural   | lower   | female  | rural   | lower   |
-+---------+---------+---------+---------+---------+---------+---------+
++---------+---------+---------+---------+---------+---------+----------+
+|Variable | Before local suppression    | After local suppression      |
++=========+=========+=========+=========+=========+=========+==========+
+| ID      |  Gender | Region  | Educat  |  Gender |  Region | Educat   |
+|         |         |         | ion*    |         |         | ion      |
++---------+---------+---------+---------+---------+---------+----------+
+| 1       | female  | rural   | higher  | female  | rural   | NA/miss  |
+|         |         |         |         |         |         | ing      |
+|         |         |         |         |         |         |[#foot38]_|
++---------+---------+---------+---------+---------+---------+----------+
+| 2       | male    | rural   | higher  | male    | rural   | higher   |
++---------+---------+---------+---------+---------+---------+----------+
+| 3       | male    | rural   | higher  | male    | rural   | higher   |
++---------+---------+---------+---------+---------+---------+----------+
+| 4       | male    | rural   | higher  | male    | rural   | higher   |
++---------+---------+---------+---------+---------+---------+----------+
+| 5       | female  | rural   | lower   | female  | rural   | lower    |
++---------+---------+---------+---------+---------+---------+----------+
+| 6       | female  | rural   | lower   | female  | rural   | lower    |
++---------+---------+---------+---------+---------+---------+----------+
+| 7       | female  | rural   | lower   | female  | rural   | lower    |
++---------+---------+---------+---------+---------+---------+----------+
 
 Since continuous variables have a high number of unique values (e.g.,
 income in dollars or age in years), :math:`k`-anonymity and local
@@ -3707,7 +3707,7 @@ to achieve the required level of :math:`k`-anonymity.
 
 In Example 5.7, local suppression is applied to achieve the
 :math:`k`-anonymity threshold of 5 on the quasi-identifiers “gender”,
-“region”, “religion”, “age” and “ethnicity”\ ` [39]_ <#foot34>`__.
+“region”, “religion”, “age” and “ethnicity” [#foot39]_.
 Without ranking the importance of the variables, the value of the
 variable “age” is more likely to be suppressed, since this is the
 variable with most categories. The variable “age” has 10 categories
@@ -3746,7 +3746,7 @@ of :math:`k`-anonymity increases when specifying an importance vector,
 since the importance vector prevents to use the optimal suppression
 pattern. The importance vector should be specified only in cases where
 the variables with many categories play an important role in data
-utility for the data users\ ` [40]_ <#foot35>`__.
+utility for the data users [#foot40]_.
 
 Example 5.7: Application of local suppression with and without
 importance vector
@@ -3783,7 +3783,7 @@ sdcInitial <- **localSuppression**\ (sdcInitial, k = 5)
 
 Figure 5.5 demonstrates the effect of the required :math:`k`-anonymity
 threshold and the importance vector on the data utility by using several
-labor market-related indicators from an I2D2\ ` [41]_ <#foot36>`__
+labor market-related indicators from an I2D2 [#foot41]_
 dataset before and after anonymization. Figure 5.5 displays the relative
 changes as a percentage of the initial value after re-computing the
 indicators with the data to which local suppression was applied. The
@@ -4194,7 +4194,7 @@ respectively probability 0.05 and 0.15. If in the initial file we had
 5,000 individuals with value ‘capital’ and resp. 500 and 400 with values
 ‘rural1’ and ‘rural2’, we expect after applying PRAM to have 5,045
 individuals with capital, 460 with rural1 and 395 with
-rural2\ ` [42]_ <#foot37>`__. The recoding is done independently for
+rural2 [#foot42]_. The recoding is done independently for
 each individual. We see that the tabulation of the variable “region”
 yields different results before and after PRAM, which are shown in Table
 5.8. The deviation from the expectation is due to the fact that PRAM is
@@ -4225,7 +4225,7 @@ Table 5.8: Tabulation of variable “region” before and after PRAM
 One way to guarantee consistency between the tabulations before and
 after PRAM is to choose the transition matrix so that, in expectation,
 the tabulations before and after applying PRAM are the same for all
-variables.\ ` [43]_ <#foot38>`__ This method is called invariant PRAM
+variables.[#foot43]_ This method is called invariant PRAM
 and is implemented in *sdcMicro* in the function pram(). The method
 pram() determines the transition matrix that satisfies the requirements
 for invariant PRAM. **NOTE: Invariant does not guarantee that
@@ -4233,11 +4233,11 @@ cross-tabulations of variables (unlike univariate tabulations) stay the
 same.**
 
 In Example 5.12, we give an example of invariant PRAM using
-*sdcMicro*.\ ` [44]_ <#foot39>`__ PRAM is a probabilistic method and the
+*sdcMicro*. [#foot44]_ PRAM is a probabilistic method and the
 results can differ every time we apply PRAM to the same variables of a
 dataset. To overcome this and make the results reproducible, it is good
 practice to set a seed for the random number generator in *R*, so the
-same random numbers will be generated every time.\ ` [45]_ <#foot40>`__
+same random numbers will be generated every time. [#foot45]_
 The number of changed records per variable is also shown.
 
 Example 5.12: Producing reproducible PRAM results by using set.seed()
@@ -4286,7 +4286,7 @@ higher than the share of females (about 60%). This property is not
 maintained after invariant PRAM (the shares of males and females in the
 city are roughly equal), although the univariate tabulations are
 maintained. One solution is to apply PRAM separately for the males and
-females in this example\ ` [46]_ <#foot41>`__. This can be done by
+females in this example [#foot46]_. This can be done by
 specifying the strata argument in the pram() function in *sdcMicro* (see
 below).
 
@@ -4432,7 +4432,7 @@ Microaggregation
 ~~~~~~~~~~~~~~~~
 
 Microaggregation is most suitable for continuous variables, but can be
-extended in some cases to categorical variables.\ ` [47]_ <#foot42>`__
+extended in some cases to categorical variables. [#foot47]__
 It is most useful where confidentiality rules have been predetermined
 (e.g., a certain threshold for :math:`k`-anonymity has been set) that
 permit the release of data only if combinations of variables are shared
@@ -4461,7 +4461,7 @@ which is measured by the within-groups sum of squares (SSE)
 
 The lower the SSE, the higher the within-group homogeneity. The group
 sizes can differ amongst groups, but often groups of equal size are used
-to simplify the search\ ` [48]_ <#foot43>`__.
+to simplify the search [#foot48]_.
 
 The function microaggregation() in *sdcMicro* can be used for univariate
 microaggregation. The argument ‘aggr’ specifies the group size. Forming
@@ -4469,7 +4469,7 @@ groups is easier if all groups – except maybe the last group of
 remainders – have the same size. This is the case in the implementation
 in *sdcMicro* as it is not possible to have groups of different sizes.
 Example 5.16 shows how to use the function microaggregation() in
-*sdcMicro*.\ ` [49]_ <#foot44>`__ The default group size is 3 but the
+*sdcMicro*. [#foot49]_ The default group size is 3 but the
 user can specify any desired group size. Choice of group size depends on
 the homogeneity within the groups and the required level of protection.
 In general it holds that the larger the group, the higher the
@@ -4614,7 +4614,7 @@ sdcInitial <- **microaggregation**\ (obj = sdcInitial, variables =
 
 It is also possible to group variables only within strata. This reduces
 the computation time and adds an extra layer of protection to the data,
-because of the greater uncertainty produced\ ` [50]_ <#foot45>`__. In
+because of the greater uncertainty produced [#foot50]_. In
 *sdcMicro* this can be achieved by specifying the strata variables, as
 shown in Example 5.18.
 
@@ -4771,7 +4771,7 @@ the legal situation regarding data privacy, data sensitivity and the
 acceptable levels of disclosure risk and information loss. In general,
 the level of noise is a function of the variance of the original
 variables, the level of protection needed and the desired value range
-after anonymization\ ` [51]_ <#foot46>`__. An :math:`\alpha` value that
+after anonymization [#foot51]_. An :math:`\alpha` value that
 is too small will lead to insufficient protection, while an
 :math:`\alpha` value that is too high will make the data useless for
 data users.
@@ -4783,7 +4783,7 @@ function addNoise() with the value “additive” for the argument ‘method’.
 Example 5.19 shows how to use *sdcMicro* to add uncorrelated noise to
 expenditure variables, where the standard deviation of the added noise
 equals half the standard deviation of the original
-variables.\ ` [52]_ <#foot47>`__ Noise is added to all selected
+variables. [#foot52]_ Noise is added to all selected
 variables.
 
 Example 5.19: Uncorrelated noise addition
@@ -4865,7 +4865,7 @@ approximately normally distributed. The method ‘correlated2’ is a
 version of the method ‘correlated’, which is robust against the
 normality assumption. Example 5.20 shows how to use the ‘correlated2’
 method. The normality of variables can be investigated in *R*, with, for
-instance, a Jarque-Bera or Shapiro-Wilk test\ ` [53]_ <#foot48>`__.
+instance, a Jarque-Bera or Shapiro-Wilk test [#foot53]_.
 
 Example 5.20: Correlated noise addition
 
@@ -5088,7 +5088,7 @@ Table 5.14: Simplified example of the shuffling method
 +-----------+-----------+-----------+-----------+-----------+-----------+
 
 The method ‘ds’ (the default method of data shuffling in *sdcMicro*) is
-recommended for use (Templ et al., 2014)\ ` [54]_ <#foot49>`__. A
+recommended for use (Templ et al., 2014) [#foot54]_. A
 regression function with regressors for the variables to be protected
 must be specified in the argument ‘form’. At least two regressands
 should be specified and the regressors should have predictive power for
@@ -5176,7 +5176,7 @@ Anonymization of the quasi-identifier household size
 ----------------------------------------------------
 
 The size of a household is an important identifier, especially for large
-households.\ ` [55]_ <#foot50>`__ Suppression of the actual size
+households. [#foot55]_  Suppression of the actual size
 variable, if available (e.g., number of household members), however,
 does not suffice to remove this information from the dataset, as a
 simple count of the household members for a particular household will
@@ -5214,7 +5214,7 @@ a limited set of variables. 2) Two scientific use files with 5% samples
 are available for registered researchers who accept the terms and
 conditions of their use. 3) Two 10% samples are available in controlled
 research data centers for approved researchers and research goals. All
-these files have been anonymized prior to release.\ ` [56]_ <#foot51>`__
+these files have been anonymized prior to release. [#foot56]_
 
 - The U.S. Census Bureau released two samples of the 2000 census: a 5%
 sample on the national level and a 1% sample on the state level. The
@@ -5225,7 +5225,7 @@ variables but a more detailed geographical structure, which allows
 representation of cities and larger counties from the dataset (the
 minimum size of a geographical area is 100,000). Both files have been
 anonymized by using data swapping, top coding, perturbation and reducing
-detail by recoding.\ ` [57]_ <#foot52>`__
+detail by recoding.[#foot57]_
 
 Measuring Utility and Information Loss
 ======================================
@@ -5262,7 +5262,7 @@ structure and does not need a detailed geographical structure).
 Nevertheless, as pointed out earlier, only one anonymized dataset can be
 released for each dataset and every type of release to avoid unintended
 disclosure. Releasing multiple anonymized datasets for different
-purposes may lead to unintended disclosure.\ ` [58]_ <#foot53>`__
+purposes may lead to unintended disclosure. [#foot58]_
 Therefore, it is not possible to anonymize and release a file tailored
 to each user’s needs.
 
@@ -5330,7 +5330,7 @@ suppressions indicate a higher degree of information loss. After using
 the local suppression function on an *sdcMicro* object, the number of
 suppressions for each categorical key variable can be retrieved with the
 print() function, which is illustrated in Example
-6.1\ ` [59]_ <#foot54>`__. The argument ‘ls’ in the print() function
+6.1[#foot59]_. The argument ‘ls’ in the print() function
 stands for local suppression. The output shows both the absolute and
 relative number of suppressions.
 
@@ -6193,7 +6193,7 @@ generally gives an overview of the parameters of the functions as well
 as some examples. The help of a specific function can be called by a
 question mark followed by the function name without any arguments.
 Example 7.2 shows how to call the help file for the microaggregation()
-function of the *sdcMicro* package.\ ` [60]_ <#foot55>`__ The download
+function of the *sdcMicro* package.[#foot60]_ The download
 page of the each package on the CRAN website also provides a reference
 manual with a complete overview of the functions in the package.
 
@@ -6209,14 +6209,14 @@ Read functions in *R*
 ---------------------
 
 The first step in the SDC process when using *sdcMicro* is to read the
-data into *R* and create a dataframe.\ ` [61]_ <#foot56>`__ *R* is
+data into *R* and create a dataframe. [#foot61]_ *R* is
 compatible with most statistical data formats and provides read
 functions for most types of data. For those read functions, it is
 sometimes necessary to install additional packages and their
 dependencies in *R*. An overview of data formats, functions and the
 packages containing these functions is provided in Table 7.1. These
 functions are also available as write (e.g., write.dta()) to save the
-anonymized data in the required format.\ ` [62]_ <#foot57>`__
+anonymized data in the required format. #foot[62]_
 
 Table 7.1: Packages and functions for reading data in *R*
 
@@ -6229,8 +6229,7 @@ Table 7.1: Packages and functions for reading data in *R*
 | STATA (v. 5-12) | .dta            | *foreign*       | read.dta()      |
 +-----------------+-----------------+-----------------+-----------------+
 | STATA (v.       | .dta            | *readstata13*   | read.dta13()    |
-| 13)\ ` [64]_ <# |                 |                 |                 |
-| foot58>`__      |                 |                 |                 |
+| 13) [#foot64]   |                 |                 |                 |
 +-----------------+-----------------+-----------------+-----------------+
 | SAS             | .xpt            | *foreign*       | read.xport()    |
 +-----------------+-----------------+-----------------+-----------------+
@@ -6288,7 +6287,7 @@ The standard way missing values are represented in *R* is by the symbol
 ‘NA’, which is different to impossible values, such as division by zero
 or the log of a negative number, which are represented by the symbol
 ‘NaN’. The value ‘NA’ is used for both numeric and categorical
-variables.\ ` [65]_ <#foot59>`__ Values suppressed by the
+variables.[#foot65]_ Values suppressed by the
 localSuppression() routine are also replaced by the ‘NA’ symbol. Some
 datasets and statistical software might use different values for missing
 values, such as ‘999’ or strings. It is possible to include arguments in
@@ -6353,7 +6352,7 @@ Example 7.7: Changing the class of an object in *R*
 Objects of class *sdcMicroObj*
 ------------------------------
 
-The *sdcMicro* package is built around objects\ ` [66]_ <#foot60>`__ of
+The *sdcMicro* package is built around objects[#foot66]_ of
 class *sdcMicroObj*, a class especially defined for the *sdcMicro*
 package. Each member of this class has a certain structure with slots
 that contain information regarding the anonymization process (see Table
@@ -6394,7 +6393,7 @@ the dataframe containing the microdata to be anonymized. The selection
 of variables is important for the risk measures that are automatically
 calculated. Furthermore, several methods are by default applied to all
 variables of one sort, e.g., microaggregation to all key
-variables.\ ` [67]_ <#foot61>`__ After selecting these variables, we can
+variables.[#foot67]_ After selecting these variables, we can
 create the *sdcMicro* object. To obtain a summary of the object, it is
 sufficient to write the name of the object.
 
@@ -7027,8 +7026,8 @@ The large-scale experiment executed for this guide utilized 75 microdata
 files from 52 countries, using surveys on topics including health,
 labor, income and expenditure. By applying anonymization methods
 available in the *sdcMicro* package, at least 20 different anonymization
-scenarios\ ` [68]_ <#foot62>`__ were tested on each dataset. Most of the
-processing was done using a powerful server\ ` [69]_ <#foot63>`__ and up
+scenarios [#foot68]_ were tested on each dataset. Most of the
+processing was done using a powerful server [#foot69]_ and up
 to 16 – 20 processors (cores) at a time. Other processing platforms
 included a laptop and desktop computers, each using four processors.
 Computation times were significantly shorter for datasets processed on
@@ -7049,7 +7048,7 @@ amount to the time it may take to run them sequentially. The fact that
 the RAM is shared might, however, slightly reduce the gains of
 parallelization. If you want to compare the results of different methods
 on large datasets that require long computation times, using parallel
-computing can be a solution.\ ` [70]_ <#foot64>`__
+computing can be a solution.[#foot70]_
 
 Appendix D zooms in on seven selected datasets from a health survey that
 were processed using the same parallelization program and anonymization
@@ -7229,11 +7228,11 @@ Table 8.1: Illustration of merging variables without information loss
 for SDC process
 
 +---------+---------+---------+---------+---------+---------+---------+
-| Before                                          | **After           |
+| Before                                          |  After            |
 +=========+=========+=========+=========+=========+=========+=========+
-| **In    | **Emplo | **Secto | **Secto | **Secto | **In    | **Emplo |
-| labor   | yed**   | r       | r       | r       | labor   | yed**   |
-| force** |         | A**     | B**     | C**     | force** |         |
+|   In    |   Emplo |   Secto |   Secto |   Secto |   In    |   Emplo |
+| labor   | yed     | r       | r       | r       | labor   | yed     |
+| force   |         | A       | B       | C       | force   |         |
 +---------+---------+---------+---------+---------+---------+---------+
 | Yes     | Yes     | Missing | Yes     | Missing | Yes     | B       |
 +---------+---------+---------+---------+---------+---------+---------+
@@ -7848,9 +7847,9 @@ GENDER (sex, categorical)*
 Table 9.1 Overview of variables in dataset
 
 +-----------+-----------+-----------+-----------+-----------+-----------+
-| **No.**   | **Variabl | **Descrip | **Level** | **Measure | **Values* |
-|           | e         | tion**    |           | ment**    | *         |
-|           | name**    |           |           |           |           |
+|   No.     |   Variabl |   Descrip |   Level   |   Measure |   Values  |
+|           | e         | tion      |           | ment      |           |
+|           | name      |           |           |           |           |
 +===========+===========+===========+===========+===========+===========+
 | 1         | IDH       | Household | HH        | -         | 1-2,000   |
 |           |           | ID        |           |           |           |
@@ -8757,7 +8756,7 @@ this variable. Table 9.7 shows the absolute frequencies of HHSIZE. The
 number of households for each size larger than 13 is 6 or fewer and can
 be considered outliers with a higher risk of re-identification, as
 discussed in Step 6a. One way to deal with this is to remove all
-households of size 14 or larger from the dataset\ ` [71]_ <#foot65>`__.
+households of size 14 or larger from the dataset [#foot71]_.
 Removing 29 households of size 14 or larger reduces the number of
 2-anonymity violations by 18, of 3-anonymity violations by 26 and of
 5-anonymity violations by 29. This means that all removed households
@@ -9139,7 +9138,7 @@ with an interval measure.
 
 Example 9.20 shows how to evaluate the interval measure for each of the
 expenditure variables, which are contained in the vector
-*compExp*\ ` [72]_. <#foot66>`__ The different values of the parameter
+*compExp* [#foot72]_. The different values of the parameter
 *k* in the function dRisk() define the size of the interval around the
 original value, as explained in Section 4.7.2\ *.* The larger *k*, the
 larger the intervals, the higher the probability that a perturbed value
@@ -9256,7 +9255,7 @@ in the same way and leads to similar results.
 
 We look at the effect of anonymization on some indicators as discussed
 in Step 5. Table 9.11 presents the point estimates and bootstrapped
-confidence interval of the GINI coefficient\ ` [73]_ <#foot67>`__ for
+confidence interval of the GINI coefficient [#foot73]_ for
 the sum of the expenditure components. The calculation of the GINI
 coefficient and the confidence interval are based on the positive
 expenditure values. We observe very small changes in the Gini
@@ -9595,24 +9594,24 @@ Table 9.15: Number of suppressions by variable for different variations
 of local suppression
 
 +-------+-------+-------+-------+-------+-------+-------+-------+-------+
-| **Loc | **GEN | **REL | **MAR | **AGE | **EDU | **EDY | **ATS | **IND |
-| al    | DER** | **    | ITAL* | YRS** | CY**  | RSCUR | CHOOL | USTRY |
-| suppr |       |       | *     |       |       | RAT** | **    | 1**   |
+|   Loc |   GEN |   REL |   MAR |   AGE |   EDU |   EDY |   ATS |   IND |
+| al    | DER   |       | ITAL  | YRS   | CY    | RSCUR | CHOOL | USTRY |
+| suppr |       |       |       |       |       | RAT   |       | 1     |
 | essio |       |       |       |       |       |       |       |       |
 | n     |       |       |       |       |       |       |       |       |
 | optio |       |       |       |       |       |       |       |       |
-| ns**  |       |       |       |       |       |       |       |       |
+| ns    |       |       |       |       |       |       |       |       |
 +=======+=======+=======+=======+=======+=======+=======+=======+=======+
-| **k = | 0     | 34    | 0     | 195   | 0     | 3     | 0     | 21    |
+|   k = | 0     | 34    | 0     | 195   | 0     | 3     | 0     | 21    |
 | 2, no |       |       |       |       |       |       |       |       |
-| imp** |       |       |       |       |       |       |       |       |
+| imp   |       |       |       |       |       |       |       |       |
 +-------+-------+-------+-------+-------+-------+-------+-------+-------+
-| **k = | 0     | 323   | 0     | 0     | 0     | 0     | 0     | 0     |
+|   k = | 0     | 323   | 0     | 0     | 0     | 0     | 0     | 0     |
 | 2,    |       |       |       |       |       |       |       |       |
 | imp   |       |       |       |       |       |       |       |       |
 | on    |       |       |       |       |       |       |       |       |
 | AGEYR |       |       |       |       |       |       |       |       |
-| S**   |       |       |       |       |       |       |       |       |
+| S     |       |       |       |       |       |       |       |       |
 +-------+-------+-------+-------+-------+-------+-------+-------+-------+
 
 **Step 9b: Re-measure risk (individual level)**
@@ -9655,11 +9654,9 @@ Table 9.17: Net enrollment in primary and secondary education by gender
 +=========+=========+=========+=========+=========+=========+=========+
 |         | Total   |  Male   | Female  | Total   |  Male   | Female  |
 +---------+---------+---------+---------+---------+---------+---------+
-| **Befor | 72.6%   | 74.2%   | 70.9%   | 42.0%   | 44.8%   | 39.1%   |
-| e**     |         |         |         |         |         |         |
+| Before  | 72.6%   | 74.2%   | 70.9%   | 42.0%   | 44.8%   | 39.1%   |
 +---------+---------+---------+---------+---------+---------+---------+
-| **After | 72.6%   | 74.2%   | 70.9%   | 42.0%   | 44.8%   | 39.1%   |
-| **      |         |         |         |         |         |         |
+| After   | 72.6%   | 74.2%   | 70.9%   | 42.0%   | 44.8%   | 39.1%   |
 +---------+---------+---------+---------+---------+---------+---------+
 
 **Step 11: Audit and reporting**
@@ -9887,9 +9884,9 @@ type, country and the dataset itself.
 Table 9.18: Overview of the variables in the dataset
 
 +-----------+-----------+-----------+-----------+-----------+-----------+
-| **No.**   | **Variabl | **Descrip | **Level** | **Measure | **Values* |
-|           | e         | tion**    |           | ment**    | *         |
-|           | name**    |           |           |           |           |
+|   No.     |   Variabl |   Descrip |   Level   |   Measure |   Values  |
+|           | e         | tion      |           | ment      |           |
+|           | name      |           |           |           |           |
 +===========+===========+===========+===========+===========+===========+
 | 1         | IDH       | Household | HH        | -         | 1-2,000   |
 |           |           | ID        |           |           |           |
@@ -12431,8 +12428,8 @@ Local suppressions
 Number of local suppressions:
 
 +-----------+-----------+-----------+-----------+-----------+-----------+
-|           | **URBRUR* | **REGION* | **HHSIZE* | **OWNAGLA | **RELIG** |
-|           | *         | *         | *         | ND**      |           |
+|           |   URBRUR  |   REGION  |   HHSIZE  |   OWNAGLA |   RELIG   |
+|           |           |           |           | ND        |           |
 +===========+===========+===========+===========+===========+===========+
 | absolute  | 6         | 1         | 1         | 48        | 16        |
 +-----------+-----------+-----------+-----------+-----------+-----------+
@@ -12641,14 +12638,14 @@ Percentage of observations violating
 
 Disclosure risk categorical variables:
 
-Expected Percentage of Reidentifications: 0.02% (~ 2.66 observations)
+Expected Percentage of Reidentifications: 0.02% (\~ 2.66 observations)
 
 (unmodified data: 0.24% (~23.98 observations))
 
-Expected Percentage of Reidentifications (hierarchical risk): 0.1% (~
+Expected Percentage of Reidentifications (hierarchical risk): 0.1% (\~
 15.34 observations)
 
-(unmodified data: 1.26 % (~ 127.12 observations))
+(unmodified data: 1.26 % (\~ 127.12 observations))
 
 10 combinations of categories with highest risk:
 

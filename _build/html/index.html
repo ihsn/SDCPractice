@@ -967,7 +967,7 @@ variables, such as 20-year-old
 widow. On their own age, 20 and
 widow are not unusual values, but
 their combination may
-be.` <a href="#id114"><span class="problematic" id="id4">[10]_</span></a> &lt;#foot4&gt;`__</td>
+be. <a class="footnote-reference" href="#foot10" id="id4">[10]</a></td>
 </tr>
 <tr class="row-odd"><td>Perturbative methods</td>
 <td>Anonymization methods that alter
@@ -1140,7 +1140,7 @@ only related to the dissemination
 step and are usually based on
 restricting the amount of or
 modifying the data
-released.` <a href="#id115"><span class="problematic" id="id8">[12]_</span></a> &lt;#foot6&gt;`__</td>
+released. <a class="footnote-reference" href="#foot12" id="id8">[12]</a></td>
 </tr>
 <tr class="row-odd"><td>Suppression</td>
 <td>Data suppression involves not
@@ -2296,7 +2296,7 @@ values of the key variables. This risk measure is based on certain
 assumptions` <a class="footnote-reference" href="#foot26" id="id24">[26]</a>, which are strict and may lead to a
 relatively conservative risk measure. In <em>sdcMicro</em>, the risk measure
 <span class="math notranslate nohighlight">\(r_{k}\)</span> is automatically computed when creating an <em>sdcMicro</em>
-object and saved in the “risk” slot` <a href="#id116"><span class="problematic" id="id25">[27]_</span></a> &lt;#foot22&gt;`__. Example 4.3
+object and saved in the “risk” slot <a class="footnote-reference" href="#foot27" id="id25">[27]</a>. Example 4.3
 shows how to retrieve the risk measures using <em>sdcMicro</em> for our
 example. The risk measures are also presented in Table 4.1.</p>
 <p>Example 4.3: The individual risk slot in the <em>sdcMicro</em> object</p>
@@ -2973,11 +2973,11 @@ combination of them, {‘Secondary complete’, ‘Unemployed’} makes record 5
 unique. This variable subset is referred to as the Minimal Sample Unique
 (MSU) as any smaller subset of this set of variables is not unique (in
 this case {‘Secondary complete’} and {‘Unemployed’}). It is an MSU of
-size 2.<a class="reference external" href="#foot28">Error! Bookmark not defined.</a> This holds as well
+size 2.[#foot33]_ This holds as well
 for three other combinations in record 5, i.e., {‘Female’, ‘Unemployed’}
 and {‘Female’, ‘Secondary Complete’}, which are also MSUs of size 2 and
 {‘Rural’} of size 1. In total, record 5 has four
-MSUs` <a href="#id117"><span class="problematic" id="id31">[31]_</span></a> &lt;#foot27&gt;`__. To determine if a set is an MSU of size
+MSUs <a class="footnote-reference" href="#foot31" id="id31">[31]</a>. To determine if a set is an MSU of size
 <span class="math notranslate nohighlight">\(k\)</span>, we check whether it fulfills the minimal requirement. It
 suffices to check whether all subsets of size <span class="math notranslate nohighlight">\(k\)</span>-1 of the MSU are
 unique. If any of these subsets are also unique in the sample, the set
@@ -3019,7 +3019,7 @@ subset size. Subsequently, a score is assigned to each individual, which
 ranks the individuals according to their level of risk.</p>
 <p>For each MSU of size <span class="math notranslate nohighlight">\(k\)</span> contained in a given record, a score is
 computed by <span class="math notranslate nohighlight">\(\prod_{i = k}^{M}{(ATT - i)}\)</span>, where <span class="math notranslate nohighlight">\(M\)</span> is the
-user-specified maximum size of MSUs` <a href="#id118"><span class="problematic" id="id32">[32]_</span></a> &lt;#foot5&gt;`__, and
+user-specified maximum size of MSUs <a class="footnote-reference" href="#foot32" id="id32">[32]</a>, and
 <span class="math notranslate nohighlight">\(\text{ATT}\)</span> is the total number of attributes or variables in the
 dataset. By definition, the smaller the size <span class="math notranslate nohighlight">\(k\)</span> of the MSU, the
 larger the score for the MSU, which reflects greater risk (see Elliot et
@@ -3044,7 +3044,7 @@ Secondary Complete} is
 <span class="math notranslate nohighlight">\(\prod_{i = 2}^{3}\left( 4 - i \right) = 2*1 = 2\)</span>. The SUDA score
 for the fifth record in Table 4.5 is then <span class="math notranslate nohighlight">\(6 + 2 + 2 + 2 = 12\)</span>,
 which is the sum of these four scores per MSU. The SUDA scores for the
-other sample uniques are computed accordingly` <a href="#id119"><span class="problematic" id="id33">[33]_</span></a> &lt;#foot29&gt;`__. The
+other sample uniques are computed accordingly <a class="footnote-reference" href="#foot33" id="id33">[33]</a>. The
 values that are in the MSUs in the sample uniques are shaded in Table
 4.5. Records that are not sample uniques (<span class="math notranslate nohighlight">\(f_{k} &gt; 1\)</span>) cannot be
 special uniques and are assigned the score 0.</p>
@@ -3605,7 +3605,7 @@ are implementable in <em>R</em> by using the <em>sdcMicro</em> package. We discu
 every method for what type of data the method is suitable, both in terms
 of data characteristics and type of data. Furthermore, options such as
 specific parameters for each method are discussed as well as their
-impacts.` <a href="#id120"><span class="problematic" id="id34">[34]_</span></a> &lt;#foot30&gt;`__ These findings are meant as guidance but
+impacts. <a class="footnote-reference" href="#foot34" id="id34">[34]</a> These findings are meant as guidance but
 should be used with caution, since every dataset has different
 characteristics and our findings may not always address your particular
 dataset. The last three sections of this chapter are on the
@@ -3689,7 +3689,7 @@ e,
 deterministic</td>
 <td>continuous and
 categorical</td>
-<td><p class="first"><a href="#id110"><span class="problematic" id="id111">`globalRecode &lt;
+<td><p class="first"><a href="#id79"><span class="problematic" id="id80">`globalRecode &lt;
 http://www.rdoc
 umentation.org/
 packages/sdcMic
@@ -3708,7 +3708,7 @@ e,
 deterministic</td>
 <td>continuous and
 categorical</td>
-<td><p class="first"><a href="#id110"><span class="problematic" id="id112">`topBotCoding &lt;
+<td><p class="first"><a href="#id79"><span class="problematic" id="id81">`topBotCoding &lt;
 http://www.rdoc
 umentation.org/
 packages/sdcMic
@@ -3752,7 +3752,7 @@ probabilistic</td>
 <td>perturbative,
 probabilistic</td>
 <td>continuous</td>
-<td><a href="#id110"><span class="problematic" id="id113">`shuffle &lt;http:
+<td><a href="#id79"><span class="problematic" id="id82">`shuffle &lt;http:
 //www.rdocument
 ation.org/packa
 ges/sdcMicro/fu
@@ -4103,7 +4103,7 @@ reduce the detail in continuous variables.</p>
 <p><em>Recoding a categorical variable using the sdcMicro function
 groupVars()</em></p>
 <p>Assume that an object of class <em>sdcMicro</em> was created, which is called
-“sdcInitial”` <a href="#id121"><span class="problematic" id="id35">[35]_</span></a> &lt;#foot31&gt;`__ (see Section 7.5 how to create
+“sdcInitial” <a class="footnote-reference" href="#foot35" id="id35">[35]</a> (see Section 7.5 how to create
 objects of class <em>sdcMicro</em>). In Example 5.1, the variable “sizeRes” has
 four different categories: ‘capital, large city’, ‘small city’, town’,
 and ‘countryside’). The first three are recoded or regrouped as ‘urban’
@@ -4210,7 +4210,7 @@ real-world dataset.</p>
 intervals [0,14), [15, 65), [66, 100), we present two alternatives for
 global recoding:</p>
 <ul class="simple">
-<li>A work-around for semi-continuous variables` <a href="#id122"><span class="problematic" id="id36">[36]_</span></a> &lt;#foot32&gt;`__
+<li>A work-around for semi-continuous variables <a class="footnote-reference" href="#foot36" id="id36">[36]</a>
 that would allow for the globalRecode() to be used would be
 subtracting a small number from the boundary intervals, thus allowing
 the desired intervals to be created. In the following example,
@@ -4385,7 +4385,7 @@ suppression</p>
 <col width="14%" />
 <col width="14%" />
 <col width="14%" />
-<col width="14%" />
+<col width="16%" />
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">Variable</th>
@@ -4413,7 +4413,7 @@ ion</td>
 <td><blockquote class="first">
 <div>NA/miss
 ing</div></blockquote>
-<p class="last">[foot38]</p>
+<p class="last"><a class="footnote-reference" href="#foot38" id="id37">[38]</a></p>
 </td>
 </tr>
 <tr class="row-even"><td>2</td>
@@ -4495,7 +4495,7 @@ suppressions in the variables with high importance might be inevitable
 to achieve the required level of <span class="math notranslate nohighlight">\(k\)</span>-anonymity.</p>
 <p>In Example 5.7, local suppression is applied to achieve the
 <span class="math notranslate nohighlight">\(k\)</span>-anonymity threshold of 5 on the quasi-identifiers “gender”,
-“region”, “religion”, “age” and “ethnicity”` <a href="#id123"><span class="problematic" id="id38">[39]_</span></a> &lt;#foot34&gt;`__.
+“region”, “religion”, “age” and “ethnicity” <a class="footnote-reference" href="#foot39" id="id38">[39]</a>.
 Without ranking the importance of the variables, the value of the
 variable “age” is more likely to be suppressed, since this is the
 variable with most categories. The variable “age” has 10 categories
@@ -4533,7 +4533,7 @@ of <span class="math notranslate nohighlight">\(k\)</span>-anonymity increases w
 since the importance vector prevents to use the optimal suppression
 pattern. The importance vector should be specified only in cases where
 the variables with many categories play an important role in data
-utility for the data users` <a href="#id124"><span class="problematic" id="id39">[40]_</span></a> &lt;#foot35&gt;`__.</p>
+utility for the data users <a class="footnote-reference" href="#foot40" id="id39">[40]</a>.</p>
 <p>Example 5.7: Application of local suppression with and without
 importance vector</p>
 <p><em># local suppression without importance vector</em></p>
@@ -4568,7 +4568,7 @@ the first (gender) and fourth (age) variables</em></div>
 </div>
 <p>Figure 5.5 demonstrates the effect of the required <span class="math notranslate nohighlight">\(k\)</span>-anonymity
 threshold and the importance vector on the data utility by using several
-labor market-related indicators from an I2D2` <a href="#id125"><span class="problematic" id="id40">[41]_</span></a> &lt;#foot36&gt;`__
+labor market-related indicators from an I2D2 <a class="footnote-reference" href="#foot41" id="id40">[41]</a>
 dataset before and after anonymization. Figure 5.5 displays the relative
 changes as a percentage of the initial value after re-computing the
 indicators with the data to which local suppression was applied. The
@@ -5195,7 +5195,7 @@ respectively probability 0.05 and 0.15. If in the initial file we had
 5,000 individuals with value ‘capital’ and resp. 500 and 400 with values
 ‘rural1’ and ‘rural2’, we expect after applying PRAM to have 5,045
 individuals with capital, 460 with rural1 and 395 with
-rural2` <a href="#id126"><span class="problematic" id="id41">[42]_</span></a> &lt;#foot37&gt;`__. The recoding is done independently for
+rural2 <a class="footnote-reference" href="#foot42" id="id41">[42]</a>. The recoding is done independently for
 each individual. We see that the tabulation of the variable “region”
 yields different results before and after PRAM, which are shown in Table
 5.8. The deviation from the expectation is due to the fact that PRAM is
@@ -5241,18 +5241,18 @@ analysis of the data for the distortions introduced by PRAM.</p>
 <p>One way to guarantee consistency between the tabulations before and
 after PRAM is to choose the transition matrix so that, in expectation,
 the tabulations before and after applying PRAM are the same for all
-variables.` <a href="#id127"><span class="problematic" id="id42">[43]_</span></a> &lt;#foot38&gt;`__ This method is called invariant PRAM
+variables.[#foot43]_ This method is called invariant PRAM
 and is implemented in <em>sdcMicro</em> in the function pram(). The method
 pram() determines the transition matrix that satisfies the requirements
 for invariant PRAM. <strong>NOTE: Invariant does not guarantee that
 cross-tabulations of variables (unlike univariate tabulations) stay the
 same.</strong></p>
 <p>In Example 5.12, we give an example of invariant PRAM using
-<em>sdcMicro</em>.` <a href="#id128"><span class="problematic" id="id43">[44]_</span></a> &lt;#foot39&gt;`__ PRAM is a probabilistic method and the
+<em>sdcMicro</em>. <a class="footnote-reference" href="#foot44" id="id42">[44]</a> PRAM is a probabilistic method and the
 results can differ every time we apply PRAM to the same variables of a
 dataset. To overcome this and make the results reproducible, it is good
 practice to set a seed for the random number generator in <em>R</em>, so the
-same random numbers will be generated every time.` <a href="#id129"><span class="problematic" id="id44">[45]_</span></a> &lt;#foot40&gt;`__
+same random numbers will be generated every time. <a class="footnote-reference" href="#foot45" id="id43">[45]</a>
 The number of changed records per variable is also shown.</p>
 <p>Example 5.12: Producing reproducible PRAM results by using set.seed()</p>
 <div class="line-block">
@@ -5323,7 +5323,7 @@ higher than the share of females (about 60%). This property is not
 maintained after invariant PRAM (the shares of males and females in the
 city are roughly equal), although the univariate tabulations are
 maintained. One solution is to apply PRAM separately for the males and
-females in this example` <a href="#id130"><span class="problematic" id="id45">[46]_</span></a> &lt;#foot41&gt;`__. This can be done by
+females in this example <a class="footnote-reference" href="#foot46" id="id44">[46]</a>. This can be done by
 specifying the strata argument in the pram() function in <em>sdcMicro</em> (see
 below).</p>
 <p>Table 5.10: Cross-tabulation of variable “region” and variable “gender”
@@ -5486,7 +5486,7 @@ Evasive Answer Bias.” <em>Journal of American Statistical Association</em> 57
 <div class="section" id="microaggregation">
 <h3>Microaggregation<a class="headerlink" href="#microaggregation" title="Permalink to this headline">¶</a></h3>
 <p>Microaggregation is most suitable for continuous variables, but can be
-extended in some cases to categorical variables.` <a href="#id131"><span class="problematic" id="id46">[47]_</span></a> &lt;#foot42&gt;`__
+extended in some cases to categorical variables. [#foot47]__
 It is most useful where confidentiality rules have been predetermined
 (e.g., a certain threshold for <span class="math notranslate nohighlight">\(k\)</span>-anonymity has been set) that
 permit the release of data only if combinations of variables are shared
@@ -5513,14 +5513,14 @@ which is measured by the within-groups sum of squares (SSE)</p>
 \[\text{SSE} = \sum_{i = 1}^{g}{\sum_{j = 1}^{n_{i}}{\left( x_{\text{ij}} - {\overline{x}}_{i} \right)^{T}\left( x_{\text{ij}} - {\overline{x}}_{i} \right)}}\\]</div>
 <p>The lower the SSE, the higher the within-group homogeneity. The group
 sizes can differ amongst groups, but often groups of equal size are used
-to simplify the search` <a href="#id132"><span class="problematic" id="id47">[48]_</span></a> &lt;#foot43&gt;`__.</p>
+to simplify the search <a class="footnote-reference" href="#foot48" id="id45">[48]</a>.</p>
 <p>The function microaggregation() in <em>sdcMicro</em> can be used for univariate
 microaggregation. The argument ‘aggr’ specifies the group size. Forming
 groups is easier if all groups – except maybe the last group of
 remainders – have the same size. This is the case in the implementation
 in <em>sdcMicro</em> as it is not possible to have groups of different sizes.
 Example 5.16 shows how to use the function microaggregation() in
-<em>sdcMicro</em>.` <a href="#id133"><span class="problematic" id="id48">[49]_</span></a> &lt;#foot44&gt;`__ The default group size is 3 but the
+<em>sdcMicro</em>. <a class="footnote-reference" href="#foot49" id="id46">[49]</a> The default group size is 3 but the
 user can specify any desired group size. Choice of group size depends on
 the homogeneity within the groups and the required level of protection.
 In general it holds that the larger the group, the higher the
@@ -5769,7 +5769,7 @@ Average Vector (MDAV) algorithm in <em>sdcMicro</em></p>
 <strong>c</strong>(“INC”, “EXP”, “WEALTH”), method = “mdav”)</p>
 <p>It is also possible to group variables only within strata. This reduces
 the computation time and adds an extra layer of protection to the data,
-because of the greater uncertainty produced` <a href="#id134"><span class="problematic" id="id49">[50]_</span></a> &lt;#foot45&gt;`__. In
+because of the greater uncertainty produced <a class="footnote-reference" href="#foot50" id="id47">[50]</a>. In
 <em>sdcMicro</em> this can be achieved by specifying the strata variables, as
 shown in Example 5.18.</p>
 <p>Example 5.18: Specifying strata variables for microaggregation</p>
@@ -5921,7 +5921,7 @@ the legal situation regarding data privacy, data sensitivity and the
 acceptable levels of disclosure risk and information loss. In general,
 the level of noise is a function of the variance of the original
 variables, the level of protection needed and the desired value range
-after anonymization` <a href="#id135"><span class="problematic" id="id50">[51]_</span></a> &lt;#foot46&gt;`__. An <span class="math notranslate nohighlight">\(\alpha\)</span> value that
+after anonymization <a class="footnote-reference" href="#foot51" id="id48">[51]</a>. An <span class="math notranslate nohighlight">\(\alpha\)</span> value that
 is too small will lead to insufficient protection, while an
 <span class="math notranslate nohighlight">\(\alpha\)</span> value that is too high will make the data useless for
 data users.</p>
@@ -5932,7 +5932,7 @@ function addNoise() with the value “additive” for the argument ‘method’.
 Example 5.19 shows how to use <em>sdcMicro</em> to add uncorrelated noise to
 expenditure variables, where the standard deviation of the added noise
 equals half the standard deviation of the original
-variables.` <a href="#id136"><span class="problematic" id="id51">[52]_</span></a> &lt;#foot47&gt;`__ Noise is added to all selected
+variables. <a class="footnote-reference" href="#foot52" id="id49">[52]</a> Noise is added to all selected
 variables.</p>
 <p>Example 5.19: Uncorrelated noise addition</p>
 <p>sdcInitial &lt;- <strong>addNoise</strong>(obj = sdcInitial, variables =
@@ -6003,7 +6003,7 @@ approximately normally distributed. The method ‘correlated2’ is a
 version of the method ‘correlated’, which is robust against the
 normality assumption. Example 5.20 shows how to use the ‘correlated2’
 method. The normality of variables can be investigated in <em>R</em>, with, for
-instance, a Jarque-Bera or Shapiro-Wilk test` <a href="#id137"><span class="problematic" id="id52">[53]_</span></a> &lt;#foot48&gt;`__.</p>
+instance, a Jarque-Bera or Shapiro-Wilk test <a class="footnote-reference" href="#foot53" id="id50">[53]</a>.</p>
 <p>Example 5.20: Correlated noise addition</p>
 <p>sdcInitial &lt;- <strong>addNoise</strong>(obj = sdcInitial, variables =
 <strong>c</strong>(‘TOTFOOD’, ‘TOTHLTH’, ‘TOTALCH’, ‘TOTCLTH’, ‘TOTHOUS’,
@@ -6276,7 +6276,7 @@ values</strong></th>
 </tbody>
 </table>
 <p>The method ‘ds’ (the default method of data shuffling in <em>sdcMicro</em>) is
-recommended for use (Templ et al., 2014)` <a href="#id138"><span class="problematic" id="id53">[54]_</span></a> &lt;#foot49&gt;`__. A
+recommended for use (Templ et al., 2014) <a class="footnote-reference" href="#foot54" id="id51">[54]</a>. A
 regression function with regressors for the variables to be protected
 must be specified in the argument ‘form’. At least two regressands
 should be specified and the regressors should have predictive power for
@@ -6356,7 +6356,7 @@ information for public release.”
 <div class="section" id="anonymization-of-the-quasi-identifier-household-size">
 <h2>Anonymization of the quasi-identifier household size<a class="headerlink" href="#anonymization-of-the-quasi-identifier-household-size" title="Permalink to this headline">¶</a></h2>
 <p>The size of a household is an important identifier, especially for large
-households.` <a href="#id139"><span class="problematic" id="id54">[55]_</span></a> &lt;#foot50&gt;`__ Suppression of the actual size
+households. <a class="footnote-reference" href="#foot55" id="id52">[55]</a>  Suppression of the actual size
 variable, if available (e.g., number of household members), however,
 does not suffice to remove this information from the dataset, as a
 simple count of the household members for a particular household will
@@ -6393,7 +6393,7 @@ a limited set of variables. 2) Two scientific use files with 5% samples
 are available for registered researchers who accept the terms and
 conditions of their use. 3) Two 10% samples are available in controlled
 research data centers for approved researchers and research goals. All
-these files have been anonymized prior to release.` <a href="#id140"><span class="problematic" id="id55">[56]_</span></a> &lt;#foot51&gt;`__</p>
+these files have been anonymized prior to release. <a class="footnote-reference" href="#foot56" id="id53">[56]</a></p>
 <ul class="simple">
 <li>The U.S. Census Bureau released two samples of the 2000 census: a 5%</li>
 </ul>
@@ -6405,7 +6405,7 @@ variables but a more detailed geographical structure, which allows
 representation of cities and larger counties from the dataset (the
 minimum size of a geographical area is 100,000). Both files have been
 anonymized by using data swapping, top coding, perturbation and reducing
-detail by recoding.` <a href="#id141"><span class="problematic" id="id56">[57]_</span></a> &lt;#foot52&gt;`__</p>
+detail by recoding.[#foot57]_</p>
 </div>
 </div>
 <div class="section" id="measuring-utility-and-information-loss">
@@ -6441,7 +6441,7 @@ structure and does not need a detailed geographical structure).
 Nevertheless, as pointed out earlier, only one anonymized dataset can be
 released for each dataset and every type of release to avoid unintended
 disclosure. Releasing multiple anonymized datasets for different
-purposes may lead to unintended disclosure.` <a href="#id142"><span class="problematic" id="id57">[58]_</span></a> &lt;#foot53&gt;`__
+purposes may lead to unintended disclosure. <a class="footnote-reference" href="#foot58" id="id54">[58]</a>
 Therefore, it is not possible to anonymize and release a file tailored
 to each user’s needs.</p>
 <p>Since collecting and taking into account all data uses is often
@@ -6498,7 +6498,7 @@ suppressions indicate a higher degree of information loss. After using
 the local suppression function on an <em>sdcMicro</em> object, the number of
 suppressions for each categorical key variable can be retrieved with the
 print() function, which is illustrated in Example
-6.1` <a href="#id143"><span class="problematic" id="id58">[59]_</span></a> &lt;#foot54&gt;`__. The argument ‘ls’ in the print() function
+6.1[#foot59]_. The argument ‘ls’ in the print() function
 stands for local suppression. The output shows both the absolute and
 relative number of suppressions.</p>
 <p>Example 6.1: Using the print() function to retrieve the total number of
@@ -6508,7 +6508,7 @@ NULL)</p>
 <p><strong>print</strong>(sdcInitial, ‘ls’)</p>
 <div class="line-block">
 <div class="line"><code class="docutils literal notranslate"><span class="pre">##</span> <span class="pre">Local</span> <span class="pre">Suppression:</span></code></div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">##</span></code><a href="#id59"><span class="problematic" id="id60">``</span></a><code class="docutils literal notranslate"><span class="pre">\</span> <span class="pre">``KeyVar</span> <span class="pre">|</span> <span class="pre">Suppressions</span> <span class="pre">(#)</span> <span class="pre">|</span> <span class="pre">Suppressions</span> <span class="pre">(%)</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">##</span></code><a href="#id55"><span class="problematic" id="id56">``</span></a><code class="docutils literal notranslate"><span class="pre">\</span> <span class="pre">``KeyVar</span> <span class="pre">|</span> <span class="pre">Suppressions</span> <span class="pre">(#)</span> <span class="pre">|</span> <span class="pre">Suppressions</span> <span class="pre">(%)</span></code></div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">##</span>&#160;&#160; <span class="pre">URBRUR</span> <span class="pre">|</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">0</span> <span class="pre">|</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">0.000</span></code></div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">##</span>&#160;&#160; <span class="pre">REGION</span> <span class="pre">|</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">81</span> <span class="pre">|</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">4.050</span></code></div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">##</span>&#160;&#160;&#160; <span class="pre">RELIG</span> <span class="pre">|</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">0</span> <span class="pre">|</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">0.000</span></code></div>
@@ -6987,7 +6987,7 @@ the different SDC methods. We would choose a method, which reduces the
 expected number of identifications, while not changing the gender
 coefficient and having a great overlap of the confidence interval with
 the confidence interval estimated from the original data.</p>
-<p><a href="#id104"><span class="problematic" id="id105">|C:\Users\thijs.benschop\AppData\Local\Microsoft\Windows\INetCache\Content.Word\figure62.png|</span></a></p>
+<p><a href="#id73"><span class="problematic" id="id74">|C:\Users\thijs.benschop\AppData\Local\Microsoft\Windows\INetCache\Content.Word\figure62.png|</span></a></p>
 <p>Figure 6.2: Effect of anonymization on the point estimates and
 confidence interval of the gender coefficient in the Mincer equation</p>
 </div>
@@ -7077,7 +7077,7 @@ methods applied.</p>
 <p><strong>boxplot</strong>(<a class="reference external" href="mailto:sdcObj&#37;&#52;&#48;origData$TOTFOOD">sdcObj<span>&#64;</span>origData$TOTFOOD</a>, <a class="reference external" href="mailto:sdcObj&#37;&#52;&#48;manipNumVars$TOTFOOD">sdcObj<span>&#64;</span>manipNumVars$TOTFOOD</a>, xaxt
 = ‘n’, ylab = “Expenditure”)</p>
 <p><strong>axis</strong>(1, at = <strong>c</strong>(1,2), labels = <strong>c</strong>(‘before, ‘after’))</p>
-<p><a href="#id106"><span class="problematic" id="id107">|C:\Users\thijs.benschop\AppData\Local\Microsoft\Windows\INetCache\Content.Word\figure65.png|</span></a></p>
+<p><a href="#id75"><span class="problematic" id="id76">|C:\Users\thijs.benschop\AppData\Local\Microsoft\Windows\INetCache\Content.Word\figure65.png|</span></a></p>
 <p>Figure 6.5: Example of box plots of an expenditure variable before and
 after anonymization</p>
 </div>
@@ -7327,7 +7327,7 @@ generally gives an overview of the parameters of the functions as well
 as some examples. The help of a specific function can be called by a
 question mark followed by the function name without any arguments.
 Example 7.2 shows how to call the help file for the microaggregation()
-function of the <em>sdcMicro</em> package.` <a href="#id144"><span class="problematic" id="id61">[60]_</span></a> &lt;#foot55&gt;`__ The download
+function of the <em>sdcMicro</em> package.[#foot60]_ The download
 page of the each package on the CRAN website also provides a reference
 manual with a complete overview of the functions in the package.</p>
 <p>Example 7.2: Displaying help for functions</p>
@@ -7339,14 +7339,14 @@ their GitHub: <a class="reference external" href="https://github.com/alexkowa/sd
 <div class="section" id="read-functions-in-r">
 <h2>Read functions in <em>R</em><a class="headerlink" href="#read-functions-in-r" title="Permalink to this headline">¶</a></h2>
 <p>The first step in the SDC process when using <em>sdcMicro</em> is to read the
-data into <em>R</em> and create a dataframe.` <a href="#id145"><span class="problematic" id="id62">[61]_</span></a> &lt;#foot56&gt;`__ <em>R</em> is
+data into <em>R</em> and create a dataframe. <a class="footnote-reference" href="#foot61" id="id57">[61]</a> <em>R</em> is
 compatible with most statistical data formats and provides read
 functions for most types of data. For those read functions, it is
 sometimes necessary to install additional packages and their
 dependencies in <em>R</em>. An overview of data formats, functions and the
 packages containing these functions is provided in Table 7.1. These
 functions are also available as write (e.g., write.dta()) to save the
-anonymized data in the required format.` <a href="#id146"><span class="problematic" id="id63">[62]_</span></a> &lt;#foot57&gt;`__</p>
+anonymized data in the required format. #foot[62]_</p>
 <p>Table 7.1: Packages and functions for reading data in <em>R</em></p>
 <table border="1" class="docutils">
 <colgroup>
@@ -7356,7 +7356,7 @@ anonymized data in the required format.` <a href="#id146"><span class="problemat
 <col width="25%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head"><a href="#id64"><span class="problematic" id="id65">**</span></a>Type/software
+<tr class="row-odd"><th class="head"><a href="#id58"><span class="problematic" id="id59">**</span></a>Type/software
 **</th>
 <th class="head"><strong>Extension</strong></th>
 <th class="head"><strong>Package</strong></th>
@@ -7375,8 +7375,7 @@ anonymized data in the required format.` <a href="#id146"><span class="problemat
 <td>read.dta()</td>
 </tr>
 <tr class="row-even"><td>STATA (v.
-13)` <a href="#id147"><span class="problematic" id="id66">[64]_</span></a> &lt;#
-foot58&gt;`__</td>
+13) [#foot64]</td>
 <td>.dta</td>
 <td><em>readstata13</em></td>
 <td>read.dta13()</td>
@@ -7448,7 +7447,7 @@ Section 7.7 on computation times).</p>
 ‘NA’, which is different to impossible values, such as division by zero
 or the log of a negative number, which are represented by the symbol
 ‘NaN’. The value ‘NA’ is used for both numeric and categorical
-variables.` <a href="#id148"><span class="problematic" id="id67">[65]_</span></a> &lt;#foot59&gt;`__ Values suppressed by the
+variables.[#foot65]_ Values suppressed by the
 localSuppression() routine are also replaced by the ‘NA’ symbol. Some
 datasets and statistical software might use different values for missing
 values, such as ‘999’ or strings. It is possible to include arguments in
@@ -7505,7 +7504,7 @@ class is described in the next section.</p>
 </div>
 <div class="section" id="objects-of-class-sdcmicroobj">
 <h2>Objects of class <em>sdcMicroObj</em><a class="headerlink" href="#objects-of-class-sdcmicroobj" title="Permalink to this headline">¶</a></h2>
-<p>The <em>sdcMicro</em> package is built around objects` <a href="#id149"><span class="problematic" id="id68">[66]_</span></a> &lt;#foot60&gt;`__ of
+<p>The <em>sdcMicro</em> package is built around objects[#foot66]_ of
 class <em>sdcMicroObj</em>, a class especially defined for the <em>sdcMicro</em>
 package. Each member of this class has a certain structure with slots
 that contain information regarding the anonymization process (see Table
@@ -7544,7 +7543,7 @@ the dataframe containing the microdata to be anonymized. The selection
 of variables is important for the risk measures that are automatically
 calculated. Furthermore, several methods are by default applied to all
 variables of one sort, e.g., microaggregation to all key
-variables.` <a href="#id150"><span class="problematic" id="id69">[67]_</span></a> &lt;#foot61&gt;`__ After selecting these variables, we can
+variables.[#foot67]_ After selecting these variables, we can
 create the <em>sdcMicro</em> object. To obtain a summary of the object, it is
 sufficient to write the name of the object.</p>
 <p>Example 7.8: Selecting variables and creating an object of class
@@ -7681,7 +7680,7 @@ risk in the risk slot.</p>
 <div class="line"><em># List names within the risk slot</em></div>
 <div class="line">names(<a class="reference external" href="mailto:sdcInitial&#37;&#52;&#48;risk">sdcInitial<span>&#64;</span>risk</a>)</div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">##</span> <span class="pre">[1]</span> <span class="pre">&quot;global&quot;</span></code><a href="#id70"><span class="problematic" id="id71">``</span></a><code class="docutils literal notranslate"><span class="pre">\</span> <span class="pre">``</span></code><code class="docutils literal notranslate"><span class="pre">&quot;individual&quot;</span></code><a href="#id72"><span class="problematic" id="id73">``</span></a><code class="docutils literal notranslate"><span class="pre">\</span> <span class="pre">``&quot;numeric&quot;</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">##</span> <span class="pre">[1]</span> <span class="pre">&quot;global&quot;</span></code><a href="#id60"><span class="problematic" id="id61">``</span></a><code class="docutils literal notranslate"><span class="pre">\</span> <span class="pre">``</span></code><code class="docutils literal notranslate"><span class="pre">&quot;individual&quot;</span></code><a href="#id62"><span class="problematic" id="id63">``</span></a><code class="docutils literal notranslate"><span class="pre">\</span> <span class="pre">``&quot;numeric&quot;</span></code></p>
 <p><em># Two ways to access the individual risk within the risk slot</em></p>
 <p><a class="reference external" href="mailto:sdcInitial&#37;&#52;&#48;risk$individual">sdcInitial<span>&#64;</span>risk$individual</a></p>
 <p><strong>get.sdcMicroObj</strong>(sdcInitial, “risk”)$individual</p>
@@ -8539,8 +8538,8 @@ on</td>
 files from 52 countries, using surveys on topics including health,
 labor, income and expenditure. By applying anonymization methods
 available in the <em>sdcMicro</em> package, at least 20 different anonymization
-scenarios` <a href="#id151"><span class="problematic" id="id74">[68]_</span></a> &lt;#foot62&gt;`__ were tested on each dataset. Most of the
-processing was done using a powerful server` <a href="#id152"><span class="problematic" id="id75">[69]_</span></a> &lt;#foot63&gt;`__ and up
+scenarios <a class="footnote-reference" href="#foot68" id="id64">[68]</a> were tested on each dataset. Most of the
+processing was done using a powerful server <a class="footnote-reference" href="#foot69" id="id65">[69]</a> and up
 to 16 – 20 processors (cores) at a time. Other processing platforms
 included a laptop and desktop computers, each using four processors.
 Computation times were significantly shorter for datasets processed on
@@ -8560,7 +8559,7 @@ amount to the time it may take to run them sequentially. The fact that
 the RAM is shared might, however, slightly reduce the gains of
 parallelization. If you want to compare the results of different methods
 on large datasets that require long computation times, using parallel
-computing can be a solution.` <a href="#id153"><span class="problematic" id="id76">[70]_</span></a> &lt;#foot64&gt;`__</p>
+computing can be a solution.[#foot70]_</p>
 <p>Appendix D zooms in on seven selected datasets from a health survey that
 were processed using the same parallelization program and anonymization
 methods. Note that the computation times in the appendix are only meant
@@ -8739,29 +8738,43 @@ for SDC process</p>
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head" colspan="5">Before</th>
-<th class="head" colspan="2"><a href="#id77"><span class="problematic" id="id78">**</span></a>After</th>
+<th class="head" colspan="2">After</th>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td><strong>In
-labor
-force</strong></td>
-<td><strong>Emplo
-yed</strong></td>
-<td><strong>Secto
-r
-A</strong></td>
-<td><strong>Secto
-r
-B</strong></td>
-<td><strong>Secto
-r
-C</strong></td>
-<td><strong>In
-labor
-force</strong></td>
-<td><strong>Emplo
-yed</strong></td>
+<tr class="row-even"><td><blockquote class="first">
+<div>In</div></blockquote>
+<p class="last">labor
+force</p>
+</td>
+<td><blockquote class="first">
+<div>Emplo</div></blockquote>
+<p class="last">yed</p>
+</td>
+<td><blockquote class="first">
+<div>Secto</div></blockquote>
+<p class="last">r
+A</p>
+</td>
+<td><blockquote class="first">
+<div>Secto</div></blockquote>
+<p class="last">r
+B</p>
+</td>
+<td><blockquote class="first">
+<div>Secto</div></blockquote>
+<p class="last">r
+C</p>
+</td>
+<td><blockquote class="first">
+<div>In</div></blockquote>
+<p class="last">labor
+force</p>
+</td>
+<td><blockquote class="first">
+<div>Emplo</div></blockquote>
+<p class="last">yed</p>
+</td>
 </tr>
 <tr class="row-odd"><td>Yes</td>
 <td>Yes</td>
@@ -9362,17 +9375,22 @@ GENDER (sex, categorical)</em></p>
 <col width="17%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head"><strong>No.</strong></th>
-<th class="head"><strong>Variabl
-e
-name</strong></th>
-<th class="head"><strong>Descrip
-tion</strong></th>
-<th class="head"><strong>Level</strong></th>
-<th class="head"><strong>Measure
-ment</strong></th>
-<th class="head"><a href="#id79"><span class="problematic" id="id80">**</span></a>Values*
-*</th>
+<tr class="row-odd"><th class="head">No.</th>
+<th class="head"><blockquote class="first">
+<div>Variabl</div></blockquote>
+<p class="last">e
+name</p>
+</th>
+<th class="head"><blockquote class="first">
+<div>Descrip</div></blockquote>
+<p class="last">tion</p>
+</th>
+<th class="head">Level</th>
+<th class="head"><blockquote class="first">
+<div>Measure</div></blockquote>
+<p class="last">ment</p>
+</th>
+<th class="head">Values</th>
 </tr>
 </thead>
 <tbody valign="top">
@@ -10878,7 +10896,7 @@ this variable. Table 9.7 shows the absolute frequencies of HHSIZE. The
 number of households for each size larger than 13 is 6 or fewer and can
 be considered outliers with a higher risk of re-identification, as
 discussed in Step 6a. One way to deal with this is to remove all
-households of size 14 or larger from the dataset` <a href="#id154"><span class="problematic" id="id81">[71]_</span></a> &lt;#foot65&gt;`__.
+households of size 14 or larger from the dataset <a class="footnote-reference" href="#foot71" id="id66">[71]</a>.
 Removing 29 households of size 14 or larger reduces the number of
 2-anonymity violations by 18, of 3-anonymity violations by 26 and of
 5-anonymity violations by 29. This means that all removed households
@@ -11315,7 +11333,7 @@ values are sufficiently far from the original values, which is measured
 with an interval measure.</p>
 <p>Example 9.20 shows how to evaluate the interval measure for each of the
 expenditure variables, which are contained in the vector
-<em>compExp</em>` <a href="#id155"><span class="problematic" id="id82">[72]_</span></a>. &lt;#foot66&gt;`__ The different values of the parameter
+<em>compExp</em> <a class="footnote-reference" href="#foot72" id="id67">[72]</a>. The different values of the parameter
 <em>k</em> in the function dRisk() define the size of the interval around the
 original value, as explained in Section 4.7.2<em>.</em> The larger <em>k</em>, the
 larger the intervals, the higher the probability that a perturbed value
@@ -11684,7 +11702,7 @@ expenditure variables. The analysis of the income variables can be done
 in the same way and leads to similar results.</p>
 <p>We look at the effect of anonymization on some indicators as discussed
 in Step 5. Table 9.11 presents the point estimates and bootstrapped
-confidence interval of the GINI coefficient` <a href="#id156"><span class="problematic" id="id83">[73]_</span></a> &lt;#foot67&gt;`__ for
+confidence interval of the GINI coefficient <a class="footnote-reference" href="#foot73" id="id68">[73]</a> for
 the sum of the expenditure components. The calculation of the GINI
 coefficient and the confidence interval are based on the positive
 expenditure values. We observe very small changes in the Gini
@@ -12129,39 +12147,54 @@ of local suppression</p>
 <col width="11%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head"><strong>Loc
-al
+<tr class="row-odd"><th class="head"><blockquote class="first">
+<div>Loc</div></blockquote>
+<p class="last">al
 suppr
 essio
 n
 optio
-ns</strong></th>
-<th class="head"><strong>GEN
-DER</strong></th>
-<th class="head"><a href="#id84"><span class="problematic" id="id85">**</span></a>REL
-**</th>
-<th class="head"><a href="#id86"><span class="problematic" id="id87">**</span></a>MAR
-ITAL*
-*</th>
-<th class="head"><strong>AGE
-YRS</strong></th>
-<th class="head"><strong>EDU
-CY</strong></th>
-<th class="head"><strong>EDY
-RSCUR
-RAT</strong></th>
-<th class="head"><a href="#id88"><span class="problematic" id="id89">**</span></a>ATS
-CHOOL
-**</th>
-<th class="head"><strong>IND
-USTRY
-1</strong></th>
+ns</p>
+</th>
+<th class="head"><blockquote class="first">
+<div>GEN</div></blockquote>
+<p class="last">DER</p>
+</th>
+<th class="head">REL</th>
+<th class="head"><blockquote class="first">
+<div>MAR</div></blockquote>
+<p class="last">ITAL</p>
+</th>
+<th class="head"><blockquote class="first">
+<div>AGE</div></blockquote>
+<p class="last">YRS</p>
+</th>
+<th class="head"><blockquote class="first">
+<div>EDU</div></blockquote>
+<p class="last">CY</p>
+</th>
+<th class="head"><blockquote class="first">
+<div>EDY</div></blockquote>
+<p class="last">RSCUR
+RAT</p>
+</th>
+<th class="head"><blockquote class="first">
+<div>ATS</div></blockquote>
+<p class="last">CHOOL</p>
+</th>
+<th class="head"><blockquote class="first">
+<div>IND</div></blockquote>
+<p class="last">USTRY
+1</p>
+</th>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td><strong>k =
-2, no
-imp</strong></td>
+<tr class="row-even"><td><blockquote class="first">
+<div>k =</div></blockquote>
+<p class="last">2, no
+imp</p>
+</td>
 <td>0</td>
 <td>34</td>
 <td>0</td>
@@ -12171,12 +12204,14 @@ imp</strong></td>
 <td>0</td>
 <td>21</td>
 </tr>
-<tr class="row-odd"><td><strong>k =
-2,
+<tr class="row-odd"><td><blockquote class="first">
+<div>k =</div></blockquote>
+<p class="last">2,
 imp
 on
 AGEYR
-S</strong></td>
+S</p>
+</td>
 <td>0</td>
 <td>323</td>
 <td>0</td>
@@ -12258,8 +12293,7 @@ tabulations in Appendix A confirm these results.</p>
 <td>Male</td>
 <td>Female</td>
 </tr>
-<tr class="row-odd"><td><strong>Befor
-e</strong></td>
+<tr class="row-odd"><td>Before</td>
 <td>72.6%</td>
 <td>74.2%</td>
 <td>70.9%</td>
@@ -12267,8 +12301,7 @@ e</strong></td>
 <td>44.8%</td>
 <td>39.1%</td>
 </tr>
-<tr class="row-even"><td><a href="#id90"><span class="problematic" id="id91">**</span></a>After
-**</td>
+<tr class="row-even"><td>After</td>
 <td>72.6%</td>
 <td>74.2%</td>
 <td>70.9%</td>
@@ -12491,17 +12524,22 @@ type, country and the dataset itself.</p>
 <col width="17%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head"><strong>No.</strong></th>
-<th class="head"><strong>Variabl
-e
-name</strong></th>
-<th class="head"><strong>Descrip
-tion</strong></th>
-<th class="head"><strong>Level</strong></th>
-<th class="head"><strong>Measure
-ment</strong></th>
-<th class="head"><a href="#id92"><span class="problematic" id="id93">**</span></a>Values*
-*</th>
+<tr class="row-odd"><th class="head">No.</th>
+<th class="head"><blockquote class="first">
+<div>Variabl</div></blockquote>
+<p class="last">e
+name</p>
+</th>
+<th class="head"><blockquote class="first">
+<div>Descrip</div></blockquote>
+<p class="last">tion</p>
+</th>
+<th class="head">Level</th>
+<th class="head"><blockquote class="first">
+<div>Measure</div></blockquote>
+<p class="last">ment</p>
+</th>
+<th class="head">Values</th>
 </tr>
 </thead>
 <tbody valign="top">
@@ -15928,15 +15966,14 @@ original data, the risk is approximately 100%.</p>
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">&#160;</th>
-<th class="head"><a href="#id94"><span class="problematic" id="id95">**</span></a>URBRUR*
-*</th>
-<th class="head"><a href="#id96"><span class="problematic" id="id97">**</span></a>REGION*
-*</th>
-<th class="head"><a href="#id98"><span class="problematic" id="id99">**</span></a>HHSIZE*
-*</th>
-<th class="head"><strong>OWNAGLA
-ND</strong></th>
-<th class="head"><strong>RELIG</strong></th>
+<th class="head">URBRUR</th>
+<th class="head">REGION</th>
+<th class="head">HHSIZE</th>
+<th class="head"><blockquote class="first">
+<div>OWNAGLA</div></blockquote>
+<p class="last">ND</p>
+</th>
+<th class="head">RELIG</th>
 </tr>
 </thead>
 <tbody valign="top">
@@ -16534,7 +16571,7 @@ Y1</dd>
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>1</td>
-<td><a href="#id100"><span class="problematic" id="id101">**</span></a>1
+<td><a href="#id69"><span class="problematic" id="id70">**</span></a>1
 **</td>
 <td>1</td>
 <td>3</td>
@@ -18873,7 +18910,7 @@ R</strong></th>
 AL</strong></th>
 <th class="head"><strong>AGEYR
 S</strong></th>
-<th class="head"><a href="#id102"><span class="problematic" id="id103">**</span></a>EDUCY
+<th class="head"><a href="#id71"><span class="problematic" id="id72">**</span></a>EDUCY
 **</th>
 <th class="head"><strong>INDUS
 TRY1</strong></th>
@@ -18940,7 +18977,7 @@ be published.</p>
 </div>
 <div class="section" id="appendix-d-execution-times-for-multiple-scenarios-tested-using-selected-sample-data">
 <h1><strong>Appendix</strong> <strong>D: Execution Times for Multiple Scenarios Tested using Selected Sample Data</strong><a class="headerlink" href="#appendix-d-execution-times-for-multiple-scenarios-tested-using-selected-sample-data" title="Permalink to this headline">¶</a></h1>
-<p><a href="#id108"><span class="problematic" id="id109">|C:\Users\thijs.benschop\AppData\Local\Microsoft\Windows\INetCache\Content.Word\AppendixD_ExecutionTimes-1.png|</span></a></p>
+<p><a href="#id77"><span class="problematic" id="id78">|C:\Users\thijs.benschop\AppData\Local\Microsoft\Windows\INetCache\Content.Word\AppendixD_ExecutionTimes-1.png|</span></a></p>
 <p><strong>Description of anonymization scenarios</strong><a class="reference internal" href="_images/image23.png"><img alt="image22" src="_images/image23.png" style="width: 6.5in; height: 6.53056in;" /></a></p>
 </div>
 <div class="section" id="bibliography">
@@ -19108,7 +19145,7 @@ Science &amp; Business Media.</p>
 <table class="docutils footnote" frame="void" id="foot10" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label">[10]</td><td>Australian Bureau of Statistics,
+<tr><td class="label"><a class="fn-backref" href="#id4">[10]</a></td><td>Australian Bureau of Statistics,
 <a class="reference external" href="http://www.nss.gov.au/nss/home.nsf/pages/Confidentiality+-+Glossary">http://www.nss.gov.au/nss/home.nsf/pages/Confidentiality+-+Glossary</a></td></tr>
 </tbody>
 </table>
@@ -19121,7 +19158,7 @@ Science &amp; Business Media.</p>
 <table class="docutils footnote" frame="void" id="foot12" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label">[12]</td><td>OECD, <a class="reference external" href="http://stats.oecd.org/glossary">http://stats.oecd.org/glossary</a></td></tr>
+<tr><td class="label"><a class="fn-backref" href="#id8">[12]</a></td><td>OECD, <a class="reference external" href="http://stats.oecd.org/glossary">http://stats.oecd.org/glossary</a></td></tr>
 </tbody>
 </table>
 <table class="docutils footnote" frame="void" id="foot13" rules="none">
@@ -19262,7 +19299,7 @@ assumptions assume a worst-case scenario.</td></tr>
 <table class="docutils footnote" frame="void" id="foot27" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label">[27]</td><td>See Section 7.5 for more information on slots and the <em>sdcMicro</em>
+<tr><td class="label"><a class="fn-backref" href="#id25">[27]</a></td><td>See Section 7.5 for more information on slots and the <em>sdcMicro</em>
 object structure.</td></tr>
 </tbody>
 </table>
@@ -19300,7 +19337,7 @@ argument will automatically be used to compute <span class="math notranslate noh
 <table class="docutils footnote" frame="void" id="foot31" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label">[31]</td><td>There are more combinations of quasi-identifiers that make record 5
+<tr><td class="label"><a class="fn-backref" href="#id31">[31]</a></td><td>There are more combinations of quasi-identifiers that make record 5
 unique (e.g., {‘Rural’, ‘Female’} and {‘Female’, ‘Secondary
 Complete’, ‘Unemployed’}. These combinations, however, are not
 considered MSUs because they do not fulfill the <strong>minimal</strong> subset
@@ -19310,13 +19347,13 @@ requirement. They contain subsets that are MSUs.</td></tr>
 <table class="docutils footnote" frame="void" id="foot32" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label">[32]</td><td>OECD, <a class="reference external" href="http://stats.oecd.org/glossary">http://stats.oecd.org/glossary</a></td></tr>
+<tr><td class="label"><a class="fn-backref" href="#id32">[32]</a></td><td>OECD, <a class="reference external" href="http://stats.oecd.org/glossary">http://stats.oecd.org/glossary</a></td></tr>
 </tbody>
 </table>
 <table class="docutils footnote" frame="void" id="foot33" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label">[33]</td><td>The third record has one MSU, {‘Primary incomplete’}; the seventh
+<tr><td class="label"><a class="fn-backref" href="#id33">[33]</a></td><td>The third record has one MSU, {‘Primary incomplete’}; the seventh
 record has one MSU, {‘Primary complete’}; and the eighth record has
 three MSUs, {‘Urban, Unemployed’}, {‘Male, Unemployed’} and
 {‘Post-secondary’}.</td></tr>
@@ -19325,14 +19362,14 @@ three MSUs, {‘Urban, Unemployed’}, {‘Male, Unemployed’} and
 <table class="docutils footnote" frame="void" id="foot34" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label">[34]</td><td>We also show code examples in <em>R,</em> which are drawn from findings we
+<tr><td class="label"><a class="fn-backref" href="#id34">[34]</a></td><td>We also show code examples in <em>R,</em> which are drawn from findings we
 gathered by applying these methods to a large collection of datasets.</td></tr>
 </tbody>
 </table>
 <table class="docutils footnote" frame="void" id="foot35" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label">[35]</td><td>Here the <em>sdcMicro</em> object “sdcIntial“ contains a dataset with 2,500
+<tr><td class="label"><a class="fn-backref" href="#id35">[35]</a></td><td>Here the <em>sdcMicro</em> object “sdcIntial“ contains a dataset with 2,500
 individuals and 103 variables. We selected five quasi-identifiers:
 “sizeRes”, “age”, “gender”, “region”, and “ethnicity”.</td></tr>
 </tbody>
@@ -19340,7 +19377,7 @@ individuals and 103 variables. We selected five quasi-identifiers:
 <table class="docutils footnote" frame="void" id="foot36" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label">[36]</td><td>This approach works only for semi-continuous variables, because in
+<tr><td class="label"><a class="fn-backref" href="#id36">[36]</a></td><td>This approach works only for semi-continuous variables, because in
 the case of continuous variables, there might be values that are
 between the lower interval boundary and the lower interval boundary
 minus the small number. For example, using this for income, we would
@@ -19358,14 +19395,14 @@ code.</td></tr>
 <table class="docutils footnote" frame="void" id="foot38" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label">[38]</td><td>In <em>R</em> suppressed values are recoded NA, the standard missing value
+<tr><td class="label"><a class="fn-backref" href="#id37">[38]</a></td><td>In <em>R</em> suppressed values are recoded NA, the standard missing value
 code.</td></tr>
 </tbody>
 </table>
 <table class="docutils footnote" frame="void" id="foot39" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label">[39]</td><td>Here the <em>sdcMicro</em> object “sdcIntial“ contains a dataset with 2,500
+<tr><td class="label"><a class="fn-backref" href="#id38">[39]</a></td><td>Here the <em>sdcMicro</em> object “sdcIntial“ contains a dataset with 2,500
 individuals and 103 variables. We selected five quasi-identifiers:
 “sizeRes”, “age”, “gender”, “region”, and “ethnicity”.</td></tr>
 </tbody>
@@ -19373,19 +19410,19 @@ individuals and 103 variables. We selected five quasi-identifiers:
 <table class="docutils footnote" frame="void" id="foot40" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label">[40]</td><td>This can be assessed with utility measures.</td></tr>
+<tr><td class="label"><a class="fn-backref" href="#id39">[40]</a></td><td>This can be assessed with utility measures.</td></tr>
 </tbody>
 </table>
 <table class="docutils footnote" frame="void" id="foot41" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label">[41]</td><td>I2D2 is a dataset with data related to the labor market.</td></tr>
+<tr><td class="label"><a class="fn-backref" href="#id40">[41]</a></td><td>I2D2 is a dataset with data related to the labor market.</td></tr>
 </tbody>
 </table>
 <table class="docutils footnote" frame="void" id="foot42" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label">[42]</td><td>The 5,045 is the expectation computed as 5,000 * 1 + 500 * 0.05 +
+<tr><td class="label"><a class="fn-backref" href="#id41">[42]</a></td><td>The 5,045 is the expectation computed as 5,000 * 1 + 500 * 0.05 +
 400 * 0.05.</td></tr>
 </tbody>
 </table>
@@ -19401,7 +19438,7 @@ eigenvalue.</td></tr>
 <table class="docutils footnote" frame="void" id="foot44" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label">[44]</td><td>In this example and the following examples in this section, the
+<tr><td class="label"><a class="fn-backref" href="#id42">[44]</a></td><td>In this example and the following examples in this section, the
 <em>sdcMicro</em> object “sdcIntial“ contains a dataset with 2,000
 individuals and 39 variables. We selected five categorical
 quasi-identifiers and 9 variables for PRAM: “ROOF”, “TOILET”,
@@ -19414,7 +19451,7 @@ purposes.</td></tr>
 <table class="docutils footnote" frame="void" id="foot45" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label">[45]</td><td>The PRAM method in <em>sdcMicro</em> sometimes produces the following
+<tr><td class="label"><a class="fn-backref" href="#id43">[45]</a></td><td>The PRAM method in <em>sdcMicro</em> sometimes produces the following
 error: Error in factor(xpramed, labels = lev) : invalid ‘labels’;
 length 6 should be 1 or 5. Under some circumstances, changing the
 seed can solve this error.</td></tr>
@@ -19423,7 +19460,7 @@ seed can solve this error.</td></tr>
 <table class="docutils footnote" frame="void" id="foot46" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label">[46]</td><td>This can also be achieved with multidimensional transition matrices.
+<tr><td class="label"><a class="fn-backref" href="#id44">[46]</a></td><td>This can also be achieved with multidimensional transition matrices.
 In that case, the probability is not specified for ‘male’ -&gt;
 ‘female’, but for ‘male’ + ‘rural’ -&gt; ‘female’ + ‘rural’ and for
 ‘male’ + ‘urban’ -&gt; ‘female’ + ‘urban’. This is not implemented in
@@ -19444,7 +19481,7 @@ ordinal variables.</td></tr>
 <table class="docutils footnote" frame="void" id="foot48" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label">[48]</td><td>Here all groups can have different sizes (i.e., number of
+<tr><td class="label"><a class="fn-backref" href="#id45">[48]</a></td><td>Here all groups can have different sizes (i.e., number of
 individuals in a group). In practice, the search for homogeneous
 groups is simplified by imposing equal group sizes for all groups.</td></tr>
 </tbody>
@@ -19452,7 +19489,7 @@ groups is simplified by imposing equal group sizes for all groups.</td></tr>
 <table class="docutils footnote" frame="void" id="foot49" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label">[49]</td><td>In this example and the following examples in this section, the
+<tr><td class="label"><a class="fn-backref" href="#id46">[49]</a></td><td>In this example and the following examples in this section, the
 <em>sdcMicro</em> object “sdcIntial“ contains a dataset with 2,000
 individuals and 39 variables. We selected five categorical
 quasi-identifiers and three continuous quasi-identifiers: “INC”,
@@ -19462,7 +19499,7 @@ quasi-identifiers and three continuous quasi-identifiers: “INC”,
 <table class="docutils footnote" frame="void" id="foot50" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label">[50]</td><td>Also the homogeneity in the groups will be generally lower, leading
+<tr><td class="label"><a class="fn-backref" href="#id47">[50]</a></td><td>Also the homogeneity in the groups will be generally lower, leading
 to larger changes, higher protection, but also more information loss,
 unless the strata variable correlates with the microaggregation
 variable.</td></tr>
@@ -19471,7 +19508,7 @@ variable.</td></tr>
 <table class="docutils footnote" frame="void" id="foot51" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label">[51]</td><td>Common values for <span class="math notranslate nohighlight">\(\alpha\)</span> are between 0.5 and 2. The default
+<tr><td class="label"><a class="fn-backref" href="#id48">[51]</a></td><td>Common values for <span class="math notranslate nohighlight">\(\alpha\)</span> are between 0.5 and 2. The default
 value in the <em>sdcMicro</em> function addNoise() is 150, which is too
 large for most datasets; the level of noise should be set in the
 argument ‘noise’.</td></tr>
@@ -19480,7 +19517,7 @@ argument ‘noise’.</td></tr>
 <table class="docutils footnote" frame="void" id="foot52" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label">[52]</td><td>In this example and the following examples in this section, the
+<tr><td class="label"><a class="fn-backref" href="#id49">[52]</a></td><td>In this example and the following examples in this section, the
 <em>sdcMicro</em> object “sdcIntial“ contains a dataset with 2,000
 individuals and 39 variables. We selected five categorical
 quasi-identifiers and 12 continuous quasi-identifiers. These are the
@@ -19492,7 +19529,7 @@ expenditure components “TFOODEXP”, “TALCHEXP”, “TCLTHEXP”,
 <table class="docutils footnote" frame="void" id="foot53" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label">[53]</td><td>The Shapiro-Wilk test is implemented in the function shapiro.test()
+<tr><td class="label"><a class="fn-backref" href="#id50">[53]</a></td><td>The Shapiro-Wilk test is implemented in the function shapiro.test()
 from the package <em>stats</em> in <em>R</em>. The Jarque-Bera test has several
 implementations in <em>R</em>, for example, in the function
 jarque.bera.test() from the package <em>tseries</em>.</td></tr>
@@ -19501,7 +19538,7 @@ jarque.bera.test() from the package <em>tseries</em>.</td></tr>
 <table class="docutils footnote" frame="void" id="foot54" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label">[54]</td><td>In <em>sdcMicro</em>, there are several other methods for shuffling
+<tr><td class="label"><a class="fn-backref" href="#id51">[54]</a></td><td>In <em>sdcMicro</em>, there are several other methods for shuffling
 implemented, including ‘ds’, ‘mvn’ and ‘mlm’. See the Help option for
 the shuffle function in <em>sdcMicro</em> for details on methods ‘ds’, ‘mvm’
 and ‘mlm’.</td></tr>
@@ -19510,7 +19547,7 @@ and ‘mlm’.</td></tr>
 <table class="docutils footnote" frame="void" id="foot55" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label">[55]</td><td>Even if the dataset does not contain an explicit variable with
+<tr><td class="label"><a class="fn-backref" href="#id52">[55]</a></td><td>Even if the dataset does not contain an explicit variable with
 household size, this information can be easily extracted from the
 data and should be taken into account. Section 7.6 shows how to
 create a variable “household size” based on the household IDs.</td></tr>
@@ -19519,7 +19556,7 @@ create a variable “household size” based on the household IDs.</td></tr>
 <table class="docutils footnote" frame="void" id="foot56" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label">[56]</td><td>More information on census microdata at ONS is available on their
+<tr><td class="label"><a class="fn-backref" href="#id53">[56]</a></td><td>More information on census microdata at ONS is available on their
 website:
 <a class="reference external" href="http://www.ons.gov.uk/ons/guide-method/census/2011/census-data/census-microdata/index.html">http://www.ons.gov.uk/ons/guide-method/census/2011/census-data/census-microdata/index.html</a></td></tr>
 </tbody>
@@ -19535,7 +19572,7 @@ the website of the U.S. Census Bureau:
 <table class="docutils footnote" frame="void" id="foot58" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label">[58]</td><td>It is possible to release data files for different groups of users,
+<tr><td class="label"><a class="fn-backref" href="#id54">[58]</a></td><td>It is possible to release data files for different groups of users,
 e.g., PUF and SUF. All information in the less detailed file,
 however, must also be included in the more detailed file to prevent
 unintended disclosure. Datasets released in data enclaves can be
@@ -19566,7 +19603,7 @@ they encounter. One particularly useful site is stackoverflow.com.</td></tr>
 <table class="docutils footnote" frame="void" id="foot61" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label">[61]</td><td>A dataframe is an object class in <em>R</em>, which is similar to a data
+<tr><td class="label"><a class="fn-backref" href="#id57">[61]</a></td><td>A dataframe is an object class in <em>R</em>, which is similar to a data
 table or matrix.</td></tr>
 </tbody>
 </table>
@@ -19623,14 +19660,14 @@ and allow for object-oriented programming.</td></tr>
 <table class="docutils footnote" frame="void" id="foot68" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label">[68]</td><td>Here a scenario refers to a combination of SDC methods and their
+<tr><td class="label"><a class="fn-backref" href="#id64">[68]</a></td><td>Here a scenario refers to a combination of SDC methods and their
 parameters.</td></tr>
 </tbody>
 </table>
 <table class="docutils footnote" frame="void" id="foot69" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label">[69]</td><td>The server has 512 GB RAM and four processors each with 16 cores,
+<tr><td class="label"><a class="fn-backref" href="#id65">[69]</a></td><td>The server has 512 GB RAM and four processors each with 16 cores,
 translating to 64 cores total.</td></tr>
 </tbody>
 </table>
@@ -19647,14 +19684,14 @@ is not further presented.</strong></td></tr>
 <table class="docutils footnote" frame="void" id="foot71" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label">[71]</td><td>Other methods and guidance on treating datasets where household size
+<tr><td class="label"><a class="fn-backref" href="#id66">[71]</a></td><td>Other methods and guidance on treating datasets where household size
 is a quasi-identifier are discussed in Section 5.5.</td></tr>
 </tbody>
 </table>
 <table class="docutils footnote" frame="void" id="foot72" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label">[72]</td><td>For illustrative purposes, we only show this evaluation for the
+<tr><td class="label"><a class="fn-backref" href="#id67">[72]</a></td><td>For illustrative purposes, we only show this evaluation for the
 expenditure variables. It can be easily copied for the income
 variables. The results are similar.</td></tr>
 </tbody>
@@ -19662,7 +19699,7 @@ variables. The results are similar.</td></tr>
 <table class="docutils footnote" frame="void" id="foot73" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label">[73]</td><td>To compute the GINI coefficient, bootstrap to construct the
+<tr><td class="label"><a class="fn-backref" href="#id68">[73]</a></td><td>To compute the GINI coefficient, bootstrap to construct the
 confidence intervals and plot the Lorenz curve we used the <em>R</em>
 packages <em>laeken, reldist, bootstrap</em> and <em>ineq</em>.</td></tr>
 </tbody>
