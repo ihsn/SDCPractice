@@ -1,0 +1,3274 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Anonymization Methods &mdash; Readthedocs  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Measuring Utility and Information Loss" href="utility.html" />
+    <link rel="prev" title="Measuring Risk" href="measure_risk.html" /> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Readthedocs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Practice guide</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="glossary_acr.html">Glossary and list of acronyms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SDC_intro.html">Statistical Disclosure Control (SDC): An Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="measure_risk.html">Measuring Risk</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Anonymization Methods</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#classification-of-sdc-methods">Classification of SDC methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#non-perturbative-methods">Non-perturbative methods</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#recoding">Recoding</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#global-recoding">Global recoding</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#top-and-bottom-coding">Top and bottom coding</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rounding">Rounding</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#local-suppression">Local suppression</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#perturbative-methods">Perturbative methods</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#pram-post-randomization-method">PRAM (Post RAndomization Method)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#microaggregation">Microaggregation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#noise-addition">Noise addition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rank-swapping">Rank swapping</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#shuffling">Shuffling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#comparison-of-pram-rank-swapping-and-shuffling">Comparison of PRAM, rank swapping and shuffling</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#anonymization-of-geospatial-variables">Anonymization of geospatial variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#anonymization-of-the-quasi-identifier-household-size">Anonymization of the quasi-identifier household size</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#special-case-census-data">Special case: census data</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="utility.html">Measuring Utility and Information Loss</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sdcMicro.html">SDC with <em>sdcMicro</em> in <em>R</em>: Setting Up Your Data and more</a></li>
+<li class="toctree-l1"><a class="reference internal" href="process.html">The SDC Process</a></li>
+<li class="toctree-l1"><a class="reference internal" href="appendices.html">Appendices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bibliography.html"><strong>Bibliography</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="lists.html">Lists</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Case studies</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="case_studies.html">Case Study (Illustrating the SDC Process)</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Readthedocs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Anonymization Methods</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/anon_methods.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="anonymization-methods">
+<h1>Anonymization Methods<a class="headerlink" href="#anonymization-methods" title="Permalink to this headline">¶</a></h1>
+<p>This chapter describes the SDC methods most commonly used. All methods
+are implementable in <em>R</em> by using the <em>sdcMicro</em> package. We discuss for
+every method for what type of data the method is suitable, both in terms
+of data characteristics and type of data. Furthermore, options such as
+specific parameters for each method are discussed as well as their
+impacts. <a class="footnote-reference" href="#foot34" id="id1">[1]</a> These findings are meant as guidance but
+should be used with caution, since every dataset has different
+characteristics and our findings may not always address your particular
+dataset. The last three sections of this chapter are on the
+anonymization of variables and datasets with particular characteristics
+that deserve special attention. Section 5.4 deals with for anonymizing
+geographical data, such as GPS coordinates, Section 5.5 discusses the
+anonymization of data with a hierarchical structure (household
+structure) and Section 5.6 describes the peculiarities of dealing with
+and releasing census microdata.</p>
+<p>To determine which anonymization methods are suitable for specific
+variables and/or datasets, we begin by presenting some classifications
+of SDC methods.</p>
+<div class="section" id="classification-of-sdc-methods">
+<h2>Classification of SDC methods<a class="headerlink" href="#classification-of-sdc-methods" title="Permalink to this headline">¶</a></h2>
+<p>SDC methods can be classified as <strong>non-perturbative</strong> and
+<strong>perturbative</strong> (see Hundepool et al., 2012).</p>
+<ul>
+<li><p class="first"><strong>Non-perturbative methods</strong> reduce the detail in the data by
+generalization or suppression of certain values (i.e., masking)
+without distorting the data structure.</p>
+</li>
+<li><p class="first"><strong>Perturbative methods</strong> do not suppress values in the dataset but
+perturb (i.e., alter) values to limit disclosure risk by creating
+uncertainty around the true values.</p>
+<p>Both non-perturbative and perturbative methods can be used for
+categorical and continuous variables.</p>
+</li>
+</ul>
+<p>We also distinguish between <strong>probabilistic</strong> and <strong>deterministic</strong> SDC
+methods.</p>
+<ul class="simple">
+<li><strong>Probabilistic methods</strong> depend on a probability mechanism or a
+random number-generating mechanism. Every time a probabilistic method
+is used, a different outcome is generated. For these methods it is
+often recommended that a seed be set for the random number generator
+if you want to produce replicable results.</li>
+<li><strong>Deterministic methods</strong> follow a certain algorithm and produce the
+same results if applied repeatedly to the same data with the same set
+of parameters.</li>
+</ul>
+<p>SDC methods for microdata intend to prevent identity and attribute
+disclosure. Different SDC methods are used for each type of disclosure
+control. Methods such as recoding and suppression are applied to
+quasi-identifiers to prevent identity disclosure, whereas top coding a
+quasi-identifier (e.g., income) or perturbing a sensitive variable
+prevent attribute disclosure.</p>
+<p>As this practice guide is written around the use of the <em>sdcMicro</em>
+package, we discuss only SDC methods that are implemented in the
+<em>sdcMicro</em> package or can be easily implemented in <em>R</em>. These are the
+most commonly applied methods from the literature and used in most
+agencies experienced in using these methods. Table 5.1 gives an overview
+of the SDC methods discussed in this chapter, their classification,
+types of data to which they are applicable and their function names in
+the <em>sdcMicro</em> package.</p>
+<p>Table 5.1: SDC methods and corresponding functions in <em>sdcMicro</em></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Method</th>
+<th class="head"><blockquote class="first">
+<div>Classificatio</div></blockquote>
+<p class="last">n
+of SDC method</p>
+</th>
+<th class="head">Data-type</th>
+<th class="head"><blockquote class="first">
+<div>Function in</div></blockquote>
+<p class="last">sdcMicro</p>
+</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Global recoding</td>
+<td>non-perturbativ
+e,
+deterministic</td>
+<td>continuous and
+categorical</td>
+<td><p class="first"><a href="#id23"><span class="problematic" id="id24">`globalRecode &lt;
+http://www.rdoc
+umentation.org/
+packages/sdcMic
+ro/functions/gl
+obalRecode&gt;`__</span></a></p>
+<blockquote>
+<div>(),</div></blockquote>
+<p class="last"><a class="reference external" href="http://www.rdocumentation.org/packages/sdcMicro/functions/groupVars-methods">groupVars</a>
+_()</p>
+</td>
+</tr>
+<tr class="row-odd"><td>Top and bottom
+coding</td>
+<td>non-perturbativ
+e,
+deterministic</td>
+<td>continuous and
+categorical</td>
+<td><p class="first"><a href="#id23"><span class="problematic" id="id25">`topBotCoding &lt;
+http://www.rdoc
+umentation.org/
+packages/sdcMic
+ro/functions/to
+pBotCoding&gt;`__</span></a></p>
+<blockquote class="last">
+<div>()</div></blockquote>
+</td>
+</tr>
+<tr class="row-even"><td>Local
+suppression</td>
+<td>non-perturbativ
+e,
+deterministic</td>
+<td>categorical</td>
+<td><a class="reference external" href="http://www.rdocumentation.org/packages/sdcMicro/functions/localSuppression">localSuppressi
+on</a>(),
+localSupp()</td>
+</tr>
+<tr class="row-odd"><td>PRAM</td>
+<td>perturbative,
+probabilistic</td>
+<td>categorical</td>
+<td><a class="reference external" href="http://www.rdocumentation.org/packages/sdcMicro/functions/pram">pram</a>()</td>
+</tr>
+<tr class="row-even"><td>Micro
+aggregation</td>
+<td>perturbative,
+deterministic</td>
+<td>continuous</td>
+<td><a class="reference external" href="http://www.rdocumentation.org/packages/sdcMicro/functions/microaggregation">microaggregati
+on</a>()</td>
+</tr>
+<tr class="row-odd"><td>Noise addition</td>
+<td>perturbative,
+probabilistic</td>
+<td>continuous</td>
+<td><a class="reference external" href="http://www.rdocumentation.org/packages/sdcMicro/functions/addNoise">addNoise</a>()</td>
+</tr>
+<tr class="row-even"><td>Shuffling</td>
+<td>perturbative,
+probabilistic</td>
+<td>continuous</td>
+<td><a href="#id23"><span class="problematic" id="id26">`shuffle &lt;http:
+//www.rdocument
+ation.org/packa
+ges/sdcMicro/fu
+nctions/shuffle
+&gt;`__</span></a>()</td>
+</tr>
+<tr class="row-odd"><td>Rank swapping</td>
+<td>perturbative,
+probabilistic</td>
+<td>continuous</td>
+<td><a class="reference external" href="http://www.rdocumentation.org/packages/sdcMicro/functions/rankSwap">rankSwap</a>()</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="non-perturbative-methods">
+<h2>Non-perturbative methods<a class="headerlink" href="#non-perturbative-methods" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="recoding">
+<h3>Recoding<a class="headerlink" href="#recoding" title="Permalink to this headline">¶</a></h3>
+<p>Recoding is a deterministic method used to decrease the number of
+distinct categories or values for a variable. This is done by combining
+or grouping categories for categorical variables or constructing
+intervals for continuous variables. Recoding is applied to all
+observations of a certain variable and not only to those at risk of
+disclosure. There are two general types of recoding: global recoding and
+top and bottom coding.</p>
+<div class="section" id="global-recoding">
+<h4>Global recoding<a class="headerlink" href="#global-recoding" title="Permalink to this headline">¶</a></h4>
+<p>Global recoding combines several categories of a categorical variable or
+constructs intervals for continuous variables. This reduces the number
+of categories available in the data and potentially the disclosure risk,
+especially for categories with few observations, but also, importantly,
+it reduces the level of detail of information available to the analyst.
+To illustrate recoding, we use the following example. Assume that we
+have five regions in our dataset. Some regions are very small and when
+combined with other key variables in the dataset, produce high
+re-identification risk for some individuals in those regions. One way to
+reduce risk would be to combine some of the regions by recoding them. We
+could, for example, make three groups out of the five, call them
+‘North’, ‘Central’ and ‘South’ and re-label the values accordingly. This
+reduces the number of categories in the variable region from five to
+three. <strong>NOTE: Any grouping should be some logical grouping and not a
+random joining of categories.</strong> Examples would be grouping districts
+into provinces, municipalities into districts, or clean water categories
+together. Grouping all small regions without geographical proximity
+together is not necessarily the best option from the utility
+perspective. Table 5.2 illustrates this with a very simplified example
+dataset. Before recoding, three individuals have distinct keys, whereas
+after recoding (grouping ‘Region 1’ and ‘Region 2’ into ‘North’, ‘Region
+3’ into ‘Central’ and ‘Region 4’ and ‘Region 5’ into ‘South’), the
+number of distinct keys is reduced to four and the frequency of every
+key is at least two, based on the three selected quasi-identifiers. The
+frequency counts of the keys <span class="math notranslate nohighlight">\(f_{k}\)</span> are shown in the last column
+of Table 5.2. An intruder would find at least two individuals for each
+key and cannot distinguish any more between individuals 1 – 3,
+individuals 4 and 6, individuals 5 and 7 and individuals 8 – 10, based
+on the selected key variables.</p>
+<p>Table 5.2: Illustration of effect of recoding on frequency counts of
+keys</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="30%" />
+<col width="14%" />
+<col width="14%" />
+<col width="17%" />
+<col width="24%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head" colspan="5">Before recoding</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><em>Individual</em></td>
+<td><em>Region</em></td>
+<td><em>Gender</em></td>
+<td><em>Religion</em></td>
+<td>f_k</td>
+</tr>
+<tr class="row-odd"><td>1</td>
+<td>Region 1</td>
+<td>Female</td>
+<td>Catholic</td>
+<td>1</td>
+</tr>
+<tr class="row-even"><td>2</td>
+<td>Region 2</td>
+<td>Female</td>
+<td>Catholic</td>
+<td>2</td>
+</tr>
+<tr class="row-odd"><td>3</td>
+<td>Region 2</td>
+<td>Female</td>
+<td>Catholic</td>
+<td>2</td>
+</tr>
+<tr class="row-even"><td>4</td>
+<td>Region 3</td>
+<td>Female</td>
+<td>Protestant</td>
+<td>2</td>
+</tr>
+<tr class="row-odd"><td>5</td>
+<td>Region 3</td>
+<td>Male</td>
+<td>Protestant</td>
+<td>1</td>
+</tr>
+<tr class="row-even"><td>6</td>
+<td>Region 3</td>
+<td>Female</td>
+<td>Protestant</td>
+<td>2</td>
+</tr>
+<tr class="row-odd"><td>7</td>
+<td>Region 3</td>
+<td>Male</td>
+<td>Protestant</td>
+<td>2</td>
+</tr>
+<tr class="row-even"><td>8</td>
+<td>Region 4</td>
+<td>Male</td>
+<td>Muslim</td>
+<td>2</td>
+</tr>
+<tr class="row-odd"><td>9</td>
+<td>Region 4</td>
+<td>Male</td>
+<td>Muslim</td>
+<td>2</td>
+</tr>
+<tr class="row-even"><td>10</td>
+<td>Region 5</td>
+<td>Male</td>
+<td>Muslim</td>
+<td>1</td>
+</tr>
+<tr class="row-odd"><td colspan="5">After recoding</td>
+</tr>
+<tr class="row-even"><td><em>Individual</em></td>
+<td><em>Region</em></td>
+<td><em>Gender</em></td>
+<td><em>Religion</em></td>
+<td>f_k</td>
+</tr>
+<tr class="row-odd"><td>1</td>
+<td>North</td>
+<td>Female</td>
+<td>Catholic</td>
+<td>3</td>
+</tr>
+<tr class="row-even"><td>2</td>
+<td>North</td>
+<td>Female</td>
+<td>Catholic</td>
+<td>3</td>
+</tr>
+<tr class="row-odd"><td>3</td>
+<td>North</td>
+<td>Female</td>
+<td>Catholic</td>
+<td>3</td>
+</tr>
+<tr class="row-even"><td>4</td>
+<td>Central</td>
+<td>Female</td>
+<td>Protestant</td>
+<td>2</td>
+</tr>
+<tr class="row-odd"><td>5</td>
+<td>Central</td>
+<td>Male</td>
+<td>Protestant</td>
+<td>2</td>
+</tr>
+<tr class="row-even"><td>6</td>
+<td>Central</td>
+<td>Female</td>
+<td>Protestant</td>
+<td>2</td>
+</tr>
+<tr class="row-odd"><td>7</td>
+<td>Central</td>
+<td>Male</td>
+<td>Protestant</td>
+<td>2</td>
+</tr>
+<tr class="row-even"><td>8</td>
+<td>South</td>
+<td>Male</td>
+<td>Muslim</td>
+<td>3</td>
+</tr>
+<tr class="row-odd"><td>9</td>
+<td>South</td>
+<td>Male</td>
+<td>Muslim</td>
+<td>3</td>
+</tr>
+<tr class="row-even"><td>10</td>
+<td>South</td>
+<td>Male</td>
+<td>Muslim</td>
+<td>3</td>
+</tr>
+</tbody>
+</table>
+<p>Recoding is commonly the first step in an anonymization process. It can
+be used to reduce the number of unique combinations of values of key
+variables. This generally increases the frequency counts for most keys
+and reduces the risk of disclosure. The reduction in the number of
+possible combinations is illustrated in Table 5.3 with the
+quasi-identifiers “region”, “marital status” and “age”. Table 5.3 shows
+the number of categories of each variable and the number of
+theoretically possible combinations, which is the product of the number
+of categories of each quasi-identifier, before and after recoding. “Age”
+is interpreted as a semi-continuous variable and treated as a
+categorical variable. The number of possible combinations and hence the
+risk for re-identification are reduced greatly by recoding. One should
+bear in mind that the number of possible combinations is a theoretical
+number; in practice, these may include very unlikely combinations such
+as age = 3 and marital status = widow and the actual number of
+combinations in a dataset may be lower.</p>
+<p>Table 5.3: Illustration of the effect of recoding on the theoretically
+possible number of combinations an a dataset</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head"><blockquote class="first">
+<div>Number of</div></blockquote>
+<p class="last">categories</p>
+</th>
+<th class="head">Region</th>
+<th class="head"><blockquote class="first">
+<div>Marital</div></blockquote>
+<p class="last">status</p>
+</th>
+<th class="head">Age</th>
+<th class="head"><blockquote class="first">
+<div>Possible</div></blockquote>
+<p class="last">combination
+s</p>
+</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>before
+recoding</td>
+<td>20</td>
+<td>8</td>
+<td>100</td>
+<td>16,000</td>
+</tr>
+<tr class="row-odd"><td>after
+recoding</td>
+<td>6</td>
+<td>6</td>
+<td>15</td>
+<td>540</td>
+</tr>
+</tbody>
+</table>
+<p>The main parameters for global recoding are the size of the new groups,
+as well as defining which values are grouped together in new categories.
+<strong>NOTE: Care should be taken to choose new categories in line with the
+data use of the end users and to minimize information loss as a result
+of recoding.</strong> We illustrate this with three examples:</p>
+<ul class="simple">
+<li>Age variable: The categories of age should be chosen so that they
+still allow data users to make calculations relevant for the subject
+being studied. For example, if indicators need to be calculated for
+children of school going ages 6 – 11 and 12 – 17, and age needs to be
+grouped to reduce risk, then care should be taken to create age
+intervals that still allow the calculations to be made. A
+satisfactory grouping could be, for example, 0 – 5, 6 – 11, 12 – 17,
+etc., whereas a grouping 0 – 10, 11 – 15, 16 – 18 would destroy the
+data utility for these users. While it is common practice to create
+intervals (groups) of equal width (size), it is also possible (if
+data users require this) to recode only part of the variables and
+leave some values as they were originally. This could be done, for
+example, by recoding all ages above 20, but leaving those below 20 as
+they are. If SDC methods other than recoding will be used later or in
+a next step, then care should be taken when applying recoding to only
+part of the distribution, as this might increase the information loss
+due to the other methods, since the grouping does not protect the
+ungrouped variables. Partial recoding followed by suppression methods
+such as local suppression may, for instance, leads to a higher number
+of suppressions than desired or necessary in case the recoding is
+done for the entire value range (see the next section on local
+suppression). In the example above, the number of suppressions of
+values below 20 will likely be higher than for values in the recoded
+range. The disproportionately high number of suppressions in this
+range of values that are not recoded can lead to higher utility loss
+for these groups.</li>
+<li>Geographic variables: If the original data specify administrative
+level information in detail, e.g., down to municipality level, then
+potentially those lower levels could be recoded or aggregated into
+higher administrative levels, e.g., province, to reduce risk. In
+doing so, the following should be noted: Grouping municipalities into
+abstract levels that intersect different provinces would make data
+analysis at the municipal or provincial level challenging. Care
+should be taken to understand what the user requires and the
+intention of the study. If a key component of the survey is to
+conduct analysis at the municipal level, then aggregating up to
+provincial level could damage the utility of the data for the user.
+Recoding should be applied if the level of detail in the data is not
+necessary for most data users and to avoid an extensive number of
+suppressions when using other SDC methods subsequently. If the users
+need information at a more detailed level, other methods such as
+perturbative methods might provide a better solution than recoding.</li>
+<li>Toilet facility: An example of a situation where a high level of
+detail might not be necessary and recoding may do very little harm to
+utility is the case of a detailed household toilet facility variable
+that lists responses for 20 types of toilets. Researchers may only
+need to distinguish between improved and unimproved toilet facilities
+and may not require the exact classification of up to 20 types.
+Detailed information of toilet types can be used to re-identify
+households, while recoding to two categories – improved and
+unimproved facilities – reduces the re-identification risk and in
+this context, hardly reduces data utility. This approach can be
+applied to any variable with many categories where data users are not
+interested in detail, but rather in some aggregate categories.
+Recoding addresses aggregation for the data users and at the same
+time protects the microdata. Important is to take stock of the
+aggregations used by data users.</li>
+</ul>
+<p>Recoding should be applied only if removing the detailed information in
+the data will not harm most data users. If the users need information at
+a more detailed level, then recoding is not appropriate and other
+methods such as perturbative methods might work better.</p>
+<p>In <em>sdcMicro</em> there are different options for global recoding. In the
+following paragraphs, we give examples of global recoding with the
+functions groupVars() and globalRecode(). The function groupVars() is
+generally used for categorical variables and the function globalRecode()
+for continuous variables. Finally, we discuss the use of rounding to
+reduce the detail in continuous variables.</p>
+<p><em>Recoding a categorical variable using the sdcMicro function
+groupVars()</em></p>
+<p>Assume that an object of class <em>sdcMicro</em> was created, which is called
+“sdcInitial” <a class="footnote-reference" href="#foot35" id="id2">[2]</a> (see Section 7.5 how to create
+objects of class <em>sdcMicro</em>). In Example 5.1, the variable “sizeRes” has
+four different categories: ‘capital, large city’, ‘small city’, town’,
+and ‘countryside’). The first three are recoded or regrouped as ‘urban’
+and the category ‘countryside’ is renamed ‘rural’. In the function
+arguments, we specify the categories to be grouped (before) and the
+names of the categories after recoding (after). It is important that the
+vectors “before” and “after” have the same length. Therefore, we have to
+repeat ‘urban’ three times in the “after” vector to match the three
+different values that are recoded to ‘urban’. <strong>NOTE: the function
+groupVars() works only for variables of class factor.</strong> We refer to
+Section 7.4 on classes in <em>R</em> and how to change the class of a variable.</p>
+<p>Example 5.1: Using the sdcMicro function groupVars() to recode a
+categorical variable</p>
+<div class="line-block">
+<div class="line"><em># Frequencies of sizeRes before recoding</em></div>
+<div class="line"><strong>table</strong>(<a class="reference external" href="mailto:sdcInitial&#37;&#52;&#48;manipKeyVars$sizeRes">sdcInitial<span>&#64;</span>manipKeyVars$sizeRes</a>)</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">##</span> <span class="pre">capital,</span> <span class="pre">large</span> <span class="pre">city</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">small</span> <span class="pre">city</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">town</span>&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">countryside</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">##</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">686</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">310</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">146</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">1358</span></code></div>
+</div>
+<div class="line-block">
+<div class="line"><em># Recode urban</em></div>
+<div class="line">sdcInitial &lt;- <strong>groupVars</strong>(obj = sdcInitial, var =
+<strong>c</strong>(“sizeRes”), before = <strong>c</strong>(“capital, large city”, “small
+city”, “town”), after = <strong>c</strong>(“urban”, “urban”, “urban”))</div>
+<div class="line"><em># Recode rural</em></div>
+<div class="line">sdcInitial &lt;- <strong>groupVars</strong>(obj = sdcInitial, var =
+<strong>c</strong>(“sizeRes”), before = <strong>c</strong>(“countryside”), after =
+<strong>c</strong>(“rural”))</div>
+<div class="line"><em># Frequencies of sizeRes before recoding</em></div>
+<div class="line"><strong>table</strong>(<a class="reference external" href="mailto:sdcInitial&#37;&#52;&#48;manipKeyVars$sizeRes">sdcInitial<span>&#64;</span>manipKeyVars$sizeRes</a>)</div>
+</div>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">##</span> <span class="pre">urban</span> <span class="pre">rural</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">##</span>&#160; <span class="pre">1142</span>&#160; <span class="pre">1358</span></code></div>
+</div>
+<p>Figure 5.1 illustrates the effect of recoding the variable “sizeRes” and
+show respectively the frequency counts before and after recoding. We see
+that the number of categories has reduced from 4 to 2 and the small
+categories (‘small city’ and ‘town’) have disappeared.</p>
+<a class="reference internal image-reference" href="_images/image3.png"><img alt="_images/image3.png" src="_images/image3.png" style="width: 6.5in; height: 3.25556in;" /></a>
+<p>Figure 5.1 Effect of recoding – frequency counts before and after
+recoding</p>
+<p><em>Recoding a continuous variable using the sdcMicro function:
+globalRecode()</em></p>
+<p>Global recoding of numerical (continuous) variables can be achieved in
+<em>sdcMicro</em> by using the function globalRecode(), which allows specifying
+a vector with the break points between the intervals. Recoding a
+continuous variable changes it into a categorical variable. One can
+additionally specify a vector of labels for the new categories. By
+default, the labels are the intervals, e.g., “(0, 10]”. Example 5.2
+shows how to recode the variable age in 10-year intervals for age values
+between 0 and 100. <strong>NOTE: Values that fall outside the specified
+intervals are assigned a missing value (NA).</strong> Therefore, the intervals
+should cover the entire value range of the variable.</p>
+<p>Example 5.2: Using the <em>sdcMicro</em> function globalRecode() to recode a
+continuous variable (age)</p>
+<p>sdcInitial &lt;- <strong>globalRecode</strong>(sdcInitial, column = <strong>c</strong>(‘age’),
+breaks = 10 * <strong>c</strong>(0:10))</p>
+<p><em># Frequencies of age after recoding</em></p>
+<div class="line-block">
+<div class="line"><strong>table</strong>(<a class="reference external" href="mailto:sdcInitial&#37;&#52;&#48;manipKeyVars$age">sdcInitial<span>&#64;</span>manipKeyVars$age</a>)</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">##</span>&#160;&#160; <span class="pre">(0,10]</span>&#160; <span class="pre">(10,20]</span>&#160; <span class="pre">(20,30]</span>&#160; <span class="pre">(30,40]</span>&#160; <span class="pre">(40,50]</span>&#160; <span class="pre">(50,60]</span>&#160; <span class="pre">(60,70]</span>&#160; <span class="pre">(70,80]</span>&#160; <span class="pre">(80,90]</span>&#160; <span class="pre">(90,100]</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">##</span>&#160;&#160;&#160;&#160;&#160; <span class="pre">462</span>&#160;&#160;&#160;&#160;&#160; <span class="pre">483</span>&#160;&#160;&#160;&#160;&#160; <span class="pre">344</span>&#160;&#160;&#160;&#160;&#160; <span class="pre">368</span>&#160;&#160;&#160;&#160;&#160; <span class="pre">294</span>&#160;&#160;&#160;&#160;&#160; <span class="pre">214</span>&#160;&#160;&#160;&#160;&#160; <span class="pre">172</span>&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">94</span></code><code class="docutils literal notranslate"><span class="pre">26</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">3</span></code></div>
+</div>
+<p>Figure 5.2 shows the effect of recoding the variable “age”.</p>
+<a class="reference internal image-reference" href="_images/image4.png"><img alt="_images/image4.png" src="_images/image4.png" style="width: 6.5in; height: 3.25556in;" /></a>
+<p>Figure 5.2 Age variable before and after recoding</p>
+<p>Instead of creating intervals of equal width, we can also create
+intervals of unequal width. This is illustrated in Example 5.3, where we
+use the age groups 1-5, 6-11, 12-17, 18-21, 22-25, 26-49, 50-64 and 65+.
+In this example, this is a useful step, since even after recoding in
+10-year intervals, the categories with high age values have low
+frequencies. We chose the intervals by respecting relevant school age
+and employment age values (e.g., retirement age is 65 in this example)
+such that the data can still be used for common research on education
+and employment. Figure 5.3 shows the effect of recoding the variable
+“age”.</p>
+<p>Example 5.3: Using globalRecode() to create intervals of unequal width</p>
+<p>sdcInitial &lt;- <strong>globalRecode</strong>(sdcInitial, column = <strong>c</strong>(‘age’),
+breaks = <strong>c</strong>(0, 5, 11, 17, 21, 25, 49, 65, 100))</p>
+<p><em># Frequencies of age after recoding</em></p>
+<p><strong>table</strong>(<a class="reference external" href="mailto:sdcInitial&#37;&#52;&#48;manipKeyVars$age">sdcInitial<span>&#64;</span>manipKeyVars$age</a>)</p>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">##</span>&#160;&#160;&#160; <span class="pre">(0,5]</span>&#160;&#160; <span class="pre">(5,11]</span>&#160; <span class="pre">(11,17]</span>&#160; <span class="pre">(17,21]</span>&#160; <span class="pre">(21,25]</span>&#160; <span class="pre">(25,49]</span>&#160; <span class="pre">(49,65]</span> <span class="pre">(65,100]</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">##</span>&#160;&#160;&#160;&#160;&#160; <span class="pre">192</span>&#160;&#160;&#160;&#160;&#160; <span class="pre">317</span>&#160;&#160;&#160;&#160;&#160; <span class="pre">332</span>&#160;&#160;&#160;&#160;&#160; <span class="pre">134</span>&#160;&#160;&#160;&#160;&#160; <span class="pre">142</span>&#160;&#160;&#160;&#160;&#160; <span class="pre">808</span>&#160;&#160;&#160;&#160;&#160; <span class="pre">350</span>&#160;&#160;&#160;&#160;&#160; <span class="pre">185</span></code></div>
+</div>
+<a class="reference internal image-reference" href="_images/image5.png"><img alt="_images/image5.png" src="_images/image5.png" style="width: 6.5in; height: 3.25556in;" /></a>
+<p>Figure 5.3 Age variable before and after recoding</p>
+<p>Caution about using the globalRecode() function in <em>sdcMicro</em>: In the
+current implementation of <em>sdcMicro</em>, the intervals are defined as
+<strong>left-open</strong>. In mathematical terms, this means that, in our example,
+age 0 is excluded from the specified intervals. In interval notation,
+this is denoted as (0, 5] (as in x-axis labels in Figure 5.2 and Figure
+5.3 graph labels for the recoded variable). The interval (0, 5] is
+interpreted as from 0 to 5 and does not include 0, but does include 5.
+<em>R</em> recodes values that are not contained in any of the intervals as
+missing (NA). This implementation would set in our example all age
+values 0 (children under 1 year) to missing and could potentially mean a
+large data loss. The globalRecode() function allows only constructing
+intervals, which are left-open. This may not be a desirable result and
+the loss of the zero ages from the data is clearly problematic for a
+real-world dataset.</p>
+<p>To construct <strong>right-open</strong> intervals, e.g., in our example, for age
+intervals [0,14), [15, 65), [66, 100), we present two alternatives for
+global recoding:</p>
+<ul class="simple">
+<li>A work-around for semi-continuous variables <a class="footnote-reference" href="#foot36" id="id3">[3]</a>
+that would allow for the globalRecode() to be used would be
+subtracting a small number from the boundary intervals, thus allowing
+the desired intervals to be created. In the following example,
+subtracting 0.1 from each interval forces globalRecode() to include 0
+in the lowest interval and allow for breaks where we want them. We
+set the upper interval boundary to be larger than the maximum value
+for the “age” variable. We can use the option <em>labels</em> to define
+clear labels for the new categories. This is illustrated in Example
+5.4.</li>
+</ul>
+<p>Example 5.4: Constructing right-open intervals for semi-continuous
+variables using built-in <em>sdcMicro</em> function globalRecode()</p>
+<p>sdcInitial &lt;- <strong>globalRecode</strong>(sdcInitial, column = <strong>c</strong>(‘age’),
+breaks = <strong>c</strong>(-0.1, 14.9, 64.9, 99.9), labels = <strong>c</strong>(‘[0,15)’,
+‘[15,65)’, ‘[65,100)’))</p>
+<ul class="simple">
+<li>It is also possible to use <em>R</em> code to manually recode the variables
+without using <em>sdcMicro</em> functions. When using the built-in
+<em>sdcMicro</em> functions, the change in risk after recoding is
+automatically recalculated, but if recoded manually it is not. In
+this case, we need to take an extra step and recalculate the risk
+after manually changing the variables in the <em>sdcMicro</em> object. This
+approach is also valid for continuous variables and is illustrated in
+Example 5.5.</li>
+</ul>
+<p>Example 5.5: Constructing intervals for semi-continuous and continuous
+variables using manual recoding in <em>R</em></p>
+<div class="line-block">
+<div class="line"><em># Group age 0-14</em></div>
+<div class="line">sdcInitial&#64;manipKeyVars$age[<a class="reference external" href="mailto:sdcInitial&#37;&#52;&#48;manipKeyVars$age">sdcInitial<span>&#64;</span>manipKeyVars$age</a> &gt;= 0 &amp;</div>
+<div class="line"><a class="reference external" href="mailto:sdcInitial&#37;&#52;&#48;manipKeyVars$age">sdcInitial<span>&#64;</span>manipKeyVars$age</a> &lt; 15] &lt;- 0</div>
+<div class="line"><em># Group age 15-64</em></div>
+<div class="line">sdcInitial&#64;manipKeyVars$age[<a class="reference external" href="mailto:sdcInitial&#37;&#52;&#48;manipKeyVars$age">sdcInitial<span>&#64;</span>manipKeyVars$age</a> &gt;= 15 &amp;</div>
+<div class="line"><a class="reference external" href="mailto:sdcInitial&#37;&#52;&#48;manipKeyVars$age">sdcInitial<span>&#64;</span>manipKeyVars$age</a> &lt; 65] &lt;- 1</div>
+<div class="line"><em># Group age 65-100</em></div>
+<div class="line">sdcInitial&#64;manipKeyVars$age[<a class="reference external" href="mailto:sdcInitial&#37;&#52;&#48;manipKeyVars$age">sdcInitial<span>&#64;</span>manipKeyVars$age</a> &gt;= 65 &amp;</div>
+<div class="line"><a class="reference external" href="mailto:sdcInitial&#37;&#52;&#48;manipKeyVars$age">sdcInitial<span>&#64;</span>manipKeyVars$age</a> &lt;= 100] &lt;- 2</div>
+<div class="line"><em># Add labels for the new values</em></div>
+<div class="line"><a class="reference external" href="mailto:sdcInitial&#37;&#52;&#48;manipKeyVars$age">sdcInitial<span>&#64;</span>manipKeyVars$age</a>
+&lt;-<strong>ordered</strong>(<a class="reference external" href="mailto:sdcInitial&#37;&#52;&#48;manipKeyVars$age">sdcInitial<span>&#64;</span>manipKeyVars$age</a>,</div>
+<div class="line">levels = <strong>c</strong>(0,1,2), labels = <strong>c</strong>(“0-14”, “15-64”, “65-100”))</div>
+<div class="line"><em># Recalculate risk after manual manipulation</em></div>
+<div class="line">sdcInitial &lt;- <strong>calcRisks</strong>(sdcInitial)</div>
+</div>
+</div>
+<div class="section" id="top-and-bottom-coding">
+<h4>Top and bottom coding<a class="headerlink" href="#top-and-bottom-coding" title="Permalink to this headline">¶</a></h4>
+<p>Top and bottom coding are similar to global recoding, but instead of
+recoding all values, only the top and/or bottom values of the
+distribution or categories are recoded. This can be applied only to
+ordinal categorical variables and (semi-)continuous variables, since the
+values have to be at least ordered. Top and bottom coding is especially
+useful if the bulk of the values lies in the center of the distribution
+with the peripheral categories having only few observations (outliers).
+Examples are age and income; for these variables, there will often be
+only a few observations above certain thresholds, typically at the tails
+of the distribution. The fewer the observations within a category, the
+higher the identification risk. One solution could be grouping the
+values at the tails of the distribution into one category. This reduces
+the risk for those observations, and, importantly, does so without
+reducing the data utility for the other observations in the
+distribution.</p>
+<p>Deciding where to apply the threshold and what observations should be
+grouped requires:</p>
+<ul class="simple">
+<li>Reviewing the overall distribution of the variable to identify at
+which point the frequencies drop below the desired number of
+observations and identify outliers in the distribution. Figure 5.4
+shows the distribution of the age variable and suggests 65 (red
+vertical line) for the top code age.</li>
+<li>Taking into account the intended use of the data and the purpose for
+which the survey was conducted. For example, if the data are
+typically used to measure labor force participation for those aged 15
+to 64, then top and bottom coding should not interfere with the
+categories 15 to 64. Otherwise the analyst would find it impossible
+to create the desired measures for which the data were intended. In
+the example, we consider this and code all age larger than 64.</li>
+</ul>
+<a class="reference internal image-reference" href="_images/image6.png"><img alt="_images/image6.png" src="_images/image6.png" style="width: 6.5in; height: 3.25556in;" /></a>
+<p>Figure 5.4: Utilizing the frequency distribution of variable age to
+determine threshold for top coding</p>
+<p>Top and bottom coding can be easily done with the function
+topBotCoding() in <em>sdcMicro</em>. Top coding and bottom coding cannot be
+done simultaneously in <em>sdcMicro</em>. Example 5.6 illustrates how to recode
+values of age higher than 64 and values of age lower than 5; 65 and 5
+replace the values respectively. To construct several top or bottom
+coding categories, e.g., age 65 – 80 and higher than age 80, one can use
+the groupVars() function in <em>sdcMicro</em> or manual recoding as described
+in the previous subsection.</p>
+<p>Example 5.6: Top coding and bottom coding in <em>sdcMicro</em> using
+topBotCoding() function</p>
+<div class="line-block">
+<div class="line"><em># Top coding at age 65</em></div>
+<div class="line">sdcInitial &lt;- <strong>topBotCoding</strong>(obj = sdcInitial, value = 65,
+replacement = 65, kind = ‘top’, column = ‘age’)</div>
+<div class="line"><em># Bottom coding at age 5</em></div>
+<div class="line">sdcInitial &lt;- <strong>topBotCoding</strong>(obj = sdcInitial, value = 5,
+replacement = 5, kind = ‘bottom’, column = ‘age’)</div>
+</div>
+</div>
+<div class="section" id="rounding">
+<h4>Rounding<a class="headerlink" href="#rounding" title="Permalink to this headline">¶</a></h4>
+<p>Rounding is similar to grouping, but used for continuous variables.
+Rounding is useful to prevent exact matching with external data sources.
+In addition, it can be used to reduce the level of detail in the data.
+Examples are removing decimal figures or rounding to the nearest 1,000.</p>
+<p>The next section discusses the method local suppression. Recoding is
+often used before local suppression to reduce the number of necessary
+suppressions.</p>
+<p><strong>Recommended Reading Material on Recoding</strong></p>
+<p>Hundepool, Anco, Josep Domingo-Ferrer, Luisa Franconi, Sarah Giessing,
+Rainer Lenz, Jane Naylor, Eric Schulte Nordholt, Giovanni Seri, and
+Peter Paul de Wolf. 2006. <em>Handbook on Statistical Disclosure Control.</em>
+ESSNet SDC. <a class="reference external" href="http://neon.vb.cbs.nl/casc/handbook.htm">http://neon.vb.cbs.nl/casc/handbook.htm</a>.</p>
+<p>Hundepool, Anco, Josep Domingo-Ferrer, Luisa Franconi, Sarah Giessing,
+Eric Schulte Nordholt, Keith Spicer, and Peter Paul de Wolf. 2012.
+<em>Statistical Disclosure Control.</em> Chichester: John Wiley &amp; Sons Ltd.
+doi:10.1002/9781118348239.</p>
+<p>Templ, Matthias, Bernhard Meindl, Alexander Kowarik, and Shuang Chen.
+2014. Statistical Disclosure Control (SDCMicro).
+<a class="reference external" href="http://www.ihsn.org/home/software/disclosure-control-toolbox">http://www.ihsn.org/home/software/disclosure-control-toolbox</a>. (accessed
+November 13, 2014).</p>
+<p>De Waal, A.G., and Willenborg, L.C.R.J. 1999. <em>Information loss through
+global recoding and local suppression</em>. Netherlands Official Statistics,
+14:17-20, 1999. Special issue on SDC</p>
+</div>
+</div>
+<div class="section" id="local-suppression">
+<h3>Local suppression<a class="headerlink" href="#local-suppression" title="Permalink to this headline">¶</a></h3>
+<p>It is common in surveys to encounter values for certain variables or
+combinations of quasi-identifiers (keys) that are shared by very few
+individuals. When this occurs, the risk of re-identification for those
+respondents is higher than the rest of the respondents (see
+<span class="math notranslate nohighlight">\(k\)</span>-anonymity in Section 4.5.2). Often local suppression is used
+after reducing the number of keys in the data by recoding the
+appropriate variables. Recoding reduces the number of necessary
+suppressions as well as the computation time needed for suppression.
+Suppression of values means that values of a variable are replaced by a
+missing value (NA in <em>R</em>). Section 4.5.2 on <span class="math notranslate nohighlight">\(k\)</span>-anonymity
+discusses how missing values influence frequency counts and
+<span class="math notranslate nohighlight">\(k\)</span>-anonymity. It is important to note that not all values for all
+individuals of a certain variable are suppressed, which would be the
+case when removing a direct identifier, such as “name”; only certain
+values for a particular variable and a particular respondent or set of
+respondents are suppressed. This is illustrated in the following example
+and Table 5.4.</p>
+<p>Table 5.4 presents a dataset with seven respondents and three
+quasi-identifiers. The combination {‘female’, ‘rural’, ‘higher’} for the
+variables “gender”, “region” and “education” is an unsafe combination,
+since it is unique in the sample. By suppressing either the value
+‘female’ or ‘higher’, the respondent cannot be distinguished from the
+other respondents anymore, since that respondent shares the same
+combination of key variables with at least three other respondents. Only
+the value in the unsafe combination of the single respondent at risk is
+suppressed, not the values for the same variable of the other
+respondents. The freedom to choose which value to suppress can be used
+to minimize the total number of suppressions and hence the information
+loss. In addition, if one variable is very important to the user, we can
+choose not to suppress values of this variable, unless strictly
+necessary. In the example, we can choose between suppressing the value
+‘female’ or ‘higher’ to achieve a safe data file; we chose to suppress
+‘higher’. This choice should be made taking into account the needs of
+data users. In this example we find “gender” more important than
+“education”.</p>
+<p>Table 5.4: Local suppression illustration - sample data before and after
+suppression</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="14%" />
+<col width="14%" />
+<col width="14%" />
+<col width="14%" />
+<col width="14%" />
+<col width="14%" />
+<col width="16%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Variable</th>
+<th class="head" colspan="3">Before local suppression</th>
+<th class="head" colspan="3">After local suppression</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>ID</td>
+<td>Gender</td>
+<td>Region</td>
+<td>Educat
+ion*</td>
+<td>Gender</td>
+<td>Region</td>
+<td>Educat
+ion</td>
+</tr>
+<tr class="row-odd"><td>1</td>
+<td>female</td>
+<td>rural</td>
+<td>higher</td>
+<td>female</td>
+<td>rural</td>
+<td><blockquote class="first">
+<div>NA/miss
+ing</div></blockquote>
+<p class="last"><a class="footnote-reference" href="#foot38" id="id4">[5]</a></p>
+</td>
+</tr>
+<tr class="row-even"><td>2</td>
+<td>male</td>
+<td>rural</td>
+<td>higher</td>
+<td>male</td>
+<td>rural</td>
+<td>higher</td>
+</tr>
+<tr class="row-odd"><td>3</td>
+<td>male</td>
+<td>rural</td>
+<td>higher</td>
+<td>male</td>
+<td>rural</td>
+<td>higher</td>
+</tr>
+<tr class="row-even"><td>4</td>
+<td>male</td>
+<td>rural</td>
+<td>higher</td>
+<td>male</td>
+<td>rural</td>
+<td>higher</td>
+</tr>
+<tr class="row-odd"><td>5</td>
+<td>female</td>
+<td>rural</td>
+<td>lower</td>
+<td>female</td>
+<td>rural</td>
+<td>lower</td>
+</tr>
+<tr class="row-even"><td>6</td>
+<td>female</td>
+<td>rural</td>
+<td>lower</td>
+<td>female</td>
+<td>rural</td>
+<td>lower</td>
+</tr>
+<tr class="row-odd"><td>7</td>
+<td>female</td>
+<td>rural</td>
+<td>lower</td>
+<td>female</td>
+<td>rural</td>
+<td>lower</td>
+</tr>
+</tbody>
+</table>
+<p>Since continuous variables have a high number of unique values (e.g.,
+income in dollars or age in years), <span class="math notranslate nohighlight">\(k\)</span>-anonymity and local
+suppression are not suitable for continuous variables or variables with
+a very high number of categories. A possible solution in those cases
+might be to first recode to produce fewer categories (e.g., recoding age
+in 10-year intervals or income in quintiles). Always keep in mind,
+though, what effect any recoding will have on the utility of the data.</p>
+<p>The <em>sdcMicro</em> package includes two functions for local suppression:
+localSuppression() and localSupp(). The function localSuppression() is
+most commonly used and allows the use of suppression on specified
+quasi-identifiers to achieve a certain level of <span class="math notranslate nohighlight">\(k\)</span>-anonymity for
+these quasi-identifiers. The algorithm used seeks to minimize the total
+number of suppressions while achieving the required <span class="math notranslate nohighlight">\(k\)</span>-anonymity
+threshold. By default, the algorithm is more likely to suppress values
+of variables with many different categories or values, and less likely
+to suppress variables with fewer categories. For example, the values of
+a geographical variable, with 12 different areas, are more likely to be
+suppressed than the values of the variable “gender”, which has typically
+only two categories. If variables with many different values are
+important for data utility and suppression is not desired for them, it
+is possible to rank variables by importance in the localSuppression()
+function and thus specify the order in which the algorithm will seek to
+suppress values within quasi-identifiers to achieve <span class="math notranslate nohighlight">\(k\)</span>-anonymity.
+The algorithm seeks to apply fewer suppressions to variables of high
+importance than to variables with lower importance. Nevertheless,
+suppressions in the variables with high importance might be inevitable
+to achieve the required level of <span class="math notranslate nohighlight">\(k\)</span>-anonymity.</p>
+<p>In Example 5.7, local suppression is applied to achieve the
+<span class="math notranslate nohighlight">\(k\)</span>-anonymity threshold of 5 on the quasi-identifiers “gender”,
+“region”, “religion”, “age” and “ethnicity” <a class="footnote-reference" href="#foot39" id="id5">[6]</a>.
+Without ranking the importance of the variables, the value of the
+variable “age” is more likely to be suppressed, since this is the
+variable with most categories. The variable “age” has 10 categories
+after recoding. The variable “gender” is least likely to be suppressed,
+since it has only two different values: ‘male’ and ‘female’. The other
+variables have 4 (“sizeRes”), 2 (“region”), and 8 (“ethnicity”)
+categories. After applying the localSuppression() function, we display
+the number of suppressions per variable with the built-in print()
+function with the option ‘ls’ for the local suppression output. As
+expected, the variable “age” has most suppressions (80). In fact, only
+the variable “ethnicity” of the other variables also needed suppressions
+(8) to achieve the <span class="math notranslate nohighlight">\(k\)</span>-anonymity threshold of 5. The variable
+“ethnicity” is the variable with the second highest number of
+suppressions. Subsequently, we undo and redo local suppression on the
+same data and reduce the number of suppressions on “age” by specifying
+the importance vector with high importance (little suppression) on the
+quasi-identifier “age”. We also assign importance to the variable
+“gender”. This is done by specifying an importance vector. The values in
+the importance vector can range from 1 to <span class="math notranslate nohighlight">\(k\)</span>, the number of
+quasi-identifiers. In our example <span class="math notranslate nohighlight">\(k\)</span> is equal to 5. Variables
+with lower values in the importance vectors have high importance and,
+when possible, receive fewer suppressions than variables with higher
+values.</p>
+<p>To assign high importance to the variables “age” and “gender”, we
+specify the importance vector as c(5, 1, 1, 5, 5), with the order
+according to the order of the specified variables in the <em>sdcMicro</em>
+object. The effect is clear: there are no suppressions in the variables
+“age” and “gender”. For that, the other variables, especially “sizeRes”
+and “ethnicity”, received many more suppressions. The total number of
+suppressed values has increased from 88 to 166. <strong>NOTE: Fewer
+suppressions in one variable increase the number of necessary
+suppressions in other variables (cf.</strong> <strong>Example 5.7).</strong> Generally, the
+total number of suppressed values needed to achieve the required level
+of <span class="math notranslate nohighlight">\(k\)</span>-anonymity increases when specifying an importance vector,
+since the importance vector prevents to use the optimal suppression
+pattern. The importance vector should be specified only in cases where
+the variables with many categories play an important role in data
+utility for the data users <a class="footnote-reference" href="#foot40" id="id6">[7]</a>.</p>
+<p>Example 5.7: Application of local suppression with and without
+importance vector</p>
+<p><em># local suppression without importance vector</em></p>
+<p>sdcInitial &lt;- <strong>localSuppression</strong>(sdcInitial, k = 5)</p>
+<p><strong>print</strong>(sdcInitial, ‘ls’)</p>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">##</span>&#160;&#160;&#160;&#160; <span class="pre">KeyVar</span> <span class="pre">|</span> <span class="pre">Suppressions</span> <span class="pre">(#)</span> <span class="pre">|</span> <span class="pre">Suppressions</span> <span class="pre">(%)</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">##</span>&#160;&#160;&#160; <span class="pre">sizeRes</span> <span class="pre">|</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">0</span> <span class="pre">|</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">0.000</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">##</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">age</span> <span class="pre">|</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">80</span> <span class="pre">|</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">3.200</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">##</span>&#160;&#160;&#160;&#160; <span class="pre">gender</span> <span class="pre">|</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">0</span> <span class="pre">|</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">0.000</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">##</span>&#160;&#160;&#160;&#160; <span class="pre">region</span> <span class="pre">|</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">0</span> <span class="pre">|</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">0.000</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">##</span>&#160; <span class="pre">ethnicity</span> <span class="pre">|</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">8</span> <span class="pre">|</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">0.320</span></code></div>
+</div>
+<div class="line-block">
+<div class="line"><em># Undoing the supressions</em></div>
+<div class="line">sdcInitial &lt;- <strong>undolast</strong>(sdcInitial)</div>
+</div>
+<div class="line-block">
+<div class="line"><em># Local suppression with importance vector to avoid suppressions in
+the first (gender) and fourth (age) variables</em></div>
+<div class="line">sdcInitial &lt;- <strong>localSuppression</strong>(sdcInitial, importance =
+<strong>c</strong>(5, 1, 1, 5, 5), k = 5)</div>
+<div class="line"><strong>print</strong>(sdcInitial, ‘ls’)</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">##</span>&#160;&#160;&#160;&#160; <span class="pre">KeyVar</span> <span class="pre">|</span> <span class="pre">Suppressions</span> <span class="pre">(#)</span> <span class="pre">|</span> <span class="pre">Suppressions</span> <span class="pre">(%)</span></code></p>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">##</span>&#160;&#160;&#160; <span class="pre">sizeRes</span> <span class="pre">|</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">87</span> <span class="pre">|</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">3.480</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">##</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">age</span> <span class="pre">|</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">0</span> <span class="pre">|</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">0.000</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">##</span>&#160;&#160;&#160;&#160; <span class="pre">gender</span> <span class="pre">|</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">0</span> <span class="pre">|</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">0.000</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">##</span>&#160;&#160;&#160;&#160; <span class="pre">region</span> <span class="pre">|</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">17</span> <span class="pre">|</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">0.680</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">##</span>&#160; <span class="pre">ethnicity</span> <span class="pre">|</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">62</span> <span class="pre">|</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">2.480</span></code></div>
+</div>
+<p>Figure 5.5 demonstrates the effect of the required <span class="math notranslate nohighlight">\(k\)</span>-anonymity
+threshold and the importance vector on the data utility by using several
+labor market-related indicators from an I2D2 <a class="footnote-reference" href="#foot41" id="id7">[8]</a>
+dataset before and after anonymization. Figure 5.5 displays the relative
+changes as a percentage of the initial value after re-computing the
+indicators with the data to which local suppression was applied. The
+indicators are the proportion of active females and males, and the
+number of females and males of working age. The values computed from the
+raw data were, respectively, 68%, 12%, 8,943 and 9,702. The vertical
+line at 0 is the benchmark of no change. The numbers indicate the
+required k-anonymity threshold (3 or 5) and the colors indicate the
+importance vector: red (no symbol) is no importance vector, blue (with
+* symbol) is high importance on the variable with the employment status
+information and dark green (with + symbol) is high importance on the age
+variable.</p>
+<p>A higher <span class="math notranslate nohighlight">\(k\)</span>-anonymity threshold leads to greater information loss
+(i.e., larger deviations from the original values of the indicators, the
+5’s are further away from the benchmark of no change than the
+corresponding 3’s) caused by local suppression. Reducing the number of
+suppressions on the employment status variable by specifying an
+importance vector does not improve the indicators. Instead, reducing the
+number of suppressions on age greatly reduces the information loss.
+Since specific age groups have a large influence on the computation of
+these indicators (the rare cases are in the extremes and will be
+suppressed), high suppression rates on age distort the indicators. It is
+generally useful to compare utility measures (see Chapter 6) to specify
+the importance vector, since the effects can be unpredictable.</p>
+<a class="reference internal image-reference" href="_images/image7.png"><img alt="_images/image7.png" src="_images/image7.png" style="width: 6.5in; height: 3.25556in;" /></a>
+<p>Figure 5.5: Changes in labor market indicators after anonymization of
+I2D2 data</p>
+<p>The threshold of <span class="math notranslate nohighlight">\(k\)</span>-anonymity to be set depends on several
+factors, which are amongst others: 1) the legal requirements for a safe
+data file; 2) other methods that will be applied to the data; 3) the
+number of suppressions and related information loss resulting from
+higher thresholds; 4) the type of variable; 5) the sample weights and
+sample size; and 6) the release type (see Chapter 3). Commonly applied
+levels for the <span class="math notranslate nohighlight">\(k\)</span>-anonymity threshold are 3 and 5.</p>
+<p>Table 5.5 illustrates the influence of the importance vector and
+<span class="math notranslate nohighlight">\(k\)</span>-anonymity threshold on the running time, global risk after
+suppression and total number of suppressions required to achieve this
+<span class="math notranslate nohighlight">\(k\)</span>-anonymity threshold. The dataset contains about 63,000
+individuals. The higher the <span class="math notranslate nohighlight">\(k\)</span>-anonymity threshold, the more
+suppressions are needed and the lower the risk after local suppression
+(expected number of re-identifications). In this particular example, the
+computation time is shorter for higher thresholds. This is due the
+higher number of necessary suppressions, which reduces the difficulty of
+the search for an optimal suppression pattern.</p>
+<p>The age variable is recoded in five-year intervals and has 20 age
+categories. This is the variable with the highest number of categories.
+Prioritizing the suppression of other variables leads to a higher total
+number of suppressions and a longer computation time.</p>
+<p>Table 5.5: How importance vectors and k-anonymity thresholds affect
+running time and total number of suppressions</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="17%" />
+<col width="17%" />
+<col width="17%" />
+<col width="17%" />
+<col width="17%" />
+<col width="17%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head"><p class="first">Threshold
+ld</p>
+<p class="last">k-anony
+mity</p>
+</th>
+<th class="head">Importance
+nce
+vector**</th>
+<th class="head">Total
+number of
+suppressi
+ons</th>
+<th class="head">Number
+of
+suppressi
+ons
+age</th>
+<th class="head">Global
+risk
+measure</th>
+<th class="head">Running
+time
+(hours)</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>3</td>
+<td>none
+(default)</td>
+<td>6,676</td>
+<td>5,387</td>
+<td>293.0</td>
+<td>11.8</td>
+</tr>
+<tr class="row-odd"><td>3</td>
+<td>employmen
+t
+status</td>
+<td>7,254</td>
+<td>5,512</td>
+<td>356.5</td>
+<td>13.1</td>
+</tr>
+<tr class="row-even"><td>3</td>
+<td>age
+variable</td>
+<td>8,175</td>
+<td>60</td>
+<td>224.6</td>
+<td>4.5</td>
+</tr>
+<tr class="row-odd"><td>5</td>
+<td>none
+(default)</td>
+<td>9,971</td>
+<td>7,894</td>
+<td>164.6</td>
+<td>8.5</td>
+</tr>
+<tr class="row-even"><td>5</td>
+<td>employmen
+t
+status</td>
+<td>11,668</td>
+<td>8,469</td>
+<td>217.0</td>
+<td>10.2</td>
+</tr>
+<tr class="row-odd"><td>5</td>
+<td>age
+variable</td>
+<td>13,368</td>
+<td>58</td>
+<td>123.1</td>
+<td>3.8</td>
+</tr>
+</tbody>
+</table>
+<p>In cases where there are a large number of quasi-identifiers and the
+variables have many categories, the number of possible combinations
+increases rapidly (see <span class="math notranslate nohighlight">\(k\)</span>-anonymity). If the number of variables
+and categories is very large, the computation time of the
+localSuppression() algorithm can be very long (see Section 7.7 on
+computation time). Also, the algorithm may not reach a solution, or may
+come to a solution that will not meet the specified level of
+<span class="math notranslate nohighlight">\(k\)</span>-anonymity. Therefore, reducing the number of quasi-identifiers
+and/or categories before applying local suppression is recommended. This
+can be done by recoding variables or selecting some variables for other
+(perturbative) methods, such as PRAM. This is to ensure that the number
+of suppressions is limited and hence the loss of data is limited to only
+those values that pose most risk.</p>
+<p>In some datasets, it might prove difficult to reduce the number of
+quasi-identifiers and even after reducing the number of categories by
+recoding, the local suppression algorithm takes a long time to compute
+the required suppressions. A solution in such cases can be the so-called
+‘all-<span class="math notranslate nohighlight">\(m\)</span> approach’ (see de Wolf, 2015). The all-<span class="math notranslate nohighlight">\(m\)</span>
+approach consists of applying the local suppression algorithm as
+described above to all possible subsets of size <em>m</em> of the total set of
+quasi-identifiers. The advantage of this approach is that the partial
+problems are easier to solve and computation time will be slower.
+Caution should be applied since this method does not necessarily lead to
+<span class="math notranslate nohighlight">\(k\)</span>-anonymity in the complete set of quasi-identifiers. There are
+two possibilities to reach the same level of protection: 1) to choose a
+higher threshold for <em>k</em> or 2) to re-apply the local suppression
+algorithm on the complete set of quasi-identifiers after using the
+all-<span class="math notranslate nohighlight">\(m\)</span> approach to achieve the required threshold. In the
+second case, the all-<span class="math notranslate nohighlight">\(m\)</span> approach leads to a shorter computation
+time at the cost of a higher total number of suppressions. <strong>NOTE: The
+required level is not achieved automatically on the entire set of
+quasi-identifiers if the all-m approach is used.</strong> Therefore, it is
+important to evaluate the risk measures carefully after using the
+all-<span class="math notranslate nohighlight">\(m\)</span> approach.</p>
+<p>In <em>sdcMicro</em> the all-<span class="math notranslate nohighlight">\(m\)</span> approach is implemented in the ‘combs’
+argument in the localSuppression() function. The value for <em>m</em> is
+specified in the ‘combs’ argument and can also take on several values.
+The subsets of different sizes are then used sequentially in the local
+suppression algorithm. For example if ‘combs’ is set to c(3,9), first
+all subsets of size 3 are considered and subsequently all subsets of
+size 9. Setting the last value in the combs argument to the total number
+of key variables guarantees the achievement of <span class="math notranslate nohighlight">\(k\)</span>-anonymity for
+the complete dataset. It is also possible to specify different values
+for <em>k</em> for each subset size in the ‘k’ argument. If we would want to
+achieve 5-anonimity on the subsets of size 3 and subsequently
+3-anonimity on the subsets of size 9, we would set the ‘k’ argument to
+c(5,3). Example 5.8 illustrates the use of the all-<span class="math notranslate nohighlight">\(m\)</span> approach
+in <em>sdcMicro</em>.</p>
+<p>Example 5.8 The all-<span class="math notranslate nohighlight">\(\mathbf{m}\)</span> approach in sdcMicro</p>
+<div class="line-block">
+<div class="line"><em># Apply k-anonymity with threshold 5 to all subsets of two key
+variables and subsequently to the complete dataset</em></div>
+<div class="line">sdcInitial &lt;- <strong>localSuppression</strong>(sdcInitial, k = 5, combs =
+<strong>c</strong>(2, 5))</div>
+</div>
+<div class="line-block">
+<div class="line"><em># Apply k-anonymity with threshold 5 to all subsets of three key
+variables and subsequently with threshold 2 to the complete dataset</em></div>
+<div class="line">sdcInitial &lt;- <strong>localSuppression</strong>(sdcInitial, k = <strong>c</strong>(3, 5),
+combs = <strong>c</strong>(5, 2))</div>
+</div>
+<p>Table 5.6 presents the results of using the all-<span class="math notranslate nohighlight">\(m\)</span> approach of
+a test dataset with 9 key variables and 4,000 records. The table shows
+the arguments ‘k’ and ‘combs’ of the localSuppression() function, the
+number of <span class="math notranslate nohighlight">\(k\)</span><em>-</em>anonymity violators for different levels of
+<span class="math notranslate nohighlight">\(k\)</span> as well as the total number of suppressions. We observe that
+the different combinations do not always lead to the required level of
+<span class="math notranslate nohighlight">\(k\)</span>-anonimity. For example, when setting <span class="math notranslate nohighlight">\(k = 3\)</span>, and combs
+3 and 7, there are still 15 records in the dataset (with a total of 9
+quasi-identifiers) that violate 3-anonimity after local suppression. Due
+to the smaller sample size, the gains in running time are not yet
+apparent in this example, since the rerunning algorithm several times
+takes up time. A larger dataset would benefit more from the all-<em>m</em>
+approach, as the algorithm would take longer in the first place.</p>
+<p>Table 5.6 Effect of the all-<em>m</em> approach on k-anonymity</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="14%" />
+<col width="14%" />
+<col width="14%" />
+<col width="14%" />
+<col width="14%" />
+<col width="14%" />
+<col width="14%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Argumen
+ts</th>
+<th class="head" colspan="4"><a href="#id8"><span class="problematic" id="id9">**</span></a>Numbe
+r
+of
+violato
+rs
+for
+differe
+nt
+levels
+of
+k-anony
+mity
+on
+complet
+e
+set</th>
+<th class="head">Total
+number
+of
+suppres
+sio ns</th>
+<th class="head"><p class="first">Running</p>
+<p class="last">time
+(second
+s)</p>
+</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><em>k</em></td>
+<td><em>combs</em></td>
+<td><em>k = 2</em></td>
+<td><em>k = 3</em></td>
+<td><em>k = 5</em></td>
+<td>&#160;</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td><em>before
+local
+suppres
+sion</em></td>
+<td>2,464</td>
+<td>3,324</td>
+<td>3,877</td>
+<td>0</td>
+<td>0.00</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>3</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>0</td>
+<td>0</td>
+<td>1,766</td>
+<td>2,264</td>
+<td>17.08</td>
+</tr>
+<tr class="row-odd"><td>5</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>3,318</td>
+<td>10.57</td>
+</tr>
+<tr class="row-even"><td>3</td>
+<td>3</td>
+<td>2,226</td>
+<td>3,202</td>
+<td>3,819</td>
+<td>3,873</td>
+<td>13.39</td>
+</tr>
+<tr class="row-odd"><td>3</td>
+<td>3, 7</td>
+<td>15</td>
+<td>108</td>
+<td>1,831</td>
+<td>6,164</td>
+<td>46.84</td>
+</tr>
+<tr class="row-even"><td>3</td>
+<td>3, 9</td>
+<td>0</td>
+<td>0</td>
+<td>1,794</td>
+<td>5,982</td>
+<td>31.38</td>
+</tr>
+<tr class="row-odd"><td>3</td>
+<td>5, 9</td>
+<td>0</td>
+<td>0</td>
+<td>1,734</td>
+<td>6,144</td>
+<td>62.30</td>
+</tr>
+<tr class="row-even"><td>5</td>
+<td>3</td>
+<td>2,047</td>
+<td>3,043</td>
+<td>3,769</td>
+<td>3,966</td>
+<td>12.88</td>
+</tr>
+<tr class="row-odd"><td>5</td>
+<td>3, 7</td>
+<td>0</td>
+<td>6</td>
+<td>86</td>
+<td>7,112</td>
+<td>46.57</td>
+</tr>
+<tr class="row-even"><td>5</td>
+<td>3, 9</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>7,049</td>
+<td>24.13</td>
+</tr>
+<tr class="row-odd"><td>5</td>
+<td>5, 9</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>7,129</td>
+<td>54.76</td>
+</tr>
+<tr class="row-even"><td>5, 3</td>
+<td>3, 7</td>
+<td>11</td>
+<td>108</td>
+<td>1,859</td>
+<td>6,140</td>
+<td>45.60</td>
+</tr>
+<tr class="row-odd"><td>5, 3</td>
+<td>3, 9</td>
+<td>0</td>
+<td>0</td>
+<td>1,766</td>
+<td>2,264</td>
+<td>30.07</td>
+</tr>
+<tr class="row-even"><td>5, 3</td>
+<td>5, 9</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>3,318</td>
+<td>51.25</td>
+</tr>
+</tbody>
+</table>
+<p>Often the dataset contains variables that are related to the key
+variables used for local suppression. Examples are rural/urban to
+regions in case regions are completely rural or urban or variables that
+are only answered for specific categories (e.g., sector for those
+working, schooling related variables for certain age ranges). In those
+cases, the variables rural/urban or sector might not be
+quasi-identifiers themselves, but could allow the intruder to
+reconstruct suppressed values in the quasi-identifiers region or
+employment status. For example, if region 1 is completely urban, and all
+other regions are only semi-urban or rural, a suppression in the
+variable region for a record in region 1 can be simply reconstructed by
+the rural/urban variable. Therefore, it is useful to suppress the values
+corresponding to the suppressions in those linked variables. Example 5.9
+illustrates how to suppress the values in the variable “rururb”
+corresponding to the suppressions in the region variable. All values of
+“rururb”, which correspond to a suppressed value (NA) in the variable
+“region” are suppressed (set to NA).</p>
+<p>Example 5.9: Manually suppressing values in linked variables</p>
+<div class="line-block">
+<div class="line"><em># Suppress values of rururb in file if region is suppressed</em></div>
+<div class="line">file[<strong>is.na</strong>(<a class="reference external" href="mailto:sdcInitial&#37;&#52;&#48;manipKeyVars$region">sdcInitial<span>&#64;</span>manipKeyVars$region</a>) &amp;
+!<strong>is.na</strong>(<a class="reference external" href="mailto:sdcInitial&#37;&#52;&#48;origData$region">sdcInitial<span>&#64;</span>origData$region</a>),’sizRes’] &lt;- NA</div>
+</div>
+<p>Alternatively, the linked variables can be specified when creating the
+<em>sdcMicro</em> object. The linked variables are called ghost variables. Any
+suppression in the key variable will lead to a suppression in the
+variables linked to that key variable. Example 5.10 shows how to specify
+the linkage between “region” and “rururb” with ghost variables.</p>
+<p>Example 5.10: Suppressing values in linked variables by specifying ghost
+variables</p>
+<div class="line-block">
+<div class="line"><em># Ghost (linked) variables are specified as a list of linkages</em></div>
+<div class="line">ghostVars &lt;- <strong>list</strong>()</div>
+</div>
+<div class="line-block">
+<div class="line"><em># Each linkage is a list, with the first element the key variable and
+the second element the linked variable(s)</em></div>
+<div class="line">ghostVars[[1]] &lt;- <strong>list</strong>()</div>
+<div class="line">ghostVars[[1]][[1]] &lt;- “region”</div>
+<div class="line">ghostVars[[1]][[2]] &lt;- <strong>c</strong>(“sizeRes”)</div>
+<div class="line"><em>## Create the sdcMicroObj</em></div>
+<div class="line">sdcInitial &lt;- <strong>createSdcObj</strong>(file, keyVars = keyVars, numVars =
+numVars, weightVar = weight, ghostVars = ghostVars)</div>
+</div>
+<div class="line-block">
+<div class="line"><em># The manipulated ghost variables are in the slot manipGhostVars</em></div>
+<div class="line"><a class="reference external" href="mailto:sdcInitial&#37;&#52;&#48;manipGhostVars">sdcInitial<span>&#64;</span>manipGhostVars</a></div>
+</div>
+<p>The simpler alternative for the localSuppression() function in
+<em>sdcMicro</em> is the localSupp() function. The localSupp() function can be
+used to suppress values of certain key variables of individuals with
+risks above a certain threshold. In this case, all values of the
+specified variable for respondents with a risk higher than the specified
+threshold will be suppressed. The risk measure used is the individual
+risk (see Section 4.5). This is useful if one variable has sensitive
+values that should not be released for individuals with high risks of
+re-identification. What is considered high re-identification probability
+depends on legal requirements. In the following example, the values of
+the variable “education” are suppressed for all individuals whose
+individual risk is higher than 0.1, which is illustrated in Example
+5.11. For an overview of the individual risk values, it can be useful to
+look at the summary statistics of the individual risk values as well as
+the number of suppressions.</p>
+<p>Example 5.11: Application of built-in <em>sdcMicro</em> function localSupp()</p>
+<div class="line-block">
+<div class="line"><em># Summary statistics</em></div>
+<div class="line"><strong>summary</strong>(sdcInitial&#64;risk$individual[,1])</div>
+</div>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">##</span>&#160;&#160;&#160; <span class="pre">Min.</span> <span class="pre">1st</span> <span class="pre">Qu.</span>&#160; <span class="pre">Median</span>&#160;&#160;&#160; <span class="pre">Mean</span> <span class="pre">3rd</span> <span class="pre">Qu.</span>&#160;&#160;&#160; <span class="pre">Max.</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">##</span> <span class="pre">0.05882</span> <span class="pre">0.10000</span> <span class="pre">0.14290</span> <span class="pre">0.26480</span> <span class="pre">0.33330</span> <span class="pre">1.00000</span></code></div>
+</div>
+<div class="line-block">
+<div class="line"><em># Number of individuals with individual risk higher than 0.1</em></div>
+<div class="line"><strong>sum</strong>(sdcInitial&#64;risk$individual[,1] &gt; 0.1)</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">##</span> <span class="pre">[1]</span> <span class="pre">1863</span></code></p>
+<div class="line-block">
+<div class="line"><em># local suppression</em></div>
+<div class="line">sdcInitial &lt;- <strong>localSupp</strong>(sdcInitial, threshold = 0.1, keyVar =
+‘education’)</div>
+</div>
+</div>
+</div>
+<div class="section" id="perturbative-methods">
+<h2>Perturbative methods<a class="headerlink" href="#perturbative-methods" title="Permalink to this headline">¶</a></h2>
+<p>Perturbative methods do not suppress values in the dataset, but perturb
+(alter) values to limit disclosure risk by creating uncertainty around
+the true values. An intruder is uncertain whether a match between the
+microdata and an external file is correct or not. Most perturbative
+methods are based on the principle of matrix masking, i.e., the altered
+dataset Z is computed as</p>
+<div class="math notranslate nohighlight">
+\[Z = \text{AXB} + C\]</div>
+<p>where X is the original data, A is a matrix used to transform the
+records, B is a matrix to transform the variables and C is a matrix with
+additive noise.</p>
+<p><strong>NOTE: Risk measures based on frequency counts of keys are no longer
+valid after applying perturbative methods.</strong> This can be seen in Table
+5.7, which displays the same data before and after swapping some values.
+The swapped values are in grey. Both before and after perturbing the
+data, all observations violate <span class="math notranslate nohighlight">\(k\)</span>-anonymity at the level 3 (i.e.,
+each key does not appear more than twice in the dataset). Nevertheless,
+the risk of <strong>correct</strong> re-identification of the records is reduced and
+hence information contained in other (sensitive) variables possibly not
+disclosed. With a certain probability, a match of the microdata with an
+external data file will be wrong. For example, an intruder would find
+one individual with the combination {‘male’, ‘urban’, ‘higher’}, which
+is a sample unique. However, this match is not correct, since the
+original dataset did not contain any individual with these
+characteristics and hence the matched individual cannot be a correct
+match. The intruder cannot know with certainty whether the information
+disclosed from other variables for that record is correct.</p>
+<p>Table 5.7: Sample data before and after perturbation</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="14%" />
+<col width="14%" />
+<col width="14%" />
+<col width="14%" />
+<col width="14%" />
+<col width="14%" />
+<col width="14%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Variable</th>
+<th class="head" colspan="3">Original data</th>
+<th class="head" colspan="3">After perturbing the data</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>ID</td>
+<td>Gender</td>
+<td>Region</td>
+<td>Education</td>
+<td>Gender</td>
+<td>Region</td>
+<td>Education</td>
+</tr>
+<tr class="row-odd"><td>1</td>
+<td>female</td>
+<td>rural</td>
+<td>higher</td>
+<td>female</td>
+<td>rural</td>
+<td>higher</td>
+</tr>
+<tr class="row-even"><td>2</td>
+<td>female</td>
+<td>rural</td>
+<td>higher</td>
+<td>female</td>
+<td>rural</td>
+<td>lower</td>
+</tr>
+<tr class="row-odd"><td>3</td>
+<td>male</td>
+<td>rural</td>
+<td>lower</td>
+<td>male</td>
+<td>rural</td>
+<td>lower</td>
+</tr>
+<tr class="row-even"><td>4</td>
+<td>male</td>
+<td>rural</td>
+<td>lower</td>
+<td>female</td>
+<td>rural</td>
+<td>lower</td>
+</tr>
+<tr class="row-odd"><td>5</td>
+<td>female</td>
+<td>urban</td>
+<td>lower</td>
+<td>male</td>
+<td>urban</td>
+<td>higher</td>
+</tr>
+<tr class="row-even"><td>6</td>
+<td>female</td>
+<td>urban</td>
+<td>lower</td>
+<td>female</td>
+<td>urban</td>
+<td>lower</td>
+</tr>
+</tbody>
+</table>
+<p>One advantage of perturbative methods is that the information loss is
+reduced, since no values will be suppressed, depending on the level of
+perturbation. One disadvantage is that data users might have the
+impression that the data was not anonymized before release and will be
+less willing to participate in future surveys. Therefore, there is a
+need for reporting both for internal and external use (see Section
+8.11).</p>
+<p>An alternative to perturbative methods is the generation of synthetic
+data files with the same characteristics as the original data files.
+Synthetic data files are not discussed in these guidelines. For more
+information and an overview of the use of synthetic data as SDC method,
+we refer to Drechsler (2011) and Section 3.8 in Hundepool et al. (2012).
+We discuss here five perturbative methods: Post Randomization Method
+(PRAM), microaggregation, noise addition, shuffling and rank swapping.</p>
+<div class="section" id="pram-post-randomization-method">
+<h3>PRAM (Post RAndomization Method)<a class="headerlink" href="#pram-post-randomization-method" title="Permalink to this headline">¶</a></h3>
+<p>PRAM is a perturbative method for categorical data. This method
+reclassifies the values of one or more variables, such that intruders
+that attempt to re-identify individuals in the data do so, but with
+positive probability, the re-identification made is with the wrong
+individual. This means that the intruder might be able to match several
+individuals between external files and the released data files, but
+cannot be sure whether these matches are to the correct individual.</p>
+<p>PRAM is defined by the transition matrix <span class="math notranslate nohighlight">\(P\)</span>, which specifies the
+transition probabilities, i.e., the probability that a value of a
+certain variable stays unchanged or is changed to any of the other
+<span class="math notranslate nohighlight">\(k - 1\)</span> values. <span class="math notranslate nohighlight">\(k\)</span> is the number of categories or factor
+levels within the variable to be PRAMmed. For example, if the variable
+region has 10 different regions, <span class="math notranslate nohighlight">\(k\)</span> equals 10. In case of PRAM
+for a single variable, the transition matrix is size <span class="math notranslate nohighlight">\(k*k\)</span>. We
+illustrate PRAM with an example of the variable “region”, which has
+three different values: ‘capital’, ‘rural1’ and ‘rural2’. The transition
+matrix for applying PRAM to this variable is size 3*3:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}P = \begin{bmatrix}
+1 &amp; 0 &amp; 0 \\
+0.05 &amp; 0.8 &amp; 0.15 \\
+0.05 &amp; 0.15 &amp; 0.8 \\
+\end{bmatrix}\end{split}\]</div>
+<p>The values on the diagonal are the probabilities that a value in the
+corresponding category is not changed. The value 1 at position (1,1) in
+the matrix means that all values ‘capital’ stay ‘capital’; this might be
+a useful decision, since most individuals live in the capital and no
+protection is needed. The value 0.8 at position (2,2) means that an
+individual with value ‘rural1’ will stay with probability 0.8 ‘rural1’.
+The values 0.05 and 0.15 in the second row of the matrix indicate that
+the value ‘rural1’ will be changed to ‘capital’ or ‘rural2’ with
+respectively probability 0.05 and 0.15. If in the initial file we had
+5,000 individuals with value ‘capital’ and resp. 500 and 400 with values
+‘rural1’ and ‘rural2’, we expect after applying PRAM to have 5,045
+individuals with capital, 460 with rural1 and 395 with
+rural2 <a class="footnote-reference" href="#foot42" id="id10">[9]</a>. The recoding is done independently for
+each individual. We see that the tabulation of the variable “region”
+yields different results before and after PRAM, which are shown in Table
+5.8. The deviation from the expectation is due to the fact that PRAM is
+a probabilistic method, i.e., the results depend on a
+probability-generating mechanism; consequently, the results can differ
+every time we apply PRAM to the same variables of a dataset. <strong>NOTE: The
+number of changed values is larger than one might think when inspecting
+the tabulations in</strong> <strong>Table 5.8. Not all 5,000 individuals with value
+captial after PRAM had this value before PRAM and the 457 individuals in
+rural1 after PRAM are not all included in the 500 individuals before
+PRAM. The number of changes is larger than the differences in the
+tabulation (cf. transition matrix).</strong> Given that the transition matrix
+is known to the end users, there are several ways to correct statistical
+analysis of the data for the distortions introduced by PRAM.</p>
+<p>Table 5.8: Tabulation of variable “region” before and after PRAM</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="17%" />
+<col width="42%" />
+<col width="41%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head"><strong>Value</strong></th>
+<th class="head"><strong>Tabulation before PRAM</strong></th>
+<th class="head"><strong>Tabulation after PRAM</strong></th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>capital</td>
+<td>5,000</td>
+<td>5,052</td>
+</tr>
+<tr class="row-odd"><td>rural1</td>
+<td>500</td>
+<td>457</td>
+</tr>
+<tr class="row-even"><td>rural2</td>
+<td>400</td>
+<td>391</td>
+</tr>
+</tbody>
+</table>
+<p>One way to guarantee consistency between the tabulations before and
+after PRAM is to choose the transition matrix so that, in expectation,
+the tabulations before and after applying PRAM are the same for all
+variables.[#foot43]_ This method is called invariant PRAM
+and is implemented in <em>sdcMicro</em> in the function pram(). The method
+pram() determines the transition matrix that satisfies the requirements
+for invariant PRAM. <strong>NOTE: Invariant does not guarantee that
+cross-tabulations of variables (unlike univariate tabulations) stay the
+same.</strong></p>
+<p>In Example 5.12, we give an example of invariant PRAM using
+<em>sdcMicro</em>. <a class="footnote-reference" href="#foot44" id="id11">[11]</a> PRAM is a probabilistic method and the
+results can differ every time we apply PRAM to the same variables of a
+dataset. To overcome this and make the results reproducible, it is good
+practice to set a seed for the random number generator in <em>R</em>, so the
+same random numbers will be generated every time. <a class="footnote-reference" href="#foot45" id="id12">[12]</a>
+The number of changed records per variable is also shown.</p>
+<p>Example 5.12: Producing reproducible PRAM results by using set.seed()</p>
+<div class="line-block">
+<div class="line"><em># Set seed for random number generator</em></div>
+<div class="line"><strong>set.seed</strong>(123)</div>
+<div class="line"><em># Apply PRAM to all selected variables</em></div>
+<div class="line">sdcInitial &lt;- <strong>pram</strong>(obj = sdcInitial)</div>
+</div>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">##</span> <span class="pre">Number</span> <span class="pre">of</span> <span class="pre">changed</span> <span class="pre">observations:</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">##</span> <span class="pre">-</span> <span class="pre">-</span> <span class="pre">-</span> <span class="pre">-</span> <span class="pre">-</span> <span class="pre">-</span> <span class="pre">-</span> <span class="pre">-</span> <span class="pre">-</span> <span class="pre">-</span> <span class="pre">-</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">##</span> <span class="pre">ROOF</span> <span class="pre">!=</span> <span class="pre">ROOF_pram</span> <span class="pre">:</span> <span class="pre">75</span> <span class="pre">(3.75%)</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">##</span> <span class="pre">TOILET</span> <span class="pre">!=</span> <span class="pre">TOILET_pram</span> <span class="pre">:</span> <span class="pre">200</span> <span class="pre">(10%)</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">##</span> <span class="pre">WATER</span> <span class="pre">!=</span> <span class="pre">WATER_pram</span> <span class="pre">:</span> <span class="pre">111</span> <span class="pre">(5.55%)</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">##</span> <span class="pre">ELECTCON</span> <span class="pre">!=</span> <span class="pre">ELECTCON_pram</span> <span class="pre">:</span> <span class="pre">99</span> <span class="pre">(4.95%)</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">##</span> <span class="pre">FUELCOOK</span> <span class="pre">!=</span> <span class="pre">FUELCOOK_pram</span> <span class="pre">:</span> <span class="pre">152</span> <span class="pre">(7.6%)</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">##</span> <span class="pre">OWNMOTORCYCLE</span> <span class="pre">!=</span> <span class="pre">OWNMOTORCYCLE_pram</span> <span class="pre">:</span> <span class="pre">42</span> <span class="pre">(2.1%)</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">##</span> <span class="pre">CAR</span> <span class="pre">!=</span> <span class="pre">CAR_pram</span> <span class="pre">:</span> <span class="pre">168</span> <span class="pre">(8.4%)</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">##</span> <span class="pre">TV</span> <span class="pre">!=</span> <span class="pre">TV_pram</span> <span class="pre">:</span> <span class="pre">170</span> <span class="pre">(8.5%)</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">##</span> <span class="pre">LIVESTOCK</span> <span class="pre">!=</span> <span class="pre">LIVESTOCK_pram</span> <span class="pre">:</span> <span class="pre">52</span> <span class="pre">(2.6%)</span></code></div>
+</div>
+<p>Table 5.9 shows the tabulation of the variable after applying invariant
+PRAM. We can see that the deviations from the initial tabulations, which
+are in expectation 0, are smaller than with the transition matrix that
+does not fulfill the invariance property. The remaining deviations are
+due to the randomness.</p>
+<p>Table 5.9: Tabulation of variable “region” before and after (invariant)
+PRAM</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head"><strong>Value</strong></th>
+<th class="head"><strong>Tabulation
+before PRAM</strong></th>
+<th class="head"><strong>Tabulation
+after PRAM</strong></th>
+<th class="head"><strong>Tabulation
+after invariant
+PRAM</strong></th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>capital</td>
+<td>5,000</td>
+<td>5,052</td>
+<td>4,998</td>
+</tr>
+<tr class="row-odd"><td>rural1</td>
+<td>500</td>
+<td>457</td>
+<td>499</td>
+</tr>
+<tr class="row-even"><td>rural2</td>
+<td>400</td>
+<td>391</td>
+<td>403</td>
+</tr>
+</tbody>
+</table>
+<p>Table 5.10 presents the cross-tabulations with the variable gender.
+Before applying invariant PRAM, the share of males in the city is much
+higher than the share of females (about 60%). This property is not
+maintained after invariant PRAM (the shares of males and females in the
+city are roughly equal), although the univariate tabulations are
+maintained. One solution is to apply PRAM separately for the males and
+females in this example <a class="footnote-reference" href="#foot46" id="id13">[13]</a>. This can be done by
+specifying the strata argument in the pram() function in <em>sdcMicro</em> (see
+below).</p>
+<p>Table 5.10: Cross-tabulation of variable “region” and variable “gender”
+before and after invariant PRAM</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">&#160;</th>
+<th class="head" colspan="2">Tabulation before PRAM</th>
+<th class="head" colspan="2">Tabulation after invariant
+PRAM</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Value</td>
+<td>male</td>
+<td>female</td>
+<td>male</td>
+<td>female</td>
+</tr>
+<tr class="row-odd"><td>capital</td>
+<td>3,056</td>
+<td>1,944</td>
+<td>2,623</td>
+<td>2,375</td>
+</tr>
+<tr class="row-even"><td>rural1</td>
+<td>157</td>
+<td>343</td>
+<td>225</td>
+<td>274</td>
+</tr>
+<tr class="row-odd"><td>rural2</td>
+<td>113</td>
+<td>287</td>
+<td>187</td>
+<td>216</td>
+</tr>
+</tbody>
+</table>
+<p>The pram() function in <em>sdcMicro</em> has several options. <strong>NOTE: If no
+options are set and the PRAM method is applied to an sdcMicro object,
+all PRAM variables selected in the sdcMicro object are automatically
+used for PRAM and PRAM is applied within the selected strata</strong> (see
+Section 7.5 on <em>sdcMicro</em> objects for more details). Alternatively, PRAM
+can also be applied to variables that are not specified in the
+<em>sdcMicro</em> object as PRAM variables, such as key variables, which is
+shown in Example 5.13. In that case, however, the risk measures that are
+automatically computed will not be correct anymore, since the variables
+are perturbed. Therefore, if during the SDC process PRAM will be applied
+to some key variables, it is recommended to create a new <em>sdcMicro</em>
+object where the variables to be PRAMmed are selected as PRAM variables
+in the function createSdcObj().</p>
+<p>Example 5.13: Selecting the variable “toilet” to apply PRAM</p>
+<div class="line-block">
+<div class="line"><em># Set seed for random number generator</em></div>
+<div class="line"><strong>set.seed</strong>(123)</div>
+<div class="line"><em># Apply PRAM only to the variable TOILET</em></div>
+<div class="line">sdcInitial &lt;- <strong>pram</strong>(obj = sdcInitial, variables = <strong>c</strong>
+(“TOILET”))</div>
+</div>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">##</span> <span class="pre">Number</span> <span class="pre">of</span> <span class="pre">changed</span> <span class="pre">observations:</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">##</span> <span class="pre">-</span> <span class="pre">-</span> <span class="pre">-</span> <span class="pre">-</span> <span class="pre">-</span> <span class="pre">-</span> <span class="pre">-</span> <span class="pre">-</span> <span class="pre">-</span> <span class="pre">-</span> <span class="pre">-</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">##</span> <span class="pre">TOILET</span> <span class="pre">!=</span> <span class="pre">TOILET_pram</span> <span class="pre">:</span> <span class="pre">115</span> <span class="pre">(5.75%)</span></code></div>
+</div>
+<p>The results for PRAM differ if applied simultaneously to several
+variables or subsequently to each variable separately. It is not
+possible to specify the entire transition matrix in <em>sdcMicro</em>, but we
+can set minimum values (between 0 and 1) for the diagonal entries. The
+diagonal entries specify the probability that a certain value stays the
+same after applying PRAM. Setting the minimum value to 1 will yield no
+changes to this category. By default, this value is 0.8, which applies
+for all categories. It is also possible to specify a vector with value
+for each diagonal element of the transformation matrix/category. In
+Example 5.14 values of the first region are less likely to change than
+values of the other regions. <strong>NOTE: The invariant PRAM method requires
+that the transition matrix has a unit eigenvalue.</strong> Not all sets of
+restrictions can therefore be used (e.g., the minimum value 1 on any of
+the categories).</p>
+<p>Example 5.14: Specifying minimum values for diagonal entries in PRAM
+transition matrix</p>
+<p>sdcInitial &lt;- <strong>pram</strong>(obj = sdcInitial, variables =
+<strong>c</strong>(“TOILET”), pd = <strong>c</strong>(0.9, 0.5, 0.5, 0.5))</p>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">##</span> <span class="pre">Number</span> <span class="pre">of</span> <span class="pre">changed</span> <span class="pre">observations:</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">##</span> <span class="pre">-</span> <span class="pre">-</span> <span class="pre">-</span> <span class="pre">-</span> <span class="pre">-</span> <span class="pre">-</span> <span class="pre">-</span> <span class="pre">-</span> <span class="pre">-</span> <span class="pre">-</span> <span class="pre">-</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">##</span> <span class="pre">TOILET</span> <span class="pre">!=</span> <span class="pre">TOILET_pram</span> <span class="pre">:</span> <span class="pre">496</span> <span class="pre">(24.8%)</span></code></div>
+</div>
+<p>In the invariant PRAM method, we can also specify the amount of
+perturbation by specifying the parameter alpha. This choice is reflected
+in the transition matrix. By default, the alpha value is 0.5. The larger
+alpha, the larger the perturbations. Alpha equal to zero leads to no
+changes. The maximum value for alpha is 1.</p>
+<p>PRAM is especially useful when a dataset contains many variables and
+applying other anonymization methods, such as recoding and local
+suppression, would lead to significant information loss. Checks on risk
+and utility are important after PRAM.</p>
+<p>To do statistical inference on variables to which PRAM was applied, the
+researcher needs knowledge about the PRAM method as well as about the
+transition matrix. The transition matrix, together with the random
+number seed, can, however, lead to disclosure through reconstruction of
+the non-perturbed values. Therefore, publishing the transition matrix
+but not the random seed is recommended.</p>
+<p>A disadvantage of using PRAM is that very unlikely combinations can be
+generated, such as a 63-year- old who goes to school. Therefore, the
+PRAMmed variables need to be audited to prevent such combinations from
+happening in the released data file. In principal, the transition matrix
+can be designed in such a way that certain transitions are not possible
+(probability 0). For instance, for those that go to school, the age must
+range within 6 to 18 years and only such changes are allowed. In
+<em>sdcMicro</em> the transition matrix cannot be exactly specified. A useful
+alternative is constructing strata and applying PRAM within the strata.
+In this way, the changes between variables will only be applied within
+the strata. Example 5.15 illustrates this by applying PRAM to the
+variable “toilet” within the strata generated by the “region” education.
+This prevents changes in the variable “toilet”, where toilet types in a
+particular region are exchanged with those in other regions. For
+instance, in the capital region certain types of unimproved toilet types
+are not in use and therefore these combinations should not occur after
+PRAMming. Values are only changed with those that are available in the
+same strata. Strata can be formed by any categorical variable, e.g.,
+gender, age groups, education level.</p>
+<p>Example 5.15: Minimizing unlikely combinations by applying PRAM within
+strata</p>
+<div class="line-block">
+<div class="line"><em># Applying PRAM within the strata generated by the variable region</em></div>
+<div class="line">sdcInitial &lt;- <strong>pram</strong>(obj = sdcInitial, variables =
+<strong>c</strong>(“TOILET”), strata_variables = <strong>c</strong>(“REGION”))</div>
+</div>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">##</span> <span class="pre">Number</span> <span class="pre">of</span> <span class="pre">changed</span> <span class="pre">observations:</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">##</span> <span class="pre">-</span> <span class="pre">-</span> <span class="pre">-</span> <span class="pre">-</span> <span class="pre">-</span> <span class="pre">-</span> <span class="pre">-</span> <span class="pre">-</span> <span class="pre">-</span> <span class="pre">-</span> <span class="pre">-</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">##</span> <span class="pre">TOILET</span> <span class="pre">!=</span> <span class="pre">TOILET_pram</span> <span class="pre">:</span> <span class="pre">179</span> <span class="pre">(8.95%)</span></code></div>
+</div>
+<p><strong>Recommended Reading Material on PRAM</strong></p>
+<p>Gouweleeuw, J. M, P Kooiman, L.C.R.J Willenborg, and P.P de Wolf. “Post
+Randomization for Statistical Disclosure Control: Theory and
+Implementation.<em>” Journal of Official Statistics</em> 14, no. 4 (1998a):
+463-478. Available at
+<a class="reference external" href="http://www.jos.nu/articles/abstract.asp?article=144463">http://www.jos.nu/articles/abstract.asp?article=144463</a></p>
+<p>Gouweleeuw, J. M, P Kooiman, L.C.R.J Willenborg, and Peter Paul de Wolf.
+“The Post Randomization Method for Protecting Microdata<em>.” Qüestiió,
+Quaderns d’Estadística i Investigació Operativa 22,</em> no. 1 (1998b):
+145-156. Available at
+<a class="reference external" href="http://www.raco.cat/index.php/Questiio/issue/view/2250">http://www.raco.cat/index.php/Questiio/issue/view/2250</a></p>
+<p>Marés, Jordi, and Vicenç Torra. 2010.”PRAM Optimization Using an
+Evolutionary Algorithm.” <em>In Privacy in Statistical Databases</em>, by Josep
+Domingo-Ferrer and Emmanouil Magkos, 97-106. Corfú, Greece: Springer.</p>
+<p>Warner, S.L. “Randomized Response: A Survey Technique for Eliminating
+Evasive Answer Bias.” <em>Journal of American Statistical Association</em> 57
+(1965): 622-627.</p>
+</div>
+<div class="section" id="microaggregation">
+<h3>Microaggregation<a class="headerlink" href="#microaggregation" title="Permalink to this headline">¶</a></h3>
+<p>Microaggregation is most suitable for continuous variables, but can be
+extended in some cases to categorical variables. [#foot47]__
+It is most useful where confidentiality rules have been predetermined
+(e.g., a certain threshold for <span class="math notranslate nohighlight">\(k\)</span>-anonymity has been set) that
+permit the release of data only if combinations of variables are shared
+by more than a predetermined threshold number of respondents
+(<span class="math notranslate nohighlight">\(k\)</span>). The first step in microaggregation is the formation of
+small groups of individuals that are homogeneous with respect to the
+values of selected variables, such as groups with similar income or age.
+Subsequently, the values of the selected variables of all group members
+are replaced with a common value, e.g., the mean of that group.
+Microaggregation methods differ with respect to (i) how the homogeneity
+of groups is defined, (ii) the algorithms used to find homogeneous
+groups, and (iii) the determination of replacement values. In practice,
+microaggregation works best when the values of the variables in the
+groups are more homogeneous. When this is the case, then the information
+loss due to replacing values with common values for the group will be
+smaller than in cases where groups are less homogeneous.</p>
+<p>In the univariate case, and also for ordinal categorical variables,
+formation of homogeneous groups is straightforward: groups are formed by
+first ordering the values of the variable and then creating <span class="math notranslate nohighlight">\(g\)</span>
+groups of size <span class="math notranslate nohighlight">\(n_{i}\)</span> for all groups <span class="math notranslate nohighlight">\(i\)</span> in
+<span class="math notranslate nohighlight">\(1,\ \ldots,\ g\)</span>. This maximizes the within-group homogeneity,
+which is measured by the within-groups sum of squares (SSE)</p>
+<div class="math notranslate nohighlight">
+\[SSE = \sum_{i = 1}^{g}{\sum_{j = 1}^{n_{i}}{\left( x_{ij} - {\overline{x}}_{i} \right)^{T}\left( x_{ij} - {\overline{x}}_{i} \right)}}\]</div>
+<p>The lower the SSE, the higher the within-group homogeneity. The group
+sizes can differ amongst groups, but often groups of equal size are used
+to simplify the search <a class="footnote-reference" href="#foot48" id="id14">[15]</a>.</p>
+<p>The function microaggregation() in <em>sdcMicro</em> can be used for univariate
+microaggregation. The argument ‘aggr’ specifies the group size. Forming
+groups is easier if all groups – except maybe the last group of
+remainders – have the same size. This is the case in the implementation
+in <em>sdcMicro</em> as it is not possible to have groups of different sizes.
+Example 5.16 shows how to use the function microaggregation() in
+<em>sdcMicro</em>. <a class="footnote-reference" href="#foot49" id="id15">[16]</a> The default group size is 3 but the
+user can specify any desired group size. Choice of group size depends on
+the homogeneity within the groups and the required level of protection.
+In general it holds that the larger the group, the higher the
+protection. A disadvantage of groups of equal sizes is that the data
+might be unsuitable for this. For instance, if two individuals have a
+low income (e.g., 832 and 966) and four individuals have a high income
+(e.g., 3,313, 3,211, 2,987, 3,088), the mean of two groups of size three
+(e.g., (832 + 966 + 2,987) / 3 = 1,595 and (3,088 + 3,211 + 3,313) / 3 =
+3,204) would represent neither the low nor the high income.</p>
+<p>Example 5.16: Applying univariate microaggregation with <em>sdcMicro</em>
+function microaggregation()</p>
+<p>sdcInitial &lt;- <strong>microaggregation</strong>(obj = sdcInitial, variables =
+‘INC’, aggr = 3, method = mafast, measure = “mean”)</p>
+<p>By default, the microaggregation function replaces values with the group
+mean. An alternative, more robust approach is to replace group values
+with the median. This can be specified in the argument <em>measure</em> of the
+function microaggregation(). In cases where the median is chosen, one
+individual in every group keeps the same value if groups have odd sizes.
+In cases where there is a high degree of heterogeneity within the groups
+(this is often the case for larger groups), the median is preferred to
+preserve the information in the data. An example is income, where one
+outlier can lead to multiple outliers being created when using
+microaggregation. This is illustrated in Table 5.11. If we choose the
+mean as replacement for all values, which are grouped with the outlier
+(6,045 in group 2), these records will be assigned values far from their
+original values. If we chose the median, the incomes of individuals 1
+and 2 are not perturbed, but no value is an outlier. Of course, this
+might in itself present problems. <strong>NOTE: If microaggregation alters
+outlying values, this can have a significant impact on the computation
+of some measures sensitive to outliers, such as the GINI index.</strong> In the
+case where microaggregation is applied to categorical variables, the
+median is used to calculate the replacement value for the group.</p>
+<p>Table 5.11: Illustrating the effect of choosing mean vs. median for
+microaggregation where outliers are concerned</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head"><strong>ID</strong></th>
+<th class="head"><strong>Group</strong></th>
+<th class="head"><strong>Income</strong></th>
+<th class="head"><strong>Microaggr
+egation
+(mean)</strong></th>
+<th class="head"><strong>Microaggr
+egation
+(median)</strong></th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>1</td>
+<td>1</td>
+<td>2,300</td>
+<td>2,245</td>
+<td>2,300</td>
+</tr>
+<tr class="row-odd"><td>2</td>
+<td>2</td>
+<td>2,434</td>
+<td>3,608</td>
+<td>2,434</td>
+</tr>
+<tr class="row-even"><td>3</td>
+<td>1</td>
+<td>2,123</td>
+<td>2,245</td>
+<td>2,300</td>
+</tr>
+<tr class="row-odd"><td>4</td>
+<td>1</td>
+<td>2,312</td>
+<td>2,245</td>
+<td>2,300</td>
+</tr>
+<tr class="row-even"><td>5</td>
+<td>2</td>
+<td>6,045</td>
+<td>3,608</td>
+<td>2,434</td>
+</tr>
+<tr class="row-odd"><td>6</td>
+<td>2</td>
+<td>2,345</td>
+<td>3,608</td>
+<td>2,434</td>
+</tr>
+</tbody>
+</table>
+<p>In case of multiple variables that are candidates for microaggregation,
+one possibility is to apply univariate microaggregation to each of the
+variables separately. The advantage of univariate microaggregation is
+minimal information loss, since the changes in the variables are
+limited. The literature shows, however, that disclosure risk can be very
+high if univariate microaggregation is applied to several variables
+separately and no additional anonymization techniques are applied
+(Domingo-Ferrer et al., 2002). To overcome this shortcoming, an
+alternative to univariate microaggregation is multivariate
+microaggregation.</p>
+<p>Multivariate microaggregation is widely used in official statistics. The
+first step in multivariate aggregation is the creation of homogeneous
+groups based on several variables. Groups are formed based on
+multivariate distances between the individuals. Subsequently, the values
+of all variables for all group members are replaced with the same
+values. Table 5.12 illustrates this with three variables. We see that
+the grouping by income, expenditure and wealth leads to a different
+grouping, as in the case in Table 5.11, where groups were formed based
+only on income.</p>
+<p>Table 5.12: Illustration of multivariate microaggregation</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="13%" />
+<col width="13%" />
+<col width="13%" />
+<col width="13%" />
+<col width="13%" />
+<col width="13%" />
+<col width="13%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">ID</th>
+<th class="head">Group</th>
+<th class="head" colspan="3">Before microaggregation</th>
+<th class="head" colspan="3">After microaggregation</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>&#160;</td>
+<td>&#160;</td>
+<td><em>Incom
+e</em></td>
+<td><em>Exp</em></td>
+<td><em>Wealt
+h</em></td>
+<td><em>Incom
+e</em></td>
+<td><em>Exp</em></td>
+<td><em>Wealt
+h</em></td>
+</tr>
+<tr class="row-odd"><td>1</td>
+<td>1</td>
+<td>2,300</td>
+<td>1,714</td>
+<td>5.3</td>
+<td>2,285.
+7</td>
+<td>1,846.
+3</td>
+<td>6.3</td>
+</tr>
+<tr class="row-even"><td>2</td>
+<td>1</td>
+<td>2,434</td>
+<td>1,947</td>
+<td>7.4</td>
+<td>2,285.
+7</td>
+<td>1,846.
+3</td>
+<td>6.3</td>
+</tr>
+<tr class="row-odd"><td>3</td>
+<td>1</td>
+<td>2,123</td>
+<td>1,878</td>
+<td>6.3</td>
+<td>2,285.
+7</td>
+<td>1,846.
+3</td>
+<td>6.3</td>
+</tr>
+<tr class="row-even"><td>4</td>
+<td>2</td>
+<td>2,312</td>
+<td>1,950</td>
+<td>8.0</td>
+<td>3,567.
+3</td>
+<td>2,814.
+0</td>
+<td>8.3</td>
+</tr>
+<tr class="row-odd"><td>5</td>
+<td>2</td>
+<td>6,045</td>
+<td>4,569</td>
+<td>9.2</td>
+<td>3,567.
+3</td>
+<td>2,814.
+0</td>
+<td>8.3</td>
+</tr>
+<tr class="row-even"><td>6</td>
+<td>2</td>
+<td>2,345</td>
+<td>1,923</td>
+<td>7.8</td>
+<td>3,567.
+3</td>
+<td>2,814.
+0</td>
+<td>8.3</td>
+</tr>
+</tbody>
+</table>
+<p>There are several multivariate microaggregation methods that differ with
+respect to the algorithm used for creating groups of individuals. There
+is a trade-off between speed of the algorithm and within-group
+homogeneity, which is directly related to information loss. For large
+datasets, this is especially challenging. We discuss the Maximum
+Distance to Average Vector (MDAV) algorithm here in more detail. The
+MDAV algorithm was first introduced by Domingo-Ferrer and Torra (2005)
+and represents a good choice with respect to the trade-off between
+computation time and the group homogeneity, computed by the within-group
+SSE. The MDAV algorithm is implemented in <em>sdcMicro</em>.</p>
+<p>The algorithm computes an average record or centroid C, which contains
+the average values of all included variables. We select an individual A
+with the largest squared Euclidean distance from C, and build a group of
+<span class="math notranslate nohighlight">\(k\)</span> records around A. The group of <span class="math notranslate nohighlight">\(k\)</span> records is made up of
+A and the <span class="math notranslate nohighlight">\(k\)</span>-1 records closest to A measured by the Euclidean
+distance. Next, we select another individual B, with the largest squared
+Euclidean distance from individual A. With the remaining records, we
+build a group of <span class="math notranslate nohighlight">\(k\)</span> records around B. In the same manner, we
+select an individual D with the largest distance from B and, with the
+remaining records, build a new group of <span class="math notranslate nohighlight">\(k\)</span> records around D. The
+process is repeated until we have fewer than 2<span class="math notranslate nohighlight">\(k\)</span> records
+remaining. The MDAV algorithm creates groups of equal size with the
+exception of maybe one last group of remainders. The microaggregated
+dataset is then computed by replacing each record in the original
+dataset by the average values of the group to which it belongs. Equal
+group sizes, however, may not be ideal for data characterized by greater
+variability. In <em>sdcMicro</em> multivariate microaggregation is also
+implemented in the function microaggregation(). Example 5.17 shows how
+to choose the MDAV algorithm in <em>sdcMicro</em>.</p>
+<p>Example 5.17: Multivariate microaggregation with the Maximum Distance to
+Average Vector (MDAV) algorithm in <em>sdcMicro</em></p>
+<p>sdcInitial &lt;- <strong>microaggregation</strong>(obj = sdcInitial, variables =
+<strong>c</strong>(“INC”, “EXP”, “WEALTH”), method = “mdav”)</p>
+<p>It is also possible to group variables only within strata. This reduces
+the computation time and adds an extra layer of protection to the data,
+because of the greater uncertainty produced <a class="footnote-reference" href="#foot50" id="id16">[17]</a>. In
+<em>sdcMicro</em> this can be achieved by specifying the strata variables, as
+shown in Example 5.18.</p>
+<p>Example 5.18: Specifying strata variables for microaggregation</p>
+<p>sdcInitial &lt;- <strong>microaggregation</strong>(obj = sdcInitial, variables =
+<strong>c</strong>(“INC”, “EXP”, “WEALTH”), method = “mdav”, strata_variables =
+<strong>c</strong>(“strata”))</p>
+<p>Besides the method MDAV, there are few other grouping methods
+implemented in <em>sdcMicro</em> (Templ, Meindl and Kowarik, 2014). Table 5.13
+gives an overview of these methods. Whereas the method ‘MDAV’ uses the
+Euclidian distance, the method ‘rmd’ uses the Mahalanobis distance
+instead. An alternative to these methods is sorting the respondents
+based on the first principal component (PC), which is the projection of
+all variables into a one-dimensional space maximizing the variance of
+this projection. The performance of this method depends on the share of
+the total variance in the data that is explained by the first PC. The
+‘rmd’ method is computationally more intensive due to the computation of
+Mahalanobis distances, but provides better results with respect to group
+homogeneity. It is recommended for smaller datasets (ibid.).</p>
+<p>Table 5.13: Grouping methods for microaggregation that are implemented
+in <em>sdcMicro</em></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head"><strong>Method / option in sdcMicro</strong></th>
+<th class="head"><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>mdav</td>
+<td>grouping is based on classical
+(Euclidean) distance measures</td>
+</tr>
+<tr class="row-odd"><td>rmd</td>
+<td>grouping is based on robust
+multivariate (Mahalanobis)
+distance measures</td>
+</tr>
+<tr class="row-even"><td>pca</td>
+<td>grouping is based on principal
+component analysis whereas the
+data are sorted on the first
+principal component</td>
+</tr>
+<tr class="row-odd"><td>clustpppca</td>
+<td>grouping is based on clustering
+and (robust) principal component
+analysis for each cluster</td>
+</tr>
+<tr class="row-even"><td>influence</td>
+<td>grouping is based on clustering
+and aggregation is performed
+within clusters</td>
+</tr>
+</tbody>
+</table>
+<p>In case of several variables to be used for microaggregation, looking
+first at the covariance or correlation matrix of these variables is
+recommended. If not all variables correlate well, but two or more sets
+of variables show high correlation, less information loss will occur
+when applying microaggregation separately to these sets of variables. In
+general, less information loss will occur when applying multivariate
+microaggregation, if the variables are highly correlated. The advantage
+of replacing the values with the mean of the groups rather than other
+replacement values has the advantage that the overall means of the
+variables are preserved.</p>
+<p><strong>Recommended Reading Material on Microaggregation</strong></p>
+<p>Domingo-Ferrer, Josep, and Josep Maria Mateo-Sanz. 2002.”Practical
+data-oriented microaggregation for statistical disclosure control.”
+<em>IEEE Transactions on Knowledge and Data Engineering 14</em> (2002):
+189-201.</p>
+<p>Hansen, Stephen Lee, and Sumitra Mukherjee. 2003. “A polynomial
+algorithm for univariate optimal.” <em>IEEE Transactions on Knowledge and
+Data Engineering</em> 15 (2003): 1043-1044.</p>
+<p>Hundepool, Anco, Josep Domingo-Ferrer, Luisa Franconi, Sarah Giessing,
+Rainer Lenz, Jane Naylor, Eric Schulte Nordholt, Giovanni Seri, and
+Peter Paul de Wolf. 2006. <em>Handbook on Statistical Disclosure Control.</em>
+ESSNet SDC. <a class="reference external" href="http://neon.vb.cbs.nl/casc/handbook.htm">http://neon.vb.cbs.nl/casc/handbook.htm</a></p>
+<p>Hundepool, Anco, Josep Domingo-Ferrer, Luisa Franconi, Sarah Giessing,
+Eric Schulte Nordholt, Keith Spicer, and Peter Paul de Wolf. 2012.
+<em>Statistical Disclosure Control.</em> Chichester: John Wiley &amp; Sons Ltd.
+doi:10.1002/9781118348239.</p>
+<p>Templ, Matthias, Bernhard Meindl, Alexander Kowarik, and Shuang Chen.
+2014, August. “International Household Survey Network (IHSN).”
+<a class="reference external" href="http://www.ihsn.org/home/software/disclosure-control-toolbox">http://www.ihsn.org/home/software/disclosure-control-toolbox</a>. (accessed
+November 13, 2014).</p>
+</div>
+<div class="section" id="noise-addition">
+<h3>Noise addition<a class="headerlink" href="#noise-addition" title="Permalink to this headline">¶</a></h3>
+<p>Noise addition, or noise masking, means adding or subtracting (small)
+values to the original values of a variable, and is most suited to
+protect continuous variables (see Brand (2002) for an overview). Noise
+addition can prevent exact matching of continuous variables. The
+advantages of noise addition are that the noise is typically continuous
+with mean zero, and exact matching with external files will not be
+possible. Depending on the magnitude of noise added, however,
+approximate interval matching might still be possible.</p>
+<p>When using noise addition to protect data, it is important to consider
+the type of data, the intended use of the data and the properties of the
+data before and after noise addition, i.e., the distribution –
+particularly the mean – covariance and correlation between the perturbed
+and original datasets.</p>
+<p>Depending on the data, it may also be useful to check that the perturbed
+values fall within a meaningful range of values. Figure 5.7 on page 68
+illustrates the changes in data distribution with increasing levels of
+noise. For data that has outliers, it is important to note that when the
+perturbed data distribution is similar to the original data distribution
+(e.g., at low noise levels), noise addition will not protect outliers.
+After noise addition, these outliers can generally still be detected as
+outliers and hence easily be identified. An example is a single very
+high income in a certain region. After perturbing this income value, the
+value will still be recognized as the highest income in that region and
+can thus be used for re-identification. This is illustrated in Figure
+5.6, where 10 original observations (open circles) and the anonymized
+observations (red triangles) are plotted. The tenth observation is an
+outlier. The values of the first nine observations are sufficiently
+protected by adding noise: their magnitude and order has changed and
+exact or interval matching can be successfully prevented. The outlier is
+not sufficiently protected since, after noise addition, the outlier can
+still be easily identified. The fact that the absolute value has changed
+is not sufficient protection. On the other hand, at high noise levels,
+protection is higher even for the outliers, but the data structure is
+not preserved and the information loss is large, which is not an ideal
+situation. One way to circumvent the outlier problem is to add noise of
+larger magnitude to outliers than to the other values.</p>
+<a class="reference internal image-reference" href="_images/image8.png"><img alt="_images/image8.png" src="_images/image8.png" style="width: 6.48958in; height: 3.23958in;" /></a>
+<p>Figure 5.6: Illustration of effect of noise addition to outliers</p>
+<p>There are several noise addition algorithms. The simplest version of
+noise addition is uncorrelated additive normally distributed noise,
+where <span class="math notranslate nohighlight">\(x_{j}\)</span>, the original values of variable
+<span class="math notranslate nohighlight">\(j\)</span>are replaced by</p>
+<p><span class="math notranslate nohighlight">\(z_{j} = x_{j} + \varepsilon_{j}\)</span>,</p>
+<p>where
+<span class="math notranslate nohighlight">\(\varepsilon_{j}\ \sim\ N(0,\ \ \sigma_{\varepsilon_{j}}^{2})\ \)</span>and
+<span class="math notranslate nohighlight">\(\sigma_{\varepsilon_{j}} = \alpha \bullet \sigma_{j}\)</span> with
+<span class="math notranslate nohighlight">\(\sigma_{j}\)</span> the standard deviation of the original data. In this
+way, the mean and the covariances are preserved, but not the variances
+and correlation coefficient. If the level of noise added,
+<span class="math notranslate nohighlight">\(\alpha\)</span>, is disclosed to the user, many statistics can be
+consistently estimated from the perturbed data. The added noise is
+proportional to the variance of the original variable. The magnitude of
+the noise added is specified by the parameter <span class="math notranslate nohighlight">\(\alpha\)</span>, which
+specifies this proportion. The standard deviation of the perturbed data
+is <span class="math notranslate nohighlight">\(1 + \alpha\)</span> times the standard deviation of the perturbed
+data. A decision on the magnitude of noise added should be informed by
+the legal situation regarding data privacy, data sensitivity and the
+acceptable levels of disclosure risk and information loss. In general,
+the level of noise is a function of the variance of the original
+variables, the level of protection needed and the desired value range
+after anonymization <a class="footnote-reference" href="#foot51" id="id17">[18]</a>. An <span class="math notranslate nohighlight">\(\alpha\)</span> value that
+is too small will lead to insufficient protection, while an
+<span class="math notranslate nohighlight">\(\alpha\)</span> value that is too high will make the data useless for
+data users.</p>
+<p>In <em>sdcMicro</em> noise addition is implemented in the function addNoise().
+The algorithm and parameter can be specified as arguments in the
+function addNoise(). Simple noise addition is implemented in the
+function addNoise() with the value “additive” for the argument ‘method’.
+Example 5.19 shows how to use <em>sdcMicro</em> to add uncorrelated noise to
+expenditure variables, where the standard deviation of the added noise
+equals half the standard deviation of the original
+variables. <a class="footnote-reference" href="#foot52" id="id18">[19]</a> Noise is added to all selected
+variables.</p>
+<p>Example 5.19: Uncorrelated noise addition</p>
+<p>sdcInitial &lt;- <strong>addNoise</strong>(obj = sdcInitial, variables =
+<strong>c</strong>(‘TOTFOOD’, ‘TOTHLTH’, ‘TOTALCH’, ‘TOTCLTH’, ‘TOTHOUS’,
+‘TOTFURN’, ‘TOTTRSP’, ‘TOTCMNQ’, ‘TOTRCRE’, ‘TOTEDUC’, ‘TOTHOTL’,
+‘TOTMISC’), noise = 0.5, method = “additive”)</p>
+<p>Figure 5.7 shows the frequency distribution of a numeric continuous
+variable and the distribution before and after noise addition with
+different levels of noise (0.1, 0.5, 1, 2 and 5). The first plot shows
+the distribution of the original values. The histograms clearly show
+that noise of large magnitudes (high values of alpha) lead to a
+distribution of the data far from the original values. The distribution
+of the data changes to a normal distribution when the magnitude of the
+noise grows respective to the variance of the data. The mean in the data
+is preserved, but, with an increased level of noise, the variance of the
+perturbed data grows. After adding noise of magnitude 5, the
+distribution of the original data is completely destroyed.</p>
+<a class="reference internal image-reference" href="_images/image9.png"><img alt="_images/image9.png" src="_images/image9.png" style="width: 6.48958in; height: 3.23958in;" /></a>
+<p>Figure 5.7: Frequency distribution of a continuous variable before and
+after noise addition</p>
+<p>Figure 5.8 shows the value range of a variable before adding noise (no
+noise) and after adding several levels of noise (<span class="math notranslate nohighlight">\(\alpha\)</span> from 0.1
+to 1.5 with 0.1 increments). In the figure, the minimum value, the
+20<sup>th</sup>, 30<sup>th</sup>, 40<sup>th</sup> percentiles, the median, the
+60<sup>th</sup>, 70<sup>th</sup>, 80<sup>th</sup> and 90<sup>th</sup>
+percentiles and the maximum value are plotted. The median (50:sup:<cite>th</cite>
+percentile) is indicated with the red “+” symbol. From Figure 5.7 and
+Figure 5.8, it is apparent that the range of values expands after noise
+addition, and the median stays roughly at the same level, as does the
+mean by construction. The larger the magnitude of noise added, the wider
+the value range. In cases where the variable should stay in a certain
+value range (e.g., only positive values, between 0 and 100), this can be
+a disadvantage of noise addition. For instance, expenditure variables
+typically have non-negative values, but adding noise to these variables
+can generate negative values, which are difficult to interpret. One way
+to get around this problem is to set any negative values to zero. This
+truncation of values below a certain threshold, however, will distort
+the distribution (mean and variance matrix) of the perturbed data. This
+means that the characteristics that were preserved by noise addition,
+such as the conservation of the mean and covariance matrix, are
+destroyed and the user, even with knowledge of the magnitude of the
+noise, can no longer use the data for consistent estimation.</p>
+<p>Another way to avoid negative values is the application of
+multiplicative rather than additive noise. In that case, variables are
+multiplied by a random factor with expectation 1 and a positive
+variance. This will also lead to larger perturbations (in absolute
+value) of large initial values (outliers). If the variance of the noise
+added is small, there will be no or few negative factors and thus fewer
+sign changes than in case of additive noise masking. Multiplicative
+noise masking is not implemented in <em>sdcMicro</em>, but can be relatively
+easily implemented in base <em>R</em> by generating a vector of random numbers
+and multiplying the data with this vector. For more information on
+multiplicative noise masking and the properties of the data after
+masking, we refer to Kim and Winkler (2003).</p>
+<a class="reference internal image-reference" href="_images/image10.png"><img alt="_images/image10.png" src="_images/image10.png" style="width: 6.48958in; height: 3.23958in;" /></a>
+<p>Figure 5.8: Noise levels and the impact on the value range (percentiles)</p>
+<p>If two or more variables are selected for noise addition, correlated
+noise addition is preferred to preserve the correlation structure in the
+data. In this case, the covariance matrix of noise
+<span class="math notranslate nohighlight">\(\Sigma_{\varepsilon}\ \)</span>is proportional to the covariance matrix
+of the original data <span class="math notranslate nohighlight">\(\Sigma_{X}:\)</span></p>
+<div class="math notranslate nohighlight">
+\[\Sigma_{\varepsilon} = \alpha \Sigma_{X}\]</div>
+<p>In the addNoise() function of the <em>sdcMicro</em> package, correlated noise
+addition can be used by specifying the methods ‘correlated’ or
+‘correlated2’. The method “correlated” assumes that the variables are
+approximately normally distributed. The method ‘correlated2’ is a
+version of the method ‘correlated’, which is robust against the
+normality assumption. Example 5.20 shows how to use the ‘correlated2’
+method. The normality of variables can be investigated in <em>R</em>, with, for
+instance, a Jarque-Bera or Shapiro-Wilk test <a class="footnote-reference" href="#foot53" id="id19">[20]</a>.</p>
+<p>Example 5.20: Correlated noise addition</p>
+<p>sdcInitial &lt;- <strong>addNoise</strong>(obj = sdcInitial, variables =
+<strong>c</strong>(‘TOTFOOD’, ‘TOTHLTH’, ‘TOTALCH’, ‘TOTCLTH’, ‘TOTHOUS’,
+‘TOTFURN’, ‘TOTTRSP’, ‘TOTCMNQ’, ‘TOTRCRE’, ‘TOTEDUC’, ‘TOTHOTL’,
+‘TOTMISC’), noise = 0.5, method = “correlated2”)</p>
+<p>In many cases, only the outliers have to be protected, or have to be
+protected more. The method ‘outdect’ adds noise only to the outliers,
+which is illustrated in Example 5.21. The outliers are identified with
+univariate and robust multivariate procedures based on a robust
+Mahalanobis distance calculated by the MCD estimator (Templ et al.,
+2014). Nevertheless, noise addition is not the most suitable method for
+outlier protection.</p>
+<p>Example 5.21: Noise addition for outliers using the ‘outdect’ method</p>
+<p>sdcInitial &lt;- <strong>addNoise</strong>(obj = sdcInitial, variables =
+<strong>c</strong>(‘TOTFOOD’, ‘TOTHLTH’, ‘TOTALCH’, ‘TOTCLTH’, ‘TOTHOUS’,
+‘TOTFURN’, ‘TOTTRSP’, ‘TOTCMNQ’, ‘TOTRCRE’, ‘TOTEDUC’, ‘TOTHOTL’,
+‘TOTMISC’), noise = 0.5, method = “outdect”)</p>
+<p>If noise addition is applied to variables that are a ratio of an
+aggregate, this structure can be destroyed by noise addition. Examples
+are income and expenditure data with many income and expenditure
+categories. The categories add up to total income or total expenditures.
+In the original data, the aggregates match with the sum of the
+components. After adding noise to their components (e.g., different
+expenditure categories), however, their new aggregates will not
+necessarily match the sum of the categories anymore. One way to keep
+this structure is to add noise only to the aggregates and release the
+components as ratio of the perturbed aggregates. Example 5.22
+illustrates this by adding noise to the total of expenditures.
+Subsequently, the ratios of the initial expenditure categories are used
+for each individual to reconstruct the perturbed values for each
+expenditure category.</p>
+<p>Example 5.22: Noise addition to aggregates and their components</p>
+<div class="line-block">
+<div class="line"><em># Add noise to totals (income / expenditures)</em></div>
+<div class="line">sdcInital &lt;- <strong>addNoise</strong>(noise = 0.5, obj = sdcInitial,
+variables=<strong>c</strong>(“EXP”, “INC”), method=”additive”)</div>
+</div>
+<div class="line-block">
+<div class="line"><em># Multiply anonymized totals with ratios to obtain anonymized
+components</em></div>
+<div class="line">compExp &lt;- <strong>c</strong>(“TOTFOOD”, “TOTALCH”, “TOTCLTH”, “TOTHOUS”,
+“TOTFURN”, “TOTHLTH”, “TOTTRSP”, “TOTCMNQ”, “TOTRCRE”, “TOTEDUC”,
+“TOTHOTL”, “TOTMISC”)</div>
+</div>
+<p>sdcInital&#64;manipNumVars[,compExp] &lt;- sdcInital&#64;manipNumVars[,”HHEXP_N”]
+*</p>
+<p>sdcInital&#64;origData[,compExp]/ sdcInital&#64;origData[,”HHEXP_N”]</p>
+<div class="line-block">
+<div class="line"><em># Recalculate risks after manually changing values in sdcMicro
+object</em></div>
+<div class="line"><strong>sdcInitial &lt;- calcRisks</strong>(sdcInital)</div>
+</div>
+<p><strong>Recommended Reading Material on Noise Addition</strong></p>
+<p>Brand, Ruth. 2002. “Microdata Protection through Noise Addition.” In
+<em>Inference Control in Statistical Databases - From Theory to Practice</em>,
+edited byJosep Domingo-Ferrer. Lecture Notes in Computer Science Series
+2316, 97-116. Berlin Heidelberg: Springer.
+<a class="reference external" href="http://link.springer.com/chapter/10.1007%2F3-540-47804-3_8">http://link.springer.com/chapter/10.1007%2F3-540-47804-3_8</a></p>
+<p>Kim, Jay J, and William W Winkler. 2003. “Multiplicative Noise for
+Masking Continuous Data.” <em>Research Report Series</em> (Statistical Research
+Division. US Bureau of the Census).
+<a class="reference external" href="https://www.census.gov/srd/papers/pdf/rrs2003-01.pdf">https://www.census.gov/srd/papers/pdf/rrs2003-01.pdf</a></p>
+<p>Torra, Vicenç, and Isaac Cano. 2011. “Edit Constraints on
+Microaggregation and Additive Noise.” In <em>Privacy and Security Issues in
+Data Mining and Machine Learning</em>, edited by C. Dimitrakakis, A.
+Gkoulalas-Divanis, A. Mitrokotsa, V. S. Verykios, Y. Saygin. Lecture
+Notes in Computer Science Volume 6549, 1-14. Berlin Heidelberg:
+Springer. <a class="reference external" href="http://link.springer.com/book/10.1007/978-3-642-19896-0">http://link.springer.com/book/10.1007/978-3-642-19896-0</a></p>
+<p>Mivule, K. 2013. “Utilizing Noise Addition for Data Privacy, An
+Overview.” <em>Proceedings of the International Conference on Information
+and Knowledge Engineering (IKE 2012)</em>, (pp.65-71).Las Vegas, USA.
+<a class="reference external" href="http://arxiv.org/ftp/arxiv/papers/1309/1309.3958.pdf">http://arxiv.org/ftp/arxiv/papers/1309/1309.3958.pdf</a></p>
+</div>
+<div class="section" id="rank-swapping">
+<h3>Rank swapping<a class="headerlink" href="#rank-swapping" title="Permalink to this headline">¶</a></h3>
+<p>Data swapping is based on interchanging values of a certain variable
+across records. Rank swapping is one type of data swapping, which is
+defined for ordinal and continuous variables. For rank swapping, the
+values of the variable are first ordered. The possible number of values
+for a variable to swap with is constrained by the values in a
+neighborhood around the original value in the ordered values of the
+dataset. The size of this neighborhood can be specified, e.g., as a
+percentage of the total number of observations. This also means that a
+value can be swapped with the same or very similar values. This is
+especially the case if the neighborhood is small or there are only a few
+different values in the variable (ordinal variable). An example is the
+variables “education” with only few categories: (‘none’, ‘primary’,
+‘secondary’, ‘tertiary’). In these cases, rank swapping is not a
+suitable method.</p>
+<p>If rank swapping is applied to several variables simultaneously, the
+correlation structure between the variables is preserved. Therefore, it
+is important to check whether the correlation structure in the data is
+plausible. Rank swapping is implemented in the function rankSwap() in
+<em>sdcMicro</em>. The variables, which have to be swapped, should be specified
+in the argument ‘variables’. By default, values below the 5<sup>th</sup>
+percentile and above the 95<sup>th</sup> percentile are top and bottom
+coded and replaced by their average value (see Section 5.2.1.2 on top
+and bottom coding). By specifying the options ‘TopPercent’ and
+‘BottomPercent’ we can choose these percentiles. The argument ‘P’
+defines the size of the neighborhood as percentage of the sample size.
+If the value ‘p’ is 0.05, the neighborhood will be of size 0.05 *
+<span class="math notranslate nohighlight">\(n\)</span>, where <span class="math notranslate nohighlight">\(n\)</span> is the sample size. Since rank swapping is a
+probabilistic method, i.e., the swapping depends on a random number
+generating mechanism, specifying a seed for the random number generator
+before using rank swapping is recommended to guarantee reproducibility
+of results. The seed can also be specified as a function argument in the
+function rankSwap(). Example 5.23 shows how to apply rank swapping with
+<em>sdcMicro</em>. If the variables contain missing values (NA in <em>R</em>), the
+function rankSwap() will automatically recode those to the value
+specified in the ‘missing’ argument. This value should not be in the
+value range of any of the variables. After using the function
+rankSwap(), these values should be recoded NA. This is shown in the
+Example 5.23.</p>
+<p>Example 5.23: Rank swapping using <em>sdcMicro</em></p>
+<div class="line-block">
+<div class="line"><em># Check correlation structure between the variables</em></div>
+<div class="line"><strong>cor</strong>(file$TOTHOUS, file$TOTFOOD)</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">##</span> <span class="pre">[1]</span> <span class="pre">0.3811335</span></code></p>
+<div class="line-block">
+<div class="line"><em># Set seed for random number generator</em></div>
+<div class="line"><strong>set.seed</strong>(12345)</div>
+</div>
+<div class="line-block">
+<div class="line"><em># Apply rank swapping</em></div>
+<div class="line"><strong>rankSwap</strong>(sdcInitial, variables = <strong>c</strong>(“TOTHOUS”, “TOTFOOD”),
+missing = NA)</div>
+</div>
+<p>Rank swapping has been found to yield good results with respect to the
+trade-off between information loss and data protection (Domingo-Ferrer
+and Torra, 2001). Rank swapping is not useful for variables with few
+different values or many missing values, since the swapping in that case
+will not result in altered values. Also, if the intruder knows to whom
+the highest or lowest value of a specific variable belongs (e.g.,
+income), the level of this variable will be disclosed after rank
+swapping, because the values themselves are not altered and the original
+values are all disclosed. This can be solved by top and bottom coding
+the lowest and/or highest values.</p>
+<p><strong>Recommended Reading Material on Rank Swapping</strong></p>
+<p>Dalenius T. and Reiss S.P. 1978. Data-swapping: a technique for
+disclosure control (extended abstract). In Proc. ASA Section on Survey
+Research Methods. American Statistical Association, Washington DC,
+191–194.</p>
+<p>Domingo-Ferrer J. and Torra V. 2001. “A Quantitative Comparison of
+Disclosure Control Methods for Microdata.” In <em>Confidentiality,
+Disclosure and Data Access: Theory and Practical Applications for
+Statistical Agencies</em>, edited by P. Doyle, J.I. Lane, J.J.M. Theeuwes,
+and L. Zayatz, 111–134. Amsterdam, North-Holland.</p>
+<p>Hundepool A., Van de Wetering A., Ramaswamy R., Franconi F., Polettini
+S., Capobianchi A., De Wolf P.-P., Domingo-Ferrer J., Torra V., Brand R.
+and Giessing S. 2007. μ-Argus User’s Manual version 4.1.</p>
+</div>
+<div class="section" id="shuffling">
+<h3>Shuffling<a class="headerlink" href="#shuffling" title="Permalink to this headline">¶</a></h3>
+<p>Shuffling as introduced by Muralidhar and Sarathy (2006) is similar to
+swapping, but uses an underlying regression model for the variables to
+determine which variables are swapped. Shuffling can be used for
+continuous variables and is a deterministic method. Shuffling maintains
+the marginal distributions in the shuffled data. Shuffling, however,
+requires a complete ranking of the data, which can be computationally
+very intensive for large datasets with several variables.</p>
+<p>The method is explained in detail in Muralidhar and Sarathy (2006). The
+idea is to rank the individuals based on their original variables. Then
+fit a regression model with the variables to be protected as regressands
+and a set of variables that predict this variable well (i.e., are
+correlated with) as regressors. This regression model is used to
+generate <span class="math notranslate nohighlight">\(n\)</span> synthetic (predicted) values for each variable that
+has to be protected. These generated values are also ranked and each
+original value is replaced with another original value with the rank
+that corresponds to the rank of the generated value. This means that all
+original values will be in the data. Table 5.14 presents a simplified
+example of the shuffling method. The regressands are not specified in
+this example.</p>
+<p>Table 5.14: Simplified example of the shuffling method</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="17%" />
+<col width="17%" />
+<col width="17%" />
+<col width="17%" />
+<col width="17%" />
+<col width="17%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head"><strong>ID</strong></th>
+<th class="head"><strong>Income
+(orig)</strong></th>
+<th class="head"><strong>Rank
+(orig)</strong></th>
+<th class="head"><strong>Income
+(pred)</strong></th>
+<th class="head"><strong>Rank
+(pred)</strong></th>
+<th class="head"><strong>Shuffle
+d
+values</strong></th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>1</td>
+<td>2,300</td>
+<td>2</td>
+<td>2,466.56</td>
+<td>4</td>
+<td>2,345</td>
+</tr>
+<tr class="row-odd"><td>2</td>
+<td>2,434</td>
+<td>6</td>
+<td>2,583.58</td>
+<td>7</td>
+<td>2,543</td>
+</tr>
+<tr class="row-even"><td>3</td>
+<td>2,123</td>
+<td>1</td>
+<td>2,594.17</td>
+<td>8</td>
+<td>2,643</td>
+</tr>
+<tr class="row-odd"><td>4</td>
+<td>2,312</td>
+<td>3</td>
+<td>2,530.97</td>
+<td>6</td>
+<td>2,434</td>
+</tr>
+<tr class="row-even"><td>5</td>
+<td>6,045</td>
+<td>10</td>
+<td>5,964.04</td>
+<td>10</td>
+<td>6,045</td>
+</tr>
+<tr class="row-odd"><td>6</td>
+<td>2,345</td>
+<td>4</td>
+<td>2,513.45</td>
+<td>5</td>
+<td>2,365</td>
+</tr>
+<tr class="row-even"><td>7</td>
+<td>2,543</td>
+<td>7</td>
+<td>2,116.16</td>
+<td>1</td>
+<td>2,123</td>
+</tr>
+<tr class="row-odd"><td>8</td>
+<td>2,854</td>
+<td>9</td>
+<td>2,624.32</td>
+<td>9</td>
+<td>2,854</td>
+</tr>
+<tr class="row-even"><td>9</td>
+<td>2,365</td>
+<td>5</td>
+<td>2,203.45</td>
+<td>2</td>
+<td>2,300</td>
+</tr>
+<tr class="row-odd"><td>10</td>
+<td>2,643</td>
+<td>8</td>
+<td>2,358.29</td>
+<td>3</td>
+<td>2,312</td>
+</tr>
+</tbody>
+</table>
+<p>The method ‘ds’ (the default method of data shuffling in <em>sdcMicro</em>) is
+recommended for use (Templ et al., 2014) <a class="footnote-reference" href="#foot54" id="id20">[21]</a>. A
+regression function with regressors for the variables to be protected
+must be specified in the argument ‘form’. At least two regressands
+should be specified and the regressors should have predictive power for
+the variables to be predicted. This can be checked with goodness-of-fit
+measures such as the <span class="math notranslate nohighlight">\(R^{2}\)</span> of the regression. The <span class="math notranslate nohighlight">\(R^{2}\)</span>
+captures only linear relations, but these are also the only relations
+that are captured by the linear regression model used for shuffling.
+Following is an example for shuffling expenditure variables, which are
+predicted by total household expenditures and household size.</p>
+<p>Example 5.24: Shuffling using a specified regression equation</p>
+<div class="line-block">
+<div class="line"><em># Evaluate R-squared (goodness-of-fit) of the regression model</em></div>
+<div class="line"><strong>summary</strong>(<strong>lm</strong>(file, form = TOTFOOD + TOTALCH + TOTCLTH +
+TOTHOUS + TOTFURN + TOTHLTH + TOTTRSP + TOTCMNQ + TOTRCRE + TOTEDUC +
+TOTHOTL + TOTMISC ~ EXP + HHSIZE))</div>
+</div>
+<div class="line-block">
+<div class="line"><em># Shuffling using the specified regression equation</em></div>
+<div class="line">sdcInitial &lt;- <strong>shuffle</strong>(sdcInitial, method=’ds’, form = TOTFOOD +
+TOTALCH + TOTCLTH + TOTHOUS + TOTFURN + TOTHLTH + TOTTRSP + TOTCMNQ +
+TOTRCRE + TOTEDUC + TOTHOTL + TOTMISC ~ EXP + HHSIZE)</div>
+</div>
+<p><strong>Recommended Reading Material on Shuffling</strong></p>
+<p>K. Muralidhar and R. Sarathy. 2006.”Data shuffling - A new masking
+approach for numerical data,” <em>Management Science</em>, 52, 658-670.</p>
+</div>
+<div class="section" id="comparison-of-pram-rank-swapping-and-shuffling">
+<h3>Comparison of PRAM, rank swapping and shuffling<a class="headerlink" href="#comparison-of-pram-rank-swapping-and-shuffling" title="Permalink to this headline">¶</a></h3>
+<p>PRAM, rank swapping and shuffling are all perturbative methods, i.e.,
+they change the values for individual records and are mainly used for
+continuous variables. After rank swapping and shuffling, the original
+values are all contained in the treated dataset but might be assigned to
+other records. This implies that univariate tabulations are not changed.
+This also holds in expectation for PRAM, if a transition matrix is
+chosen that has the invariant property.</p>
+<p>Choosing a method is based on the structure to be preserved in the data.
+In cases where the regression model fits the data well, data shuffling
+would work very well, as there should be sufficient (continuous)
+regressors available. Rank swapping works well if there are sufficient
+categories in the variables. PRAM is preferred if the perturbation
+method should be applied to only one or few variables; the advantage is
+the possibility of specifying restrictions on the transition matrix and
+applying PRAM only within strata, which can be user defined.</p>
+</div>
+</div>
+<div class="section" id="anonymization-of-geospatial-variables">
+<h2>Anonymization of geospatial variables<a class="headerlink" href="#anonymization-of-geospatial-variables" title="Permalink to this headline">¶</a></h2>
+<p>Recently, geospatial data has become increasingly popular with
+researchers and wide-spread. Georeferenced data identifies the
+geographical location for each record with the help of a Geographical
+Information System (GIS), that uses for instance GPS (Global Positioning
+System) coordinates or address data. The advantages of geospatial data
+are manifold: 1) researchers can create their own geographical areas,
+such as the service area of a hospital; 2) it enables researchers to
+measure the proximity to facilities, such as schools; 3) researchers can
+use the data to extract geographical patterns; and 4) it enables linking
+of data from different sources (see e.g., Burgert et al., 2015).
+However, geospatial data, due to the precise reference to a location,
+also pose a challenge to the privacy of the respondents.</p>
+<p>One way to anonymize georeferenced data is removing the GIS variables
+and instead leaving in or creating other geographical variables, such as
+province, region. However, this approach also removes the benefits of
+geospatial data. Another option is the geographical displacement of
+areas and/or records. Burgert et al. (2013) describe a geographical
+displacement procedure for a health dataset. This paper also includes
+the code in Python. Hu and Drechsler (2015) propose three different
+strategies for generating synthetic geocodes.</p>
+<p><strong>Recommended Reading Material on Anonymization of Geospatial Data</strong></p>
+<p>C.R. Burgert, J. Colston, T. Roy and B. Zachary. 2013. “DHS Spatial
+Analysis Report No. 7 - Geographic Displacement Procedure and
+Georeferenced Data Release Policy for the Demographic and Health
+Surveys” (USAID). <a class="reference external" href="http://dhsprogram.com/pubs/pdf/SAR7/SAR7.pdf">http://dhsprogram.com/pubs/pdf/SAR7/SAR7.pdf</a></p>
+<p>J. Hu and J. Drechsler. 2015. “Generating synthetic geocoding
+information for public release.”
+<a class="reference external" href="http://www.iab.de/389/section.aspx/Publikation/k150601301">http://www.iab.de/389/section.aspx/Publikation/k150601301</a></p>
+</div>
+<div class="section" id="anonymization-of-the-quasi-identifier-household-size">
+<h2>Anonymization of the quasi-identifier household size<a class="headerlink" href="#anonymization-of-the-quasi-identifier-household-size" title="Permalink to this headline">¶</a></h2>
+<p>The size of a household is an important identifier, especially for large
+households. <a class="footnote-reference" href="#foot55" id="id21">[22]</a>  Suppression of the actual size
+variable, if available (e.g., number of household members), however,
+does not suffice to remove this information from the dataset, as a
+simple count of the household members for a particular household will
+allow this variable to be reconstructed as long as a household ID is in
+the data. In any case, households of a very large size or with a unique
+or special key (i.e., combination of values of quasi-identifiers) should
+be checked manually. One way to treat them is to remove these households
+from the dataset before release. Alternatively, the households can be
+split, but care should be taken to suppress or change values for these
+households to prevent an intruder from immediately understanding that
+these households have been split and reconstructing them by combining
+the two households with the same values.</p>
+</div>
+<div class="section" id="special-case-census-data">
+<h2>Special case: census data<a class="headerlink" href="#special-case-census-data" title="Permalink to this headline">¶</a></h2>
+<p>Census microdata are a special case because the user (and intruder)
+knows that all respondents are included in the dataset. Therefore, risk
+measures that use the sample weights and are based on uncertainty of the
+correctness of a match are no longer applicable. If an intruder has
+identified a sample unique and successfully matched, there is no doubt
+whether the match is correct, as it would be in the case of a sample.
+One approach to release census microdata is to release a stratified
+sample of the sample (1 – 5% of the total census). <strong>NOTE: After
+sampling, the anonymization process has to be followed; sampling alone
+is not sufficient to guarantee confidentiality.</strong></p>
+<p>Several statistical offices release microdata based on census data. A
+few examples are:</p>
+<ul class="simple">
+<li>The British Office for National Statistics (ONS) released several</li>
+</ul>
+<p>files based on the 2011 census: 1) A microdata teaching file for
+educational purposes. This file is a 1% sample of the total census with
+a limited set of variables. 2) Two scientific use files with 5% samples
+are available for registered researchers who accept the terms and
+conditions of their use. 3) Two 10% samples are available in controlled
+research data centers for approved researchers and research goals. All
+these files have been anonymized prior to release. <a class="footnote-reference" href="#foot56" id="id22">[23]</a></p>
+<ul class="simple">
+<li>The U.S. Census Bureau released two samples of the 2000 census: a 5%</li>
+</ul>
+<p>sample on the national level and a 1% sample on the state level. The
+national level file is more detailed, but the most detailed geographical
+area has at least 400,000 people. This, however, allows representation
+of all states from the dataset. The state-level file has less detailed
+variables but a more detailed geographical structure, which allows
+representation of cities and larger counties from the dataset (the
+minimum size of a geographical area is 100,000). Both files have been
+anonymized by using data swapping, top coding, perturbation and reducing
+detail by recoding.[#foot57]_</p>
+<table class="docutils footnote" frame="void" id="foot34" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>We also show code examples in <em>R,</em> which are drawn from findings we
+gathered by applying these methods to a large collection of datasets.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="foot35" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id2">[2]</a></td><td>Here the <em>sdcMicro</em> object “sdcIntial“ contains a dataset with 2,500
+individuals and 103 variables. We selected five quasi-identifiers:
+“sizeRes”, “age”, “gender”, “region”, and “ethnicity”.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="foot36" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id3">[3]</a></td><td>This approach works only for semi-continuous variables, because in
+the case of continuous variables, there might be values that are
+between the lower interval boundary and the lower interval boundary
+minus the small number. For example, using this for income, we would
+have an interval (9999, 19999] and the value 9999.5 would be
+misclassified as belonging to the interval [10000, 19999].</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="foot37" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[4]</td><td>In <em>R</em> suppressed values are recoded NA, the standard missing value
+code.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="foot38" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id4">[5]</a></td><td>In <em>R</em> suppressed values are recoded NA, the standard missing value
+code.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="foot39" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id5">[6]</a></td><td>Here the <em>sdcMicro</em> object “sdcIntial“ contains a dataset with 2,500
+individuals and 103 variables. We selected five quasi-identifiers:
+“sizeRes”, “age”, “gender”, “region”, and “ethnicity”.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="foot40" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id6">[7]</a></td><td>This can be assessed with utility measures.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="foot41" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id7">[8]</a></td><td>I2D2 is a dataset with data related to the labor market.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="foot42" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id10">[9]</a></td><td>The 5,045 is the expectation computed as 5,000 * 1 + 500 * 0.05 +
+400 * 0.05.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="foot43" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[10]</td><td>This means that the vector with the tabulation of the absolute
+frequencies of the different categories in the original data is an
+eigenvector of the transition matrix that corresponds to the unit
+eigenvalue.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="foot44" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id11">[11]</a></td><td>In this example and the following examples in this section, the
+<em>sdcMicro</em> object “sdcIntial“ contains a dataset with 2,000
+individuals and 39 variables. We selected five categorical
+quasi-identifiers and 9 variables for PRAM: “ROOF”, “TOILET”,
+“WATER”, “ELECTCON”, “FUELCOOK”, “OWNMOTORCYCLE”, “CAR”, “TV”, and
+“LIVESTOCK”. These PRAM variabels were selected according to the
+requirements of this particular dataset and for illustrative
+purposes.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="foot45" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id12">[12]</a></td><td>The PRAM method in <em>sdcMicro</em> sometimes produces the following
+error: Error in factor(xpramed, labels = lev) : invalid ‘labels’;
+length 6 should be 1 or 5. Under some circumstances, changing the
+seed can solve this error.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="foot46" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id13">[13]</a></td><td>This can also be achieved with multidimensional transition matrices.
+In that case, the probability is not specified for ‘male’ -&gt;
+‘female’, but for ‘male’ + ‘rural’ -&gt; ‘female’ + ‘rural’ and for
+‘male’ + ‘urban’ -&gt; ‘female’ + ‘urban’. This is not implemented in
+sdcMicro but can be achieved by PRAMming the males and females
+separately. In the example here, this could be done by specifying
+gender as strata variable in the pram() function in <em>sdcMicro</em>.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="foot47" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[14]</td><td>Microaggregation can also be used for categorical data, as long as
+there is a possibility to form groups and an aggregate replacement
+for the values in the group can be calculated. This is the case for
+ordinal variables.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="foot48" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id14">[15]</a></td><td>Here all groups can have different sizes (i.e., number of
+individuals in a group). In practice, the search for homogeneous
+groups is simplified by imposing equal group sizes for all groups.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="foot49" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id15">[16]</a></td><td>In this example and the following examples in this section, the
+<em>sdcMicro</em> object “sdcIntial“ contains a dataset with 2,000
+individuals and 39 variables. We selected five categorical
+quasi-identifiers and three continuous quasi-identifiers: “INC”,
+“EXP” and “WEALTH”.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="foot50" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id16">[17]</a></td><td>Also the homogeneity in the groups will be generally lower, leading
+to larger changes, higher protection, but also more information loss,
+unless the strata variable correlates with the microaggregation
+variable.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="foot51" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id17">[18]</a></td><td>Common values for <span class="math notranslate nohighlight">\(\alpha\)</span> are between 0.5 and 2. The default
+value in the <em>sdcMicro</em> function addNoise() is 150, which is too
+large for most datasets; the level of noise should be set in the
+argument ‘noise’.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="foot52" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id18">[19]</a></td><td>In this example and the following examples in this section, the
+<em>sdcMicro</em> object “sdcIntial“ contains a dataset with 2,000
+individuals and 39 variables. We selected five categorical
+quasi-identifiers and 12 continuous quasi-identifiers. These are the
+expenditure components “TFOODEXP”, “TALCHEXP”, “TCLTHEXP”,
+“THOUSEXP”, “TFURNEXP”, “THLTHEXP”, “TTRANSEXP”, “TCOMMEXP”,
+“TRECEXP”, “TEDUEXP”, “TRESTHOTEXP”, “TMISCEXP“.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="foot53" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id19">[20]</a></td><td>The Shapiro-Wilk test is implemented in the function shapiro.test()
+from the package <em>stats</em> in <em>R</em>. The Jarque-Bera test has several
+implementations in <em>R</em>, for example, in the function
+jarque.bera.test() from the package <em>tseries</em>.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="foot54" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id20">[21]</a></td><td>In <em>sdcMicro</em>, there are several other methods for shuffling
+implemented, including ‘ds’, ‘mvn’ and ‘mlm’. See the Help option for
+the shuffle function in <em>sdcMicro</em> for details on methods ‘ds’, ‘mvm’
+and ‘mlm’.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="foot55" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id21">[22]</a></td><td>Even if the dataset does not contain an explicit variable with
+household size, this information can be easily extracted from the
+data and should be taken into account. Section 7.6 shows how to
+create a variable “household size” based on the household IDs.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="foot56" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id22">[23]</a></td><td>More information on census microdata at ONS is available on their
+website:
+<a class="reference external" href="http://www.ons.gov.uk/ons/guide-method/census/2011/census-data/census-microdata/index.html">http://www.ons.gov.uk/ons/guide-method/census/2011/census-data/census-microdata/index.html</a></td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="foot57" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[24]</td><td>More information on the anonymization of these files is available on
+the website of the U.S. Census Bureau:
+<a class="reference external" href="https://www.census.gov/population/www/cen2000/pums/index.html">https://www.census.gov/population/www/cen2000/pums/index.html</a></td></tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="utility.html" class="btn btn-neutral float-right" title="Measuring Utility and Information Loss" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="measure_risk.html" class="btn btn-neutral" title="Measuring Risk" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Matthew Welch.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

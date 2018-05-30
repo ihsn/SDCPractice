@@ -1,0 +1,360 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Statistical Disclosure Control for Microdata: A Practice Guide &mdash; Readthedocs  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Introduction" href="intro.html" /> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="#" class="icon icon-home"> Readthedocs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Practice guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="glossary_acr.html">Glossary and list of acronyms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SDC_intro.html">Statistical Disclosure Control (SDC): An Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="measure_risk.html">Measuring Risk</a></li>
+<li class="toctree-l1"><a class="reference internal" href="anon_methods.html">Anonymization Methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="utility.html">Measuring Utility and Information Loss</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sdcMicro.html">SDC with <em>sdcMicro</em> in <em>R</em>: Setting Up Your Data and more</a></li>
+<li class="toctree-l1"><a class="reference internal" href="process.html">The SDC Process</a></li>
+<li class="toctree-l1"><a class="reference internal" href="appendices.html">Appendices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bibliography.html"><strong>Bibliography</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="lists.html">Lists</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Case studies</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="case_studies.html">Case Study (Illustrating the SDC Process)</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">Readthedocs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="#">Docs</a> &raquo;</li>
+        
+      <li>Statistical Disclosure Control for Microdata: A Practice Guide</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="statistical-disclosure-control-for-microdata-a-practice-guide">
+<h1>Statistical Disclosure Control for Microdata: A Practice Guide<a class="headerlink" href="#statistical-disclosure-control-for-microdata-a-practice-guide" title="Permalink to this headline">¶</a></h1>
+<p><strong>Thijs Benschop</strong></p>
+<p><strong>Cathrine Machingauta</strong></p>
+<p><strong>Matthew Welch</strong></p>
+<p>Affiliations: Thijs Benschop, Consultant The World Bank, Cathrine
+Machingauta, The World Bank, Matthew Welch, The World Bank</p>
+<p>Correspondence: Matthew Welch, <a class="reference external" href="mailto:mwelch&#37;&#52;&#48;worldbank&#46;org">mwelch<span>&#64;</span>worldbank<span>&#46;</span>org</a></p>
+<p>Acknowledgments: The authors thank Olivier Dupriez (The World Bank) for
+his technical comments and inputs throughout the process.</p>
+<p>The production of this guide was made possible through a World Bank
+Knowledge for Change II Grant: KCP II - A microdata dissemination
+challenge: Balancing data protection and data utility. Grant number: TF
+015043, Project Number P094376. As well as from United Kingdom - DFID
+funding to the World Bank Multi-Donor Trust Fund - International
+Household Survey and Accelerated Data Program – TF071804/TF011722.</p>
+<div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">Practice guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="intro.html#building-a-knowledge-base">Building a knowledge base</a></li>
+<li class="toctree-l2"><a class="reference internal" href="intro.html#using-this-guide">Using this guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="intro.html#outline-of-this-guide">Outline of this guide</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="glossary_acr.html">Glossary and list of acronyms</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="glossary_acr.html#list-of-acronyms">List of Acronyms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="glossary_acr.html#glossary">Glossary</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="SDC_intro.html">Statistical Disclosure Control (SDC): An Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="SDC_intro.html#need-for-sdc">Need for SDC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="SDC_intro.html#the-risk-utility-trade-off-in-the-sdc-process">The risk-utility trade-off in the SDC process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="SDC_intro.html#release-types">Release Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="SDC_intro.html#conditions-for-pufs">Conditions for PUFs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="SDC_intro.html#conditions-for-sufs">Conditions for SUFs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="SDC_intro.html#conditions-for-microdata-available-in-a-controlled-research-data-center">Conditions for microdata available in a controlled research data center</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="measure_risk.html">Measuring Risk</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="measure_risk.html#types-of-disclosure">Types of disclosure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="measure_risk.html#classification-of-variables">Classification of variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="measure_risk.html#disclosure-scenarios">Disclosure scenarios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="measure_risk.html#levels-of-risk">Levels of risk</a></li>
+<li class="toctree-l2"><a class="reference internal" href="measure_risk.html#individual-risk">Individual risk</a></li>
+<li class="toctree-l2"><a class="reference internal" href="measure_risk.html#special-uniques-detection-algorithm-suda">Special Uniques Detection Algorithm (SUDA)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="measure_risk.html#risk-measures-for-continuous-variables">Risk measures for continuous variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="measure_risk.html#global-risk">Global risk</a></li>
+<li class="toctree-l2"><a class="reference internal" href="measure_risk.html#household-risk">Household risk</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="anon_methods.html">Anonymization Methods</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="anon_methods.html#classification-of-sdc-methods">Classification of SDC methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="anon_methods.html#non-perturbative-methods">Non-perturbative methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="anon_methods.html#perturbative-methods">Perturbative methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="anon_methods.html#anonymization-of-geospatial-variables">Anonymization of geospatial variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="anon_methods.html#anonymization-of-the-quasi-identifier-household-size">Anonymization of the quasi-identifier household size</a></li>
+<li class="toctree-l2"><a class="reference internal" href="anon_methods.html#special-case-census-data">Special case: census data</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="utility.html">Measuring Utility and Information Loss</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="utility.html#general-utility-measures-for-continuous-and-categorical-variables">General utility measures for continuous and categorical variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utility.html#utility-measures-based-on-the-end-users-needs">Utility measures based on the end user’s needs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utility.html#assessing-data-utility-with-the-help-of-data-visualizations-in-r">Assessing data utility with the help of data visualizations (in <em>R</em>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utility.html#choice-of-utility-measure">Choice of utility measure</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="sdcMicro.html">SDC with <em>sdcMicro</em> in <em>R</em>: Setting Up Your Data and more</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="sdcMicro.html#installing-r-sdcmicro-and-other-packages">Installing <em>R</em>, <em>sdcMicro</em> and other packages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sdcMicro.html#read-functions-in-r">Read functions in <em>R</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="sdcMicro.html#missing-values">Missing values</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sdcMicro.html#classes-in-r">Classes in <em>R</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="sdcMicro.html#objects-of-class-sdcmicroobj">Objects of class <em>sdcMicroObj</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="sdcMicro.html#household-structure"><strong>Household structure</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="sdcMicro.html#randomizing-order-and-numbering-of-individuals-or-households"><strong>Randomizing order and numbering of individuals or households</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="sdcMicro.html#computation-time">Computation time</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sdcMicro.html#common-errors">Common errors</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="process.html">The SDC Process</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="process.html#step-1-need-for-confidentiality-protection">Step 1: Need for confidentiality protection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="process.html#step-2-data-preparation-and-exploring-data-characteristics">Step 2: Data preparation and exploring data characteristics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="process.html#step-3-type-of-release">Step 3: Type of release</a></li>
+<li class="toctree-l2"><a class="reference internal" href="process.html#step-4-intruder-scenarios-and-choice-of-key-variables">Step 4: Intruder scenarios and choice of key variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="process.html#step-5-data-key-uses-and-selection-of-utility-measures">Step 5: Data key uses and selection of utility measures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="process.html#step-6-assessing-disclosure-risk">Step 6: Assessing disclosure risk</a></li>
+<li class="toctree-l2"><a class="reference internal" href="process.html#step-7-assessing-utility-measures">Step 7: Assessing utility measures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="process.html#step-8-choice-and-application-of-sdc-methods">Step 8: Choice and application of SDC methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="process.html#step-9-re-measure-risk">Step 9: Re-measure risk</a></li>
+<li class="toctree-l2"><a class="reference internal" href="process.html#step-10-re-measure-utility">Step 10: Re-measure utility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="process.html#step-11-audit-and-reporting">Step 11: Audit and Reporting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="process.html#step-12-data-release">Step 12: Data release</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="appendices.html">Appendices</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="appendices.html#appendix-a-overview-of-case-study-variables"><strong>Appendix</strong> <strong>A: Overview of Case Study Variables</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="appendices.html#appendix-b-example-of-blanket-agreement-for-suf"><strong>Appendix</strong> <strong>B: Example of Blanket Agreement for SUF</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="appendices.html#appendix-c-internal-and-external-reports-for-case-studies"><strong>Appendix</strong> <strong>C:</strong> <strong>Internal and External Reports for Case Studies</strong></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="bibliography.html"><strong>Bibliography</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="lists.html">Lists</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="lists.html#list-of-tables">List of Tables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lists.html#list-of-figures">List of Figures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lists.html#list-of-examples">List of Examples</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">Case studies</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="case_studies.html">Case Study (Illustrating the SDC Process)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="case_studies.html#case-study-1-suf">Case study 1- SUF</a></li>
+<li class="toctree-l2"><a class="reference internal" href="case_studies.html#case-study-2-puf">Case study 2 - PUF</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<table class="docutils footnote" frame="void" id="foot17" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[1]</td><td>The developers of <em>sdcMicro</em> have also developed a graphical user
+interface (GUI) for the package, which is contained in the <em>R</em>
+package <em>sdcMicroGUI</em> and available from the CRAN mirrors. The GUI,
+however, does not implement the full functionality of the <em>sdcMicro</em>
+package and is not discussed in this guide.</td></tr>
+</tbody>
+</table>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="intro.html" class="btn btn-neutral float-right" title="Introduction" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Matthew Welch.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
