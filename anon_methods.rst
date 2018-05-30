@@ -72,7 +72,7 @@ Table 5.1: SDC methods and corresponding functions in *sdcMicro*
 +--------------------------------+--------------------------------+----------------------------+---------------------------------------------------------------------------------------------------+
 | Method                         | Classification of SDC method   | Data Type                  | Function in sdcMicro                                                                              |
 +--------------------------------+--------------------------------+----------------------------+---------------------------------------------------------------------------------------------------+
-| Global Recoding                | non-perturbative, determinitic | continuous and categorical | `globalRecode <http://www.rdocumentation.org/packages/sdcMicro/functions/globalrecode/>`_         |
+| Global Recoding                | non-perturbative, determinitic | continuous and categorical | `globalRecode <http://www.rdocumentation.org/packages/sdcMicro/functions/globalrecode/>`_ ,          |
 |                                |                                |                            | `groupVars <http://www.rdocumentation.org/packages/sdcMicro/functions/groupVars-methods/>`_       |
 +--------------------------------+--------------------------------+----------------------------+---------------------------------------------------------------------------------------------------+
 | Top and bottom coding          | non-perturbative, determinitic | continuous and categorical | `topBotCoding <http://www.rdocumentation.org/packages/sdcMicro/functions/topBotCoding/>`_         |
