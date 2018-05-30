@@ -69,79 +69,16 @@ the *sdcMicro* package.
 
 Table 5.1: SDC methods and corresponding functions in *sdcMicro*
 
-+-----------------+-----------------+-----------------+-----------------+
-|   Method        |   Classificatio |   Data-type     |   Function in   |
-|                 | n               |                 | sdcMicro        |
-|                 | of SDC method   |                 |                 |
-+=================+=================+=================+=================+
-| Global recoding | non-perturbativ | continuous and  | `globalRecode < |
-|                 | e,              | categorical     | http://www.rdoc |
-|                 | deterministic   |                 | umentation.org/ |
-|                 |                 |                 | packages/sdcMic |
-|                 |                 |                 | ro/functions/gl |
-|                 |                 |                 | obalRecode>`__\ |
-|                 |                 |                 |  (),            |
-|                 |                 |                 | `groupVars <htt |
-|                 |                 |                 | p://www.rdocume |
-|                 |                 |                 | ntation.org/pac |
-|                 |                 |                 | kages/sdcMicro/ |
-|                 |                 |                 | functions/group |
-|                 |                 |                 | Vars-methods>`_ |
-|                 |                 |                 | _\ ()           |
-+-----------------+-----------------+-----------------+-----------------+
-| Top and bottom  | non-perturbativ | continuous and  | `topBotCoding < |
-| coding          | e,              | categorical     | http://www.rdoc |
-|                 | deterministic   |                 | umentation.org/ |
-|                 |                 |                 | packages/sdcMic |
-|                 |                 |                 | ro/functions/to |
-|                 |                 |                 | pBotCoding>`__\ |
-|                 |                 |                 |  ()             |
-+-----------------+-----------------+-----------------+-----------------+
-| Local           | non-perturbativ | categorical     | `localSuppressi |
-| suppression     | e,              |                 | on <http://www. |
-|                 | deterministic   |                 | rdocumentation. |
-|                 |                 |                 | org/packages/sd |
-|                 |                 |                 | cMicro/function |
-|                 |                 |                 | s/localSuppress |
-|                 |                 |                 | ion>`__\ (),    |
-|                 |                 |                 | localSupp()     |
-+-----------------+-----------------+-----------------+-----------------+
-| PRAM            | perturbative,   | categorical     | `pram <http://w |
-|                 | probabilistic   |                 | ww.rdocumentati |
-|                 |                 |                 | on.org/packages |
-|                 |                 |                 | /sdcMicro/funct |
-|                 |                 |                 | ions/pram>`__\  |
-|                 |                 |                 | ()              |
-+-----------------+-----------------+-----------------+-----------------+
-| Micro           | perturbative,   | continuous      | `microaggregati |
-| aggregation     | deterministic   |                 | on <http://www. |
-|                 |                 |                 | rdocumentation. |
-|                 |                 |                 | org/packages/sd |
-|                 |                 |                 | cMicro/function |
-|                 |                 |                 | s/microaggregat |
-|                 |                 |                 | ion>`__\ ()     |
-+-----------------+-----------------+-----------------+-----------------+
-| Noise addition  | perturbative,   | continuous      | `addNoise <http |
-|                 | probabilistic   |                 | ://www.rdocumen |
-|                 |                 |                 | tation.org/pack |
-|                 |                 |                 | ages/sdcMicro/f |
-|                 |                 |                 | unctions/addNoi |
-|                 |                 |                 | se>`__\ ()      |
-+-----------------+-----------------+-----------------+-----------------+
-| Shuffling       | perturbative,   | continuous      | `shuffle <http: |
-|                 | probabilistic   |                 | //www.rdocument |
-|                 |                 |                 | ation.org/packa |
-|                 |                 |                 | ges/sdcMicro/fu |
-|                 |                 |                 | nctions/shuffle |
-|                 |                 |                 | >`__\ ()        |
-+-----------------+-----------------+-----------------+-----------------+
-| Rank swapping   | perturbative,   | continuous      | `rankSwap <http |
-|                 | probabilistic   |                 | ://www.rdocumen |
-|                 |                 |                 | tation.org/pack |
-|                 |                 |                 | ages/sdcMicro/f |
-|                 |                 |                 | unctions/rankSw |
-|                 |                 |                 | ap>`__\ ()      |
-+-----------------+-----------------+-----------------+-----------------+
+| Method                          | Classification of SDC method   | Data Type                  | Function in sdcMicro                                                                                                                                                              |
+|---------------------------------|--------------------------------|----------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Global Recoding                 | non-perturbative, determinitic | continuous and categorical | `globalRecode <http://www.rdocumentation.org/packages/sdcMicro/functions/globalrecode>` `groupVars <http://www.rdocumentation.org/packages/sdcMicro/functions/groupVars-methods>` |
+| Top and bottom coding           | non-perturbative, determinitic | continuous and categorical | `topBotCoding <http://www.rdocumentation.org/packages/sdcMicro/functions/topBotCoding>`                                                                                           |
+| Local       suppression         | non-perturbative, determinitic | categorical                | `localSuppression <http://www.rdocumentation.org/packages/sdcMicro/functions/localSuppress ion>`,localSupp()                                                                      |
+| PRAM                            | perturbative, probabilistic    | categorical                | `pram <http://www.rdocumentation.org/packages/sdcMicro/functions/pram>`()                                                                                                         |
+| Micro-aggregation               | perturbative, probabilistic    | continuous                 | `microaggregation <http://www.rdocumentation.org/packages/sdcMicro/functions/microaggregation>`()                                                                                 |
+| Noise addition                  | perturbative, probabilistic    | continuous                 | `addNoise <http://www.rdocumentation.org/packages/sdcMicro/functions/addNoise>`()                                                                                                 |
+| Shuffling                       | perturbative, probabilistic    | continuous                 | `shuffle <http://www.rdocumentation.org/packages/sdcMicro/functions/shuffle>`()                                                                                                   |
+| Rank swapping                   | perturbative, probabilistic    | continuous                 | `rankSwap <http://www.rdocumentation.org/packages/sdcMicro/functions/rankSwap>`()                                                                                                 |
 
 Non-perturbative methods
 ------------------------
