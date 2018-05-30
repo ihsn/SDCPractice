@@ -397,8 +397,10 @@ show respectively the frequency counts before and after recoding. We see
 that the number of categories has reduced from 4 to 2 and the small
 categories (‘small city’ and ‘town’) have disappeared.
 
-|Macintosh HD:Users:thijsbenschop:figure51.png|
-
+.. image:: media/image3.png
+   :width: 6.5in
+   :height: 3.25556in
+   
 Figure 5.1 Effect of recoding – frequency counts before and after
 recoding
 
@@ -430,9 +432,10 @@ breaks = 10 \* **c**\ (0:10))
 
 Figure 5.2 shows the effect of recoding the variable “age”.
 
-|Macintosh HD:Users:thijsbenschop:Onedrive:World
-Bank:Guidelines:Plots:figure52.png|
-
+.. image:: media/image4.png
+   :width: 6.5in
+   :height: 3.25556in
+   
 Figure 5.2 Age variable before and after recoding
 
 Instead of creating intervals of equal width, we can also create
@@ -458,8 +461,9 @@ breaks = **c**\ (0, 5, 11, 17, 21, 25, 49, 65, 100))
 | ``##    (0,5]   (5,11]  (11,17]  (17,21]  (21,25]  (25,49]  (49,65] (65,100]``
 | ``##      192      317      332      134      142      808      350      185``
 
-|Macintosh HD:Users:thijsbenschop:Onedrive:World
-Bank:Guidelines:Plots:figure53.png|
+.. image:: media/image5.png
+   :width: 6.5in
+   :height: 3.25556in
 
 Figure 5.3 Age variable before and after recoding
 
@@ -564,8 +568,9 @@ grouped requires:
    to create the desired measures for which the data were intended. In
    the example, we consider this and code all age larger than 64.
 
-|Macintosh HD:Users:thijsbenschop:Onedrive:World
-Bank:Guidelines:Plots:figure54.png|
+.. image:: media/image6.png
+   :width: 6.5in
+   :height: 3.25556in
 
 Figure 5.4: Utilizing the frequency distribution of variable age to
 determine threshold for top coding
@@ -822,8 +827,9 @@ suppressed), high suppression rates on age distort the indicators. It is
 generally useful to compare utility measures (see Chapter 6) to specify
 the importance vector, since the effects can be unpredictable.
 
-|Macintosh HD:Users:thijsbenschop:Onedrive:World
-Bank:Guidelines:Plots:figure55.png|
+.. image:: media/image7.png
+   :width: 6.5in
+   :height: 3.25556in
 
 Figure 5.5: Changes in labor market indicators after anonymization of
 I2D2 data
@@ -1755,7 +1761,9 @@ not preserved and the information loss is large, which is not an ideal
 situation. One way to circumvent the outlier problem is to add noise of
 larger magnitude to outliers than to the other values.
 
-|figure56|
+.. image:: media/image8.png
+   :width: 6.48958in
+   :height: 3.23958in
 
 Figure 5.6: Illustration of effect of noise addition to outliers
 
@@ -2242,3 +2250,142 @@ representation of cities and larger counties from the dataset (the
 minimum size of a geographical area is 100,000). Both files have been
 anonymized by using data swapping, top coding, perturbation and reducing
 detail by recoding.[#foot57]_
+
+.. [#foot34]
+   We also show code examples in *R,* which are drawn from findings we
+   gathered by applying these methods to a large collection of datasets.
+
+.. [#foot35]
+   Here the *sdcMicro* object “sdcIntial“ contains a dataset with 2,500
+   individuals and 103 variables. We selected five quasi-identifiers:
+   “sizeRes”, “age”, “gender”, “region”, and “ethnicity”.
+
+.. [#foot36]
+   This approach works only for semi-continuous variables, because in
+   the case of continuous variables, there might be values that are
+   between the lower interval boundary and the lower interval boundary
+   minus the small number. For example, using this for income, we would
+   have an interval (9999, 19999] and the value 9999.5 would be
+   misclassified as belonging to the interval [10000, 19999].
+
+.. [#foot37]
+   In *R* suppressed values are recoded NA, the standard missing value
+   code.
+
+.. [#foot38]
+   In *R* suppressed values are recoded NA, the standard missing value
+   code.
+
+.. [#foot39]
+   Here the *sdcMicro* object “sdcIntial“ contains a dataset with 2,500
+   individuals and 103 variables. We selected five quasi-identifiers:
+   “sizeRes”, “age”, “gender”, “region”, and “ethnicity”.
+
+.. [#foot40]
+   This can be assessed with utility measures.
+
+.. [#foot41]
+   I2D2 is a dataset with data related to the labor market.
+
+.. [#foot42]
+   The 5,045 is the expectation computed as 5,000 \* 1 + 500 \* 0.05 +
+   400 \* 0.05.
+
+.. [#foot43]
+   This means that the vector with the tabulation of the absolute
+   frequencies of the different categories in the original data is an
+   eigenvector of the transition matrix that corresponds to the unit
+   eigenvalue.
+
+.. [#foot44]
+   In this example and the following examples in this section, the
+   *sdcMicro* object “sdcIntial“ contains a dataset with 2,000
+   individuals and 39 variables. We selected five categorical
+   quasi-identifiers and 9 variables for PRAM: “ROOF”, “TOILET”,
+   “WATER”, “ELECTCON”, “FUELCOOK”, “OWNMOTORCYCLE”, “CAR”, “TV”, and
+   “LIVESTOCK”. These PRAM variabels were selected according to the
+   requirements of this particular dataset and for illustrative
+   purposes.
+
+.. [#foot45]
+   The PRAM method in *sdcMicro* sometimes produces the following
+   error: Error in factor(xpramed, labels = lev) : invalid 'labels';
+   length 6 should be 1 or 5. Under some circumstances, changing the
+   seed can solve this error.
+
+.. [#foot46]
+   This can also be achieved with multidimensional transition matrices.
+   In that case, the probability is not specified for ‘male’ ->
+   ‘female’, but for ‘male’ + ‘rural’ -> ‘female’ + ‘rural’ and for
+   ‘male’ + ‘urban’ -> ‘female’ + ‘urban’. This is not implemented in
+   sdcMicro but can be achieved by PRAMming the males and females
+   separately. In the example here, this could be done by specifying
+   gender as strata variable in the pram() function in *sdcMicro*.
+
+.. [#foot47]
+   Microaggregation can also be used for categorical data, as long as
+   there is a possibility to form groups and an aggregate replacement
+   for the values in the group can be calculated. This is the case for
+   ordinal variables.
+
+.. [#foot48]
+   Here all groups can have different sizes (i.e., number of
+   individuals in a group). In practice, the search for homogeneous
+   groups is simplified by imposing equal group sizes for all groups.
+
+.. [#foot49]
+   In this example and the following examples in this section, the
+   *sdcMicro* object “sdcIntial“ contains a dataset with 2,000
+   individuals and 39 variables. We selected five categorical
+   quasi-identifiers and three continuous quasi-identifiers: “INC”,
+   “EXP” and “WEALTH”.
+
+.. [#foot50]
+   Also the homogeneity in the groups will be generally lower, leading
+   to larger changes, higher protection, but also more information loss,
+   unless the strata variable correlates with the microaggregation
+   variable.
+
+.. [#foot51]
+   Common values for :math:`\alpha` are between 0.5 and 2. The default
+   value in the *sdcMicro* function addNoise() is 150, which is too
+   large for most datasets; the level of noise should be set in the
+   argument ‘noise’.
+
+.. [#foot52]
+   In this example and the following examples in this section, the
+   *sdcMicro* object “sdcIntial“ contains a dataset with 2,000
+   individuals and 39 variables. We selected five categorical
+   quasi-identifiers and 12 continuous quasi-identifiers. These are the
+   expenditure components “TFOODEXP”, “TALCHEXP”, “TCLTHEXP”,
+   “THOUSEXP”, “TFURNEXP”, “THLTHEXP”, “TTRANSEXP”, “TCOMMEXP”,
+   “TRECEXP”, “TEDUEXP”, “TRESTHOTEXP”, “TMISCEXP“.
+
+.. [#foot53]
+   The Shapiro-Wilk test is implemented in the function shapiro.test()
+   from the package *stats* in *R*. The Jarque-Bera test has several
+   implementations in *R*, for example, in the function
+   jarque.bera.test() from the package *tseries*.
+
+.. [#foot54]
+   In *sdcMicro*, there are several other methods for shuffling
+   implemented, including ‘ds’, ‘mvn’ and ‘mlm’. See the Help option for
+   the shuffle function in *sdcMicro* for details on methods ‘ds’, ‘mvm’
+   and ‘mlm’.
+
+.. [#foot55]
+   Even if the dataset does not contain an explicit variable with
+   household size, this information can be easily extracted from the
+   data and should be taken into account. Section 7.6 shows how to
+   create a variable “household size” based on the household IDs.
+
+.. [#foot56]
+   More information on census microdata at ONS is available on their
+   website:
+   http://www.ons.gov.uk/ons/guide-method/census/2011/census-data/census-microdata/index.html
+
+.. [#foot57]
+   More information on the anonymization of these files is available on
+   the website of the U.S. Census Bureau:
+   https://www.census.gov/population/www/cen2000/pums/index.html
+

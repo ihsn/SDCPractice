@@ -518,3 +518,44 @@ Glossary
 |                                   | counted for each unit of          |
 |                                   | observation.                      |
 +-----------------------------------+-----------------------------------+
+
+.. [#foot1]
+   http://www.nss.gov.au/nss/home.nsf/pages/Confidentiality+-+Glossary
+
+.. [#foot2]
+   http://stats.oecd.org/glossary
+
+.. [#foot3]
+   Australian Bureau of Statistics,
+   http://www.nss.gov.au/nss/home.nsf/pages/Confidentiality+-+Glossary
+
+.. [#foot4]
+   Australian Bureau of Statistics,
+   http://www.nss.gov.au/nss/home.nsf/pages/Confidentiality+-+Glossary
+
+.. [#foot5]
+   http://stats.oecd.org/glossary
+
+.. [#foot6]
+   OECD, http://stats.oecd.org/glossary
+
+.. [#foot7]
+   http://www.nss.gov.au/nss/home.nsf/pages/Confidentiality+-+Glossary
+
+.. [#foot8]
+   http://stats.oecd.org/glossary
+
+.. [#foot9]
+   Australian Bureau of Statistics,
+   http://www.nss.gov.au/nss/home.nsf/pages/Confidentiality+-+Glossary
+
+.. [#foot10]
+   Australian Bureau of Statistics,
+   http://www.nss.gov.au/nss/home.nsf/pages/Confidentiality+-+Glossary
+
+.. [#foot11]
+   http://stats.oecd.org/glossary
+
+.. [#foot12]
+   OECD, http://stats.oecd.org/glossary
+   

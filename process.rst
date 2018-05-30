@@ -558,6 +558,9 @@ Files; Principles, Procedures and Practices.* IHSN Working Paper No.
 005, International Household Survey Network (IHSN).
 http://www.ihsn.org/HOME/sites/default/files/resources/IHSN-WP005.pdf
 
-|image19|
+.. image:: media/image20.png
+   :width: 6.55208in
+   :height: 8.60417in
 
 Figure 8.1: Overview of the SDC process
+

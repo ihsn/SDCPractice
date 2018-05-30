@@ -930,3 +930,59 @@ anonymization of microdata:
 -  After manually making changes to variables the risk did not change,
    since it is not updated automatically and has to be manually
    recomputed by using the function calcRisks().
+
+.. [#foot60]
+   Often it is also useful to search the internet for help on specific
+   functions in *R*. There are many fora where *R* users discuss issues
+   they encounter. One particularly useful site is stackoverflow.com.
+
+.. [#foot61]
+   A dataframe is an object class in *R*, which is similar to a data
+   table or matrix.
+
+.. [#foot62]
+   Not all functions are compatible with all versions of the respective
+   software package. We refer to the help files of the read and write
+   functions for more information.
+
+.. [#foot63]
+   The function read.dta() in the package *foreign* does not support
+   the *STATA* file format from *STATA* 13 and *STATA* 14. Two solutions
+   are to use the ‘saveold’ command in *STATA* 13 or 14 that saves the
+   file in the old format that can be read by the function read.dta().
+   Alternatively, one could use the function read.dta13() from the
+   package *readstata13*.
+
+.. [#foot64]
+   The function read.dta() in the package *foreign* does not support
+   the *STATA* file format from *STATA* 13 and *STATA* 14. Two solutions
+   are to use the ‘saveold’ command in *STATA* 13 or 14 that saves the
+   file in the old format that can be read by the function read.dta().
+   Alternatively, one could use the function read.dta13() from the
+   package *readstata13*.
+
+.. [#foot65]
+   This is regardless of the class of the variable in *R*. See Section
+   7.4 for more on classes in *R*.
+
+.. [#foot66]
+   Class *sdcMicroObj* has S4 objects, which have slots or attributes
+   and allow for object-oriented programming.
+
+.. [#foot67]
+   Unless otherwise specified in the arguments of the function.
+
+.. [#foot68]
+   Here a scenario refers to a combination of SDC methods and their
+   parameters.
+
+.. [#foot69]
+   The server has 512 GB RAM and four processors each with 16 cores,
+   translating to 64 cores total.
+
+.. [#foot70]
+   The following website provides an overview of parallelization
+   packages and solutions in *R*:
+   http://cran.r-project.org/web/views/HighPerformanceComputing.html.
+   **NOTE: Solutions are platform-dependent and therefore our solution
+   is not further presented.**

@@ -82,10 +82,8 @@
               <p class="caption"><span class="caption-text">Practice guide</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="glossary_acr.html">List of Acronyms</a></li>
-<li class="toctree-l1"><a class="reference internal" href="glossary_acr.html#glossary">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="glossary_acr.html">Glossary and list of acronyms</a></li>
 <li class="toctree-l1"><a class="reference internal" href="SDC_intro.html">Statistical Disclosure Control (SDC): An Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="SDC_intro.html#release-types">Release Types</a></li>
 <li class="toctree-l1"><a class="reference internal" href="measure_risk.html">Measuring Risk</a></li>
 <li class="toctree-l1"><a class="reference internal" href="anon_methods.html">Anonymization Methods</a></li>
 <li class="toctree-l1"><a class="reference internal" href="utility.html">Measuring Utility and Information Loss</a></li>
@@ -102,16 +100,13 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="process.html">The SDC Process</a></li>
-<li class="toctree-l1"><a class="reference internal" href="appendices.html"><strong>Appendix</strong> <strong>A: Overview of Case Study Variables</strong></a></li>
-<li class="toctree-l1"><a class="reference internal" href="appendices.html#appendix-b-example-of-blanket-agreement-for-suf"><strong>Appendix</strong> <strong>B: Example of Blanket Agreement for SUF</strong></a></li>
-<li class="toctree-l1"><a class="reference internal" href="appendices.html#appendix-c-internal-and-external-reports-for-case-studies"><strong>Appendix</strong> <strong>C:</strong> <strong>Internal and External Reports for Case Studies</strong></a></li>
-<li class="toctree-l1"><a class="reference internal" href="appendices.html#appendix-d-execution-times-for-multiple-scenarios-tested-using-selected-sample-data"><strong>Appendix</strong> <strong>D: Execution Times for Multiple Scenarios Tested using Selected Sample Data</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="appendices.html">Appendices</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bibliography.html"><strong>Bibliography</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="lists.html">Lists</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Case studies</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="case_studies.html">Case Study (Illustrating the SDC Process)</a></li>
-<li class="toctree-l1"><a class="reference external" href="http://www.nss.gov.au/nss/home.nsf/pages/Confidentiality+-+Glossary">http://www.nss.gov.au/nss/home.nsf/pages/Confidentiality+-+Glossary</a></li>
 </ul>
 
             
@@ -224,7 +219,7 @@ their GitHub: <a class="reference external" href="https://github.com/alexkowa/sd
 <div class="section" id="read-functions-in-r">
 <h2>Read functions in <em>R</em><a class="headerlink" href="#read-functions-in-r" title="Permalink to this headline">¶</a></h2>
 <p>The first step in the SDC process when using <em>sdcMicro</em> is to read the
-data into <em>R</em> and create a dataframe. <a href="#id11"><span class="problematic" id="id1">[#foot61]_</span></a> <em>R</em> is
+data into <em>R</em> and create a dataframe. <a class="footnote-reference" href="#foot61" id="id1">[2]</a> <em>R</em> is
 compatible with most statistical data formats and provides read
 functions for most types of data. For those read functions, it is
 sometimes necessary to install additional packages and their
@@ -1423,8 +1418,8 @@ on</td>
 files from 52 countries, using surveys on topics including health,
 labor, income and expenditure. By applying anonymization methods
 available in the <em>sdcMicro</em> package, at least 20 different anonymization
-scenarios <a href="#id12"><span class="problematic" id="id8">[#foot68]_</span></a> were tested on each dataset. Most of the
-processing was done using a powerful server <a href="#id13"><span class="problematic" id="id9">[#foot69]_</span></a> and up
+scenarios <a class="footnote-reference" href="#foot68" id="id8">[9]</a> were tested on each dataset. Most of the
+processing was done using a powerful server <a class="footnote-reference" href="#foot69" id="id9">[10]</a> and up
 to 16 – 20 processors (cores) at a time. Other processing platforms
 included a laptop and desktop computers, each using four processors.
 Computation times were significantly shorter for datasets processed on
@@ -1476,6 +1471,95 @@ how to do this.</li>
 since it is not updated automatically and has to be manually
 recomputed by using the function calcRisks().</li>
 </ul>
+<table class="docutils footnote" frame="void" id="foot60" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[1]</td><td>Often it is also useful to search the internet for help on specific
+functions in <em>R</em>. There are many fora where <em>R</em> users discuss issues
+they encounter. One particularly useful site is stackoverflow.com.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="foot61" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[2]</a></td><td>A dataframe is an object class in <em>R</em>, which is similar to a data
+table or matrix.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="foot62" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[3]</td><td>Not all functions are compatible with all versions of the respective
+software package. We refer to the help files of the read and write
+functions for more information.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="foot63" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[4]</td><td>The function read.dta() in the package <em>foreign</em> does not support
+the <em>STATA</em> file format from <em>STATA</em> 13 and <em>STATA</em> 14. Two solutions
+are to use the ‘saveold’ command in <em>STATA</em> 13 or 14 that saves the
+file in the old format that can be read by the function read.dta().
+Alternatively, one could use the function read.dta13() from the
+package <em>readstata13</em>.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="foot64" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[5]</td><td>The function read.dta() in the package <em>foreign</em> does not support
+the <em>STATA</em> file format from <em>STATA</em> 13 and <em>STATA</em> 14. Two solutions
+are to use the ‘saveold’ command in <em>STATA</em> 13 or 14 that saves the
+file in the old format that can be read by the function read.dta().
+Alternatively, one could use the function read.dta13() from the
+package <em>readstata13</em>.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="foot65" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[6]</td><td>This is regardless of the class of the variable in <em>R</em>. See Section
+7.4 for more on classes in <em>R</em>.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="foot66" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[7]</td><td>Class <em>sdcMicroObj</em> has S4 objects, which have slots or attributes
+and allow for object-oriented programming.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="foot67" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[8]</td><td>Unless otherwise specified in the arguments of the function.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="foot68" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id8">[9]</a></td><td>Here a scenario refers to a combination of SDC methods and their
+parameters.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="foot69" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id9">[10]</a></td><td>The server has 512 GB RAM and four processors each with 16 cores,
+translating to 64 cores total.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="foot70" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[11]</td><td>The following website provides an overview of parallelization
+packages and solutions in <em>R</em>:
+<a class="reference external" href="http://cran.r-project.org/web/views/HighPerformanceComputing.html">http://cran.r-project.org/web/views/HighPerformanceComputing.html</a>.
+<strong>NOTE: Solutions are platform-dependent and therefore our solution
+is not further presented.</strong></td></tr>
+</tbody>
+</table>
 </div>
 </div>
 

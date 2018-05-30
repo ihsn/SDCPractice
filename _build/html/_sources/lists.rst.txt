@@ -5,7 +5,7 @@ May no longer be needed in this format or need to be automated
 
 
 List of Tables
-==============
+---------------
 
 Table 4.1: Example dataset showing sample frequencies, population
 frequencies and individual disclosure risk 20
@@ -133,7 +133,7 @@ level 166
 Table 9.25: k-anonymity violations 170
 
 List of Figures
-===============
+-----------------
 
 Figure 2.1: Risk-utility trade-off 7
 
@@ -192,7 +192,7 @@ Figure 8.1: Overview of the SDC process 118
 Figure 9.1: Lorenz curve based on positive total expenditures values 140
 
 List of Examples
-================
+-----------------
 
 :math:`f_{k}`\ Example 4.1: Calculating using *sdcMicro* 21
 
@@ -466,3 +466,4 @@ Example 9.44: Local suppression to reach 5-anonimity 168
 Example 9.45: Randomizing the order of records within regions 169
 
 Example 9.46: Exporting the anonymized PUF file 171
+

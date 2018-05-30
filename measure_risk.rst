@@ -1434,3 +1434,122 @@ Templ, Matthias, Bernhard Meindl, Alexander Kowarik, and Shuang Chen.
 2014. "Introduction to Statistical Disclosure Control (SDC)."
 http://www.ihsn.org/home/sites/default/files/resources/ihsn-working-paper-007-Oct27.pdf\ *.*
 August 1. Accessed November 13, 2014.
+
+
+.. [#foot21]
+   Recoding a continuous variable is sometimes useful in cases where the
+   data contains only a few continuous variables. We will see in Section
+   3 that many methods used for risk calculation depend on whether the
+   variables are categorical. We will also see that it is easier for the
+   measurement of risk if the data contains only categorical or only 
+   continuous variables.
+   
+.. [#foot22]
+   This is discussed in greater detail in the following sections. In
+   cases where the number of possible values is large, recoding the
+   variable, or parts of the set it takes values on, to obtain fewer
+   distinct values is recommended.
+
+.. [#foot23]
+   Besides variables collected at the higher hierarchical level, also
+   variables collected at the lower level but with no (or little)
+   variation within the groups formed by the hierarchical structure
+   should be treated as higher level variables. An example could be
+   mother tongue, where most households are monolingual, but the
+   variable is collected at the individual level.
+
+.. [#foot24]
+   Religion, for example, can be shared by all household members in
+   some countries, whereas in other countries this variable is measured
+   at the individual level and mixed-religion households exist.
+
+.. [#foot25]
+   The code examples in this guide are based on *sdcMicro* objects. An
+   *sdcMicro* object contains, amongst others, the data and identifies
+   all the specified key variables. The code below creates a data.frame
+   with the data from Table 4.1 and the *sdcMicro* objects “sdcInitial”
+   used in most examples in this section.
+
+   .. code-block:: R
+   
+       library(sdcMicro)
+       
+       # Set up dataset
+       
+       data <- as.data.frame(cbind(as.factor(c('Urban',
+       'Urban', 'Urban', 'Urban', 'Rural', 'Urban', 'Urban', 'Urban',
+       'Urban', 'Urban')),
+       as.factor**\ \ (**c**\ \ ('Female', 'Female', 'Female', 'Male',
+       'Female', 'Male', 'Female', 'Male', 'Female', 'Female')),
+       as.factor(c('Sec in', 'Sec in', 'Prim in', 'Sec com', 'Sec com', 'Sec com', 'Prim com', 'Post-sec', 'Sec in', 'Sec in')), 
+       as.factor(c('Emp', 'Emp', 'Non-LF', 'Emp', 'Unemp', 'Emp', 'Non-LF', 'Unemp', 'Non-LF','Non-LF')),
+       as.factor(c('yes', 'yes', 'yes', 'yes', 'yes', 'no', 'no', 'yes', 'no', 'yes')),
+       c(180, 180, 215, 76, 186, 76, 180, 215, 186, 76)))
+       
+       # Specify variable names*
+       
+       names(data) <- c('Residence', 'Gender', 'Educ', 'Lstat', 'Health', 'Weights')
+       
+       # Set up sdcMicro object with specified quasi-identifiers and weight variable
+       
+       sdcInitial <- createSdcObj(dat = data, 
+       keyVars = c('Residence', 'Gender', 'Educ', 'Lstat'), weightVar = 'Weights')
+
+.. [#foot26]
+   The assumptions for this risk measure are strict and the risk is
+   estimated in many cases higher than the actual risk. Among other
+   assumptions, it is assumed that all individuals in the sample are
+   also included in the external file used by the intruder to match
+   against. If this is not the case, the risk is much lower; if the
+   individual in the released file is not contained in the external
+   file, the probability of a correct match is zero. Other assumptions
+   are that the files contain no errors and that both sets of data were
+   collected simultaneously, i.e. they contain the same information.
+   These assumptions will often not hold generally, but are necessary
+   for computation of a measure. An example of a violation of the last
+   assumptions is could occur if datasets are collected at different
+   points in time and records have changed. This could happen when
+   people move or change jobs and makes correct matching impossible. The
+   assumptions assume a worst-case scenario.
+
+.. [#foot27]
+   See Section 7.5 for more information on slots and the *sdcMicro*
+   object structure.
+
+.. [#foot28]
+   In *sdcMicro* it is important to use the standard missing value code
+   NA instead of other codes, such as 9999 or strings. In Chapter 6, we
+   further discuss how to set other missing value codes to NA in *R*.
+   This is necessary to ensure that the methods in *sdcMicro* function
+   properly. When missing values have codes other than NA, the missing
+   value codes are interpreted as a distinct factor level in the case of
+   categorical variables.
+
+.. [#foot29]
+   Alternatively, the sensitive variables can be specified when
+   creating the *sdcMicro* object using the function createSdcObj() in
+   the *sensibleVar* argument. This is further explained in Section 7.5.
+   In that case, the argument *ldiv_index* does not have to be specified
+   in the ldiversity() function. and the variables in the *sensibleVar*
+   argument will automatically be used to compute :math:`l`-diversity.
+
+.. [#foot30]
+   Besides distinct :math:`l`-diversity, there are other
+   :math:`l`-diversity methods: entropy and recursive. Distinct
+   :math:`l`-diversity is most commonly used.
+
+.. [#foot31]
+   There are more combinations of quasi-identifiers that make record 5
+   unique (e.g., {‘Rural’, ‘Female’} and {‘Female’, ‘Secondary
+   Complete’, ‘Unemployed’}. These combinations, however, are not
+   considered MSUs because they do not fulfill the **minimal** subset
+   requirement. They contain subsets that are MSUs.
+
+.. [#foot32]
+   OECD, http://stats.oecd.org/glossary
+
+.. [#foot33]
+   The third record has one MSU, {‘Primary incomplete’}; the seventh
+   record has one MSU, {‘Primary complete’}; and the eighth record has
+   three MSUs, {‘Urban, Unemployed’}, {‘Male, Unemployed’} and
+   {‘Post-secondary’}.

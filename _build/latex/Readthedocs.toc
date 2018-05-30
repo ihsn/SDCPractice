@@ -1,0 +1,46 @@
+\select@language {english}
+\contentsline {chapter}{\numberline {1}Introduction}{3}{chapter.1}
+\contentsline {section}{\numberline {1.1}Building a knowledge base}{4}{section.1.1}
+\contentsline {section}{\numberline {1.2}Using this guide}{4}{section.1.2}
+\contentsline {section}{\numberline {1.3}Outline of this guide}{5}{section.1.3}
+\contentsline {chapter}{\numberline {2}Glossary and list of acronyms}{7}{chapter.2}
+\contentsline {section}{\numberline {2.1}List of Acronyms}{7}{section.2.1}
+\contentsline {section}{\numberline {2.2}Glossary}{8}{section.2.2}
+\contentsline {chapter}{\numberline {3}Statistical Disclosure Control (SDC): An Introduction}{11}{chapter.3}
+\contentsline {section}{\numberline {3.1}Need for SDC}{11}{section.3.1}
+\contentsline {section}{\numberline {3.2}The risk-utility trade-off in the SDC process}{12}{section.3.2}
+\contentsline {section}{\numberline {3.3}Release Types}{12}{section.3.3}
+\contentsline {section}{\numberline {3.4}Conditions for PUFs}{14}{section.3.4}
+\contentsline {section}{\numberline {3.5}Conditions for SUFs}{14}{section.3.5}
+\contentsline {section}{\numberline {3.6}Conditions for microdata available in a controlled research data center}{15}{section.3.6}
+\contentsline {chapter}{\numberline {4}Measuring Risk}{17}{chapter.4}
+\contentsline {section}{\numberline {4.1}Types of disclosure}{17}{section.4.1}
+\contentsline {section}{\numberline {4.2}Classification of variables}{17}{section.4.2}
+\contentsline {section}{\numberline {4.3}Disclosure scenarios}{19}{section.4.3}
+\contentsline {section}{\numberline {4.4}Levels of risk}{19}{section.4.4}
+\contentsline {section}{\numberline {4.5}Individual risk}{20}{section.4.5}
+\contentsline {subsection}{\numberline {4.5.1}Categorical key variables and frequency counts}{20}{subsection.4.5.1}
+\contentsline {subsection}{\numberline {4.5.2}\(k\)-anonymity}{23}{subsection.4.5.2}
+\contentsline {subsection}{\numberline {4.5.3}\(l\)-diversity}{24}{subsection.4.5.3}
+\contentsline {section}{\numberline {4.6}Special Uniques Detection Algorithm (SUDA)}{26}{section.4.6}
+\contentsline {subsection}{\numberline {4.6.1}Sample unique vs. special unique}{26}{subsection.4.6.1}
+\contentsline {subsection}{\numberline {4.6.2}Calculating SUDA scores}{28}{subsection.4.6.2}
+\contentsline {subsection}{\numberline {4.6.3}Application of SUDA, DIS-SUDA using \sphinxstyleemphasis {sdcMicro}}{29}{subsection.4.6.3}
+\contentsline {section}{\numberline {4.7}Risk measures for continuous variables}{31}{section.4.7}
+\contentsline {subsection}{\numberline {4.7.1}Record linkage}{31}{subsection.4.7.1}
+\contentsline {subsection}{\numberline {4.7.2}Interval measure}{32}{subsection.4.7.2}
+\contentsline {subsection}{\numberline {4.7.3}Outlier detection}{32}{subsection.4.7.3}
+\contentsline {section}{\numberline {4.8}Global risk}{33}{section.4.8}
+\contentsline {subsection}{\numberline {4.8.1}Mean of individual risk measures}{33}{subsection.4.8.1}
+\contentsline {subsection}{\numberline {4.8.2}Count of individuals with risks larger than a certain threshold}{33}{subsection.4.8.2}
+\contentsline {section}{\numberline {4.9}Household risk}{34}{section.4.9}
+\contentsline {chapter}{\numberline {5}Anonymization Methods}{37}{chapter.5}
+\contentsline {section}{\numberline {5.1}Classification of SDC methods}{37}{section.5.1}
+\contentsline {section}{\numberline {5.2}Non-perturbative methods}{38}{section.5.2}
+\contentsline {subsection}{\numberline {5.2.1}Recoding}{38}{subsection.5.2.1}
+\contentsline {subsubsection}{Global recoding}{38}{subsubsection*.3}
+\contentsline {subsubsection}{Top and bottom coding}{43}{subsubsection*.4}
+\contentsline {subsubsection}{Rounding}{44}{subsubsection*.5}
+\contentsline {subsection}{\numberline {5.2.2}Local suppression}{44}{subsection.5.2.2}
+\contentsline {section}{\numberline {5.3}Perturbative methods}{50}{section.5.3}
+\contentsline {subsection}{\numberline {5.3.1}PRAM (Post RAndomization Method)}{51}{subsection.5.3.1}

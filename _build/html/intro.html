@@ -89,7 +89,6 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="glossary_acr.html">Glossary and list of acronyms</a></li>
 <li class="toctree-l1"><a class="reference internal" href="SDC_intro.html">Statistical Disclosure Control (SDC): An Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="SDC_intro.html#release-types">Release Types</a></li>
 <li class="toctree-l1"><a class="reference internal" href="measure_risk.html">Measuring Risk</a></li>
 <li class="toctree-l1"><a class="reference internal" href="anon_methods.html">Anonymization Methods</a></li>
 <li class="toctree-l1"><a class="reference internal" href="utility.html">Measuring Utility and Information Loss</a></li>
@@ -98,9 +97,6 @@
 <li class="toctree-l1"><a class="reference internal" href="appendices.html">Appendices</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bibliography.html"><strong>Bibliography</strong></a></li>
 <li class="toctree-l1"><a class="reference internal" href="lists.html">Lists</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lists.html#list-of-tables">List of Tables</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lists.html#list-of-figures">List of Figures</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lists.html#list-of-examples">List of Examples</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Case studies</span></p>
 <ul>
@@ -172,7 +168,7 @@
   <div class="section" id="introduction">
 <h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
 <p>National statistics agencies are mandated to collect
-microdata <a href="#id9"><span class="problematic" id="id1">[#foot13]_</span></a> from surveys and censuses to inform and
+microdata <a class="footnote-reference" href="#foot13" id="id1">[1]</a> from surveys and censuses to inform and
 measure policy effectiveness. In almost all countries, statistics acts
 and privacy laws govern these activities. These laws require that
 agencies protect the identity of respondents, but may also require that
@@ -301,7 +297,7 @@ for SDC called <em>sdcMicro</em> as well as the statistical software <em>R</em>.
 package was developed and is maintained by Matthias Templ, Alexander
 Kowarik and Bernhard Meindl. <a href="#id2"><span class="problematic" id="id3">`</span></a>See and the GitHub of the developers. The
 GitHub repository can also be used to submit bugs found in the
-package. <a href="#id10"><span class="problematic" id="id4">[#foot14]_</span></a> The statistical software <em>R</em> and the <em>sdcMicro</em>
+package. <a class="footnote-reference" href="#foot14" id="id4">[2]</a> The statistical software <em>R</em> and the <em>sdcMicro</em>
 package, as well as any other packages needed for the SDC process, are
 freely available from the Comprehensive R Archive Network (CRAN) mirrors
 (<a class="reference external" href="http://cran.r-project.org/">http://cran.r-project.org/</a>). The software is available for Linux,
@@ -315,17 +311,17 @@ we support.</p>
 implementing the SDC process. Our concern is more with providing
 practical insight into the application of the methods. We would,
 however, like to highlight one particular other software package that is
-commonly used by agencies: μ-ARGUS <a href="#id11"><span class="problematic" id="id5">[#foot15]_</span></a>. μ-ARGUS is
+commonly used by agencies: μ-ARGUS <a class="footnote-reference" href="#foot15" id="id5">[3]</a>. μ-ARGUS is
 developed by Statistics Netherlands. <em>sdcMicro</em> and μ-ARGUS are both
 widely used in statistics offices in the European Union and implement
 many of the same methods.</p>
 <p>The user needs some knowledge of <em>R</em> to use <em>sdcMicro</em>. It is beyond the
 scope of this guide to teach the use of <em>R</em>, but we do provide
 throughout the guide code examples on how to implement the necessary
-routines in <em>R</em>. <a href="#id12"><span class="problematic" id="id6">[#foot16]_</span></a> We also present a number of case
+routines in <em>R</em>. <a class="footnote-reference" href="#foot16" id="id6">[4]</a> We also present a number of case
 studies that include the code for the anonymization of a number of demo
 datasets using <em>R</em>. Through these case studies, we demonstrate a number
-of approaches to the anonymization process in <em>R</em>. <a href="#id13"><span class="problematic" id="id7">[#foot17]_</span></a></p>
+of approaches to the anonymization process in <em>R</em>. <a href="#id9"><span class="problematic" id="id7">[#foot17]_</span></a></p>
 </div>
 <div class="section" id="outline-of-this-guide">
 <h2>Outline of this guide<a class="headerlink" href="#outline-of-this-guide" title="Permalink to this headline">¶</a></h2>
@@ -353,6 +349,42 @@ demonstrate the use of the methods, their implementation in
 <em>sdcMicro</em> and the process that should be followed to reach the
 optimal risk-utility solution.</li>
 </ol>
+<table class="docutils footnote" frame="void" id="foot13" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>Microdata are unit-level data obtained from sample surveys, censuses
+and administrative systems. They provide information about
+characteristics of individual people or entities such as households,
+business enterprises, facilities, farms or even geographical areas
+such as villages or towns. They allow in-depth understanding of
+socio-economic issues by studying relationships and interactions
+among phenomena. Microdata are thus key to designing projects and
+formulating policies, targeting interventions and monitoring and
+measuring the impact and results of projects, interventions and
+policies.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="foot14" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id4">[2]</a></td><td><a class="reference external" href="http://cran.r-project.org/web/packages/sdcMicro/index.html">http://cran.r-project.org/web/packages/sdcMicro/index.html</a><a class="reference external" href="https://github.com/alexkowa/sdcMicro">https://github.com/alexkowa/sdcMicro</a></td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="foot15" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id5">[3]</a></td><td>μ-ARGUS is available at: <a class="reference external" href="http://neon.vb.cbs.nl/casc/mu.htm">http://neon.vb.cbs.nl/casc/mu.htm</a>. The
+software was recently ported to open source.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="foot16" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id6">[4]</a></td><td>There are many free resources for learning <em>R</em> available on the web.
+One place to start would be the CRAN <em>R</em> Project page:
+<a class="reference external" href="http://cran.r-project.org/other-docs.html">http://cran.r-project.org/other-docs.html</a></td></tr>
+</tbody>
+</table>
 </div>
 </div>
 

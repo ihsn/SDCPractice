@@ -82,10 +82,8 @@
               <p class="caption"><span class="caption-text">Practice guide</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="glossary_acr.html">List of Acronyms</a></li>
-<li class="toctree-l1"><a class="reference internal" href="glossary_acr.html#glossary">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="glossary_acr.html">Glossary and list of acronyms</a></li>
 <li class="toctree-l1"><a class="reference internal" href="SDC_intro.html">Statistical Disclosure Control (SDC): An Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="SDC_intro.html#release-types">Release Types</a></li>
 <li class="toctree-l1"><a class="reference internal" href="measure_risk.html">Measuring Risk</a></li>
 <li class="toctree-l1"><a class="reference internal" href="anon_methods.html">Anonymization Methods</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Measuring Utility and Information Loss</a><ul>
@@ -116,16 +114,13 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="sdcMicro.html">SDC with <em>sdcMicro</em> in <em>R</em>: Setting Up Your Data and more</a></li>
 <li class="toctree-l1"><a class="reference internal" href="process.html">The SDC Process</a></li>
-<li class="toctree-l1"><a class="reference internal" href="appendices.html"><strong>Appendix</strong> <strong>A: Overview of Case Study Variables</strong></a></li>
-<li class="toctree-l1"><a class="reference internal" href="appendices.html#appendix-b-example-of-blanket-agreement-for-suf"><strong>Appendix</strong> <strong>B: Example of Blanket Agreement for SUF</strong></a></li>
-<li class="toctree-l1"><a class="reference internal" href="appendices.html#appendix-c-internal-and-external-reports-for-case-studies"><strong>Appendix</strong> <strong>C:</strong> <strong>Internal and External Reports for Case Studies</strong></a></li>
-<li class="toctree-l1"><a class="reference internal" href="appendices.html#appendix-d-execution-times-for-multiple-scenarios-tested-using-selected-sample-data"><strong>Appendix</strong> <strong>D: Execution Times for Multiple Scenarios Tested using Selected Sample Data</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="appendices.html">Appendices</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bibliography.html"><strong>Bibliography</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="lists.html">Lists</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Case studies</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="case_studies.html">Case Study (Illustrating the SDC Process)</a></li>
-<li class="toctree-l1"><a class="reference external" href="http://www.nss.gov.au/nss/home.nsf/pages/Confidentiality+-+Glossary">http://www.nss.gov.au/nss/home.nsf/pages/Confidentiality+-+Glossary</a></li>
 </ul>
 
             
@@ -223,7 +218,7 @@ structure and does not need a detailed geographical structure).
 Nevertheless, as pointed out earlier, only one anonymized dataset can be
 released for each dataset and every type of release to avoid unintended
 disclosure. Releasing multiple anonymized datasets for different
-purposes may lead to unintended disclosure. <a href="#id19"><span class="problematic" id="id1">[#foot58]_</span></a>
+purposes may lead to unintended disclosure. <a class="footnote-reference" href="#foot58" id="id1">[1]</a>
 Therefore, it is not possible to anonymize and release a file tailored
 to each user’s needs.</p>
 <p>Since collecting and taking into account all data uses is often
@@ -253,8 +248,7 @@ The points in between represent the result of applying different SDC
 methods with different parameter specifications. We would select the SDC
 method corresponding to the point, which maximizes the utility, while
 keeping disclosure risk at an acceptable level.</p>
-<p><a href="#id4"><span class="problematic" id="id5">|Macintosh HD:Users:thijsbenschop:Onedrive:World
-Bank:Guidelines:Plots:figure61.png|</span></a></p>
+<a class="reference internal image-reference" href="_images/image11.png"><img alt="_images/image11.png" src="_images/image11.png" style="width: 6.5in; height: 3.25556in;" /></a>
 <p>Figure 6.1: The trade-off between risk and utility in a hypothetical
 dataset</p>
 <p>In the following sections, we first propose general utility measures
@@ -286,17 +280,18 @@ stands for local suppression. The output shows both the absolute and
 relative number of suppressions.</p>
 <p>Example 6.1: Using the print() function to retrieve the total number of
 suppressions for each categorical key variable</p>
-<p>sdcInitial &lt;- <strong>localSuppression</strong>(sdcInitial, k = 5, importance =
-NULL)</p>
-<p><strong>print</strong>(sdcInitial, ‘ls’)</p>
-<div class="line-block">
-<div class="line"><code class="docutils literal notranslate"><span class="pre">##</span> <span class="pre">Local</span> <span class="pre">Suppression:</span></code></div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">##</span></code><a href="#id2"><span class="problematic" id="id3">``</span></a><code class="docutils literal notranslate"><span class="pre">\</span> <span class="pre">``KeyVar</span> <span class="pre">|</span> <span class="pre">Suppressions</span> <span class="pre">(#)</span> <span class="pre">|</span> <span class="pre">Suppressions</span> <span class="pre">(%)</span></code></div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">##</span>&#160;&#160; <span class="pre">URBRUR</span> <span class="pre">|</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">0</span> <span class="pre">|</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">0.000</span></code></div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">##</span>&#160;&#160; <span class="pre">REGION</span> <span class="pre">|</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">81</span> <span class="pre">|</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">4.050</span></code></div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">##</span>&#160;&#160;&#160; <span class="pre">RELIG</span> <span class="pre">|</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">0</span> <span class="pre">|</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">0.000</span></code></div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">##</span>&#160; <span class="pre">MARITAL</span> <span class="pre">|</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">0</span> <span class="pre">|</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">0.000</span></code></div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">##</span> <span class="pre">---------------------------------------------------------------------------</span></code></div>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span>sdcInitial <span class="o">&lt;-</span> localSuppression<span class="p">(</span>sdcInitial<span class="p">,</span> k <span class="o">=</span> <span class="m">5</span><span class="p">,</span> importance <span class="o">=</span> <span class="kc">NULL</span><span class="p">)</span>
+
+<span class="kp">print</span><span class="p">(</span>sdcInitial<span class="p">,</span> <span class="s">&#39;ls&#39;</span><span class="p">)</span>
+
+<span class="c1">## Local Suppression:</span>
+<span class="c1">## KeyVar | Suppressions (#) | Suppressions (%)</span>
+<span class="c1">##   URBRUR |                0 |            0.000</span>
+<span class="c1">##   REGION |               81 |            4.050</span>
+<span class="c1">##    RELIG |                0 |            0.000</span>
+<span class="c1">##  MARITAL |                0 |            0.000</span>
+<span class="c1">## ---------------------------------------------------------------------------</span>
+</pre></div>
 </div>
 <p>More generally, it is possible to count and compare the number of
 missing values in the original data and the treated data. This can be
@@ -312,35 +307,36 @@ but also shows that the variable “RELIG” has 1,000 missing values in the
 original data.</p>
 <p>Example 6.2: Displaying the number of missing values for each
 categorical key variable in an <em>sdcMicro</em> object</p>
-<div class="line-block">
-<div class="line"><em># Store the names of all categorical key variables in a vector</em></div>
-<div class="line">namesKeyVars &lt;- <strong>names</strong>(<a class="reference external" href="mailto:sdcInitial&#37;&#52;&#48;manipKeyVars">sdcInitial<span>&#64;</span>manipKeyVars</a>)</div>
-</div>
-<div class="line-block">
-<div class="line"><em># Matrix to store the number of missing values (NA) before and after
-anonymization</em></div>
-<div class="line">NAcount &lt;- <strong>matrix</strong>(NA, nrow = 2, ncol =
-<strong>length</strong>(namesKeyVars))</div>
-</div>
-<p><strong>colnames</strong>(NAcount) &lt;- <strong>c</strong>(<strong>paste0</strong>(‘NA’, namesKeyVars)) <em>#
-column names</em></p>
-<p><strong>rownames</strong>(NAcount) &lt;- <strong>c</strong>(‘initial’, ‘treated’) <em># row names</em></p>
-<div class="line-block">
-<div class="line"><em># NA count in all key variables (NOTE: only those coded NA are
-counted)</em></div>
-<div class="line">for(i in 1:<strong>length</strong>(namesKeyVars))</div>
-<div class="line">{</div>
-<div class="line">NAcount[1, i] &lt;-
-<strong>sum</strong>(<strong>is.na</strong>(sdcInitial&#64;origData[,namesKeyVars[i]]))</div>
-<div class="line">NAcount[2, i] &lt;- <strong>sum</strong>(<strong>is.na</strong>(sdcInitial&#64;manipKeyVars[,i]))</div>
-<div class="line">}</div>
-</div>
-<p><em># Show results</em></p>
-<p>NAcount</p>
-<div class="line-block">
-<div class="line"><code class="docutils literal notranslate"><span class="pre">##</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">NAURBRUR</span> <span class="pre">NAREGION</span> <span class="pre">NARELIG</span> <span class="pre">NAMARITAL</span></code></div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">##</span> <span class="pre">initial</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">0</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">0</span>&#160;&#160;&#160; <span class="pre">1000</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">51</span></code></div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">##</span> <span class="pre">treated</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">0</span>&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">81</span>&#160;&#160;&#160; <span class="pre">1000</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">51</span></code></div>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="o">|</span> <span class="o">*</span><span class="c1"># Store the names of all categorical key variables in a vector*</span>
+<span class="o">|</span> namesKeyVars <span class="o">&lt;-</span> <span class="o">**</span><span class="kp">names</span><span class="o">**</span>\ <span class="p">(</span>sdcInitial<span class="o">@</span>manipKeyVars<span class="p">)</span>
+
+<span class="o">|</span> <span class="o">*</span><span class="c1"># Matrix to store the number of missing values (NA) before and after</span>
+  anonymization<span class="o">*</span>
+<span class="o">|</span> NAcount <span class="o">&lt;-</span> <span class="o">**</span><span class="kt">matrix</span><span class="o">**</span>\ <span class="p">(</span><span class="kc">NA</span><span class="p">,</span> nrow <span class="o">=</span> <span class="m">2</span><span class="p">,</span> ncol <span class="o">=</span>
+  <span class="o">**</span><span class="kp">length</span><span class="o">**</span>\ <span class="p">(</span>namesKeyVars<span class="p">))</span>
+
+<span class="o">**</span><span class="kp">colnames</span><span class="o">**</span>\ <span class="p">(</span>NAcount<span class="p">)</span> <span class="o">&lt;-</span> <span class="o">**</span><span class="kt">c</span><span class="o">**</span>\ <span class="p">(</span><span class="o">**</span><span class="kp">paste0</span><span class="o">**</span>\ <span class="p">(</span><span class="s">&#39;NA&#39;</span><span class="p">,</span> namesKeyVars<span class="p">))</span> <span class="o">*</span><span class="c1">#</span>
+column <span class="kp">names</span><span class="o">*</span>
+
+<span class="o">**</span><span class="kp">rownames</span><span class="o">**</span>\ <span class="p">(</span>NAcount<span class="p">)</span> <span class="o">&lt;-</span> <span class="o">**</span><span class="kt">c</span><span class="o">**</span>\ <span class="p">(</span><span class="s">&#39;initial&#39;</span><span class="p">,</span> <span class="s">&#39;treated&#39;</span><span class="p">)</span> <span class="o">*</span><span class="c1"># row names*</span>
+
+<span class="o">|</span> <span class="o">*</span><span class="c1"># NA count in all key variables (NOTE: only those coded NA are</span>
+  counted<span class="p">)</span><span class="o">*</span>
+<span class="o">|</span> <span class="kr">for</span><span class="p">(</span>i <span class="kr">in</span> <span class="m">1</span><span class="o">:</span>\ <span class="o">**</span><span class="kp">length</span><span class="o">**</span>\ <span class="p">(</span>namesKeyVars<span class="p">))</span>
+<span class="o">|</span> <span class="p">{</span>
+<span class="o">|</span> NAcount<span class="p">[</span><span class="m">1</span><span class="p">,</span> i<span class="p">]</span> <span class="o">&lt;-</span>
+  <span class="o">**</span><span class="kp">sum</span><span class="o">**</span>\ <span class="p">(</span><span class="o">**</span><span class="kp">is.na</span><span class="o">**</span>\ <span class="p">(</span>sdcInitial<span class="o">@</span>origData<span class="p">[,</span>namesKeyVars<span class="p">[</span>i<span class="p">]]))</span>
+<span class="o">|</span> NAcount<span class="p">[</span><span class="m">2</span><span class="p">,</span> i<span class="p">]</span> <span class="o">&lt;-</span> <span class="o">**</span><span class="kp">sum</span><span class="o">**</span>\ <span class="p">(</span><span class="o">**</span><span class="kp">is.na</span><span class="o">**</span>\ <span class="p">(</span>sdcInitial<span class="o">@</span>manipKeyVars<span class="p">[,</span>i<span class="p">]))</span>
+<span class="o">|</span> <span class="p">}</span>
+
+<span class="o">*</span><span class="c1"># Show results*</span>
+
+NAcount
+
+<span class="o">|</span> <span class="sb">``</span><span class="c1">##         NAURBRUR NAREGION NARELIG NAMARITAL``</span>
+<span class="o">|</span> <span class="sb">``</span><span class="c1">## initial        0        0    1000        51``</span>
+<span class="o">|</span> <span class="sb">``</span><span class="c1">## treated        0       81    1000        51``</span>
+</pre></div>
 </div>
 </div>
 <div class="section" id="number-of-records-changed">
@@ -352,34 +348,29 @@ records changed gives a good indication of the impact of the
 anonymization methods on the data. Example 6.3 illustrates how to
 compute the number of records changed for the PRAMmed variables.</p>
 <p>Example 6.3: Computing number of records changed per variable</p>
-<div class="line-block">
-<div class="line"><em># Store the names of all pram variables in a vector</em></div>
-<div class="line">namesPramVars &lt;- <strong>names</strong>(<a class="reference external" href="mailto:sdcInitial&#37;&#52;&#48;manipPramVars">sdcInitial<span>&#64;</span>manipPramVars</a>)</div>
-<div class="line"><em># Dataframe to save the number of records changed</em></div>
-<div class="line">recChanged &lt;- <strong>rep</strong>(0, <strong>length</strong>(namesPramVars))</div>
-<div class="line"><strong>names</strong>(recChanged) &lt;- <strong>c</strong>(<strong>paste0</strong>(‘RC’, namesPramVars))</div>
-<div class="line"><em># Count number of records changed</em></div>
-<div class="line">for(j in 1:<strong>length</strong>(namesPramVars)) <em># for all key variables</em></div>
-<div class="line">{</div>
-<div class="line">comp &lt;- sdcInitial&#64;origData[namesPramVars[j]] !=
-sdcInitial&#64;manipPramVars[namesPramVars[j]]</div>
-<div class="line">temp1 &lt;- <strong>sum</strong>(comp, na.rm = TRUE) <em># all changed variables
-without NAs</em></div>
-<div class="line">temp2 &lt;- <strong>sum</strong>(<strong>is.na</strong>(comp)) <em># if NA, changed, unless NA
-initially</em></div>
-<div class="line">temp3 &lt;- <strong>sum</strong>(<strong>is.na</strong>(sdcInitial&#64;origData[namesPramVars[j]])
-+ <strong>is.na</strong>(sdcInitial&#64;manipPramVars[namesPramVars[j]])==2) <em># both
-NA, no change, but counted in temp2</em></div>
-<div class="line">recChanged[j] &lt;- temp1 + temp2 - temp3</div>
-<div class="line">}</div>
-</div>
-<div class="line-block">
-<div class="line"><em># Show results</em></div>
-<div class="line">recChanged</div>
-</div>
-<div class="line-block">
-<div class="line"><code class="docutils literal notranslate"><span class="pre">##</span>&#160; <span class="pre">RCWATER</span>&#160;&#160; <span class="pre">RCROOF</span> <span class="pre">RCTOILET</span></code></div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">##</span>&#160;&#160;&#160;&#160;&#160; <span class="pre">125</span>&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">86</span>&#160;&#160;&#160;&#160;&#160; <span class="pre">180</span></code></div>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="c1"># Store the names of all pram variables in a vector</span>
+namesPramVars <span class="o">&lt;-</span> <span class="o">**</span><span class="kp">names</span><span class="o">**</span>\ <span class="p">(</span>sdcInitial<span class="o">@</span>manipPramVars<span class="p">)</span>
+<span class="c1"># Dataframe to save the number of records changed</span>
+recChanged <span class="o">&lt;-</span> <span class="o">**</span><span class="kp">rep</span><span class="o">**</span>\ <span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="o">**</span><span class="kp">length</span><span class="o">**</span>\ <span class="p">(</span>namesPramVars<span class="p">))</span>
+<span class="kp">names</span><span class="p">(</span>recChanged<span class="p">)</span> <span class="o">&lt;-</span> <span class="kt">c</span><span class="p">(</span><span class="kp">paste0</span><span class="p">(</span><span class="s">&#39;RC&#39;</span><span class="p">,</span> namesPramVars<span class="p">))</span>
+<span class="c1"># Count number of records changed*</span>
+<span class="kr">for</span><span class="p">(</span>j <span class="kr">in</span> <span class="m">1</span><span class="o">:</span><span class="kp">length</span><span class="p">(</span>namesPramVars<span class="p">))</span> <span class="c1"># for all key variables</span>
+<span class="p">{</span>
+comp <span class="o">&lt;-</span> sdcInitial<span class="o">@</span>origData<span class="p">[</span>namesPramVars<span class="p">[</span>j<span class="p">]]</span> <span class="o">!=</span> sdcInitial<span class="o">@</span>manipPramVars<span class="p">[</span>namesPramVars<span class="p">[</span>j<span class="p">]]</span>
+temp1 <span class="o">&lt;-</span> <span class="kp">sum</span><span class="p">(</span>comp<span class="p">,</span> na.rm <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span> <span class="c1"># all changed variables without NAs</span>
+temp2 <span class="o">&lt;-</span> <span class="kp">sum</span><span class="p">(</span><span class="kp">is.na</span><span class="p">(</span>comp<span class="p">))</span> <span class="c1"># if NA, changed, unless NA initially</span>
+temp3 <span class="o">&lt;-</span> <span class="kp">sum</span><span class="p">(</span><span class="kp">is.na</span><span class="p">(</span>sdcInitial<span class="o">@</span>origData<span class="p">[</span>namesPramVars<span class="p">[</span>j<span class="p">]])</span>
+<span class="o">+</span> <span class="o">**</span><span class="kp">is.na</span><span class="o">**</span>\ <span class="p">(</span>sdcInitial<span class="o">@</span>manipPramVars<span class="p">[</span>namesPramVars<span class="p">[</span>j<span class="p">]])</span><span class="o">==</span><span class="m">2</span><span class="p">)</span>
+<span class="c1"># both NA, no change, but counted in temp2</span>
+recChanged<span class="p">[</span>j<span class="p">]</span> <span class="o">&lt;-</span> temp1 <span class="o">+</span> temp2 <span class="o">-</span> temp3
+<span class="p">}</span>
+
+<span class="c1"># Show results</span>
+recChanged
+
+    <span class="c1">##  RCWATER   RCROOF RCTOILET</span>
+    <span class="c1">##      125       86      180</span>
+</pre></div>
 </div>
 </div>
 <div class="section" id="comparing-contingency-tables">
@@ -842,9 +833,9 @@ vertical axes of the histograms have different scales.</strong></p>
 <strong>c</strong>(0, 8000), ylim = <strong>c</strong>(0, 0.006), main = “Density income”,
 xlab = “income”)</div>
 </div>
-<p><a href="#id6"><span class="problematic" id="id7">|figure63|</span></a></p>
+<a class="reference internal image-reference" href="_images/image13.png"><img alt="_images/image13.png" src="_images/image13.png" style="width: 6.48958in; height: 3.23958in;" /></a>
 <p>Figure 6.3: Histograms of income before and after anonymization</p>
-<p><a href="#id8"><span class="problematic" id="id9">|figure64|</span></a></p>
+<a class="reference internal image-reference" href="_images/image14.png"><img alt="_images/image14.png" src="_images/image14.png" style="width: 6.48958in; height: 3.23958in;" /></a>
 <p>Figure 6.4: Density plots of income before and after anonymization</p>
 </div>
 <div class="section" id="box-plots">
@@ -905,7 +896,7 @@ levels = <strong>c</strong>(1, 2, 3, 4, 5, 6, 7, 8, 9),</div>
 <div class="line"><em># Plotting mosaic plot</em></div>
 <div class="line"><strong>mosaicplot</strong>(dataWater, main = “”, color = 2:10, las = 2)</div>
 </div>
-<p><a href="#id10"><span class="problematic" id="id11">|figure67|</span></a></p>
+<a class="reference internal image-reference" href="_images/image16.png"><img alt="_images/image16.png" src="_images/image16.png" style="width: 6.48958in; height: 3.23958in;" /></a>
 <p>Figure 6.6: Mosaic plot to illustrate the changes in the WATER variable</p>
 <p>We use the variables “gender” and “relationship status” to illustrate
 the use of mosaic plots for the illustration of changes in univariate
@@ -994,8 +985,7 @@ and occupation variables</td>
 </tr>
 </tbody>
 </table>
-<p><a href="#id12"><span class="problematic" id="id13">|Macintosh HD:Users:thijsbenschop:Onedrive:World
-Bank:Guidelines:Plots:figure62.png|</span></a></p>
+<a class="reference internal image-reference" href="_images/image17.png"><img alt="_images/image17.png" src="_images/image17.png" style="width: 6.5in; height: 3.25556in;" /></a>
 <p>Figure 6.7: Comparison of treated vs. untreated gender and relationship
 status variables with mosaic plots</p>
 <p>As we discussed in Section 5.3.1, invariant PRAM preserves the
@@ -1032,12 +1022,10 @@ two-way tables in this case.</p>
 <div class="line">“Pit \n latrine”, “No \n facility”, “Other”))))</div>
 <div class="line"><strong>mosaicplot</strong>(ROOFTOILETafter, main = “”, las = 2, color = 2:6)</div>
 </div>
-<p><a href="#id14"><span class="problematic" id="id15">|Macintosh HD:Users:thijsbenschop:Onedrive:World
-Bank:Guidelines:Plots:figure68.png|</span></a></p>
+<a class="reference internal image-reference" href="_images/image18.png"><img alt="_images/image18.png" src="_images/image18.png" style="width: 6.5in; height: 3.25in;" /></a>
 <p>Figure 6.8: Mosaic plot of the variables ROOF and TOILET before
 anonymization</p>
-<p><a href="#id16"><span class="problematic" id="id17">|Macintosh HD:Users:thijsbenschop:Onedrive:World
-Bank:Guidelines:Plots:figure69.png|</span></a></p>
+<a class="reference internal image-reference" href="_images/image19.png"><img alt="_images/image19.png" src="_images/image19.png" style="width: 6.5in; height: 3.25in;" /></a>
 <p>Figure 6.9: Mosaic plot of the variables ROOF and TOILET after
 anonymization</p>
 </div>
@@ -1075,6 +1063,29 @@ Information Loss for Microdata”. In P. Doyle, J.I. Lane, J.J.M. Theeuwes
 and L. Zayatz (eds.) <em>Theory and Practical Applications for Statistical
 Agencies</em>, 91-110, Amsterdam.
 <a class="reference external" href="http://crises-deim.urv.cat/webCrises/publications/bcpi/cliatpasa01Disclosure.pdf">http://crises-deim.urv.cat/webCrises/publications/bcpi/cliatpasa01Disclosure.pdf</a></p>
+<table class="docutils footnote" frame="void" id="foot58" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>It is possible to release data files for different groups of users,
+e.g., PUF and SUF. All information in the less detailed file,
+however, must also be included in the more detailed file to prevent
+unintended disclosure. Datasets released in data enclaves can be
+customized for the user, since the risk that they will be combined
+with other version is zero.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="foot59" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[2]</td><td>Here the <em>sdcMicro</em> object “sdcIntial“ contains a dataset with 2,500
+individuals and 103 variables. We selected three categorical
+quasi-identifiers: “URBRUR”, “REGION”, “RELIG” and “MARITAL” and
+several continuous quasi-identifiers relating to income and
+expenditure. To illustrate the utility loss, we also applied several
+SDC methods to this <em>sdcMicro</em> object, such as local suppression,
+PRAM and additive noise addition.</td></tr>
+</tbody>
+</table>
 </div>
 </div>
 

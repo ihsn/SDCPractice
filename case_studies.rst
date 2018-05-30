@@ -1629,8 +1629,9 @@ for sum of expenditure components
 | Right bound of CI | 0.539      | 0.538     |
 +-------------------+------------+-----------+
 
-|Macintosh HD:Users:thijsbenschop:Onedrive:World
-Bank:Guidelines:Plots:figure91.png|
+.. image:: media/image21.png
+   :width: 6.5in
+   :height: 3.25in
 
 Figure 9.1: Lorenz curve based on positive total expenditures values
 
@@ -3885,3 +3886,20 @@ Example 9.46: Exporting the anonymized PUF file
 | *# Create STATA file*
 | **write.dta**\ (dataframe = dataAnon, file= 'Case2DataAnon.dta',
   convert.dates=TRUE)
+
+
+.. [#foot71]
+   Other methods and guidance on treating datasets where household size
+   is a quasi-identifier are discussed in Section 5.5.
+
+.. [#foot72]
+   For illustrative purposes, we only show this evaluation for the
+   expenditure variables. It can be easily copied for the income
+   variables. The results are similar.
+
+.. [#foot73]
+   To compute the GINI coefficient, bootstrap to construct the
+   confidence intervals and plot the Lorenz curve we used the *R*
+   packages *laeken, reldist, bootstrap* and *ineq*.
+   
+

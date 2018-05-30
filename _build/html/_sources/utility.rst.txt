@@ -66,9 +66,10 @@ methods with different parameter specifications. We would select the SDC
 method corresponding to the point, which maximizes the utility, while
 keeping disclosure risk at an acceptable level.
 
-|Macintosh HD:Users:thijsbenschop:Onedrive:World
-Bank:Guidelines:Plots:figure61.png|
-
+.. image:: media/image11.png
+   :width: 6.5in
+   :height: 3.25556in
+   
 Figure 6.1: The trade-off between risk and utility in a hypothetical
 dataset
 
@@ -108,18 +109,19 @@ relative number of suppressions.
 Example 6.1: Using the print() function to retrieve the total number of
 suppressions for each categorical key variable
 
-sdcInitial <- **localSuppression**\ (sdcInitial, k = 5, importance =
-NULL)
-
-**print**\ (sdcInitial, 'ls')
-
-| ``## Local Suppression:``
-| ``##``\ ````\ ``KeyVar | Suppressions (#) | Suppressions (%)``
-| ``##   URBRUR |                0 |            0.000``
-| ``##   REGION |               81 |            4.050``
-| ``##    RELIG |                0 |            0.000``
-| ``##  MARITAL |                0 |            0.000``
-| ``## ---------------------------------------------------------------------------``
+.. code-block:: R
+   
+		sdcInitial <- localSuppression(sdcInitial, k = 5, importance = NULL)
+	
+		print(sdcInitial, 'ls')
+	
+		## Local Suppression:	
+		## KeyVar | Suppressions (#) | Suppressions (%)
+		##   URBRUR |                0 |            0.000
+		##   REGION |               81 |            4.050
+		##    RELIG |                0 |            0.000
+		##  MARITAL |                0 |            0.000
+		## ---------------------------------------------------------------------------
 
 More generally, it is possible to count and compare the number of
 missing values in the original data and the treated data. This can be
@@ -137,36 +139,38 @@ original data.
 Example 6.2: Displaying the number of missing values for each
 categorical key variable in an *sdcMicro* object
 
-| *# Store the names of all categorical key variables in a vector*
-| namesKeyVars <- **names**\ (sdcInitial@manipKeyVars)
+.. code-block:: R
+   
+	| *# Store the names of all categorical key variables in a vector*
+	| namesKeyVars <- **names**\ (sdcInitial@manipKeyVars)
+	
+	| *# Matrix to store the number of missing values (NA) before and after
+	  anonymization*
+	| NAcount <- **matrix**\ (NA, nrow = 2, ncol =
+	  **length**\ (namesKeyVars))
+	
+	**colnames**\ (NAcount) <- **c**\ (**paste0**\ ('NA', namesKeyVars)) *#
+	column names*
+	
+	**rownames**\ (NAcount) <- **c**\ ('initial', 'treated') *# row names*
+	
+	| *# NA count in all key variables (NOTE: only those coded NA are
+	  counted)*
+	| for(i in 1:\ **length**\ (namesKeyVars))
+	| {
+	| NAcount[1, i] <-
+	  **sum**\ (**is.na**\ (sdcInitial@origData[,namesKeyVars[i]]))
+	| NAcount[2, i] <- **sum**\ (**is.na**\ (sdcInitial@manipKeyVars[,i]))
+	| }
 
-| *# Matrix to store the number of missing values (NA) before and after
-  anonymization*
-| NAcount <- **matrix**\ (NA, nrow = 2, ncol =
-  **length**\ (namesKeyVars))
-
-**colnames**\ (NAcount) <- **c**\ (**paste0**\ ('NA', namesKeyVars)) *#
-column names*
-
-**rownames**\ (NAcount) <- **c**\ ('initial', 'treated') *# row names*
-
-| *# NA count in all key variables (NOTE: only those coded NA are
-  counted)*
-| for(i in 1:\ **length**\ (namesKeyVars))
-| {
-| NAcount[1, i] <-
-  **sum**\ (**is.na**\ (sdcInitial@origData[,namesKeyVars[i]]))
-| NAcount[2, i] <- **sum**\ (**is.na**\ (sdcInitial@manipKeyVars[,i]))
-| }
-
-*# Show results*
-
-NAcount
-
-| ``##         NAURBRUR NAREGION NARELIG NAMARITAL``
-| ``## initial        0        0    1000        51``
-| ``## treated        0       81    1000        51``
-
+	*# Show results*
+	
+	NAcount
+	
+	| ``##         NAURBRUR NAREGION NARELIG NAMARITAL``
+	| ``## initial        0        0    1000        51``
+	| ``## treated        0       81    1000        51``
+	
 Number of records changed
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -179,35 +183,34 @@ compute the number of records changed for the PRAMmed variables.
 
 Example 6.3: Computing number of records changed per variable
 
-| *# Store the names of all pram variables in a vector*
-| namesPramVars <- **names**\ (sdcInitial@manipPramVars)
-| *# Dataframe to save the number of records changed*
-| recChanged <- **rep**\ (0, **length**\ (namesPramVars))
-| **names**\ (recChanged) <- **c**\ (**paste0**\ ('RC', namesPramVars))
-| *# Count number of records changed*
-| for(j in 1:\ **length**\ (namesPramVars)) *# for all key variables*
-| {
-| comp <- sdcInitial@origData[namesPramVars[j]] !=
-  sdcInitial@manipPramVars[namesPramVars[j]]
-| temp1 <- **sum**\ (comp, na.rm = TRUE) *# all changed variables
-  without NAs*
-| temp2 <- **sum**\ (**is.na**\ (comp)) *# if NA, changed, unless NA
-  initially*
-| temp3 <- **sum**\ (**is.na**\ (sdcInitial@origData[namesPramVars[j]])
-  + **is.na**\ (sdcInitial@manipPramVars[namesPramVars[j]])==2) *# both
-  NA, no change, but counted in temp2*
-| recChanged[j] <- temp1 + temp2 - temp3
-| }
-
-| *# Show results*
-| recChanged
-
-| ``##  RCWATER   RCROOF RCTOILET``
-| ``##      125       86      180``
+.. code-block:: R
+   
+    # Store the names of all pram variables in a vector
+    namesPramVars <- **names**\ (sdcInitial@manipPramVars)
+    # Dataframe to save the number of records changed
+    recChanged <- **rep**\ (0, **length**\ (namesPramVars))
+    names(recChanged) <- c(paste0('RC', namesPramVars))
+    # Count number of records changed*
+    for(j in 1:length(namesPramVars)) # for all key variables
+    {
+    comp <- sdcInitial@origData[namesPramVars[j]] != sdcInitial@manipPramVars[namesPramVars[j]]
+    temp1 <- sum(comp, na.rm = TRUE) # all changed variables without NAs
+    temp2 <- sum(is.na(comp)) # if NA, changed, unless NA initially
+    temp3 <- sum(is.na(sdcInitial@origData[namesPramVars[j]])
+    + **is.na**\ (sdcInitial@manipPramVars[namesPramVars[j]])==2)
+    # both NA, no change, but counted in temp2
+    recChanged[j] <- temp1 + temp2 - temp3
+    }
+    
+    # Show results
+    recChanged
+		
+	##  RCWATER   RCROOF RCTOILET
+	##      125       86      180
 
 Comparing contingency tables
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
+	
 A useful way to measure information loss in categorical variables is to
 compare univariate tabulations and, more interestingly, contingency
 tables (also cross tabulations or two-way tables) between pairs of
@@ -689,11 +692,16 @@ Example 6.11: Plotting histograms and kernel densities
   **c**\ (0, 8000), ylim = **c**\ (0, 0.006), main = "Density income",
   xlab = "income")
 
-|figure63|
+.. image:: media/image13.png
+   :width: 6.48958in
+   :height: 3.23958in
 
 Figure 6.3: Histograms of income before and after anonymization
 
-|figure64|
+.. image:: media/image14.png
+   :width: 6.48958in
+   :height: 3.23958in
+   
 
 Figure 6.4: Density plots of income before and after anonymization
 
@@ -766,7 +774,9 @@ Example 6.13: Creating univariate mosaic plots
 | *# Plotting mosaic plot*
 | **mosaicplot**\ (dataWater, main = "", color = 2:10, las = 2)
 
-|figure67|
+.. image:: media/image16.png
+   :width: 6.48958in
+   :height: 3.23958in
 
 Figure 6.6: Mosaic plot to illustrate the changes in the WATER variable
 
@@ -833,9 +843,10 @@ Table 6.1: Description of anonymization methods by scenario
 |                                   | and occupation variables          |
 +-----------------------------------+-----------------------------------+
 
-|Macintosh HD:Users:thijsbenschop:Onedrive:World
-Bank:Guidelines:Plots:figure62.png|
-
+.. image:: media/image17.png
+   :width: 6.5in
+   :height: 3.25556in
+   
 Figure 6.7: Comparison of treated vs. untreated gender and relationship
 status variables with mosaic plots
 
@@ -874,15 +885,17 @@ Example 6.14: Creating multivariate mosaic plots
 | "Pit \\n latrine", "No \\n facility", "Other"))))
 | **mosaicplot**\ (ROOFTOILETafter, main = "", las = 2, color = 2:6)
 
-|Macintosh HD:Users:thijsbenschop:Onedrive:World
-Bank:Guidelines:Plots:figure68.png|
-
+.. image:: media/image18.png
+   :width: 6.5in
+   :height: 3.25in
+   
 Figure 6.8: Mosaic plot of the variables ROOF and TOILET before
 anonymization
 
-|Macintosh HD:Users:thijsbenschop:Onedrive:World
-Bank:Guidelines:Plots:figure69.png|
-
+.. image:: media/image19.png
+   :width: 6.5in
+   :height: 3.25in
+   
 Figure 6.9: Mosaic plot of the variables ROOF and TOILET after
 anonymization
 
@@ -924,3 +937,22 @@ Information Loss for Microdata”. In P. Doyle, J.I. Lane, J.J.M. Theeuwes
 and L. Zayatz (eds.) *Theory and Practical Applications for Statistical
 Agencies*, 91-110, Amsterdam.
 http://crises-deim.urv.cat/webCrises/publications/bcpi/cliatpasa01Disclosure.pdf
+
+
+.. [#foot58]
+   It is possible to release data files for different groups of users,
+   e.g., PUF and SUF. All information in the less detailed file,
+   however, must also be included in the more detailed file to prevent
+   unintended disclosure. Datasets released in data enclaves can be
+   customized for the user, since the risk that they will be combined
+   with other version is zero.
+
+.. [#foot59]
+   Here the *sdcMicro* object “sdcIntial“ contains a dataset with 2,500
+   individuals and 103 variables. We selected three categorical
+   quasi-identifiers: “URBRUR”, “REGION”, “RELIG” and “MARITAL” and
+   several continuous quasi-identifiers relating to income and
+   expenditure. To illustrate the utility loss, we also applied several
+   SDC methods to this *sdcMicro* object, such as local suppression,
+   PRAM and additive noise addition.
+

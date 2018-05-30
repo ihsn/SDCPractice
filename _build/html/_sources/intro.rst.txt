@@ -204,3 +204,29 @@ This guide is divided into the following main sections:
       demonstrate the use of the methods, their implementation in
       *sdcMicro* and the process that should be followed to reach the
       optimal risk-utility solution.
+
+
+.. [#foot13]
+   Microdata are unit-level data obtained from sample surveys, censuses
+   and administrative systems. They provide information about
+   characteristics of individual people or entities such as households,
+   business enterprises, facilities, farms or even geographical areas
+   such as villages or towns. They allow in-depth understanding of
+   socio-economic issues by studying relationships and interactions
+   among phenomena. Microdata are thus key to designing projects and
+   formulating policies, targeting interventions and monitoring and
+   measuring the impact and results of projects, interventions and
+   policies.
+
+.. [#foot14]
+   http://cran.r-project.org/web/packages/sdcMicro/index.html\ \ \ https://github.com/alexkowa/sdcMicro
+
+.. [#foot15]
+   μ-ARGUS is available at: http://neon.vb.cbs.nl/casc/mu.htm. The
+   software was recently ported to open source.
+
+.. [#foot16]
+   There are many free resources for learning *R* available on the web.
+   One place to start would be the CRAN *R* Project page:
+   http://cran.r-project.org/other-docs.html
+

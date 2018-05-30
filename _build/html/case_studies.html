@@ -29,7 +29,7 @@
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="Bibliography" href="bibliography.html" /> 
+    <link rel="prev" title="Lists" href="lists.html" /> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -81,17 +81,16 @@
               <p class="caption"><span class="caption-text">Practice guide</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="glossary_acr.html">List of Acronyms</a></li>
-<li class="toctree-l1"><a class="reference internal" href="glossary_acr.html#glossary">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="glossary_acr.html">Glossary and list of acronyms</a></li>
 <li class="toctree-l1"><a class="reference internal" href="SDC_intro.html">Statistical Disclosure Control (SDC): An Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="SDC_intro.html#release-types">Release Types</a></li>
 <li class="toctree-l1"><a class="reference internal" href="measure_risk.html">Measuring Risk</a></li>
 <li class="toctree-l1"><a class="reference internal" href="anon_methods.html">Anonymization Methods</a></li>
-<li class="toctree-l1"><a class="reference internal" href="appendices.html"><strong>Appendix</strong> <strong>A: Overview of Case Study Variables</strong></a></li>
-<li class="toctree-l1"><a class="reference internal" href="appendices.html#appendix-b-example-of-blanket-agreement-for-suf"><strong>Appendix</strong> <strong>B: Example of Blanket Agreement for SUF</strong></a></li>
-<li class="toctree-l1"><a class="reference internal" href="appendices.html#appendix-c-internal-and-external-reports-for-case-studies"><strong>Appendix</strong> <strong>C:</strong> <strong>Internal and External Reports for Case Studies</strong></a></li>
-<li class="toctree-l1"><a class="reference internal" href="appendices.html#appendix-d-execution-times-for-multiple-scenarios-tested-using-selected-sample-data"><strong>Appendix</strong> <strong>D: Execution Times for Multiple Scenarios Tested using Selected Sample Data</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="utility.html">Measuring Utility and Information Loss</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sdcMicro.html">SDC with <em>sdcMicro</em> in <em>R</em>: Setting Up Your Data and more</a></li>
+<li class="toctree-l1"><a class="reference internal" href="process.html">The SDC Process</a></li>
+<li class="toctree-l1"><a class="reference internal" href="appendices.html">Appendices</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bibliography.html"><strong>Bibliography</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="lists.html">Lists</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Case studies</span></p>
 <ul class="current">
@@ -100,7 +99,6 @@
 <li class="toctree-l2"><a class="reference internal" href="#case-study-2-puf">Case study 2 - PUF</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference external" href="http://www.nss.gov.au/nss/home.nsf/pages/Confidentiality+-+Glossary">http://www.nss.gov.au/nss/home.nsf/pages/Confidentiality+-+Glossary</a></li>
 </ul>
 
             
@@ -1859,7 +1857,7 @@ this variable. Table 9.7 shows the absolute frequencies of HHSIZE. The
 number of households for each size larger than 13 is 6 or fewer and can
 be considered outliers with a higher risk of re-identification, as
 discussed in Step 6a. One way to deal with this is to remove all
-households of size 14 or larger from the dataset <a href="#id7"><span class="problematic" id="id1">[#foot71]_</span></a>.
+households of size 14 or larger from the dataset <a class="footnote-reference" href="#foot71" id="id1">[1]</a>.
 Removing 29 households of size 14 or larger reduces the number of
 2-anonymity violations by 18, of 3-anonymity violations by 26 and of
 5-anonymity violations by 29. This means that all removed households
@@ -2296,7 +2294,7 @@ values are sufficiently far from the original values, which is measured
 with an interval measure.</p>
 <p>Example 9.20 shows how to evaluate the interval measure for each of the
 expenditure variables, which are contained in the vector
-<em>compExp</em> <a href="#id8"><span class="problematic" id="id2">[#foot72]_</span></a>. The different values of the parameter
+<em>compExp</em> <a class="footnote-reference" href="#foot72" id="id2">[2]</a>. The different values of the parameter
 <em>k</em> in the function dRisk() define the size of the interval around the
 original value, as explained in Section 4.7.2<em>.</em> The larger <em>k</em>, the
 larger the intervals, the higher the probability that a perturbed value
@@ -2665,7 +2663,7 @@ expenditure variables. The analysis of the income variables can be done
 in the same way and leads to similar results.</p>
 <p>We look at the effect of anonymization on some indicators as discussed
 in Step 5. Table 9.11 presents the point estimates and bootstrapped
-confidence interval of the GINI coefficient <a href="#id9"><span class="problematic" id="id3">[#foot73]_</span></a> for
+confidence interval of the GINI coefficient <a class="footnote-reference" href="#foot73" id="id3">[3]</a> for
 the sum of the expenditure components. The calculation of the GINI
 coefficient and the confidence interval are based on the positive
 expenditure values. We observe very small changes in the Gini
@@ -2704,8 +2702,7 @@ for sum of expenditure components</p>
 </tr>
 </tbody>
 </table>
-<p><a href="#id4"><span class="problematic" id="id5">|Macintosh HD:Users:thijsbenschop:Onedrive:World
-Bank:Guidelines:Plots:figure91.png|</span></a></p>
+<a class="reference internal image-reference" href="_images/image21.png"><img alt="_images/image21.png" src="_images/image21.png" style="width: 6.5in; height: 3.25in;" /></a>
 <p>Figure 9.1: Lorenz curve based on positive total expenditures values</p>
 <p>We compare the mean monthly expenditures (MME) and mean monthly income
 (MMI) for rural, urban and total population. The results are shown in
@@ -5585,6 +5582,29 @@ files in other data formats.</p>
 <div class="line"><strong>write.dta</strong>(dataframe = dataAnon, file= ‘Case2DataAnon.dta’,
 convert.dates=TRUE)</div>
 </div>
+<table class="docutils footnote" frame="void" id="foot71" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>Other methods and guidance on treating datasets where household size
+is a quasi-identifier are discussed in Section 5.5.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="foot72" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id2">[2]</a></td><td>For illustrative purposes, we only show this evaluation for the
+expenditure variables. It can be easily copied for the income
+variables. The results are similar.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="foot73" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id3">[3]</a></td><td>To compute the GINI coefficient, bootstrap to construct the
+confidence intervals and plot the Lorenz curve we used the <em>R</em>
+packages <em>laeken, reldist, bootstrap</em> and <em>ineq</em>.</td></tr>
+</tbody>
+</table>
 </div>
 </div>
 
@@ -5597,7 +5617,7 @@ convert.dates=TRUE)</div>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
       
-        <a href="bibliography.html" class="btn btn-neutral" title="Bibliography" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="lists.html" class="btn btn-neutral" title="Lists" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

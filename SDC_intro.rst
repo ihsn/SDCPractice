@@ -103,8 +103,10 @@ process looks for the SDC methods and the parameters for those methods
 and applies these in a way that reduces the risk sufficiently, while
 minimizing the information loss.
 
-|Macintosh HD:Users:thijsbenschop:Copy:World Bank:Guidelines:Case
-studies:Rplot11.pdf|
+.. image:: media/image1.png
+   :width: 6.03524in
+   :height: 4.3072in
+
 
 Figure 2.1: Risk-utility trade-off
 
@@ -346,3 +348,16 @@ headquarters.” (Dupriez and Boyko, 2010)
 Dupriez, O., & Boyko, E. (2010). *Dissemination of Microdata Files;
 Principles, Procedures and Practices.* International Household Survey
 Network (IHSN).
+
+.. [#foot18]
+   There is another strand of literature on the anonymization of tabular
+   data, see e.g., Hundepool et al. (2012).
+
+.. [#foot19]
+   See Section 5 in Dupriez and Boyko (2010) as to who the users of
+   microdata are and to whom microdata should be made available.
+
+.. [#foot20]
+   Appendix B provides an example of a blanket agreement.
+
+
