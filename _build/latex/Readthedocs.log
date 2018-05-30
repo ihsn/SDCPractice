@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2016.1.11)  30 MAY 2018 13:09
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2016.1.11)  30 MAY 2018 14:59
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -987,6 +987,8 @@ Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 LaTeX Info: Redefining \ref on input line 66.
 LaTeX Info: Redefining \pageref on input line 66.
 LaTeX Info: Redefining \nameref on input line 66.
+
+(./Readthedocs.out) (./Readthedocs.out)
 \@outlinefile=\write5
 \openout5 = `Readthedocs.out'.
 
@@ -1030,18 +1032,21 @@ LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <12> not available
 ]
 LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <14.4> not available
 (Font)              Font shape `T1/phv/b/n' tried instead on input line 69.
+
+(./Readthedocs.toc
+LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <10> not available
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 2.
+LaTeX Font Info:    Font shape `T1/ptm/bx/it' in size <10> not available
+(Font)              Font shape `T1/ptm/b/it' tried instead on input line 71.
+ [1
+
+])
 \tf@toc=\write6
 \openout6 = `Readthedocs.toc'.
 
- [1
+ [2] [1
 
 ] [2
-
-]
-LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <10> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 73.
- [1]
-[2
 
 ]
 Chapter 1.
@@ -1049,3470 +1054,1858 @@ Chapter 1.
 
 ]
 Chapter 2.
-
-Package longtable Warning: Column widths have changed
-(longtable)                in table 1 on input line 544.
-
 [7]
-Overfull \hbox (206.87704pt too wide) in alignment at lines 550--561
+Overfull \hbox (1089.60893pt too wide) in alignment at lines 578--589
  [] [] 
  []
 
 
-Overfull \hbox (206.87704pt too wide) in alignment at lines 561--575
+Overfull \hbox (1089.60893pt too wide) in alignment at lines 589--603
  [] [] 
  []
 
 
-Overfull \hbox (206.87704pt too wide) in alignment at lines 575--579
+Overfull \hbox (1089.60893pt too wide) in alignment at lines 603--607
  [] [] 
  []
 
 
-Overfull \hbox (206.87704pt too wide) in alignment at lines 579--581
+Overfull \hbox (1089.60893pt too wide) in alignment at lines 607--609
  [] [] 
  []
 
 
-Overfull \hbox (741.20143pt too wide) in alignment at lines 581--782
+Overfull \hbox (1089.60893pt too wide) in alignment at lines 609--823
  [] [] 
  []
 
 
-Overfull \hbox (1107.07953pt too wide) in alignment at lines 782--1007
+Overfull \hbox (1089.60893pt too wide) in alignment at lines 823--1061
  [] [] 
  []
 
 
-Overfull \hbox (1107.07953pt too wide) in alignment at lines 1007--1165
+Overfull \hbox (1089.60893pt too wide) in alignment at lines 1061--1223
  [] [] 
  []
-
-
-Package longtable Warning: Column widths have changed
-(longtable)                in table 2 on input line 1165.
 
 [8] [9] [10
 
 ]
 Chapter 3.
-LaTeX Font Info:    Try loading font information for TS1+ptm on input line 1217
+LaTeX Font Info:    Try loading font information for TS1+ptm on input line 1280
 .
 (/usr/local/texlive/2015/texmf-dist/tex/latex/psnfss/ts1ptm.fd
 File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
-) [11] [12]
-[13] [14] [15] [16
+) [11]
+<image1.png, id=491, 526.96875pt x 376.40625pt>
+File: image1.png Graphic file (type png)
+ <use image1.png>
+Package pdftex.def Info: image1.png used on input line 1340.
+(pdftex.def)             Requested size: 436.18585pt x 311.30286pt.
+ [12 <./image1.png>] [13] [14] [15] [16
 
 ]
 Chapter 4.
 [17] [18] [19] [20]
 LaTeX Font Info:    Font shape `T1/phv/m/it' in size <10> not available
-(Font)              Font shape `T1/phv/m/sl' tried instead on input line 2183.
+(Font)              Font shape `T1/phv/m/sl' tried instead on input line 2285.
 
-Underfull \hbox (badness 10000) in paragraph at lines 2183--2183
+Underfull \hbox (badness 10000) in paragraph at lines 2285--2285
 []\T1/phv/m/n/10 Res
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2183--2183
+Underfull \hbox (badness 10000) in paragraph at lines 2285--2285
 \T1/phv/m/n/10 idenc
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2183--2183
+Underfull \hbox (badness 10000) in paragraph at lines 2285--2285
 []\T1/phv/m/n/10 Gen
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2183--2183
+Underfull \hbox (badness 10000) in paragraph at lines 2285--2285
 []\T1/phv/m/n/10 Lab or
  []
 
 
-Overfull \hbox (12.14899pt too wide) in paragraph at lines 2183--2183
+Overfull \hbox (12.14899pt too wide) in paragraph at lines 2285--2285
 []\T1/phv/m/n/10 Weight| 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2183--2183
+Underfull \hbox (badness 10000) in paragraph at lines 2285--2285
 []\T1/ptm/m/n/10 Fe-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2183--2183
+Underfull \hbox (badness 10000) in paragraph at lines 2285--2285
 \T1/ptm/m/n/10 mal
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2183--2183
+Underfull \hbox (badness 10000) in paragraph at lines 2285--2285
 []\T1/ptm/m/n/10 Secon dary
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2183--2183
+Underfull \hbox (badness 10000) in paragraph at lines 2285--2285
 []\T1/ptm/m/n/10 Em-plo
  []
 
 
-Overfull \hbox (4.32587pt too wide) in paragraph at lines 2183--2183
+Overfull \hbox (4.32587pt too wide) in paragraph at lines 2285--2285
 []\T1/ptm/m/n/10 0.005
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2183--2183
+Underfull \hbox (badness 10000) in paragraph at lines 2285--2285
 []\T1/ptm/m/n/10 Fe-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2183--2183
+Underfull \hbox (badness 10000) in paragraph at lines 2285--2285
 \T1/ptm/m/n/10 mal
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2183--2183
+Underfull \hbox (badness 10000) in paragraph at lines 2285--2285
 []\T1/ptm/m/n/10 Secon dary
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2183--2183
+Underfull \hbox (badness 10000) in paragraph at lines 2285--2285
 []\T1/ptm/m/n/10 Em-plo
  []
 
 
-Overfull \hbox (4.32587pt too wide) in paragraph at lines 2183--2183
+Overfull \hbox (4.32587pt too wide) in paragraph at lines 2285--2285
 []\T1/ptm/m/n/10 0.005
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2183--2183
+Underfull \hbox (badness 10000) in paragraph at lines 2285--2285
 []\T1/ptm/m/n/10 Fe-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2183--2183
+Underfull \hbox (badness 10000) in paragraph at lines 2285--2285
 \T1/ptm/m/n/10 mal
  []
 
 
-Overfull \hbox (4.32587pt too wide) in paragraph at lines 2183--2183
+Overfull \hbox (4.32587pt too wide) in paragraph at lines 2285--2285
 []\T1/ptm/m/n/10 0.025
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2183--2183
+Underfull \hbox (badness 10000) in paragraph at lines 2285--2285
 []\T1/ptm/m/n/10 Secon dary
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2183--2183
+Underfull \hbox (badness 10000) in paragraph at lines 2285--2285
 []\T1/ptm/m/n/10 Em-plo
  []
 
 
-Overfull \hbox (4.32587pt too wide) in paragraph at lines 2183--2183
+Overfull \hbox (4.32587pt too wide) in paragraph at lines 2285--2285
 []\T1/ptm/m/n/10 0.012
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2183--2183
+Underfull \hbox (badness 10000) in paragraph at lines 2285--2285
 []\T1/ptm/m/n/10 Fe-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2183--2183
+Underfull \hbox (badness 10000) in paragraph at lines 2285--2285
 \T1/ptm/m/n/10 mal
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2183--2183
+Underfull \hbox (badness 10000) in paragraph at lines 2285--2285
 []\T1/ptm/m/n/10 Secon dary
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2183--2183
+Underfull \hbox (badness 10000) in paragraph at lines 2285--2285
 []\T1/ptm/m/n/10 Un-emp
  []
 
 
-Overfull \hbox (4.32587pt too wide) in paragraph at lines 2183--2183
+Overfull \hbox (4.32587pt too wide) in paragraph at lines 2285--2285
 []\T1/ptm/m/n/10 0.028
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2183--2183
+Underfull \hbox (badness 10000) in paragraph at lines 2285--2285
 []\T1/ptm/m/n/10 Secon dary
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2183--2183
+Underfull \hbox (badness 10000) in paragraph at lines 2285--2285
 []\T1/ptm/m/n/10 Em-plo
  []
 
 
-Overfull \hbox (4.32587pt too wide) in paragraph at lines 2183--2183
+Overfull \hbox (4.32587pt too wide) in paragraph at lines 2285--2285
 []\T1/ptm/m/n/10 0.012
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2183--2183
+Underfull \hbox (badness 10000) in paragraph at lines 2285--2285
 []\T1/ptm/m/n/10 Fe-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2183--2183
+Underfull \hbox (badness 10000) in paragraph at lines 2285--2285
 \T1/ptm/m/n/10 mal
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2183--2183
+Underfull \hbox (badness 10000) in paragraph at lines 2285--2285
 []\T1/ptm/m/n/10 Prima ry
  []
 
 
-Overfull \hbox (4.32587pt too wide) in paragraph at lines 2183--2183
+Overfull \hbox (4.32587pt too wide) in paragraph at lines 2285--2285
 []\T1/ptm/m/n/10 0.029
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2183--2183
+Underfull \hbox (badness 10000) in paragraph at lines 2285--2285
 []\T1/ptm/m/n/10 Post- secon
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2183--2183
+Underfull \hbox (badness 10000) in paragraph at lines 2285--2285
 []\T1/ptm/m/n/10 Un-emp
  []
 
 
-Overfull \hbox (4.32587pt too wide) in paragraph at lines 2183--2183
+Overfull \hbox (4.32587pt too wide) in paragraph at lines 2285--2285
 []\T1/ptm/m/n/10 0.025
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2183--2183
+Underfull \hbox (badness 10000) in paragraph at lines 2285--2285
 []\T1/ptm/m/n/10 Fe-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2183--2183
+Underfull \hbox (badness 10000) in paragraph at lines 2285--2285
 \T1/ptm/m/n/10 mal
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2183--2183
+Underfull \hbox (badness 10000) in paragraph at lines 2285--2285
 []\T1/ptm/m/n/10 Secon dary
  []
 
 
-Overfull \hbox (4.32587pt too wide) in paragraph at lines 2183--2183
+Overfull \hbox (4.32587pt too wide) in paragraph at lines 2285--2285
 []\T1/ptm/m/n/10 0.007
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2183--2183
+Underfull \hbox (badness 10000) in paragraph at lines 2285--2285
 []\T1/ptm/m/n/10 Fe-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2183--2183
+Underfull \hbox (badness 10000) in paragraph at lines 2285--2285
 \T1/ptm/m/n/10 mal
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2183--2183
+Underfull \hbox (badness 10000) in paragraph at lines 2285--2285
 []\T1/ptm/m/n/10 Secon dary
  []
 
 
-Overfull \hbox (4.32587pt too wide) in paragraph at lines 2183--2183
+Overfull \hbox (4.32587pt too wide) in paragraph at lines 2285--2285
 []\T1/ptm/m/n/10 0.007
  []
 
-[21]
-LaTeX Font Info:    Try loading font information for T1+pcr on input line 2205.
+LaTeX Font Info:    Try loading font information for T1+pcr on input line 2305.
 
- (/usr/local/texlive/2015/texmf-dist/tex/latex/psnfss/t1pcr.fd
+(/usr/local/texlive/2015/texmf-dist/tex/latex/psnfss/t1pcr.fd
 File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
 )
-LaTeX Font Info:    Font shape `T1/pcr/m/it' in size <9> not available
-(Font)              Font shape `T1/pcr/m/sl' tried instead on input line 2206.
-LaTeX Font Info:    Try loading font information for TS1+pcr on input line 2207
+LaTeX Font Info:    Font shape `T1/pcr/bx/n' in size <8> not available
+(Font)              Font shape `T1/pcr/b/n' tried instead on input line 2306.
+LaTeX Font Info:    Font shape `T1/pcr/m/it' in size <8> not available
+(Font)              Font shape `T1/pcr/m/sl' tried instead on input line 2308.
+LaTeX Font Info:    Try loading font information for TS1+pcr on input line 2310
 .
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/psnfss/ts1pcr.fd
 File: ts1pcr.fd 2001/06/04 font definitions for TS1/pcr.
-) [22] [23]
+) [21]
+LaTeX Font Info:    Font shape `T1/pcr/m/it' in size <9> not available
+(Font)              Font shape `T1/pcr/m/sl' tried instead on input line 2343.
+ [22]
+[23]
 LaTeX Font Info:    Font shape `T1/pcr/bx/n' in size <9> not available
-(Font)              Font shape `T1/pcr/b/n' tried instead on input line 2372.
-
-Underfull \hbox (badness 10000) in paragraph at lines 2431--2432
-[]
- []
-
-
-Overfull \hbox (12.99852pt too wide) in paragraph at lines 2431--2432
-\T1/phv/m/n/10 Education 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 2439--2442
-[]
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 2439--2442
-\T1/phv/m/n/10 mathbf{f}_{
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 2462--2464
-[]|\T1/ptm/m/n/10 Secondary in-com-
- []
-
-[24]
-Overfull \hbox (3.73068pt too wide) in paragraph at lines 2534--2535
-[]
- []
-
-
-Overfull \hbox (23.73056pt too wide) in paragraph at lines 2534--2535
-\T1/phv/m/n/10 Resi 
- []
-
-
-Overfull \hbox (3.73068pt too wide) in paragraph at lines 2540--2541
-[]
- []
-
-
-Overfull \hbox (28.19038pt too wide) in paragraph at lines 2540--2541
-\T1/phv/m/n/10 Gend 
- []
-
-
-Overfull \hbox (3.73068pt too wide) in paragraph at lines 2546--2547
-[]
- []
-
-
-Overfull \hbox (26.52048pt too wide) in paragraph at lines 2546--2547
-\T1/phv/m/n/10 Educ 
- []
-
-
-Overfull \hbox (3.73068pt too wide) in paragraph at lines 2553--2554
-[]
- []
-
-
-Overfull \hbox (25.97043pt too wide) in paragraph at lines 2553--2554
-\T1/phv/m/n/10 Labo 
- []
-
-
-Overfull \hbox (3.73068pt too wide) in paragraph at lines 2560--2561
-[]
- []
-
-
-Overfull \hbox (24.2905pt too wide) in paragraph at lines 2560--2561
-\T1/phv/m/n/10 Heal 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 2565--2570
-[]|\T1/phv/m/n/10 h:: m
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 2565--2570
-\T1/phv/m/n/10 athbf{
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 2565--2570
-\T1/phv/m/n/10 f}_{m
- []
-
-
-Overfull \hbox (30.95053pt too wide) in paragraph at lines 2571--2572
-[]
- []
-
-
-Overfull \hbox (25.73068pt too wide) in paragraph at lines 2571--2572
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 2587--2591
-\T1/ptm/m/n/10 in-comp
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 2608--2612
-\T1/ptm/m/n/10 in-comp
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 2629--2633
-[]|\T1/ptm/m/n/10 Primar y
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 2629--2633
-\T1/ptm/m/n/10 in-comp
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 2675--2677
-[]|\T1/ptm/m/n/10 Unempl
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 2712--2716
-[]|\T1/ptm/m/n/10 Primar y
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 2732--2735
-[]|\T1/ptm/m/n/10 Post-s
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 2736--2738
-[]|\T1/ptm/m/n/10 Unempl
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 2752--2756
-\T1/ptm/m/n/10 in-comp
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 2772--2776
-\T1/ptm/m/n/10 in-comp
- []
-
-[25]
-Overfull \hbox (7.48906pt too wide) in paragraph at lines 2890--2891
+(Font)              Font shape `T1/pcr/b/n' tried instead on input line 2532.
+ [24] [25] [26]
+Overfull \hbox (7.48906pt too wide) in paragraph at lines 3041--3042
 []|\T1/phv/m/n/10 Residence| 
  []
 
 
-Overfull \hbox (9.14896pt too wide) in paragraph at lines 2894--2896
+Overfull \hbox (9.14896pt too wide) in paragraph at lines 3045--3047
 []
  []
 
 
-Overfull \hbox (5.25934pt too wide) in paragraph at lines 2894--2896
+Overfull \hbox (5.25934pt too wide) in paragraph at lines 3045--3047
 \T1/phv/m/n/10 level 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2899--2901
+Underfull \hbox (badness 10000) in paragraph at lines 3050--3052
 []
  []
 
 
-Overfull \hbox (11.92912pt too wide) in paragraph at lines 2899--2901
+Overfull \hbox (11.92912pt too wide) in paragraph at lines 3050--3052
 \T1/phv/m/n/10 status 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2919--2923
+Underfull \hbox (badness 10000) in paragraph at lines 3070--3074
 []|\T1/ptm/m/n/10 Secon
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2919--2923
+Underfull \hbox (badness 10000) in paragraph at lines 3070--3074
 \T1/ptm/m/n/10 dary
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2919--2923
+Underfull \hbox (badness 10000) in paragraph at lines 3070--3074
 \T1/ptm/m/n/10 in-com
  []
 
 
-Overfull \hbox (1.25916pt too wide) in paragraph at lines 2924--2925
+Overfull \hbox (1.25916pt too wide) in paragraph at lines 3075--3076
 []|\T1/ptm/m/n/10 Employed| 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2941--2945
+Underfull \hbox (badness 10000) in paragraph at lines 3092--3096
 []|\T1/ptm/m/n/10 Secon
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2941--2945
+Underfull \hbox (badness 10000) in paragraph at lines 3092--3096
 \T1/ptm/m/n/10 dary
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2941--2945
+Underfull \hbox (badness 10000) in paragraph at lines 3092--3096
 \T1/ptm/m/n/10 in-com
  []
 
 
-Overfull \hbox (1.25916pt too wide) in paragraph at lines 2946--2947
+Overfull \hbox (1.25916pt too wide) in paragraph at lines 3097--3098
 []|\T1/ptm/m/n/10 Employed| 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2963--2967
+Underfull \hbox (badness 10000) in paragraph at lines 3114--3118
 \T1/ptm/m/n/10 in-com
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2985--2989
+Underfull \hbox (badness 10000) in paragraph at lines 3136--3140
 []|\T1/ptm/m/n/10 Secon
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2985--2989
+Underfull \hbox (badness 10000) in paragraph at lines 3136--3140
 \T1/ptm/m/n/10 dary
  []
 
 
-Overfull \hbox (1.25916pt too wide) in paragraph at lines 2990--2991
+Overfull \hbox (1.25916pt too wide) in paragraph at lines 3141--3142
 []|\T1/ptm/m/n/10 Employed| 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 3008--3012
+Underfull \hbox (badness 10000) in paragraph at lines 3159--3163
 []|\T1/ptm/m/n/10 Secon
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 3008--3012
+Underfull \hbox (badness 10000) in paragraph at lines 3159--3163
 \T1/ptm/m/n/10 dary
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 3013--3015
+Underfull \hbox (badness 10000) in paragraph at lines 3164--3166
 []|\T1/ptm/m/n/10 Unemp
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 3031--3035
+Underfull \hbox (badness 10000) in paragraph at lines 3182--3186
 []|\T1/ptm/m/n/10 Secon
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 3031--3035
+Underfull \hbox (badness 10000) in paragraph at lines 3182--3186
 \T1/ptm/m/n/10 dary
  []
 
 
-Overfull \hbox (1.25916pt too wide) in paragraph at lines 3036--3037
+Overfull \hbox (1.25916pt too wide) in paragraph at lines 3187--3188
 []|\T1/ptm/m/n/10 Employed| 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 3077--3080
+Underfull \hbox (badness 10000) in paragraph at lines 3228--3231
 []|\T1/ptm/m/n/10 Post-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 3077--3080
+Underfull \hbox (badness 10000) in paragraph at lines 3228--3231
 \T1/ptm/m/n/10 secon
  []
 
 
-Overfull \hbox (1.25916pt too wide) in paragraph at lines 3081--3082
+Overfull \hbox (1.25916pt too wide) in paragraph at lines 3232--3233
 []|\T1/ptm/m/n/10 Employed| 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 3099--3103
+Underfull \hbox (badness 10000) in paragraph at lines 3250--3254
 []|\T1/ptm/m/n/10 Secon
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 3099--3103
+Underfull \hbox (badness 10000) in paragraph at lines 3250--3254
 \T1/ptm/m/n/10 dary
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 3099--3103
+Underfull \hbox (badness 10000) in paragraph at lines 3250--3254
 \T1/ptm/m/n/10 in-com
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 3122--3126
+Underfull \hbox (badness 10000) in paragraph at lines 3273--3277
 []|\T1/ptm/m/n/10 Secon
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 3122--3126
+Underfull \hbox (badness 10000) in paragraph at lines 3273--3277
 \T1/ptm/m/n/10 dary
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 3122--3126
+Underfull \hbox (badness 10000) in paragraph at lines 3273--3277
 \T1/ptm/m/n/10 in-com
  []
 
-[26] [27]
-Overfull \hbox (0.97025pt too wide) in paragraph at lines 3251--3252
-[]|\T1/phv/m/n/10 Residence| 
- []
-
-
-Overfull \hbox (3.73068pt too wide) in paragraph at lines 3256--3257
-[]
- []
-
-
-Overfull \hbox (48.20015pt too wide) in paragraph at lines 3256--3257
-\T1/phv/m/n/10 Education 
- []
-
-
-Overfull \hbox (3.73068pt too wide) in paragraph at lines 3262--3263
-[]
- []
-
-
-Overfull \hbox (29.30038pt too wide) in paragraph at lines 3262--3263
-\T1/phv/m/n/10 Labor 
- []
-
-
-Overfull \hbox (3.73068pt too wide) in paragraph at lines 3270--3271
-[]
- []
-
-
-Overfull \hbox (31.11055pt too wide) in paragraph at lines 3270--3271
-\T1/phv/m/n/10 SUDA 
- []
-
-
-Overfull \hbox (3.73068pt too wide) in paragraph at lines 3276--3277
-[]
- []
-
-
-Overfull \hbox (23.73042pt too wide) in paragraph at lines 3276--3277
-\T1/phv/m/n/10 DIS-
- []
-
-
-Overfull \hbox (3.73068pt too wide) in paragraph at lines 3276--3277
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 3288--3290
-[]|\T1/ptm/m/n/10 Secondary
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 3306--3308
-[]|\T1/ptm/m/n/10 Secondary
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 3342--3344
-[]|\T1/ptm/m/n/10 Secondary
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 3360--3362
-[]|\T1/ptm/m/n/10 Secondary
- []
-
-
-Overfull \hbox (5.29027pt too wide) in paragraph at lines 3363--3364
-[]|\T1/ptm/m/n/10 Unemployed| 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 3378--3380
-[]|\T1/ptm/m/n/10 Secondary
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 3396--3398
-[]|\T1/ptm/m/n/10 Primary
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 3414--3415
-[]|\T1/ptm/m/n/10 Post-
- []
-
-
-Overfull \hbox (5.29027pt too wide) in paragraph at lines 3416--3417
-[]|\T1/ptm/m/n/10 Unemployed| 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 3431--3433
-[]|\T1/ptm/m/n/10 Secondary
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 3449--3451
-[]|\T1/ptm/m/n/10 Secondary
- []
-
-[28]
+[27]
+LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <8> not available
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 3314.
+ [28] [29]
 LaTeX Font Info:    Font shape `T1/phv/bx/it' in size <12> not available
-(Font)              Font shape `T1/phv/b/it' tried instead on input line 3493.
+(Font)              Font shape `T1/phv/b/it' tried instead on input line 3638.
 LaTeX Font Info:    Font shape `T1/phv/b/it' in size <12> not available
-(Font)              Font shape `T1/phv/b/sl' tried instead on input line 3493.
- [29] <image2.png, id=214, 481.8pt x 385.44pt>
+(Font)              Font shape `T1/phv/b/sl' tried instead on input line 3638.
+ [30] <image2.png, id=627, 481.8pt x 385.44pt>
 File: image2.png Graphic file (type png)
  <use image2.png>
-Package pdftex.def Info: image2.png used on input line 3569.
+Package pdftex.def Info: image2.png used on input line 3714.
 (pdftex.def)             Requested size: 215.16121pt x 192.71953pt.
- [30]
+
 [31 <./image2.png>] [32] [33] [34] [35] [36
 
 ]
 Chapter 5.
 [37]
-Underfull \hbox (badness 10000) in paragraph at lines 4007--4013
+Underfull \hbox (badness 10000) in paragraph at lines 4157--4163
 []|\T1/ptm/b/n/10 `globalRecode <
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 4007--4013
+Underfull \hbox (badness 10000) in paragraph at lines 4157--4163
 \T1/ptm/b/n/10 http://www.rdoc
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 4007--4013
+Underfull \hbox (badness 10000) in paragraph at lines 4157--4163
 \T1/ptm/b/n/10 umen-ta-tion.org/
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 4007--4013
+Underfull \hbox (badness 10000) in paragraph at lines 4157--4163
 \T1/ptm/b/n/10 pack-ages/sdcMic
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 4007--4013
+Underfull \hbox (badness 10000) in paragraph at lines 4157--4163
 \T1/ptm/b/n/10 ro/functions/gl obal-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 4032--4038
+Underfull \hbox (badness 10000) in paragraph at lines 4182--4188
 []|\T1/ptm/b/n/10 `topBotCoding <
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 4032--4038
+Underfull \hbox (badness 10000) in paragraph at lines 4182--4188
 \T1/ptm/b/n/10 http://www.rdoc
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 4032--4038
+Underfull \hbox (badness 10000) in paragraph at lines 4182--4188
 \T1/ptm/b/n/10 umen-ta-tion.org/
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 4032--4038
+Underfull \hbox (badness 10000) in paragraph at lines 4182--4188
 \T1/ptm/b/n/10 pack-ages/sdcMic
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 4032--4038
+Underfull \hbox (badness 10000) in paragraph at lines 4182--4188
 \T1/ptm/b/n/10 ro/functions/to pBot-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 4097--4104
+Underfull \hbox (badness 10000) in paragraph at lines 4247--4254
 []|\T1/ptm/b/n/10 `shuffle <http:
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 4097--4104
+Underfull \hbox (badness 10000) in paragraph at lines 4247--4254
 \T1/ptm/b/n/10 //www.rdocument
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 4097--4104
+Underfull \hbox (badness 10000) in paragraph at lines 4247--4254
 \T1/ptm/b/n/10 ation.org/packa
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 4097--4104
+Underfull \hbox (badness 10000) in paragraph at lines 4247--4254
 \T1/ptm/b/n/10 ges/sdcMicro/fu nc-
  []
 
-[38]
-
-! Package amsmath Error: \begin{split} won't work here.
-
-See the amsmath package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.4431 \end{tabulary}
-                     
-? q
-OK, entering \batchmode...
-
-! LaTeX Error: Bad math environment delimiter.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.4431 \end{tabulary}
-                     
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-! Package amsmath Error: \begin{split} won't work here.
-
-See the amsmath package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.4431 \end{tabulary}
-                     
-\Did you forget a preceding \begin{equation}?
-If not, perhaps the `aligned' environment is what you want. 
-
-
-! LaTeX Error: Bad math environment delimiter.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.4431 \end{tabulary}
-                     
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
- [39]
-Underfull \hbox (badness 10000) in paragraph at lines 4462--4463
+[38] [39]
+Underfull \hbox (badness 10000) in paragraph at lines 4612--4613
 []
  []
 
 
-Overfull \hbox (4.08875pt too wide) in paragraph at lines 4462--4463
+Overfull \hbox (4.08875pt too wide) in paragraph at lines 4612--4613
 \T1/phv/m/n/10 Number
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 4478--4479
+Underfull \hbox (badness 10000) in paragraph at lines 4628--4629
 []
  []
 
 
-Overfull \hbox (5.61876pt too wide) in paragraph at lines 4478--4479
+Overfull \hbox (5.61876pt too wide) in paragraph at lines 4628--4629
 \T1/phv/m/n/10 Possible 
  []
 
- [40] [41] [42] [43] [44]
-Underfull \hbox (badness 10000) in paragraph at lines 4983--4985
+[40] <image3.png, id=690, 803.0pt x 401.5pt>
+File: image3.png Graphic file (type png)
+ <use image3.png>
+Package pdftex.def Info: image3.png used on input line 4802.
+(pdftex.def)             Requested size: 469.7715pt x 235.28395pt.
+ [41]
+<image4.png, id=697, 803.0pt x 401.5pt>
+File: image4.png Graphic file (type png)
+ <use image4.png>
+Package pdftex.def Info: image4.png used on input line 4837.
+(pdftex.def)             Requested size: 469.7715pt x 235.28395pt.
+ [42 <./image3.png>]
+<image5.png, id=704, 803.0pt x 401.5pt>
+File: image5.png Graphic file (type png)
+ <use image5.png>
+Package pdftex.def Info: image5.png used on input line 4866.
+(pdftex.def)             Requested size: 469.7715pt x 235.28395pt.
+ [43 <./image4.png>]
+[44 <./image5.png>] <image6.png, id=726, 803.0pt x 401.5pt>
+File: image6.png Graphic file (type png)
+ <use image6.png>
+Package pdftex.def Info: image6.png used on input line 4992.
+(pdftex.def)             Requested size: 469.7715pt x 235.28395pt.
+
+[45] [46 <./image6.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 5145--5147
 []
  []
 
 
-Overfull \hbox (30.55875pt too wide) in paragraph at lines 4983--4985
+Overfull \hbox (30.55875pt too wide) in paragraph at lines 5145--5147
 \T1/ptm/m/n/10 NA/miss
  []
 
 
-Overfull \hbox (8.12923pt too wide) in paragraph at lines 4983--4985
+Overfull \hbox (8.12923pt too wide) in paragraph at lines 5145--5147
 \T1/ptm/m/n/10 ing 
  []
 
- [45] [46]
-Underfull \hbox (badness 10000) in paragraph at lines 5381--5381
-[]\T1/phv/b/n/10 Im-porta
+[47] [48] <image7.png, id=757, 803.0pt x 401.5pt>
+File: image7.png Graphic file (type png)
+ <use image7.png>
+Package pdftex.def Info: image7.png used on input line 5407.
+(pdftex.def)             Requested size: 469.7715pt x 235.28395pt.
+ [49]
+Underfull \hbox (badness 10000) in paragraph at lines 5561--5561
+[]\T1/phv/m/n/10 Im-por-tance
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 5381--5381
-[]\T1/phv/b/n/10 Run-ning
+Underfull \hbox (badness 10000) in paragraph at lines 5561--5561
+[]\T1/phv/m/n/10 Run-ning
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 5381--5381
-[]\T1/ptm/m/n/10 none (de-
+Underfull \hbox (badness 10000) in paragraph at lines 5561--5561
+[]\T1/ptm/m/n/10 em-ploy-men t
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 5381--5381
-[]\T1/ptm/m/n/10 em-ploy-men
+Underfull \hbox (badness 10000) in paragraph at lines 5561--5561
+[]\T1/ptm/m/n/10 em-ploy-men t
+ []
+
+[50 <./image7.png>]
+
+Package varwidth Warning: Failed to reprocess entire contents on input line 567
+5.
+
+
+Package varwidth Warning: Failed to reprocess entire contents on input line 567
+5.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 5678--5683
+[]|\T1/phv/m/n/10 Total num-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 5381--5381
-[]\T1/ptm/m/n/10 none (de-
+Underfull \hbox (badness 10000) in paragraph at lines 5678--5683
+\T1/phv/m/n/10 ber of
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 5381--5381
-[]\T1/ptm/m/n/10 em-ploy-men
- []
-
- [47]
-Underfull \hbox (badness 10000) in paragraph at lines 5475--5476
-[]|\T1/phv/b/n/10 Argum
+Underfull \hbox (badness 10000) in paragraph at lines 5686--5690
+[]\T1/phv/m/n/10 time (sec-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 5508--5510
-[]|\T1/phv/b/n/10 Runni
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 5508--5510
-\T1/phv/b/n/10 ng time
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 5525--5526
+Underfull \hbox (badness 10000) in paragraph at lines 5705--5706
 []|\T1/ptm/m/it/10 before lo-cal
  []
 
- [48] [49] [50] [51] [52] [53] [54]
-
-! LaTeX Error: \begin{split} on input line 6455 ended by \end{equation*}.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.6456 \end{equation*}
-                      
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-! LaTeX Error: Command \bfseries invalid in math mode.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.6459 ...implify the search {\color{red}\bfseries
-                                                  {}{[}\#foot48{]}\_}.
-Please use the math alphabet \mathbf instead of the \bfseries command. 
-
-LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <7> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 6459.
-LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <5> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 6459.
-! Missing $ inserted.
-<inserted text> 
-                $
-l.6460 
-       
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-! Missing } inserted.
-<inserted text> 
-                }
-l.6460 
-       
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-! Missing } inserted.
-<inserted text> 
-                }
-l.6460 
-       
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-! Missing } inserted.
-<inserted text> 
-                }
-l.6460 
-       
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-! Missing \cr inserted.
-<inserted text> 
-                \cr 
-l.6460 
-       
-I'm guessing that you meant to end an alignment here.
-
-! Missing { inserted.
-<inserted text> 
-                {
-l.6460 
-       
-I've put in what seems to be necessary to fix
-the current column of the current alignment.
-Try to go on, since this might almost work.
-
-! Missing { inserted.
-<inserted text> 
-                {
-l.6460 
-       
-I've put in what seems to be necessary to fix
-the current column of the current alignment.
-Try to go on, since this might almost work.
-
-! Extra }, or forgotten $.
-<recently read> }
-                 
-l.6460 
-       
-I've deleted a group-closing symbol because it seems to be
-spurious, as in `$x}$'. But perhaps the } is legitimate and
-you forgot something else, as in `\hbox{$x}'. In such cases
-the way to recover is to insert both the forgotten and the
-deleted material, e.g., by typing `I$}'.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.6460 
-       
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-! Missing } inserted.
-<inserted text> 
-                }
-l.6460 
-       
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-
-Overfull \hbox (429.94402pt too wide) in alignment at lines 6456--6460
-[] []
- []
-
- <image9.png, id=369, 1284.8pt x 642.4pt>
+[51] [52] [53] [54] [55] [56] [57] [58] [59] [60] [61]
+<image8.png, id=839, 1284.8pt x 642.4pt>
+File: image8.png Graphic file (type png)
+ <use image8.png>
+Package pdftex.def Info: image8.png used on input line 7207.
+(pdftex.def)             Requested size: 468.99712pt x 234.12607pt.
+ [62 <./image8.png>]
+<image9.png, id=850, 1284.8pt x 642.4pt>
 File: image9.png Graphic file (type png)
  <use image9.png>
-Package pdftex.def Info: image9.png used on input line 7035.
+Package pdftex.def Info: image9.png used on input line 7286.
 (pdftex.def)             Requested size: 468.99712pt x 234.12607pt.
- <image10.png, id=370, 1284.8pt x 642.4pt>
+ [63 <./image9.png>]
+<image10.png, id=857, 1284.8pt x 642.4pt>
 File: image10.png Graphic file (type png)
  <use image10.png>
-Package pdftex.def Info: image10.png used on input line 7076.
+Package pdftex.def Info: image10.png used on input line 7327.
 (pdftex.def)             Requested size: 468.99712pt x 234.12607pt.
+ [64 <./image10.png>] [65] [66] [67] [68] [69] [70
 
-! Package inputenc Error: Unicode char \u8:α not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.7086 ...split}\Sigma_{\varepsilon} = \text{αΣ}
-                                                  _{X}\end{split}
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-! Package inputenc Error: Unicode char \u8:Σ not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.7086 ...split}\Sigma_{\varepsilon} = \text{αΣ}
-                                                  _{X}\end{split}
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-! Package amsmath Error: Multiple \label's: label 'anon_methods:noise-addition'
- will be lost.
-
-See the amsmath package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.7188 \label
-             {\detokenize{anon_methods:rank-swapping}}
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-! Package amsmath Error: Multiple \label's: label 'anon_methods:rank-swapping' 
-will be lost.
-
-See the amsmath package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.7279 \label
-             {\detokenize{anon_methods:shuffling}}
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-! Package amsmath Error: Multiple \label's: label 'anon_methods:shuffling' will
- be lost.
-
-See the amsmath package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.7497 \label
-             {\detokenize{anon_methods:comparison-of-pram-rank-swapping-and-...
-
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-! Package amsmath Error: Multiple \label's: label 'anon_methods:comparison-of-p
-ram-rank-swapping-and-shuffling' will be lost.
-
-See the amsmath package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.7517 \label
-             {\detokenize{anon_methods:anonymization-of-geospatial-variables}}
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-! Package amsmath Error: Multiple \label's: label 'anon_methods:anonymization-o
-f-geospatial-variables' will be lost.
-
-See the amsmath package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.7553 \label
-             {\detokenize{anon_methods:anonymization-of-the-quasi-identifier...
-
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-! Package amsmath Error: Multiple \label's: label 'anon_methods:anonymization-o
-f-the-quasi-identifier-household-size' will be lost.
-
-See the amsmath package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.7571 \label
-             {\detokenize{anon_methods:special-case-census-data}}
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
+]
 Chapter 6.
+[71] <image11.png, id=916, 803.0pt x 401.5pt>
+File: image11.png Graphic file (type png)
+ <use image11.png>
+Package pdftex.def Info: image11.png used on input line 7969.
+(pdftex.def)             Requested size: 469.7715pt x 235.28395pt.
+ [72 <./image11.png>]
+LaTeX Font Info:    Font shape `TS1/pcr/m/it' in size <9> not available
+(Font)              Font shape `TS1/pcr/m/sl' tried instead on input line 8069.
 
-! Package amsmath Error: Multiple \label's: label 'anon_methods:special-case-ce
-nsus-data' will be lost.
-
-See the amsmath package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.7616 \label
-             {\detokenize{utility::doc}}\label{\detokenize{utility:measuring...
-
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-! Package amsmath Error: Multiple \label's: label 'utility::doc' will be lost.
-
-See the amsmath package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.7616 \label{\detokenize{utility::doc}}\label
-                                              {\detokenize{utility:measuring...
-
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-! Package amsmath Error: Multiple \label's: label 'utility:measuring-utility-an
-d-information-loss' will be lost.
-
-See the amsmath package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.7697 \label
-             {\detokenize{utility:general-utility-measures-for-continuous-an...
-
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-! Package amsmath Error: Multiple \label's: label 'utility:general-utility-meas
-ures-for-continuous-and-categorical-variables' will be lost.
-
-See the amsmath package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.7707 \label
-             {\detokenize{utility:general-utility-measures-for-categorical-v...
-
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-! Package amsmath Error: Multiple \label's: label 'utility:general-utility-meas
-ures-for-categorical-variables' will be lost.
-
-See the amsmath package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.7710 \label
-             {\detokenize{utility:number-of-missing-values}}
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-! Package amsmath Error: Multiple \label's: label 'utility:number-of-missing-va
-lues' will be lost.
-
-See the amsmath package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.7795 \label
-             {\detokenize{utility:number-of-records-changed}}
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-! Package amsmath Error: Multiple \label's: label 'utility:number-of-records-ch
-anged' will be lost.
-
-See the amsmath package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.7839 \label
-             {\detokenize{utility:comparing-contingency-tables}}
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-! Package amsmath Error: Multiple \label's: label 'utility:comparing-contingenc
-y-tables' will be lost.
-
-See the amsmath package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.7893 \label
-             {\detokenize{utility:general-utility-measures-for-continuous-va...
-
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-! Package amsmath Error: Multiple \label's: label 'utility:general-utility-meas
-ures-for-continuous-variables' will be lost.
-
-See the amsmath package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.7896 \label
-             {\detokenize{utility:statistics-mean-covariance-correlation}}
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-! Package amsmath Error: Multiple \label's: label 'utility:statistics-mean-cova
-riance-correlation' will be lost.
-
-See the amsmath package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.8006 \label
-             {\detokenize{utility:il1s-information-loss-measure}}
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-! Package amsmath Error: Multiple \label's: label 'utility:il1s-information-los
-s-measure' will be lost.
-
-See the amsmath package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.8067 \label
-             {\detokenize{utility:eigenvalues}}
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-! Package amsmath Error: Multiple \label's: label 'utility:eigenvalues' will be
- lost.
-
-See the amsmath package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.8098 \label
-             {\detokenize{utility:utility-measures-based-on-the-end-users-ne...
-
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-! Package inputenc Error: Unicode char \u8:β not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.8184 ...ta_{3}\text{experience}^{2} + \text{βX}
-                                                  \end{split}
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
- <image12.png, id=394, 1284.8pt x 642.4pt>
+ [73] [74] [75] [76] [77] [78] [79] [80]
+<image12.png, id=979, 1284.8pt x 642.4pt>
 File: image12.png Graphic file (type png)
  <use image12.png>
-Package pdftex.def Info: image12.png used on input line 8294.
+Package pdftex.def Info: image12.png used on input line 8569.
 (pdftex.def)             Requested size: 468.99712pt x 234.87103pt.
 LaTeX Font Info:    Font shape `T1/phv/bx/it' in size <14.4> not available
-(Font)              Font shape `T1/phv/b/it' tried instead on input line 8300.
+(Font)              Font shape `T1/phv/b/it' tried instead on input line 8575.
 LaTeX Font Info:    Font shape `T1/phv/b/it' in size <14.4> not available
-(Font)              Font shape `T1/phv/b/sl' tried instead on input line 8300.
+(Font)              Font shape `T1/phv/b/sl' tried instead on input line 8575.
+
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\sphinxstyleemphasis' on input line 8300.
+(hyperref)                removing `\sphinxstyleemphasis' on input line 8575.
 
+[81 <./image12.png>] <image13.png, id=991, 1284.8pt x 642.4pt>
+File: image13.png Graphic file (type png)
 
-! Package amsmath Error: Multiple \label's: label 'utility:utility-measures-bas
-ed-on-the-end-users-needs' will be lost.
+<use image13.png>
+Package pdftex.def Info: image13.png used on input line 8658.
+(pdftex.def)             Requested size: 468.99712pt x 234.12607pt.
+ <image14.png, id=992, 1284.8pt x 642.4pt>
+File: image14.png Graphic file (type png)
+ <use image14.png>
+Package pdftex.def Info: image14.png used on input line 8662.
+(pdftex.def)             Requested size: 468.99712pt x 234.12607pt.
 
-See the amsmath package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.8301 \label
-             {\detokenize{utility:assessing-data-utility-with-the-help-of-da...
-
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-! Package amsmath Error: Multiple \label's: label 'utility:assessing-data-utili
-ty-with-the-help-of-data-visualizations-in-r' will be lost.
-
-See the amsmath package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.8334 \label
-             {\detokenize{utility:histograms-and-density-plots}}
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-! Package amsmath Error: Multiple \label's: label 'utility:histograms-and-densi
-ty-plots' will be lost.
-
-See the amsmath package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.8393 \label
-             {\detokenize{utility:box-plots}}
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
- <image15.png, id=401, 1284.8pt x 642.4pt>
+[82 <./image13.png>] <image15.png, id=1000, 1284.8pt x 642.4pt>
 File: image15.png Graphic file (type png)
- <use image15.png>
-Package pdftex.def Info: image15.png used on input line 8409.
+
+<use image15.png>
+Package pdftex.def Info: image15.png used on input line 8684.
 (pdftex.def)             Requested size: 468.99712pt x 234.87103pt.
-
-! Package amsmath Error: Multiple \label's: label 'utility:box-plots' will be l
-ost.
-
-See the amsmath package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.8416 \label
-             {\detokenize{utility:mosaic-plots}}
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-! Package amsmath Error: Multiple \label's: label 'utility:mosaic-plots' will b
-e lost.
-
-See the amsmath package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.8629 \label
-             {\detokenize{utility:choice-of-utility-measure}}
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
+ [83 <./image14.png> <./image15.png>]
+<image16.png, id=1010, 1284.8pt x 642.4pt>
+File: image16.png Graphic file (type png)
+ <use image16.png>
+Package pdftex.def Info: image16.png used on input line 8737.
+(pdftex.def)             Requested size: 468.99712pt x 234.12607pt.
+ [84]
+<image17.png, id=1016, 803.0pt x 401.5pt>
+File: image17.png Graphic file (type png)
+ <use image17.png>
+Package pdftex.def Info: image17.png used on input line 8847.
+(pdftex.def)             Requested size: 469.7715pt x 235.28395pt.
+ [85 <./image16.png>] <image18.png, id=1026, 803.0pt x 401.5pt>
+File: image18.png Graphic file (type png)
+ <use image18.png>
+Package pdftex.def Info: image18.png used on input line 8889.
+(pdftex.def)             Requested size: 469.7715pt x 234.88573pt.
+ [86 <./image17.png>] <image19.png, id=1032, 803.0pt x 401.5pt>
+File: image19.png Graphic file (type png)
+ <use image19.png>
+Package pdftex.def Info: image19.png used on input line 8894.
+(pdftex.def)             Requested size: 469.7715pt x 234.88573pt.
+ [87 <./image18.png> <./image19.png>] [88]
 Chapter 7.
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\sphinxstyleemphasis' on input line 8667.
+(hyperref)                removing `\sphinxstyleemphasis' on input line 8939.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\sphinxstyleemphasis' on input line 8667.
-
-
-! Package amsmath Error: Multiple \label's: label 'utility:choice-of-utility-me
-asure' will be lost.
-
-See the amsmath package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.8668 \label
-             {\detokenize{sdcMicro:sdc-with-sdcmicro-in-r-setting-up-your-da...
-
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-! Package amsmath Error: Multiple \label's: label 'sdcMicro:sdc-with-sdcmicro-i
-n-r-setting-up-your-data-and-more' will be lost.
-
-See the amsmath package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.8668 ...-r-setting-up-your-data-and-more}}\label
-                                                  {\detokenize{sdcMicro::doc}}
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
+(hyperref)                removing `\sphinxstyleemphasis' on input line 8939.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\sphinxstyleemphasis' on input line 8670.
+(hyperref)                removing `\sphinxstyleemphasis' on input line 8942.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\sphinxstyleemphasis' on input line 8670.
-
-
-! Package amsmath Error: Multiple \label's: label 'sdcMicro::doc' will be lost.
-
-
-See the amsmath package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.8671 \label
-             {\detokenize{sdcMicro:installing-r-sdcmicro-and-other-packages}}
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
+(hyperref)                removing `\sphinxstyleemphasis' on input line 8942.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\sphinxstyleemphasis' on input line 8722.
+(hyperref)                removing `\sphinxstyleemphasis' on input line 8994.
 
+[89
 
-! Package amsmath Error: Multiple \label's: label 'sdcMicro:installing-r-sdcmic
-ro-and-other-packages' will be lost.
-
-See the amsmath package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.8723 \label
-             {\detokenize{sdcMicro:read-functions-in-r}}
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-! Package amsmath Error: Multiple \label's: label 'sdcMicro:read-functions-in-r
-' will be lost.
-
-See the amsmath package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.8868 \label
-             {\detokenize{sdcMicro:missing-values}}
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
+] [90]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\sphinxstyleemphasis' on input line 8899.
+(hyperref)                removing `\sphinxstyleemphasis' on input line 9176.
 
-
-! Package amsmath Error: Multiple \label's: label 'sdcMicro:missing-values' wil
-l be lost.
-
-See the amsmath package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.8900 \label
-             {\detokenize{sdcMicro:classes-in-r}}
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
+[91]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\sphinxstyleemphasis' on input line 8940.
+(hyperref)                removing `\sphinxstyleemphasis' on input line 9217.
 
-
-! Package amsmath Error: Multiple \label's: label 'sdcMicro:classes-in-r' will 
-be lost.
-
-See the amsmath package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.8941 \label
-             {\detokenize{sdcMicro:objects-of-class-sdcmicroobj}}
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
+[92] [93] [94] [95]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\sphinxstylestrong' on input line 9353.
+(hyperref)                removing `\sphinxstylestrong' on input line 9630.
 
-
-! Package amsmath Error: Multiple \label's: label 'sdcMicro:objects-of-class-sd
-cmicroobj' will be lost.
-
-See the amsmath package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.9354 \label
-             {\detokenize{sdcMicro:household-structure}}
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
+[96] [97]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\sphinxstylestrong' on input line 9501.
+(hyperref)                removing `\sphinxstylestrong' on input line 9778.
 
 
-! Package amsmath Error: Multiple \label's: label 'sdcMicro:household-structure
-' will be lost.
-
-See the amsmath package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.9502 \label
-             {\detokenize{sdcMicro:randomizing-order-and-numbering-of-indivi...
-
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-Overfull \hbox (10.2495pt too wide) in paragraph at lines 9569--9570
+Overfull \hbox (10.2495pt too wide) in paragraph at lines 9846--9847
 []
  []
 
 
-Overfull \hbox (27.46947pt too wide) in paragraph at lines 9569--9570
+Overfull \hbox (27.46947pt too wide) in paragraph at lines 9846--9847
 \T1/ptm/m/n/10 Hou 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 9572--9575
+Underfull \hbox (badness 10000) in paragraph at lines 9849--9852
 []\T1/ptm/m/n/10 sehol d
  []
 
 
-Overfull \hbox (10.2495pt too wide) in paragraph at lines 9577--9578
+Overfull \hbox (10.2495pt too wide) in paragraph at lines 9854--9855
 []
  []
 
 
-Overfull \hbox (26.20946pt too wide) in paragraph at lines 9577--9578
+Overfull \hbox (26.20946pt too wide) in paragraph at lines 9854--9855
 \T1/ptm/m/n/10 Reg 
  []
 
 
-Overfull \hbox (10.2495pt too wide) in paragraph at lines 9583--9584
+Overfull \hbox (10.2495pt too wide) in paragraph at lines 9860--9861
 []
  []
 
 
-Overfull \hbox (24.13925pt too wide) in paragraph at lines 9583--9584
+Overfull \hbox (24.13925pt too wide) in paragraph at lines 9860--9861
 \T1/ptm/m/n/10 Dis 
  []
 
 
-Overfull \hbox (10.2495pt too wide) in paragraph at lines 9589--9590
+Overfull \hbox (10.2495pt too wide) in paragraph at lines 9866--9867
 []
  []
 
 
-Overfull \hbox (26.35936pt too wide) in paragraph at lines 9589--9590
+Overfull \hbox (26.35936pt too wide) in paragraph at lines 9866--9867
 \T1/ptm/m/n/10 Ran 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 9592--9597
+Underfull \hbox (badness 10000) in paragraph at lines 9869--9874
 []\T1/ptm/m/n/10 domiz
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 9592--9597
+Underfull \hbox (badness 10000) in paragraph at lines 9869--9874
 \T1/ptm/m/n/10 hold
  []
 
 
-Overfull \hbox (10.2495pt too wide) in paragraph at lines 9599--9600
+Overfull \hbox (10.2495pt too wide) in paragraph at lines 9876--9877
 []
  []
 
 
-Overfull \hbox (26.20946pt too wide) in paragraph at lines 9599--9600
+Overfull \hbox (26.20946pt too wide) in paragraph at lines 9876--9877
 \T1/ptm/m/n/10 Reg 
  []
 
 
-Overfull \hbox (10.2495pt too wide) in paragraph at lines 9605--9606
+Overfull \hbox (10.2495pt too wide) in paragraph at lines 9882--9883
 []
  []
 
 
-Overfull \hbox (24.13925pt too wide) in paragraph at lines 9605--9606
+Overfull \hbox (24.13925pt too wide) in paragraph at lines 9882--9883
 \T1/ptm/m/n/10 Dis 
  []
 
 
-Overfull \hbox (10.2495pt too wide) in paragraph at lines 9611--9612
+Overfull \hbox (10.2495pt too wide) in paragraph at lines 9888--9889
 []
  []
 
 
-Overfull \hbox (26.35936pt too wide) in paragraph at lines 9611--9612
+Overfull \hbox (26.35936pt too wide) in paragraph at lines 9888--9889
 \T1/ptm/m/n/10 Ran 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 9614--9619
+Underfull \hbox (badness 10000) in paragraph at lines 9891--9896
 []\T1/ptm/m/n/10 domiz
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 9614--9619
+Underfull \hbox (badness 10000) in paragraph at lines 9891--9896
 \T1/ptm/m/n/10 hold
  []
 
 
-Overfull \hbox (10.2495pt too wide) in paragraph at lines 9621--9622
+Overfull \hbox (10.2495pt too wide) in paragraph at lines 9898--9899
 []
  []
 
 
-Overfull \hbox (26.20946pt too wide) in paragraph at lines 9621--9622
+Overfull \hbox (26.20946pt too wide) in paragraph at lines 9898--9899
 \T1/ptm/m/n/10 Reg 
  []
 
 
-Overfull \hbox (10.2495pt too wide) in paragraph at lines 9627--9628
+Overfull \hbox (10.2495pt too wide) in paragraph at lines 9904--9905
 []
  []
 
 
-Overfull \hbox (24.13925pt too wide) in paragraph at lines 9627--9628
+Overfull \hbox (24.13925pt too wide) in paragraph at lines 9904--9905
 \T1/ptm/m/n/10 Dis 
  []
 
-
-! Package amsmath Error: Multiple \label's: label 'sdcMicro:randomizing-order-a
-nd-numbering-of-individuals-or-households' will be lost.
-
-See the amsmath package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.9971 \label
-             {\detokenize{sdcMicro:computation-time}}
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-Overfull \hbox (15.46455pt too wide) in paragraph at lines 10116--10117
+[98] [99]
+Overfull \hbox (15.46455pt too wide) in paragraph at lines 10393--10394
 []
  []
 
 
-Overfull \hbox (27.69441pt too wide) in paragraph at lines 10116--10117
+Overfull \hbox (27.69441pt too wide) in paragraph at lines 10393--10394
 \T1/phv/m/n/10 Sa 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 10119--10121
+Underfull \hbox (badness 10000) in paragraph at lines 10396--10398
 []\T1/phv/m/n/10 mple
  []
 
 
-Overfull \hbox (15.46455pt too wide) in paragraph at lines 10146--10147
+Overfull \hbox (15.46455pt too wide) in paragraph at lines 10423--10424
 []
  []
 
 
-Overfull \hbox (27.1944pt too wide) in paragraph at lines 10146--10147
+Overfull \hbox (27.1944pt too wide) in paragraph at lines 10423--10424
 \T1/phv/m/n/10 Pe 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 10149--10168
+Underfull \hbox (badness 10000) in paragraph at lines 10426--10445
 []\T1/phv/m/n/10 rcen
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 10149--10168
+Underfull \hbox (badness 10000) in paragraph at lines 10426--10445
 \T1/phv/m/n/10 obse
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 10149--10168
+Underfull \hbox (badness 10000) in paragraph at lines 10426--10445
 \T1/phv/m/n/10 rvat
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 10149--10168
+Underfull \hbox (badness 10000) in paragraph at lines 10426--10445
 \T1/phv/m/n/10 ions
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 10149--10168
+Underfull \hbox (badness 10000) in paragraph at lines 10426--10445
 \T1/phv/m/n/10 viol
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 10149--10168
+Underfull \hbox (badness 10000) in paragraph at lines 10426--10445
 \T1/phv/m/n/10 atin g
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 10149--10168
+Underfull \hbox (badness 10000) in paragraph at lines 10426--10445
 \T1/phv/m/n/10 ymit y
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 10149--10168
+Underfull \hbox (badness 10000) in paragraph at lines 10426--10445
 \T1/phv/m/n/10 anon
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 10149--10168
+Underfull \hbox (badness 10000) in paragraph at lines 10426--10445
 \T1/phv/m/n/10 ymiz
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 10184--10187
+Underfull \hbox (badness 10000) in paragraph at lines 10461--10464
 []|\T1/ptm/m/n/10 Occu
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 10188--10190
+Underfull \hbox (badness 10000) in paragraph at lines 10465--10467
 []|\T1/ptm/m/n/10 Reli
  []
 
-
-! Package amsmath Error: Multiple \label's: label 'sdcMicro:computation-time' w
-ill be lost.
-
-See the amsmath package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.10415 \label
-              {\detokenize{sdcMicro:common-errors}}
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
+[100] [101] [102]
 Chapter 8.
+[103
 
-! Package amsmath Error: Multiple \label's: label 'sdcMicro:common-errors' will
- be lost.
+] [104] [105] [106] [107] [108] [109]
+<image20.png, id=1148, 487.06969pt x 657.95813pt>
+File: image20.png Graphic file (type png)
+ <use image20.png>
+Package pdftex.def Info: image20.png used on input line 11402.
+(pdftex.def)             Requested size: 473.5198pt x 621.83397pt.
 
-See the amsmath package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.10435 \label
-              {\detokenize{process:the-sdc-process}}\label{\detokenize{proce...
+Overfull \hbox (3.76479pt too wide) in paragraph at lines 11402--11403
+[] 
+ []
 
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
+[110] [111 <./image20.png>] [112
 
-
-! Package amsmath Error: Multiple \label's: label 'process:the-sdc-process' wil
-l be lost.
-
-See the amsmath package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.10435 ...okenize{process:the-sdc-process}}\label
-                                                  {\detokenize{process::doc}}
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-! Package amsmath Error: Multiple \label's: label 'process::doc' will be lost.
-
-See the amsmath package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.10449 \label
-              {\detokenize{process:step-1-need-for-confidentiality-protection}}
-
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-! Package amsmath Error: Multiple \label's: label 'process:step-1-need-for-conf
-identiality-protection' will be lost.
-
-See the amsmath package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.10488 \label
-              {\detokenize{process:step-2-data-preparation-and-exploring-dat...
-
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-! Package amsmath Error: Multiple \label's: label 'process:step-2-data-preparat
-ion-and-exploring-data-characteristics' will be lost.
-
-See the amsmath package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.10726 \label
-              {\detokenize{process:step-3-type-of-release}}
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-! Package amsmath Error: Multiple \label's: label 'process:step-3-type-of-relea
-se' will be lost.
-
-See the amsmath package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.10794 \label
-              {\detokenize{process:step-4-intruder-scenarios-and-choice-of-k...
-
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-! Package amsmath Error: Multiple \label's: label 'process:step-4-intruder-scen
-arios-and-choice-of-key-variables' will be lost.
-
-See the amsmath package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.10863 \label
-              {\detokenize{process:step-5-data-key-uses-and-selection-of-uti...
-
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-! Package amsmath Error: Multiple \label's: label 'process:step-5-data-key-uses
--and-selection-of-utility-measures' will be lost.
-
-See the amsmath package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.10942 \label
-              {\detokenize{process:step-6-assessing-disclosure-risk}}
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-! Package amsmath Error: Multiple \label's: label 'process:step-6-assessing-dis
-closure-risk' will be lost.
-
-See the amsmath package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.10970 \label
-              {\detokenize{process:step-7-assessing-utility-measures}}
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-! Package amsmath Error: Multiple \label's: label 'process:step-7-assessing-uti
-lity-measures' will be lost.
-
-See the amsmath package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.10981 \label
-              {\detokenize{process:step-8-choice-and-application-of-sdc-meth...
-
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-! Package amsmath Error: Multiple \label's: label 'process:step-8-choice-and-ap
-plication-of-sdc-methods' will be lost.
-
-See the amsmath package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.11032 \label
-              {\detokenize{process:step-9-re-measure-risk}}
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-! Package amsmath Error: Multiple \label's: label 'process:step-9-re-measure-ri
-sk' will be lost.
-
-See the amsmath package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.11048 \label
-              {\detokenize{process:step-10-re-measure-utility}}
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-! Package amsmath Error: Multiple \label's: label 'process:step-10-re-measure-u
-tility' will be lost.
-
-See the amsmath package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.11064 \label
-              {\detokenize{process:step-11-audit-and-reporting}}
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-! Package amsmath Error: Multiple \label's: label 'process:step-11-audit-and-re
-porting' will be lost.
-
-See the amsmath package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.11102 \label
-              {\detokenize{process:step-12-data-release}}
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
+]
 Chapter 9.
 
-! Package amsmath Error: Multiple \label's: label 'process:step-12-data-release
-' will be lost.
-
-See the amsmath package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.11121 \label
-              {\detokenize{appendices:appendices}}\label{\detokenize{appendi...
-
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-! Package amsmath Error: Multiple \label's: label 'appendices:appendices' will 
-be lost.
-
-See the amsmath package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.11121 ...etokenize{appendices:appendices}}\label
-                                                  {\detokenize{appendices::d...
-
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\sphinxstylestrong' on input line 11410.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\sphinxstylestrong' on input line 11123.
+(hyperref)                removing `\sphinxstylestrong' on input line 11410.
 
 
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\sphinxstylestrong' on input line 11123.
-
-
-! Package amsmath Error: Multiple \label's: label 'appendices::doc' will be los
-t.
-
-See the amsmath package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.11124 \label
-              {\detokenize{appendices:appendix-a-overview-of-case-study-vari...
-
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-Overfull \hbox (131.72955pt too wide) in alignment at lines 11155--11368
+Overfull \hbox (155.80948pt too wide) in alignment at lines 11413--11423
  [] [] [] [] 
  []
 
 
-Overfull \hbox (141.1795pt too wide) in alignment at lines 11368--11577
+Overfull \hbox (155.80948pt too wide) in alignment at lines 11423--11436
  [] [] [] [] 
  []
 
 
-Overfull \hbox (155.80948pt too wide) in alignment at lines 11577--11802
+Overfull \hbox (155.80948pt too wide) in alignment at lines 11436--11440
  [] [] [] [] 
  []
 
 
-Overfull \hbox (155.80948pt too wide) in alignment at lines 11802--11893
+Overfull \hbox (155.80948pt too wide) in alignment at lines 11440--11442
  [] [] [] [] 
  []
 
 
-Package longtable Warning: Column widths have changed
-(longtable)                in table 1 on input line 11893.
+Overfull \hbox (155.80948pt too wide) in alignment at lines 11442--11655
+ [] [] [] [] 
+ []
+
+
+Overfull \hbox (155.80948pt too wide) in alignment at lines 11655--11864
+ [] [] [] [] 
+ []
+
+
+Overfull \hbox (155.80948pt too wide) in alignment at lines 11864--12089
+ [] [] [] [] 
+ []
+
+[113]
+Overfull \hbox (155.80948pt too wide) in alignment at lines 12089--12180
+ [] [] [] [] 
+ []
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\sphinxstylestrong' on input line 11896.
+(hyperref)                removing `\sphinxstylestrong' on input line 12183.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\sphinxstylestrong' on input line 11896.
+(hyperref)                removing `\sphinxstylestrong' on input line 12183.
 
+[114] [115]
 
-! Package amsmath Error: Multiple \label's: label 'appendices:appendix-a-overvi
-ew-of-case-study-variables' will be lost.
-
-See the amsmath package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.11897 \label
-              {\detokenize{appendices:appendix-b-example-of-blanket-agreemen...
-
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\sphinxstylestrong' on input line 12348.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\sphinxstylestrong' on input line 12061.
+(hyperref)                removing `\sphinxstylestrong' on input line 12348.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\sphinxstylestrong' on input line 12061.
+(hyperref)                removing `\sphinxstylestrong' on input line 12348.
 
 
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\sphinxstylestrong' on input line 12061.
-
-
-! Package amsmath Error: Multiple \label's: label 'appendices:appendix-b-exampl
-e-of-blanket-agreement-for-suf' will be lost.
-
-See the amsmath package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.12062 \label
-              {\detokenize{appendices:appendix-c-internal-and-external-repor...
-
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 12069--12071
+Underfull \hbox (badness 10000) in paragraph at lines 12356--12358
 []\T1/ptm/b/n/10 Appendix D: Ex-e-cu-tion Times for Mul-ti-ple Sce-nar-ios Test
 ed us-ing Se-lected Sam-ple Data
  []
 
- <image22.png, id=417, 1660.2025pt x 2346.7675pt>
+<image22.png, id=1195, 1660.2025pt x 2346.7675pt>
 File: image22.png Graphic file (type png)
  <use image22.png>
-Package pdftex.def Info: image22.png used on input line 12072.
+Package pdftex.def Info: image22.png used on input line 12359.
 (pdftex.def)             Requested size: 368.89359pt x 564.13094pt.
+ [116]
+[117 <./image22.png>] [118
+
+]
 Chapter 10.
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\sphinxstylestrong' on input line 12077.
-
-
-! Package amsmath Error: Multiple \label's: label 'appendices:appendix-c-intern
-al-and-external-reports-for-case-studies' will be lost.
-
-See the amsmath package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.12078 \label
-              {\detokenize{bibliography:bibliography}}\label{\detokenize{bib...
-
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-! Package amsmath Error: Multiple \label's: label 'bibliography:bibliography' w
-ill be lost.
-
-See the amsmath package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.12078 ...enize{bibliography:bibliography}}\label
-                                                  {\detokenize{bibliography:...
-
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
+(hyperref)                removing `\sphinxstylestrong' on input line 12364.
 
 
 LaTeX Warning: Hyper reference `20http:/www.ihsn.org/home/software/disclosure-c
-ontrol-toolbox::doc' on page 55 undefined on input line 12081.
+ontrol-toolbox::doc' on page 119 undefined on input line 12368.
 
+[119] [120]
 Chapter 11.
+[121
 
-! Package amsmath Error: Multiple \label's: label 'bibliography::doc' will be l
-ost.
-
-See the amsmath package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.12188 \label
-              {\detokenize{lists::doc}}\label{\detokenize{lists:lists}}
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-! Package amsmath Error: Multiple \label's: label 'lists::doc' will be lost.
-
-See the amsmath package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.12188 \label{\detokenize{lists::doc}}\label
-                                             {\detokenize{lists:lists}}
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
+] [122] [123] [124] [125] [126]
 Chapter 12.
+[127
 
-! Package amsmath Error: Multiple \label's: label 'lists:lists' will be lost.
-
-See the amsmath package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.12193 \label
-              {\detokenize{lists:list-of-tables}}
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-Chapter 13.
-
-! Package amsmath Error: Multiple \label's: label 'lists:list-of-tables' will b
-e lost.
-
-See the amsmath package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.12321 \label
-              {\detokenize{lists:list-of-figures}}
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-Chapter 14.
-
-! Package amsmath Error: Multiple \label's: label 'lists:list-of-figures' will 
-be lost.
-
-See the amsmath package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.12380 \label
-              {\detokenize{lists:list-of-examples}}
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-Chapter 15.
-
-! Package amsmath Error: Multiple \label's: label 'lists:list-of-examples' will
- be lost.
-
-See the amsmath package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.12656 \label
-              {\detokenize{case_studies::doc}}\label{\detokenize{case_studie...
-
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-! Package amsmath Error: Multiple \label's: label 'case_studies::doc' will be l
-ost.
-
-See the amsmath package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.12656 ...l{\detokenize{case_studies::doc}}\label
-                                                  {\detokenize{case_studies:...
-
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-! Package amsmath Error: Multiple \label's: label 'case_studies:case-study-illu
-strating-the-sdc-process' will be lost.
-
-See the amsmath package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.12682 \label
-              {\detokenize{case_studies:case-study-1-suf}}
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 12974--12976
+] [128] [129]
+Underfull \hbox (badness 10000) in paragraph at lines 13261--13263
 []|\T1/ptm/m/n/10 Area of res-i-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 12989--12994
+Underfull \hbox (badness 10000) in paragraph at lines 13276--13281
 []|\T1/ptm/m/n/10 Individua l
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 12989--12994
+Underfull \hbox (badness 10000) in paragraph at lines 13276--13281
 \T1/ptm/m/n/10 weight-ing
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 13007--13012
+Underfull \hbox (badness 10000) in paragraph at lines 13294--13299
 []|\T1/ptm/m/n/10 Populatio n
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 13007--13012
+Underfull \hbox (badness 10000) in paragraph at lines 13294--13299
 \T1/ptm/m/n/10 weight-ing
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 13030--13032
+Underfull \hbox (badness 10000) in paragraph at lines 13317--13319
 []|\T1/ptm/m/n/10 semi-cont
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 13087--13090
+Underfull \hbox (badness 10000) in paragraph at lines 13374--13377
 []|\T1/ptm/m/n/10 Age in com-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 13093--13095
+Underfull \hbox (badness 10000) in paragraph at lines 13380--13382
 []|\T1/ptm/m/n/10 semi-cont
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 13114--13116
+Underfull \hbox (badness 10000) in paragraph at lines 13401--13403
 []|\T1/ptm/m/n/10 semi-cont
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 13124--13128
+Underfull \hbox (badness 10000) in paragraph at lines 13411--13415
 []|\T1/ptm/m/n/10 Religion of
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 13141--13145
+Underfull \hbox (badness 10000) in paragraph at lines 13428--13432
 []|\T1/ptm/m/n/10 Ethnicity of
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 13160--13164
+Underfull \hbox (badness 10000) in paragraph at lines 13447--13451
 []|\T1/ptm/m/n/10 Language of
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 13195--13199
+Underfull \hbox (badness 10000) in paragraph at lines 13482--13486
 []|\T1/ptm/m/n/10 Child im-mu-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 13195--13199
+Underfull \hbox (badness 10000) in paragraph at lines 13482--13486
 \T1/ptm/m/n/10 nized against
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 13226--13228
+Underfull \hbox (badness 10000) in paragraph at lines 13513--13515
 []|\T1/ptm/m/n/10 CHWEIGHTK
  []
 
 
-Underfull \hbox (badness 5832) in paragraph at lines 13229--13232
+Underfull \hbox (badness 5832) in paragraph at lines 13516--13519
 []|\T1/ptm/m/n/10 Weight of the
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 13243--13245
+Underfull \hbox (badness 10000) in paragraph at lines 13530--13532
 []|\T1/ptm/m/n/10 CHHEIGHTC
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 13262--13265
+Underfull \hbox (badness 10000) in paragraph at lines 13549--13552
 []|\T1/ptm/m/n/10 Currently en-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 13278--13282
+Underfull \hbox (badness 10000) in paragraph at lines 13565--13569
 []|\T1/ptm/m/n/10 Highest level
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 13278--13282
+Underfull \hbox (badness 10000) in paragraph at lines 13565--13569
 \T1/ptm/m/n/10 of ed-u-ca-tion
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 13300--13302
+Underfull \hbox (badness 10000) in paragraph at lines 13587--13589
 []|\T1/ptm/m/n/10 semi-cont
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 13308--13310
+Underfull \hbox (badness 10000) in paragraph at lines 13595--13597
 []|\T1/ptm/m/n/10 EDYRSCURR
  []
 
 
-Underfull \hbox (badness 7064) in paragraph at lines 13311--13316
+Underfull \hbox (badness 7064) in paragraph at lines 13598--13603
 []|\T1/ptm/m/n/10 Years of ed-u-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 13319--13321
+Underfull \hbox (badness 10000) in paragraph at lines 13606--13608
 []|\T1/ptm/m/n/10 semi-cont
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 13390--13394
+Underfull \hbox (badness 10000) in paragraph at lines 13677--13681
 []|\T1/ptm/m/n/10 Industry clas-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 13390--13394
+Underfull \hbox (badness 10000) in paragraph at lines 13677--13681
 \T1/ptm/m/n/10 sific ation
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 13407--13411
+Underfull \hbox (badness 10000) in paragraph at lines 13694--13698
 []|\T1/ptm/m/n/10 Employmen t
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 13424--13426
+Underfull \hbox (badness 10000) in paragraph at lines 13711--13713
 []|\T1/ptm/m/n/10 WHOURSLAS
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 13427--13430
+Underfull \hbox (badness 10000) in paragraph at lines 13714--13717
 []|\T1/ptm/m/n/10 Hours worked
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 13443--13446
+Underfull \hbox (badness 10000) in paragraph at lines 13730--13733
 []|\T1/ptm/m/n/10 Ownership of
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 13459--13463
+Underfull \hbox (badness 10000) in paragraph at lines 13746--13750
 []|\T1/ptm/m/n/10 Main ma-te-rial
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 13507--13510
+Underfull \hbox (badness 10000) in paragraph at lines 13794--13797
 []|\T1/ptm/m/n/10 Main cook-ing
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 13539--13544
+Underfull \hbox (badness 10000) in paragraph at lines 13826--13831
 []|\T1/ptm/m/n/10 Ownership of
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 13539--13544
+Underfull \hbox (badness 10000) in paragraph at lines 13826--13831
 \T1/ptm/m/n/10 agri-cultu ral
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 13558--13565
+Underfull \hbox (badness 10000) in paragraph at lines 13845--13852
 []|\T1/ptm/m/n/10 Land size
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 13558--13565
+Underfull \hbox (badness 10000) in paragraph at lines 13845--13852
 \T1/ptm/m/n/10 owned by
  []
 
 
-Underfull \hbox (badness 6775) in paragraph at lines 13558--13565
+Underfull \hbox (badness 6775) in paragraph at lines 13845--13852
 \T1/ptm/m/n/10 house-hold (ha)
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 13576--13578
+Underfull \hbox (badness 10000) in paragraph at lines 13863--13865
 []|\T1/ptm/m/n/10 OWNMOTORC
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 13579--13583
+Underfull \hbox (badness 10000) in paragraph at lines 13866--13870
 []|\T1/ptm/m/n/10 Ownership of
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 13596--13598
+Underfull \hbox (badness 10000) in paragraph at lines 13883--13885
 []|\T1/ptm/m/n/10 Ownership of
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 13611--13615
+Underfull \hbox (badness 10000) in paragraph at lines 13898--13902
 []|\T1/ptm/m/n/10 Ownership of
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 13628--13633
+Underfull \hbox (badness 10000) in paragraph at lines 13915--13920
 []|\T1/ptm/m/n/10 Number of
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 13628--13633
+Underfull \hbox (badness 10000) in paragraph at lines 13915--13920
 \T1/ptm/m/n/10 large-siz ed
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 13636--13638
+Underfull \hbox (badness 10000) in paragraph at lines 13923--13925
 []|\T1/ptm/m/n/10 semi-cont
  []
 
 
-Underfull \hbox (badness 5475) in paragraph at lines 13646--13649
+Underfull \hbox (badness 5475) in paragraph at lines 13933--13936
 []|\T1/ptm/m/n/10 Income ^^U Re-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 13678--13680
+Underfull \hbox (badness 10000) in paragraph at lines 13965--13967
 []|\T1/ptm/m/n/10 INCBONSOC
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 13681--13690
+Underfull \hbox (badness 10000) in paragraph at lines 13968--13977
 []|\T1/ptm/m/n/10 Income -
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 13681--13690
+Underfull \hbox (badness 10000) in paragraph at lines 13968--13977
 \T1/ptm/m/n/10 Bonuses and
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 13702--13704
+Underfull \hbox (badness 10000) in paragraph at lines 13989--13991
 []|\T1/ptm/m/n/10 INCFARMBS
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 13705--13713
+Underfull \hbox (badness 10000) in paragraph at lines 13992--14000
 \T1/ptm/m/n/10 in-come from
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 13725--13727
+Underfull \hbox (badness 10000) in paragraph at lines 14012--14014
 []|\T1/ptm/m/n/10 INCNFARMB
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 13728--13736
+Underfull \hbox (badness 10000) in paragraph at lines 14015--14023
 []|\T1/ptm/m/n/10 Income -Gross
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 13728--13736
+Underfull \hbox (badness 10000) in paragraph at lines 14015--14023
 \T1/ptm/m/n/10 in-come from
  []
 
 
-Underfull \hbox (badness 7814) in paragraph at lines 13728--13736
+Underfull \hbox (badness 7814) in paragraph at lines 14015--14023
 \T1/ptm/m/n/10 farm busi-nesse
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 13815--13817
+Underfull \hbox (badness 10000) in paragraph at lines 14102--14104
 []|\T1/ptm/m/n/10 INCTOTGRO
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 14082--14088
+[130]
+Underfull \hbox (badness 10000) in paragraph at lines 14369--14375
 []|\T1/ptm/m/n/10 Total an-nual
  []
 
 
-Underfull \hbox (badness 7238) in paragraph at lines 14082--14088
+Underfull \hbox (badness 7238) in paragraph at lines 14369--14375
 \T1/ptm/m/n/10 hold ex-pen-ditu
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 15319--15323
+[131] [132] [133] [134] [135] [136] [137] [138] [139] [140] [141] [142]
+[143]
+Underfull \hbox (badness 10000) in paragraph at lines 15611--15615
 []\T1/ptm/m/n/10 sdcHH@manipNumVars$LANDSIZEHA[[][]sdcHH@manipNumVars$LANDSIZEH
 A[][] > 1 &
  []
 
 
-Overfull \hbox (112.86987pt too wide) in paragraph at lines 15319--15323
+Overfull \hbox (112.86987pt too wide) in paragraph at lines 15611--15615
 \T1/ptm/m/n/10 !\T1/ptm/b/n/10 is.na\T1/ptm/m/n/10 ([][]sdcHH@manipNumVars$LAND
 SIZEHA[][])] <- \T1/ptm/b/n/10 round\T1/ptm/m/n/10 (sdcHH@manipNumVars$LANDSIZE
 HA[[][]sdcHH@manipNumVars$LANDSIZEHA[][]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 15331--15334
+Underfull \hbox (badness 10000) in paragraph at lines 15623--15626
 []\T1/ptm/m/n/10 sdcHH@manipNumVars$LANDSIZEHA[[][]sdcHH@manipNumVars$LANDSIZEH
 A[][] >= 20 & [][]sd-
  []
 
+[144] [145] [146] [147] <image21.png, id=1359, 803.0pt x 401.5pt>
+File: image21.png Graphic file (type png)
 
-Underfull \hbox (badness 10000) in paragraph at lines 16169--16169
+<use image21.png>
+Package pdftex.def Info: image21.png used on input line 16294.
+(pdftex.def)             Requested size: 469.7715pt x 234.88573pt.
+ [148 <./image21.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 16472--16472
 []\T1/phv/b/n/10 TCLTH
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 16169--16169
+Underfull \hbox (badness 10000) in paragraph at lines 16472--16472
 []\T1/phv/b/n/10 THOUS
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 16169--16169
+Underfull \hbox (badness 10000) in paragraph at lines 16472--16472
 []\T1/ptm/m/n/10 be-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 16169--16169
+Underfull \hbox (badness 10000) in paragraph at lines 16472--16472
 []\T1/ptm/b/n/10 TTRAN
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 16169--16169
+Underfull \hbox (badness 10000) in paragraph at lines 16472--16472
 []\T1/ptm/b/n/10 TCOMM
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 16169--16169
+Underfull \hbox (badness 10000) in paragraph at lines 16472--16472
 []\T1/ptm/b/n/10 TRESH OT-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 16169--16169
+Underfull \hbox (badness 10000) in paragraph at lines 16472--16472
 []\T1/ptm/b/n/10 TMISC
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 16169--16169
+Underfull \hbox (badness 10000) in paragraph at lines 16472--16472
 []\T1/ptm/m/n/10 be-
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 16347--16349
+[149] [150]
+Underfull \hbox (badness 10000) in paragraph at lines 16650--16652
 []\T1/ptm/m/n/10 sdcCombined@manipKeyVars$AGEYRS[[][]sdcCombined@manipKeyVars$A
 GEYRS[][] >= 0 & [][]sd-c-Com-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 16350--16352
+Underfull \hbox (badness 10000) in paragraph at lines 16653--16655
 []\T1/ptm/m/n/10 sdcCombined@manipKeyVars$AGEYRS[[][]sdcCombined@manipKeyVars$A
 GEYRS[][] >= 15 & [][]sd-c-Com-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 16355--16357
+Underfull \hbox (badness 10000) in paragraph at lines 16658--16660
 []\T1/ptm/m/n/10 sdcCombined@manipKeyVars$AGEYRS[[][]sdcCombined@manipKeyVars$A
 GEYRS[][] >= 55 & [][]sd-c-Com-
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 16507--16514
+[151] [152]
+Underfull \hbox (badness 10000) in paragraph at lines 16810--16817
 []|\T1/phv/m/n/10 Loc al
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 16507--16514
+Underfull \hbox (badness 10000) in paragraph at lines 16810--16817
 \T1/phv/m/n/10 suppr
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 16507--16514
+Underfull \hbox (badness 10000) in paragraph at lines 16810--16817
 \T1/phv/m/n/10 es-sio n
  []
 
 
-Overfull \hbox (3.02908pt too wide) in paragraph at lines 16515--16516
+Overfull \hbox (3.02908pt too wide) in paragraph at lines 16818--16819
 []|\T1/phv/m/n/10 GENDER| 
  []
 
 
-Overfull \hbox (2.38907pt too wide) in paragraph at lines 16519--16520
+Overfull \hbox (2.38907pt too wide) in paragraph at lines 16822--16823
 []|\T1/phv/m/n/10 MARITAL| 
  []
 
 
-Overfull \hbox (1.62904pt too wide) in paragraph at lines 16521--16522
+Overfull \hbox (1.62904pt too wide) in paragraph at lines 16824--16825
 []|\T1/phv/m/n/10 AGEYRS| 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 16525--16527
+Underfull \hbox (badness 10000) in paragraph at lines 16828--16830
 []
  []
 
 
-Overfull \hbox (25.7093pt too wide) in paragraph at lines 16525--16527
+Overfull \hbox (25.7093pt too wide) in paragraph at lines 16828--16830
 \T1/phv/m/n/10 CURRAT 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 16530--16532
+Underfull \hbox (badness 10000) in paragraph at lines 16833--16835
 []|\T1/phv/m/n/10 ATS
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 16557--16561
+Underfull \hbox (badness 10000) in paragraph at lines 16860--16864
 []|\T1/ptm/m/n/10 k = 2,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 16557--16561
+Underfull \hbox (badness 10000) in paragraph at lines 16860--16864
 \T1/ptm/m/n/10 imp on
  []
 
-
-! Package amsmath Error: Multiple \label's: label 'case_studies:case-study-1-su
-f' will be lost.
-
-See the amsmath package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.16801 \label
-              {\detokenize{case_studies:case-study-2-puf}}
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 16962--16964
+[153] [154] [155] [156]
+Underfull \hbox (badness 10000) in paragraph at lines 17265--17267
 []
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 16984--16986
+Underfull \hbox (badness 10000) in paragraph at lines 17287--17289
 []
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 17055--17057
+Underfull \hbox (badness 10000) in paragraph at lines 17358--17360
 []|\T1/ptm/m/n/10 Area of res-i-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 17070--17075
+Underfull \hbox (badness 10000) in paragraph at lines 17373--17378
 []|\T1/ptm/m/n/10 Individua l
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 17070--17075
+Underfull \hbox (badness 10000) in paragraph at lines 17373--17378
 \T1/ptm/m/n/10 weight-ing
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 17088--17093
+Underfull \hbox (badness 10000) in paragraph at lines 17391--17396
 []|\T1/ptm/m/n/10 Populatio n
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 17088--17093
+Underfull \hbox (badness 10000) in paragraph at lines 17391--17396
 \T1/ptm/m/n/10 weight-ing
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 17111--17113
+Underfull \hbox (badness 10000) in paragraph at lines 17414--17416
 []|\T1/ptm/m/n/10 semi-cont
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 17168--17171
+Underfull \hbox (badness 10000) in paragraph at lines 17471--17474
 []|\T1/ptm/m/n/10 Age in com-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 17174--17176
+Underfull \hbox (badness 10000) in paragraph at lines 17477--17479
 []|\T1/ptm/m/n/10 semi-cont
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 17184--17188
+Underfull \hbox (badness 10000) in paragraph at lines 17487--17491
 []|\T1/ptm/m/n/10 Religion of
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 17201--17204
+Underfull \hbox (badness 10000) in paragraph at lines 17504--17507
 []|\T1/ptm/m/n/10 Currently en-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 17217--17221
+Underfull \hbox (badness 10000) in paragraph at lines 17520--17524
 []|\T1/ptm/m/n/10 Highest level
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 17217--17221
+Underfull \hbox (badness 10000) in paragraph at lines 17520--17524
 \T1/ptm/m/n/10 of ed-u-ca-tion
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 17232--17234
+Underfull \hbox (badness 10000) in paragraph at lines 17535--17537
 []|\T1/ptm/m/n/10 EDYRSCURR
  []
 
 
-Underfull \hbox (badness 7064) in paragraph at lines 17235--17240
+Underfull \hbox (badness 7064) in paragraph at lines 17538--17543
 []|\T1/ptm/m/n/10 Years of ed-u-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 17243--17245
+Underfull \hbox (badness 10000) in paragraph at lines 17546--17548
 []|\T1/ptm/m/n/10 semi-cont
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 17253--17257
+Underfull \hbox (badness 10000) in paragraph at lines 17556--17560
 []|\T1/ptm/m/n/10 Industry clas-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 17253--17257
+Underfull \hbox (badness 10000) in paragraph at lines 17556--17560
 \T1/ptm/m/n/10 sific ation
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 17270--17274
+Underfull \hbox (badness 10000) in paragraph at lines 17573--17577
 []|\T1/ptm/m/n/10 Main ma-te-rial
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 17318--17321
+Underfull \hbox (badness 10000) in paragraph at lines 17621--17624
 []|\T1/ptm/m/n/10 Main cook-ing
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 17350--17355
+Underfull \hbox (badness 10000) in paragraph at lines 17653--17658
 []|\T1/ptm/m/n/10 Ownership of
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 17350--17355
+Underfull \hbox (badness 10000) in paragraph at lines 17653--17658
 \T1/ptm/m/n/10 agri-cultu ral
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 17369--17376
+Underfull \hbox (badness 10000) in paragraph at lines 17672--17679
 []|\T1/ptm/m/n/10 Land size
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 17369--17376
+Underfull \hbox (badness 10000) in paragraph at lines 17672--17679
 \T1/ptm/m/n/10 owned by
  []
 
 
-Underfull \hbox (badness 6775) in paragraph at lines 17369--17376
+Underfull \hbox (badness 6775) in paragraph at lines 17672--17679
 \T1/ptm/m/n/10 house-hold (ha)
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 17387--17389
+Underfull \hbox (badness 10000) in paragraph at lines 17690--17692
 []|\T1/ptm/m/n/10 OWNMOTORC
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 17390--17394
+Underfull \hbox (badness 10000) in paragraph at lines 17693--17697
 []|\T1/ptm/m/n/10 Ownership of
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 17407--17409
+Underfull \hbox (badness 10000) in paragraph at lines 17710--17712
 []|\T1/ptm/m/n/10 Ownership of
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 17422--17426
+Underfull \hbox (badness 10000) in paragraph at lines 17725--17729
 []|\T1/ptm/m/n/10 Ownership of
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 17439--17444
+Underfull \hbox (badness 10000) in paragraph at lines 17742--17747
 []|\T1/ptm/m/n/10 Number of
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 17439--17444
+Underfull \hbox (badness 10000) in paragraph at lines 17742--17747
 \T1/ptm/m/n/10 large-siz ed
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 17447--17449
+Underfull \hbox (badness 10000) in paragraph at lines 17750--17752
 []|\T1/ptm/m/n/10 semi-cont
  []
 
 
-Underfull \hbox (badness 5475) in paragraph at lines 17457--17460
+Underfull \hbox (badness 5475) in paragraph at lines 17760--17763
 []|\T1/ptm/m/n/10 Income ^^U Re-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 17489--17491
+Underfull \hbox (badness 10000) in paragraph at lines 17792--17794
 []|\T1/ptm/m/n/10 INCFARMBS
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 17492--17500
+Underfull \hbox (badness 10000) in paragraph at lines 17795--17803
 \T1/ptm/m/n/10 in-come from
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 17512--17514
+Underfull \hbox (badness 10000) in paragraph at lines 17815--17817
 []|\T1/ptm/m/n/10 INCNFARMB
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 17515--17523
+Underfull \hbox (badness 10000) in paragraph at lines 17818--17826
 []|\T1/ptm/m/n/10 Income -Gross
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 17515--17523
+Underfull \hbox (badness 10000) in paragraph at lines 17818--17826
 \T1/ptm/m/n/10 in-come from
  []
 
 
-Underfull \hbox (badness 7814) in paragraph at lines 17515--17523
+Underfull \hbox (badness 7814) in paragraph at lines 17818--17826
 \T1/ptm/m/n/10 farm busi-nesse
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 17602--17604
+Underfull \hbox (badness 10000) in paragraph at lines 17905--17907
 []|\T1/ptm/m/n/10 INCTOTGRO
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 17861--17867
+[157]
+Underfull \hbox (badness 10000) in paragraph at lines 18164--18170
 []|\T1/ptm/m/n/10 Total an-nual
  []
 
 
-Underfull \hbox (badness 7238) in paragraph at lines 17861--17867
+Underfull \hbox (badness 7238) in paragraph at lines 18164--18170
 \T1/ptm/m/n/10 hold ex-pen-ditu
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 18573--18573
+[158] [159] [160] [161] [162] [163] [164] [165] [166]
+Underfull \hbox (badness 10000) in paragraph at lines 18876--18876
 []\T1/phv/m/n/10 Key vari-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 18573--18573
+Underfull \hbox (badness 10000) in paragraph at lines 18876--18876
 []\T1/ptm/m/it/10 No im-por-tance
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 18839--18841
+[167] [168] [169]
+Underfull \hbox (badness 10000) in paragraph at lines 19142--19144
 []\T1/ptm/b/n/10 dRisk\T1/ptm/m/n/10 (sdcHH@origData[,**c**(^^PTANHHEXP^^Q, ^^P
 INC-TOT-GROSSHH^^Q)], xm = sd-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 18844--18846
+Underfull \hbox (badness 10000) in paragraph at lines 19147--19149
 []\T1/ptm/b/n/10 dRisk\T1/ptm/m/n/10 (sdcHH@origData[,**c**(^^PTANHHEXP^^Q, ^^P
 INC-TOT-GROSSHH^^Q)], xm = sd-
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 19081--19081
+[170] [171]
+Underfull \hbox (badness 10000) in paragraph at lines 19384--19384
 []\T1/ptm/m/n/10 k-
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 19276--19276
+[172] [173] [174]
+Underfull \hbox (badness 10000) in paragraph at lines 19579--19579
 []\T1/ptm/m/n/10 REL (re-la-tion
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 19276--19276
+Underfull \hbox (badness 10000) in paragraph at lines 19579--19579
 \T1/ptm/m/n/10 to house-hold
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 19276--19276
+Underfull \hbox (badness 10000) in paragraph at lines 19579--19579
 []\T1/ptm/m/n/10 MAR-I-TAL
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 19276--19276
+Underfull \hbox (badness 10000) in paragraph at lines 19579--19579
 \T1/ptm/m/n/10 in com-pleted
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 19276--19276
+Underfull \hbox (badness 10000) in paragraph at lines 19579--19579
 \T1/ptm/m/n/10 est level of
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 19276--19276
+Underfull \hbox (badness 10000) in paragraph at lines 19579--19579
 \T1/ptm/m/n/10 ed-u-ca-tion
  []
 
-No file Readthedocs.ind.
-
-Package longtable Warning: Table widths have changed. Rerun LaTeX.
-
-
-! LaTeX Error: \begin{equation*} on input line 6454 ended by \end{document}.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.19683 \end{document}
-                      
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 19683.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 19683.
+[175] [176] [177] [178] [179] (./Readthedocs.ind)
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 19986.
+ [180]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 19986.
  (./Readthedocs.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 19683.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 19986.
 
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 19683
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 19986
 .
+Package rerunfilecheck Info: File `Readthedocs.out' has not changed.
+(rerunfilecheck)             Checksum: 73FA57DF747CCE280F95D6A6AB674EB7;14809.
 
-Package rerunfilecheck Warning: File `Readthedocs.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `Readthedocs.out':
-(rerunfilecheck)             Before: <no file>
-(rerunfilecheck)             After:  F13EA51DFE21EB00C65C5BC4CB9BED54;5021.
 
 LaTeX Warning: There were undefined references.
 
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 19683.
-! You can't use `\end' in internal vertical mode.
-\enddocument ...es \z@ \Call@AtVeryVeryEnd \@@end 
-                                                  
-l.19683 \end{document}
-                      
-Sorry, but I'm not programmed to handle this case;
-I'll just pretend that you didn't ask for it.
-If you're in the wrong mode, you might be able to
-return to the right one by typing `I}' or `I$' or `I\par'.
-
-
-! LaTeX Error: \begin{equation*} on input line 6454 ended by \end{document}.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.19683 \end{document}
-                      
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-! Missing } inserted.
-<inserted text> 
-                }
-l.19683 \end{document}
-                      
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.19683 \end{document}
-                      
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-! Display math should end with $$.
-<to be read again> 
-                   \endgroup 
-l.19683 \end{document}
-                      
-The `$' that I just saw supposedly matches a previous `$$'.
-So I shall assume that you typed `$$' both times.
-
- [55
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.2}Microaggregation
-}{55}{subsection.5.3.2}}
-\newlabel{anon_methods:microaggregation}{{5.3.2}{55}{Microaggregation}{subsecti
-on.5.3.2}{}}
-]
-Overfull \vbox (16423.81206pt too high) detected at line 19683
- []
-
-
-Overfull \vbox (16423.81206pt too high) has occurred while \output is active []
-
-
- [56
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.3}Noise addition}{
-56}{subsection.5.3.3}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.4}Rank swapping}{5
-6}{subsection.5.3.4}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.5}Shuffling}{56}{s
-ubsection.5.3.5}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.6}Comparison of PR
-AM, rank swapping and shuffling}{56}{subsection.5.3.6}}
-\BOOKMARK [1][-]{section.5.4}{\376\377\000A\000n\000o\000n\000y\000m\000i\000z\
-000a\000t\000i\000o\000n\000\040\000o\000f\000\040\000g\000e\000o\000s\000p\000
-a\000t\000i\000a\000l\000\040\000v\000a\000r\000i\000a\000b\000l\000e\000s}{cha
-pter.5}% 29
-\@writefile{toc}{\contentsline {section}{\numberline {5.4}Anonymization of geos
-patial variables}{56}{section.5.4}}
-\BOOKMARK [1][-]{section.5.5}{\376\377\000A\000n\000o\000n\000y\000m\000i\000z\
-000a\000t\000i\000o\000n\000\040\000o\000f\000\040\000t\000h\000e\000\040\000q\
-000u\000a\000s\000i\000-\000i\000d\000e\000n\000t\000i\000f\000i\000e\000r\000\
-040\000h\000o\000u\000s\000e\000h\000o\000l\000d\000\040\000s\000i\000z\000e}{c
-hapter.5}% 30
-\@writefile{toc}{\contentsline {section}{\numberline {5.5}Anonymization of the 
-quasi-identifier household size}{56}{section.5.5}}
-\BOOKMARK [1][-]{section.5.6}{\376\377\000S\000p\000e\000c\000i\000a\000l\000\0
-40\000c\000a\000s\000e\000:\000\040\000c\000e\000n\000s\000u\000s\000\040\000d\
-000a\000t\000a}{chapter.5}% 31
-\@writefile{toc}{\contentsline {section}{\numberline {5.6}Special case: census 
-data}{56}{section.5.6}}
-
-\BOOKMARK [0][-]{chapter.6}{\376\377\000M\000e\000a\000s\000u\000r\000i\000n\00
-0g\000\040\000U\000t\000i\000l\000i\000t\000y\000\040\000a\000n\000d\000\040\00
-0I\000n\000f\000o\000r\000m\000a\000t\000i\000o\000n\000\040\000L\000o\000s\000
-s}{}% 32
-\@writefile{toc}{\contentsline {chapter}{\numberline {6}Measuring Utility and I
-nformation Loss}{56}{chapter.6}}
-\@writefile{lof}{\addvspace {10\p@ }}
-\@writefile{lot}{\addvspace {10\p@ }}
-\BOOKMARK [1][-]{section.6.1}{\376\377\000G\000e\000n\000e\000r\000a\000l\000\0
-40\000u\000t\000i\000l\000i\000t\000y\000\040\000m\000e\000a\000s\000u\000r\000
-e\000s\000\040\000f\000o\000r\000\040\000c\000o\000n\000t\000i\000n\000u\000o\0
-00u\000s\000\040\000a\000n\000d\000\040\000c\000a\000t\000e\000g\000o\000r\000i
-\000c\000a\000l\000\040\000v\000a\000r\000i\000a\000b\000l\000e\000s}{chapter.6
-}% 33
-\@writefile{toc}{\contentsline {section}{\numberline {6.1}General utility measu
-res for continuous and categorical variables}{56}{section.6.1}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.1.1}General utility 
-measures for categorical variables}{56}{subsection.6.1.1}}
-\@writefile{toc}{\contentsline {subsubsection}{Number of missing values}{56}{su
-bsubsection*.6}}
-\@writefile{toc}{\contentsline {subsubsection}{Number of records changed}{56}{s
-ubsubsection*.7}}
-\@writefile{toc}{\contentsline {subsubsection}{Comparing contingency tables}{56
-}{subsubsection*.8}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.1.2}General utility 
-measures for continuous variables}{56}{subsection.6.1.2}}
-\@writefile{toc}{\contentsline {subsubsection}{Statistics: mean, covariance, co
-rrelation}{56}{subsubsection*.9}}
-\@writefile{toc}{\contentsline {subsubsection}{IL1s information loss measure}{5
-6}{subsubsection*.10}}
-\@writefile{toc}{\contentsline {subsubsection}{Eigenvalues}{56}{subsubsection*.
-11}}
-\BOOKMARK [1][-]{section.6.2}{\376\377\000U\000t\000i\000l\000i\000t\000y\000\0
-40\000m\000e\000a\000s\000u\000r\000e\000s\000\040\000b\000a\000s\000e\000d\000
-\040\000o\000n\000\040\000t\000h\000e\000\040\000e\000n\000d\000\040\000u\000s\
-000e\000r\040\031\000s\000\040\000n\000e\000e\000d\000s}{chapter.6}% 34
-\@writefile{toc}{\contentsline {section}{\numberline {6.2}Utility measures base
-d on the end user\IeC {\textquoteright }s needs}{56}{section.6.2}}
-\BOOKMARK [1][-]{section.6.3}{\376\377\000A\000s\000s\000e\000s\000s\000i\000n\
-000g\000\040\000d\000a\000t\000a\000\040\000u\000t\000i\000l\000i\000t\000y\000
-\040\000w\000i\000t\000h\000\040\000t\000h\000e\000\040\000h\000e\000l\000p\000
-\040\000o\000f\000\040\000d\000a\000t\000a\000\040\000v\000i\000s\000u\000a\000
-l\000i\000z\000a\000t\000i\000o\000n\000s\000\040\000\050\000i\000n\000\040\000
-R\000\051}{chapter.6}% 35
-\@writefile{toc}{\contentsline {section}{\numberline {6.3}Assessing data utilit
-y with the help of data visualizations (in \sphinxstyleemphasis {R})}{56}{secti
-on.6.3}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.3.1}Histograms and d
-ensity plots}{56}{subsection.6.3.1}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.3.2}Box plots}{56}{s
-ubsection.6.3.2}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.3.3}Mosaic plots}{56
-}{subsection.6.3.3}}
-\BOOKMARK [1][-]{section.6.4}{\376\377\000C\000h\000o\000i\000c\000e\000\040\00
-0o\000f\000\040\000u\000t\000i\000l\000i\000t\000y\000\040\000m\000e\000a\000s\
-000u\000r\000e}{chapter.6}% 36
-\@writefile{toc}{\contentsline {section}{\numberline {6.4}Choice of utility mea
-sure}{56}{section.6.4}}
-
-\BOOKMARK [0][-]{chapter.7}{\376\377\000S\000D\000C\000\040\000w\000i\000t\000h
-\000\040\000s\000d\000c\000M\000i\000c\000r\000o\000\040\000i\000n\000\040\000R
-\000:\000\040\000S\000e\000t\000t\000i\000n\000g\000\040\000U\000p\000\040\000Y
-\000o\000u\000r\000\040\000D\000a\000t\000a\000\040\000a\000n\000d\000\040\000m
-\000o\000r\000e}{}% 37
-\@writefile{toc}{\contentsline {chapter}{\numberline {7}SDC with \sphinxstyleem
-phasis {sdcMicro} in \sphinxstyleemphasis {R}: Setting Up Your Data and more}{5
-6}{chapter.7}}
-\@writefile{lof}{\addvspace {10\p@ }}
-\@writefile{lot}{\addvspace {10\p@ }}
-\BOOKMARK [1][-]{section.7.1}{\376\377\000I\000n\000s\000t\000a\000l\000l\000i\
-000n\000g\000\040\000R\000,\000\040\000s\000d\000c\000M\000i\000c\000r\000o\000
-\040\000a\000n\000d\000\040\000o\000t\000h\000e\000r\000\040\000p\000a\000c\000
-k\000a\000g\000e\000s}{chapter.7}% 38
-\@writefile{toc}{\contentsline {section}{\numberline {7.1}Installing \sphinxsty
-leemphasis {R}, \sphinxstyleemphasis {sdcMicro} and other packages}{56}{section
-.7.1}}
-\BOOKMARK [1][-]{section.7.2}{\376\377\000R\000e\000a\000d\000\040\000f\000u\00
-0n\000c\000t\000i\000o\000n\000s\000\040\000i\000n\000\040\000R}{chapter.7}% 39
-
-\@writefile{toc}{\contentsline {section}{\numberline {7.2}Read functions in \sp
-hinxstyleemphasis {R}}{56}{section.7.2}}
-\BOOKMARK [1][-]{section.7.3}{\376\377\000M\000i\000s\000s\000i\000n\000g\000\0
-40\000v\000a\000l\000u\000e\000s}{chapter.7}% 40
-\@writefile{toc}{\contentsline {section}{\numberline {7.3}Missing values}{56}{s
-ection.7.3}}
-\BOOKMARK [1][-]{section.7.4}{\376\377\000C\000l\000a\000s\000s\000e\000s\000\0
-40\000i\000n\000\040\000R}{chapter.7}% 41
-\@writefile{toc}{\contentsline {section}{\numberline {7.4}Classes in \sphinxsty
-leemphasis {R}}{56}{section.7.4}}
-\BOOKMARK [1][-]{section.7.5}{\376\377\000O\000b\000j\000e\000c\000t\000s\000\0
-40\000o\000f\000\040\000c\000l\000a\000s\000s\000\040\000s\000d\000c\000M\000i\
-000c\000r\000o\000O\000b\000j}{chapter.7}% 42
-\@writefile{toc}{\contentsline {section}{\numberline {7.5}Objects of class \sph
-inxstyleemphasis {sdcMicroObj}}{56}{section.7.5}}
-\BOOKMARK [1][-]{section.7.6}{\376\377\000H\000o\000u\000s\000e\000h\000o\000l\
-000d\000\040\000s\000t\000r\000u\000c\000t\000u\000r\000e}{chapter.7}% 43
-\@writefile{toc}{\contentsline {section}{\numberline {7.6}\sphinxstylestrong {H
-ousehold structure}}{56}{section.7.6}}
-\BOOKMARK [1][-]{section.7.7}{\376\377\000R\000a\000n\000d\000o\000m\000i\000z\
-000i\000n\000g\000\040\000o\000r\000d\000e\000r\000\040\000a\000n\000d\000\040\
-000n\000u\000m\000b\000e\000r\000i\000n\000g\000\040\000o\000f\000\040\000i\000
-n\000d\000i\000v\000i\000d\000u\000a\000l\000s\000\040\000o\000r\000\040\000h\0
-00o\000u\000s\000e\000h\000o\000l\000d\000s}{chapter.7}% 44
-\@writefile{toc}{\contentsline {section}{\numberline {7.7}\sphinxstylestrong {R
-andomizing order and numbering of individuals or households}}{56}{section.7.7}}
-
-\BOOKMARK [1][-]{section.7.8}{\376\377\000C\000o\000m\000p\000u\000t\000a\000t\
-000i\000o\000n\000\040\000t\000i\000m\000e}{chapter.7}% 45
-\@writefile{toc}{\contentsline {section}{\numberline {7.8}Computation time}{56}
-{section.7.8}}
-\BOOKMARK [1][-]{section.7.9}{\376\377\000C\000o\000m\000m\000o\000n\000\040\00
-0e\000r\000r\000o\000r\000s}{chapter.7}% 46
-\@writefile{toc}{\contentsline {section}{\numberline {7.9}Common errors}{56}{se
-ction.7.9}}
-
-\BOOKMARK [0][-]{chapter.8}{\376\377\000T\000h\000e\000\040\000S\000D\000C\000\
-040\000P\000r\000o\000c\000e\000s\000s}{}% 47
-\@writefile{toc}{\contentsline {chapter}{\numberline {8}The SDC Process}{56}{ch
-apter.8}}
-\@writefile{lof}{\addvspace {10\p@ }}
-\@writefile{lot}{\addvspace {10\p@ }}
-\BOOKMARK [1][-]{section.8.1}{\376\377\000S\000t\000e\000p\000\040\0001\000:\00
-0\040\000N\000e\000e\000d\000\040\000f\000o\000r\000\040\000c\000o\000n\000f\00
-0i\000d\000e\000n\000t\000i\000a\000l\000i\000t\000y\000\040\000p\000r\000o\000
-t\000e\000c\000t\000i\000o\000n}{chapter.8}% 48
-\@writefile{toc}{\contentsline {section}{\numberline {8.1}Step 1: Need for conf
-identiality protection}{56}{section.8.1}}
-\BOOKMARK [1][-]{section.8.2}{\376\377\000S\000t\000e\000p\000\040\0002\000:\00
-0\040\000D\000a\000t\000a\000\040\000p\000r\000e\000p\000a\000r\000a\000t\000i\
-000o\000n\000\040\000a\000n\000d\000\040\000e\000x\000p\000l\000o\000r\000i\000
-n\000g\000\040\000d\000a\000t\000a\000\040\000c\000h\000a\000r\000a\000c\000t\0
-00e\000r\000i\000s\000t\000i\000c\000s}{chapter.8}% 49
-\@writefile{toc}{\contentsline {section}{\numberline {8.2}Step 2: Data preparat
-ion and exploring data characteristics}{56}{section.8.2}}
-\BOOKMARK [1][-]{section.8.3}{\376\377\000S\000t\000e\000p\000\040\0003\000:\00
-0\040\000T\000y\000p\000e\000\040\000o\000f\000\040\000r\000e\000l\000e\000a\00
-0s\000e}{chapter.8}% 50
-\@writefile{toc}{\contentsline {section}{\numberline {8.3}Step 3: Type of relea
-se}{56}{section.8.3}}
-\BOOKMARK [1][-]{section.8.4}{\376\377\000S\000t\000e\000p\000\040\0004\000:\00
-0\040\000I\000n\000t\000r\000u\000d\000e\000r\000\040\000s\000c\000e\000n\000a\
-000r\000i\000o\000s\000\040\000a\000n\000d\000\040\000c\000h\000o\000i\000c\000
-e\000\040\000o\000f\000\040\000k\000e\000y\000\040\000v\000a\000r\000i\000a\000
-b\000l\000e\000s}{chapter.8}% 51
-\@writefile{toc}{\contentsline {section}{\numberline {8.4}Step 4: Intruder scen
-arios and choice of key variables}{56}{section.8.4}}
-\BOOKMARK [1][-]{section.8.5}{\376\377\000S\000t\000e\000p\000\040\0005\000:\00
-0\040\000D\000a\000t\000a\000\040\000k\000e\000y\000\040\000u\000s\000e\000s\00
-0\040\000a\000n\000d\000\040\000s\000e\000l\000e\000c\000t\000i\000o\000n\000\0
-40\000o\000f\000\040\000u\000t\000i\000l\000i\000t\000y\000\040\000m\000e\000a\
-000s\000u\000r\000e\000s}{chapter.8}% 52
-\@writefile{toc}{\contentsline {section}{\numberline {8.5}Step 5: Data key uses
- and selection of utility measures}{56}{section.8.5}}
-\BOOKMARK [1][-]{section.8.6}{\376\377\000S\000t\000e\000p\000\040\0006\000:\00
-0\040\000A\000s\000s\000e\000s\000s\000i\000n\000g\000\040\000d\000i\000s\000c\
-000l\000o\000s\000u\000r\000e\000\040\000r\000i\000s\000k}{chapter.8}% 53
-\@writefile{toc}{\contentsline {section}{\numberline {8.6}Step 6: Assessing dis
-closure risk}{56}{section.8.6}}
-\BOOKMARK [1][-]{section.8.7}{\376\377\000S\000t\000e\000p\000\040\0007\000:\00
-0\040\000A\000s\000s\000e\000s\000s\000i\000n\000g\000\040\000u\000t\000i\000l\
-000i\000t\000y\000\040\000m\000e\000a\000s\000u\000r\000e\000s}{chapter.8}% 54
-\@writefile{toc}{\contentsline {section}{\numberline {8.7}Step 7: Assessing uti
-lity measures}{56}{section.8.7}}
-\BOOKMARK [1][-]{section.8.8}{\376\377\000S\000t\000e\000p\000\040\0008\000:\00
-0\040\000C\000h\000o\000i\000c\000e\000\040\000a\000n\000d\000\040\000a\000p\00
-0p\000l\000i\000c\000a\000t\000i\000o\000n\000\040\000o\000f\000\040\000S\000D\
-000C\000\040\000m\000e\000t\000h\000o\000d\000s}{chapter.8}% 55
-\@writefile{toc}{\contentsline {section}{\numberline {8.8}Step 8: Choice and ap
-plication of SDC methods}{56}{section.8.8}}
-\BOOKMARK [1][-]{section.8.9}{\376\377\000S\000t\000e\000p\000\040\0009\000:\00
-0\040\000R\000e\000-\000m\000e\000a\000s\000u\000r\000e\000\040\000r\000i\000s\
-000k}{chapter.8}% 56
-\@writefile{toc}{\contentsline {section}{\numberline {8.9}Step 9: Re-measure ri
-sk}{56}{section.8.9}}
-\BOOKMARK [1][-]{section.8.10}{\376\377\000S\000t\000e\000p\000\040\0001\0000\0
-00:\000\040\000R\000e\000-\000m\000e\000a\000s\000u\000r\000e\000\040\000u\000t
-\000i\000l\000i\000t\000y}{chapter.8}% 57
-\@writefile{toc}{\contentsline {section}{\numberline {8.10}Step 10: Re-measure 
-utility}{56}{section.8.10}}
-\BOOKMARK [1][-]{section.8.11}{\376\377\000S\000t\000e\000p\000\040\0001\0001\0
-00:\000\040\000A\000u\000d\000i\000t\000\040\000a\000n\000d\000\040\000R\000e\0
-00p\000o\000r\000t\000i\000n\000g}{chapter.8}% 58
-\@writefile{toc}{\contentsline {section}{\numberline {8.11}Step 11: Audit and R
-eporting}{56}{section.8.11}}
-\BOOKMARK [1][-]{section.8.12}{\376\377\000S\000t\000e\000p\000\040\0001\0002\0
-00:\000\040\000D\000a\000t\000a\000\040\000r\000e\000l\000e\000a\000s\000e}{cha
-pter.8}% 59
-\@writefile{toc}{\contentsline {section}{\numberline {8.12}Step 12: Data releas
-e}{56}{section.8.12}}
-
-\BOOKMARK [0][-]{chapter.9}{\376\377\000A\000p\000p\000e\000n\000d\000i\000c\00
-0e\000s}{}% 60
-\@writefile{toc}{\contentsline {chapter}{\numberline {9}Appendices}{56}{chapter
-.9}}
-\@writefile{lof}{\addvspace {10\p@ }}
-\@writefile{lot}{\addvspace {10\p@ }}
-\BOOKMARK [1][-]{section.9.1}{\376\377\000A\000p\000p\000e\000n\000d\000i\000x\
-000\040\000A\000:\000\040\000O\000v\000e\000r\000v\000i\000e\000w\000\040\000o\
-000f\000\040\000C\000a\000s\000e\000\040\000S\000t\000u\000d\000y\000\040\000V\
-000a\000r\000i\000a\000b\000l\000e\000s}{chapter.9}% 61
-\@writefile{toc}{\contentsline {section}{\numberline {9.1}\sphinxstylestrong {A
-ppendix} \sphinxstylestrong {A: Overview of Case Study Variables}}{56}{section.
-9.1}}
-\BOOKMARK [1][-]{section.9.2}{\376\377\000A\000p\000p\000e\000n\000d\000i\000x\
-000\040\000B\000:\000\040\000E\000x\000a\000m\000p\000l\000e\000\040\000o\000f\
-000\040\000B\000l\000a\000n\000k\000e\000t\000\040\000A\000g\000r\000e\000e\000
-m\000e\000n\000t\000\040\000f\000o\000r\000\040\000S\000U\000F}{chapter.9}% 62
-\@writefile{toc}{\contentsline {section}{\numberline {9.2}\sphinxstylestrong {A
-ppendix} \sphinxstylestrong {B: Example of Blanket Agreement for SUF}}{56}{sect
-ion.9.2}}
-\BOOKMARK [1][-]{section.9.3}{\376\377\000A\000p\000p\000e\000n\000d\000i\000x\
-000\040\000C\000:\000\040\000I\000n\000t\000e\000r\000n\000a\000l\000\040\000a\
-000n\000d\000\040\000E\000x\000t\000e\000r\000n\000a\000l\000\040\000R\000e\000
-p\000o\000r\000t\000s\000\040\000f\000o\000r\000\040\000C\000a\000s\000e\000\04
-0\000S\000t\000u\000d\000i\000e\000s}{chapter.9}% 63
-\@writefile{toc}{\contentsline {section}{\numberline {9.3}\sphinxstylestrong {A
-ppendix} \sphinxstylestrong {C:} \sphinxstylestrong {Internal and External Repo
-rts for Case Studies}}{56}{section.9.3}}
-
-\BOOKMARK [0][-]{chapter.10}{\376\377\000B\000i\000b\000l\000i\000o\000g\000r\0
-00a\000p\000h\000y}{}% 64
-\@writefile{toc}{\contentsline {chapter}{\numberline {10}\sphinxstylestrong {Bi
-bliography}}{56}{chapter.10}}
-\@writefile{lof}{\addvspace {10\p@ }}
-\@writefile{lot}{\addvspace {10\p@ }}
-
-\BOOKMARK [0][-]{chapter.11}{\376\377\000L\000i\000s\000t\000s}{}% 65
-\@writefile{toc}{\contentsline {chapter}{\numberline {11}Lists}{56}{chapter.11}
-}
-\@writefile{lof}{\addvspace {10\p@ }}
-\@writefile{lot}{\addvspace {10\p@ }}
-
-\BOOKMARK [0][-]{chapter.12}{\376\377\000L\000i\000s\000t\000\040\000o\000f\000
-\040\000T\000a\000b\000l\000e\000s}{}% 66
-\@writefile{toc}{\contentsline {chapter}{\numberline {12}List of Tables}{56}{ch
-apter.12}}
-\@writefile{lof}{\addvspace {10\p@ }}
-\@writefile{lot}{\addvspace {10\p@ }}
-
-\BOOKMARK [0][-]{chapter.13}{\376\377\000L\000i\000s\000t\000\040\000o\000f\000
-\040\000F\000i\000g\000u\000r\000e\000s}{}% 67
-\@writefile{toc}{\contentsline {chapter}{\numberline {13}List of Figures}{56}{c
-hapter.13}}
-\@writefile{lof}{\addvspace {10\p@ }}
-\@writefile{lot}{\addvspace {10\p@ }}
-
-\BOOKMARK [0][-]{chapter.14}{\376\377\000L\000i\000s\000t\000\040\000o\000f\000
-\040\000E\000x\000a\000m\000p\000l\000e\000s}{}% 68
-\@writefile{toc}{\contentsline {chapter}{\numberline {14}List of Examples}{56}{
-chapter.14}}
-\@writefile{lof}{\addvspace {10\p@ }}
-\@writefile{lot}{\addvspace {10\p@ }}
-
-\BOOKMARK [0][-]{chapter.15}{\376\377\000C\000a\000s\000e\000\040\000S\000t\000
-u\000d\000y\000\040\000\050\000I\000l\000l\000u\000s\000t\000r\000a\000t\000i\0
-00n\000g\000\040\000t\000h\000e\000\040\000S\000D\000C\000\040\000P\000r\000o\0
-00c\000e\000s\000s\000\051}{}% 69
-\@writefile{toc}{\contentsline {chapter}{\numberline {15}Case Study (Illustrati
-ng the SDC Process)}{56}{chapter.15}}
-\@writefile{lof}{\addvspace {10\p@ }}
-\@writefile{lot}{\addvspace {10\p@ }}
-\BOOKMARK [1][-]{section.15.1}{\376\377\000C\000a\000s\000e\000\040\000s\000t\0
-00u\000d\000y\000\040\0001\000-\000\040\000S\000U\000F}{chapter.15}% 70
-\@writefile{toc}{\contentsline {section}{\numberline {15.1}Case study 1- SUF}{5
-6}{section.15.1}}
-\BOOKMARK [1][-]{section.15.2}{\376\377\000C\000a\000s\000e\000\040\000s\000t\0
-00u\000d\000y\000\040\0002\000\040\000-\000\040\000P\000U\000F}{chapter.15}% 71
-
-\@writefile{toc}{\contentsline {section}{\numberline {15.2}Case study 2 - PUF}{
-56}{section.15.2}}
-
- <./image9.png> <./image10.png> <./image12.png> <./image15.png> <./image22.png>
-])
-! Emergency stop.
-<*> Readthedocs.tex
-                   
-*** (job aborted, no legal \end found)
-
- 
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 19986.
+ ) 
 Here is how much of TeX's memory you used:
- 13806 strings out of 493089
- 192042 string characters out of 6134842
- 1370749 words of memory out of 5000000
- 16751 multiletter control sequences out of 15000+600000
- 72243 words of font info for 102 fonts, out of 8000000 for 9000
+ 14235 strings out of 493089
+ 198725 string characters out of 6134842
+ 342013 words of memory out of 5000000
+ 16961 multiletter control sequences out of 15000+600000
+ 86458 words of font info for 119 fonts, out of 8000000 for 9000
  1142 hyphenation exceptions out of 8191
- 37i,23n,45p,503b,643s stack positions out of 5000i,500n,10000p,200000b,80000s
-!  ==> Fatal error occurred, no output PDF file produced!
+ 37i,23n,48p,741b,625s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/local/texlive/2015/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
+exlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/te
+xlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb></usr/local/texl
+ive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texli
+ve/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texliv
+e/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive
+/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2
+015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/201
+5/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2015/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2015/te
+xmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2015/texmf
+-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2015/texmf-
+dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2015/texmf-di
+st/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2015/texmf-dist
+/fonts/type1/urw/courier/ucrb8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/t
+ype1/urw/courier/ucrr8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/urw
+/courier/ucrro8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/urw/helvet
+ic/uhvb8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/urw/helvetic/uhvb
+o8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb
+></usr/local/texlive/2015/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb></usr
+/local/texlive/2015/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/tex
+live/2015/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/local/texlive/2015
+/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2015/texmf-dis
+t/fonts/type1/urw/times/utmri8a.pfb>
+Output written on Readthedocs.pdf (184 pages, 1480006 bytes).
+PDF statistics:
+ 1693 PDF objects out of 1728 (max. 8388607)
+ 1419 compressed objects within 15 object streams
+ 374 named destinations out of 1000 (max. 500000)
+ 699 words of extra memory for PDF output out of 10000 (max. 10000000)
+

@@ -928,18 +928,10 @@ k-anonymity</p>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">No</th>
 <th class="head">Gender</th>
-<th class="head"><blockquote class="first">
-<div>Education</div></blockquote>
-<p class="last">level</p>
-</th>
-<th class="head">Labor status
-status</th>
-<th class="head"><dl class="first last docutils">
-<dt><a href="#id9"><span class="problematic" id="id10">`</span></a>.. math:: </dt>
-<dd>mathbf{f}_{
-mathbf{k}}`</dd>
-</dl>
-</th>
+<th class="head">Education
+level</th>
+<th class="head">Labor status</th>
+<th class="head">f_k</th>
 </tr>
 </thead>
 <tbody valign="top">
@@ -1015,47 +1007,20 @@ dataset by matching an individual to one of these individuals.</p>
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">No</th>
-<th class="head"><blockquote class="first">
-<div>Resi</div></blockquote>
-<p class="last">dence</p>
+<th class="head">Reside
+nce</th>
+<th class="head">Gender</th>
+<th class="head">Educ
+ation
+level</th>
+<th class="head"><p class="first">Labor</p>
+<p class="last">status</p>
 </th>
-<th class="head"><blockquote class="first">
-<div>Gend</div></blockquote>
-<p class="last">er</p>
-</th>
-<th class="head"><blockquote class="first">
-<div>Educ</div></blockquote>
-<p class="last">ation
-level</p>
-</th>
-<th class="head"><blockquote class="first">
-<div>Labo</div></blockquote>
-<p class="last">r
-status</p>
-</th>
-<th class="head"><blockquote class="first">
-<div>Heal</div></blockquote>
-<p class="last">th</p>
-</th>
-<th class="head">h:: m
-athbf{
-f}_{m
-athbf{
-k}}</th>
-<th class="head"><table class="first docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">math:</th><td class="field-body"></td>
-</tr>
-</tbody>
-</table>
-<p class="last"><cite>math
-bf{l}</cite>
-  -d
-iversi
-ty</p>
-</th>
+<th class="head">Health</th>
+<th class="head">f_k</th>
+<th class="head">l-dive
+rsity
+bf{l}`</th>
 </tr>
 </thead>
 <tbody valign="top">
@@ -1199,8 +1164,8 @@ always only satisfy 1-diversity.</p>
 <p>To compute <span class="math notranslate nohighlight">\(l\)</span>-diversity for sensitive variables in <em>sdcMicro</em>,
 the function ldiversity() can be used. This is illustrated in Example
 4.6. As arguments, we specify the names of the sensitive
-variables <a class="footnote-reference" href="#foot29" id="id11">[9]</a> in the file as well as a constant for
-recursive <span class="math notranslate nohighlight">\(l\)</span>-diversity, <a class="footnote-reference" href="#foot30" id="id12">[10]</a> and the code for
+variables <a class="footnote-reference" href="#foot29" id="id9">[9]</a> in the file as well as a constant for
+recursive <span class="math notranslate nohighlight">\(l\)</span>-diversity, <a class="footnote-reference" href="#foot30" id="id10">[10]</a> and the code for
 missing values in the data. The output is saved in the “risk” slot of
 the <em>sdcMicro</em> object. The result shows the minimum, maximum, mean and
 quantiles of the <span class="math notranslate nohighlight">\(l\)</span>-diversity scores for all individuals in the
@@ -1458,7 +1423,7 @@ size 2.[#foot33]_ This holds as well
 for three other combinations in record 5, i.e., {‘Female’, ‘Unemployed’}
 and {‘Female’, ‘Secondary Complete’}, which are also MSUs of size 2 and
 {‘Rural’} of size 1. In total, record 5 has four
-MSUs <a class="footnote-reference" href="#foot31" id="id13">[11]</a>. To determine if a set is an MSU of size
+MSUs <a class="footnote-reference" href="#foot31" id="id11">[11]</a>. To determine if a set is an MSU of size
 <span class="math notranslate nohighlight">\(k\)</span>, we check whether it fulfills the minimal requirement. It
 suffices to check whether all subsets of size <span class="math notranslate nohighlight">\(k\)</span>-1 of the MSU are
 unique. If any of these subsets are also unique in the sample, the set
@@ -1500,7 +1465,7 @@ subset size. Subsequently, a score is assigned to each individual, which
 ranks the individuals according to their level of risk.</p>
 <p>For each MSU of size <span class="math notranslate nohighlight">\(k\)</span> contained in a given record, a score is
 computed by <span class="math notranslate nohighlight">\(\prod_{i = k}^{M}{(ATT - i)}\)</span>, where <span class="math notranslate nohighlight">\(M\)</span> is the
-user-specified maximum size of MSUs <a class="footnote-reference" href="#foot32" id="id14">[12]</a>, and
+user-specified maximum size of MSUs <a class="footnote-reference" href="#foot32" id="id12">[12]</a>, and
 <span class="math notranslate nohighlight">\(\text{ATT}\)</span> is the total number of attributes or variables in the
 dataset. By definition, the smaller the size <span class="math notranslate nohighlight">\(k\)</span> of the MSU, the
 larger the score for the MSU, which reflects greater risk (see Elliot et
@@ -1525,53 +1490,38 @@ Secondary Complete} is
 <span class="math notranslate nohighlight">\(\prod_{i = 2}^{3}\left( 4 - i \right) = 2*1 = 2\)</span>. The SUDA score
 for the fifth record in Table 4.5 is then <span class="math notranslate nohighlight">\(6 + 2 + 2 + 2 = 12\)</span>,
 which is the sum of these four scores per MSU. The SUDA scores for the
-other sample uniques are computed accordingly <a class="footnote-reference" href="#foot33" id="id15">[13]</a>. The
+other sample uniques are computed accordingly <a class="footnote-reference" href="#foot33" id="id13">[13]</a>. The
 values that are in the MSUs in the sample uniques are shaded in Table
 4.5. Records that are not sample uniques (<span class="math notranslate nohighlight">\(f_{k} &gt; 1\)</span>) cannot be
 special uniques and are assigned the score 0.</p>
 <p>Table 4.5: Illustrating the calculation of SUDA and DIS-SUDA scores</p>
 <table border="1" class="docutils">
 <colgroup>
-<col width="10%" />
+<col width="7%" />
+<col width="9%" />
+<col width="7%" />
+<col width="24%" />
+<col width="16%" />
+<col width="15%" />
 <col width="12%" />
-<col width="10%" />
-<col width="17%" />
-<col width="13%" />
-<col width="20%" />
-<col width="10%" />
-<col width="10%" />
+<col width="11%" />
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">No</th>
 <th class="head">Residence</th>
 <th class="head">Gender</th>
-<th class="head"><blockquote class="first">
-<div>Education</div></blockquote>
-<p class="last">level</p>
-</th>
-<th class="head"><blockquote class="first">
-<div>Labor</div></blockquote>
-<p class="last">status</p>
-</th>
-<th class="head"><div class="first last math notranslate nohighlight">
-\[f_{k}\]</div>
-</th>
-<th class="head"><blockquote class="first">
-<div>SUDA</div></blockquote>
-<p class="last">score</p>
-</th>
-<th class="head"><blockquote class="first">
-<div>DIS-</div></blockquote>
-<p class="last">SUDA</p>
-</th>
+<th class="head">Education level</th>
+<th class="head">Labor status</th>
+<th class="head">f_k</th>
+<th class="head">SUDA score</th>
+<th class="head">DIS-SUD</th>
 </tr>
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>1</td>
 <td>Urban</td>
 <td>Female</td>
-<td>Secondary
-incomplete</td>
+<td>Secondary incomplete</td>
 <td>Employed</td>
 <td>2</td>
 <td>0</td>
@@ -1580,8 +1530,7 @@ incomplete</td>
 <tr class="row-odd"><td>2</td>
 <td>Urban</td>
 <td>Female</td>
-<td>Secondary
-incomplete</td>
+<td>Secondary incomplete</td>
 <td>Employed</td>
 <td>2</td>
 <td>0</td>
@@ -1590,8 +1539,7 @@ incomplete</td>
 <tr class="row-even"><td>3</td>
 <td>Urban</td>
 <td>Female</td>
-<td>Primary
-incomplete</td>
+<td>Primary incomplete</td>
 <td>Non-LF</td>
 <td>1</td>
 <td>6</td>
@@ -1600,8 +1548,7 @@ incomplete</td>
 <tr class="row-odd"><td>4</td>
 <td>Urban</td>
 <td>Male</td>
-<td>Secondary
-complete</td>
+<td>Secondary complete</td>
 <td>Employed</td>
 <td>2</td>
 <td>0</td>
@@ -1610,8 +1557,7 @@ complete</td>
 <tr class="row-even"><td>5</td>
 <td>Rural</td>
 <td>Female</td>
-<td>Secondary
-complete</td>
+<td>Secondary complete</td>
 <td>Unemployed</td>
 <td>1</td>
 <td>12</td>
@@ -1620,8 +1566,7 @@ complete</td>
 <tr class="row-odd"><td>6</td>
 <td>Urban</td>
 <td>Male</td>
-<td>Secondary
-complete</td>
+<td>Secondary complete</td>
 <td>Employed</td>
 <td>2</td>
 <td>0</td>
@@ -1630,8 +1575,7 @@ complete</td>
 <tr class="row-even"><td>7</td>
 <td>Urban</td>
 <td>Female</td>
-<td>Primary
-complete</td>
+<td>Primary complete</td>
 <td>Non-LF</td>
 <td>1</td>
 <td>6</td>
@@ -1649,8 +1593,7 @@ complete</td>
 <tr class="row-even"><td>9</td>
 <td>Urban</td>
 <td>Female</td>
-<td>Secondary
-incomplete</td>
+<td>Secondary incomplete</td>
 <td>Non-LF</td>
 <td>2</td>
 <td>0</td>
@@ -1659,8 +1602,7 @@ incomplete</td>
 <tr class="row-odd"><td>10</td>
 <td>Urban</td>
 <td>Female</td>
-<td>Secondary
-incomplete</td>
+<td>Secondary incomplete</td>
 <td>Non-LF</td>
 <td>2</td>
 <td>0</td>
@@ -2157,7 +2099,7 @@ categorical variables.</td></tr>
 <table class="docutils footnote" frame="void" id="foot29" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id11">[9]</a></td><td>Alternatively, the sensitive variables can be specified when
+<tr><td class="label"><a class="fn-backref" href="#id9">[9]</a></td><td>Alternatively, the sensitive variables can be specified when
 creating the <em>sdcMicro</em> object using the function createSdcObj() in
 the <em>sensibleVar</em> argument. This is further explained in Section 7.5.
 In that case, the argument <em>ldiv_index</em> does not have to be specified
@@ -2168,7 +2110,7 @@ argument will automatically be used to compute <span class="math notranslate noh
 <table class="docutils footnote" frame="void" id="foot30" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id12">[10]</a></td><td>Besides distinct <span class="math notranslate nohighlight">\(l\)</span>-diversity, there are other
+<tr><td class="label"><a class="fn-backref" href="#id10">[10]</a></td><td>Besides distinct <span class="math notranslate nohighlight">\(l\)</span>-diversity, there are other
 <span class="math notranslate nohighlight">\(l\)</span>-diversity methods: entropy and recursive. Distinct
 <span class="math notranslate nohighlight">\(l\)</span>-diversity is most commonly used.</td></tr>
 </tbody>
@@ -2176,7 +2118,7 @@ argument will automatically be used to compute <span class="math notranslate noh
 <table class="docutils footnote" frame="void" id="foot31" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id13">[11]</a></td><td>There are more combinations of quasi-identifiers that make record 5
+<tr><td class="label"><a class="fn-backref" href="#id11">[11]</a></td><td>There are more combinations of quasi-identifiers that make record 5
 unique (e.g., {‘Rural’, ‘Female’} and {‘Female’, ‘Secondary
 Complete’, ‘Unemployed’}. These combinations, however, are not
 considered MSUs because they do not fulfill the <strong>minimal</strong> subset
@@ -2186,13 +2128,13 @@ requirement. They contain subsets that are MSUs.</td></tr>
 <table class="docutils footnote" frame="void" id="foot32" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id14">[12]</a></td><td>OECD, <a class="reference external" href="http://stats.oecd.org/glossary">http://stats.oecd.org/glossary</a></td></tr>
+<tr><td class="label"><a class="fn-backref" href="#id12">[12]</a></td><td>OECD, <a class="reference external" href="http://stats.oecd.org/glossary">http://stats.oecd.org/glossary</a></td></tr>
 </tbody>
 </table>
 <table class="docutils footnote" frame="void" id="foot33" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id15">[13]</a></td><td>The third record has one MSU, {‘Primary incomplete’}; the seventh
+<tr><td class="label"><a class="fn-backref" href="#id13">[13]</a></td><td>The third record has one MSU, {‘Primary incomplete’}; the seventh
 record has one MSU, {‘Primary complete’}; and the eighth record has
 three MSUs, {‘Urban, Unemployed’}, {‘Male, Unemployed’} and
 {‘Post-secondary’}.</td></tr>

@@ -95,7 +95,20 @@ Household Survey and Accelerated Data Program \textendash{} TF071804/TF011722.
 \chapter{Introduction}
 \label{\detokenize{intro::doc}}\label{\detokenize{intro:introduction}}\label{\detokenize{intro:statistical-disclosure-control-for-microdata-a-practice-guide}}
 National statistics agencies are mandated to collect
-microdata {\color{red}\bfseries{}{[}\#foot13{]}\_} from surveys and censuses to inform and
+microdata %
+\begin{footnote}[1]\sphinxAtStartFootnote
+Microdata are unit-level data obtained from sample surveys, censuses
+and administrative systems. They provide information about
+characteristics of individual people or entities such as households,
+business enterprises, facilities, farms or even geographical areas
+such as villages or towns. They allow in-depth understanding of
+socio-economic issues by studying relationships and interactions
+among phenomena. Microdata are thus key to designing projects and
+formulating policies, targeting interventions and monitoring and
+measuring the impact and results of projects, interventions and
+policies.
+%
+\end{footnote} from surveys and censuses to inform and
 measure policy effectiveness. In almost all countries, statistics acts
 and privacy laws govern these activities. These laws require that
 agencies protect the identity of respondents, but may also require that
@@ -242,7 +255,11 @@ for SDC called \sphinxstyleemphasis{sdcMicro} as well as the statistical softwar
 package was developed and is maintained by Matthias Templ, Alexander
 Kowarik and Bernhard Meindl. {\color{red}\bfseries{}{}`}See and the GitHub of the developers. The
 GitHub repository can also be used to submit bugs found in the
-package. {\color{red}\bfseries{}{[}\#foot14{]}\_} The statistical software \sphinxstyleemphasis{R} and the \sphinxstyleemphasis{sdcMicro}
+package. %
+\begin{footnote}[2]\sphinxAtStartFootnote
+\sphinxurl{http://cran.r-project.org/web/packages/sdcMicro/index.html}\sphinxurl{https://github.com/alexkowa/sdcMicro}
+%
+\end{footnote} The statistical software \sphinxstyleemphasis{R} and the \sphinxstyleemphasis{sdcMicro}
 package, as well as any other packages needed for the SDC process, are
 freely available from the Comprehensive R Archive Network (CRAN) mirrors
 (\sphinxurl{http://cran.r-project.org/}). The software is available for Linux,
@@ -257,7 +274,12 @@ This guide does not provide a review of all other available packages for
 implementing the SDC process. Our concern is more with providing
 practical insight into the application of the methods. We would,
 however, like to highlight one particular other software package that is
-commonly used by agencies: \(\mu\)-ARGUS {\color{red}\bfseries{}{[}\#foot15{]}\_}. \(\mu\)-ARGUS is
+commonly used by agencies: \(\mu\)-ARGUS %
+\begin{footnote}[3]\sphinxAtStartFootnote
+\(\mu\)-ARGUS is available at: \sphinxurl{http://neon.vb.cbs.nl/casc/mu.htm}. The
+software was recently ported to open source.
+%
+\end{footnote}. \(\mu\)-ARGUS is
 developed by Statistics Netherlands. \sphinxstyleemphasis{sdcMicro} and \(\mu\)-ARGUS are both
 widely used in statistics offices in the European Union and implement
 many of the same methods.
@@ -265,7 +287,13 @@ many of the same methods.
 The user needs some knowledge of \sphinxstyleemphasis{R} to use \sphinxstyleemphasis{sdcMicro}. It is beyond the
 scope of this guide to teach the use of \sphinxstyleemphasis{R}, but we do provide
 throughout the guide code examples on how to implement the necessary
-routines in \sphinxstyleemphasis{R}. {\color{red}\bfseries{}{[}\#foot16{]}\_} We also present a number of case
+routines in \sphinxstyleemphasis{R}. %
+\begin{footnote}[4]\sphinxAtStartFootnote
+There are many free resources for learning \sphinxstyleemphasis{R} available on the web.
+One place to start would be the CRAN \sphinxstyleemphasis{R} Project page:
+\sphinxurl{http://cran.r-project.org/other-docs.html}
+%
+\end{footnote} We also present a number of case
 studies that include the code for the anonymization of a number of demo
 datasets using \sphinxstyleemphasis{R}. Through these case studies, we demonstrate a number
 of approaches to the anonymization process in \sphinxstyleemphasis{R}. {\color{red}\bfseries{}{[}\#foot17{]}\_}
@@ -312,7 +340,7 @@ optimal risk-utility solution.
 
 
 \chapter{Glossary and list of acronyms}
-\label{\detokenize{glossary_acr:glossary-and-list-of-acronyms}}\label{\detokenize{glossary_acr::doc}}
+\label{\detokenize{glossary_acr::doc}}\label{\detokenize{glossary_acr:glossary-and-list-of-acronyms}}
 
 \section{List of Acronyms}
 \label{\detokenize{glossary_acr:list-of-acronyms}}
@@ -668,7 +696,11 @@ or an organization recognizes or
 learns something that they did
 not already know about another
 person or organization through
-released data. {\color{red}\bfseries{}{[}\#foot1{]}\_}
+released data. %
+\begin{footnote}[1]\sphinxAtStartFootnote
+\sphinxurl{http://www.nss.gov.au/nss/home.nsf/pages/Confidentiality+-+Glossary}
+%
+\end{footnote}
 See also Identity disclosure,
 Attribute disclosure and
 Inferential disclosure.
@@ -682,7 +714,11 @@ a respondent’s confidential
 information is possible or if
 exact disclosure is possible with
 a high level of
-confidence. {\color{red}\bfseries{}{[}\#foot2{]}\_}
+confidence. %
+\begin{footnote}[2]\sphinxAtStartFootnote
+\sphinxurl{http://stats.oecd.org/glossary}
+%
+\end{footnote}
 Disclosure risk also refers to
 the probability that successful
 disclosure could occur.
@@ -739,7 +775,12 @@ disclosed, not using direct
 \sphinxhref{http://www.nss.gov.au/nss/home.nsf/pages/Confidentiality+-+Glossary\#4}{identifiers},
 but through a combination of
 unique characteristics in key
-variables. {\color{red}\bfseries{}{[}\#foot9{]}\_}
+variables. %
+\begin{footnote}[9]\sphinxAtStartFootnote
+Australian Bureau of Statistics,
+\sphinxurl{http://www.nss.gov.au/nss/home.nsf/pages/Confidentiality+-+Glossary}
+%
+\end{footnote}
 \\
 \hline
 Inferential disclosure
@@ -897,7 +938,12 @@ variables, such as 20-year-old
 widow. On their own age, 20 and
 widow are not unusual values, but
 their combination may
-be. {\color{red}\bfseries{}{[}\#foot10{]}\_}
+be. %
+\begin{footnote}[10]\sphinxAtStartFootnote
+Australian Bureau of Statistics,
+\sphinxurl{http://www.nss.gov.au/nss/home.nsf/pages/Confidentiality+-+Glossary}
+%
+\end{footnote}
 \\
 \hline
 Perturbative methods
@@ -932,7 +978,11 @@ altered according to certain
 probabilities. It is thus
 intentional misclassification
 with known misclassification
-probabilities. OECD, {\color{red}\bfseries{}{[}\#foot11{]}\_}
+probabilities. OECD, %
+\begin{footnote}[11]\sphinxAtStartFootnote
+\sphinxurl{http://stats.oecd.org/glossary}
+%
+\end{footnote}
 \\
 \hline
 Probabilistic methods
@@ -958,7 +1008,11 @@ organization furnishing the data
 and the organization receiving it
 and which describes the degree of
 protection which will be
-provided.” {\color{red}\bfseries{}{[}\#foot5{]}\_}
+provided.” %
+\begin{footnote}[5]\sphinxAtStartFootnote
+\sphinxurl{http://stats.oecd.org/glossary}
+%
+\end{footnote}
 \\
 \hline
 Public Use File (PUF)
@@ -1036,7 +1090,7 @@ Release
 Dissemination \textendash{} the release to
 users of information obtained
 through a statistical activity.
-{\color{red}\bfseries{}{[}\#foot5{]}\_}
+\sphinxfootnotemark[5]
 \\
 \hline
 Respondents
@@ -1110,7 +1164,11 @@ only related to the dissemination
 step and are usually based on
 restricting the amount of or
 modifying the data
-released. {\color{red}\bfseries{}{[}\#foot12{]}\_}
+released. %
+\begin{footnote}[12]\sphinxAtStartFootnote
+OECD, \sphinxurl{http://stats.oecd.org/glossary}
+%
+\end{footnote}
 \\
 \hline
 Suppression
@@ -1166,7 +1224,7 @@ observation.
 
 
 \chapter{Statistical Disclosure Control (SDC): An Introduction}
-\label{\detokenize{SDC_intro:statistical-disclosure-control-sdc-an-introduction}}\label{\detokenize{SDC_intro::doc}}
+\label{\detokenize{SDC_intro::doc}}\label{\detokenize{SDC_intro:statistical-disclosure-control-sdc-an-introduction}}
 
 \section{Need for SDC}
 \label{\detokenize{SDC_intro:need-for-sdc}}
@@ -1177,7 +1235,12 @@ alter the data so that the data can be published or released without
 revealing the confidential information it contains, while, at the same
 time, limit information loss due to the anonymization of the data. In
 this guide, we discuss only disclosure control for
-microdata. {\color{red}\bfseries{}{[}\#foot18{]}\_} Microdata are datasets that provide
+microdata. %
+\begin{footnote}[1]\sphinxAtStartFootnote
+There is another strand of literature on the anonymization of tabular
+data, see e.g., Hundepool et al. (2012).
+%
+\end{footnote} Microdata are datasets that provide
 information on a set of variables for each individual respondent.
 Respondents can be natural persons, but also legal entities such as
 companies.
@@ -1274,8 +1337,7 @@ process looks for the SDC methods and the parameters for those methods
 and applies these in a way that reduces the risk sufficiently, while
 minimizing the information loss.
 
-{\color{red}\bfseries{}\textbar{}Macintosh HD:Users:thijsbenschop:Copy:World Bank:Guidelines:Case
-studies:Rplot11.pdf\textbar{}}
+\noindent\sphinxincludegraphics[width=6.03524in,height=4.3072in]{{image1}.png}
 
 Figure 2.1: Risk-utility trade-off
 
@@ -1319,7 +1381,12 @@ IHSN, this section extracts from an excellent guide published by Dupriez
 and Boyko (2010).
 
 The trade-off between risk and utility in the anonymization process
-depends greatly on who the users are {\color{red}\bfseries{}{[}\#foot19{]}\_} and under
+depends greatly on who the users are %
+\begin{footnote}[2]\sphinxAtStartFootnote
+See Section 5 in Dupriez and Boyko (2010) as to who the users of
+microdata are and to whom microdata should be made available.
+%
+\end{footnote} and under
 what conditions a microdata file is released. Generally, three types of
 data release methods are practiced and apply to different target groups.
 \begin{itemize}
@@ -1367,7 +1434,11 @@ licensed files, the recommendation is to establish and sign an
 agreement between the data producer and external bona fide users \textendash{}
 trustworthy users with legitimate need to access the data. Such an
 agreement should govern access and use of such microdata
-files {\color{red}\bfseries{}{[}\#foot20{]}\_}. Sometimes, licensing agreements are only
+files %
+\begin{footnote}[3]\sphinxAtStartFootnote
+Appendix B provides an example of a blanket agreement.
+%
+\end{footnote}. Sometimes, licensing agreements are only
 entered into with users affiliated to an appropriate sponsoring
 institution. i.e., research centers, universities or development
 partners. It is further recommended that, before entering into a data
@@ -1525,7 +1596,7 @@ Network (IHSN).
 
 
 \chapter{Measuring Risk}
-\label{\detokenize{measure_risk:measuring-risk}}\label{\detokenize{measure_risk::doc}}
+\label{\detokenize{measure_risk::doc}}\label{\detokenize{measure_risk:measuring-risk}}
 
 \section{Types of disclosure}
 \label{\detokenize{measure_risk:types-of-disclosure}}
@@ -1665,7 +1736,16 @@ education level.
 \sphinxstylestrong{Continuous} variables can take on an infinite number of values in
 a given set. Examples are income, body height and size of land plot.
 Continuous variables can be transformed into categorical variables by
-constructing intervals (such as income bands). {\color{red}\bfseries{}{[}\#foot21{]}\_}
+constructing intervals (such as income bands). %
+\begin{footnote}[1]\sphinxAtStartFootnote
+Recoding a continuous variable is sometimes useful in cases where the
+data contains only a few continuous variables. We will see in Section
+3 that many methods used for risk calculation depend on whether the
+variables are categorical. We will also see that it is easier for the
+measurement of risk if the data contains only categorical or only
+continuous variables.
+%
+\end{footnote}
 
 \item {} 
 \sphinxstylestrong{Semi-continuous} variables are continuous variables that take on
@@ -1673,7 +1753,14 @@ values that are limited to a finite set. An example is age measured
 in years, which could take on values in the set \{0, 1, …, 100\}. The
 finite nature of the values for these variables means that they can
 be treated as categorical variables for the purpose of
-SDC. {\color{red}\bfseries{}{[}\#foot22{]}\_}
+SDC. %
+\begin{footnote}[2]\sphinxAtStartFootnote
+This is discussed in greater detail in the following sections. In
+cases where the number of possible values is large, recoding the
+variable, or parts of the set it takes values on, to obtain fewer
+distinct values is recommended.
+%
+\end{footnote}
 
 \end{itemize}
 
@@ -1782,12 +1869,27 @@ We will see that this hierarchical structure is important to take into
 consideration when measuring disclosure risk. For hierarchical data,
 information collected at the higher hierarchical level (e.g., household
 level) would be the same for all individuals in the group belonging to
-that higher hierarchical level (e.g., household). {\color{red}\bfseries{}{[}\#foot23{]}\_}
+that higher hierarchical level (e.g., household). %
+\begin{footnote}[3]\sphinxAtStartFootnote
+Besides variables collected at the higher hierarchical level, also
+variables collected at the lower level but with no (or little)
+variation within the groups formed by the hierarchical structure
+should be treated as higher level variables. An example could be
+mother tongue, where most households are monolingual, but the
+variable is collected at the individual level.
+%
+\end{footnote}
 Some typical examples of variables that would have the same values for
 all members of the same higher hierarchical unit are, in the case of
 households, those relating to housing and household income. These
 variables differ from survey to survey and from country to
-country. {\color{red}\bfseries{}{[}\#foot24{]}\_} This hierarchical structure creates a
+country. %
+\begin{footnote}[4]\sphinxAtStartFootnote
+Religion, for example, can be shared by all household members in
+some countries, whereas in other countries this variable is measured
+at the individual level and mixed-religion households exist.
+%
+\end{footnote} This hierarchical structure creates a
 further level of disclosure risk for two reasons: 1) if one individual
 in the household is re-identified, the household structure allows for
 re-identification of the other household members in the same household,
@@ -2190,7 +2292,42 @@ This is done by using the \sphinxstyleemphasis{sdcMicro} function freq(). A valu
 an observation means that in the sample, there is one more individual
 with exactly the same combination of values for the selected key
 variables. In Example 4.1, the function freq() is applied to
-“sdcInitial”, which is an \sphinxstyleemphasis{sdcMicro} object. Footnote {\color{red}\bfseries{}{[}\#foot25{]}\_}
+“sdcInitial”, which is an \sphinxstyleemphasis{sdcMicro} object. Footnote %
+\begin{footnote}[5]\sphinxAtStartFootnote
+The code examples in this guide are based on \sphinxstyleemphasis{sdcMicro} objects. An
+\sphinxstyleemphasis{sdcMicro} object contains, amongst others, the data and identifies
+all the specified key variables. The code below creates a data.frame
+with the data from Table 4.1 and the \sphinxstyleemphasis{sdcMicro} objects “sdcInitial”
+used in most examples in this section.
+
+\sphinxSetupCodeBlockInFootnote
+\fvset{hllines={, ,}}%
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{k+kn}{library}\PYG{p}{(}sdcMicro\PYG{p}{)}
+
+\PYG{c+c1}{\PYGZsh{} Set up dataset}
+
+data \PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{k+kp}{as.data.frame}\PYG{p}{(}\PYG{k+kp}{cbind}\PYG{p}{(}\PYG{k+kp}{as.factor}\PYG{p}{(}\PYG{k+kt}{c}\PYG{p}{(}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{Urban\PYGZsq{}}\PYG{p}{,}
+\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{Urban\PYGZsq{}}\PYG{p}{,} \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{Urban\PYGZsq{}}\PYG{p}{,} \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{Urban\PYGZsq{}}\PYG{p}{,} \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{Rural\PYGZsq{}}\PYG{p}{,} \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{Urban\PYGZsq{}}\PYG{p}{,} \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{Urban\PYGZsq{}}\PYG{p}{,} \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{Urban\PYGZsq{}}\PYG{p}{,}
+\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{Urban\PYGZsq{}}\PYG{p}{,} \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{Urban\PYGZsq{}}\PYG{p}{)}\PYG{p}{)}\PYG{p}{,}
+\PYG{k+kp}{as.factor}\PYG{o}{*}\PYG{o}{*}\PYGZbs{} \PYGZbs{} \PYG{p}{(}\PYG{o}{*}\PYG{o}{*}\PYG{k+kt}{c}\PYG{o}{*}\PYG{o}{*}\PYGZbs{} \PYGZbs{} \PYG{p}{(}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{Female\PYGZsq{}}\PYG{p}{,} \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{Female\PYGZsq{}}\PYG{p}{,} \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{Female\PYGZsq{}}\PYG{p}{,} \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{Male\PYGZsq{}}\PYG{p}{,}
+\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{Female\PYGZsq{}}\PYG{p}{,} \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{Male\PYGZsq{}}\PYG{p}{,} \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{Female\PYGZsq{}}\PYG{p}{,} \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{Male\PYGZsq{}}\PYG{p}{,} \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{Female\PYGZsq{}}\PYG{p}{,} \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{Female\PYGZsq{}}\PYG{p}{)}\PYG{p}{)}\PYG{p}{,}
+\PYG{k+kp}{as.factor}\PYG{p}{(}\PYG{k+kt}{c}\PYG{p}{(}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{Sec in\PYGZsq{}}\PYG{p}{,} \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{Sec in\PYGZsq{}}\PYG{p}{,} \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{Prim in\PYGZsq{}}\PYG{p}{,} \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{Sec com\PYGZsq{}}\PYG{p}{,} \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{Sec com\PYGZsq{}}\PYG{p}{,} \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{Sec com\PYGZsq{}}\PYG{p}{,} \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{Prim com\PYGZsq{}}\PYG{p}{,} \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{Post\PYGZhy{}sec\PYGZsq{}}\PYG{p}{,} \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{Sec in\PYGZsq{}}\PYG{p}{,} \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{Sec in\PYGZsq{}}\PYG{p}{)}\PYG{p}{)}\PYG{p}{,}
+\PYG{k+kp}{as.factor}\PYG{p}{(}\PYG{k+kt}{c}\PYG{p}{(}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{Emp\PYGZsq{}}\PYG{p}{,} \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{Emp\PYGZsq{}}\PYG{p}{,} \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{Non\PYGZhy{}LF\PYGZsq{}}\PYG{p}{,} \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{Emp\PYGZsq{}}\PYG{p}{,} \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{Unemp\PYGZsq{}}\PYG{p}{,} \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{Emp\PYGZsq{}}\PYG{p}{,} \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{Non\PYGZhy{}LF\PYGZsq{}}\PYG{p}{,} \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{Unemp\PYGZsq{}}\PYG{p}{,} \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{Non\PYGZhy{}LF\PYGZsq{}}\PYG{p}{,}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{Non\PYGZhy{}LF\PYGZsq{}}\PYG{p}{)}\PYG{p}{)}\PYG{p}{,}
+\PYG{k+kp}{as.factor}\PYG{p}{(}\PYG{k+kt}{c}\PYG{p}{(}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{yes\PYGZsq{}}\PYG{p}{,} \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{yes\PYGZsq{}}\PYG{p}{,} \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{yes\PYGZsq{}}\PYG{p}{,} \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{yes\PYGZsq{}}\PYG{p}{,} \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{yes\PYGZsq{}}\PYG{p}{,} \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{no\PYGZsq{}}\PYG{p}{,} \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{no\PYGZsq{}}\PYG{p}{,} \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{yes\PYGZsq{}}\PYG{p}{,} \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{no\PYGZsq{}}\PYG{p}{,} \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{yes\PYGZsq{}}\PYG{p}{)}\PYG{p}{)}\PYG{p}{,}
+\PYG{k+kt}{c}\PYG{p}{(}\PYG{l+m}{180}\PYG{p}{,} \PYG{l+m}{180}\PYG{p}{,} \PYG{l+m}{215}\PYG{p}{,} \PYG{l+m}{76}\PYG{p}{,} \PYG{l+m}{186}\PYG{p}{,} \PYG{l+m}{76}\PYG{p}{,} \PYG{l+m}{180}\PYG{p}{,} \PYG{l+m}{215}\PYG{p}{,} \PYG{l+m}{186}\PYG{p}{,} \PYG{l+m}{76}\PYG{p}{)}\PYG{p}{)}\PYG{p}{)}
+
+\PYG{c+c1}{\PYGZsh{} Specify variable names*}
+
+\PYG{k+kp}{names}\PYG{p}{(}data\PYG{p}{)} \PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{k+kt}{c}\PYG{p}{(}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{Residence\PYGZsq{}}\PYG{p}{,} \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{Gender\PYGZsq{}}\PYG{p}{,} \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{Educ\PYGZsq{}}\PYG{p}{,} \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{Lstat\PYGZsq{}}\PYG{p}{,} \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{Health\PYGZsq{}}\PYG{p}{,} \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{Weights\PYGZsq{}}\PYG{p}{)}
+
+\PYG{c+c1}{\PYGZsh{} Set up sdcMicro object with specified quasi\PYGZhy{}identifiers and weight variable}
+
+sdcInitial \PYG{o}{\PYGZlt{}\PYGZhy{}} createSdcObj\PYG{p}{(}dat \PYG{o}{=} data\PYG{p}{,}
+keyVars \PYG{o}{=} \PYG{k+kt}{c}\PYG{p}{(}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{Residence\PYGZsq{}}\PYG{p}{,} \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{Gender\PYGZsq{}}\PYG{p}{,} \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{Educ\PYGZsq{}}\PYG{p}{,} \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{Lstat\PYGZsq{}}\PYG{p}{)}\PYG{p}{,} weightVar \PYG{o}{=} \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{Weights\PYGZsq{}}\PYG{p}{)}
+\end{sphinxVerbatim}
+%
+\end{footnote}
 shows how to initialize the \sphinxstyleemphasis{sdcMicro} object for
 this example. For a complete discussion of \sphinxstyleemphasis{sdcMicro} objects as well as
 instructions on how to create \sphinxstyleemphasis{sdcMicro} objects, we refer to Section
@@ -2277,10 +2414,33 @@ variables and is referred to as individual risk. The values
 for the individuals or as the probability for a successful match with
 individuals chosen at random from an external data file with the same
 values of the key variables. This risk measure is based on certain
-assumptions{}` {\color{red}\bfseries{}{[}\#foot26{]}\_}, which are strict and may lead to a
+assumptions{}` %
+\begin{footnote}[6]\sphinxAtStartFootnote
+The assumptions for this risk measure are strict and the risk is
+estimated in many cases higher than the actual risk. Among other
+assumptions, it is assumed that all individuals in the sample are
+also included in the external file used by the intruder to match
+against. If this is not the case, the risk is much lower; if the
+individual in the released file is not contained in the external
+file, the probability of a correct match is zero. Other assumptions
+are that the files contain no errors and that both sets of data were
+collected simultaneously, i.e. they contain the same information.
+These assumptions will often not hold generally, but are necessary
+for computation of a measure. An example of a violation of the last
+assumptions is could occur if datasets are collected at different
+points in time and records have changed. This could happen when
+people move or change jobs and makes correct matching impossible. The
+assumptions assume a worst-case scenario.
+%
+\end{footnote}, which are strict and may lead to a
 relatively conservative risk measure. In \sphinxstyleemphasis{sdcMicro}, the risk measure
 \(r_{k}\) is automatically computed when creating an \sphinxstyleemphasis{sdcMicro}
-object and saved in the “risk” slot {\color{red}\bfseries{}{[}\#foot27{]}\_}. Example 4.3
+object and saved in the “risk” slot %
+\begin{footnote}[7]\sphinxAtStartFootnote
+See Section 7.5 for more information on slots and the \sphinxstyleemphasis{sdcMicro}
+object structure.
+%
+\end{footnote}. Example 4.3
 shows how to retrieve the risk measures using \sphinxstyleemphasis{sdcMicro} for our
 example. The risk measures are also presented in Table 4.1.
 
@@ -2401,7 +2561,17 @@ sum(sdcInitial@risk\$individual{[},2{]} \textless{} k)
 \end{quote}
 
 It is important to note that missing values (‘NA’s in
-\sphinxstyleemphasis{R} {\color{red}\bfseries{}{[}\#foot28{]}\_}) are treated as if they were any other value.
+\sphinxstyleemphasis{R} %
+\begin{footnote}[8]\sphinxAtStartFootnote
+In \sphinxstyleemphasis{sdcMicro} it is important to use the standard missing value code
+NA instead of other codes, such as 9999 or strings. In Chapter 6, we
+further discuss how to set other missing value codes to NA in \sphinxstyleemphasis{R}.
+This is necessary to ensure that the methods in \sphinxstyleemphasis{sdcMicro} function
+properly. When missing values have codes other than NA, the missing
+value codes are interpreted as a distinct factor level in the case of
+categorical variables.
+%
+\end{footnote}) are treated as if they were any other value.
 Two individuals with keys \{‘Male’, NA, ‘Employed’\} and \{‘Male’,
 ‘Secondary complete’, ‘Employed’\} share the same key, and similarly,
 \{‘Male’, NA, ‘Employed’\} and \{‘Male’, ‘Secondary incomplete’,
@@ -2420,27 +2590,19 @@ k-anonymity
 
 \begin{savenotes}\sphinxattablestart
 \centering
-\begin{tabular}[t]{|*{5}{\X{1}{5}|}}
+\begin{tabulary}{\linewidth}[t]{|T|T|T|T|T|}
 \hline
 \sphinxstyletheadfamily 
 No
 &\sphinxstyletheadfamily 
 Gender
-&\sphinxstyletheadfamily \begin{quote}
-
+&\sphinxstyletheadfamily 
 Education
-\end{quote}
-
 level
 &\sphinxstyletheadfamily 
 Labor status
-status
-&\sphinxstyletheadfamily \begin{description}
-\item[{{\color{red}\bfseries{}{}`}.. math:: }] \leavevmode
-mathbf\{f\}\_\{
-mathbf\{k\}\}{}`
-
-\end{description}
+&\sphinxstyletheadfamily 
+f\_k
 \\
 \hline
 1
@@ -2478,7 +2640,7 @@ Employed
 3
 \\
 \hline
-\end{tabular}
+\end{tabulary}
 \par
 \sphinxattableend\end{savenotes}
 
@@ -2525,57 +2687,31 @@ Table 4.3: l-diversity illustration
 
 \begin{savenotes}\sphinxattablestart
 \centering
-\begin{tabular}[t]{|*{8}{\X{1}{8}|}}
+\begin{tabulary}{\linewidth}[t]{|T|T|T|T|T|T|T|T|}
 \hline
 \sphinxstyletheadfamily 
 No
-&\sphinxstyletheadfamily \begin{quote}
-
-Resi
-\end{quote}
-
-dence
-&\sphinxstyletheadfamily \begin{quote}
-
-Gend
-\end{quote}
-
-er
-&\sphinxstyletheadfamily \begin{quote}
-
+&\sphinxstyletheadfamily 
+Reside
+nce
+&\sphinxstyletheadfamily 
+Gender
+&\sphinxstyletheadfamily 
 Educ
-\end{quote}
-
 ation
 level
-&\sphinxstyletheadfamily \begin{quote}
-
-Labo
-\end{quote}
-
-r
-status
-&\sphinxstyletheadfamily \begin{quote}
-
-Heal
-\end{quote}
-
-th
 &\sphinxstyletheadfamily 
-h:: m
-athbf\{
-f\}\_\{m
-athbf\{
-k\}\}
-&\sphinxstyletheadfamily \begin{quote}\begin{description}
-\item[{math}] \leavevmode
-\end{description}\end{quote}
+Labor
 
-\sphinxtitleref{math
-bf\{l\}}
-  -d
-iversi
-ty
+status
+&\sphinxstyletheadfamily 
+Health
+&\sphinxstyletheadfamily 
+f\_k
+&\sphinxstyletheadfamily 
+l-dive
+rsity
+bf\{l\}{}`
 \\
 \hline
 1
@@ -2783,7 +2919,7 @@ yes
 2
 \\
 \hline
-\end{tabular}
+\end{tabulary}
 \par
 \sphinxattableend\end{savenotes}
 
@@ -2801,8 +2937,23 @@ always only satisfy 1-diversity.
 To compute \(l\)-diversity for sensitive variables in \sphinxstyleemphasis{sdcMicro},
 the function ldiversity() can be used. This is illustrated in Example
 4.6. As arguments, we specify the names of the sensitive
-variables {\color{red}\bfseries{}{[}\#foot29{]}\_} in the file as well as a constant for
-recursive \(l\)-diversity, {\color{red}\bfseries{}{[}\#foot30{]}\_} and the code for
+variables %
+\begin{footnote}[9]\sphinxAtStartFootnote
+Alternatively, the sensitive variables can be specified when
+creating the \sphinxstyleemphasis{sdcMicro} object using the function createSdcObj() in
+the \sphinxstyleemphasis{sensibleVar} argument. This is further explained in Section 7.5.
+In that case, the argument \sphinxstyleemphasis{ldiv\_index} does not have to be specified
+in the ldiversity() function. and the variables in the \sphinxstyleemphasis{sensibleVar}
+argument will automatically be used to compute \(l\)-diversity.
+%
+\end{footnote} in the file as well as a constant for
+recursive \(l\)-diversity, %
+\begin{footnote}[10]\sphinxAtStartFootnote
+Besides distinct \(l\)-diversity, there are other
+\(l\)-diversity methods: entropy and recursive. Distinct
+\(l\)-diversity is most commonly used.
+%
+\end{footnote} and the code for
 missing values in the data. The output is saved in the “risk” slot of
 the \sphinxstyleemphasis{sdcMicro} object. The result shows the minimum, maximum, mean and
 quantiles of the \(l\)-diversity scores for all individuals in the
@@ -3155,7 +3306,15 @@ size 2.{[}\#foot33{]}\_ This holds as well
 for three other combinations in record 5, i.e., \{‘Female’, ‘Unemployed’\}
 and \{‘Female’, ‘Secondary Complete’\}, which are also MSUs of size 2 and
 \{‘Rural’\} of size 1. In total, record 5 has four
-MSUs {\color{red}\bfseries{}{[}\#foot31{]}\_}. To determine if a set is an MSU of size
+MSUs %
+\begin{footnote}[11]\sphinxAtStartFootnote
+There are more combinations of quasi-identifiers that make record 5
+unique (e.g., \{‘Rural’, ‘Female’\} and \{‘Female’, ‘Secondary
+Complete’, ‘Unemployed’\}. These combinations, however, are not
+considered MSUs because they do not fulfill the \sphinxstylestrong{minimal} subset
+requirement. They contain subsets that are MSUs.
+%
+\end{footnote}. To determine if a set is an MSU of size
 \(k\), we check whether it fulfills the minimal requirement. It
 suffices to check whether all subsets of size \(k\)-1 of the MSU are
 unique. If any of these subsets are also unique in the sample, the set
@@ -3205,7 +3364,11 @@ ranks the individuals according to their level of risk.
 
 For each MSU of size \(k\) contained in a given record, a score is
 computed by \(\prod_{i = k}^{M}{(ATT - i)}\), where \(M\) is the
-user-specified maximum size of MSUs {\color{red}\bfseries{}{[}\#foot32{]}\_}, and
+user-specified maximum size of MSUs %
+\begin{footnote}[12]\sphinxAtStartFootnote
+OECD, \sphinxurl{http://stats.oecd.org/glossary}
+%
+\end{footnote}, and
 \(\text{ATT}\) is the total number of attributes or variables in the
 dataset. By definition, the smaller the size \(k\) of the MSU, the
 larger the score for the MSU, which reflects greater risk (see Elliot et
@@ -3233,7 +3396,14 @@ Secondary Complete\} is
 \(\prod_{i = 2}^{3}\left( 4 - i \right) = 2*1 = 2\). The SUDA score
 for the fifth record in Table 4.5 is then \(6 + 2 + 2 + 2 = 12\),
 which is the sum of these four scores per MSU. The SUDA scores for the
-other sample uniques are computed accordingly {\color{red}\bfseries{}{[}\#foot33{]}\_}. The
+other sample uniques are computed accordingly %
+\begin{footnote}[13]\sphinxAtStartFootnote
+The third record has one MSU, \{‘Primary incomplete’\}; the seventh
+record has one MSU, \{‘Primary complete’\}; and the eighth record has
+three MSUs, \{‘Urban, Unemployed’\}, \{‘Male, Unemployed’\} and
+\{‘Post-secondary’\}.
+%
+\end{footnote}. The
 values that are in the MSUs in the sample uniques are shaded in Table
 4.5. Records that are not sample uniques (\(f_{k} > 1\)) cannot be
 special uniques and are assigned the score 0.
@@ -3243,7 +3413,7 @@ Table 4.5: Illustrating the calculation of SUDA and DIS-SUDA scores
 
 \begin{savenotes}\sphinxattablestart
 \centering
-\begin{tabular}[t]{|*{8}{\X{1}{8}|}}
+\begin{tabulary}{\linewidth}[t]{|T|T|T|T|T|T|T|T|}
 \hline
 \sphinxstyletheadfamily 
 No
@@ -3251,32 +3421,16 @@ No
 Residence
 &\sphinxstyletheadfamily 
 Gender
-&\sphinxstyletheadfamily \begin{quote}
-
-Education
-\end{quote}
-
-level
-&\sphinxstyletheadfamily \begin{quote}
-
-Labor
-\end{quote}
-
-status
-&\sphinxstyletheadfamily \begin{equation*}
-\begin{split}f_{k}\end{split}
-\end{equation*}&\sphinxstyletheadfamily \begin{quote}
-
-SUDA
-\end{quote}
-
-score
-&\sphinxstyletheadfamily \begin{quote}
-
-DIS-
-\end{quote}
-
-SUDA
+&\sphinxstyletheadfamily 
+Education level
+&\sphinxstyletheadfamily 
+Labor status
+&\sphinxstyletheadfamily 
+f\_k
+&\sphinxstyletheadfamily 
+SUDA score
+&\sphinxstyletheadfamily 
+DIS-SUD
 \\
 \hline
 1
@@ -3285,8 +3439,7 @@ Urban
 &
 Female
 &
-Secondary
-incomplete
+Secondary incomplete
 &
 Employed
 &
@@ -3303,8 +3456,7 @@ Urban
 &
 Female
 &
-Secondary
-incomplete
+Secondary incomplete
 &
 Employed
 &
@@ -3321,8 +3473,7 @@ Urban
 &
 Female
 &
-Primary
-incomplete
+Primary incomplete
 &
 Non-LF
 &
@@ -3339,8 +3490,7 @@ Urban
 &
 Male
 &
-Secondary
-complete
+Secondary complete
 &
 Employed
 &
@@ -3357,8 +3507,7 @@ Rural
 &
 Female
 &
-Secondary
-complete
+Secondary complete
 &
 Unemployed
 &
@@ -3375,8 +3524,7 @@ Urban
 &
 Male
 &
-Secondary
-complete
+Secondary complete
 &
 Employed
 &
@@ -3393,8 +3541,7 @@ Urban
 &
 Female
 &
-Primary
-complete
+Primary complete
 &
 Non-LF
 &
@@ -3428,8 +3575,7 @@ Urban
 &
 Female
 &
-Secondary
-incomplete
+Secondary incomplete
 &
 Non-LF
 &
@@ -3446,8 +3592,7 @@ Urban
 &
 Female
 &
-Secondary
-incomplete
+Secondary incomplete
 &
 Non-LF
 &
@@ -3458,7 +3603,7 @@ Non-LF
 0.0000
 \\
 \hline
-\end{tabular}
+\end{tabulary}
 \par
 \sphinxattableend\end{savenotes}
 
@@ -3900,7 +4045,12 @@ are implementable in \sphinxstyleemphasis{R} by using the \sphinxstyleemphasis{s
 every method for what type of data the method is suitable, both in terms
 of data characteristics and type of data. Furthermore, options such as
 specific parameters for each method are discussed as well as their
-impacts. {\color{red}\bfseries{}{[}\#foot34{]}\_} These findings are meant as guidance but
+impacts. %
+\begin{footnote}[1]\sphinxAtStartFootnote
+We also show code examples in \sphinxstyleemphasis{R,} which are drawn from findings we
+gathered by applying these methods to a large collection of datasets.
+%
+\end{footnote} These findings are meant as guidance but
 should be used with caution, since every dataset has different
 characteristics and our findings may not always address your particular
 dataset. The last three sections of this chapter are on the
@@ -4186,9 +4336,9 @@ keys
 \sphinxstyleemphasis{Gender}
 &
 \sphinxstyleemphasis{Religion}
-&\begin{equation*}
-\begin{split}f_{k}\end{split}
-\end{equation*}\\
+&
+f\_k
+\\
 \hline
 1
 &
@@ -4314,9 +4464,9 @@ After recoding
 \sphinxstyleemphasis{Gender}
 &
 \sphinxstyleemphasis{Religion}
-&\begin{equation*}
-\begin{split}f_{k}\end{split}
-\end{equation*}\\
+&
+f\_k
+\\
 \hline
 1
 &
@@ -4597,7 +4747,13 @@ reduce the detail in continuous variables.
 groupVars()}
 
 Assume that an object of class \sphinxstyleemphasis{sdcMicro} was created, which is called
-“sdcInitial” {\color{red}\bfseries{}{[}\#foot35{]}\_} (see Section 7.5 how to create
+“sdcInitial” %
+\begin{footnote}[2]\sphinxAtStartFootnote
+Here the \sphinxstyleemphasis{sdcMicro} object “sdcIntial“ contains a dataset with 2,500
+individuals and 103 variables. We selected five quasi-identifiers:
+“sizeRes”, “age”, “gender”, “region”, and “ethnicity”.
+%
+\end{footnote} (see Section 7.5 how to create
 objects of class \sphinxstyleemphasis{sdcMicro}). In Example 5.1, the variable “sizeRes” has
 four different categories: ‘capital, large city’, ‘small city’, town’,
 and ‘countryside’). The first three are recoded or regrouped as ‘urban’
@@ -4643,7 +4799,7 @@ show respectively the frequency counts before and after recoding. We see
 that the number of categories has reduced from 4 to 2 and the small
 categories (‘small city’ and ‘town’) have disappeared.
 
-{\color{red}\bfseries{}\textbar{}Macintosh HD:Users:thijsbenschop:figure51.png\textbar{}}
+\noindent\sphinxincludegraphics[width=6.5in,height=3.25556in]{{image3}.png}
 
 Figure 5.1 Effect of recoding \textendash{} frequency counts before and after
 recoding
@@ -4678,8 +4834,7 @@ breaks = 10 * \sphinxstylestrong{c}(0:10))
 
 Figure 5.2 shows the effect of recoding the variable “age”.
 
-{\color{red}\bfseries{}\textbar{}Macintosh HD:Users:thijsbenschop:Onedrive:World
-Bank:Guidelines:Plots:figure52.png\textbar{}}
+\noindent\sphinxincludegraphics[width=6.5in,height=3.25556in]{{image4}.png}
 
 Figure 5.2 Age variable before and after recoding
 
@@ -4708,8 +4863,7 @@ breaks = \sphinxstylestrong{c}(0, 5, 11, 17, 21, 25, 49, 65, 100))
 \item[] \sphinxcode{\sphinxupquote{\#\#      192      317      332      134      142      808      350      185}}
 \end{DUlineblock}
 
-{\color{red}\bfseries{}\textbar{}Macintosh HD:Users:thijsbenschop:Onedrive:World
-Bank:Guidelines:Plots:figure53.png\textbar{}}
+\noindent\sphinxincludegraphics[width=6.5in,height=3.25556in]{{image5}.png}
 
 Figure 5.3 Age variable before and after recoding
 
@@ -4733,7 +4887,16 @@ intervals {[}0,14), {[}15, 65), {[}66, 100), we present two alternatives for
 global recoding:
 \begin{itemize}
 \item {} 
-A work-around for semi-continuous variables {\color{red}\bfseries{}{[}\#foot36{]}\_}
+A work-around for semi-continuous variables %
+\begin{footnote}[3]\sphinxAtStartFootnote
+This approach works only for semi-continuous variables, because in
+the case of continuous variables, there might be values that are
+between the lower interval boundary and the lower interval boundary
+minus the small number. For example, using this for income, we would
+have an interval (9999, 19999{]} and the value 9999.5 would be
+misclassified as belonging to the interval {[}10000, 19999{]}.
+%
+\end{footnote}
 that would allow for the globalRecode() to be used would be
 subtracting a small number from the boundary intervals, thus allowing
 the desired intervals to be created. In the following example,
@@ -4826,8 +4989,7 @@ the example, we consider this and code all age larger than 64.
 
 \end{itemize}
 
-{\color{red}\bfseries{}\textbar{}Macintosh HD:Users:thijsbenschop:Onedrive:World
-Bank:Guidelines:Plots:figure54.png\textbar{}}
+\noindent\sphinxincludegraphics[width=6.5in,height=3.25556in]{{image6}.png}
 
 Figure 5.4: Utilizing the frequency distribution of variable age to
 determine threshold for top coding
@@ -4984,7 +5146,12 @@ NA/miss
 ing
 \end{quote}
 
-{\color{red}\bfseries{}{[}\#foot38{]}\_}
+%
+\begin{footnote}[5]\sphinxAtStartFootnote
+In \sphinxstyleemphasis{R} suppressed values are recoded NA, the standard missing value
+code.
+%
+\end{footnote}
 \\
 \hline
 2
@@ -5112,7 +5279,13 @@ to achieve the required level of \(k\)-anonymity.
 
 In Example 5.7, local suppression is applied to achieve the
 \(k\)-anonymity threshold of 5 on the quasi-identifiers “gender”,
-“region”, “religion”, “age” and “ethnicity” {\color{red}\bfseries{}{[}\#foot39{]}\_}.
+“region”, “religion”, “age” and “ethnicity” %
+\begin{footnote}[6]\sphinxAtStartFootnote
+Here the \sphinxstyleemphasis{sdcMicro} object “sdcIntial“ contains a dataset with 2,500
+individuals and 103 variables. We selected five quasi-identifiers:
+“sizeRes”, “age”, “gender”, “region”, and “ethnicity”.
+%
+\end{footnote}.
 Without ranking the importance of the variables, the value of the
 variable “age” is more likely to be suppressed, since this is the
 variable with most categories. The variable “age” has 10 categories
@@ -5151,7 +5324,11 @@ of \(k\)-anonymity increases when specifying an importance vector,
 since the importance vector prevents to use the optimal suppression
 pattern. The importance vector should be specified only in cases where
 the variables with many categories play an important role in data
-utility for the data users {\color{red}\bfseries{}{[}\#foot40{]}\_}.
+utility for the data users %
+\begin{footnote}[7]\sphinxAtStartFootnote
+This can be assessed with utility measures.
+%
+\end{footnote}.
 
 Example 5.7: Application of local suppression with and without
 importance vector
@@ -5196,7 +5373,11 @@ the first (gender) and fourth (age) variables}
 
 Figure 5.5 demonstrates the effect of the required \(k\)-anonymity
 threshold and the importance vector on the data utility by using several
-labor market-related indicators from an I2D2 {\color{red}\bfseries{}{[}\#foot41{]}\_}
+labor market-related indicators from an I2D2 %
+\begin{footnote}[8]\sphinxAtStartFootnote
+I2D2 is a dataset with data related to the labor market.
+%
+\end{footnote}
 dataset before and after anonymization. Figure 5.5 displays the relative
 changes as a percentage of the initial value after re-computing the
 indicators with the data to which local suppression was applied. The
@@ -5223,8 +5404,7 @@ suppressed), high suppression rates on age distort the indicators. It is
 generally useful to compare utility measures (see Chapter 6) to specify
 the importance vector, since the effects can be unpredictable.
 
-{\color{red}\bfseries{}\textbar{}Macintosh HD:Users:thijsbenschop:Onedrive:World
-Bank:Guidelines:Plots:figure55.png\textbar{}}
+\noindent\sphinxincludegraphics[width=6.5in,height=3.25556in]{{image7}.png}
 
 Figure 5.5: Changes in labor market indicators after anonymization of
 I2D2 data
@@ -5262,34 +5442,34 @@ running time and total number of suppressions
 \begin{tabulary}{\linewidth}[t]{|T|T|T|T|T|T|}
 \hline
 \sphinxstyletheadfamily 
-\sphinxstylestrong{Thresho
-ld}
+Threshold
+ld
 
-\sphinxstylestrong{k-anony
-mity}
+k-anony
+mity
 &\sphinxstyletheadfamily 
-\sphinxstylestrong{Importa
+Importance
 nce
-vector}
+vector**
 &\sphinxstyletheadfamily 
-\sphinxstylestrong{Total
+Total
 number of
 suppressi
-ons}
+ons
 &\sphinxstyletheadfamily 
-\sphinxstylestrong{Number
+Number
 of
 suppressi
 ons
-age}
+age
 &\sphinxstyletheadfamily 
-\sphinxstylestrong{Global
+Global
 risk
-measure}
+measure
 &\sphinxstyletheadfamily 
-\sphinxstylestrong{Running
+Running
 time
-(hours)}
+(hours)
 \\
 \hline
 3
@@ -5471,11 +5651,11 @@ Table 5.6 Effect of the all-\sphinxstyleemphasis{m} approach on k-anonymity
 \begin{tabular}[t]{|*{7}{\X{1}{7}|}}
 \hline
 \sphinxstyletheadfamily 
-\sphinxstylestrong{Argum
-ents}
+Argumen
+ts
 &\sphinxstartmulticolumn{4}%
 \begin{varwidth}[t]{\sphinxcolwidth{4}{7}}
-\sphinxstyletheadfamily \sphinxstylestrong{Numbe
+\sphinxstyletheadfamily {\color{red}\bfseries{}**}Numbe
 r
 of
 violato
@@ -5490,22 +5670,22 @@ mity
 on
 complet
 e
-set}
+set
 \par
 \vskip-\baselineskip\vbox{\hbox{\strut}}\end{varwidth}%
 \sphinxstopmulticolumn
 &\sphinxstyletheadfamily 
-\sphinxstylestrong{Total
+Total
 number
 of
 suppres
-sions}
+sio ns
 &\sphinxstyletheadfamily 
-\sphinxstylestrong{Runni
-ng
+Running
+
 time
 (second
-s)}
+s)
 \\
 \hline
 \sphinxstyleemphasis{k}
@@ -6054,7 +6234,12 @@ respectively probability 0.05 and 0.15. If in the initial file we had
 5,000 individuals with value ‘capital’ and resp. 500 and 400 with values
 ‘rural1’ and ‘rural2’, we expect after applying PRAM to have 5,045
 individuals with capital, 460 with rural1 and 395 with
-rural2 {\color{red}\bfseries{}{[}\#foot42{]}\_}. The recoding is done independently for
+rural2 %
+\begin{footnote}[9]\sphinxAtStartFootnote
+The 5,045 is the expectation computed as 5,000 * 1 + 500 * 0.05 +
+400 * 0.05.
+%
+\end{footnote}. The recoding is done independently for
 each individual. We see that the tabulation of the variable “region”
 yields different results before and after PRAM, which are shown in Table
 5.8. The deviation from the expectation is due to the fact that PRAM is
@@ -6121,11 +6306,29 @@ cross-tabulations of variables (unlike univariate tabulations) stay the
 same.}
 
 In Example 5.12, we give an example of invariant PRAM using
-\sphinxstyleemphasis{sdcMicro}. {\color{red}\bfseries{}{[}\#foot44{]}\_} PRAM is a probabilistic method and the
+\sphinxstyleemphasis{sdcMicro}. %
+\begin{footnote}[11]\sphinxAtStartFootnote
+In this example and the following examples in this section, the
+\sphinxstyleemphasis{sdcMicro} object “sdcIntial“ contains a dataset with 2,000
+individuals and 39 variables. We selected five categorical
+quasi-identifiers and 9 variables for PRAM: “ROOF”, “TOILET”,
+“WATER”, “ELECTCON”, “FUELCOOK”, “OWNMOTORCYCLE”, “CAR”, “TV”, and
+“LIVESTOCK”. These PRAM variabels were selected according to the
+requirements of this particular dataset and for illustrative
+purposes.
+%
+\end{footnote} PRAM is a probabilistic method and the
 results can differ every time we apply PRAM to the same variables of a
 dataset. To overcome this and make the results reproducible, it is good
 practice to set a seed for the random number generator in \sphinxstyleemphasis{R}, so the
-same random numbers will be generated every time. {\color{red}\bfseries{}{[}\#foot45{]}\_}
+same random numbers will be generated every time. %
+\begin{footnote}[12]\sphinxAtStartFootnote
+The PRAM method in \sphinxstyleemphasis{sdcMicro} sometimes produces the following
+error: Error in factor(xpramed, labels = lev) : invalid ‘labels’;
+length 6 should be 1 or 5. Under some circumstances, changing the
+seed can solve this error.
+%
+\end{footnote}
 The number of changed records per variable is also shown.
 
 Example 5.12: Producing reproducible PRAM results by using set.seed()
@@ -6216,7 +6419,17 @@ higher than the share of females (about 60\%). This property is not
 maintained after invariant PRAM (the shares of males and females in the
 city are roughly equal), although the univariate tabulations are
 maintained. One solution is to apply PRAM separately for the males and
-females in this example {\color{red}\bfseries{}{[}\#foot46{]}\_}. This can be done by
+females in this example %
+\begin{footnote}[13]\sphinxAtStartFootnote
+This can also be achieved with multidimensional transition matrices.
+In that case, the probability is not specified for ‘male’ -\textgreater{}
+‘female’, but for ‘male’ + ‘rural’ -\textgreater{} ‘female’ + ‘rural’ and for
+‘male’ + ‘urban’ -\textgreater{} ‘female’ + ‘urban’. This is not implemented in
+sdcMicro but can be achieved by PRAMming the males and females
+separately. In the example here, this could be done by specifying
+gender as strata variable in the pram() function in \sphinxstyleemphasis{sdcMicro}.
+%
+\end{footnote}. This can be done by
 specifying the strata argument in the pram() function in \sphinxstyleemphasis{sdcMicro} (see
 below).
 
@@ -6243,15 +6456,15 @@ PRAM
 \sphinxstopmulticolumn
 \\
 \hline
-\sphinxstylestrong{Value}
+Value
 &
-\sphinxstylestrong{male}
+male
 &
-\sphinxstylestrong{female}
+female
 &
-\sphinxstylestrong{male}
+male
 &
-\sphinxstylestrong{female}
+female
 \\
 \hline
 capital
@@ -6452,11 +6665,17 @@ groups of size \(n_{i}\) for all groups \(i\) in
 \(1,\ \ldots,\ g\). This maximizes the within-group homogeneity,
 which is measured by the within-groups sum of squares (SSE)
 \begin{equation*}
-\begin{split}\text{SSE} = \sum_{i = 1}^{g}{\sum_{j = 1}^{n_{i}}{\left( x_{\text{ij}} - {\overline{x}}_{i} \right)^{T}\left( x_{\text{ij}} - {\overline{x}}_{i} \right)}}\\end{split}
+\begin{split}SSE = \sum_{i = 1}^{g}{\sum_{j = 1}^{n_{i}}{\left( x_{ij} - {\overline{x}}_{i} \right)^{T}\left( x_{ij} - {\overline{x}}_{i} \right)}}\end{split}
 \end{equation*}
 The lower the SSE, the higher the within-group homogeneity. The group
 sizes can differ amongst groups, but often groups of equal size are used
-to simplify the search {\color{red}\bfseries{}{[}\#foot48{]}\_}.
+to simplify the search %
+\begin{footnote}[15]\sphinxAtStartFootnote
+Here all groups can have different sizes (i.e., number of
+individuals in a group). In practice, the search for homogeneous
+groups is simplified by imposing equal group sizes for all groups.
+%
+\end{footnote}.
 
 The function microaggregation() in \sphinxstyleemphasis{sdcMicro} can be used for univariate
 microaggregation. The argument ‘aggr’ specifies the group size. Forming
@@ -6464,7 +6683,15 @@ groups is easier if all groups \textendash{} except maybe the last group of
 remainders \textendash{} have the same size. This is the case in the implementation
 in \sphinxstyleemphasis{sdcMicro} as it is not possible to have groups of different sizes.
 Example 5.16 shows how to use the function microaggregation() in
-\sphinxstyleemphasis{sdcMicro}. {\color{red}\bfseries{}{[}\#foot49{]}\_} The default group size is 3 but the
+\sphinxstyleemphasis{sdcMicro}. %
+\begin{footnote}[16]\sphinxAtStartFootnote
+In this example and the following examples in this section, the
+\sphinxstyleemphasis{sdcMicro} object “sdcIntial“ contains a dataset with 2,000
+individuals and 39 variables. We selected five categorical
+quasi-identifiers and three continuous quasi-identifiers: “INC”,
+“EXP” and “WEALTH”.
+%
+\end{footnote} The default group size is 3 but the
 user can specify any desired group size. Choice of group size depends on
 the homogeneity within the groups and the required level of protection.
 In general it holds that the larger the group, the higher the
@@ -6815,7 +7042,14 @@ sdcInitial \textless{}- \sphinxstylestrong{microaggregation}(obj = sdcInitial, v
 
 It is also possible to group variables only within strata. This reduces
 the computation time and adds an extra layer of protection to the data,
-because of the greater uncertainty produced {\color{red}\bfseries{}{[}\#foot50{]}\_}. In
+because of the greater uncertainty produced %
+\begin{footnote}[17]\sphinxAtStartFootnote
+Also the homogeneity in the groups will be generally lower, leading
+to larger changes, higher protection, but also more information loss,
+unless the strata variable correlates with the microaggregation
+variable.
+%
+\end{footnote}. In
 \sphinxstyleemphasis{sdcMicro} this can be achieved by specifying the strata variables, as
 shown in Example 5.18.
 
@@ -6970,14 +7204,14 @@ not preserved and the information loss is large, which is not an ideal
 situation. One way to circumvent the outlier problem is to add noise of
 larger magnitude to outliers than to the other values.
 
-{\color{red}\bfseries{}\textbar{}figure56\textbar{}}
+\noindent\sphinxincludegraphics[width=6.48958in,height=3.23958in]{{image8}.png}
 
 Figure 5.6: Illustration of effect of noise addition to outliers
 
 There are several noise addition algorithms. The simplest version of
 noise addition is uncorrelated additive normally distributed noise,
 where \(x_{j}\), the original values of variable
-\(\text{j\ }\)are replaced by
+\(j\)are replaced by
 
 \(z_{j} = x_{j} + \varepsilon_{j}\),
 
@@ -6998,7 +7232,14 @@ the legal situation regarding data privacy, data sensitivity and the
 acceptable levels of disclosure risk and information loss. In general,
 the level of noise is a function of the variance of the original
 variables, the level of protection needed and the desired value range
-after anonymization {\color{red}\bfseries{}{[}\#foot51{]}\_}. An \(\alpha\) value that
+after anonymization %
+\begin{footnote}[18]\sphinxAtStartFootnote
+Common values for \(\alpha\) are between 0.5 and 2. The default
+value in the \sphinxstyleemphasis{sdcMicro} function addNoise() is 150, which is too
+large for most datasets; the level of noise should be set in the
+argument ‘noise’.
+%
+\end{footnote}. An \(\alpha\) value that
 is too small will lead to insufficient protection, while an
 \(\alpha\) value that is too high will make the data useless for
 data users.
@@ -7010,7 +7251,17 @@ function addNoise() with the value “additive” for the argument ‘method’.
 Example 5.19 shows how to use \sphinxstyleemphasis{sdcMicro} to add uncorrelated noise to
 expenditure variables, where the standard deviation of the added noise
 equals half the standard deviation of the original
-variables. {\color{red}\bfseries{}{[}\#foot52{]}\_} Noise is added to all selected
+variables. %
+\begin{footnote}[19]\sphinxAtStartFootnote
+In this example and the following examples in this section, the
+\sphinxstyleemphasis{sdcMicro} object “sdcIntial“ contains a dataset with 2,000
+individuals and 39 variables. We selected five categorical
+quasi-identifiers and 12 continuous quasi-identifiers. These are the
+expenditure components “TFOODEXP”, “TALCHEXP”, “TCLTHEXP”,
+“THOUSEXP”, “TFURNEXP”, “THLTHEXP”, “TTRANSEXP”, “TCOMMEXP”,
+“TRECEXP”, “TEDUEXP”, “TRESTHOTEXP”, “TMISCEXP“.
+%
+\end{footnote} Noise is added to all selected
 variables.
 
 Example 5.19: Uncorrelated noise addition
@@ -7083,7 +7334,7 @@ data. In this case, the covariance matrix of noise
 \(\Sigma_{\varepsilon}\ \)is proportional to the covariance matrix
 of the original data \(\Sigma_{X}:\)
 \begin{equation*}
-\begin{split}\Sigma_{\varepsilon} = \text{αΣ}_{X}\end{split}
+\begin{split}\Sigma_{\varepsilon} = \alpha \Sigma_{X}\end{split}
 \end{equation*}
 In the addNoise() function of the \sphinxstyleemphasis{sdcMicro} package, correlated noise
 addition can be used by specifying the methods ‘correlated’ or
@@ -7092,7 +7343,14 @@ approximately normally distributed. The method ‘correlated2’ is a
 version of the method ‘correlated’, which is robust against the
 normality assumption. Example 5.20 shows how to use the ‘correlated2’
 method. The normality of variables can be investigated in \sphinxstyleemphasis{R}, with, for
-instance, a Jarque-Bera or Shapiro-Wilk test {\color{red}\bfseries{}{[}\#foot53{]}\_}.
+instance, a Jarque-Bera or Shapiro-Wilk test %
+\begin{footnote}[20]\sphinxAtStartFootnote
+The Shapiro-Wilk test is implemented in the function shapiro.test()
+from the package \sphinxstyleemphasis{stats} in \sphinxstyleemphasis{R}. The Jarque-Bera test has several
+implementations in \sphinxstyleemphasis{R}, for example, in the function
+jarque.bera.test() from the package \sphinxstyleemphasis{tseries}.
+%
+\end{footnote}.
 
 Example 5.20: Correlated noise addition
 
@@ -7460,7 +7718,14 @@ values}
 \sphinxattableend\end{savenotes}
 
 The method ‘ds’ (the default method of data shuffling in \sphinxstyleemphasis{sdcMicro}) is
-recommended for use (Templ et al., 2014) {\color{red}\bfseries{}{[}\#foot54{]}\_}. A
+recommended for use (Templ et al., 2014) %
+\begin{footnote}[21]\sphinxAtStartFootnote
+In \sphinxstyleemphasis{sdcMicro}, there are several other methods for shuffling
+implemented, including ‘ds’, ‘mvn’ and ‘mlm’. See the Help option for
+the shuffle function in \sphinxstyleemphasis{sdcMicro} for details on methods ‘ds’, ‘mvm’
+and ‘mlm’.
+%
+\end{footnote}. A
 regression function with regressors for the variables to be protected
 must be specified in the argument ‘form’. At least two regressands
 should be specified and the regressors should have predictive power for
@@ -7552,7 +7817,14 @@ information for public release.”
 \section{Anonymization of the quasi-identifier household size}
 \label{\detokenize{anon_methods:anonymization-of-the-quasi-identifier-household-size}}
 The size of a household is an important identifier, especially for large
-households. {\color{red}\bfseries{}{[}\#foot55{]}\_}  Suppression of the actual size
+households. %
+\begin{footnote}[22]\sphinxAtStartFootnote
+Even if the dataset does not contain an explicit variable with
+household size, this information can be easily extracted from the
+data and should be taken into account. Section 7.6 shows how to
+create a variable “household size” based on the household IDs.
+%
+\end{footnote}  Suppression of the actual size
 variable, if available (e.g., number of household members), however,
 does not suffice to remove this information from the dataset, as a
 simple count of the household members for a particular household will
@@ -7594,7 +7866,13 @@ a limited set of variables. 2) Two scientific use files with 5\% samples
 are available for registered researchers who accept the terms and
 conditions of their use. 3) Two 10\% samples are available in controlled
 research data centers for approved researchers and research goals. All
-these files have been anonymized prior to release. {\color{red}\bfseries{}{[}\#foot56{]}\_}
+these files have been anonymized prior to release. %
+\begin{footnote}[23]\sphinxAtStartFootnote
+More information on census microdata at ONS is available on their
+website:
+\sphinxurl{http://www.ons.gov.uk/ons/guide-method/census/2011/census-data/census-microdata/index.html}
+%
+\end{footnote}
 \begin{itemize}
 \item {} 
 The U.S. Census Bureau released two samples of the 2000 census: a 5\%
@@ -7646,7 +7924,16 @@ structure and does not need a detailed geographical structure).
 Nevertheless, as pointed out earlier, only one anonymized dataset can be
 released for each dataset and every type of release to avoid unintended
 disclosure. Releasing multiple anonymized datasets for different
-purposes may lead to unintended disclosure. {\color{red}\bfseries{}{[}\#foot58{]}\_}
+purposes may lead to unintended disclosure. %
+\begin{footnote}[1]\sphinxAtStartFootnote
+It is possible to release data files for different groups of users,
+e.g., PUF and SUF. All information in the less detailed file,
+however, must also be included in the more detailed file to prevent
+unintended disclosure. Datasets released in data enclaves can be
+customized for the user, since the risk that they will be combined
+with other version is zero.
+%
+\end{footnote}
 Therefore, it is not possible to anonymize and release a file tailored
 to each user’s needs.
 
@@ -7679,8 +7966,7 @@ methods with different parameter specifications. We would select the SDC
 method corresponding to the point, which maximizes the utility, while
 keeping disclosure risk at an acceptable level.
 
-{\color{red}\bfseries{}\textbar{}Macintosh HD:Users:thijsbenschop:Onedrive:World
-Bank:Guidelines:Plots:figure61.png\textbar{}}
+\noindent\sphinxincludegraphics[width=6.5in,height=3.25556in]{{image11}.png}
 
 Figure 6.1: The trade-off between risk and utility in a hypothetical
 dataset
@@ -7721,20 +8007,20 @@ relative number of suppressions.
 Example 6.1: Using the print() function to retrieve the total number of
 suppressions for each categorical key variable
 
-sdcInitial \textless{}- \sphinxstylestrong{localSuppression}(sdcInitial, k = 5, importance =
-NULL)
+\fvset{hllines={, ,}}%
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+sdcInitial \PYG{o}{\PYGZlt{}\PYGZhy{}} localSuppression\PYG{p}{(}sdcInitial\PYG{p}{,} k \PYG{o}{=} \PYG{l+m}{5}\PYG{p}{,} importance \PYG{o}{=} \PYG{k+kc}{NULL}\PYG{p}{)}
 
-\sphinxstylestrong{print}(sdcInitial, ‘ls’)
+\PYG{k+kp}{print}\PYG{p}{(}sdcInitial\PYG{p}{,} \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{ls\PYGZsq{}}\PYG{p}{)}
 
-\begin{DUlineblock}{0em}
-\item[] \sphinxcode{\sphinxupquote{\#\# Local Suppression:}}
-\item[] \sphinxcode{\sphinxupquote{\#\#}}{\color{red}\bfseries{}{}`{}`}\sphinxcode{\sphinxupquote{\textbackslash{} {}`{}`KeyVar \textbar{} Suppressions (\#) \textbar{} Suppressions (\%)}}
-\item[] \sphinxcode{\sphinxupquote{\#\#   URBRUR \textbar{}                0 \textbar{}            0.000}}
-\item[] \sphinxcode{\sphinxupquote{\#\#   REGION \textbar{}               81 \textbar{}            4.050}}
-\item[] \sphinxcode{\sphinxupquote{\#\#    RELIG \textbar{}                0 \textbar{}            0.000}}
-\item[] \sphinxcode{\sphinxupquote{\#\#  MARITAL \textbar{}                0 \textbar{}            0.000}}
-\item[] \sphinxcode{\sphinxupquote{\#\# -{-}-{-}-{-}-{-}-{-}-{-}-{-}-{-}-{-}-{-}-{-}-{-}-{-}-{-}-{-}-{-}-{-}-{-}-{-}-{-}-{-}-{-}-{-}-{-}-{-}-{-}-{-}-{-}-{-}-{-}-{-}-{-}-{-}-{-}-{-}-{-}-{-}-}}
-\end{DUlineblock}
+\PYG{c+c1}{\PYGZsh{}\PYGZsh{} Local Suppression:}
+\PYG{c+c1}{\PYGZsh{}\PYGZsh{} KeyVar \textbar{} Suppressions (\PYGZsh{}) \textbar{} Suppressions (\PYGZpc{})}
+\PYG{c+c1}{\PYGZsh{}\PYGZsh{}   URBRUR \textbar{}                0 \textbar{}            0.000}
+\PYG{c+c1}{\PYGZsh{}\PYGZsh{}   REGION \textbar{}               81 \textbar{}            4.050}
+\PYG{c+c1}{\PYGZsh{}\PYGZsh{}    RELIG \textbar{}                0 \textbar{}            0.000}
+\PYG{c+c1}{\PYGZsh{}\PYGZsh{}  MARITAL \textbar{}                0 \textbar{}            0.000}
+\PYG{c+c1}{\PYGZsh{}\PYGZsh{} \PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}}
+\end{sphinxVerbatim}
 
 More generally, it is possible to count and compare the number of
 missing values in the original data and the treated data. This can be
@@ -7752,43 +8038,38 @@ original data.
 Example 6.2: Displaying the number of missing values for each
 categorical key variable in an \sphinxstyleemphasis{sdcMicro} object
 
-\begin{DUlineblock}{0em}
-\item[] \sphinxstyleemphasis{\# Store the names of all categorical key variables in a vector}
-\item[] namesKeyVars \textless{}- \sphinxstylestrong{names}(\sphinxhref{mailto:sdcInitial@manipKeyVars}{sdcInitial@manipKeyVars})
-\end{DUlineblock}
+\fvset{hllines={, ,}}%
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{o}{\textbar{}} \PYG{o}{*}\PYG{c+c1}{\PYGZsh{} Store the names of all categorical key variables in a vector*}
+\PYG{o}{\textbar{}} namesKeyVars \PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{o}{*}\PYG{o}{*}\PYG{k+kp}{names}\PYG{o}{*}\PYG{o}{*}\PYGZbs{} \PYG{p}{(}sdcInitial\PYG{o}{@}manipKeyVars\PYG{p}{)}
 
-\begin{DUlineblock}{0em}
-\item[] \sphinxstyleemphasis{\# Matrix to store the number of missing values (NA) before and after
-anonymization}
-\item[] NAcount \textless{}- \sphinxstylestrong{matrix}(NA, nrow = 2, ncol =
-\sphinxstylestrong{length}(namesKeyVars))
-\end{DUlineblock}
+\PYG{o}{\textbar{}} \PYG{o}{*}\PYG{c+c1}{\PYGZsh{} Matrix to store the number of missing values (NA) before and after}
+  anonymization\PYG{o}{*}
+\PYG{o}{\textbar{}} NAcount \PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{o}{*}\PYG{o}{*}\PYG{k+kt}{matrix}\PYG{o}{*}\PYG{o}{*}\PYGZbs{} \PYG{p}{(}\PYG{k+kc}{NA}\PYG{p}{,} nrow \PYG{o}{=} \PYG{l+m}{2}\PYG{p}{,} ncol \PYG{o}{=}
+  \PYG{o}{*}\PYG{o}{*}\PYG{k+kp}{length}\PYG{o}{*}\PYG{o}{*}\PYGZbs{} \PYG{p}{(}namesKeyVars\PYG{p}{)}\PYG{p}{)}
 
-\sphinxstylestrong{colnames}(NAcount) \textless{}- \sphinxstylestrong{c}(\sphinxstylestrong{paste0}(‘NA’, namesKeyVars)) \sphinxstyleemphasis{\#
-column names}
+\PYG{o}{*}\PYG{o}{*}\PYG{k+kp}{colnames}\PYG{o}{*}\PYG{o}{*}\PYGZbs{} \PYG{p}{(}NAcount\PYG{p}{)} \PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{o}{*}\PYG{o}{*}\PYG{k+kt}{c}\PYG{o}{*}\PYG{o}{*}\PYGZbs{} \PYG{p}{(}\PYG{o}{*}\PYG{o}{*}\PYG{k+kp}{paste0}\PYG{o}{*}\PYG{o}{*}\PYGZbs{} \PYG{p}{(}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{NA\PYGZsq{}}\PYG{p}{,} namesKeyVars\PYG{p}{)}\PYG{p}{)} \PYG{o}{*}\PYG{c+c1}{\PYGZsh{}}
+column \PYG{k+kp}{names}\PYG{o}{*}
 
-\sphinxstylestrong{rownames}(NAcount) \textless{}- \sphinxstylestrong{c}(‘initial’, ‘treated’) \sphinxstyleemphasis{\# row names}
+\PYG{o}{*}\PYG{o}{*}\PYG{k+kp}{rownames}\PYG{o}{*}\PYG{o}{*}\PYGZbs{} \PYG{p}{(}NAcount\PYG{p}{)} \PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{o}{*}\PYG{o}{*}\PYG{k+kt}{c}\PYG{o}{*}\PYG{o}{*}\PYGZbs{} \PYG{p}{(}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{initial\PYGZsq{}}\PYG{p}{,} \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{treated\PYGZsq{}}\PYG{p}{)} \PYG{o}{*}\PYG{c+c1}{\PYGZsh{} row names*}
 
-\begin{DUlineblock}{0em}
-\item[] \sphinxstyleemphasis{\# NA count in all key variables (NOTE: only those coded NA are
-counted)}
-\item[] for(i in 1:\sphinxstylestrong{length}(namesKeyVars))
-\item[] \{
-\item[] NAcount{[}1, i{]} \textless{}-
-\sphinxstylestrong{sum}(\sphinxstylestrong{is.na}(sdcInitial@origData{[},namesKeyVars{[}i{]}{]}))
-\item[] NAcount{[}2, i{]} \textless{}- \sphinxstylestrong{sum}(\sphinxstylestrong{is.na}(sdcInitial@manipKeyVars{[},i{]}))
-\item[] \}
-\end{DUlineblock}
+\PYG{o}{\textbar{}} \PYG{o}{*}\PYG{c+c1}{\PYGZsh{} NA count in all key variables (NOTE: only those coded NA are}
+  counted\PYG{p}{)}\PYG{o}{*}
+\PYG{o}{\textbar{}} \PYG{k+kr}{for}\PYG{p}{(}i \PYG{k+kr}{in} \PYG{l+m}{1}\PYG{o}{:}\PYGZbs{} \PYG{o}{*}\PYG{o}{*}\PYG{k+kp}{length}\PYG{o}{*}\PYG{o}{*}\PYGZbs{} \PYG{p}{(}namesKeyVars\PYG{p}{)}\PYG{p}{)}
+\PYG{o}{\textbar{}} \PYG{p}{\PYGZob{}}
+\PYG{o}{\textbar{}} NAcount\PYG{p}{[}\PYG{l+m}{1}\PYG{p}{,} i\PYG{p}{]} \PYG{o}{\PYGZlt{}\PYGZhy{}}
+  \PYG{o}{*}\PYG{o}{*}\PYG{k+kp}{sum}\PYG{o}{*}\PYG{o}{*}\PYGZbs{} \PYG{p}{(}\PYG{o}{*}\PYG{o}{*}\PYG{k+kp}{is.na}\PYG{o}{*}\PYG{o}{*}\PYGZbs{} \PYG{p}{(}sdcInitial\PYG{o}{@}origData\PYG{p}{[}\PYG{p}{,}namesKeyVars\PYG{p}{[}i\PYG{p}{]]}\PYG{p}{)}\PYG{p}{)}
+\PYG{o}{\textbar{}} NAcount\PYG{p}{[}\PYG{l+m}{2}\PYG{p}{,} i\PYG{p}{]} \PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{o}{*}\PYG{o}{*}\PYG{k+kp}{sum}\PYG{o}{*}\PYG{o}{*}\PYGZbs{} \PYG{p}{(}\PYG{o}{*}\PYG{o}{*}\PYG{k+kp}{is.na}\PYG{o}{*}\PYG{o}{*}\PYGZbs{} \PYG{p}{(}sdcInitial\PYG{o}{@}manipKeyVars\PYG{p}{[}\PYG{p}{,}i\PYG{p}{]}\PYG{p}{)}\PYG{p}{)}
+\PYG{o}{\textbar{}} \PYG{p}{\PYGZcb{}}
 
-\sphinxstyleemphasis{\# Show results}
+\PYG{o}{*}\PYG{c+c1}{\PYGZsh{} Show results*}
 
 NAcount
 
-\begin{DUlineblock}{0em}
-\item[] \sphinxcode{\sphinxupquote{\#\#         NAURBRUR NAREGION NARELIG NAMARITAL}}
-\item[] \sphinxcode{\sphinxupquote{\#\# initial        0        0    1000        51}}
-\item[] \sphinxcode{\sphinxupquote{\#\# treated        0       81    1000        51}}
-\end{DUlineblock}
+\PYG{o}{\textbar{}} \PYG{l+s+sb}{{}`{}`}\PYG{c+c1}{\PYGZsh{}\PYGZsh{}         NAURBRUR NAREGION NARELIG NAMARITAL{}`{}`}
+\PYG{o}{\textbar{}} \PYG{l+s+sb}{{}`{}`}\PYG{c+c1}{\PYGZsh{}\PYGZsh{} initial        0        0    1000        51{}`{}`}
+\PYG{o}{\textbar{}} \PYG{l+s+sb}{{}`{}`}\PYG{c+c1}{\PYGZsh{}\PYGZsh{} treated        0       81    1000        51{}`{}`}
+\end{sphinxVerbatim}
 
 
 \subsubsection{Number of records changed}
@@ -7802,37 +8083,31 @@ compute the number of records changed for the PRAMmed variables.
 
 Example 6.3: Computing number of records changed per variable
 
-\begin{DUlineblock}{0em}
-\item[] \sphinxstyleemphasis{\# Store the names of all pram variables in a vector}
-\item[] namesPramVars \textless{}- \sphinxstylestrong{names}(\sphinxhref{mailto:sdcInitial@manipPramVars}{sdcInitial@manipPramVars})
-\item[] \sphinxstyleemphasis{\# Dataframe to save the number of records changed}
-\item[] recChanged \textless{}- \sphinxstylestrong{rep}(0, \sphinxstylestrong{length}(namesPramVars))
-\item[] \sphinxstylestrong{names}(recChanged) \textless{}- \sphinxstylestrong{c}(\sphinxstylestrong{paste0}(‘RC’, namesPramVars))
-\item[] \sphinxstyleemphasis{\# Count number of records changed}
-\item[] for(j in 1:\sphinxstylestrong{length}(namesPramVars)) \sphinxstyleemphasis{\# for all key variables}
-\item[] \{
-\item[] comp \textless{}- sdcInitial@origData{[}namesPramVars{[}j{]}{]} !=
-sdcInitial@manipPramVars{[}namesPramVars{[}j{]}{]}
-\item[] temp1 \textless{}- \sphinxstylestrong{sum}(comp, na.rm = TRUE) \sphinxstyleemphasis{\# all changed variables
-without NAs}
-\item[] temp2 \textless{}- \sphinxstylestrong{sum}(\sphinxstylestrong{is.na}(comp)) \sphinxstyleemphasis{\# if NA, changed, unless NA
-initially}
-\item[] temp3 \textless{}- \sphinxstylestrong{sum}(\sphinxstylestrong{is.na}(sdcInitial@origData{[}namesPramVars{[}j{]}{]})
-+ \sphinxstylestrong{is.na}(sdcInitial@manipPramVars{[}namesPramVars{[}j{]}{]})==2) \sphinxstyleemphasis{\# both
-NA, no change, but counted in temp2}
-\item[] recChanged{[}j{]} \textless{}- temp1 + temp2 - temp3
-\item[] \}
-\end{DUlineblock}
+\fvset{hllines={, ,}}%
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{\PYGZsh{} Store the names of all pram variables in a vector}
+namesPramVars \PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{o}{*}\PYG{o}{*}\PYG{k+kp}{names}\PYG{o}{*}\PYG{o}{*}\PYGZbs{} \PYG{p}{(}sdcInitial\PYG{o}{@}manipPramVars\PYG{p}{)}
+\PYG{c+c1}{\PYGZsh{} Dataframe to save the number of records changed}
+recChanged \PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{o}{*}\PYG{o}{*}\PYG{k+kp}{rep}\PYG{o}{*}\PYG{o}{*}\PYGZbs{} \PYG{p}{(}\PYG{l+m}{0}\PYG{p}{,} \PYG{o}{*}\PYG{o}{*}\PYG{k+kp}{length}\PYG{o}{*}\PYG{o}{*}\PYGZbs{} \PYG{p}{(}namesPramVars\PYG{p}{)}\PYG{p}{)}
+\PYG{k+kp}{names}\PYG{p}{(}recChanged\PYG{p}{)} \PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{k+kt}{c}\PYG{p}{(}\PYG{k+kp}{paste0}\PYG{p}{(}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{RC\PYGZsq{}}\PYG{p}{,} namesPramVars\PYG{p}{)}\PYG{p}{)}
+\PYG{c+c1}{\PYGZsh{} Count number of records changed*}
+\PYG{k+kr}{for}\PYG{p}{(}j \PYG{k+kr}{in} \PYG{l+m}{1}\PYG{o}{:}\PYG{k+kp}{length}\PYG{p}{(}namesPramVars\PYG{p}{)}\PYG{p}{)} \PYG{c+c1}{\PYGZsh{} for all key variables}
+\PYG{p}{\PYGZob{}}
+comp \PYG{o}{\PYGZlt{}\PYGZhy{}} sdcInitial\PYG{o}{@}origData\PYG{p}{[}namesPramVars\PYG{p}{[}j\PYG{p}{]]} \PYG{o}{!=} sdcInitial\PYG{o}{@}manipPramVars\PYG{p}{[}namesPramVars\PYG{p}{[}j\PYG{p}{]]}
+temp1 \PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{k+kp}{sum}\PYG{p}{(}comp\PYG{p}{,} na.rm \PYG{o}{=} \PYG{k+kc}{TRUE}\PYG{p}{)} \PYG{c+c1}{\PYGZsh{} all changed variables without NAs}
+temp2 \PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{k+kp}{sum}\PYG{p}{(}\PYG{k+kp}{is.na}\PYG{p}{(}comp\PYG{p}{)}\PYG{p}{)} \PYG{c+c1}{\PYGZsh{} if NA, changed, unless NA initially}
+temp3 \PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{k+kp}{sum}\PYG{p}{(}\PYG{k+kp}{is.na}\PYG{p}{(}sdcInitial\PYG{o}{@}origData\PYG{p}{[}namesPramVars\PYG{p}{[}j\PYG{p}{]]}\PYG{p}{)}
+\PYG{o}{+} \PYG{o}{*}\PYG{o}{*}\PYG{k+kp}{is.na}\PYG{o}{*}\PYG{o}{*}\PYGZbs{} \PYG{p}{(}sdcInitial\PYG{o}{@}manipPramVars\PYG{p}{[}namesPramVars\PYG{p}{[}j\PYG{p}{]]}\PYG{p}{)}\PYG{o}{==}\PYG{l+m}{2}\PYG{p}{)}
+\PYG{c+c1}{\PYGZsh{} both NA, no change, but counted in temp2}
+recChanged\PYG{p}{[}j\PYG{p}{]} \PYG{o}{\PYGZlt{}\PYGZhy{}} temp1 \PYG{o}{+} temp2 \PYG{o}{\PYGZhy{}} temp3
+\PYG{p}{\PYGZcb{}}
 
-\begin{DUlineblock}{0em}
-\item[] \sphinxstyleemphasis{\# Show results}
-\item[] recChanged
-\end{DUlineblock}
+\PYG{c+c1}{\PYGZsh{} Show results}
+recChanged
 
-\begin{DUlineblock}{0em}
-\item[] \sphinxcode{\sphinxupquote{\#\#  RCWATER   RCROOF RCTOILET}}
-\item[] \sphinxcode{\sphinxupquote{\#\#      125       86      180}}
-\end{DUlineblock}
+    \PYG{c+c1}{\PYGZsh{}\PYGZsh{}  RCWATER   RCROOF RCTOILET}
+    \PYG{c+c1}{\PYGZsh{}\PYGZsh{}      125       86      180}
+\end{sphinxVerbatim}
 
 
 \subsubsection{Comparing contingency tables}
@@ -8181,7 +8456,7 @@ coefficient. We regress the log income on a constant, a gender dummy,
 years of education, years of experience, years of experience squared and
 other factors influencing wage.
 \begin{equation*}
-\begin{split}\ln\left( \text{wage} \right) = \beta_{0} + \beta_{1}gender + \beta_{2}education + \beta_{3}experience + \beta_{3}\text{experience}^{2} + \text{βX}\end{split}
+\begin{split}\ln\left( \text{wage} \right) = \beta_{0} + \beta_{1}gender + \beta_{2}education + \beta_{3}experience + \beta_{3}\text{experience}^{2} + \beta X\end{split}
 \end{equation*}
 The parameter of interest here is \(\beta_{1}\), the effect of
 gender on the log wage. X is a matrix with several other factors
@@ -8380,11 +8655,11 @@ Example 6.11: Plotting histograms and kernel densities
 xlab = “income”)
 \end{DUlineblock}
 
-{\color{red}\bfseries{}\textbar{}figure63\textbar{}}
+\noindent\sphinxincludegraphics[width=6.48958in,height=3.23958in]{{image13}.png}
 
 Figure 6.3: Histograms of income before and after anonymization
 
-{\color{red}\bfseries{}\textbar{}figure64\textbar{}}
+\noindent\sphinxincludegraphics[width=6.48958in,height=3.23958in]{{image14}.png}
 
 Figure 6.4: Density plots of income before and after anonymization
 
@@ -8459,7 +8734,7 @@ levels = \sphinxstylestrong{c}(1, 2, 3, 4, 5, 6, 7, 8, 9),
 \item[] \sphinxstylestrong{mosaicplot}(dataWater, main = “”, color = 2:10, las = 2)
 \end{DUlineblock}
 
-{\color{red}\bfseries{}\textbar{}figure67\textbar{}}
+\noindent\sphinxincludegraphics[width=6.48958in,height=3.23958in]{{image16}.png}
 
 Figure 6.6: Mosaic plot to illustrate the changes in the WATER variable
 
@@ -8569,8 +8844,7 @@ and occupation variables
 \par
 \sphinxattableend\end{savenotes}
 
-{\color{red}\bfseries{}\textbar{}Macintosh HD:Users:thijsbenschop:Onedrive:World
-Bank:Guidelines:Plots:figure62.png\textbar{}}
+\noindent\sphinxincludegraphics[width=6.5in,height=3.25556in]{{image17}.png}
 
 Figure 6.7: Comparison of treated vs. untreated gender and relationship
 status variables with mosaic plots
@@ -8612,14 +8886,12 @@ Example 6.14: Creating multivariate mosaic plots
 \item[] \sphinxstylestrong{mosaicplot}(ROOFTOILETafter, main = “”, las = 2, color = 2:6)
 \end{DUlineblock}
 
-{\color{red}\bfseries{}\textbar{}Macintosh HD:Users:thijsbenschop:Onedrive:World
-Bank:Guidelines:Plots:figure68.png\textbar{}}
+\noindent\sphinxincludegraphics[width=6.5in,height=3.25in]{{image18}.png}
 
 Figure 6.8: Mosaic plot of the variables ROOF and TOILET before
 anonymization
 
-{\color{red}\bfseries{}\textbar{}Macintosh HD:Users:thijsbenschop:Onedrive:World
-Bank:Guidelines:Plots:figure69.png\textbar{}}
+\noindent\sphinxincludegraphics[width=6.5in,height=3.25in]{{image19}.png}
 
 Figure 6.9: Mosaic plot of the variables ROOF and TOILET after
 anonymization
@@ -8665,7 +8937,7 @@ Agencies}, 91-110, Amsterdam.
 
 
 \chapter{SDC with \sphinxstyleemphasis{sdcMicro} in \sphinxstyleemphasis{R}: Setting Up Your Data and more}
-\label{\detokenize{sdcMicro:sdc-with-sdcmicro-in-r-setting-up-your-data-and-more}}\label{\detokenize{sdcMicro::doc}}
+\label{\detokenize{sdcMicro::doc}}\label{\detokenize{sdcMicro:sdc-with-sdcmicro-in-r-setting-up-your-data-and-more}}
 
 \section{Installing \sphinxstyleemphasis{R}, \sphinxstyleemphasis{sdcMicro} and other packages}
 \label{\detokenize{sdcMicro:installing-r-sdcmicro-and-other-packages}}
@@ -8722,7 +8994,12 @@ their GitHub: \sphinxurl{https://github.com/alexkowa/sdcMicro/issues}
 \section{Read functions in \sphinxstyleemphasis{R}}
 \label{\detokenize{sdcMicro:read-functions-in-r}}
 The first step in the SDC process when using \sphinxstyleemphasis{sdcMicro} is to read the
-data into \sphinxstyleemphasis{R} and create a dataframe. {\color{red}\bfseries{}{[}\#foot61{]}\_} \sphinxstyleemphasis{R} is
+data into \sphinxstyleemphasis{R} and create a dataframe. %
+\begin{footnote}[2]\sphinxAtStartFootnote
+A dataframe is an object class in \sphinxstyleemphasis{R}, which is similar to a data
+table or matrix.
+%
+\end{footnote} \sphinxstyleemphasis{R} is
 compatible with most statistical data formats and provides read
 functions for most types of data. For those read functions, it is
 sometimes necessary to install additional packages and their
@@ -10369,8 +10646,18 @@ The large-scale experiment executed for this guide utilized 75 microdata
 files from 52 countries, using surveys on topics including health,
 labor, income and expenditure. By applying anonymization methods
 available in the \sphinxstyleemphasis{sdcMicro} package, at least 20 different anonymization
-scenarios {\color{red}\bfseries{}{[}\#foot68{]}\_} were tested on each dataset. Most of the
-processing was done using a powerful server {\color{red}\bfseries{}{[}\#foot69{]}\_} and up
+scenarios %
+\begin{footnote}[9]\sphinxAtStartFootnote
+Here a scenario refers to a combination of SDC methods and their
+parameters.
+%
+\end{footnote} were tested on each dataset. Most of the
+processing was done using a powerful server %
+\begin{footnote}[10]\sphinxAtStartFootnote
+The server has 512 GB RAM and four processors each with 16 cores,
+translating to 64 cores total.
+%
+\end{footnote} and up
 to 16 \textendash{} 20 processors (cores) at a time. Other processing platforms
 included a laptop and desktop computers, each using four processors.
 Computation times were significantly shorter for datasets processed on
@@ -10432,7 +10719,7 @@ recomputed by using the function calcRisks().
 
 
 \chapter{The SDC Process}
-\label{\detokenize{process:the-sdc-process}}\label{\detokenize{process::doc}}
+\label{\detokenize{process::doc}}\label{\detokenize{process:the-sdc-process}}
 This section presents the SDC process in a step-by-step representation
 and can be used as guidance for the actual SDC process. It should be
 noted, however, that jumping between steps and returning to previous
@@ -11112,13 +11399,13 @@ Files; Principles, Procedures and Practices.} IHSN Working Paper No.
 005, International Household Survey Network (IHSN).
 \sphinxurl{http://www.ihsn.org/HOME/sites/default/files/resources/IHSN-WP005.pdf}
 
-{\color{red}\bfseries{}\textbar{}image19\textbar{}}
+\noindent\sphinxincludegraphics[width=6.55208in,height=8.60417in]{{image20}.png}
 
 Figure 8.1: Overview of the SDC process
 
 
 \chapter{Appendices}
-\label{\detokenize{appendices:appendices}}\label{\detokenize{appendices::doc}}
+\label{\detokenize{appendices::doc}}\label{\detokenize{appendices:appendices}}
 
 \section{\sphinxstylestrong{Appendix} \sphinxstylestrong{A: Overview of Case Study Variables}}
 \label{\detokenize{appendices:appendix-a-overview-of-case-study-variables}}
@@ -12075,7 +12362,7 @@ individual-level variables.
 
 
 \chapter{\sphinxstylestrong{Bibliography}}
-\label{\detokenize{bibliography:bibliography}}\label{\detokenize{bibliography::doc}}
+\label{\detokenize{bibliography::doc}}\label{\detokenize{bibliography:bibliography}}
 \sphinxurl{http://cran.r-project.org/web/packages/sdcMicroGUI/index.html}
 
 {\hyperref[\detokenize{20http:/www.ihsn.org/home/software/disclosure-control-toolbox::doc}]{\sphinxcrossref{http://www.ihsn.org/home/software/disclosure-control-toolbox}}}
@@ -12189,7 +12476,7 @@ Science \& Business Media.
 May no longer be needed in this format or need to be automated
 
 
-\chapter{List of Tables}
+\section{List of Tables}
 \label{\detokenize{lists:list-of-tables}}
 Table 4.1: Example dataset showing sample frequencies, population
 frequencies and individual disclosure risk 20
@@ -12317,7 +12604,7 @@ level 166
 Table 9.25: k-anonymity violations 170
 
 
-\chapter{List of Figures}
+\section{List of Figures}
 \label{\detokenize{lists:list-of-figures}}
 Figure 2.1: Risk-utility trade-off 7
 
@@ -12376,7 +12663,7 @@ Figure 8.1: Overview of the SDC process 118
 Figure 9.1: Lorenz curve based on positive total expenditures values 140
 
 
-\chapter{List of Examples}
+\section{List of Examples}
 \label{\detokenize{lists:list-of-examples}}
 \(f_{k}\)Example 4.1: Calculating using \sphinxstyleemphasis{sdcMicro} 21
 
@@ -14964,7 +15251,12 @@ this variable. Table 9.7 shows the absolute frequencies of HHSIZE. The
 number of households for each size larger than 13 is 6 or fewer and can
 be considered outliers with a higher risk of re-identification, as
 discussed in Step 6a. One way to deal with this is to remove all
-households of size 14 or larger from the dataset {\color{red}\bfseries{}{[}\#foot71{]}\_}.
+households of size 14 or larger from the dataset %
+\begin{footnote}[1]\sphinxAtStartFootnote
+Other methods and guidance on treating datasets where household size
+is a quasi-identifier are discussed in Section 5.5.
+%
+\end{footnote}.
 Removing 29 households of size 14 or larger reduces the number of
 2-anonymity violations by 18, of 3-anonymity violations by 26 and of
 5-anonymity violations by 29. This means that all removed households
@@ -15508,7 +15800,13 @@ with an interval measure.
 
 Example 9.20 shows how to evaluate the interval measure for each of the
 expenditure variables, which are contained in the vector
-\sphinxstyleemphasis{compExp} {\color{red}\bfseries{}{[}\#foot72{]}\_}. The different values of the parameter
+\sphinxstyleemphasis{compExp} %
+\begin{footnote}[2]\sphinxAtStartFootnote
+For illustrative purposes, we only show this evaluation for the
+expenditure variables. It can be easily copied for the income
+variables. The results are similar.
+%
+\end{footnote}. The different values of the parameter
 \sphinxstyleemphasis{k} in the function dRisk() define the size of the interval around the
 original value, as explained in Section 4.7.2\sphinxstyleemphasis{.} The larger \sphinxstyleemphasis{k}, the
 larger the intervals, the higher the probability that a perturbed value
@@ -15937,7 +16235,13 @@ in the same way and leads to similar results.
 
 We look at the effect of anonymization on some indicators as discussed
 in Step 5. Table 9.11 presents the point estimates and bootstrapped
-confidence interval of the GINI coefficient {\color{red}\bfseries{}{[}\#foot73{]}\_} for
+confidence interval of the GINI coefficient %
+\begin{footnote}[3]\sphinxAtStartFootnote
+To compute the GINI coefficient, bootstrap to construct the
+confidence intervals and plot the Lorenz curve we used the \sphinxstyleemphasis{R}
+packages \sphinxstyleemphasis{laeken, reldist, bootstrap} and \sphinxstyleemphasis{ineq}.
+%
+\end{footnote} for
 the sum of the expenditure components. The calculation of the GINI
 coefficient and the confidence interval are based on the positive
 expenditure values. We observe very small changes in the Gini
@@ -15987,8 +16291,7 @@ Right bound of CI
 \par
 \sphinxattableend\end{savenotes}
 
-{\color{red}\bfseries{}\textbar{}Macintosh HD:Users:thijsbenschop:Onedrive:World
-Bank:Guidelines:Plots:figure91.png\textbar{}}
+\noindent\sphinxincludegraphics[width=6.5in,height=3.25in]{{image21}.png}
 
 Figure 9.1: Lorenz curve based on positive total expenditures values
 

@@ -276,7 +276,7 @@ e,
 deterministic</td>
 <td>continuous and
 categorical</td>
-<td><p class="first"><a href="#id21"><span class="problematic" id="id22">`globalRecode &lt;
+<td><p class="first"><a href="#id23"><span class="problematic" id="id24">`globalRecode &lt;
 http://www.rdoc
 umentation.org/
 packages/sdcMic
@@ -295,7 +295,7 @@ e,
 deterministic</td>
 <td>continuous and
 categorical</td>
-<td><p class="first"><a href="#id21"><span class="problematic" id="id23">`topBotCoding &lt;
+<td><p class="first"><a href="#id23"><span class="problematic" id="id25">`topBotCoding &lt;
 http://www.rdoc
 umentation.org/
 packages/sdcMic
@@ -339,7 +339,7 @@ probabilistic</td>
 <td>perturbative,
 probabilistic</td>
 <td>continuous</td>
-<td><a href="#id21"><span class="problematic" id="id24">`shuffle &lt;http:
+<td><a href="#id23"><span class="problematic" id="id26">`shuffle &lt;http:
 //www.rdocument
 ation.org/packa
 ges/sdcMicro/fu
@@ -416,9 +416,7 @@ keys</p>
 <td><em>Region</em></td>
 <td><em>Gender</em></td>
 <td><em>Religion</em></td>
-<td><div class="first last math notranslate nohighlight">
-\[f_{k}\]</div>
-</td>
+<td>f_k</td>
 </tr>
 <tr class="row-odd"><td>1</td>
 <td>Region 1</td>
@@ -486,9 +484,7 @@ keys</p>
 <td><em>Region</em></td>
 <td><em>Gender</em></td>
 <td><em>Religion</em></td>
-<td><div class="first last math notranslate nohighlight">
-\[f_{k}\]</div>
-</td>
+<td>f_k</td>
 </tr>
 <tr class="row-odd"><td>1</td>
 <td>North</td>
@@ -1216,29 +1212,29 @@ running time and total number of suppressions</p>
 <col width="17%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head"><p class="first"><strong>Thresho
-ld</strong></p>
-<p class="last"><strong>k-anony
-mity</strong></p>
+<tr class="row-odd"><th class="head"><p class="first">Threshold
+ld</p>
+<p class="last">k-anony
+mity</p>
 </th>
-<th class="head"><strong>Importa
+<th class="head">Importance
 nce
-vector</strong></th>
-<th class="head"><strong>Total
+vector**</th>
+<th class="head">Total
 number of
 suppressi
-ons</strong></th>
-<th class="head"><strong>Number
+ons</th>
+<th class="head">Number
 of
 suppressi
 ons
-age</strong></th>
-<th class="head"><strong>Global
+age</th>
+<th class="head">Global
 risk
-measure</strong></th>
-<th class="head"><strong>Running
+measure</th>
+<th class="head">Running
 time
-(hours)</strong></th>
+(hours)</th>
 </tr>
 </thead>
 <tbody valign="top">
@@ -1380,9 +1376,9 @@ approach, as the algorithm would take longer in the first place.</p>
 <col width="14%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head"><strong>Argum
-ents</strong></th>
-<th class="head" colspan="4"><strong>Numbe
+<tr class="row-odd"><th class="head">Argumen
+ts</th>
+<th class="head" colspan="4"><a href="#id8"><span class="problematic" id="id9">**</span></a>Numbe
 r
 of
 violato
@@ -1397,17 +1393,17 @@ mity
 on
 complet
 e
-set</strong></th>
-<th class="head"><strong>Total
+set</th>
+<th class="head">Total
 number
 of
 suppres
-sions</strong></th>
-<th class="head"><strong>Runni
-ng
-time
+sio ns</th>
+<th class="head"><p class="first">Running</p>
+<p class="last">time
 (second
-s)</strong></th>
+s)</p>
+</th>
 </tr>
 </thead>
 <tbody valign="top">
@@ -1782,7 +1778,7 @@ respectively probability 0.05 and 0.15. If in the initial file we had
 5,000 individuals with value ‘capital’ and resp. 500 and 400 with values
 ‘rural1’ and ‘rural2’, we expect after applying PRAM to have 5,045
 individuals with capital, 460 with rural1 and 395 with
-rural2 <a class="footnote-reference" href="#foot42" id="id8">[9]</a>. The recoding is done independently for
+rural2 <a class="footnote-reference" href="#foot42" id="id10">[9]</a>. The recoding is done independently for
 each individual. We see that the tabulation of the variable “region”
 yields different results before and after PRAM, which are shown in Table
 5.8. The deviation from the expectation is due to the fact that PRAM is
@@ -1835,11 +1831,11 @@ for invariant PRAM. <strong>NOTE: Invariant does not guarantee that
 cross-tabulations of variables (unlike univariate tabulations) stay the
 same.</strong></p>
 <p>In Example 5.12, we give an example of invariant PRAM using
-<em>sdcMicro</em>. <a class="footnote-reference" href="#foot44" id="id9">[11]</a> PRAM is a probabilistic method and the
+<em>sdcMicro</em>. <a class="footnote-reference" href="#foot44" id="id11">[11]</a> PRAM is a probabilistic method and the
 results can differ every time we apply PRAM to the same variables of a
 dataset. To overcome this and make the results reproducible, it is good
 practice to set a seed for the random number generator in <em>R</em>, so the
-same random numbers will be generated every time. <a class="footnote-reference" href="#foot45" id="id10">[12]</a>
+same random numbers will be generated every time. <a class="footnote-reference" href="#foot45" id="id12">[12]</a>
 The number of changed records per variable is also shown.</p>
 <p>Example 5.12: Producing reproducible PRAM results by using set.seed()</p>
 <div class="line-block">
@@ -1910,7 +1906,7 @@ higher than the share of females (about 60%). This property is not
 maintained after invariant PRAM (the shares of males and females in the
 city are roughly equal), although the univariate tabulations are
 maintained. One solution is to apply PRAM separately for the males and
-females in this example <a class="footnote-reference" href="#foot46" id="id11">[13]</a>. This can be done by
+females in this example <a class="footnote-reference" href="#foot46" id="id13">[13]</a>. This can be done by
 specifying the strata argument in the pram() function in <em>sdcMicro</em> (see
 below).</p>
 <p>Table 5.10: Cross-tabulation of variable “region” and variable “gender”
@@ -1931,11 +1927,11 @@ PRAM</th>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td><strong>Value</strong></td>
-<td><strong>male</strong></td>
-<td><strong>female</strong></td>
-<td><strong>male</strong></td>
-<td><strong>female</strong></td>
+<tr class="row-even"><td>Value</td>
+<td>male</td>
+<td>female</td>
+<td>male</td>
+<td>female</td>
 </tr>
 <tr class="row-odd"><td>capital</td>
 <td>3,056</td>
@@ -2097,17 +2093,17 @@ groups of size <span class="math notranslate nohighlight">\(n_{i}\)</span> for a
 <span class="math notranslate nohighlight">\(1,\ \ldots,\ g\)</span>. This maximizes the within-group homogeneity,
 which is measured by the within-groups sum of squares (SSE)</p>
 <div class="math notranslate nohighlight">
-\[\text{SSE} = \sum_{i = 1}^{g}{\sum_{j = 1}^{n_{i}}{\left( x_{\text{ij}} - {\overline{x}}_{i} \right)^{T}\left( x_{\text{ij}} - {\overline{x}}_{i} \right)}}\\]</div>
+\[SSE = \sum_{i = 1}^{g}{\sum_{j = 1}^{n_{i}}{\left( x_{ij} - {\overline{x}}_{i} \right)^{T}\left( x_{ij} - {\overline{x}}_{i} \right)}}\]</div>
 <p>The lower the SSE, the higher the within-group homogeneity. The group
 sizes can differ amongst groups, but often groups of equal size are used
-to simplify the search <a class="footnote-reference" href="#foot48" id="id12">[15]</a>.</p>
+to simplify the search <a class="footnote-reference" href="#foot48" id="id14">[15]</a>.</p>
 <p>The function microaggregation() in <em>sdcMicro</em> can be used for univariate
 microaggregation. The argument ‘aggr’ specifies the group size. Forming
 groups is easier if all groups – except maybe the last group of
 remainders – have the same size. This is the case in the implementation
 in <em>sdcMicro</em> as it is not possible to have groups of different sizes.
 Example 5.16 shows how to use the function microaggregation() in
-<em>sdcMicro</em>. <a class="footnote-reference" href="#foot49" id="id13">[16]</a> The default group size is 3 but the
+<em>sdcMicro</em>. <a class="footnote-reference" href="#foot49" id="id15">[16]</a> The default group size is 3 but the
 user can specify any desired group size. Choice of group size depends on
 the homogeneity within the groups and the required level of protection.
 In general it holds that the larger the group, the higher the
@@ -2356,7 +2352,7 @@ Average Vector (MDAV) algorithm in <em>sdcMicro</em></p>
 <strong>c</strong>(“INC”, “EXP”, “WEALTH”), method = “mdav”)</p>
 <p>It is also possible to group variables only within strata. This reduces
 the computation time and adds an extra layer of protection to the data,
-because of the greater uncertainty produced <a class="footnote-reference" href="#foot50" id="id14">[17]</a>. In
+because of the greater uncertainty produced <a class="footnote-reference" href="#foot50" id="id16">[17]</a>. In
 <em>sdcMicro</em> this can be achieved by specifying the strata variables, as
 shown in Example 5.18.</p>
 <p>Example 5.18: Specifying strata variables for microaggregation</p>
@@ -2489,7 +2485,7 @@ larger magnitude to outliers than to the other values.</p>
 <p>There are several noise addition algorithms. The simplest version of
 noise addition is uncorrelated additive normally distributed noise,
 where <span class="math notranslate nohighlight">\(x_{j}\)</span>, the original values of variable
-<span class="math notranslate nohighlight">\(\text{j\ }\)</span>are replaced by</p>
+<span class="math notranslate nohighlight">\(j\)</span>are replaced by</p>
 <p><span class="math notranslate nohighlight">\(z_{j} = x_{j} + \varepsilon_{j}\)</span>,</p>
 <p>where
 <span class="math notranslate nohighlight">\(\varepsilon_{j}\ \sim\ N(0,\ \ \sigma_{\varepsilon_{j}}^{2})\ \)</span>and
@@ -2508,7 +2504,7 @@ the legal situation regarding data privacy, data sensitivity and the
 acceptable levels of disclosure risk and information loss. In general,
 the level of noise is a function of the variance of the original
 variables, the level of protection needed and the desired value range
-after anonymization <a class="footnote-reference" href="#foot51" id="id15">[18]</a>. An <span class="math notranslate nohighlight">\(\alpha\)</span> value that
+after anonymization <a class="footnote-reference" href="#foot51" id="id17">[18]</a>. An <span class="math notranslate nohighlight">\(\alpha\)</span> value that
 is too small will lead to insufficient protection, while an
 <span class="math notranslate nohighlight">\(\alpha\)</span> value that is too high will make the data useless for
 data users.</p>
@@ -2519,7 +2515,7 @@ function addNoise() with the value “additive” for the argument ‘method’.
 Example 5.19 shows how to use <em>sdcMicro</em> to add uncorrelated noise to
 expenditure variables, where the standard deviation of the added noise
 equals half the standard deviation of the original
-variables. <a class="footnote-reference" href="#foot52" id="id16">[19]</a> Noise is added to all selected
+variables. <a class="footnote-reference" href="#foot52" id="id18">[19]</a> Noise is added to all selected
 variables.</p>
 <p>Example 5.19: Uncorrelated noise addition</p>
 <p>sdcInitial &lt;- <strong>addNoise</strong>(obj = sdcInitial, variables =
@@ -2582,7 +2578,7 @@ data. In this case, the covariance matrix of noise
 <span class="math notranslate nohighlight">\(\Sigma_{\varepsilon}\ \)</span>is proportional to the covariance matrix
 of the original data <span class="math notranslate nohighlight">\(\Sigma_{X}:\)</span></p>
 <div class="math notranslate nohighlight">
-\[\Sigma_{\varepsilon} = \text{αΣ}_{X}\]</div>
+\[\Sigma_{\varepsilon} = \alpha \Sigma_{X}\]</div>
 <p>In the addNoise() function of the <em>sdcMicro</em> package, correlated noise
 addition can be used by specifying the methods ‘correlated’ or
 ‘correlated2’. The method “correlated” assumes that the variables are
@@ -2590,7 +2586,7 @@ approximately normally distributed. The method ‘correlated2’ is a
 version of the method ‘correlated’, which is robust against the
 normality assumption. Example 5.20 shows how to use the ‘correlated2’
 method. The normality of variables can be investigated in <em>R</em>, with, for
-instance, a Jarque-Bera or Shapiro-Wilk test <a class="footnote-reference" href="#foot53" id="id17">[20]</a>.</p>
+instance, a Jarque-Bera or Shapiro-Wilk test <a class="footnote-reference" href="#foot53" id="id19">[20]</a>.</p>
 <p>Example 5.20: Correlated noise addition</p>
 <p>sdcInitial &lt;- <strong>addNoise</strong>(obj = sdcInitial, variables =
 <strong>c</strong>(‘TOTFOOD’, ‘TOTHLTH’, ‘TOTALCH’, ‘TOTCLTH’, ‘TOTHOUS’,
@@ -2863,7 +2859,7 @@ values</strong></th>
 </tbody>
 </table>
 <p>The method ‘ds’ (the default method of data shuffling in <em>sdcMicro</em>) is
-recommended for use (Templ et al., 2014) <a class="footnote-reference" href="#foot54" id="id18">[21]</a>. A
+recommended for use (Templ et al., 2014) <a class="footnote-reference" href="#foot54" id="id20">[21]</a>. A
 regression function with regressors for the variables to be protected
 must be specified in the argument ‘form’. At least two regressands
 should be specified and the regressors should have predictive power for
@@ -2943,7 +2939,7 @@ information for public release.”
 <div class="section" id="anonymization-of-the-quasi-identifier-household-size">
 <h2>Anonymization of the quasi-identifier household size<a class="headerlink" href="#anonymization-of-the-quasi-identifier-household-size" title="Permalink to this headline">¶</a></h2>
 <p>The size of a household is an important identifier, especially for large
-households. <a class="footnote-reference" href="#foot55" id="id19">[22]</a>  Suppression of the actual size
+households. <a class="footnote-reference" href="#foot55" id="id21">[22]</a>  Suppression of the actual size
 variable, if available (e.g., number of household members), however,
 does not suffice to remove this information from the dataset, as a
 simple count of the household members for a particular household will
@@ -2980,7 +2976,7 @@ a limited set of variables. 2) Two scientific use files with 5% samples
 are available for registered researchers who accept the terms and
 conditions of their use. 3) Two 10% samples are available in controlled
 research data centers for approved researchers and research goals. All
-these files have been anonymized prior to release. <a class="footnote-reference" href="#foot56" id="id20">[23]</a></p>
+these files have been anonymized prior to release. <a class="footnote-reference" href="#foot56" id="id22">[23]</a></p>
 <ul class="simple">
 <li>The U.S. Census Bureau released two samples of the 2000 census: a 5%</li>
 </ul>
@@ -3056,7 +3052,7 @@ individuals and 103 variables. We selected five quasi-identifiers:
 <table class="docutils footnote" frame="void" id="foot42" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id8">[9]</a></td><td>The 5,045 is the expectation computed as 5,000 * 1 + 500 * 0.05 +
+<tr><td class="label"><a class="fn-backref" href="#id10">[9]</a></td><td>The 5,045 is the expectation computed as 5,000 * 1 + 500 * 0.05 +
 400 * 0.05.</td></tr>
 </tbody>
 </table>
@@ -3072,7 +3068,7 @@ eigenvalue.</td></tr>
 <table class="docutils footnote" frame="void" id="foot44" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id9">[11]</a></td><td>In this example and the following examples in this section, the
+<tr><td class="label"><a class="fn-backref" href="#id11">[11]</a></td><td>In this example and the following examples in this section, the
 <em>sdcMicro</em> object “sdcIntial“ contains a dataset with 2,000
 individuals and 39 variables. We selected five categorical
 quasi-identifiers and 9 variables for PRAM: “ROOF”, “TOILET”,
@@ -3085,7 +3081,7 @@ purposes.</td></tr>
 <table class="docutils footnote" frame="void" id="foot45" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id10">[12]</a></td><td>The PRAM method in <em>sdcMicro</em> sometimes produces the following
+<tr><td class="label"><a class="fn-backref" href="#id12">[12]</a></td><td>The PRAM method in <em>sdcMicro</em> sometimes produces the following
 error: Error in factor(xpramed, labels = lev) : invalid ‘labels’;
 length 6 should be 1 or 5. Under some circumstances, changing the
 seed can solve this error.</td></tr>
@@ -3094,7 +3090,7 @@ seed can solve this error.</td></tr>
 <table class="docutils footnote" frame="void" id="foot46" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id11">[13]</a></td><td>This can also be achieved with multidimensional transition matrices.
+<tr><td class="label"><a class="fn-backref" href="#id13">[13]</a></td><td>This can also be achieved with multidimensional transition matrices.
 In that case, the probability is not specified for ‘male’ -&gt;
 ‘female’, but for ‘male’ + ‘rural’ -&gt; ‘female’ + ‘rural’ and for
 ‘male’ + ‘urban’ -&gt; ‘female’ + ‘urban’. This is not implemented in
@@ -3115,7 +3111,7 @@ ordinal variables.</td></tr>
 <table class="docutils footnote" frame="void" id="foot48" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id12">[15]</a></td><td>Here all groups can have different sizes (i.e., number of
+<tr><td class="label"><a class="fn-backref" href="#id14">[15]</a></td><td>Here all groups can have different sizes (i.e., number of
 individuals in a group). In practice, the search for homogeneous
 groups is simplified by imposing equal group sizes for all groups.</td></tr>
 </tbody>
@@ -3123,7 +3119,7 @@ groups is simplified by imposing equal group sizes for all groups.</td></tr>
 <table class="docutils footnote" frame="void" id="foot49" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id13">[16]</a></td><td>In this example and the following examples in this section, the
+<tr><td class="label"><a class="fn-backref" href="#id15">[16]</a></td><td>In this example and the following examples in this section, the
 <em>sdcMicro</em> object “sdcIntial“ contains a dataset with 2,000
 individuals and 39 variables. We selected five categorical
 quasi-identifiers and three continuous quasi-identifiers: “INC”,
@@ -3133,7 +3129,7 @@ quasi-identifiers and three continuous quasi-identifiers: “INC”,
 <table class="docutils footnote" frame="void" id="foot50" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id14">[17]</a></td><td>Also the homogeneity in the groups will be generally lower, leading
+<tr><td class="label"><a class="fn-backref" href="#id16">[17]</a></td><td>Also the homogeneity in the groups will be generally lower, leading
 to larger changes, higher protection, but also more information loss,
 unless the strata variable correlates with the microaggregation
 variable.</td></tr>
@@ -3142,7 +3138,7 @@ variable.</td></tr>
 <table class="docutils footnote" frame="void" id="foot51" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id15">[18]</a></td><td>Common values for <span class="math notranslate nohighlight">\(\alpha\)</span> are between 0.5 and 2. The default
+<tr><td class="label"><a class="fn-backref" href="#id17">[18]</a></td><td>Common values for <span class="math notranslate nohighlight">\(\alpha\)</span> are between 0.5 and 2. The default
 value in the <em>sdcMicro</em> function addNoise() is 150, which is too
 large for most datasets; the level of noise should be set in the
 argument ‘noise’.</td></tr>
@@ -3151,7 +3147,7 @@ argument ‘noise’.</td></tr>
 <table class="docutils footnote" frame="void" id="foot52" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id16">[19]</a></td><td>In this example and the following examples in this section, the
+<tr><td class="label"><a class="fn-backref" href="#id18">[19]</a></td><td>In this example and the following examples in this section, the
 <em>sdcMicro</em> object “sdcIntial“ contains a dataset with 2,000
 individuals and 39 variables. We selected five categorical
 quasi-identifiers and 12 continuous quasi-identifiers. These are the
@@ -3163,7 +3159,7 @@ expenditure components “TFOODEXP”, “TALCHEXP”, “TCLTHEXP”,
 <table class="docutils footnote" frame="void" id="foot53" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id17">[20]</a></td><td>The Shapiro-Wilk test is implemented in the function shapiro.test()
+<tr><td class="label"><a class="fn-backref" href="#id19">[20]</a></td><td>The Shapiro-Wilk test is implemented in the function shapiro.test()
 from the package <em>stats</em> in <em>R</em>. The Jarque-Bera test has several
 implementations in <em>R</em>, for example, in the function
 jarque.bera.test() from the package <em>tseries</em>.</td></tr>
@@ -3172,7 +3168,7 @@ jarque.bera.test() from the package <em>tseries</em>.</td></tr>
 <table class="docutils footnote" frame="void" id="foot54" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id18">[21]</a></td><td>In <em>sdcMicro</em>, there are several other methods for shuffling
+<tr><td class="label"><a class="fn-backref" href="#id20">[21]</a></td><td>In <em>sdcMicro</em>, there are several other methods for shuffling
 implemented, including ‘ds’, ‘mvn’ and ‘mlm’. See the Help option for
 the shuffle function in <em>sdcMicro</em> for details on methods ‘ds’, ‘mvm’
 and ‘mlm’.</td></tr>
@@ -3181,7 +3177,7 @@ and ‘mlm’.</td></tr>
 <table class="docutils footnote" frame="void" id="foot55" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id19">[22]</a></td><td>Even if the dataset does not contain an explicit variable with
+<tr><td class="label"><a class="fn-backref" href="#id21">[22]</a></td><td>Even if the dataset does not contain an explicit variable with
 household size, this information can be easily extracted from the
 data and should be taken into account. Section 7.6 shows how to
 create a variable “household size” based on the household IDs.</td></tr>
@@ -3190,7 +3186,7 @@ create a variable “household size” based on the household IDs.</td></tr>
 <table class="docutils footnote" frame="void" id="foot56" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id20">[23]</a></td><td>More information on census microdata at ONS is available on their
+<tr><td class="label"><a class="fn-backref" href="#id22">[23]</a></td><td>More information on census microdata at ONS is available on their
 website:
 <a class="reference external" href="http://www.ons.gov.uk/ons/guide-method/census/2011/census-data/census-microdata/index.html">http://www.ons.gov.uk/ons/guide-method/census/2011/census-data/census-microdata/index.html</a></td></tr>
 </tbody>

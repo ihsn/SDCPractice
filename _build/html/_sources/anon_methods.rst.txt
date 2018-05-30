@@ -196,7 +196,7 @@ keys
 +---------------------+----------+----------+------------+-----------------+
 | Before recoding                                                          |
 +=====================+==========+==========+============+=================+
-| *Individual*        | *Region* | *Gender* | *Religion* | .. math:: f_{k} |
+| *Individual*        | *Region* | *Gender* | *Religion* | f_k             |
 +---------------------+----------+----------+------------+-----------------+
 | 1                   | Region 1 | Female   | Catholic   | 1               |
 +---------------------+----------+----------+------------+-----------------+
@@ -220,7 +220,7 @@ keys
 +---------------------+----------+----------+------------+-----------------+
 |   After recoding                                                         |
 +---------------------+----------+----------+------------+-----------------+
-| *Individual*        | *Region* | *Gender* | *Religion* | .. math:: f_{k} |
+| *Individual*        | *Region* | *Gender* | *Religion* | f_k             |
 +---------------------+----------+----------+------------+-----------------+
 | 1                   | North    | Female   | Catholic   | 3               |
 +---------------------+----------+----------+------------+-----------------+
@@ -862,11 +862,11 @@ Table 5.5: How importance vectors and k-anonymity thresholds affect
 running time and total number of suppressions
 
 +-----------+-----------+-----------+-----------+-----------+-----------+
-| **Thresho | **Importa | **Total   | **Number  | **Global  | **Running |
-| ld**      | nce       | number of | of        | risk      | time      |
-|           | vector**  | suppressi | suppressi | measure** | (hours)** |
-| **k-anony |           | ons**     | ons       |           |           |
-| mity**    |           |           | age**     |           |           |
+| Threshold | Importance| Total     | Number    | Global    | Running   |
+| ld        | nce       | number of | of        | risk      | time      |
+|           | vector**  | suppressi | suppressi | measure   | (hours)   |
+| k-anony   |           | ons       | ons       |           |           |
+| mity      |           |           | age       |           |           |
 +===========+===========+===========+===========+===========+===========+
 | 3         | none      | 6,676     | 5,387     | 293.0     | 11.8      |
 |           | (default) |           |           |           |           |
@@ -969,11 +969,11 @@ approach, as the algorithm would take longer in the first place.
 Table 5.6 Effect of the all-\ *m* approach on k-anonymity
 
 +---------+---------+---------+---------+---------+---------+---------+
-| **Argum | **Numbe                               | **Total | **Runni |
-| ents**  | r                                     | number  | ng      |
+| Argumen | **Numbe                               | Total   | Running |
+| ts      | r                                     | number  |         |
 |         | of                                    | of      | time    |
 |         | violato                               | suppres | (second |
-|         | rs                                    | sions** | s)**    |
+|         | rs                                    | sio ns  | s)      |
 |         | for                                   |         |         |
 |         | differe                               |         |         |
 |         | nt                                    |         |         |
@@ -984,7 +984,7 @@ Table 5.6 Effect of the all-\ *m* approach on k-anonymity
 |         | on                                    |         |         |
 |         | complet                               |         |         |
 |         | e                                     |         |         |
-|         | set**                                 |         |         |
+|         | set                                   |         |         |
 +=========+=========+=========+=========+=========+=========+=========+
 | *k*     | *combs* | *k = 2* | *k = 3* | *k = 5* |         |         |
 +---------+---------+---------+---------+---------+---------+---------+
@@ -1315,7 +1315,7 @@ before and after invariant PRAM
 |             | Tabulation before PRAM    | Tabulation after invariant|
 |             |                           | PRAM                      |
 +=============+=============+=============+=============+=============+
-| **Value**   | **male**    | **female**  | **male**    | **female**  |
+| Value       | male        | female      | male        | female      |
 +-------------+-------------+-------------+-------------+-------------+
 | capital     | 3,056       | 1,944       | 2,623       | 2,375       |
 +-------------+-------------+-------------+-------------+-------------+
@@ -1475,7 +1475,7 @@ groups of size :math:`n_{i}` for all groups :math:`i` in
 :math:`1,\ \ldots,\ g`. This maximizes the within-group homogeneity,
 which is measured by the within-groups sum of squares (SSE)
 
-.. math:: \text{SSE} = \sum_{i = 1}^{g}{\sum_{j = 1}^{n_{i}}{\left( x_{\text{ij}} - {\overline{x}}_{i} \right)^{T}\left( x_{\text{ij}} - {\overline{x}}_{i} \right)}}\ 
+.. math:: SSE = \sum_{i = 1}^{g}{\sum_{j = 1}^{n_{i}}{\left( x_{ij} - {\overline{x}}_{i} \right)^{T}\left( x_{ij} - {\overline{x}}_{i} \right)}}
 
 The lower the SSE, the higher the within-group homogeneity. The group
 sizes can differ amongst groups, but often groups of equal size are used
@@ -1770,7 +1770,7 @@ Figure 5.6: Illustration of effect of noise addition to outliers
 There are several noise addition algorithms. The simplest version of
 noise addition is uncorrelated additive normally distributed noise,
 where :math:`x_{j}`, the original values of variable
-:math:`\text{j\ }`\ are replaced by
+:math:`j`\ are replaced by
 
 :math:`z_{j} = x_{j} + \varepsilon_{j}`,
 
@@ -1880,7 +1880,7 @@ data. In this case, the covariance matrix of noise
 :math:`\Sigma_{\varepsilon}\ `\ is proportional to the covariance matrix
 of the original data :math:`\Sigma_{X}:`
 
-.. math:: \Sigma_{\varepsilon} = \text{αΣ}_{X}
+.. math:: \Sigma_{\varepsilon} = \alpha \Sigma_{X}
 
 In the addNoise() function of the *sdcMicro* package, correlated noise
 addition can be used by specifying the methods ‘correlated’ or

@@ -516,7 +516,7 @@ coefficient. We regress the log income on a constant, a gender dummy,
 years of education, years of experience, years of experience squared and
 other factors influencing wage.
 
-.. math:: \ln\left( \text{wage} \right) = \beta_{0} + \beta_{1}gender + \beta_{2}education + \beta_{3}experience + \beta_{3}\text{experience}^{2} + \text{βX}
+.. math:: \ln\left( \text{wage} \right) = \beta_{0} + \beta_{1}gender + \beta_{2}education + \beta_{3}experience + \beta_{3}\text{experience}^{2} + \beta X
 
 The parameter of interest here is :math:`\beta_{1}`, the effect of
 gender on the log wage. X is a matrix with several other factors
