@@ -1283,43 +1283,44 @@ re-identifications
     # Household risk (expected number of reidentifications
     sdcInitial@risk$global$hier_risk_ER
 
-**NOTE: The size of a household is an important identifier itself,
-especially for large households. Suppression of the actual size variable
-(e.g., number of household members), however, does not suffice to remove
-this information from the dataset, as a simple count of the household
-members for a particular household will allow reconstructing this
-variable as long as a household ID is in the data, which allows
-assigning individuals to households. We flag this for the reader’s
-attention as it is important. Further discussion on approaches to the
-SDC process that take into account the household structure where it
-exists can be found in Section** **5.4.**
+.. NOTE::
+	The size of a household is an important identifier itself,
+	especially for large households. Suppression of the actual size variable
+	(e.g., number of household members), however, does not suffice to remove
+	this information from the dataset, as a simple count of the household
+	members for a particular household will allow reconstructing this
+	variable as long as a household ID is in the data, which allows
+	assigning individuals to households. We flag this for the reader’s
+	attention as it is important. Further discussion on approaches to the
+	SDC process that take into account the household structure where it
+	exists can be found in Section** **5.4.**
 
-**Recommended Reading Material on Risk Measurement**
+.. admonition:: Recommended Reading Material on Risk Measurement
 
-Elliot, Mark J, Anna Manning, Ken Mayes, John Gurd, and Michael Bane.
-2005. "SUDA: A Program for Detecting Special Uniques." *Joint
-UNECE/Eurostat Work Session on Statistical Data Confidentiality*.
-Geneva.
+	Elliot, Mark J, Anna Manning, Ken Mayes, John Gurd, and Michael Bane.
+	2005. "SUDA: A Program for Detecting Special Uniques." *Joint
+	UNECE/Eurostat Work Session on Statistical Data Confidentiality*.
+	Geneva.
 
-Hundepool, Anco, Josep Domingo-Ferrer, Luisa Franconi, Sarah Giessing,
-Eric Schulte Nordholt, Keith Spicer, and Peter Paul de Wolf. 2012.
-*Statistical Disclosure Control.* Chichester: John Wiley & Sons Ltd.
-doi:10.1002/9781118348239.
+	Hundepool, Anco, Josep Domingo-Ferrer, Luisa Franconi, Sarah Giessing,
+	Eric Schulte Nordholt, Keith Spicer, and Peter Paul de Wolf. 2012.
+	*Statistical Disclosure Control.* Chichester: John Wiley & Sons Ltd.
+	doi:10.1002/9781118348239.
 
-Lambert, Diane. 1993."Measures of Disclosure Risk and Harm." *Journal of
-Official Statistics* 9(2) : 313-331.
+	Lambert, Diane. 1993."Measures of Disclosure Risk and Harm." *Journal of
+	Official Statistics* 9(2) : 313-331.
 
-Machanavajjhala, Ashwin, Daniel Kifer, Johannes Gehrke, and
-Muthuramakrishnan Venkitasubramaniam. 2007. "L-diversity: Privacy Beyond
-K-anonymity." *ACM Trans. Knowl. Discov. Data* 1 (Article 3)
-(1556-4681). doi:10.1145/1217299.1217302.
-http://www.truststc.org/pubs/465/L%20Diversity%20Privacy.pdf. Accessed
-October 5, 2015.
+	Machanavajjhala, Ashwin, Daniel Kifer, Johannes Gehrke, and
+	Muthuramakrishnan Venkitasubramaniam. 2007. "L-diversity: Privacy Beyond
+	K-anonymity." *ACM Trans. Knowl. Discov. Data* 1 (Article 3)
+	(1556-4681). doi:10.1145/1217299.1217302.
+	http://www.truststc.org/pubs/465/L%20Diversity%20Privacy.pdf. Accessed
+	October 5, 2015.
 
-Templ, Matthias, Bernhard Meindl, Alexander Kowarik, and Shuang Chen.
-2014. "Introduction to Statistical Disclosure Control (SDC)."
-http://www.ihsn.org/home/sites/default/files/resources/ihsn-working-paper-007-Oct27.pdf\ *.*
-August 1. Accessed November 13, 2014.
+	Templ, Matthias, Bernhard Meindl, Alexander Kowarik, and Shuang Chen.
+	2014. "Introduction to Statistical Disclosure Control (SDC)."
+	http://www.ihsn.org/home/sites/default/files/resources/ihsn-working-paper-007-Oct27.pdf\ *.*
+	August 1. Accessed November 13, 2014.
 
 
 .. [#foot21]
