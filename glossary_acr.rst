@@ -98,9 +98,9 @@ Glossary
 -----------
 
 +-----------------------------------+-----------------------------------+
-| Administrative data               | |Data collected for administrative|
+| Administrative data               | Data collected for administrative |
 |                                   | purposes by government agencies.  |
-|                                   | |Typically, administrative data   |
+|                                   | Typically, administrative data    |
 |                                   | require specific SDC methods.     |
 +===================================+===================================+
 | Anonymization                     | Use of techniques that convert    |
@@ -117,13 +117,13 @@ Glossary
 |                                   | released data.                    |
 +-----------------------------------+-----------------------------------+
 | Categorical variable              | A variable that takes values over |
-|                                   | a finite set, e.g., gender. |Also |
+|                                   | a finite set, e.g., gender. Also  |
 |                                   | called factor in *R*.             |
 +-----------------------------------+-----------------------------------+
 | Confidentiality                   | Data confidentiality is a         |
 |                                   | property of data, usually         |
 |                                   | resulting from legislative        |
-|                                   | measures, |which prevents it from |
+|                                   | measures, which prevents it from  |
 |                                   | unauthorized                      |
 |                                   | disclosure.\ :sup:`2`             |
 +-----------------------------------+-----------------------------------+
