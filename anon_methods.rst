@@ -71,10 +71,10 @@ Table 5.1: SDC methods and corresponding functions in *sdcMicro*
 
 +--------------------------------+--------------------------------+----------------------------+---------------------------------------------------------------------------------------------------+
 | Method                         | Classification of SDC method   | Data Type                  | Function in sdcMicro                                                                              |
-+--------------------------------+--------------------------------+----------------------------+---------------------------------------------------------------------------------------------------+
++==================================================================================================================================================================================================+
 | Global recoding                | non-perturbative, determinitic | continuous and categorical | `globalRecode <http://www.rdocumentation.org/packages/sdcMicro/functions/globalrecode/>`_ ,       |
 |                                |                                |                            | `groupVars <http://www.rdocumentation.org/packages/sdcMicro/functions/groupVars-methods/>`_       |
-+--------------------------------+--------------------------------+----------------------------+---------------------------------------------------------------------------------------------------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | Top and bottom coding          | non-perturbative, determinitic | continuous and categorical | `topBotCoding <http://www.rdocumentation.org/packages/sdcMicro/functions/topBotCoding/>`_         |
 |                                |                                |                            |                                                                                                   |
 +--------------------------------+--------------------------------+----------------------------+---------------------------------------------------------------------------------------------------+
@@ -360,7 +360,7 @@ categories (‘small city’ and ‘town’) have disappeared.
 .. image:: media/image3.png
    :width: 6.5in
    :height: 3.25556in
-   
+
 Figure 5.1 Effect of recoding – frequency counts before and after
 recoding
 
@@ -395,7 +395,7 @@ Figure 5.2 shows the effect of recoding the variable “age”.
 .. image:: media/image4.png
    :width: 6.5in
    :height: 3.25556in
-   
+
 Figure 5.2 Age variable before and after recoding
 
 Instead of creating intervals of equal width, we can also create
@@ -446,7 +446,7 @@ To construct **right-open** intervals, e.g., in our example, for age
 intervals [0,14), [15, 65), [66, 100), we present two alternatives for
 global recoding:
 
--  A work-around for semi-continuous variables [#foot36]_ 
+-  A work-around for semi-continuous variables [#foot36]_
    that would allow for the globalRecode() to be used would be
    subtracting a small number from the boundary intervals, thus allowing
    the desired intervals to be created. In the following example,
@@ -1934,7 +1934,7 @@ Overview.” *Proceedings of the International Conference on Information
 and Knowledge Engineering (IKE 2012)*, (pp.65-71).Las Vegas, USA.
 http://arxiv.org/ftp/arxiv/papers/1309/1309.3958.pdf
 
-Rank swapping 
+Rank swapping
 ~~~~~~~~~~~~~~
 
 Data swapping is based on interchanging values of a certain variable
@@ -2348,4 +2348,3 @@ detail by recoding.[#foot57]_
    More information on the anonymization of these files is available on
    the website of the U.S. Census Bureau:
    https://www.census.gov/population/www/cen2000/pums/index.html
-
