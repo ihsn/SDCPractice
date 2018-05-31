@@ -99,7 +99,7 @@ Table 5.1: SDC methods and corresponding functions in *sdcMicro*
 |                                |                                |                            |                                                                                                   |
 +--------------------------------+--------------------------------+----------------------------+---------------------------------------------------------------------------------------------------+
 | Rank swapping                  | perturbative,                  | continuous                 | `rankSwap <http://www.rdocumentation.org/packages/sdcMicro/functions/rankSwap/>`_                 |
-|                                | probabilistic                  |                            |                                                                                                   |
+|                                | probabilistic                  |                            | `shuffle <http://www.rdocumentation.org/packages/sdcMicro/functions/shuffle/>`_                   |
 |                                |                                |                            |                                                                                                   |
 +--------------------------------+--------------------------------+----------------------------+---------------------------------------------------------------------------------------------------+                                                                                     |
 
