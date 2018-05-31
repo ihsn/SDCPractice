@@ -355,6 +355,7 @@ categorical variable
 | ``## urban rural``
 | ``##  1142  1358``
 
+
 Figure 5.1 illustrates the effect of recoding the variable “sizeRes” and
 show respectively the frequency counts before and after recoding. We see
 that the number of categories has reduced from 4 to 2 and the small
