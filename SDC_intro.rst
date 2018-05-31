@@ -343,11 +343,11 @@ are sworn in under the statistics’ acts in the same way as regular NSO
 employees. This approach tends to favour researchers who live near NSO
 headquarters.” (Dupriez and Boyko, 2010)
 
-**Recommended Reading Material on Release Types**
+.. admonition:: Recommended Reading Material on Release Types
 
-Dupriez, O., & Boyko, E. (2010). *Dissemination of Microdata Files;
-Principles, Procedures and Practices.* International Household Survey
-Network (IHSN).
+	Dupriez, O., & Boyko, E. (2010). *Dissemination of Microdata Files;
+	Principles, Procedures and Practices.* International Household Survey
+	Network (IHSN).
 
 .. [#foot18]
    There is another strand of literature on the anonymization of tabular

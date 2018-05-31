@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2016.1.11)  31 MAY 2018 10:46
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2016.1.11)  31 MAY 2018 21:02
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1203,1337 +1203,1276 @@ Chapter 5.
 [35
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 4041--4047
-[]|\T1/ptm/b/n/10 `globalRecode <
+Underfull \hbox (badness 10000) in paragraph at lines 4102--4102
+[]\T1/phv/m/n/10 Clas-si-fi-ca-tion of SDC
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 4041--4047
-\T1/ptm/b/n/10 http://www.rdoc
+Underfull \hbox (badness 10000) in paragraph at lines 2--4102
+[][][]\T1/ptm/m/n/10 lo-cal-Sup-pres-sion[][], lo-cal-
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 4041--4047
-\T1/ptm/b/n/10 umen-ta-tion.org/
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 4041--4047
-\T1/ptm/b/n/10 pack-ages/sdcMic
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 4041--4047
-\T1/ptm/b/n/10 ro/functions/gl obal-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 4066--4072
-[]|\T1/ptm/b/n/10 `topBotCoding <
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 4066--4072
-\T1/ptm/b/n/10 http://www.rdoc
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 4066--4072
-\T1/ptm/b/n/10 umen-ta-tion.org/
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 4066--4072
-\T1/ptm/b/n/10 pack-ages/sdcMic
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 4066--4072
-\T1/ptm/b/n/10 ro/functions/to pBot-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 4131--4138
-[]|\T1/ptm/b/n/10 `shuffle <http:
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 4131--4138
-\T1/ptm/b/n/10 //www.rdocument
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 4131--4138
-\T1/ptm/b/n/10 ation.org/packa
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 4131--4138
-\T1/ptm/b/n/10 ges/sdcMicro/fu nc-
- []
-
-[36] [37]
-Underfull \hbox (badness 10000) in paragraph at lines 4496--4497
+[36]
+Underfull \hbox (badness 10000) in paragraph at lines 4449--4450
 []
  []
 
 
-Overfull \hbox (4.08875pt too wide) in paragraph at lines 4496--4497
+Overfull \hbox (4.08875pt too wide) in paragraph at lines 4449--4450
 \T1/phv/m/n/10 Number
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 4512--4513
+Underfull \hbox (badness 10000) in paragraph at lines 4465--4466
 []
  []
 
 
-Overfull \hbox (5.61876pt too wide) in paragraph at lines 4512--4513
+Overfull \hbox (5.61876pt too wide) in paragraph at lines 4465--4466
 \T1/phv/m/n/10 Possible 
  []
 
-[38] <image3.png, id=680, 803.0pt x 401.5pt>
+[37] [38] <image3.png, id=693, 803.0pt x 401.5pt>
 File: image3.png Graphic file (type png)
  <use image3.png>
-Package pdftex.def Info: image3.png used on input line 4686.
+Package pdftex.def Info: image3.png used on input line 4633.
 (pdftex.def)             Requested size: 469.7715pt x 235.28395pt.
- [39]
-<image4.png, id=688, 803.0pt x 401.5pt>
+ [39 <./image3.png>] <image4.png, id=701, 803.0pt x 401.5pt>
 File: image4.png Graphic file (type png)
  <use image4.png>
-Package pdftex.def Info: image4.png used on input line 4721.
-(pdftex.def)             Requested size: 469.7715pt x 235.28395pt.
- [40 <./image3.png>]
-<image5.png, id=695, 803.0pt x 401.5pt>
-File: image5.png Graphic file (type png)
- <use image5.png>
-Package pdftex.def Info: image5.png used on input line 4750.
-(pdftex.def)             Requested size: 469.7715pt x 235.28395pt.
- [41 <./image4.png>]
-[42 <./image5.png>] <image6.png, id=716, 803.0pt x 401.5pt>
-File: image6.png Graphic file (type png)
- <use image6.png>
-Package pdftex.def Info: image6.png used on input line 4876.
+Package pdftex.def Info: image4.png used on input line 4668.
 (pdftex.def)             Requested size: 469.7715pt x 235.28395pt.
 
-[43] [44 <./image6.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 5029--5031
+<image5.png, id=703, 803.0pt x 401.5pt>
+File: image5.png Graphic file (type png)
+ <use image5.png>
+Package pdftex.def Info: image5.png used on input line 4697.
+(pdftex.def)             Requested size: 469.7715pt x 235.28395pt.
+ [40 <./image4.png>]
+[41 <./image5.png>] <image6.png, id=724, 803.0pt x 401.5pt>
+File: image6.png Graphic file (type png)
+ <use image6.png>
+Package pdftex.def Info: image6.png used on input line 4823.
+(pdftex.def)             Requested size: 469.7715pt x 235.28395pt.
+
+[42] [43 <./image6.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 4976--4978
 []
  []
 
 
-Overfull \hbox (30.55875pt too wide) in paragraph at lines 5029--5031
+Overfull \hbox (30.55875pt too wide) in paragraph at lines 4976--4978
 \T1/ptm/m/n/10 NA/miss
  []
 
 
-Overfull \hbox (8.12923pt too wide) in paragraph at lines 5029--5031
+Overfull \hbox (8.12923pt too wide) in paragraph at lines 4976--4978
 \T1/ptm/m/n/10 ing 
  []
 
-[45] [46] <image7.png, id=748, 803.0pt x 401.5pt>
+[44] [45] <image7.png, id=756, 803.0pt x 401.5pt>
 File: image7.png Graphic file (type png)
  <use image7.png>
-Package pdftex.def Info: image7.png used on input line 5291.
+Package pdftex.def Info: image7.png used on input line 5238.
 (pdftex.def)             Requested size: 469.7715pt x 235.28395pt.
- [47]
-Underfull \hbox (badness 10000) in paragraph at lines 5445--5445
+ [46]
+Underfull \hbox (badness 10000) in paragraph at lines 5392--5392
 []\T1/phv/m/n/10 Im-por-tance
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 5445--5445
+Underfull \hbox (badness 10000) in paragraph at lines 5392--5392
 []\T1/phv/m/n/10 Run-ning
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 5445--5445
+Underfull \hbox (badness 10000) in paragraph at lines 5392--5392
 []\T1/ptm/m/n/10 em-ploy-men t
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 5445--5445
+Underfull \hbox (badness 10000) in paragraph at lines 5392--5392
 []\T1/ptm/m/n/10 em-ploy-men t
  []
 
-[48 <./image7.png>]
+[47 <./image7.png>]
 
-Package varwidth Warning: Failed to reprocess entire contents on input line 555
-9.
-
-
-Package varwidth Warning: Failed to reprocess entire contents on input line 555
-9.
+Package varwidth Warning: Failed to reprocess entire contents on input line 550
+6.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 5562--5567
+Package varwidth Warning: Failed to reprocess entire contents on input line 550
+6.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 5509--5514
 []|\T1/phv/m/n/10 Total num-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 5562--5567
+Underfull \hbox (badness 10000) in paragraph at lines 5509--5514
 \T1/phv/m/n/10 ber of
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 5570--5574
+Underfull \hbox (badness 10000) in paragraph at lines 5517--5521
 []\T1/phv/m/n/10 time (sec-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 5589--5590
+Underfull \hbox (badness 10000) in paragraph at lines 5536--5537
 []|\T1/ptm/m/it/10 before lo-cal
  []
 
-[49] [50] [51] [52] [53] [54] [55] [56] [57] [58] [59]
-<image8.png, id=830, 1284.8pt x 642.4pt>
+[48] [49] [50] [51] [52] [53] [54] [55] [56] [57] [58]
+<image8.png, id=838, 1284.8pt x 642.4pt>
 File: image8.png Graphic file (type png)
  <use image8.png>
-Package pdftex.def Info: image8.png used on input line 7091.
+Package pdftex.def Info: image8.png used on input line 7038.
 (pdftex.def)             Requested size: 468.99712pt x 234.12607pt.
- [60 <./image8.png>]
-<image9.png, id=840, 1284.8pt x 642.4pt>
+ [59 <./image8.png>]
+<image9.png, id=848, 1284.8pt x 642.4pt>
 File: image9.png Graphic file (type png)
  <use image9.png>
-Package pdftex.def Info: image9.png used on input line 7170.
+Package pdftex.def Info: image9.png used on input line 7117.
 (pdftex.def)             Requested size: 468.99712pt x 234.12607pt.
- [61 <./image9.png>]
-<image10.png, id=847, 1284.8pt x 642.4pt>
+ [60 <./image9.png>]
+<image10.png, id=855, 1284.8pt x 642.4pt>
 File: image10.png Graphic file (type png)
  <use image10.png>
-Package pdftex.def Info: image10.png used on input line 7211.
+Package pdftex.def Info: image10.png used on input line 7158.
 (pdftex.def)             Requested size: 468.99712pt x 234.12607pt.
- [62 <./image10.png>] [63] [64] [65] [66] [67] [68
-
-]
+ [61 <./image10.png>] [62] [63] [64] [65] [66]
 Chapter 6.
-[69] <image11.png, id=907, 803.0pt x 401.5pt>
+[67
+
+] <image11.png, id=910, 803.0pt x 401.5pt>
 File: image11.png Graphic file (type png)
  <use image11.png>
-Package pdftex.def Info: image11.png used on input line 7853.
+Package pdftex.def Info: image11.png used on input line 7800.
 (pdftex.def)             Requested size: 469.7715pt x 235.28395pt.
- [70 <./image11.png>]
+ [68 <./image11.png>]
 LaTeX Font Info:    Font shape `TS1/pcr/m/it' in size <9> not available
-(Font)              Font shape `TS1/pcr/m/sl' tried instead on input line 7953.
+(Font)              Font shape `TS1/pcr/m/sl' tried instead on input line 7900.
 
- [71] [72] [73] [74] [75] [76] [77] [78]
-<image12.png, id=970, 1284.8pt x 642.4pt>
+ [69] [70] [71] [72] [73] [74] [75] [76]
+<image12.png, id=974, 1284.8pt x 642.4pt>
 File: image12.png Graphic file (type png)
  <use image12.png>
-Package pdftex.def Info: image12.png used on input line 8453.
+Package pdftex.def Info: image12.png used on input line 8400.
 (pdftex.def)             Requested size: 468.99712pt x 234.87103pt.
 LaTeX Font Info:    Font shape `T1/phv/bx/it' in size <14.4> not available
-(Font)              Font shape `T1/phv/b/it' tried instead on input line 8459.
+(Font)              Font shape `T1/phv/b/it' tried instead on input line 8406.
 LaTeX Font Info:    Font shape `T1/phv/b/it' in size <14.4> not available
-(Font)              Font shape `T1/phv/b/sl' tried instead on input line 8459.
+(Font)              Font shape `T1/phv/b/sl' tried instead on input line 8406.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\sphinxstyleemphasis' on input line 8459.
+(hyperref)                removing `\sphinxstyleemphasis' on input line 8406.
 
-[79 <./image12.png>] <image13.png, id=981, 1284.8pt x 642.4pt>
+[77 <./image12.png>] <image13.png, id=985, 1284.8pt x 642.4pt>
 File: image13.png Graphic file (type png)
 
 <use image13.png>
-Package pdftex.def Info: image13.png used on input line 8542.
+Package pdftex.def Info: image13.png used on input line 8489.
 (pdftex.def)             Requested size: 468.99712pt x 234.12607pt.
- <image14.png, id=982, 1284.8pt x 642.4pt>
+ <image14.png, id=986, 1284.8pt x 642.4pt>
 File: image14.png Graphic file (type png)
  <use image14.png>
-Package pdftex.def Info: image14.png used on input line 8546.
+Package pdftex.def Info: image14.png used on input line 8493.
 (pdftex.def)             Requested size: 468.99712pt x 234.12607pt.
 
-[80 <./image13.png>] <image15.png, id=990, 1284.8pt x 642.4pt>
+[78 <./image13.png>] <image15.png, id=994, 1284.8pt x 642.4pt>
 File: image15.png Graphic file (type png)
 
 <use image15.png>
-Package pdftex.def Info: image15.png used on input line 8568.
+Package pdftex.def Info: image15.png used on input line 8515.
 (pdftex.def)             Requested size: 468.99712pt x 234.87103pt.
- [81 <./image14.png> <./image15.png>]
-<image16.png, id=1001, 1284.8pt x 642.4pt>
+ [79 <./image14.png> <./image15.png>]
+<image16.png, id=1004, 1284.8pt x 642.4pt>
 File: image16.png Graphic file (type png)
  <use image16.png>
-Package pdftex.def Info: image16.png used on input line 8621.
+Package pdftex.def Info: image16.png used on input line 8568.
 (pdftex.def)             Requested size: 468.99712pt x 234.12607pt.
- [82]
-<image17.png, id=1007, 803.0pt x 401.5pt>
+ [80]
+<image17.png, id=1010, 803.0pt x 401.5pt>
 File: image17.png Graphic file (type png)
  <use image17.png>
-Package pdftex.def Info: image17.png used on input line 8731.
+Package pdftex.def Info: image17.png used on input line 8678.
 (pdftex.def)             Requested size: 469.7715pt x 235.28395pt.
- [83 <./image16.png>] <image18.png, id=1017, 803.0pt x 401.5pt>
+ [81 <./image16.png>] <image18.png, id=1021, 803.0pt x 401.5pt>
 File: image18.png Graphic file (type png)
  <use image18.png>
-Package pdftex.def Info: image18.png used on input line 8773.
+Package pdftex.def Info: image18.png used on input line 8720.
 (pdftex.def)             Requested size: 469.7715pt x 234.88573pt.
- [84 <./image17.png>] <image19.png, id=1023, 803.0pt x 401.5pt>
+ [82 <./image17.png>] <image19.png, id=1027, 803.0pt x 401.5pt>
 File: image19.png Graphic file (type png)
  <use image19.png>
-Package pdftex.def Info: image19.png used on input line 8778.
+Package pdftex.def Info: image19.png used on input line 8725.
 (pdftex.def)             Requested size: 469.7715pt x 234.88573pt.
- [85 <./image18.png> <./image19.png>] [86]
+ [83 <./image18.png> <./image19.png>] [84]
 Chapter 7.
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\sphinxstyleemphasis' on input line 8823.
+(hyperref)                removing `\sphinxstyleemphasis' on input line 8770.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\sphinxstyleemphasis' on input line 8823.
+(hyperref)                removing `\sphinxstyleemphasis' on input line 8770.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\sphinxstyleemphasis' on input line 8826.
+(hyperref)                removing `\sphinxstyleemphasis' on input line 8773.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\sphinxstyleemphasis' on input line 8826.
+(hyperref)                removing `\sphinxstyleemphasis' on input line 8773.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\sphinxstyleemphasis' on input line 8878.
+(hyperref)                removing `\sphinxstyleemphasis' on input line 8825.
 
-[87
+[85
 
-] [88]
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\sphinxstyleemphasis' on input line 9060.
-
-[89]
+] [86]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\sphinxstyleemphasis' on input line 9101.
+(hyperref)                removing `\sphinxstyleemphasis' on input line 9007.
 
-[90] [91] [92] [93]
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\sphinxstylestrong' on input line 9514.
-
-[94] [95]
+[87]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\sphinxstylestrong' on input line 9662.
+(hyperref)                removing `\sphinxstyleemphasis' on input line 9048.
+
+[88] [89] [90] [91]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\sphinxstylestrong' on input line 9461.
+
+[92] [93]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\sphinxstylestrong' on input line 9609.
 
 
-Overfull \hbox (10.2495pt too wide) in paragraph at lines 9730--9731
+Overfull \hbox (10.2495pt too wide) in paragraph at lines 9677--9678
 []
  []
 
 
-Overfull \hbox (27.46947pt too wide) in paragraph at lines 9730--9731
+Overfull \hbox (27.46947pt too wide) in paragraph at lines 9677--9678
 \T1/ptm/m/n/10 Hou 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 9733--9736
+Underfull \hbox (badness 10000) in paragraph at lines 9680--9683
 []\T1/ptm/m/n/10 sehol d
  []
 
 
-Overfull \hbox (10.2495pt too wide) in paragraph at lines 9738--9739
+Overfull \hbox (10.2495pt too wide) in paragraph at lines 9685--9686
 []
  []
 
 
-Overfull \hbox (26.20946pt too wide) in paragraph at lines 9738--9739
+Overfull \hbox (26.20946pt too wide) in paragraph at lines 9685--9686
 \T1/ptm/m/n/10 Reg 
  []
 
 
-Overfull \hbox (10.2495pt too wide) in paragraph at lines 9744--9745
+Overfull \hbox (10.2495pt too wide) in paragraph at lines 9691--9692
 []
  []
 
 
-Overfull \hbox (24.13925pt too wide) in paragraph at lines 9744--9745
+Overfull \hbox (24.13925pt too wide) in paragraph at lines 9691--9692
 \T1/ptm/m/n/10 Dis 
  []
 
 
-Overfull \hbox (10.2495pt too wide) in paragraph at lines 9750--9751
+Overfull \hbox (10.2495pt too wide) in paragraph at lines 9697--9698
 []
  []
 
 
-Overfull \hbox (26.35936pt too wide) in paragraph at lines 9750--9751
+Overfull \hbox (26.35936pt too wide) in paragraph at lines 9697--9698
 \T1/ptm/m/n/10 Ran 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 9753--9758
+Underfull \hbox (badness 10000) in paragraph at lines 9700--9705
 []\T1/ptm/m/n/10 domiz
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 9753--9758
+Underfull \hbox (badness 10000) in paragraph at lines 9700--9705
 \T1/ptm/m/n/10 hold
  []
 
 
-Overfull \hbox (10.2495pt too wide) in paragraph at lines 9760--9761
+Overfull \hbox (10.2495pt too wide) in paragraph at lines 9707--9708
 []
  []
 
 
-Overfull \hbox (26.20946pt too wide) in paragraph at lines 9760--9761
+Overfull \hbox (26.20946pt too wide) in paragraph at lines 9707--9708
 \T1/ptm/m/n/10 Reg 
  []
 
 
-Overfull \hbox (10.2495pt too wide) in paragraph at lines 9766--9767
+Overfull \hbox (10.2495pt too wide) in paragraph at lines 9713--9714
 []
  []
 
 
-Overfull \hbox (24.13925pt too wide) in paragraph at lines 9766--9767
+Overfull \hbox (24.13925pt too wide) in paragraph at lines 9713--9714
 \T1/ptm/m/n/10 Dis 
  []
 
 
-Overfull \hbox (10.2495pt too wide) in paragraph at lines 9772--9773
+Overfull \hbox (10.2495pt too wide) in paragraph at lines 9719--9720
 []
  []
 
 
-Overfull \hbox (26.35936pt too wide) in paragraph at lines 9772--9773
+Overfull \hbox (26.35936pt too wide) in paragraph at lines 9719--9720
 \T1/ptm/m/n/10 Ran 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 9775--9780
+Underfull \hbox (badness 10000) in paragraph at lines 9722--9727
 []\T1/ptm/m/n/10 domiz
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 9775--9780
+Underfull \hbox (badness 10000) in paragraph at lines 9722--9727
 \T1/ptm/m/n/10 hold
  []
 
 
-Overfull \hbox (10.2495pt too wide) in paragraph at lines 9782--9783
+Overfull \hbox (10.2495pt too wide) in paragraph at lines 9729--9730
 []
  []
 
 
-Overfull \hbox (26.20946pt too wide) in paragraph at lines 9782--9783
+Overfull \hbox (26.20946pt too wide) in paragraph at lines 9729--9730
 \T1/ptm/m/n/10 Reg 
  []
 
 
-Overfull \hbox (10.2495pt too wide) in paragraph at lines 9788--9789
+Overfull \hbox (10.2495pt too wide) in paragraph at lines 9735--9736
 []
  []
 
 
-Overfull \hbox (24.13925pt too wide) in paragraph at lines 9788--9789
+Overfull \hbox (24.13925pt too wide) in paragraph at lines 9735--9736
 \T1/ptm/m/n/10 Dis 
  []
 
-[96] [97]
-Overfull \hbox (15.46455pt too wide) in paragraph at lines 10277--10278
+[94] [95]
+Overfull \hbox (15.46455pt too wide) in paragraph at lines 10224--10225
 []
  []
 
 
-Overfull \hbox (27.69441pt too wide) in paragraph at lines 10277--10278
+Overfull \hbox (27.69441pt too wide) in paragraph at lines 10224--10225
 \T1/phv/m/n/10 Sa 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 10280--10282
+Underfull \hbox (badness 10000) in paragraph at lines 10227--10229
 []\T1/phv/m/n/10 mple
  []
 
 
-Overfull \hbox (15.46455pt too wide) in paragraph at lines 10307--10308
+Overfull \hbox (15.46455pt too wide) in paragraph at lines 10254--10255
 []
  []
 
 
-Overfull \hbox (27.1944pt too wide) in paragraph at lines 10307--10308
+Overfull \hbox (27.1944pt too wide) in paragraph at lines 10254--10255
 \T1/phv/m/n/10 Pe 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 10310--10329
+Underfull \hbox (badness 10000) in paragraph at lines 10257--10276
 []\T1/phv/m/n/10 rcen
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 10310--10329
+Underfull \hbox (badness 10000) in paragraph at lines 10257--10276
 \T1/phv/m/n/10 obse
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 10310--10329
+Underfull \hbox (badness 10000) in paragraph at lines 10257--10276
 \T1/phv/m/n/10 rvat
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 10310--10329
+Underfull \hbox (badness 10000) in paragraph at lines 10257--10276
 \T1/phv/m/n/10 ions
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 10310--10329
+Underfull \hbox (badness 10000) in paragraph at lines 10257--10276
 \T1/phv/m/n/10 viol
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 10310--10329
+Underfull \hbox (badness 10000) in paragraph at lines 10257--10276
 \T1/phv/m/n/10 atin g
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 10310--10329
+Underfull \hbox (badness 10000) in paragraph at lines 10257--10276
 \T1/phv/m/n/10 ymit y
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 10310--10329
+Underfull \hbox (badness 10000) in paragraph at lines 10257--10276
 \T1/phv/m/n/10 anon
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 10310--10329
+Underfull \hbox (badness 10000) in paragraph at lines 10257--10276
 \T1/phv/m/n/10 ymiz
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 10345--10348
+Underfull \hbox (badness 10000) in paragraph at lines 10292--10295
 []|\T1/ptm/m/n/10 Occu
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 10349--10351
+Underfull \hbox (badness 10000) in paragraph at lines 10296--10298
 []|\T1/ptm/m/n/10 Reli
  []
 
-[98] [99] [100]
+[96] [97] [98]
 Chapter 8.
-[101
+[99
 
-] [102] [103] [104] [105] [106] [107]
-<image20.png, id=1139, 487.06969pt x 657.95813pt>
+] [100] [101] [102] [103] [104] [105]
+<image20.png, id=1143, 487.06969pt x 657.95813pt>
 File: image20.png Graphic file (type png)
  <use image20.png>
-Package pdftex.def Info: image20.png used on input line 11286.
+Package pdftex.def Info: image20.png used on input line 11233.
 (pdftex.def)             Requested size: 473.5198pt x 621.83397pt.
 
-Overfull \hbox (3.76479pt too wide) in paragraph at lines 11286--11287
+Overfull \hbox (3.76479pt too wide) in paragraph at lines 11233--11234
 [] 
  []
 
-[108] [109 <./image20.png>] [110
+[106] [107 <./image20.png>] [108
 
 ]
 Chapter 9.
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\sphinxstylestrong' on input line 11294.
+(hyperref)                removing `\sphinxstylestrong' on input line 11241.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\sphinxstylestrong' on input line 11294.
+(hyperref)                removing `\sphinxstylestrong' on input line 11241.
 
 
-Overfull \hbox (155.80948pt too wide) in alignment at lines 11297--11307
+Overfull \hbox (155.80948pt too wide) in alignment at lines 11244--11254
  [] [] [] [] 
  []
 
 
-Overfull \hbox (155.80948pt too wide) in alignment at lines 11307--11320
+Overfull \hbox (155.80948pt too wide) in alignment at lines 11254--11267
  [] [] [] [] 
  []
 
 
-Overfull \hbox (155.80948pt too wide) in alignment at lines 11320--11324
+Overfull \hbox (155.80948pt too wide) in alignment at lines 11267--11271
  [] [] [] [] 
  []
 
 
-Overfull \hbox (155.80948pt too wide) in alignment at lines 11324--11326
+Overfull \hbox (155.80948pt too wide) in alignment at lines 11271--11273
  [] [] [] [] 
  []
 
 
-Overfull \hbox (155.80948pt too wide) in alignment at lines 11326--11539
+Overfull \hbox (155.80948pt too wide) in alignment at lines 11273--11486
  [] [] [] [] 
  []
 
 
-Overfull \hbox (155.80948pt too wide) in alignment at lines 11539--11748
+Overfull \hbox (155.80948pt too wide) in alignment at lines 11486--11695
  [] [] [] [] 
  []
 
 
-Overfull \hbox (155.80948pt too wide) in alignment at lines 11748--11973
+Overfull \hbox (155.80948pt too wide) in alignment at lines 11695--11920
  [] [] [] [] 
  []
 
-[111]
-Overfull \hbox (155.80948pt too wide) in alignment at lines 11973--12064
+[109]
+Overfull \hbox (155.80948pt too wide) in alignment at lines 11920--12011
  [] [] [] [] 
  []
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\sphinxstylestrong' on input line 12067.
+(hyperref)                removing `\sphinxstylestrong' on input line 12014.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\sphinxstylestrong' on input line 12067.
+(hyperref)                removing `\sphinxstylestrong' on input line 12014.
 
-[112] [113]
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\sphinxstylestrong' on input line 12232.
-
+[110] [111]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\sphinxstylestrong' on input line 12232.
+(hyperref)                removing `\sphinxstylestrong' on input line 12179.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\sphinxstylestrong' on input line 12232.
+(hyperref)                removing `\sphinxstylestrong' on input line 12179.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 12240--12242
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\sphinxstylestrong' on input line 12179.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 12187--12189
 []\T1/ptm/b/n/10 Appendix D: Ex-e-cu-tion Times for Mul-ti-ple Sce-nar-ios Test
 ed us-ing Se-lected Sam-ple Data
  []
 
-<image22.png, id=1186, 1660.2025pt x 2346.7675pt>
+<image22.png, id=1190, 1660.2025pt x 2346.7675pt>
 File: image22.png Graphic file (type png)
  <use image22.png>
-Package pdftex.def Info: image22.png used on input line 12243.
+Package pdftex.def Info: image22.png used on input line 12190.
 (pdftex.def)             Requested size: 368.89359pt x 564.13094pt.
- [114]
-[115 <./image22.png>] [116
+ [112]
+[113 <./image22.png>] [114
 
 ]
 Chapter 10.
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\sphinxstylestrong' on input line 12248.
+(hyperref)                removing `\sphinxstylestrong' on input line 12195.
 
 
 LaTeX Warning: Hyper reference `20http:/www.ihsn.org/home/software/disclosure-c
-ontrol-toolbox::doc' on page 117 undefined on input line 12252.
+ontrol-toolbox::doc' on page 115 undefined on input line 12199.
 
-[117] [118]
+[115] [116]
 Chapter 11.
-[119
+[117
 
-] [120] [121] [122] [123] [124]
+] [118] [119] [120] [121] [122]
 Chapter 12.
-[125
+[123
 
-] [126] [127]
-Underfull \hbox (badness 10000) in paragraph at lines 13145--13147
+] [124] [125]
+Underfull \hbox (badness 10000) in paragraph at lines 13092--13094
 []|\T1/ptm/m/n/10 Area of res-i-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 13160--13165
+Underfull \hbox (badness 10000) in paragraph at lines 13107--13112
 []|\T1/ptm/m/n/10 Individua l
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 13160--13165
+Underfull \hbox (badness 10000) in paragraph at lines 13107--13112
 \T1/ptm/m/n/10 weight-ing
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 13178--13183
+Underfull \hbox (badness 10000) in paragraph at lines 13125--13130
 []|\T1/ptm/m/n/10 Populatio n
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 13178--13183
+Underfull \hbox (badness 10000) in paragraph at lines 13125--13130
 \T1/ptm/m/n/10 weight-ing
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 13201--13203
+Underfull \hbox (badness 10000) in paragraph at lines 13148--13150
 []|\T1/ptm/m/n/10 semi-cont
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 13258--13261
+Underfull \hbox (badness 10000) in paragraph at lines 13205--13208
 []|\T1/ptm/m/n/10 Age in com-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 13264--13266
+Underfull \hbox (badness 10000) in paragraph at lines 13211--13213
 []|\T1/ptm/m/n/10 semi-cont
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 13285--13287
+Underfull \hbox (badness 10000) in paragraph at lines 13232--13234
 []|\T1/ptm/m/n/10 semi-cont
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 13295--13299
+Underfull \hbox (badness 10000) in paragraph at lines 13242--13246
 []|\T1/ptm/m/n/10 Religion of
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 13312--13316
+Underfull \hbox (badness 10000) in paragraph at lines 13259--13263
 []|\T1/ptm/m/n/10 Ethnicity of
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 13331--13335
+Underfull \hbox (badness 10000) in paragraph at lines 13278--13282
 []|\T1/ptm/m/n/10 Language of
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 13366--13370
+Underfull \hbox (badness 10000) in paragraph at lines 13313--13317
 []|\T1/ptm/m/n/10 Child im-mu-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 13366--13370
+Underfull \hbox (badness 10000) in paragraph at lines 13313--13317
 \T1/ptm/m/n/10 nized against
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 13397--13399
+Underfull \hbox (badness 10000) in paragraph at lines 13344--13346
 []|\T1/ptm/m/n/10 CHWEIGHTK
  []
 
 
-Underfull \hbox (badness 5832) in paragraph at lines 13400--13403
+Underfull \hbox (badness 5832) in paragraph at lines 13347--13350
 []|\T1/ptm/m/n/10 Weight of the
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 13414--13416
+Underfull \hbox (badness 10000) in paragraph at lines 13361--13363
 []|\T1/ptm/m/n/10 CHHEIGHTC
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 13433--13436
+Underfull \hbox (badness 10000) in paragraph at lines 13380--13383
 []|\T1/ptm/m/n/10 Currently en-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 13449--13453
+Underfull \hbox (badness 10000) in paragraph at lines 13396--13400
 []|\T1/ptm/m/n/10 Highest level
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 13449--13453
+Underfull \hbox (badness 10000) in paragraph at lines 13396--13400
 \T1/ptm/m/n/10 of ed-u-ca-tion
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 13471--13473
+Underfull \hbox (badness 10000) in paragraph at lines 13418--13420
 []|\T1/ptm/m/n/10 semi-cont
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 13479--13481
+Underfull \hbox (badness 10000) in paragraph at lines 13426--13428
 []|\T1/ptm/m/n/10 EDYRSCURR
  []
 
 
-Underfull \hbox (badness 7064) in paragraph at lines 13482--13487
+Underfull \hbox (badness 7064) in paragraph at lines 13429--13434
 []|\T1/ptm/m/n/10 Years of ed-u-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 13490--13492
+Underfull \hbox (badness 10000) in paragraph at lines 13437--13439
 []|\T1/ptm/m/n/10 semi-cont
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 13561--13565
+Underfull \hbox (badness 10000) in paragraph at lines 13508--13512
 []|\T1/ptm/m/n/10 Industry clas-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 13561--13565
+Underfull \hbox (badness 10000) in paragraph at lines 13508--13512
 \T1/ptm/m/n/10 sific ation
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 13578--13582
+Underfull \hbox (badness 10000) in paragraph at lines 13525--13529
 []|\T1/ptm/m/n/10 Employmen t
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 13595--13597
+Underfull \hbox (badness 10000) in paragraph at lines 13542--13544
 []|\T1/ptm/m/n/10 WHOURSLAS
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 13598--13601
+Underfull \hbox (badness 10000) in paragraph at lines 13545--13548
 []|\T1/ptm/m/n/10 Hours worked
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 13614--13617
+Underfull \hbox (badness 10000) in paragraph at lines 13561--13564
 []|\T1/ptm/m/n/10 Ownership of
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 13630--13634
+Underfull \hbox (badness 10000) in paragraph at lines 13577--13581
 []|\T1/ptm/m/n/10 Main ma-te-rial
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 13678--13681
+Underfull \hbox (badness 10000) in paragraph at lines 13625--13628
 []|\T1/ptm/m/n/10 Main cook-ing
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 13710--13715
+Underfull \hbox (badness 10000) in paragraph at lines 13657--13662
 []|\T1/ptm/m/n/10 Ownership of
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 13710--13715
+Underfull \hbox (badness 10000) in paragraph at lines 13657--13662
 \T1/ptm/m/n/10 agri-cultu ral
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 13729--13736
+Underfull \hbox (badness 10000) in paragraph at lines 13676--13683
 []|\T1/ptm/m/n/10 Land size
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 13729--13736
+Underfull \hbox (badness 10000) in paragraph at lines 13676--13683
 \T1/ptm/m/n/10 owned by
  []
 
 
-Underfull \hbox (badness 6775) in paragraph at lines 13729--13736
+Underfull \hbox (badness 6775) in paragraph at lines 13676--13683
 \T1/ptm/m/n/10 house-hold (ha)
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 13747--13749
+Underfull \hbox (badness 10000) in paragraph at lines 13694--13696
 []|\T1/ptm/m/n/10 OWNMOTORC
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 13750--13754
+Underfull \hbox (badness 10000) in paragraph at lines 13697--13701
 []|\T1/ptm/m/n/10 Ownership of
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 13767--13769
+Underfull \hbox (badness 10000) in paragraph at lines 13714--13716
 []|\T1/ptm/m/n/10 Ownership of
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 13782--13786
+Underfull \hbox (badness 10000) in paragraph at lines 13729--13733
 []|\T1/ptm/m/n/10 Ownership of
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 13799--13804
+Underfull \hbox (badness 10000) in paragraph at lines 13746--13751
 []|\T1/ptm/m/n/10 Number of
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 13799--13804
+Underfull \hbox (badness 10000) in paragraph at lines 13746--13751
 \T1/ptm/m/n/10 large-siz ed
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 13807--13809
+Underfull \hbox (badness 10000) in paragraph at lines 13754--13756
 []|\T1/ptm/m/n/10 semi-cont
  []
 
 
-Underfull \hbox (badness 5475) in paragraph at lines 13817--13820
+Underfull \hbox (badness 5475) in paragraph at lines 13764--13767
 []|\T1/ptm/m/n/10 Income ^^U Re-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 13849--13851
+Underfull \hbox (badness 10000) in paragraph at lines 13796--13798
 []|\T1/ptm/m/n/10 INCBONSOC
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 13852--13861
+Underfull \hbox (badness 10000) in paragraph at lines 13799--13808
 []|\T1/ptm/m/n/10 Income -
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 13852--13861
+Underfull \hbox (badness 10000) in paragraph at lines 13799--13808
 \T1/ptm/m/n/10 Bonuses and
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 13873--13875
+Underfull \hbox (badness 10000) in paragraph at lines 13820--13822
 []|\T1/ptm/m/n/10 INCFARMBS
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 13876--13884
+Underfull \hbox (badness 10000) in paragraph at lines 13823--13831
 \T1/ptm/m/n/10 in-come from
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 13896--13898
+Underfull \hbox (badness 10000) in paragraph at lines 13843--13845
 []|\T1/ptm/m/n/10 INCNFARMB
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 13899--13907
+Underfull \hbox (badness 10000) in paragraph at lines 13846--13854
 []|\T1/ptm/m/n/10 Income -Gross
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 13899--13907
+Underfull \hbox (badness 10000) in paragraph at lines 13846--13854
 \T1/ptm/m/n/10 in-come from
  []
 
 
-Underfull \hbox (badness 7814) in paragraph at lines 13899--13907
+Underfull \hbox (badness 7814) in paragraph at lines 13846--13854
 \T1/ptm/m/n/10 farm busi-nesse
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 13986--13988
+Underfull \hbox (badness 10000) in paragraph at lines 13933--13935
 []|\T1/ptm/m/n/10 INCTOTGRO
  []
 
-[128]
-Underfull \hbox (badness 10000) in paragraph at lines 14253--14259
+[126]
+Underfull \hbox (badness 10000) in paragraph at lines 14200--14206
 []|\T1/ptm/m/n/10 Total an-nual
  []
 
 
-Underfull \hbox (badness 7238) in paragraph at lines 14253--14259
+Underfull \hbox (badness 7238) in paragraph at lines 14200--14206
 \T1/ptm/m/n/10 hold ex-pen-ditu
  []
 
-[129] [130] [131] [132] [133] [134] [135] [136] [137] [138] [139] [140]
-[141]
-Underfull \hbox (badness 10000) in paragraph at lines 15495--15499
+[127] [128] [129] [130] [131] [132] [133] [134] [135] [136] [137] [138]
+[139]
+Underfull \hbox (badness 10000) in paragraph at lines 15442--15446
 []\T1/ptm/m/n/10 sdcHH@manipNumVars$LANDSIZEHA[[][]sdcHH@manipNumVars$LANDSIZEH
 A[][] > 1 &
  []
 
 
-Overfull \hbox (112.86987pt too wide) in paragraph at lines 15495--15499
+Overfull \hbox (112.86987pt too wide) in paragraph at lines 15442--15446
 \T1/ptm/m/n/10 !\T1/ptm/b/n/10 is.na\T1/ptm/m/n/10 ([][]sdcHH@manipNumVars$LAND
 SIZEHA[][])] <- \T1/ptm/b/n/10 round\T1/ptm/m/n/10 (sdcHH@manipNumVars$LANDSIZE
 HA[[][]sdcHH@manipNumVars$LANDSIZEHA[][]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 15507--15510
+Underfull \hbox (badness 10000) in paragraph at lines 15454--15457
 []\T1/ptm/m/n/10 sdcHH@manipNumVars$LANDSIZEHA[[][]sdcHH@manipNumVars$LANDSIZEH
 A[][] >= 20 & [][]sd-
  []
 
-[142] [143] [144] [145] <image21.png, id=1349, 803.0pt x 401.5pt>
+[140] [141] [142] [143] <image21.png, id=1353, 803.0pt x 401.5pt>
 File: image21.png Graphic file (type png)
 
 <use image21.png>
-Package pdftex.def Info: image21.png used on input line 16178.
+Package pdftex.def Info: image21.png used on input line 16125.
 (pdftex.def)             Requested size: 469.7715pt x 234.88573pt.
- [146 <./image21.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 16356--16356
+ [144 <./image21.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 16303--16303
 []\T1/phv/b/n/10 TCLTH
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 16356--16356
+Underfull \hbox (badness 10000) in paragraph at lines 16303--16303
 []\T1/phv/b/n/10 THOUS
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 16356--16356
+Underfull \hbox (badness 10000) in paragraph at lines 16303--16303
 []\T1/ptm/m/n/10 be-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 16356--16356
+Underfull \hbox (badness 10000) in paragraph at lines 16303--16303
 []\T1/ptm/b/n/10 TTRAN
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 16356--16356
+Underfull \hbox (badness 10000) in paragraph at lines 16303--16303
 []\T1/ptm/b/n/10 TCOMM
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 16356--16356
+Underfull \hbox (badness 10000) in paragraph at lines 16303--16303
 []\T1/ptm/b/n/10 TRESH OT-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 16356--16356
+Underfull \hbox (badness 10000) in paragraph at lines 16303--16303
 []\T1/ptm/b/n/10 TMISC
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 16356--16356
+Underfull \hbox (badness 10000) in paragraph at lines 16303--16303
 []\T1/ptm/m/n/10 be-
  []
 
-[147] [148]
-Underfull \hbox (badness 10000) in paragraph at lines 16534--16536
+[145] [146]
+Underfull \hbox (badness 10000) in paragraph at lines 16481--16483
 []\T1/ptm/m/n/10 sdcCombined@manipKeyVars$AGEYRS[[][]sdcCombined@manipKeyVars$A
 GEYRS[][] >= 0 & [][]sd-c-Com-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 16537--16539
+Underfull \hbox (badness 10000) in paragraph at lines 16484--16486
 []\T1/ptm/m/n/10 sdcCombined@manipKeyVars$AGEYRS[[][]sdcCombined@manipKeyVars$A
 GEYRS[][] >= 15 & [][]sd-c-Com-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 16542--16544
+Underfull \hbox (badness 10000) in paragraph at lines 16489--16491
 []\T1/ptm/m/n/10 sdcCombined@manipKeyVars$AGEYRS[[][]sdcCombined@manipKeyVars$A
 GEYRS[][] >= 55 & [][]sd-c-Com-
  []
 
-[149] [150]
-Underfull \hbox (badness 10000) in paragraph at lines 16694--16701
+[147] [148]
+Underfull \hbox (badness 10000) in paragraph at lines 16641--16648
 []|\T1/phv/m/n/10 Loc al
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 16694--16701
+Underfull \hbox (badness 10000) in paragraph at lines 16641--16648
 \T1/phv/m/n/10 suppr
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 16694--16701
+Underfull \hbox (badness 10000) in paragraph at lines 16641--16648
 \T1/phv/m/n/10 es-sio n
  []
 
 
-Overfull \hbox (3.02908pt too wide) in paragraph at lines 16702--16703
+Overfull \hbox (3.02908pt too wide) in paragraph at lines 16649--16650
 []|\T1/phv/m/n/10 GENDER| 
  []
 
 
-Overfull \hbox (2.38907pt too wide) in paragraph at lines 16706--16707
+Overfull \hbox (2.38907pt too wide) in paragraph at lines 16653--16654
 []|\T1/phv/m/n/10 MARITAL| 
  []
 
 
-Overfull \hbox (1.62904pt too wide) in paragraph at lines 16708--16709
+Overfull \hbox (1.62904pt too wide) in paragraph at lines 16655--16656
 []|\T1/phv/m/n/10 AGEYRS| 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 16712--16714
+Underfull \hbox (badness 10000) in paragraph at lines 16659--16661
 []
  []
 
 
-Overfull \hbox (25.7093pt too wide) in paragraph at lines 16712--16714
+Overfull \hbox (25.7093pt too wide) in paragraph at lines 16659--16661
 \T1/phv/m/n/10 CURRAT 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 16717--16719
+Underfull \hbox (badness 10000) in paragraph at lines 16664--16666
 []|\T1/phv/m/n/10 ATS
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 16744--16748
+Underfull \hbox (badness 10000) in paragraph at lines 16691--16695
 []|\T1/ptm/m/n/10 k = 2,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 16744--16748
+Underfull \hbox (badness 10000) in paragraph at lines 16691--16695
 \T1/ptm/m/n/10 imp on
  []
 
-[151] [152] [153] [154]
-Underfull \hbox (badness 10000) in paragraph at lines 17149--17151
+[149] [150] [151] [152]
+Underfull \hbox (badness 10000) in paragraph at lines 17096--17098
 []
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 17171--17173
+Underfull \hbox (badness 10000) in paragraph at lines 17118--17120
 []
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 17242--17244
+Underfull \hbox (badness 10000) in paragraph at lines 17189--17191
 []|\T1/ptm/m/n/10 Area of res-i-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 17257--17262
+Underfull \hbox (badness 10000) in paragraph at lines 17204--17209
 []|\T1/ptm/m/n/10 Individua l
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 17257--17262
+Underfull \hbox (badness 10000) in paragraph at lines 17204--17209
 \T1/ptm/m/n/10 weight-ing
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 17275--17280
+Underfull \hbox (badness 10000) in paragraph at lines 17222--17227
 []|\T1/ptm/m/n/10 Populatio n
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 17275--17280
+Underfull \hbox (badness 10000) in paragraph at lines 17222--17227
 \T1/ptm/m/n/10 weight-ing
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 17298--17300
+Underfull \hbox (badness 10000) in paragraph at lines 17245--17247
 []|\T1/ptm/m/n/10 semi-cont
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 17355--17358
+Underfull \hbox (badness 10000) in paragraph at lines 17302--17305
 []|\T1/ptm/m/n/10 Age in com-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 17361--17363
+Underfull \hbox (badness 10000) in paragraph at lines 17308--17310
 []|\T1/ptm/m/n/10 semi-cont
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 17371--17375
+Underfull \hbox (badness 10000) in paragraph at lines 17318--17322
 []|\T1/ptm/m/n/10 Religion of
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 17388--17391
+Underfull \hbox (badness 10000) in paragraph at lines 17335--17338
 []|\T1/ptm/m/n/10 Currently en-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 17404--17408
+Underfull \hbox (badness 10000) in paragraph at lines 17351--17355
 []|\T1/ptm/m/n/10 Highest level
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 17404--17408
+Underfull \hbox (badness 10000) in paragraph at lines 17351--17355
 \T1/ptm/m/n/10 of ed-u-ca-tion
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 17419--17421
+Underfull \hbox (badness 10000) in paragraph at lines 17366--17368
 []|\T1/ptm/m/n/10 EDYRSCURR
  []
 
 
-Underfull \hbox (badness 7064) in paragraph at lines 17422--17427
+Underfull \hbox (badness 7064) in paragraph at lines 17369--17374
 []|\T1/ptm/m/n/10 Years of ed-u-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 17430--17432
+Underfull \hbox (badness 10000) in paragraph at lines 17377--17379
 []|\T1/ptm/m/n/10 semi-cont
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 17440--17444
+Underfull \hbox (badness 10000) in paragraph at lines 17387--17391
 []|\T1/ptm/m/n/10 Industry clas-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 17440--17444
+Underfull \hbox (badness 10000) in paragraph at lines 17387--17391
 \T1/ptm/m/n/10 sific ation
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 17457--17461
+Underfull \hbox (badness 10000) in paragraph at lines 17404--17408
 []|\T1/ptm/m/n/10 Main ma-te-rial
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 17505--17508
+Underfull \hbox (badness 10000) in paragraph at lines 17452--17455
 []|\T1/ptm/m/n/10 Main cook-ing
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 17537--17542
+Underfull \hbox (badness 10000) in paragraph at lines 17484--17489
 []|\T1/ptm/m/n/10 Ownership of
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 17537--17542
+Underfull \hbox (badness 10000) in paragraph at lines 17484--17489
 \T1/ptm/m/n/10 agri-cultu ral
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 17556--17563
+Underfull \hbox (badness 10000) in paragraph at lines 17503--17510
 []|\T1/ptm/m/n/10 Land size
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 17556--17563
+Underfull \hbox (badness 10000) in paragraph at lines 17503--17510
 \T1/ptm/m/n/10 owned by
  []
 
 
-Underfull \hbox (badness 6775) in paragraph at lines 17556--17563
+Underfull \hbox (badness 6775) in paragraph at lines 17503--17510
 \T1/ptm/m/n/10 house-hold (ha)
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 17574--17576
+Underfull \hbox (badness 10000) in paragraph at lines 17521--17523
 []|\T1/ptm/m/n/10 OWNMOTORC
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 17577--17581
+Underfull \hbox (badness 10000) in paragraph at lines 17524--17528
 []|\T1/ptm/m/n/10 Ownership of
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 17594--17596
+Underfull \hbox (badness 10000) in paragraph at lines 17541--17543
 []|\T1/ptm/m/n/10 Ownership of
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 17609--17613
+Underfull \hbox (badness 10000) in paragraph at lines 17556--17560
 []|\T1/ptm/m/n/10 Ownership of
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 17626--17631
+Underfull \hbox (badness 10000) in paragraph at lines 17573--17578
 []|\T1/ptm/m/n/10 Number of
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 17626--17631
+Underfull \hbox (badness 10000) in paragraph at lines 17573--17578
 \T1/ptm/m/n/10 large-siz ed
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 17634--17636
+Underfull \hbox (badness 10000) in paragraph at lines 17581--17583
 []|\T1/ptm/m/n/10 semi-cont
  []
 
 
-Underfull \hbox (badness 5475) in paragraph at lines 17644--17647
+Underfull \hbox (badness 5475) in paragraph at lines 17591--17594
 []|\T1/ptm/m/n/10 Income ^^U Re-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 17676--17678
+Underfull \hbox (badness 10000) in paragraph at lines 17623--17625
 []|\T1/ptm/m/n/10 INCFARMBS
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 17679--17687
+Underfull \hbox (badness 10000) in paragraph at lines 17626--17634
 \T1/ptm/m/n/10 in-come from
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 17699--17701
+Underfull \hbox (badness 10000) in paragraph at lines 17646--17648
 []|\T1/ptm/m/n/10 INCNFARMB
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 17702--17710
+Underfull \hbox (badness 10000) in paragraph at lines 17649--17657
 []|\T1/ptm/m/n/10 Income -Gross
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 17702--17710
+Underfull \hbox (badness 10000) in paragraph at lines 17649--17657
 \T1/ptm/m/n/10 in-come from
  []
 
 
-Underfull \hbox (badness 7814) in paragraph at lines 17702--17710
+Underfull \hbox (badness 7814) in paragraph at lines 17649--17657
 \T1/ptm/m/n/10 farm busi-nesse
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 17789--17791
+Underfull \hbox (badness 10000) in paragraph at lines 17736--17738
 []|\T1/ptm/m/n/10 INCTOTGRO
  []
 
-[155]
-Underfull \hbox (badness 10000) in paragraph at lines 18048--18054
+[153]
+Underfull \hbox (badness 10000) in paragraph at lines 17995--18001
 []|\T1/ptm/m/n/10 Total an-nual
  []
 
 
-Underfull \hbox (badness 7238) in paragraph at lines 18048--18054
+Underfull \hbox (badness 7238) in paragraph at lines 17995--18001
 \T1/ptm/m/n/10 hold ex-pen-ditu
  []
 
-[156] [157] [158] [159] [160] [161] [162] [163] [164]
-Underfull \hbox (badness 10000) in paragraph at lines 18760--18760
+[154] [155] [156] [157] [158] [159] [160] [161] [162]
+Underfull \hbox (badness 10000) in paragraph at lines 18707--18707
 []\T1/phv/m/n/10 Key vari-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 18760--18760
+Underfull \hbox (badness 10000) in paragraph at lines 18707--18707
 []\T1/ptm/m/it/10 No im-por-tance
  []
 
-[165] [166] [167]
-Underfull \hbox (badness 10000) in paragraph at lines 19026--19028
+[163] [164] [165]
+Underfull \hbox (badness 10000) in paragraph at lines 18973--18975
 []\T1/ptm/b/n/10 dRisk\T1/ptm/m/n/10 (sdcHH@origData[,**c**(^^PTANHHEXP^^Q, ^^P
 INC-TOT-GROSSHH^^Q)], xm = sd-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 19031--19033
+Underfull \hbox (badness 10000) in paragraph at lines 18978--18980
 []\T1/ptm/b/n/10 dRisk\T1/ptm/m/n/10 (sdcHH@origData[,**c**(^^PTANHHEXP^^Q, ^^P
 INC-TOT-GROSSHH^^Q)], xm = sd-
  []
 
-[168] [169]
-Underfull \hbox (badness 10000) in paragraph at lines 19268--19268
+[166] [167]
+Underfull \hbox (badness 10000) in paragraph at lines 19215--19215
 []\T1/ptm/m/n/10 k-
  []
 
-[170] [171] [172]
-Underfull \hbox (badness 10000) in paragraph at lines 19463--19463
+[168] [169] [170]
+Underfull \hbox (badness 10000) in paragraph at lines 19410--19410
 []\T1/ptm/m/n/10 REL (re-la-tion
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 19463--19463
+Underfull \hbox (badness 10000) in paragraph at lines 19410--19410
 \T1/ptm/m/n/10 to house-hold
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 19463--19463
+Underfull \hbox (badness 10000) in paragraph at lines 19410--19410
 []\T1/ptm/m/n/10 MAR-I-TAL
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 19463--19463
+Underfull \hbox (badness 10000) in paragraph at lines 19410--19410
 \T1/ptm/m/n/10 in com-pleted
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 19463--19463
+Underfull \hbox (badness 10000) in paragraph at lines 19410--19410
 \T1/ptm/m/n/10 est level of
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 19463--19463
+Underfull \hbox (badness 10000) in paragraph at lines 19410--19410
 \T1/ptm/m/n/10 ed-u-ca-tion
  []
 
-[173] [174] [175] [176] [177] (./Readthedocs.ind)
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 19870.
- [178]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 19870.
+[171] [172] [173] [174] [175] (./Readthedocs.ind)
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 19817.
+ [176]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 19817.
  (./Readthedocs.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 19870.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 19817.
 
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 19870
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 19817
 .
 Package rerunfilecheck Info: File `Readthedocs.out' has not changed.
 (rerunfilecheck)             Checksum: 73FA57DF747CCE280F95D6A6AB674EB7;14809.
@@ -2541,12 +2480,12 @@ Package rerunfilecheck Info: File `Readthedocs.out' has not changed.
 
 LaTeX Warning: There were undefined references.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 19870.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 19817.
  ) 
 Here is how much of TeX's memory you used:
- 14230 strings out of 493089
- 198705 string characters out of 6134842
- 342013 words of memory out of 5000000
+ 14228 strings out of 493089
+ 198677 string characters out of 6134842
+ 342008 words of memory out of 5000000
  16961 multiletter control sequences out of 15000+600000
  83442 words of font info for 117 fonts, out of 8000000 for 9000
  1142 hyphenation exceptions out of 8191
@@ -2574,10 +2513,10 @@ o8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb
 al/texlive/2015/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/local/texliv
 e/2015/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2015/tex
 mf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on Readthedocs.pdf (182 pages, 1474703 bytes).
+Output written on Readthedocs.pdf (180 pages, 1473709 bytes).
 PDF statistics:
- 1680 PDF objects out of 1728 (max. 8388607)
- 1409 compressed objects within 15 object streams
- 372 named destinations out of 1000 (max. 500000)
+ 1682 PDF objects out of 1728 (max. 8388607)
+ 1404 compressed objects within 15 object streams
+ 370 named destinations out of 1000 (max. 500000)
  699 words of extra memory for PDF output out of 10000 (max. 10000000)
 

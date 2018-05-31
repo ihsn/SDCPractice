@@ -551,12 +551,12 @@ data. This step depends on the type of release chosen in Step 3. Changes
 to the variables made under Step 2, such a merging variables, can be
 undone to generate a dataset useful for users.
 
-**Recommended Reading Material**
+.. admonition:: Recommended Reading Material on Risk Measurement
 
-Dupriez, Olivier, and Ernie Boyko. 2010. *Dissemination of Microdata
-Files; Principles, Procedures and Practices.* IHSN Working Paper No.
-005, International Household Survey Network (IHSN).
-http://www.ihsn.org/HOME/sites/default/files/resources/IHSN-WP005.pdf
+	Dupriez, Olivier, and Ernie Boyko. 2010. *Dissemination of Microdata
+	Files; Principles, Procedures and Practices.* IHSN Working Paper No.
+	005, International Household Survey Network (IHSN).
+	http://www.ihsn.org/HOME/sites/default/files/resources/IHSN-WP005.pdf
 
 .. image:: media/image20.png
    :width: 6.55208in

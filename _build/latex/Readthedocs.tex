@@ -93,7 +93,7 @@ Household Survey and Accelerated Data Program \textendash{} TF071804/TF011722.
 
 
 \chapter{Introduction}
-\label{\detokenize{intro:statistical-disclosure-control-for-microdata-a-practice-guide}}\label{\detokenize{intro::doc}}\label{\detokenize{intro:introduction}}
+\label{\detokenize{intro:statistical-disclosure-control-for-microdata-a-practice-guide}}\label{\detokenize{intro:introduction}}\label{\detokenize{intro::doc}}
 National statistics agencies are mandated to collect
 microdata %
 \begin{footnote}[1]\sphinxAtStartFootnote
@@ -1224,7 +1224,7 @@ observation.
 
 
 \chapter{Statistical Disclosure Control (SDC): An Introduction}
-\label{\detokenize{SDC_intro::doc}}\label{\detokenize{SDC_intro:statistical-disclosure-control-sdc-an-introduction}}
+\label{\detokenize{SDC_intro:statistical-disclosure-control-sdc-an-introduction}}\label{\detokenize{SDC_intro::doc}}
 
 \section{Need for SDC}
 \label{\detokenize{SDC_intro:need-for-sdc}}
@@ -4008,85 +4008,45 @@ Table 5.1: SDC methods and corresponding functions in \sphinxstyleemphasis{sdcMi
 
 \begin{savenotes}\sphinxattablestart
 \centering
-\begin{tabular}[t]{|*{4}{\X{1}{4}|}}
+\begin{tabulary}{\linewidth}[t]{|T|T|T|T|}
 \hline
 \sphinxstyletheadfamily 
 Method
-&\sphinxstyletheadfamily \begin{quote}
-
-Classificatio
-\end{quote}
-
-n
-of SDC method
 &\sphinxstyletheadfamily 
-Data-type
-&\sphinxstyletheadfamily \begin{quote}
-
-Function in
-\end{quote}
-
-sdcMicro
+Classification of SDC method
+&\sphinxstyletheadfamily 
+Data Type
+&\sphinxstyletheadfamily 
+Function in sdcMicro
 \\
 \hline
 Global recoding
 &
-non-perturbativ
-e,
-deterministic
+non-perturbative, determinitic
 &
-continuous and
-categorical
+continuous and categorical
 &
-{\color{red}\bfseries{}{}`globalRecode \textless{}
-http://www.rdoc
-umentation.org/
-packages/sdcMic
-ro/functions/gl
-obalRecode\textgreater{}{}`\_\_}
-\begin{quote}
-
-(),
-\end{quote}
-
-\sphinxhref{http://www.rdocumentation.org/packages/sdcMicro/functions/groupVars-methods}{groupVars}
-\_()
+\sphinxhref{http://www.rdocumentation.org/packages/sdcMicro/functions/globalrecode/}{globalRecode} ,
+\sphinxhref{http://www.rdocumentation.org/packages/sdcMicro/functions/groupVars-methods/}{groupVars}
 \\
 \hline
-Top and bottom
-coding
+Top and bottom coding
 &
-non-perturbativ
-e,
-deterministic
+non-perturbative, determinitic
 &
-continuous and
-categorical
+continuous and categorical
 &
-{\color{red}\bfseries{}{}`topBotCoding \textless{}
-http://www.rdoc
-umentation.org/
-packages/sdcMic
-ro/functions/to
-pBotCoding\textgreater{}{}`\_\_}
-\begin{quote}
-
-()
-\end{quote}
+\sphinxhref{http://www.rdocumentation.org/packages/sdcMicro/functions/topBotCoding/}{topBotCoding}
 \\
 \hline
 Local
 suppression
 &
-non-perturbativ
-e,
-deterministic
+non-perturbative, determinitic
 &
 categorical
 &
-\sphinxhref{http://www.rdocumentation.org/packages/sdcMicro/functions/localSuppression}{localSuppressi
-on}(),
-localSupp()
+\sphinxhref{http://www.rdocumentation.org/packages/sdcMicro/functions/localSuppression/}{localSuppression}, localSupp
 \\
 \hline
 PRAM
@@ -4096,19 +4056,17 @@ probabilistic
 &
 categorical
 &
-\sphinxhref{http://www.rdocumentation.org/packages/sdcMicro/functions/pram}{pram}()
+\sphinxhref{http://www.rdocumentation.org/packages/sdcMicro/functions/pram/}{pram}
 \\
 \hline
-Micro
-aggregation
+Micro aggregation
 &
 perturbative,
-deterministic
+probabilistic
 &
 continuous
 &
-\sphinxhref{http://www.rdocumentation.org/packages/sdcMicro/functions/microaggregation}{microaggregati
-on}()
+\sphinxhref{http://www.rdocumentation.org/packages/sdcMicro/functions/microaggregation/}{microaggregation}
 \\
 \hline
 Noise addition
@@ -4118,7 +4076,7 @@ probabilistic
 &
 continuous
 &
-\sphinxhref{http://www.rdocumentation.org/packages/sdcMicro/functions/addNoise}{addNoise}()
+\sphinxhref{http://www.rdocumentation.org/packages/sdcMicro/functions/addNoise/}{addNoise}
 \\
 \hline
 Shuffling
@@ -4128,12 +4086,7 @@ probabilistic
 &
 continuous
 &
-{\color{red}\bfseries{}{}`shuffle \textless{}http:
-//www.rdocument
-ation.org/packa
-ges/sdcMicro/fu
-nctions/shuffle
-\textgreater{}{}`\_\_}()
+\sphinxhref{http://www.rdocumentation.org/packages/sdcMicro/functions/shuffle/}{shuffle}
 \\
 \hline
 Rank swapping
@@ -4143,10 +4096,10 @@ probabilistic
 &
 continuous
 &
-\sphinxhref{http://www.rdocumentation.org/packages/sdcMicro/functions/rankSwap}{rankSwap}()
+\sphinxhref{http://www.rdocumentation.org/packages/sdcMicro/functions/rankSwap/}{rankSwap}
 \\
 \hline
-\end{tabular}
+\end{tabulary}
 \par
 \sphinxattableend\end{savenotes}
 
@@ -4652,31 +4605,25 @@ Section 7.4 on classes in \sphinxstyleemphasis{R} and how to change the class of
 
 Example 5.1: Using the sdcMicro function groupVars() to recode a
 categorical variable
+\begin{description}
+\item[{\# Frequencies of sizeRes before recoding}] \leavevmode
+table(\sphinxhref{mailto:sdcInitial@manipKeyVars\$sizeRes}{sdcInitial@manipKeyVars\$sizeRes})
+\#\# capital, large city          small city             town       countryside
+\#\#                 686                 310              146              1358
 
-\begin{DUlineblock}{0em}
-\item[] \sphinxstyleemphasis{\# Frequencies of sizeRes before recoding}
-\item[] \sphinxstylestrong{table}(\sphinxhref{mailto:sdcInitial@manipKeyVars\$sizeRes}{sdcInitial@manipKeyVars\$sizeRes})
-\item[] \sphinxcode{\sphinxupquote{\#\# capital, large city          small city             town       countryside}}
-\item[] \sphinxcode{\sphinxupquote{\#\#                 686                 310              146              1358}}
-\end{DUlineblock}
+\# Recode urban
+sdcInitial \textless{}- \sphinxstylestrong{groupVars}(obj = sdcInitial, var =
+c(“sizeRes”), before = \sphinxstylestrong{c}(“capital, large city”, “small city”, “town”), after = \sphinxstylestrong{c}(“urban”, “urban”, “urban”))
+\# Recode rural
+sdcInitial \textless{}- \sphinxstylestrong{groupVars}(obj = sdcInitial, var =
+c(“sizeRes”), before = \sphinxstylestrong{c}(“countryside”), after = c(“rural”))
+\# Frequencies of sizeRes before recoding
+table(\sphinxhref{mailto:sdcInitial@manipKeyVars\$sizeRes}{sdcInitial@manipKeyVars\$sizeRes})
 
-\begin{DUlineblock}{0em}
-\item[] \sphinxstyleemphasis{\# Recode urban}
-\item[] sdcInitial \textless{}- \sphinxstylestrong{groupVars}(obj = sdcInitial, var =
-\sphinxstylestrong{c}(“sizeRes”), before = \sphinxstylestrong{c}(“capital, large city”, “small
-city”, “town”), after = \sphinxstylestrong{c}(“urban”, “urban”, “urban”))
-\item[] \sphinxstyleemphasis{\# Recode rural}
-\item[] sdcInitial \textless{}- \sphinxstylestrong{groupVars}(obj = sdcInitial, var =
-\sphinxstylestrong{c}(“sizeRes”), before = \sphinxstylestrong{c}(“countryside”), after =
-\sphinxstylestrong{c}(“rural”))
-\item[] \sphinxstyleemphasis{\# Frequencies of sizeRes before recoding}
-\item[] \sphinxstylestrong{table}(\sphinxhref{mailto:sdcInitial@manipKeyVars\$sizeRes}{sdcInitial@manipKeyVars\$sizeRes})
-\end{DUlineblock}
+\#\# urban rural
+\#\#  1142  1358
 
-\begin{DUlineblock}{0em}
-\item[] \sphinxcode{\sphinxupquote{\#\# urban rural}}
-\item[] \sphinxcode{\sphinxupquote{\#\#  1142  1358}}
-\end{DUlineblock}
+\end{description}
 
 Figure 5.1 illustrates the effect of recoding the variable “sizeRes” and
 show respectively the frequency counts before and after recoding. We see
@@ -6522,7 +6469,7 @@ Evasive Answer Bias.” \sphinxstyleemphasis{Journal of American Statistical Ass
 
 
 \subsection{Microaggregation}
-\label{\detokenize{anon_methods:microaggregation}}
+\label{\detokenize{anon_methods:id14}}
 Microaggregation is most suitable for continuous variables, but can be
 extended in some cases to categorical variables. {[}\#foot47{]}\_\_
 It is most useful where confidentiality rules have been predetermined
@@ -11289,7 +11236,7 @@ Figure 8.1: Overview of the SDC process
 
 
 \chapter{Appendices}
-\label{\detokenize{appendices::doc}}\label{\detokenize{appendices:appendices}}
+\label{\detokenize{appendices:appendices}}\label{\detokenize{appendices::doc}}
 
 \section{\sphinxstylestrong{Appendix} \sphinxstylestrong{A: Overview of Case Study Variables}}
 \label{\detokenize{appendices:appendix-a-overview-of-case-study-variables}}

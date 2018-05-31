@@ -334,27 +334,25 @@ Section 7.4 on classes in *R* and how to change the class of a variable.
 Example 5.1: Using the sdcMicro function groupVars() to recode a
 categorical variable
 
+.. highlight::
+
+# Frequencies of sizeRes before recoding
+table(sdcInitial@manipKeyVars$sizeRes
+## capital, large city          small city             town       countryside
+##                 686                 310              146              1358
+
+# Recode urban
+sdcInitial <- **groupVars**\ (obj = sdcInitial, var =
+c("sizeRes"), before = **c**\ ("capital, large city", "small city", "town"), after = **c**\ ("urban", "urban", "urban"))
+# Recode rural
+sdcInitial <- **groupVars**\ (obj = sdcInitial, var =
+c("sizeRes"), before = **c**\ ("countryside"), after = c("rural"))
+      # Frequencies of sizeRes before recoding
+      table(sdcInitial@manipKeyVars$sizeRes)
+
+      ## urban rural
+      ##  1142  1358
 .. highlight:: c
-
-      *# Frequencies of sizeRes before recoding*
-      **table**\ (sdcInitial@manipKeyVars$sizeRes)
-      ``## capital, large city          small city             town       countryside``
-      ``##                 686                 310              146              1358``
-
-      *# Recode urban*
-      sdcInitial <- **groupVars**\ (obj = sdcInitial, var =
-      **c**\ ("sizeRes"), before = **c**\ ("capital, large city", "small
-      city", "town"), after = **c**\ ("urban", "urban", "urban"))
-      *# Recode rural*
-      sdcInitial <- **groupVars**\ (obj = sdcInitial, var =
-      **c**\ ("sizeRes"), before = **c**\ ("countryside"), after =
-      **c**\ ("rural"))
-      *# Frequencies of sizeRes before recoding*
-      **table**\ (sdcInitial@manipKeyVars$sizeRes)
-
-      ``## urban rural``
-      ``##  1142  1358``
-
 
 Figure 5.1 illustrates the effect of recoding the variable “sizeRes” and
 show respectively the frequency counts before and after recoding. We see
@@ -570,26 +568,26 @@ The next section discusses the method local suppression. Recoding is
 often used before local suppression to reduce the number of necessary
 suppressions.
 
-**Recommended Reading Material on Recoding**
+.. admonition:: Recommended Reading Material on Recoding
 
-Hundepool, Anco, Josep Domingo-Ferrer, Luisa Franconi, Sarah Giessing,
-Rainer Lenz, Jane Naylor, Eric Schulte Nordholt, Giovanni Seri, and
-Peter Paul de Wolf. 2006. *Handbook on Statistical Disclosure Control.*
-ESSNet SDC. http://neon.vb.cbs.nl/casc/handbook.htm.
-
-Hundepool, Anco, Josep Domingo-Ferrer, Luisa Franconi, Sarah Giessing,
-Eric Schulte Nordholt, Keith Spicer, and Peter Paul de Wolf. 2012.
-*Statistical Disclosure Control.* Chichester: John Wiley & Sons Ltd.
-doi:10.1002/9781118348239.
-
-Templ, Matthias, Bernhard Meindl, Alexander Kowarik, and Shuang Chen.
-2014. Statistical Disclosure Control (SDCMicro).
-http://www.ihsn.org/home/software/disclosure-control-toolbox. (accessed
-November 13, 2014).
-
-De Waal, A.G., and Willenborg, L.C.R.J. 1999. *Information loss through
-global recoding and local suppression*. Netherlands Official Statistics,
-14:17-20, 1999. Special issue on SDC
+	Hundepool, Anco, Josep Domingo-Ferrer, Luisa Franconi, Sarah Giessing,
+	Rainer Lenz, Jane Naylor, Eric Schulte Nordholt, Giovanni Seri, and
+	Peter Paul de Wolf. 2006. *Handbook on Statistical Disclosure Control.*
+	ESSNet SDC. http://neon.vb.cbs.nl/casc/handbook.htm.
+	
+	Hundepool, Anco, Josep Domingo-Ferrer, Luisa Franconi, Sarah Giessing,
+	Eric Schulte Nordholt, Keith Spicer, and Peter Paul de Wolf. 2012.
+	*Statistical Disclosure Control.* Chichester: John Wiley & Sons Ltd.
+	doi:10.1002/9781118348239.
+	
+	Templ, Matthias, Bernhard Meindl, Alexander Kowarik, and Shuang Chen.
+	2014. Statistical Disclosure Control (SDCMicro).
+	http://www.ihsn.org/home/software/disclosure-control-toolbox. (accessed
+	November 13, 2014).
+	
+	De Waal, A.G., and Willenborg, L.C.R.J. 1999. *Information loss through
+	global recoding and local suppression*. Netherlands Official Statistics,
+	14:17-20, 1999. Special issue on SDC
 
 Local suppression
 ~~~~~~~~~~~~~~~~~
@@ -1388,27 +1386,27 @@ strata
 | ``## - - - - - - - - - - -``
 | ``## TOILET != TOILET_pram : 179 (8.95%)``
 
-**Recommended Reading Material on PRAM**
+.. admonition:: Recommended Reading Material on PRAM
 
-Gouweleeuw, J. M, P Kooiman, L.C.R.J Willenborg, and P.P de Wolf. "Post
-Randomization for Statistical Disclosure Control: Theory and
-Implementation.\ *" Journal of Official Statistics* 14, no. 4 (1998a):
-463-478. Available at
-http://www.jos.nu/articles/abstract.asp?article=144463
-
-Gouweleeuw, J. M, P Kooiman, L.C.R.J Willenborg, and Peter Paul de Wolf.
-"The Post Randomization Method for Protecting Microdata\ *." Qüestiió,
-Quaderns d’Estadística i Investigació Operativa 22,* no. 1 (1998b):
-145-156. Available at
-http://www.raco.cat/index.php/Questiio/issue/view/2250
-
-Marés, Jordi, and Vicenç Torra. 2010."PRAM Optimization Using an
-Evolutionary Algorithm." *In Privacy in Statistical Databases*, by Josep
-Domingo-Ferrer and Emmanouil Magkos, 97-106. Corfú, Greece: Springer.
-
-Warner, S.L. "Randomized Response: A Survey Technique for Eliminating
-Evasive Answer Bias." *Journal of American Statistical Association* 57
-(1965): 622-627.
+	Gouweleeuw, J. M, P Kooiman, L.C.R.J Willenborg, and P.P de Wolf. "Post
+	Randomization for Statistical Disclosure Control: Theory and
+	Implementation.\ *" Journal of Official Statistics* 14, no. 4 (1998a):
+	463-478. Available at
+	http://www.jos.nu/articles/abstract.asp?article=144463
+	
+	Gouweleeuw, J. M, P Kooiman, L.C.R.J Willenborg, and Peter Paul de Wolf.
+	"The Post Randomization Method for Protecting Microdata\ *." Qüestiió,
+	Quaderns d’Estadística i Investigació Operativa 22,* no. 1 (1998b):
+	145-156. Available at
+	http://www.raco.cat/index.php/Questiio/issue/view/2250
+	
+	Marés, Jordi, and Vicenç Torra. 2010."PRAM Optimization Using an
+	Evolutionary Algorithm." *In Privacy in Statistical Databases*, by Josep
+	Domingo-Ferrer and Emmanouil Magkos, 97-106. Corfú, Greece: Springer.
+	
+	Warner, S.L. "Randomized Response: A Survey Technique for Eliminating
+	Evasive Answer Bias." *Journal of American Statistical Association* 57
+	(1965): 622-627.
 
 Microaggregation
 ~~~~~~~~~~~~~~~~
@@ -1657,31 +1655,31 @@ of replacing the values with the mean of the groups rather than other
 replacement values has the advantage that the overall means of the
 variables are preserved.
 
-**Recommended Reading Material on Microaggregation**
+.. admonition:: Recommended Reading Material on Microaggregation
 
-Domingo-Ferrer, Josep, and Josep Maria Mateo-Sanz. 2002."Practical
-data-oriented microaggregation for statistical disclosure control."
-*IEEE Transactions on Knowledge and Data Engineering 14* (2002):
-189-201.
-
-Hansen, Stephen Lee, and Sumitra Mukherjee. 2003. "A polynomial
-algorithm for univariate optimal." *IEEE Transactions on Knowledge and
-Data Engineering* 15 (2003): 1043-1044.
-
-Hundepool, Anco, Josep Domingo-Ferrer, Luisa Franconi, Sarah Giessing,
-Rainer Lenz, Jane Naylor, Eric Schulte Nordholt, Giovanni Seri, and
-Peter Paul de Wolf. 2006. *Handbook on Statistical Disclosure Control.*
-ESSNet SDC. http://neon.vb.cbs.nl/casc/handbook.htm
-
-Hundepool, Anco, Josep Domingo-Ferrer, Luisa Franconi, Sarah Giessing,
-Eric Schulte Nordholt, Keith Spicer, and Peter Paul de Wolf. 2012.
-*Statistical Disclosure Control.* Chichester: John Wiley & Sons Ltd.
-doi:10.1002/9781118348239.
-
-Templ, Matthias, Bernhard Meindl, Alexander Kowarik, and Shuang Chen.
-2014, August. "International Household Survey Network (IHSN)."
-http://www.ihsn.org/home/software/disclosure-control-toolbox. (accessed
-November 13, 2014).
+	Domingo-Ferrer, Josep, and Josep Maria Mateo-Sanz. 2002."Practical
+	data-oriented microaggregation for statistical disclosure control."
+	*IEEE Transactions on Knowledge and Data Engineering 14* (2002):
+	189-201.
+	
+	Hansen, Stephen Lee, and Sumitra Mukherjee. 2003. "A polynomial
+	algorithm for univariate optimal." *IEEE Transactions on Knowledge and
+	Data Engineering* 15 (2003): 1043-1044.
+	
+	Hundepool, Anco, Josep Domingo-Ferrer, Luisa Franconi, Sarah Giessing,
+	Rainer Lenz, Jane Naylor, Eric Schulte Nordholt, Giovanni Seri, and
+	Peter Paul de Wolf. 2006. *Handbook on Statistical Disclosure Control.*
+	ESSNet SDC. http://neon.vb.cbs.nl/casc/handbook.htm
+	
+	Hundepool, Anco, Josep Domingo-Ferrer, Luisa Franconi, Sarah Giessing,
+	Eric Schulte Nordholt, Keith Spicer, and Peter Paul de Wolf. 2012.
+	*Statistical Disclosure Control.* Chichester: John Wiley & Sons Ltd.
+	doi:10.1002/9781118348239.
+	
+	Templ, Matthias, Bernhard Meindl, Alexander Kowarik, and Shuang Chen.
+	2014, August. "International Household Survey Network (IHSN)."
+	http://www.ihsn.org/home/software/disclosure-control-toolbox. (accessed
+	November 13, 2014).
 
 Noise addition
 ~~~~~~~~~~~~~~
@@ -1913,30 +1911,30 @@ sdcInital@origData[,compExp]/ sdcInital@origData[,"HHEXP_N"]
   object*
 | **sdcInitial <- calcRisks**\ (sdcInital)
 
-**Recommended Reading Material on Noise Addition**
+.. admonition:: Recommended Reading Material on Noise Addition
 
-Brand, Ruth. 2002. “Microdata Protection through Noise Addition.” In
-*Inference Control in Statistical Databases - From Theory to Practice*,
-edited byJosep Domingo-Ferrer. Lecture Notes in Computer Science Series
-2316, 97-116. Berlin Heidelberg: Springer.
-http://link.springer.com/chapter/10.1007%2F3-540-47804-3_8
-
-Kim, Jay J, and William W Winkler. 2003. "Multiplicative Noise for
-Masking Continuous Data." *Research Report Series* (Statistical Research
-Division. US Bureau of the Census).
-https://www.census.gov/srd/papers/pdf/rrs2003-01.pdf
-
-Torra, Vicenç, and Isaac Cano. 2011. “Edit Constraints on
-Microaggregation and Additive Noise.” In *Privacy and Security Issues in
-Data Mining and Machine Learning*, edited by C. Dimitrakakis, A.
-Gkoulalas-Divanis, A. Mitrokotsa, V. S. Verykios, Y. Saygin. Lecture
-Notes in Computer Science Volume 6549, 1-14. Berlin Heidelberg:
-Springer. http://link.springer.com/book/10.1007/978-3-642-19896-0
-
-Mivule, K. 2013. “Utilizing Noise Addition for Data Privacy, An
-Overview.” *Proceedings of the International Conference on Information
-and Knowledge Engineering (IKE 2012)*, (pp.65-71).Las Vegas, USA.
-http://arxiv.org/ftp/arxiv/papers/1309/1309.3958.pdf
+	Brand, Ruth. 2002. “Microdata Protection through Noise Addition.” In
+	*Inference Control in Statistical Databases - From Theory to Practice*,
+	edited byJosep Domingo-Ferrer. Lecture Notes in Computer Science Series
+	2316, 97-116. Berlin Heidelberg: Springer.
+	http://link.springer.com/chapter/10.1007%2F3-540-47804-3_8
+	
+	Kim, Jay J, and William W Winkler. 2003. "Multiplicative Noise for
+	Masking Continuous Data." *Research Report Series* (Statistical Research
+	Division. US Bureau of the Census).
+	https://www.census.gov/srd/papers/pdf/rrs2003-01.pdf
+	
+	Torra, Vicenç, and Isaac Cano. 2011. “Edit Constraints on
+	Microaggregation and Additive Noise.” In *Privacy and Security Issues in
+	Data Mining and Machine Learning*, edited by C. Dimitrakakis, A.
+	Gkoulalas-Divanis, A. Mitrokotsa, V. S. Verykios, Y. Saygin. Lecture
+	Notes in Computer Science Volume 6549, 1-14. Berlin Heidelberg:
+	Springer. http://link.springer.com/book/10.1007/978-3-642-19896-0
+	
+	Mivule, K. 2013. “Utilizing Noise Addition for Data Privacy, An
+	Overview.” *Proceedings of the International Conference on Information
+	and Knowledge Engineering (IKE 2012)*, (pp.65-71).Las Vegas, USA.
+	http://arxiv.org/ftp/arxiv/papers/1309/1309.3958.pdf
 
 Rank swapping
 ~~~~~~~~~~~~~~
@@ -2006,22 +2004,22 @@ swapping, because the values themselves are not altered and the original
 values are all disclosed. This can be solved by top and bottom coding
 the lowest and/or highest values.
 
-**Recommended Reading Material on Rank Swapping**
+.. admonition:: Recommended Reading Material on Rank Swapping
 
-Dalenius T. and Reiss S.P. 1978. Data-swapping: a technique for
-disclosure control (extended abstract). In Proc. ASA Section on Survey
-Research Methods. American Statistical Association, Washington DC,
-191–194.
-
-Domingo-Ferrer J. and Torra V. 2001. “A Quantitative Comparison of
-Disclosure Control Methods for Microdata.” In *Confidentiality,
-Disclosure and Data Access: Theory and Practical Applications for
-Statistical Agencies*, edited by P. Doyle, J.I. Lane, J.J.M. Theeuwes,
-and L. Zayatz, 111–134. Amsterdam, North-Holland.
-
-Hundepool A., Van de Wetering A., Ramaswamy R., Franconi F., Polettini
-S., Capobianchi A., De Wolf P.-P., Domingo-Ferrer J., Torra V., Brand R.
-and Giessing S. 2007. μ-Argus User's Manual version 4.1.
+	Dalenius T. and Reiss S.P. 1978. Data-swapping: a technique for
+	disclosure control (extended abstract). In Proc. ASA Section on Survey
+	Research Methods. American Statistical Association, Washington DC,
+	191–194.
+	
+	Domingo-Ferrer J. and Torra V. 2001. “A Quantitative Comparison of
+	Disclosure Control Methods for Microdata.” In *Confidentiality,
+	Disclosure and Data Access: Theory and Practical Applications for
+	Statistical Agencies*, edited by P. Doyle, J.I. Lane, J.J.M. Theeuwes,
+	and L. Zayatz, 111–134. Amsterdam, North-Holland.
+	
+	Hundepool A., Van de Wetering A., Ramaswamy R., Franconi F., Polettini
+	S., Capobianchi A., De Wolf P.-P., Domingo-Ferrer J., Torra V., Brand R.
+	and Giessing S. 2007. μ-Argus User's Manual version 4.1.
 
 Shuffling
 ~~~~~~~~~
@@ -2099,10 +2097,10 @@ Example 5.24: Shuffling using a specified regression equation
   TOTALCH + TOTCLTH + TOTHOUS + TOTFURN + TOTHLTH + TOTTRSP + TOTCMNQ +
   TOTRCRE + TOTEDUC + TOTHOTL + TOTMISC ~ EXP + HHSIZE)
 
-**Recommended Reading Material on Shuffling**
+.. admonition:: Recommended Reading Material on Shuffling
 
-K. Muralidhar and R. Sarathy. 2006."Data shuffling - A new masking
-approach for numerical data,” *Management Science*, 52, 658-670.
+	K. Muralidhar and R. Sarathy. 2006."Data shuffling - A new masking
+	approach for numerical data,” *Management Science*, 52, 658-670.
 
 Comparison of PRAM, rank swapping and shuffling
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
