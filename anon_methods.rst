@@ -68,74 +68,40 @@ types of data to which they are applicable and their function names in
 the *sdcMicro* package.
 
 Table 5.1: SDC methods and corresponding functions in *sdcMicro*
-                                                                           |
-.. raw:: html
 
-    <table border="1" class="docutils">
-    <colgroup>
-    <col width="17%">
-    <col width="17%">
-    <col width="15%">
-    <col width="52%">
-    </colgroup>
-    <thead valign="bottom">
-    <tr class="row-odd"><th class="head">Method</th>
-    <th class="head">Classification of SDC method</th>
-    <th class="head">Data Type</th>
-    <th class="head">Function in sdcMicro</th>
-    </tr>
-    </thead>
-    <tbody valign="top">
-    <tr class="row-even"><td>Global recoding</td>
-    <td>non-perturbative, determinitic</td>
-    <td>continuous and categorical</td>
-    <td><a class="reference external" href="http://www.rdocumentation.org/packages/sdcMicro/functions/globalrecode/">globalRecode</a> ,
-    <a class="reference external" href="http://www.rdocumentation.org/packages/sdcMicro/functions/groupVars-methods/">groupVars</a></td>
-    </tr>
-    <tr class="row-odd"><td>Top and bottom coding</td>
-    <td>non-perturbative, determinitic</td>
-    <td>continuous and categorical</td>
-    <td><a class="reference external" href="http://www.rdocumentation.org/packages/sdcMicro/functions/topBotCoding/">topBotCoding</a></td>
-    </tr>
-    <tr class="row-even"><td>Local
-    suppression</td>
-    <td>non-perturbative, determinitic</td>
-    <td>categorical</td>
-    <td><a class="reference external" href="http://www.rdocumentation.org/packages/sdcMicro/functions/localSuppression/">localSuppression</a>, localSupp</td>
-    </tr>
-    <tr class="row-odd"><td>PRAM</td>
-    <td>perturbative,
-    probabilistic</td>
-    <td>categorical</td>
-    <td><a class="reference external" href="http://www.rdocumentation.org/packages/sdcMicro/functions/pram/">pram</a></td>
-    </tr>
-    <tr class="row-even"><td>Micro aggregation</td>
-    <td>perturbative,
-    probabilistic</td>
-    <td>continuous</td>
-    <td><a class="reference external" href="http://www.rdocumentation.org/packages/sdcMicro/functions/microaggregation/">microaggregation</a></td>
-    </tr>
-    <tr class="row-odd"><td>Noise addition</td>
-    <td>perturbative,
-    probabilistic</td>
-    <td>continuous</td>
-    <td><a class="reference external" href="http://www.rdocumentation.org/packages/sdcMicro/functions/addNoise/">addNoise</a></td>
-    </tr>
-    <tr class="row-even"><td>Shuffling</td>
-    <td>perturbative,
-    probabilistic</td>
-    <td>continuous</td>
-    <td><a class="reference external" href="http://www.rdocumentation.org/packages/sdcMicro/functions/shuffle/">shuffle</a></td>
-    </tr>
-    <tr class="row-odd"><td>Rank swapping</td>
-    <td>perturbative,
-    probabilistic</td>
-    <td>continuous</td>
-    <td><a class="reference external" href="http://www.rdocumentation.org/packages/sdcMicro/functions/rankSwap/">rankSwap</a></td>
-    </tr>
-    </tbody>
-    </table>
-
++--------------------------------+--------------------------------+----------------------------+---------------------------------------------------------------------------------------------------+
+| Method                         | Classification of SDC method   | Data Type                  | Function in sdcMicro                                                                              |
++================================+================================+============================+===================================================================================================+
+| Global recoding                | non-perturbative, determinitic | continuous and categorical | `globalRecode <http://www.rdocumentation.org/packages/sdcMicro/functions/globalrecode/>`_ ,       |
+|                                |                                |                            | `groupVars <http://www.rdocumentation.org/packages/sdcMicro/functions/groupVars-methods/>`_       |
++--------------------------------+--------------------------------+----------------------------+---------------------------------------------------------------------------------------------------+
+| Top and bottom coding          | non-perturbative, determinitic | continuous and categorical | `topBotCoding <http://www.rdocumentation.org/packages/sdcMicro/functions/topBotCoding/>`_         |
+|                                |                                |                            |                                                                                                   |
++--------------------------------+--------------------------------+----------------------------+---------------------------------------------------------------------------------------------------+
+| Local                          | non-perturbative, determinitic | categorical                | `localSuppression <http://www.rdocumentation.org/packages/sdcMicro/functions/localSuppress        |
+| suppression                    |                                |                            | ion/>`_, localSupp                                                                                |
+|                                |                                |                            |                                                                                                   |
++--------------------------------+--------------------------------+----------------------------+---------------------------------------------------------------------------------------------------+
+| PRAM                           | perturbative,                  | categorical                | `pram <http://www.rdocumentation.org/packages/sdcMicro/functions/pram/>`_                         |
+|                                | probabilistic                  |                            |                                                                                                   |
+|                                |                                |                            |                                                                                                   |
++--------------------------------+--------------------------------+----------------------------+---------------------------------------------------------------------------------------------------+
+| Micro aggregation              | perturbative,                  | continuous                 | `microaggregation <http://www.rdocumentation.org/packages/sdcMicro/functions/microaggregation/>`_ |
+|                                | probabilistic                  |                            |                                                                                                   |
+|                                |                                |                            |                                                                                                   |
++--------------------------------+--------------------------------+----------------------------+---------------------------------------------------------------------------------------------------+
+| Noise addition                 | perturbative,                  | continuous                 | `addNoise <http://www.rdocumentation.org/packages/sdcMicro/functions/addNoise/>`_                 |
+|                                | probabilistic                  |                            |                                                                                                   |
+|                                |                                |                            |                                                                                                   |
++--------------------------------+--------------------------------+----------------------------+---------------------------------------------------------------------------------------------------+
+| Shuffling                      | perturbative,                  | continuous                 | `shuffle <http://www.rdocumentation.org/packages/sdcMicro/functions/shuffle/>`_                   |
+|                                | probabilistic                  |                            |                                                                                                   |
+|                                |                                |                            |                                                                                                   |
++--------------------------------+--------------------------------+----------------------------+---------------------------------------------------------------------------------------------------+
+| Rank swapping                  | perturbative,                  | continuous                 | `rankSwap <http://www.rdocumentation.org/packages/sdcMicro/functions/rankSwap/>`_                 |
+|                                | probabilistic                  |                            |                                                                                                   |
+|                                |                                |                            |                                                                                                   |
++--------------------------------+--------------------------------+----------------------------+---------------------------------------------------------------------------------------------------+
 
 
 Non-perturbative methods
