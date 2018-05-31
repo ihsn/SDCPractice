@@ -335,24 +335,24 @@ Example 5.1: Using the sdcMicro function groupVars() to recode a
 categorical variable
 
 .. code-block::
-      | *# Frequencies of sizeRes before recoding*
-      | **table**\ (sdcInitial@manipKeyVars$sizeRes)
-      | ``## capital, large city          small city             town       countryside``
-      | ``##                 686                 310              146              1358``
+      *# Frequencies of sizeRes before recoding*
+      **table**\ (sdcInitial@manipKeyVars$sizeRes)
+      ``## capital, large city          small city             town       countryside``
+      ``##                 686                 310              146              1358``
 
-      | *# Recode urban*
-      | sdcInitial <- **groupVars**\ (obj = sdcInitial, var =
+      *# Recode urban*
+      sdcInitial <- **groupVars**\ (obj = sdcInitial, var =
       **c**\ ("sizeRes"), before = **c**\ ("capital, large city", "small
       city", "town"), after = **c**\ ("urban", "urban", "urban"))
-      | *# Recode rural*
-      | sdcInitial <- **groupVars**\ (obj = sdcInitial, var =
+      *# Recode rural*
+      sdcInitial <- **groupVars**\ (obj = sdcInitial, var =
       **c**\ ("sizeRes"), before = **c**\ ("countryside"), after =
       **c**\ ("rural"))
-      | *# Frequencies of sizeRes before recoding*
-      | **table**\ (sdcInitial@manipKeyVars$sizeRes)
+      *# Frequencies of sizeRes before recoding*
+      **table**\ (sdcInitial@manipKeyVars$sizeRes)
 
-      | ``## urban rural``
-      | ``##  1142  1358``
+      ``## urban rural``
+      ``##  1142  1358``
 
 
 
