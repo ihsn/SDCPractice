@@ -334,7 +334,7 @@ Section 7.4 on classes in *R* and how to change the class of a variable.
 Example 5.1: Using the sdcMicro function groupVars() to recode a
 categorical variable
 
-.. code-block::
+.. code-block:: python
       *# Frequencies of sizeRes before recoding*
       **table**\ (sdcInitial@manipKeyVars$sizeRes)
       ``## capital, large city          small city             town       countryside``
