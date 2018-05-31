@@ -69,79 +69,40 @@ the *sdcMicro* package.
 
 Table 5.1: SDC methods and corresponding functions in *sdcMicro*
 
-+-----------------+-----------------+-----------------+-----------------+
-|   Method        |   Classificatio |   Data-type     |   Function in   |
-|                 | n               |                 | sdcMicro        |
-|                 | of SDC method   |                 |                 |
-+=================+=================+=================+=================+
-| Global recoding | non-perturbativ | continuous and  | `globalRecode < |
-|                 | e,              | categorical     | http://www.rdoc |
-|                 | deterministic   |                 | umentation.org/ |
-|                 |                 |                 | packages/sdcMic |
-|                 |                 |                 | ro/functions/gl |
-|                 |                 |                 | obalRecode>`__\ |
-|                 |                 |                 |  (),            |
-|                 |                 |                 | `groupVars <htt |
-|                 |                 |                 | p://www.rdocume |
-|                 |                 |                 | ntation.org/pac |
-|                 |                 |                 | kages/sdcMicro/ |
-|                 |                 |                 | functions/group |
-|                 |                 |                 | Vars-methods>`_ |
-|                 |                 |                 | _\ ()           |
-+-----------------+-----------------+-----------------+-----------------+
-| Top and bottom  | non-perturbativ | continuous and  | `topBotCoding < |
-| coding          | e,              | categorical     | http://www.rdoc |
-|                 | deterministic   |                 | umentation.org/ |
-|                 |                 |                 | packages/sdcMic |
-|                 |                 |                 | ro/functions/to |
-|                 |                 |                 | pBotCoding>`__\ |
-|                 |                 |                 |  ()             |
-+-----------------+-----------------+-----------------+-----------------+
-| Local           | non-perturbativ | categorical     | `localSuppressi |
-| suppression     | e,              |                 | on <http://www. |
-|                 | deterministic   |                 | rdocumentation. |
-|                 |                 |                 | org/packages/sd |
-|                 |                 |                 | cMicro/function |
-|                 |                 |                 | s/localSuppress |
-|                 |                 |                 | ion>`__\ (),    |
-|                 |                 |                 | localSupp()     |
-+-----------------+-----------------+-----------------+-----------------+
-| PRAM            | perturbative,   | categorical     | `pram <http://w |
-|                 | probabilistic   |                 | ww.rdocumentati |
-|                 |                 |                 | on.org/packages |
-|                 |                 |                 | /sdcMicro/funct |
-|                 |                 |                 | ions/pram>`__\  |
-|                 |                 |                 | ()              |
-+-----------------+-----------------+-----------------+-----------------+
-| Micro           | perturbative,   | continuous      | `microaggregati |
-| aggregation     | deterministic   |                 | on <http://www. |
-|                 |                 |                 | rdocumentation. |
-|                 |                 |                 | org/packages/sd |
-|                 |                 |                 | cMicro/function |
-|                 |                 |                 | s/microaggregat |
-|                 |                 |                 | ion>`__\ ()     |
-+-----------------+-----------------+-----------------+-----------------+
-| Noise addition  | perturbative,   | continuous      | `addNoise <http |
-|                 | probabilistic   |                 | ://www.rdocumen |
-|                 |                 |                 | tation.org/pack |
-|                 |                 |                 | ages/sdcMicro/f |
-|                 |                 |                 | unctions/addNoi |
-|                 |                 |                 | se>`__\ ()      |
-+-----------------+-----------------+-----------------+-----------------+
-| Shuffling       | perturbative,   | continuous      | `shuffle <http: |
-|                 | probabilistic   |                 | //www.rdocument |
-|                 |                 |                 | ation.org/packa |
-|                 |                 |                 | ges/sdcMicro/fu |
-|                 |                 |                 | nctions/shuffle |
-|                 |                 |                 | >`__\ ()        |
-+-----------------+-----------------+-----------------+-----------------+
-| Rank swapping   | perturbative,   | continuous      | `rankSwap <http |
-|                 | probabilistic   |                 | ://www.rdocumen |
-|                 |                 |                 | tation.org/pack |
-|                 |                 |                 | ages/sdcMicro/f |
-|                 |                 |                 | unctions/rankSw |
-|                 |                 |                 | ap>`__\ ()      |
-+-----------------+-----------------+-----------------+-----------------+
++--------------------------------+--------------------------------+----------------------------+---------------------------------------------------------------------------------------------------+
+| Method                         | Classification of SDC method   | Data Type                  | Function in sdcMicro                                                                              |
++================================+================================+============================+===================================================================================================+
+| Global recoding                | non-perturbative, determinitic | continuous and categorical | `globalRecode <http://www.rdocumentation.org/packages/sdcMicro/functions/globalrecode/>`_ ,       |
+|                                |                                |                            | `groupVars <http://www.rdocumentation.org/packages/sdcMicro/functions/groupVars-methods/>`_       |
++--------------------------------+--------------------------------+----------------------------+---------------------------------------------------------------------------------------------------+
+| Top and bottom coding          | non-perturbative, determinitic | continuous and categorical | `topBotCoding <http://www.rdocumentation.org/packages/sdcMicro/functions/topBotCoding/>`_         |
+|                                |                                |                            |                                                                                                   |
++--------------------------------+--------------------------------+----------------------------+---------------------------------------------------------------------------------------------------+
+| Local                          | non-perturbative, determinitic | categorical                | `localSuppression <http://www.rdocumentation.org/packages/sdcMicro/functions/localSuppress        |
+| suppression                    |                                |                            | ion/>`_, localSupp                                                                                |
+|                                |                                |                            |                                                                                                   |
++--------------------------------+--------------------------------+----------------------------+---------------------------------------------------------------------------------------------------+
+| PRAM                           | perturbative,                  | categorical                | `pram <http://www.rdocumentation.org/packages/sdcMicro/functions/pram/>`_                         |
+|                                | probabilistic                  |                            |                                                                                                   |
+|                                |                                |                            |                                                                                                   |
++--------------------------------+--------------------------------+----------------------------+---------------------------------------------------------------------------------------------------+
+| Micro aggregation              | perturbative,                  | continuous                 | `microaggregation <http://www.rdocumentation.org/packages/sdcMicro/functions/microaggregation/>`_ |
+|                                | probabilistic                  |                            |                                                                                                   |
+|                                |                                |                            |                                                                                                   |
++--------------------------------+--------------------------------+----------------------------+---------------------------------------------------------------------------------------------------+
+| Noise addition                 | perturbative,                  | continuous                 | `addNoise <http://www.rdocumentation.org/packages/sdcMicro/functions/addNoise/>`_                 |
+|                                | probabilistic                  |                            |                                                                                                   |
+|                                |                                |                            |                                                                                                   |
++--------------------------------+--------------------------------+----------------------------+---------------------------------------------------------------------------------------------------+
+| Shuffling                      | perturbative,                  | continuous                 | `shuffle <http://www.rdocumentation.org/packages/sdcMicro/functions/shuffle/>`_                   |
+|                                | probabilistic                  |                            |                                                                                                   |
+|                                |                                |                            |                                                                                                   |
++--------------------------------+--------------------------------+----------------------------+---------------------------------------------------------------------------------------------------+
+| Rank swapping                  | perturbative,                  | continuous                 | `rankSwap <http://www.rdocumentation.org/packages/sdcMicro/functions/rankSwap/>`_                 |
+|                                | probabilistic                  |                            |                                                                                                   |
+|                                |                                |                            |                                                                                                   |
++--------------------------------+--------------------------------+----------------------------+---------------------------------------------------------------------------------------------------+
+
 
 Non-perturbative methods
 ------------------------
@@ -373,24 +334,27 @@ Section 7.4 on classes in *R* and how to change the class of a variable.
 Example 5.1: Using the sdcMicro function groupVars() to recode a
 categorical variable
 
-| *# Frequencies of sizeRes before recoding*
-| **table**\ (sdcInitial@manipKeyVars$sizeRes)
-| ``## capital, large city          small city             town       countryside``
-| ``##                 686                 310              146              1358``
+.. highlight:: c
 
-| *# Recode urban*
-| sdcInitial <- **groupVars**\ (obj = sdcInitial, var =
-  **c**\ ("sizeRes"), before = **c**\ ("capital, large city", "small
-  city", "town"), after = **c**\ ("urban", "urban", "urban"))
-| *# Recode rural*
-| sdcInitial <- **groupVars**\ (obj = sdcInitial, var =
-  **c**\ ("sizeRes"), before = **c**\ ("countryside"), after =
-  **c**\ ("rural"))
-| *# Frequencies of sizeRes before recoding*
-| **table**\ (sdcInitial@manipKeyVars$sizeRes)
+      *# Frequencies of sizeRes before recoding*
+      **table**\ (sdcInitial@manipKeyVars$sizeRes)
+      ``## capital, large city          small city             town       countryside``
+      ``##                 686                 310              146              1358``
 
-| ``## urban rural``
-| ``##  1142  1358``
+      *# Recode urban*
+      sdcInitial <- **groupVars**\ (obj = sdcInitial, var =
+      **c**\ ("sizeRes"), before = **c**\ ("capital, large city", "small
+      city", "town"), after = **c**\ ("urban", "urban", "urban"))
+      *# Recode rural*
+      sdcInitial <- **groupVars**\ (obj = sdcInitial, var =
+      **c**\ ("sizeRes"), before = **c**\ ("countryside"), after =
+      **c**\ ("rural"))
+      *# Frequencies of sizeRes before recoding*
+      **table**\ (sdcInitial@manipKeyVars$sizeRes)
+
+      ``## urban rural``
+      ``##  1142  1358``
+
 
 Figure 5.1 illustrates the effect of recoding the variable “sizeRes” and
 show respectively the frequency counts before and after recoding. We see
@@ -400,7 +364,7 @@ categories (‘small city’ and ‘town’) have disappeared.
 .. image:: media/image3.png
    :width: 6.5in
    :height: 3.25556in
-   
+
 Figure 5.1 Effect of recoding – frequency counts before and after
 recoding
 
@@ -435,7 +399,7 @@ Figure 5.2 shows the effect of recoding the variable “age”.
 .. image:: media/image4.png
    :width: 6.5in
    :height: 3.25556in
-   
+
 Figure 5.2 Age variable before and after recoding
 
 Instead of creating intervals of equal width, we can also create
@@ -486,7 +450,7 @@ To construct **right-open** intervals, e.g., in our example, for age
 intervals [0,14), [15, 65), [66, 100), we present two alternatives for
 global recoding:
 
--  A work-around for semi-continuous variables [#foot36]_ 
+-  A work-around for semi-continuous variables [#foot36]_
    that would allow for the globalRecode() to be used would be
    subtracting a small number from the boundary intervals, thus allowing
    the desired intervals to be created. In the following example,
@@ -1974,7 +1938,7 @@ Overview.” *Proceedings of the International Conference on Information
 and Knowledge Engineering (IKE 2012)*, (pp.65-71).Las Vegas, USA.
 http://arxiv.org/ftp/arxiv/papers/1309/1309.3958.pdf
 
-Rank swapping 
+Rank swapping
 ~~~~~~~~~~~~~~
 
 Data swapping is based on interchanging values of a certain variable
@@ -2388,4 +2352,3 @@ detail by recoding.[#foot57]_
    More information on the anonymization of these files is available on
    the website of the U.S. Census Bureau:
    https://www.census.gov/population/www/cen2000/pums/index.html
-
