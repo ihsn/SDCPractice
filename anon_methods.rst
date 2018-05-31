@@ -1344,12 +1344,11 @@ transition matrix
 
 .. code-block:: R
 
-      sdcInitial <- **pram**\ (obj = sdcInitial, variables =
-      **c**\ ("TOILET"), pd = **c**\ (0.9, 0.5, 0.5, 0.5))
+    sdcInitial <- pram(obj = sdcInitial, variables = c("TOILET"), pd = c(0.9, 0.5, 0.5, 0.5))
+    ## Number of changed observations:
+    ## - - - - - - - - - - -
+    ## TOILET != TOILET_pram : 496 (24.8%)
 
-       ``## Number of changed observations:``
-       ``## - - - - - - - - - - -``
-       ``## TOILET != TOILET_pram : 496 (24.8%)``
 
 In the invariant PRAM method, we can also specify the amount of
 perturbation by specifying the parameter alpha. This choice is reflected
