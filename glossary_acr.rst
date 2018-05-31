@@ -102,7 +102,7 @@ Glossary
 |                                   | purposes by government agencies.  |
 |                                   | Typically, administrative data    |
 |                                   | require specific SDC methods.     |
-+===================================+===================================+
++-----------------------------------+-----------------------------------+
 | Anonymization                     | Use of techniques that convert    |
 |                                   | confidential data into anonymized |
 |                                   | data/ removal or masking of       |
