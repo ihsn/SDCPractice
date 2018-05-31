@@ -96,9 +96,9 @@ html_theme = 'sphinx_rtd_theme'
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
 
-# html_context = {
+#html_context = {
 #    'css_files': [
-#        '_static/theme_overrides.css',  # override wide tables in RTD theme
+#        '_static/custom.css',  # override wide tables in RTD theme
 #       ],
 #    }
 
@@ -111,7 +111,6 @@ html_static_path = ['_static']
 # 'searchbox.html']``.
 #
 # html_sidebars = {}
-
 
 # -- Options for HTMLHelp output ---------------------------------------------
 
@@ -176,6 +175,9 @@ texinfo_documents = [
 
 # Example configuration for intersphinx: refer to the Python standard library.
 intersphinx_mapping = {'https://docs.python.org/': None}
+
+def setup(app):
+   app.add_stylesheet('custom.css')
 
 # -- Options for todo extension ----------------------------------------------
 
