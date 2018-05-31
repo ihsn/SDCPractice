@@ -332,9 +332,7 @@ groupVars() works only for variables of class factor.** We refer to
 Section 7.4 on classes in *R* and how to change the class of a variable.
 
 Example 5.1: Using the sdcMicro function groupVars() to recode a
-categorical variable
-
-.. highlight:: c
+categorical variable::
 
       *# Frequencies of sizeRes before recoding*
       **table**\ (sdcInitial@manipKeyVars$sizeRes)
