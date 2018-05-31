@@ -335,6 +335,7 @@ Example 5.1: Using the sdcMicro function groupVars() to recode a
 categorical variable
 
 .. code-block:: r
+  :linenos:
 
 | *# Frequencies of sizeRes before recoding*
 | **table**\ (sdcInitial@manipKeyVars$sizeRes)
