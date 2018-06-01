@@ -223,9 +223,10 @@ anonymization.
 
 Example 6.4: Comparing contingency tables of categorical variables
 
-| *# Contingency table (cross tabulation) of the variables region and
-  urban/rural*
-| **table**\ (sdcInitial@origData[, **c**\ ('REGION', 'URBRUR')]) *#
+.. code-block:: R
+   
+    # Contingency table (cross tabulation) of the variables region and urban/rural
+	table**\ (sdcInitial@origData[, **c**\ ('REGION', 'URBRUR')]) *
   before anonymization*
 
 | ``##       URBRUR``
@@ -920,23 +921,22 @@ and regressions. In general, when anonymizing sampled data, it is
 advisable to compute confidence intervals around estimates to interpret
 the magnitude of changes.
 
-**Recommended Reading Material on Measuring Utility and Information
-Loss**
+.. admonition:: Recommended Reading Material on Measuring Utility and Information Loss
 
-A.G. De Waal and L.C.R.J. Willenborg. 1999. “Information Loss through
-Global Recoding and Local Suppression” In Netherlands Official
-Statistics: Special Issue on SDC, 14, 17-10.
-
-J. Domingo-Ferrer, J.M. Mateo-Sanz and V. Torra. 2001. “Comparing SDC
-Methods for Microdata on the basis of Information Loss and Disclosure
-Risk”. In Pre-proceedings of ETK-NTTS 2001 (vol. 2), 807-826.
-http://neon.vb.cbs.nl/casc/NTTSJosep.pdf
-
-J. Domingo-Ferrer and V. Torra. 2001. “Disclosure Protection Methods and
-Information Loss for Microdata”. In P. Doyle, J.I. Lane, J.J.M. Theeuwes
-and L. Zayatz (eds.) *Theory and Practical Applications for Statistical
-Agencies*, 91-110, Amsterdam.
-http://crises-deim.urv.cat/webCrises/publications/bcpi/cliatpasa01Disclosure.pdf
+	A.G. De Waal and L.C.R.J. Willenborg. 1999. “Information Loss through
+	Global Recoding and Local Suppression” In Netherlands Official
+	Statistics: Special Issue on SDC, 14, 17-10.
+	
+	J. Domingo-Ferrer, J.M. Mateo-Sanz and V. Torra. 2001. “Comparing SDC
+	Methods for Microdata on the basis of Information Loss and Disclosure
+	Risk”. In Pre-proceedings of ETK-NTTS 2001 (vol. 2), 807-826.
+	http://neon.vb.cbs.nl/casc/NTTSJosep.pdf
+	
+	J. Domingo-Ferrer and V. Torra. 2001. “Disclosure Protection Methods and
+	Information Loss for Microdata”. In P. Doyle, J.I. Lane, J.J.M. Theeuwes
+	and L. Zayatz (eds.) *Theory and Practical Applications for Statistical
+	Agencies*, 91-110, Amsterdam.
+	http://crises-deim.urv.cat/webCrises/publications/bcpi/cliatpasa01Disclosure.pdf
 
 
 .. [#foot58]

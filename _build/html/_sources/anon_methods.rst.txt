@@ -2147,16 +2147,16 @@ displacement procedure for a health dataset. This paper also includes
 the code in Python. Hu and Drechsler (2015) propose three different
 strategies for generating synthetic geocodes.
 
-**Recommended Reading Material on Anonymization of Geospatial Data**
+.. admonition:: Recommended Reading Material on Anonymization of Geospatial Data
 
-C.R. Burgert, J. Colston, T. Roy and B. Zachary. 2013. “DHS Spatial
-Analysis Report No. 7 - Geographic Displacement Procedure and
-Georeferenced Data Release Policy for the Demographic and Health
-Surveys” (USAID). http://dhsprogram.com/pubs/pdf/SAR7/SAR7.pdf
-
-J. Hu and J. Drechsler. 2015. “Generating synthetic geocoding
-information for public release.”
-http://www.iab.de/389/section.aspx/Publikation/k150601301
+	C.R. Burgert, J. Colston, T. Roy and B. Zachary. 2013. “DHS Spatial
+	Analysis Report No. 7 - Geographic Displacement Procedure and
+	Georeferenced Data Release Policy for the Demographic and Health
+	Surveys” (USAID). http://dhsprogram.com/pubs/pdf/SAR7/SAR7.pdf
+	
+	J. Hu and J. Drechsler. 2015. “Generating synthetic geocoding
+	information for public release.”
+	http://www.iab.de/389/section.aspx/Publikation/k150601301
 
 Anonymization of the quasi-identifier household size
 ----------------------------------------------------
