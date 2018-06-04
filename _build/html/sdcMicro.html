@@ -101,7 +101,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="process.html">The SDC Process</a></li>
 <li class="toctree-l1"><a class="reference internal" href="appendices.html">Appendices</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bibliography.html"><strong>Bibliography</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="bibliography.html">Bibliography</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lists.html">Lists</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Case studies</span></p>
@@ -198,9 +198,16 @@ with the update.packages() command or using the menu options in <em>R</em> or
 which packages are being used by loading those. This loading of packages
 can be done either with the library() or the require() function. Both
 options are illustrated in Example 7.1.</p>
-<p>Example 7.1: Loading required packages</p>
-<p><strong>library</strong>(sdcMicro) <em># loading the sdcMicro package</em></p>
-<p><strong>require</strong>(sdcMicro) <em># loading the sdcMicro package</em></p>
+<div class="literal-block-wrapper docutils container" id="code71">
+<div class="code-block-caption"><span class="caption-number">Listing 15 </span><span class="caption-text">Loading required packages</span><a class="headerlink" href="#code71" title="Permalink to this code">¶</a></div>
+<div class="highlight-R notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span>     <span class="kn">library</span><span class="p">(</span>sdcMicro<span class="p">)</span> <span class="c1"># loading the sdcMicro package</span>
+
+     <span class="kn">require</span><span class="p">(</span>sdcMicro<span class="p">)</span> <span class="c1"># loading the sdcMicro package</span>
+</pre></div>
+</td></tr></table></div>
+</div>
 <p>All packages and functions are documented. The easiest way to access the
 documentation of a specific function is to use the built-in help, which
 generally gives an overview of the parameters of the functions as well
@@ -210,8 +217,12 @@ Example 7.2 shows how to call the help file for the microaggregation()
 function of the <em>sdcMicro</em> package.[#foot60]_ The download
 page of the each package on the CRAN website also provides a reference
 manual with a complete overview of the functions in the package.</p>
-<p>Example 7.2: Displaying help for functions</p>
-<p>?microaggregation <em># help for microaggregation function</em></p>
+<div class="literal-block-wrapper docutils container" id="code72">
+<div class="code-block-caption"><span class="caption-number">Listing 16 </span><span class="caption-text">Displaying help for functions</span><a class="headerlink" href="#code72" title="Permalink to this code">¶</a></div>
+<div class="highlight-R notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span>     <span class="o">?</span>microaggregation <span class="c1"># help for microaggregation function</span>
+</pre></div>
+</td></tr></table></div>
+</div>
 <p>When issues or bugs in the <em>sdcMicro</em> package are encountered, comments,
 remarks or suggestions can be posted for the developers of <em>sdcMicro</em> on
 their GitHub: <a class="reference external" href="https://github.com/alexkowa/sdcMicro/issues">https://github.com/alexkowa/sdcMicro/issues</a></p>
@@ -227,58 +238,49 @@ dependencies in <em>R</em>. An overview of data formats, functions and the
 packages containing these functions is provided in Table 7.1. These
 functions are also available as write (e.g., write.dta()) to save the
 anonymized data in the required format. #foot[62]_</p>
-<p>Table 7.1: Packages and functions for reading data in <em>R</em></p>
-<table border="1" class="docutils">
-<colgroup>
-<col width="25%" />
-<col width="25%" />
-<col width="25%" />
-<col width="25%" />
-</colgroup>
+<span id="tab71"></span><table border="1" class="colwidths-auto docutils align-center" id="id5">
+<caption><span class="caption-number">Table 6 </span><span class="caption-text">Packages and functions for reading data in <em>R</em></span><a class="headerlink" href="#id5" title="Permalink to this table">¶</a></caption>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head"><a href="#id2"><span class="problematic" id="id3">**</span></a>Type/software
-**</th>
-<th class="head"><strong>Extension</strong></th>
-<th class="head"><strong>Package</strong></th>
-<th class="head"><strong>Function</strong></th>
+<tr class="row-odd"><th class="head">Type/software</th>
+<th class="head">Extension</th>
+<th class="head">Package</th>
+<th class="head">Function</th>
 </tr>
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>SPSS</td>
 <td>.sav</td>
-<td><em>foreign</em></td>
+<td>foreign</td>
 <td>read.spss()</td>
 </tr>
 <tr class="row-odd"><td>STATA (v. 5-12)</td>
 <td>.dta</td>
-<td><em>foreign</em></td>
+<td>foreign</td>
 <td>read.dta()</td>
 </tr>
-<tr class="row-even"><td>STATA (v.
-13) [#foot64]</td>
+<tr class="row-even"><td>STATA (v. 13) <a class="footnote-reference" href="#foot64" id="id2">[5]</a></td>
 <td>.dta</td>
-<td><em>readstata13</em></td>
+<td>readstata13</td>
 <td>read.dta13()</td>
 </tr>
 <tr class="row-odd"><td>SAS</td>
 <td>.xpt</td>
-<td><em>foreign</em></td>
+<td>foreign</td>
 <td>read.xport()</td>
 </tr>
 <tr class="row-even"><td>EXCEL</td>
 <td>.csv</td>
-<td><em>utils</em> (base
-package)</td>
+<td>utils (base package)</td>
 <td>read.csv()</td>
 </tr>
 <tr class="row-odd"><td>EXCEL</td>
 <td>.xls</td>
-<td><em>xlsReadWrite</em></td>
+<td>xlsReadWrite</td>
 <td>read.xls()</td>
 </tr>
 <tr class="row-even"><td>EXCEL</td>
 <td>.xlsx</td>
-<td><em>xlsx</em></td>
+<td>xlsx</td>
 <td>read.xlsx()</td>
 </tr>
 </tbody>
@@ -287,34 +289,47 @@ package)</td>
 values and variables with factor levels and value labels. Example 7.3,
 Example 7.4 and Example 7.5 provide example code for reading in a
 <em>STATA</em> (.dta) file, an <em>Excel</em> (.csv) file and a <em>SPSS</em> (.sav) file.</p>
-<p>Example 7.3: Reading in a <em>STATA</em> file</p>
-<div class="line-block">
-<div class="line"><strong>setwd</strong>(“/Users/World Bank”) <em># working directory with data file</em></div>
-<div class="line">fname = “data.dta” <em># name of data file</em></div>
-<div class="line"><strong>library</strong>(foreign) <em># loads required package for read/write
-function for STATA files</em></div>
-<div class="line">file &lt;- <strong>read.dta</strong>(fname, convert.factors = F)</div>
-<div class="line"><em># reads the data into the data frame called file, factor levels read
-as numeric codes</em></div>
+<div class="literal-block-wrapper docutils container" id="code73">
+<div class="code-block-caption"><span class="caption-number">Listing 17 </span><span class="caption-text">Reading in a <em>STATA</em> file</span><a class="headerlink" href="#code73" title="Permalink to this code">¶</a></div>
+<div class="highlight-R notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span>     <span class="kp">setwd</span><span class="p">(</span><span class="s">&quot;/Users/World Bank&quot;</span><span class="p">)</span> <span class="c1"># working directory with data file</span>
+     fname <span class="o">=</span> <span class="s">&quot;data.dta&quot;</span> <span class="c1"># name of data file</span>
+     <span class="kn">library</span><span class="p">(</span>foreign<span class="p">)</span> <span class="c1"># loads required package for read/write function for STATA files</span>
+     file <span class="o">&lt;-</span> read.dta<span class="p">(</span>fname<span class="p">,</span> convert.factors <span class="o">=</span> <span class="bp">F</span><span class="p">)</span>
+     <span class="c1"># reads the data into the data frame called file, factor levels read as numeric codes</span>
+</pre></div>
+</td></tr></table></div>
 </div>
-<p>Example 7.4: Reading in an <em>Excel</em> file</p>
-<div class="line-block">
-<div class="line"><strong>setwd</strong>(“/Users/World Bank”) <em># working directory with data file</em></div>
-<div class="line">fname = “data.csv” <em># name of data file</em></div>
-<div class="line">file &lt;- <strong>read.csv</strong>(fname, header = TRUE, sep = “,”, dec = “.”)</div>
-<div class="line"><em># reads the data into the data frame called file, the first line
-contains the variable names, fields are separated with commas, decimal
-points are indicated with ‘.’</em></div>
+<div class="literal-block-wrapper docutils container" id="code74">
+<div class="code-block-caption"><span class="caption-number">Listing 18 </span><span class="caption-text">Reading in a <em>Excel</em> file</span><a class="headerlink" href="#code74" title="Permalink to this code">¶</a></div>
+<div class="highlight-R notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span>     <span class="kp">setwd</span><span class="p">(</span><span class="s">&quot;/Users/World Bank&quot;</span><span class="p">)</span> <span class="c1"># working directory with data file</span>
+     fname <span class="o">=</span> <span class="s">&quot;data.csv&quot;</span> <span class="c1"># name of data file</span>
+     file <span class="o">&lt;-</span> read.csv<span class="p">(</span>fname<span class="p">,</span> header <span class="o">=</span> <span class="kc">TRUE</span><span class="p">,</span> sep <span class="o">=</span> <span class="s">&quot;,&quot;</span><span class="p">,</span> dec <span class="o">=</span> <span class="s">&quot;.&quot;</span><span class="p">)</span>
+     <span class="c1"># reads the data into the data frame called file, the first line contains the variable names,</span>
+     <span class="c1"># fields are separated with commas, decimal points are indicated with ‘.’</span>
+</pre></div>
+</td></tr></table></div>
 </div>
-<p>Example 7.5: Reading in an <em>SPSS</em> file</p>
-<div class="line-block">
-<div class="line"><strong>setwd</strong>(“/Users/World Bank”) <em># working directory with data file</em></div>
-<div class="line">fname = “data.sav” <em># name of data file</em></div>
-<div class="line"><strong>library</strong>(foreign) <em># loads required package for read/write
-function for SPSS files</em></div>
-<div class="line">file &lt;- <strong>read.spss</strong>(fname, use.value.labels = FALSE)</div>
-<div class="line"><em># reads the data into the data frame called file, factor levels are
-read as numeric codes</em></div>
+<div class="literal-block-wrapper docutils container" id="code75">
+<div class="code-block-caption"><span class="caption-number">Listing 19 </span><span class="caption-text">Reading in a <em>SPSS</em> file</span><a class="headerlink" href="#code75" title="Permalink to this code">¶</a></div>
+<div class="highlight-R notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span>     <span class="kp">setwd</span><span class="p">(</span><span class="s">&quot;/Users/World Bank&quot;</span><span class="p">)</span> <span class="c1"># working directory with data file</span>
+     fname <span class="o">=</span> <span class="s">&quot;data.sav&quot;</span> <span class="c1"># name of data file</span>
+     <span class="kn">library</span><span class="p">(</span>foreign<span class="p">)</span> <span class="c1"># loads required package for read/write function for SPSS files</span>
+     file <span class="o">&lt;-</span> read.spss<span class="p">(</span>fname<span class="p">,</span> use.value.labels <span class="o">=</span> <span class="kc">FALSE</span><span class="p">)</span>
+     <span class="c1"># reads the data into the data frame called file, factor levels are read as numeric codes</span>
+</pre></div>
+</td></tr></table></div>
 </div>
 <p>The maximum data size in <em>R</em> is technically restricted. The maximum size
 depends on the <em>R</em> build (32-bit or 64-bit) and the operating system.
@@ -345,9 +360,14 @@ anonymization process to ensure the correct measurement of risk (e.g.,
 <span class="math notranslate nohighlight">\(k\)</span>-anonymity), as well as to ensure that many of the methods are
 correctly applied to the data. Example 7.6 shows how to recode the value
 ‘99’ to ‘NA’ for the variable “toilet”.</p>
-<p>Example 7.6: Recoding missing values to NA</p>
-<p>file[file[,’toilet’] == 99,’toilet’] &lt;- NA <em># Recode missing value code
-99 to NA for variable toilet</em></p>
+<div class="literal-block-wrapper docutils container" id="code76">
+<div class="code-block-caption"><span class="caption-number">Listing 20 </span><span class="caption-text">Recoding missing values to NA</span><a class="headerlink" href="#code76" title="Permalink to this code">¶</a></div>
+<div class="highlight-R notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span>     <span class="kp">file</span><span class="p">[</span><span class="kp">file</span><span class="p">[,</span><span class="s">&#39;toilet&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="m">99</span><span class="p">,</span><span class="s">&#39;toilet&#39;</span><span class="p">]</span> <span class="o">&lt;-</span> <span class="kc">NA</span>
+     <span class="c1"># Recode missing value code 99 to NA for variable toilet</span>
+</pre></div>
+</td></tr></table></div>
+</div>
 </div>
 <div class="section" id="classes-in-r">
 <h2>Classes in <em>R</em><a class="headerlink" href="#classes-in-r" title="Permalink to this headline">¶</a></h2>
@@ -368,19 +388,28 @@ class to “data.frame”. Before changing the class attribute of the object
 “file”, it was in the class “matrix”. An important class defined and
 used in the <em>sdcMicro</em> package is the class named <em>sdcMicroObj</em>. This
 class is described in the next section.</p>
-<p>Example 7.7: Changing the class of an object in <em>R</em></p>
-<div class="line-block">
-<div class="line"><em># Finding out the class of the object ‘file’</em></div>
-<div class="line"><strong>class</strong>(file)</div>
+<div class="literal-block-wrapper docutils container" id="code77">
+<div class="code-block-caption"><span class="caption-number">Listing 21 </span><span class="caption-text">Changing the class of an object in <em>R</em></span><a class="headerlink" href="#code77" title="Permalink to this code">¶</a></div>
+<div class="highlight-R notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="highlight"><pre><span></span>     <span class="c1"># Finding out the class of the object ‘file’</span>
+     <span class="kp">class</span><span class="p">(</span><span class="kp">file</span><span class="p">)</span>
+     <span class="s">&quot;matrix&quot;</span>
+
+     <span class="c1"># Changing the class to data frame</span>
+     file <span class="o">&lt;-</span> <span class="kp">as.data.frame</span><span class="p">(</span><span class="kp">file</span><span class="p">)</span>
+
+     <span class="c1"># Checking the result class(file)</span>
+     <span class="s">&quot;data.frame&quot;</span>
+</pre></div>
+</td></tr></table></div>
 </div>
-<p>“matrix”</p>
-<div class="line-block">
-<div class="line"><em># Changing the class to data frame</em></div>
-<div class="line">file &lt;- <strong>as.data.frame</strong>(file)</div>
-</div>
-<p><em># Checking the result</em></p>
-<p><strong>class</strong>(file)</p>
-<p>“data.frame”</p>
 </div>
 <div class="section" id="objects-of-class-sdcmicroobj">
 <h2>Objects of class <em>sdcMicroObj</em><a class="headerlink" href="#objects-of-class-sdcmicroobj" title="Permalink to this headline">¶</a></h2>
@@ -426,98 +455,181 @@ variables of one sort, e.g., microaggregation to all key
 variables.[#foot67]_ After selecting these variables, we can
 create the <em>sdcMicro</em> object. To obtain a summary of the object, it is
 sufficient to write the name of the object.</p>
-<p>Example 7.8: Selecting variables and creating an object of class
-<em>sdcMicroObj</em> for the SDC process in <em>R</em></p>
-<div class="line-block">
-<div class="line"><em># Select variables for creating sdcMicro object</em></div>
-<div class="line"><em># All variable names should correspond to the names in the data file</em></div>
-<div class="line"><em># selected categorical key variables</em></div>
-<div class="line">selectedKeyVars = <strong>c</strong>(‘region’, ‘age’, ‘gender’, ‘marital’,
-‘empstat’)</div>
-</div>
-<div class="line-block">
-<div class="line"><em># selected linked variables (ghost variables)</em></div>
-<div class="line">selectedGhostVars = <strong>c</strong>(‘urbrur’)</div>
-<div class="line"><em># selected categorical numerical variables</em></div>
-<div class="line">selectedNumVar = <strong>c</strong>(‘wage’, ‘savings’)</div>
-<div class="line"><em># weight variable</em></div>
-<div class="line">selectedWeightVar = <strong>c</strong>(‘wgt’)</div>
-<div class="line"><em># selected pram variables</em></div>
-<div class="line">selectedPramVars = <strong>c</strong>(‘roof’, ‘wall’)</div>
-<div class="line"><em># household id variable (cluster)</em></div>
-<div class="line">selectedHouseholdID = <strong>c</strong>(‘idh’)</div>
-<div class="line"><em># stratification variable</em></div>
-<div class="line">selectedStrataVar = <strong>c</strong>(‘strata’)</div>
-</div>
-<div class="line-block">
-<div class="line"><em># sensitive variables for l-diversity computation</em></div>
-<div class="line">selectedSensibleVar = <strong>c</strong>(‘health’)</div>
-</div>
-<div class="line-block">
-<div class="line"><em># creating the sdcMicro object with the assigned variables</em></div>
-<div class="line">sdcInitial &lt;- <strong>createSdcObj</strong>(dat = file,</div>
-<div class="line">keyVars = selectedKeyVars,</div>
-<div class="line">ghostVars = selectedGhostVars,</div>
-<div class="line">numVar = selectedNumVar,</div>
-<div class="line">weightVar = selectedWeightVar,</div>
-<div class="line">pramVars = selectedPramVars,</div>
-<div class="line">hhId = selectedHouseholdID,</div>
-<div class="line">strataVar = selectedStrataVar,</div>
-<div class="line">sensibleVar = selectedSensibleVar)</div>
-</div>
-<div class="line-block">
-<div class="line"><em># Summary of object</em></div>
-<div class="line">sdcInitial</div>
-</div>
-<div class="line-block">
-<div class="line"><code class="docutils literal notranslate"><span class="pre">##</span> <span class="pre">Data</span> <span class="pre">set</span> <span class="pre">with</span> <span class="pre">4580</span> <span class="pre">rows</span> <span class="pre">and</span> <span class="pre">14</span> <span class="pre">columns.</span></code></div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">##</span>&#160; <span class="pre">--&gt;</span> <span class="pre">Categorical</span> <span class="pre">key</span> <span class="pre">variables:</span></code><code class="docutils literal notranslate"><span class="pre">region,</span> <span class="pre">age,</span> <span class="pre">gender,</span> <span class="pre">marital,</span> <span class="pre">empstat</span></code></div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">##</span>&#160; <span class="pre">--&gt;</span> <span class="pre">Numerical</span> <span class="pre">key</span> <span class="pre">va</span></code><code class="docutils literal notranslate"><span class="pre">riables:</span> <span class="pre">wage,</span> <span class="pre">savings</span></code></div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">##</span>&#160; <span class="pre">--&gt;</span></code><code class="docutils literal notranslate"><span class="pre">Weight</span> <span class="pre">variable:</span> <span class="pre">wgt</span></code></div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">##</span> <span class="pre">---------------------------------------------------------------------------</span></code></div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">##</span></code></div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">##</span> <span class="pre">Information</span> <span class="pre">on</span> <span class="pre">categorical</span> <span class="pre">Key-Variables:</span></code></div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">##</span></code></div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">##</span> <span class="pre">Reported</span> <span class="pre">is</span> <span class="pre">the</span> <span class="pre">number,</span> <span class="pre">mean</span> <span class="pre">size</span> <span class="pre">and</span> <span class="pre">size</span> <span class="pre">of</span> <span class="pre">the</span> <span class="pre">smallest</span> <span class="pre">category</span> <span class="pre">for</span> <span class="pre">recoded</span> <span class="pre">variables.</span></code></div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">##</span> <span class="pre">In</span> <span class="pre">parenthesis,</span> <span class="pre">the</span> <span class="pre">same</span> <span class="pre">statistics</span> <span class="pre">are</span> <span class="pre">shown</span> <span class="pre">for</span> <span class="pre">the</span> <span class="pre">unmodified</span> <span class="pre">data.</span></code></div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">##</span> <span class="pre">Note:</span> <span class="pre">NA</span> <span class="pre">(missings)</span> <span class="pre">are</span> <span class="pre">counted</span> <span class="pre">as</span> <span class="pre">seperate</span> <span class="pre">categories!</span></code></div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">##</span></code></div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">##</span>&#160; <span class="pre">Key</span> <span class="pre">Variable</span> <span class="pre">Number</span> <span class="pre">of</span> <span class="pre">categories</span>&#160;&#160;&#160;&#160; <span class="pre">Mean</span> <span class="pre">size</span></code></div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">##</span></code><code class="docutils literal notranslate"><span class="pre">region</span></code><code class="docutils literal notranslate"><span class="pre">2</span> <span class="pre">(2)</span>&#160; <span class="pre">2290.000</span> <span class="pre">(2290.000)</span></code></div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">##</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">age</span></code><code class="docutils literal notranslate"><span class="pre">5</span> <span class="pre">(5)</span>&#160;&#160; <span class="pre">916.000</span>&#160; <span class="pre">(916.000)</span></code></div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">##</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">gender</span></code><code class="docutils literal notranslate"><span class="pre">3</span> <span class="pre">(3)</span>&#160; <span class="pre">1526.667</span> <span class="pre">(1526.667)</span></code></div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">##</span>&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">marital</span></code><code class="docutils literal notranslate"><span class="pre">8</span> <span class="pre">(8)</span>&#160;&#160; <span class="pre">572.500</span>&#160; <span class="pre">(572.500)</span></code></div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">##</span>&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">empstat</span></code><code class="docutils literal notranslate"><span class="pre">3</span> <span class="pre">(3)</span>&#160; <span class="pre">1526.667</span> <span class="pre">(1526.667)</span></code></div>
-<div class="line">##</div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">##</span>&#160; <span class="pre">Size</span> <span class="pre">of</span> <span class="pre">smallest</span></code></div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">##</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">646</span>&#160; <span class="pre">(646)</span></code></div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">##</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">16</span>&#160;&#160; <span class="pre">(16)</span></code></div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">##</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">50</span>&#160;&#160; <span class="pre">(50)</span></code></div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">##</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">26</span>&#160;&#160; <span class="pre">(26)</span></code></div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">##</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">107</span>&#160; <span class="pre">(107)</span></code></div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">##</span> <span class="pre">---------------------------------------------------------------------------</span></code></div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">##</span></code></div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">##</span> <span class="pre">Infos</span> <span class="pre">on</span> <span class="pre">2/3-Anonymity:</span></code></div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">##</span></code></div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">##</span> <span class="pre">Number</span> <span class="pre">of</span> <span class="pre">observations</span> <span class="pre">violating</span></code></div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">##</span>&#160; <span class="pre">-</span> <span class="pre">2-anonymity:</span> <span class="pre">157</span></code></div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">##</span>&#160; <span class="pre">-</span> <span class="pre">3-anonymity:</span> <span class="pre">281</span></code></div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">##</span></code></div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">##</span> <span class="pre">Percentage</span> <span class="pre">of</span> <span class="pre">observations</span> <span class="pre">violating</span></code></div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">##</span>&#160; <span class="pre">-</span> <span class="pre">2-anonymity:</span> <span class="pre">3.428</span> <span class="pre">%</span></code></div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">##</span>&#160; <span class="pre">-</span> <span class="pre">3-anonymity:</span> <span class="pre">6.135</span> <span class="pre">%</span></code></div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">##</span> <span class="pre">---------------------------------------------------------------------------</span></code></div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">##</span></code></div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">##</span> <span class="pre">Numerical</span> <span class="pre">key</span> <span class="pre">variables:</span></code><code class="docutils literal notranslate"><span class="pre">wage,</span> <span class="pre">savings</span></code></div>
-</div>
-<div class="line-block">
-<div class="line"><code class="docutils literal notranslate"><span class="pre">##</span></code></div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">##</span> <span class="pre">Disclosure</span> <span class="pre">risk</span> <span class="pre">is</span> <span class="pre">currently</span> <span class="pre">between</span> <span class="pre">[0.00%;</span> <span class="pre">100.00]</span></code></div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">##</span></code></div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">##</span> <span class="pre">Current</span> <span class="pre">Information</span> <span class="pre">Loss:</span></code></div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">##</span>&#160; <span class="pre">IL1:</span> <span class="pre">0.00</span></code></div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">##</span>&#160; <span class="pre">Difference</span> <span class="pre">of</span> <span class="pre">Eigenvalues:</span> <span class="pre">0.000%</span></code></div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">##</span> <span class="pre">---------------------------------------------------------------------------</span></code></div>
+<div class="literal-block-wrapper docutils container" id="code78">
+<div class="code-block-caption"><span class="caption-number">Listing 22 </span><span class="caption-text">Selecting variables and creating an object of class <em>sdcMicroObj</em> for the SDC process in <em>R</em></span><a class="headerlink" href="#code78" title="Permalink to this code">¶</a></div>
+<div class="highlight-R notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86</pre></div></td><td class="code"><div class="highlight"><pre><span></span>     <span class="c1"># Select variables for creating sdcMicro object</span>
+     <span class="c1"># All variable names should correspond to the names in the data file</span>
+     <span class="c1"># selected categorical key variables</span>
+     selectedKeyVars <span class="o">=</span> <span class="kt">c</span><span class="p">(</span><span class="s">&#39;region&#39;</span><span class="p">,</span> <span class="s">&#39;age&#39;</span><span class="p">,</span> <span class="s">&#39;gender&#39;</span><span class="p">,</span> <span class="s">&#39;marital&#39;</span><span class="p">,</span> <span class="s">&#39;empstat&#39;</span><span class="p">)</span>
+
+     <span class="c1"># selected linked variables (ghost variables)</span>
+     selectedGhostVars <span class="o">=</span> <span class="kt">c</span><span class="p">(</span><span class="s">&#39;urbrur&#39;</span><span class="p">)</span>
+
+     <span class="c1"># selected categorical numerical variables</span>
+     selectedNumVar <span class="o">=</span> <span class="kt">c</span><span class="p">(</span><span class="s">&#39;wage&#39;</span><span class="p">,</span> <span class="s">&#39;savings&#39;</span><span class="p">)</span>
+
+     <span class="c1"># weight variable</span>
+     selectedWeightVar <span class="o">=</span> <span class="kt">c</span><span class="p">(</span><span class="s">&#39;wgt&#39;</span><span class="p">)</span>
+
+     <span class="c1"># selected pram variables</span>
+     selectedPramVars <span class="o">=</span> <span class="kt">c</span><span class="p">(</span><span class="s">&#39;roof&#39;</span><span class="p">,</span> <span class="s">&#39;wall&#39;</span><span class="p">)</span>
+
+     <span class="c1"># household id variable (cluster)</span>
+     selectedHouseholdID <span class="o">=</span> <span class="kt">c</span><span class="p">(</span><span class="s">&#39;idh&#39;</span><span class="p">)</span>
+
+     <span class="c1"># stratification variable</span>
+     selectedStrataVar <span class="o">=</span> <span class="kt">c</span><span class="p">(</span><span class="s">&#39;strata&#39;</span><span class="p">)</span>
+
+     <span class="c1"># sensitive variables for l-diversity computation</span>
+     selectedSensibleVar <span class="o">=</span> <span class="kt">c</span><span class="p">(</span><span class="s">&#39;health&#39;</span><span class="p">)</span>
+
+     <span class="c1"># creating the sdcMicro object with the assigned variables</span>
+     sdcInitial <span class="o">&lt;-</span> createSdcObj<span class="p">(</span>dat         <span class="o">=</span> <span class="kp">file</span><span class="p">,</span>
+                                                        keyVars     <span class="o">=</span> selectedKeyVars<span class="p">,</span>
+                                                    ghostVars   <span class="o">=</span> selectedGhostVars<span class="p">,</span>
+                                                    numVar      <span class="o">=</span> selectedNumVar<span class="p">,</span>
+                                                    weightVar   <span class="o">=</span> selectedWeightVar<span class="p">,</span>
+                                                    pramVars    <span class="o">=</span> selectedPramVars<span class="p">,</span>
+                                                    hhId        <span class="o">=</span> selectedHouseholdID<span class="p">,</span>
+                                strataVar   <span class="o">=</span> selectedStrataVar<span class="p">,</span>
+                                sensibleVar <span class="o">=</span> selectedSensibleVar<span class="p">)</span>
+
+     <span class="c1"># Summary of object</span>
+     sdcInitial
+
+     <span class="c1">## Data set with 4580 rows and 14 columns.</span>
+     <span class="c1">## --&gt; Categorical key variables: region, age, gender, marital, empstat</span>
+     <span class="c1">## --&gt; Numerical key variables: wage, savings</span>
+     <span class="c1">## --&gt; Weight variable: wgt</span>
+     <span class="c1">## ---------------------------------------------------------------------------</span>
+     <span class="c1">##</span>
+     <span class="c1">## Information on categorical Key-Variables:</span>
+     <span class="c1">##</span>
+     <span class="c1">## Reported is the number, mean size and size of the smallest category for recoded variables.</span>
+     <span class="c1">## In parenthesis, the same statistics are shown for the unmodified data.</span>
+     <span class="c1">## Note: NA (missings) are counted as seperate categories!</span>
+     <span class="c1">##</span>
+     <span class="c1">## Key Variable Number of categories Mean size</span>
+     <span class="c1">## region 2 (2) 2290.000 (2290.000)</span>
+     <span class="c1">## age 5 (5) 916.000 (916.000)</span>
+     <span class="c1">## gender 3 (3) 1526.667 (1526.667)</span>
+     <span class="c1">## marital 8 (8) 572.500 (572.500)</span>
+     <span class="c1">## empstat 3 (3) 1526.667 (1526.667)</span>
+     <span class="c1">##</span>
+     <span class="c1">## Size of smallest</span>
+     <span class="c1">## 646 (646)</span>
+     <span class="c1">## 16 (16)</span>
+     <span class="c1">## 50 (50)</span>
+     <span class="c1">## 26 (26)</span>
+     <span class="c1">## 107 (107)</span>
+     <span class="c1">## ---------------------------------------------------------------------------</span>
+     <span class="c1">##</span>
+     <span class="c1">## Infos on 2/3-Anonymity:</span>
+     <span class="c1">##</span>
+     <span class="c1">## Number of observations violating</span>
+     <span class="c1">## - 2-anonymity: 157</span>
+     <span class="c1">## - 3-anonymity: 281</span>
+     <span class="c1">##</span>
+     <span class="c1">## Percentage of observations violating</span>
+     <span class="c1">## - 2-anonymity: 3.428 %</span>
+     <span class="c1">## - 3-anonymity: 6.135 %</span>
+     <span class="c1">## ---------------------------------------------------------------------------</span>
+     <span class="c1">##</span>
+     <span class="c1">## Numerical key variables: wage, savings</span>
+     <span class="c1">##</span>
+     <span class="c1">## Disclosure risk is currently between [0.00%; 100.00]</span>
+     <span class="c1">##</span>
+     <span class="c1">## Current Information Loss:</span>
+     <span class="c1">## IL1: 0.00</span>
+     <span class="c1">## Difference of Eigenvalues: 0.000%</span>
+     <span class="c1">## ---------------------------------------------------------------------------</span>
+</pre></div>
+</td></tr></table></div>
 </div>
 <p>Table 7.2 presents the names of the slots and their respective contents.
 The slot names can be listed using the function slotNames(), which is
@@ -537,33 +649,60 @@ is useful. Within each slot there are generally several elements. Their
 names can be shown with the names() function and they can be accessed
 with the ‘$’ operator. This is shown for the element with the individual
 risk in the risk slot.</p>
-<p>Example 7.9: Displaying slot names and accessing slots of an S4 object</p>
-<div class="line-block">
-<div class="line"><em># List names of all slots of sdcMicro object</em></div>
-<div class="line"><strong>slotNames</strong>(sdcInitial)</div>
+<div class="literal-block-wrapper docutils container" id="code79">
+<div class="code-block-caption"><span class="caption-number">Listing 23 </span><span class="caption-text">Displaying slot names and accessing slots of an S4 object</span><a class="headerlink" href="#code79" title="Permalink to this code">¶</a></div>
+<div class="highlight-R notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25</pre></div></td><td class="code"><div class="highlight"><pre><span></span>     <span class="c1"># List names of all slots of sdcMicro object</span>
+     slotNames<span class="p">(</span>sdcInitial<span class="p">)</span>
+
+     <span class="c1">##  [1] &quot;origData&quot;          &quot;keyVars&quot;           &quot;pramVars&quot;</span>
+     <span class="c1">##  [4] &quot;numVars&quot;           &quot;ghostVars&quot;         &quot;weightVar&quot;</span>
+     <span class="c1">##  [7] &quot;hhId&quot;              &quot;strataVar&quot;         &quot;sensibleVar&quot;</span>
+     <span class="c1">## [10] &quot;manipKeyVars&quot;      &quot;manipPramVars&quot;     &quot;manipNumVars&quot;</span>
+     <span class="c1">## [13] &quot;manipGhostVars&quot;    &quot;manipStrataVar&quot;    &quot;originalRisk&quot;</span>
+     <span class="c1">## [16] &quot;risk&quot;              &quot;utility&quot;           &quot;pram&quot;</span>
+     <span class="c1">## [19] &quot;localSuppression&quot;  &quot;options&quot;           &quot;additionalResults&quot;</span>
+     <span class="c1">## [22] &quot;set&quot;               &quot;prev&quot;              &quot;deletedVars&quot;</span>
+
+     <span class="c1"># Accessing the risk slot</span>
+     sdcInitial<span class="o">@</span>risk
+
+     <span class="c1"># List names within the risk slot</span>
+     <span class="kp">names</span><span class="p">(</span>sdcInitial<span class="o">@</span>risk<span class="p">)</span>
+
+     <span class="c1">## [1] &quot;global&quot;  &quot;individual&quot;  &quot;numeric&quot;</span>
+
+     <span class="c1"># Two ways to access the individual risk within the risk slot</span>
+
+     sdcInitial<span class="o">@</span>risk<span class="o">$</span>individual
+
+     get.sdcMicroObj<span class="p">(</span>sdcInitial<span class="p">,</span> <span class="s">&quot;risk&quot;</span><span class="p">)</span><span class="o">$</span>individual
+</pre></div>
+</td></tr></table></div>
 </div>
-<div class="line-block">
-<div class="line"><code class="docutils literal notranslate"><span class="pre">##</span>&#160; <span class="pre">[1]</span> <span class="pre">&quot;origData&quot;</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">&quot;keyVars&quot;</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">&quot;pramVars&quot;</span></code></div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">##</span>&#160; <span class="pre">[4]</span> <span class="pre">&quot;numVars&quot;</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">&quot;ghostVars&quot;</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">&quot;weightVar&quot;</span></code></div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">##</span>&#160; <span class="pre">[7]</span> <span class="pre">&quot;hhId&quot;</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">&quot;strataVar&quot;</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">&quot;sensibleVar&quot;</span></code></div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">##</span> <span class="pre">[10]</span> <span class="pre">&quot;manipKeyVars&quot;</span>&#160;&#160;&#160;&#160;&#160; <span class="pre">&quot;manipPramVars&quot;</span>&#160;&#160;&#160;&#160; <span class="pre">&quot;manipNumVars&quot;</span></code></div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">##</span> <span class="pre">[13]</span> <span class="pre">&quot;manipGhostVars&quot;</span>&#160;&#160;&#160; <span class="pre">&quot;manipStrataVar&quot;</span>&#160;&#160;&#160; <span class="pre">&quot;originalRisk&quot;</span></code></div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">##</span> <span class="pre">[16]</span> <span class="pre">&quot;risk&quot;</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">&quot;utility&quot;</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">&quot;pram&quot;</span></code></div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">##</span> <span class="pre">[19]</span> <span class="pre">&quot;localSuppression&quot;</span>&#160; <span class="pre">&quot;options&quot;</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">&quot;additionalResults&quot;</span></code></div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">##</span> <span class="pre">[22]</span> <span class="pre">&quot;set&quot;</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">&quot;prev&quot;</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">&quot;deletedVars&quot;</span></code></div>
-</div>
-<div class="line-block">
-<div class="line"><em># Accessing the risk slot</em></div>
-<div class="line"><a class="reference external" href="mailto:sdcInitial&#37;&#52;&#48;risk">sdcInitial<span>&#64;</span>risk</a></div>
-</div>
-<div class="line-block">
-<div class="line"><em># List names within the risk slot</em></div>
-<div class="line">names(<a class="reference external" href="mailto:sdcInitial&#37;&#52;&#48;risk">sdcInitial<span>&#64;</span>risk</a>)</div>
-</div>
-<p><code class="docutils literal notranslate"><span class="pre">##</span> <span class="pre">[1]</span> <span class="pre">&quot;global&quot;</span></code><a href="#id4"><span class="problematic" id="id5">``</span></a><code class="docutils literal notranslate"><span class="pre">\</span> <span class="pre">``</span></code><code class="docutils literal notranslate"><span class="pre">&quot;individual&quot;</span></code><a href="#id6"><span class="problematic" id="id7">``</span></a><code class="docutils literal notranslate"><span class="pre">\</span> <span class="pre">``&quot;numeric&quot;</span></code></p>
-<p><em># Two ways to access the individual risk within the risk slot</em></p>
-<p><a class="reference external" href="mailto:sdcInitial&#37;&#52;&#48;risk$individual">sdcInitial<span>&#64;</span>risk$individual</a></p>
-<p><strong>get.sdcMicroObj</strong>(sdcInitial, “risk”)$individual</p>
 <p>Table 7.2: Slot names and slot description of <em>sdcMicro</em> object</p>
 <table border="1" class="docutils">
 <colgroup>
@@ -690,16 +829,21 @@ object with the ‘&lt;-‘ operator. Both methods are illustrated in
 Example 7.10.</p>
 </li>
 </ul>
-<p>Example 7.10: Saving results of applying SDC methods</p>
-<div class="line-block">
-<div class="line"><em># Applying local suppression and reassigning the results to the same
-sdcMicro object</em></div>
-<div class="line">sdcInitial &lt;- <strong>localSuppression</strong>(sdcInitial)</div>
-</div>
-<div class="line-block">
-<div class="line"><em># Applying local suppression and assigning the results to a new
-sdcMicro object</em></div>
-<div class="line">sdc1 &lt;- <strong>localSuppression</strong>(sdcInitial)</div>
+<div class="literal-block-wrapper docutils container" id="code710">
+<div class="code-block-caption"><span class="caption-number">Listing 24 </span><span class="caption-text">Saving results of applying SDC methods</span><a class="headerlink" href="#code710" title="Permalink to this code">¶</a></div>
+<div class="highlight-R notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span>     <span class="c1"># Applying local suppression and reassigning the results to the same sdcMicro object</span>
+     sdcInitial <span class="o">&lt;-</span> localSuppression<span class="p">(</span>sdcInitial<span class="p">)</span>
+
+     <span class="c1"># Applying local suppression and assigning the results to a new</span>
+     sdcMicro object
+     sdc1 <span class="o">&lt;-</span> localSuppression<span class="p">(</span>sdcInitial<span class="p">)</span>
+</pre></div>
+</td></tr></table></div>
 </div>
 <p>If the results are reassigned to the same <em>sdcMicro</em> object, it is
 possible to undo the last step in the SDC process. This is useful when
@@ -707,10 +851,13 @@ changing parameters. The results of the last step, however, are lost
 after undoing that step. <strong>NOTE: The undolast() function can be used to
 go only one step back, not several.</strong> The result must also be reassigned
 to the same object. This is illustrated in Example 7.11.</p>
-<p>Example 7.11: Undo last step in SDC process</p>
-<div class="line-block">
-<div class="line"><em># Undo last step in SDC process</em></div>
-<div class="line">sdcInitial &lt;- <strong>undolast</strong>(sdcInitial)</div>
+<div class="literal-block-wrapper docutils container" id="code711">
+<div class="code-block-caption"><span class="caption-number">Listing 25 </span><span class="caption-text">Undo last step in SDC process</span><a class="headerlink" href="#code711" title="Permalink to this code">¶</a></div>
+<div class="highlight-R notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span>     <span class="c1"># Undo last step in SDC process</span>
+     sdcInitial <span class="o">&lt;-</span> undolast<span class="p">(</span>sdcInitial<span class="p">)</span>
+</pre></div>
+</td></tr></table></div>
 </div>
 </div>
 <div class="section" id="household-structure">
@@ -749,20 +896,29 @@ in the file). We next apply the function unique() to select only one
 record per household. This argument of the unique function is the
 household ID, which is the same for all household members, but unique
 across households.</p>
-<p>Example 7.12: Create a household level file with unique records (remove
-duplicates)</p>
-<p><em># Create subset of file with only variables measured at household
-level</em></p>
-<div class="line-block">
-<div class="line">HHVars &lt;- <strong>c</strong>(‘region’, ‘hhincome’)</div>
-<div class="line">fileHH &lt;- file[,HHVars]</div>
-<div class="line"><em># Remove duplicated rows based on the household ID / only every
-household once in fileHH</em></div>
-<div class="line">fileHH &lt;- <strong>unique</strong>(fileHH, by = <strong>c</strong>(‘HID’))</div>
-</div>
-<div class="line-block">
-<div class="line"><em># Dimensions of fileHH (number of households)</em></div>
-<div class="line">dim(fileHH)</div>
+<div class="literal-block-wrapper docutils container" id="code712">
+<div class="code-block-caption"><span class="caption-number">Listing 26 </span><span class="caption-text">Create a household level file with unique records (remove duplicates)</span><a class="headerlink" href="#code712" title="Permalink to this code">¶</a></div>
+<div class="highlight-R notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="highlight"><pre><span></span>     <span class="c1"># Create subset of file with only variables measured at household level</span>
+
+     HHVars <span class="o">&lt;-</span> <span class="kt">c</span><span class="p">(</span><span class="s">&#39;region&#39;</span><span class="p">,</span> <span class="s">&#39;hhincome&#39;</span><span class="p">)</span>
+     fileHH <span class="o">&lt;-</span> <span class="kp">file</span><span class="p">[,</span>HHVars<span class="p">]</span>
+     <span class="c1"># Remove duplicated rows based on the household ID / only every</span>
+     household once <span class="kr">in</span> fileHH<span class="o">*</span>
+     fileHH <span class="o">&lt;-</span> <span class="kp">unique</span><span class="p">(</span>fileHH<span class="p">,</span> by <span class="o">=</span> <span class="kt">c</span><span class="p">(</span><span class="s">&#39;HID&#39;</span><span class="p">))</span>
+
+     <span class="c1"># Dimensions of fileHH (number of households)</span>
+     <span class="kp">dim</span><span class="p">(</span>fileHH<span class="p">)</span>
+</pre></div>
+</td></tr></table></div>
 </div>
 <p>After anonymizing the household variables based on the dataframe
 “fileHH”, we recombine the anonymized household variables with the
@@ -776,18 +932,23 @@ merge function specifies the variable used for merging – in this case
 the household ID, which has the same variable name in both datasets. All
 other variables should have different names in both datasets. These
 steps are illustrated in Example 7.13.</p>
-<p>Example 7.13 Merging anonymized household-level variables with
-individual-level variables</p>
-<div class="line-block">
-<div class="line"><em># Extract manipulated household level variables from the SDC object</em></div>
-<div class="line">HHmanip &lt;- <strong>extractManipData</strong>(sdcHH)</div>
-<div class="line"><em># Create subset of file with only variables measured at individual
-level</em></div>
-<div class="line">fileIND &lt;- file[,INDVars]</div>
-</div>
-<div class="line-block">
-<div class="line"><em># Merge the file by using the household ID</em></div>
-<div class="line">fileCombined &lt;- <strong>merge</strong>(HHmanip, fileIND, by = <strong>c</strong>(‘HID’))</div>
+<div class="literal-block-wrapper docutils container" id="code713">
+<div class="code-block-caption"><span class="caption-number">Listing 27 </span><span class="caption-text">Merging anonymized household-level variables with individual-level variables</span><a class="headerlink" href="#code713" title="Permalink to this code">¶</a></div>
+<div class="highlight-R notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span>     <span class="c1"># Extract manipulated household level variables from the SDC object*</span>
+     HHmanip <span class="o">&lt;-</span> extractManipData<span class="p">(</span>sdcHH<span class="p">)</span>
+     <span class="c1"># Create subset of file with only variables measured at individual level</span>
+     fileIND <span class="o">&lt;-</span> <span class="kp">file</span><span class="p">[,</span>INDVars<span class="p">]</span>
+
+     <span class="c1"># Merge the file by using the household ID*</span>
+     fileCombined <span class="o">&lt;-</span> <span class="kp">merge</span><span class="p">(</span>HHmanip<span class="p">,</span> fileIND<span class="p">,</span> by <span class="o">=</span> <span class="kt">c</span><span class="p">(</span><span class="s">&#39;HID&#39;</span><span class="p">))</span>
+</pre></div>
+</td></tr></table></div>
 </div>
 <p>The file <em>fileCombined</em> is used for the SDC process with the entire
 dataset. How to deal with data with household structure is illustrated
@@ -800,15 +961,28 @@ members of each household. Example 7.14 shows how to generate a variable
 household size with values for each individual based on the household ID
 (HID). Two cases are shown: 1) the file sorted by household ID and 2)
 the file not sorted.</p>
-<p>Example 7.14 Generating the variable household size</p>
-<p><em># Sorted by HID</em></p>
-<p>file$hhsize &lt;- <strong>rep</strong>(<strong>unname</strong>(<strong>table</strong>(file$HID)),
-<strong>unname</strong>(<strong>table</strong>(file$HID)))</p>
-<p><em># Unsorted</em></p>
-<p>file$hhsize &lt;- <strong>rep</strong>(<strong>diff</strong>(c(1, 1 +
-<strong>which</strong>(<strong>diff</strong>(file$HID) != 0), <strong>length</strong>(b)+1)),
-<strong>diff</strong>(c(1, 1 + <strong>which</strong>(<strong>diff</strong>(file$HID) != 0),
-<strong>length</strong>(file$HID) + 1)))</p>
+<div class="literal-block-wrapper docutils container" id="code714">
+<div class="code-block-caption"><span class="caption-number">Listing 28 </span><span class="caption-text">Generating the variable household size</span><a class="headerlink" href="#code714" title="Permalink to this code">¶</a></div>
+<div class="highlight-R notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="highlight"><pre><span></span>     <span class="c1"># Sorted by HID</span>
+
+     <span class="kp">file</span><span class="o">$</span>hhsize <span class="o">&lt;-</span> <span class="kp">rep</span><span class="p">(</span><span class="kp">unname</span><span class="p">(</span><span class="kp">table</span><span class="p">(</span><span class="kp">file</span><span class="o">$</span>HID<span class="p">)),</span>
+     <span class="kp">unname</span><span class="p">(</span><span class="kp">table</span><span class="p">(</span><span class="kp">file</span><span class="o">$</span>HID<span class="p">)))</span>
+
+
+     <span class="c1"># Unsorted</span>
+     <span class="kp">file</span><span class="o">$</span>hhsize <span class="o">&lt;-</span> <span class="kp">rep</span><span class="p">(</span><span class="kp">diff</span><span class="p">(</span><span class="kt">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">1</span> <span class="o">+</span> <span class="kp">which</span><span class="p">(</span><span class="kp">diff</span><span class="p">(</span><span class="kp">file</span><span class="o">$</span>HID<span class="p">)</span> <span class="o">!=</span> <span class="m">0</span><span class="p">),</span> <span class="kp">length</span><span class="p">(</span>b<span class="p">)</span><span class="m">+1</span><span class="p">)),</span>
+     <span class="kp">diff</span><span class="p">(</span><span class="kt">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">1</span> <span class="o">+</span> <span class="kp">which</span><span class="p">(</span><span class="kp">diff</span><span class="p">(</span><span class="kp">file</span><span class="o">$</span>HID<span class="p">)</span> <span class="o">!=</span> <span class="m">0</span><span class="p">),</span> <span class="kp">length</span><span class="p">(</span><span class="kp">file</span><span class="o">$</span>HID<span class="p">)</span> <span class="o">+</span> <span class="m">1</span><span class="p">)))</span>
+</pre></div>
+</td></tr></table></div>
+</div>
 <p><strong>NOTE: In some cases, the order of the individuals within the
 households can provide information that could lead to
 re-identification.</strong> An example is information on the relation to the
@@ -820,22 +994,29 @@ on the relation to the household head. One way to avoid this unintended
 release of information is to change the order of the individuals within
 each household at random. Example 7.15 illustrates a way to do this in
 <em>R</em>.</p>
-<p>Example 7.15 Changing the order of individuals within households</p>
-<div class="line-block">
-<div class="line"><em># List of household sizes by household</em></div>
-<div class="line">hhsize &lt;- <strong>diff</strong>(<strong>c</strong>(1, 1 + <strong>which</strong>(<strong>diff</strong>(file$HID)
-!= 0), <strong>length</strong>(file$HID) + 1))</div>
-</div>
-<div class="line-block">
-<div class="line"><em># Line numbers randomly assigned within each household</em></div>
-<div class="line"><strong>set.seed</strong>(123)</div>
-<div class="line">dataAnon$INDID &lt;- <strong>unlist</strong>(<strong>lapply</strong>(hhsize,
-function(n){<strong>sample</strong>(1:n, n, replace = FALSE, prob =
-<strong>rep</strong>(1/n, n))}))</div>
-</div>
-<div class="line-block">
-<div class="line"><em># Order the file by HID and randomized INDID (line number)</em></div>
-<div class="line">dataAnon &lt;- dataAnon[<strong>order</strong>(dataAnon$HID, dataAnon$INDID),]</div>
+<div class="literal-block-wrapper docutils container" id="code715">
+<div class="code-block-caption"><span class="caption-number">Listing 29 </span><span class="caption-text">Changing the order of individuals within households</span><a class="headerlink" href="#code715" title="Permalink to this code">¶</a></div>
+<div class="highlight-R notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="highlight"><pre><span></span>     <span class="c1"># List of household sizes by household</span>
+     hhsize <span class="o">&lt;-</span> <span class="kp">diff</span><span class="p">(</span><span class="kt">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">1</span> <span class="o">+</span> <span class="kp">which</span><span class="p">(</span><span class="kp">diff</span><span class="p">(</span><span class="kp">file</span><span class="o">$</span>HID<span class="p">)</span> <span class="o">!=</span> <span class="m">0</span><span class="p">),</span> <span class="kp">length</span><span class="p">(</span><span class="kp">file</span><span class="o">$</span>HID<span class="p">)</span> <span class="o">+</span> <span class="m">1</span><span class="p">))</span>
+
+     <span class="c1"># Line numbers randomly assigned within each household</span>
+     <span class="kp">set.seed</span><span class="p">(</span><span class="m">123</span><span class="p">)</span>
+     dataAnon<span class="o">$</span>INDID <span class="o">&lt;-</span> <span class="kp">unlist</span><span class="p">(</span><span class="kp">lapply</span><span class="p">(</span>hhsize<span class="p">,</span>
+     <span class="kr">function</span><span class="p">(</span>n<span class="p">){</span><span class="kp">sample</span><span class="p">(</span><span class="m">1</span><span class="o">:</span>n<span class="p">,</span> n<span class="p">,</span> replace <span class="o">=</span> <span class="kc">FALSE</span><span class="p">,</span> prob <span class="o">=</span> <span class="kp">rep</span><span class="p">(</span><span class="m">1</span><span class="o">/</span>n<span class="p">,</span> n<span class="p">))}))</span>
+
+     <span class="c1"># Order the file by HID and randomized INDID (line number)</span>
+     dataAnon <span class="o">&lt;-</span> dataAnon<span class="p">[</span><span class="kp">order</span><span class="p">(</span>dataAnon<span class="o">$</span>HID<span class="p">,</span> dataAnon<span class="o">$</span>INDID<span class="p">),]</span>
+</pre></div>
+</td></tr></table></div>
 </div>
 </div>
 <div class="section" id="randomizing-order-and-numbering-of-individuals-or-households">
@@ -1120,17 +1301,30 @@ First the variable “HID” is replaced by a randomized variable
 the actual order of the records in the dataset is changed. To make the
 randomization reproducible, it is advisable to set a seed for the random
 number generator.</p>
-<p>Example 7.16: Randomize order of households</p>
-<p>n &lt;- <strong>length</strong>(file$HID) <em># number of households</em></p>
-<div class="line-block">
-<div class="line"><strong>set.seed</strong>(123) <em># set seed</em></div>
-<div class="line">file$HIDrandom &lt;- <strong>sample</strong>(1:n, n, replace = FALSE, prob =
-<strong>rep</strong>(1/n, n)) <em># generate random HID</em></div>
+<div class="literal-block-wrapper docutils container" id="code716">
+<div class="code-block-caption"><span class="caption-number">Listing 30 </span><span class="caption-text">Randomize order of households</span><a class="headerlink" href="#code716" title="Permalink to this code">¶</a></div>
+<div class="highlight-R notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="highlight"><pre><span></span>     n <span class="o">&lt;-</span> <span class="kp">length</span><span class="p">(</span><span class="kp">file</span><span class="o">$</span>HID<span class="p">)</span> <span class="c1"># number of households</span>
+
+     <span class="kp">set.seed</span><span class="p">(</span><span class="m">123</span><span class="p">)</span> <span class="c1"># set seed</span>
+     <span class="kp">file</span><span class="o">$</span>HIDrandom <span class="o">&lt;-</span> <span class="kp">sample</span><span class="p">(</span><span class="m">1</span><span class="o">:</span>n<span class="p">,</span> n<span class="p">,</span> replace <span class="o">=</span> <span class="kc">FALSE</span><span class="p">,</span> prob <span class="o">=</span>
+     <span class="kp">rep</span><span class="p">(</span><span class="m">1</span><span class="o">/</span>n<span class="p">,</span> n<span class="p">))</span> <span class="c1"># generate random HID</span>
+
+     file <span class="o">&lt;-</span> file1<span class="p">[</span><span class="kp">order</span><span class="p">(</span><span class="kp">file</span><span class="o">$</span>regionid<span class="p">,</span> <span class="kp">file</span><span class="o">$</span>HIDrandom<span class="p">),]</span>
+     <span class="c1"># sort file by regionid and random HID</span>
+
+     <span class="kp">file</span><span class="o">$</span>HIDrandom <span class="o">&lt;-</span> <span class="m">1</span><span class="o">:</span>n <span class="c1"># renumber the households in randomized order to 1-n</span>
+</pre></div>
+</td></tr></table></div>
 </div>
-<p>file &lt;- file1[<strong>order</strong>(file$regionid, file$HIDrandom),] <em># sort
-file by regionid and random HID</em></p>
-<p>file$HIDrandom &lt;- 1:n <em># renumber the households in randomized order to
-1-n</em></p>
 </div>
 <div class="section" id="computation-time">
 <h2>Computation time<a class="headerlink" href="#computation-time" title="Permalink to this headline">¶</a></h2>
@@ -1418,8 +1612,8 @@ on</td>
 files from 52 countries, using surveys on topics including health,
 labor, income and expenditure. By applying anonymization methods
 available in the <em>sdcMicro</em> package, at least 20 different anonymization
-scenarios <a class="footnote-reference" href="#foot68" id="id8">[9]</a> were tested on each dataset. Most of the
-processing was done using a powerful server <a class="footnote-reference" href="#foot69" id="id9">[10]</a> and up
+scenarios <a class="footnote-reference" href="#foot68" id="id3">[9]</a> were tested on each dataset. Most of the
+processing was done using a powerful server <a class="footnote-reference" href="#foot69" id="id4">[10]</a> and up
 to 16 – 20 processors (cores) at a time. Other processing platforms
 included a laptop and desktop computers, each using four processors.
 Computation times were significantly shorter for datasets processed on
@@ -1508,7 +1702,7 @@ package <em>readstata13</em>.</td></tr>
 <table class="docutils footnote" frame="void" id="foot64" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label">[5]</td><td>The function read.dta() in the package <em>foreign</em> does not support
+<tr><td class="label"><a class="fn-backref" href="#id2">[5]</a></td><td>The function read.dta() in the package <em>foreign</em> does not support
 the <em>STATA</em> file format from <em>STATA</em> 13 and <em>STATA</em> 14. Two solutions
 are to use the ‘saveold’ command in <em>STATA</em> 13 or 14 that saves the
 file in the old format that can be read by the function read.dta().
@@ -1539,14 +1733,14 @@ and allow for object-oriented programming.</td></tr>
 <table class="docutils footnote" frame="void" id="foot68" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id8">[9]</a></td><td>Here a scenario refers to a combination of SDC methods and their
+<tr><td class="label"><a class="fn-backref" href="#id3">[9]</a></td><td>Here a scenario refers to a combination of SDC methods and their
 parameters.</td></tr>
 </tbody>
 </table>
 <table class="docutils footnote" frame="void" id="foot69" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id9">[10]</a></td><td>The server has 512 GB RAM and four processors each with 16 cores,
+<tr><td class="label"><a class="fn-backref" href="#id4">[10]</a></td><td>The server has 512 GB RAM and four processors each with 16 cores,
 translating to 64 cores total.</td></tr>
 </tbody>
 </table>
