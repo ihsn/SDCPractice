@@ -8,10 +8,10 @@ Measuring disclosure risk is an important part of the SDC process: risk
 measures are used to judge whether a data file is safe enough for
 release. Before measuring disclosure risk, we have to define what type
 of disclosure is relevant for the data at hand. The literature commonly
-defines three types of disclosure; we take these directly from Lambert
-(1993) (see also Hundepool et al., 2012).
+defines three types of disclosure; we take these directly from `Lamb93 <bibliography.html#Lamb93>`_
+(see also `HDFG12 <bibliography.html#HDFG12>`_).
 
--  **Identity disclosure,** which occurs if the intruder associates a
+-  **Identity disclosure**, which occurs if the intruder associates a
    known individual with a released data record. For example, the
    intruder links a released data record with external information, or
    identifies a respondent with extreme data values. In this case, an
@@ -20,7 +20,7 @@ defines three types of disclosure; we take these directly from Lambert
    other information in the released data related to the specific
    respondent.
 
--  **Attribute disclosure,** which occurs if the intruder is able to
+-  **Attribute disclosure**, which occurs if the intruder is able to
    determine some new characteristics of an individual based on the
    information available in the released data. Attribute disclosure
    occurs if a respondent is correctly re-identified and the dataset
@@ -31,7 +31,7 @@ defines three types of disclosure; we take these directly from Lambert
    the medical condition of any female patient aged 56 to 60 in the
    dataset without having to identify the specific individual.
 
--  **Inferential disclosure,** which occurs if the intruder is able to
+-  **Inferential disclosure**, which occurs if the intruder is able to
    determine the value of some characteristic of an individual more
    accurately with the released data than would otherwise have been
    possible. For example, with a highly predictive regression model, an
@@ -52,11 +52,10 @@ Classification of variables
 ---------------------------
 
 For the purpose of the SDC process, we use the classifications of
-variables described in the following paragraphs (see Figure 4.1 for an
-overview). The initial classification of variables into identifying and
+variables described in the following paragraphs (see :numref:`fig24`
+for an overview). The initial classification of variables into identifying and
 non-identifying variables depends on the way the variables can be used
-by intruders for re-identification (Hundepool et al., 2012; Templ,
-Meindl, Kowarik, 2014):
+by intruders for re-identification (`HDFG12 <bibliography.html#HDFG12>`_; `TeMK14 <bibliography.html#TeMK14>`_):
 
 -  **Identifying variables:** these contain information that can lead to
    the identification of respondents and can be further categorized as:
@@ -77,7 +76,7 @@ Meindl, Kowarik, 2014):
       race, birth date, sex and ZIP/postal codes, which might be easily
       combined or linked to publically available external information
       and make identification possible. The combinations of values of
-      several quasi-identifiers are called keys (see also Section 4.4).
+      several quasi-identifiers are called keys (see also `Levels of Risk`_).
       The values of quasi-identifiers themselves often do not lead to
       identification (e.g. male/female), but a combination of several
       values of quasi-identifier can render a record unique (e.g. male,
@@ -109,7 +108,7 @@ Meindl, Kowarik, 2014):
    how the quasi-identifiers might be combined with each other and
    information in external datasets and then treating the data to
    prevent disclosure. We discuss disclosure scenarios in more detail in
-   Section 4.3.
+   `Disclosure scenarios`_.
 
 For the SDC process, it is also useful to further classify the
 quasi-identifiers into **categorical**, **continuous** and
@@ -156,7 +155,12 @@ data.
    Non-sensitive variables may still serve as quasi-identifiers when
    combined with other variables or other external data.
 
-Figure 4.1 Classification of variables
+.. _fig24:
+
+.. figure:: media/image24.png
+   :align: center
+   
+   Classification of variables
 
 Disclosure scenarios
 --------------------
@@ -193,12 +197,29 @@ take specialized expertise, or software, and other conditions have to be
 fulfilled. Examples are that the point in time the datasets were
 collected should approximately match and the content of the variables
 should be (nearly) identical. If these conditions are not fulfilled,
-exact matching is much less likely. **NOTE: Not all external data is
-necessarily in the public domain. Also privately owned datasets or
-datasets which are not released should be taken into consideration for
-determining the suitable disclosure scenario.**
+exact matching is much less likely. 
 
-Box 4: Disclosure scenarios and different release types
+.. NOTE:: Not all external data is
+	necessarily in the public domain. Also privately owned datasets or
+	datasets which are not released should be taken into consideration for
+	determining the suitable disclosure scenario.
+
+.. admonition:: Info-box - Disclosure scenarios and different release types
+
+	A dataset can have more than one disclosure scenario. Disclosure scenarios 
+	also differ depending on the data access type that the data will be released 
+	under; for example, Public Use Files (PUF) or Scientific Use Files (SUF, also 
+	known as licensed) or in a data enclave. The required level of protection, 
+	the potential avenues of disclosure as well as the availability of other external 
+	data sources differ according to the access type under which the data will be 
+	released. For example, the user of a Scientific Use File (SUF) might be 
+	contractually restricted by an agreement as to what they are allowed to do 
+	with the data, whereas a Public Use File (PUF) might be freely available on 
+	the internet under a much looser set of conditions. PUFs will in general require 
+	more protection than SUFs and SUFs will require more protection than those files 
+	only released in an data enclave. Disclosure scenarios should be developed with 
+	all of this in mind.
+
 
 The evaluation of disclosure risk is based on the quasi-identifiers,
 which are identified in the analysis of disclosure risk scenarios. The
@@ -241,13 +262,14 @@ all members of the same higher hierarchical unit are, in the case of
 households, those relating to housing and household income. These
 variables differ from survey to survey and from country to
 country. [#foot24]_ This hierarchical structure creates a
-further level of disclosure risk for two reasons: 1) if one individual
-in the household is re-identified, the household structure allows for
-re-identification of the other household members in the same household,
-2) values of variables for other household members that are common for
-all household members can be used for re-identification of another
-individual of the same household. This is discussed in more detail in
-Section 4.9.
+further level of disclosure risk for two reasons:
+
+	1.	if one individual in the household is re-identified, the household structure allows for
+		re-identification of the other household members in the same household,
+	2. 	values of variables for other household members that are common for
+	   	all household members can be used for re-identification of another
+	   	individual of the same household. This is discussed in more detail in
+	   	`Household Risk`_.
 
 In the following pages, we first discuss risk measures used to evaluate
 disclosure risk in the absence of a hierarchical structure. This
@@ -288,7 +310,8 @@ conservative risk measures may overstate the risk as they assume a
 worst-case scenario. Two assumptions should, however, be fulfilled for
 the risk measures to be valid and meaningful; the microdata should be a
 sample of a larger population (no census) and the sampling weights
-should be available. Section 5.6 briefly discusses how to deal with
+should be available. `Special case: census data <anon_methods.html#Special case: census data>`__ 
+briefly discusses how to deal with
 census data.
 
 Individual risk
@@ -308,9 +331,9 @@ match an individual who has a relatively rare key within the sample data
 with an external dataset in which the same key exists will have a higher
 probability of finding a correct match than when a larger number of
 individuals share the same key. This can be illustrated with the
-following example that is illustrated in Table 4.1.
+following example that is illustrated in :numref:`tab41`.
 
-Table 4.1 shows values for 10 respondents for the quasi-identifiers
+:numref:`tab41` shows values for 10 respondents for the quasi-identifiers
 “residence”, “gender”, “education level” and “labor status”. In the
 data, we find seven unique combinations of values of quasi-identifiers
 (i.e., patterns or keys) of the four quasi-identifiers. Examples of keys
@@ -330,59 +353,57 @@ combination of quasi-identifiers, the more likely the individual is to
 be correctly matched in another dataset that contains these
 quasi-identifiers. Even when direct identifiers are removed from the
 dataset, that individual has a higher disclosure risk than others,
-assuming that their sample weights are the same. Table 4.1 reports the
+assuming that their sample weights are the same. :numref:`tab41` reports the
 sample frequencies :math:`f_{k}` of the keys for all individuals.
 Individuals with the same keys have the same sample frequency. If
 :math:`f_{k} = 1`, this individual has a unique combination of values of
-quasi-identifiers and is called “sample unique”. The dataset in Table
-4.1 contains four sample uniques. Risk measures are based on this sample
+quasi-identifiers and is called “sample unique”. The dataset in :numref:`tab41`
+contains four sample uniques. Risk measures are based on this sample
 frequency.
 
-Table 4.1: Example dataset showing sample frequencies, population
-frequencies and individual disclosure risk
+.. _tab41:
 
-+----+-----------+--------+----------------------+--------------+--------+----+-----+--------+
-| No | Residence | Gender | Education level      | Labor status | Weight | f_k| F_k | risk   |
-+====+===========+========+======================+==============+========+====+=====+========+
-| 1  | Urban     | Female | Secondary incomplete | Employed     | 180    | 2  | 360 | 0.0054 |
-+----+-----------+--------+----------------------+--------------+--------+----+-----+--------+
-| 2  | Urban     | Female | Secondary incomplete | Employed     | 180    | 2  | 360 | 0.0054 |
-+----+-----------+--------+----------------------+--------------+--------+----+-----+--------+
-| 3  | Urban     | Female | Primary incomplete   | Non-LF       | 215    | 1  | 215 | 0.0251 |
-+----+-----------+--------+----------------------+--------------+--------+----+-----+--------+
-| 4  | Urban     | Male   | Secondary complete   | Employed     | 76     | 2  | 152 | 0.0126 |
-+----+-----------+--------+----------------------+--------------+--------+----+-----+--------+
-| 5  | Rural     | Female | Secondary complete   | Unemployed   | 186    | 1  | 186 | 0.0282 |
-+----+-----------+--------+----------------------+--------------+--------+----+-----+--------+
-| 6  | Urban     | Male   | Secondary complete   | Employed     | 76     | 2  | 152 | 0.0126 |
-+----+-----------+--------+----------------------+--------------+--------+----+-----+--------+
-| 7  | Urban     | Female | Primary complete     | Non-LF       | 180    | 1  | 180 | 0.0290 |
-+----+-----------+--------+----------------------+--------------+--------+----+-----+--------+
-| 8  | Urban     | Male   | Post-secondary       | Unemployed   | 215    | 1  | 215 | 0.0251 |
-+----+-----------+--------+----------------------+--------------+--------+----+-----+--------+
-| 9  | Urban     | Female | Secondary incomplete | Non-LF       | 186    | 2  | 262 | 0.0074 |
-+----+-----------+--------+----------------------+--------------+--------+----+-----+--------+
-| 10 | Urban     | Female | Secondary incomplete | Non-LF       | 76     | 2  | 262 | 0.0074 |
-+----+-----------+--------+----------------------+--------------+--------+----+-----+--------+
+.. table:: Example dataset showing sample frequencies, 
+		   	population frequencies and individual disclosure risk
+   :widths: auto
+   :align: center
 
-In Example 4.1, we show how to use the *sdcMicro* package to create a
+   
+   ====  ==========  ========  ======================  ==============  ========  ====  =====  ========
+    No   Residence    Gender    Education level         Labor status    Weight    f_k   F_k    risk   
+   ====  ==========  ========  ======================  ==============  ========  ====  =====  ========
+    1    Urban        Female    Secondary incomplete    Employed        180       2     360    0.0054 
+    2    Urban        Female    Secondary incomplete    Employed        180       2     360    0.0054 
+    3    Urban        Female    Primary incomplete      Non-LF          215       1     215    0.0251 
+    4    Urban        Male      Secondary complete      Employed        76        2     152    0.0126 
+    5    Rural        Female    Secondary complete      Unemployed      186       1     186    0.0282 
+    6    Urban        Male      Secondary complete      Employed        76        2     152    0.0126 
+    7    Urban        Female    Primary complete        Non-LF          180       1     180    0.0290 
+    8    Urban        Male      Post-secondary          Unemployed      215       1     215    0.0251 
+    9    Urban        Female    Secondary incomplete    Non-LF          186       2     262    0.0074 
+    10   Urban        Female    Secondary incomplete    Non-LF          76        2     262    0.0074 
+   ====  ==========  ========  ======================  ==============  ========  ====  =====  ========
+
+In :numref:`code41`, we show how to use the *sdcMicro* package to create a
 list of sample frequencies :math:`f_{k}` for each record in a dataset.
 This is done by using the *sdcMicro* function freq(). A value of 2 for
 an observation means that in the sample, there is one more individual
 with exactly the same combination of values for the selected key
-variables. In Example 4.1, the function freq() is applied to
+variables. In :numref:`code41`, the function freq() is applied to
 “sdcInitial”, which is an *sdcMicro* object. Footnote [#foot25]_ 
 shows how to initialize the *sdcMicro* object for
 this example. For a complete discussion of *sdcMicro* objects as well as
-instructions on how to create *sdcMicro* objects, we refer to Section
-7.5. *sdcMicro* objects are used when doing SDC with *sdcMicro*. The
+instructions on how to create *sdcMicro* objects, we refer to 
+ `Objects of class Objects of class *sdcMicroObj* <sdcMicro.html#Objects of class *sdcMicroObj*>`__. 
+ *sdcMicro* objects are used when doing SDC with *sdcMicro*. The
 function freq() displays the sample frequency for the keys constructed
-on a defined set of quasi-identifiers. Example 4.1 corresponds to the
-data in Table 4.1.
-
-Example 4.1: Calculating :math:`\mathbf{f}_{\mathbf{k}}` using *sdcMicro*
+on a defined set of quasi-identifiers. :numref:`code41` corresponds to the
+data in :numref:`tab41`.
 
 .. code-block:: R
+   :linenos:
+   :caption: Calculating :math:`\mathbf{f}_{\mathbf{k}}` using *sdcMicro*
+   :name: code41
 
     # Frequency of the particular combination of key variables (keys) for each record in the sample
     freq(sdcInitial, type = 'fk')
@@ -414,22 +435,22 @@ the same frequencies, i.e., the frequency of the key.
 If :math:`F_{k} = 1`, the key :math:`k` is both a sample and a
 population unique and the disclosure risk would be 1. Population uniques
 are an important factor to consider when evaluating risk, and deserve
-special attention. Table 4.1 also shows :math:`F_{k}` for the example
+special attention. :numref:`tab41` also shows :math:`F_{k}` for the example
 dataset. This is further discussed in the case studies in Chapter 9.
 
 Besides :math:`f_{k}`, the sample frequency of key
 :math:`k` (i.e., the number of individuals in the sample with
 the combination of quasi-identifiers corresponding to the combination
 specified in key :math:`k`) and :math:`F_{k}`, the estimated population
-frequency of key :math:`k`, can be displayed in *sdcMicro*. Example 4.2
+frequency of key :math:`k`, can be displayed in *sdcMicro*. :numref:`code42` 
 illustrates how to return lists of length *n* of frequencies for all
 individuals. The frequencies are displayed for each individual and not
 for each key.
 
-Example 4.2: Calculating the sample and population frequencies using
-*sdcMicro*
-
 .. code-block:: R
+   :linenos:
+   :caption: Calculating the sample and population frequencies using *sdcMicro*
+   :name: code42
 
     # Sample frequency of individual’s key
     freq(sdcInitial, type = 'fk')
@@ -459,34 +480,33 @@ values of the key variables. This risk measure is based on certain
 assumptions` [#foot26]_, which are strict and may lead to a
 relatively conservative risk measure. In *sdcMicro*, the risk measure
 :math:`r_{k}` is automatically computed when creating an *sdcMicro*
-object and saved in the “risk” slot [#foot27]_. Example 4.3
+object and saved in the “risk” slot [#foot27]_. :numref:`code43`
 shows how to retrieve the risk measures using *sdcMicro* for our
-example. The risk measures are also presented in Table 4.1.
-
-Example 4.3: The individual risk slot in the *sdcMicro* object
+example. The risk measures are also presented in :numref:`tab41`.
 
 .. code-block:: R
-
-    sdcInitial@risk$individual
-
-    ````\ ``risk``\ ````\ ````\ ``fk``\ ````\ ``Fk``
-
-    | ``[1,]``\ ``0.005424520``\ ``2``\ ``360``
-    | ``[2,]``\ ``0.005424520``\ ``2``\ ``360``
-    | ``[3,]``\ ``0.025096439``\ ``1``\ ``215``
-    | ``[4,]``\ ``0.012563425``\ ``2``\ ``152``
-    | ``[5,]``\ ``0.028247279``\ ``1``\ ``186``
-    | ``[6,]``\ ``0.012563425``\ ``2``\ ``152``
-    | ``[7,]``\ ``0.029010932``\ ``1``\ ``180``
-    | ``[8,]``\ ``0.025096439``\ ``1``\ ``215``
-    | ``[9,]``\ ``0.007403834``\ ``2``\ ``262``
-    | ``[10,]``\ ``0.007403834``\ ``2``\ ``262``
+   :linenos:
+   :caption: The individual risk slot in the *sdcMicro* object
+   :name: code43
+   
+	sdcInitial@risk$individual risk fk Fk 
+	
+	[1,] 0.005424520 2 360 
+	[2,] 0.005424520 2 360 
+	[3,] 0.025096439 1 215 
+	[4,] 0.012563425 2 152 
+	[5,] 0.028247279 1 186 
+	[6,] 0.012563425 2 152 
+	[7,] 0.029010932 1 180 
+	[8,] 0.025096439 1 215 
+	[9,] 0.007403834 2 262 
+	[10,] 0.007403834 2 262
 
 The main factors influencing the individual risk are the sample
 frequencies :math:`f_{k}` and the sampling design weights :math:`w_{i}`.
 If an individual is at relatively high risk of disclosure, in our
-example this would be individuals 3, 5, 7 and 8 in Table 4.1 and Example
-4.3, the probability that a potential intruder correctly matches these
+example this would be individuals 3, 5, 7 and 8 in :numref:`tab41` and 
+:numref:`code43`, the probability that a potential intruder correctly matches these
 individuals with an external data file is high **relative to the other
 individuals in the released data.** In our example, the reason for the
 high risk is the fact that these individuals are sample uniques
@@ -500,17 +520,17 @@ frequencies will be positive.
 :math:`k`-anonymity
 ~~~~~~~~~~~~~~~~~~~
 
-The risk measure *k*-anonymity is based on the principle that, in a safe
+The risk measure :math:`k`-anonymity is based on the principle that, in a safe
 dataset, the number of individuals sharing the same combination of
 values (keys) of categorical quasi-identifiers should be higher than a
-specified threshold\ :math:`\text{\ k}`. :math:`k`-anonymity is a risk
+specified threshold :math:`k`. :math:`k`-anonymity is a risk
 measure based on the microdata to be released, since it only takes the
 sample into account. An individual violates :math:`k`-anonymity if the
 sample frequency count :math:`f_{k}` for the key :math:`k` is smaller
-than the specified threshold :math:`k\text{.\ \ }` For example, if an
+than the specified threshold :math:`k`. For example, if an
 individual has the same combination of quasi-identifiers as two other
 individuals in the sample, these individuals satisfy 3-anonymity but
-violate 4-anonymity. In the dataset in Table 4.1, six individuals
+violate 4-anonymity. In the dataset in :numref:`tab41`, six individuals
 satisfy 2-anonymity and four violate 2-anonymity. The individuals that
 violate 2-anonymity are sample uniques. The risk measure is the number
 of observations that violates k-anonymity for a certain value of *k*,
@@ -522,7 +542,7 @@ where :math:`I` is the indicator function and :math:`i` refers to the
 :math:`i`\ :sup:`th` record. This is simply a count of the number of
 individuals with a sample frequency of their key lower than :math:`k`.
 The count is higher for larger :math:`k`, since if a record satisfies
-:math:`k`-anonimity, it also satisfies (:math:`k + 1)`-anonimity. The
+:math:`k`-anonimity, it also satisfies (:math:`k + 1`)-anonimity. The
 risk measure :math:`k`-anonymity does not consider the sample weights,
 but it is important to consider the sample weights when determining the
 required level of :math:`k`-anonymity. If the sample weights are large,
@@ -535,18 +555,18 @@ probability is related to the number of records in the population with a
 particular key through the sample weights.
 
 In *sdcMicro* we can display the number of observations violating a
-given :math:`k`-anonymity threshold. In Example 4.4, we use *sdcMicro*
+given :math:`k`-anonymity threshold. In :numref:`code44`, we use *sdcMicro*
 to calculate the number of violators for the thresholds :math:`k = 2`
 and :math:`k = 3`. Both the absolute number of violators and the
 relative number as percentage of the number of individuals in the sample
 are given. In the example, four observations violate 2-anonimity and all
 10 observations violate 3-anonymity.
 
-Example 4.4: Using the print() function to display observations
-violating k-anonymity
-
 .. code-block:: R
-
+   :linenos:
+   :caption: Using the print() function to display observations violating k-anonymity
+   :name: code44
+   
     print(sdcInitial, 'kAnon')
 
     Number of observations violating
@@ -561,7 +581,7 @@ For other levels of :math:`k`-anonymity, it is possible to compute the
 number of violating individuals by using the sample frequency counts in
 the *sdcMicro* object. The number of violators is the number of
 individuals with sample frequency counts smaller than the specified
-threshold :math:`k`. In Example 4.5, we show an example of how to
+threshold :math:`k`. In :numref:`code45`, we show an example of how to
 calculate any threshold for :math:`k` using the already-stored risk
 measures available after setting up an *sdcMicro* object in *R*.
 :math:`k` can be replaced with any required threshold. The choice of the
@@ -570,9 +590,11 @@ satisfy depends on many factors and is discussed further in Section 4.3
 on local suppression. In many institutions, typically required
 thresholds for :math:`k`-anonymity are 3 and 5.
 
-Example 4.5: Computing k-anonymity violations for other values of k
 .. code-block:: R
-
+   :linenos:
+   :caption: Computing k-anonymity violations for other values of k
+   :name: code45
+   
     sum(sdcInitial@risk$individual[,2] < k)
 
 It is important to note that missing values (‘NA’s in
@@ -582,25 +604,30 @@ Two individuals with keys {‘Male’, NA, ‘Employed’} and {‘Male’,
 {‘Male’, NA, ‘Employed’} and {‘Male’, ‘Secondary incomplete’,
 ‘Employed’} also share the same key. Therefore, the missing value in the
 first key is first interpreted as ‘Secondary complete’, and then as
-‘Secondary incomplete’. This is illustrated in Table 4.2. **NOTE: The
-sample frequency of the third record is 3, since it is regarded to share
-its key both with the first and second record.** This principle is used
-when applying local suppression to achieve a certain level of
+‘Secondary incomplete’. This is illustrated in :numref:`tab42`. 
+
+.. NOTE:: 
+	The sample frequency of the third record is 3, since it is regarded to share
+	its key both with the first and second record.
+	
+This principle is used when applying local suppression to achieve a certain level of
 :math:`k`-anonymity (see Section 5.2.2) and is based on the fact that
 the value NA could replace any value.
 
-Table 4.2: Example dataset to illustrate the effect of missing values on
-k-anonymity
+.. _tab42:
 
-+----+--------+----------------------+--------------+-----+
-| No | Gender | Education level      | Labor status | f_k |
-+====+========+======================+==============+=====+
-| 1  | Male   | Secondary complete   | Employed     | 2   |
-+----+--------+----------------------+--------------+-----+
-| 2  | Male   | Secondary incomplete | Employed     | 2   |
-+----+--------+----------------------+--------------+-----+
-| 3  | Male   | NA                   | Employed     | 3   |
-+----+--------+----------------------+--------------+-----+
+.. table:: Example dataset to illustrate the effect of missing values on k-anonymity
+   :widths: auto
+   :align: center
+
+
+   ====  ========  ======================  ==============  =====
+    No    Gender    Education level         Labor status    f_k 
+   ====  ========  ======================  ==============  =====
+    1     Male      Secondary complete      Employed        2   
+    2     Male      Secondary incomplete    Employed        2   
+    3     Male      NA                      Employed        3   
+   ====  ========  ======================  ==============  =====
 
 If a dataset satisfies :math:`k`-anonymity, an intruder will always find
 at least :math:`k` individuals with the same combination of
@@ -623,7 +650,7 @@ satisfies :math:`k`-anonymity. This might occur in cases where the data
 contains sensitive (non-identifying) categorical variables that have the
 same value for all individuals that share the same key. Examples of such
 sensitive variables are those containing information on an individual’s
-health status. Table 4.3 illustrates this problem by using the same data
+health status. :numref:`tab43` illustrates this problem by using the same data
 as previously used, but adding a sensitive variable, ”health”. The first
 two individuals satisfy 2-anonymity for the key variables “residence”,
 “gender”, “education level” and “labor status”. This means that an
@@ -640,31 +667,26 @@ have different values (‘yes’ and ‘no’) for “health”, and thus the
 intruder would not gain information about the health status from this
 dataset by matching an individual to one of these individuals.
 
-Table 4.3: l-diversity illustration
+.. _tab43:
 
-+----+-----------+--------+----------------------+--------------+--------+-----+-----+-------------+
-| No | Residence | Gender | Education level      | Labor status | Health | f_k | F_k | l-diversity |
-+====+===========+========+======================+==============+========+=====+=====+=============+
-| 1  | Urban     | Female | Secondary incomplete | Employed     | yes    | 2   | 360 | 1           |
-+----+-----------+--------+----------------------+--------------+--------+-----+-----+-------------+
-| 2  | Urban     | Female | Secondary incomplete | Employed     | yes    | 2   | 360 | 1           |
-+----+-----------+--------+----------------------+--------------+--------+-----+-----+-------------+
-| 3  | Urban     | Female | Primary incomplete   | Non-LF       | yes    | 1   | 215 | 1           |
-+----+-----------+--------+----------------------+--------------+--------+-----+-----+-------------+
-| 4  | Urban     | Male   | Secondary complete   | Employed     | yes    | 2   | 152 | 2           |
-+----+-----------+--------+----------------------+--------------+--------+-----+-----+-------------+
-| 5  | Rural     | Female | Secondary complete   | Unemployed   | yes    | 1   | 186 | 1           |
-+----+-----------+--------+----------------------+--------------+--------+-----+-----+-------------+
-| 6  | Urban     | Male   | Secondary complete   | Employed     | no     | 2   | 152 | 2           |
-+----+-----------+--------+----------------------+--------------+--------+-----+-----+-------------+
-| 7  | Urban     | Female | Primary complete     | Non-LF       | no     | 1   | 180 | 1           |
-+----+-----------+--------+----------------------+--------------+--------+-----+-----+-------------+
-| 8  | Urban     | Male   | Post-secondary       | Unemployed   | yes    | 1   | 215 | 1           |
-+----+-----------+--------+----------------------+--------------+--------+-----+-----+-------------+
-| 9  | Urban     | Female | Secondary incomplete | Non-LF       | no     | 2   | 262 | 2           |
-+----+-----------+--------+----------------------+--------------+--------+-----+-----+-------------+
-| 10 | Urban     | Female | Secondary incomplete | Non-LF       | yes    | 2   | 262 | 2           |
-+----+-----------+--------+----------------------+--------------+--------+-----+-----+-------------+
+.. table:: l-diversity illustration
+   :widths: auto
+   :align: center
+   
+   ====  ===========  ========  ======================  ==============  ========  =====  =====  =============
+    No    Residence    Gender    Education level         Labor status    Health    f_k    F_k    l-diversity 
+   ====  ===========  ========  ======================  ==============  ========  =====  =====  =============
+    1     Urban        Female    Secondary incomplete    Employed        yes       2      360    1           
+    2     Urban        Female    Secondary incomplete    Employed        yes       2      360    1           
+    3     Urban        Female    Primary incomplete      Non-LF          yes       1      215    1           
+    4     Urban        Male      Secondary complete      Employed        yes       2      152    2           
+    5     Rural        Female    Secondary complete      Unemployed      yes       1      186    1           
+    6     Urban        Male      Secondary complete      Employed        no        2      152    2           
+    7     Urban        Female    Primary complete        Non-LF          no        1      180    1           
+    8     Urban        Male      Post-secondary          Unemployed      yes       1      215    1           
+    9     Urban        Female    Secondary incomplete    Non-LF          no        2      262    2           
+    10    Urban        Female    Secondary incomplete    Non-LF          yes       2      262    2           
+   ====  ===========  ========  ======================  ==============  ========  =====  =====  =============
 
 The concept of (distinct) :math:`l`-diversity addresses this shortcoming
 of :math:`k`-anonymity (see Machanavajjhala et al., 2007). A dataset
@@ -678,23 +700,25 @@ if :math:`l`-diversity that can be achieved is 2. A sample unique will
 always only satisfy 1-diversity.
 
 To compute :math:`l`-diversity for sensitive variables in *sdcMicro*,
-the function ldiversity() can be used. This is illustrated in Example
-4.6. As arguments, we specify the names of the sensitive
+the function ldiversity() can be used. This is illustrated in :numref:`code46`.
+As arguments, we specify the names of the sensitive
 variables [#foot29]_ in the file as well as a constant for
 recursive :math:`l`-diversity, [#foot30]_ and the code for
 missing values in the data. The output is saved in the “risk” slot of
 the *sdcMicro* object. The result shows the minimum, maximum, mean and
 quantiles of the :math:`l`-diversity scores for all individuals in the
-sample. The output in Example 4.6 reproduces the results based on the
-data in Table 4.3.
+sample. The output in :numref:`code46` reproduces the results based on the
+data in :numref:`tab43`.
 
-Example 4.6: :math:`\mathbf{l}`-diversity function in *sdcMicro*
 
 .. code-block:: R
-
+   :linenos:
+   :caption:  :math:`l`-diversity function in *sdcMicro*
+   :name: code46
+   
     # Computing l-diversity
 
-    sdcInitial <- **ldiversity**\ (obj = sdcInitial, ldiv_index = c("Health"), l_recurs_c = 2, missing = NA)
+    sdcInitial <- ldiversity(obj = sdcInitial, ldiv_index = c("Health"), l_recurs_c = 2, missing = NA)
     # Output for l-diversity
     sdcInitial@risk$ldiversity
 
@@ -741,7 +765,7 @@ Sample unique vs. special unique
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The previous measures of risk focused on the uniqueness of the key of a
-record in the dataset. Table 4.4 reproduces the data from Table 4.1. The
+record in the dataset. :numref:`tab44` reproduces the data from :numref:`tab41`. The
 sample dataset has 10 records and four pre-determined quasi-identifiers
 {“Residence”, “Gender”, “Education level” and “Labor status”}. Given the
 four quasi-identifiers, we have seven distinct patterns in those key
@@ -755,33 +779,28 @@ primary school. Similarly, records 5, 7 and 8 are sample uniques,
 because they possess distinct patterns with respect to the four key
 variables.
 
-Table 4.4: Sample uniques and special uniques
+.. _tab44:
 
-+----+-----------+--------+----------------------+--------------+--------+----+-----+--------+
-| No | Residence | Gender | Education level      | Labor status | Weight | f_k| F_k | risk   |
-+====+===========+========+======================+==============+========+====+=====+========+
-| 1  | Urban     | Female | Secondary incomplete | Employed     | 180    | 2  | 360 | 0.0054 |
-+----+-----------+--------+----------------------+--------------+--------+----+-----+--------+
-| 2  | Urban     | Female | Secondary incomplete | Employed     | 180    | 2  | 360 | 0.0054 |
-+----+-----------+--------+----------------------+--------------+--------+----+-----+--------+
-| 3  | Urban     | Female | Primary incomplete   | Non-LF       | 215    | 1  | 215 | 0.0251 |
-+----+-----------+--------+----------------------+--------------+--------+----+-----+--------+
-| 4  | Urban     | Male   | Secondary complete   | Employed     | 76     | 2  | 152 | 0.0126 |
-+----+-----------+--------+----------------------+--------------+--------+----+-----+--------+
-| 5  | Rural     | Female | Secondary complete   | Unemployed   | 186    | 1  | 186 | 0.0282 |
-+----+-----------+--------+----------------------+--------------+--------+----+-----+--------+
-| 6  | Urban     | Male   | Secondary complete   | Employed     | 76     | 2  | 152 | 0.0126 |
-+----+-----------+--------+----------------------+--------------+--------+----+-----+--------+
-| 7  | Urban     | Female | Primary complete     | Non-LF       | 180    | 1  | 180 | 0.0290 |
-+----+-----------+--------+----------------------+--------------+--------+----+-----+--------+
-| 8  | Urban     | Male   | Post-secondary       | Unemployed   | 215    | 1  | 215 | 0.0251 |
-+----+-----------+--------+----------------------+--------------+--------+----+-----+--------+
-| 9  | Urban     | Female | Secondary incomplete | Non-LF       | 186    | 2  | 262 | 0.0074 |
-+----+-----------+--------+----------------------+--------------+--------+----+-----+--------+
-| 10 | Urban     | Female | Secondary incomplete | Non-LF       | 76     | 2  | 262 | 0.0074 |
-+----+-----------+--------+----------------------+--------------+--------+----+-----+--------+
+.. table:: Sample uniques and special uniques
+   :widths: auto
+   :align: center
+   
+   ====  ===========  ========  ======================  ==============  ========  ====  =====  ========
+    No    Residence    Gender    Education level         Labor status    Weight    f_k   F_k    risk   
+   ====  ===========  ========  ======================  ==============  ========  ====  =====  ========
+    1     Urban        Female    Secondary incomplete    Employed        180       2     360    0.0054 
+    2     Urban        Female    Secondary incomplete    Employed        180       2     360    0.0054 
+    3     Urban        Female    Primary incomplete      Non-LF          215       1     215    0.0251 
+    4     Urban        Male      Secondary complete      Employed        76        2     152    0.0126 
+    5     Rural        Female    Secondary complete      Unemployed      186       1     186    0.0282 
+    6     Urban        Male      Secondary complete      Employed        76        2     152    0.0126 
+    7     Urban        Female    Primary complete        Non-LF          180       1     180    0.0290 
+    8     Urban        Male      Post-secondary          Unemployed      215       1     215    0.0251 
+    9     Urban        Female    Secondary incomplete    Non-LF          186       2     262    0.0074 
+    10    Urban        Female    Secondary incomplete    Non-LF          76        2     262    0.0074 
+   ====  ===========  ========  ======================  ==============  ========  ====  =====  ========
 
-In addition to the records 3, 5, 7 and 8 in Table 4.4 being sample
+In addition to the records 3, 5, 7 and 8 in :numref:`tab44` being sample
 uniques with respect to the key variable set {“Residence”, “Gender”,
 “Education level”, “Labor status”}, we can find unique patterns in these
 records without even having to consider the complete set of key
@@ -821,7 +840,7 @@ based on two observations:
    risk of the record
 
 A record is defined as a special unique if it is a sample unique both on
-the complete set of quasi-identifiers (e.g., in the data in Table 4.4,
+the complete set of quasi-identifiers (e.g., in the data in :numref:`tab44`,
 the variables “Residence”, ”Gender”, “Education level” and “Labor
 status”) and simultaneously has at least one MSU (Elliot et al., 1998).
 Special uniques can be classified according to the number and size of
@@ -853,11 +872,11 @@ MSUs are assigned a higher SUDA score, which also reflects the higher
 risk. The SUDA score ranks the individuals according to their level of
 risk. The higher the SUDA score, the riskier the sample unique.
 
- Calculating SUDA scores – a simplified example*
+ Calculating SUDA scores – a simplified example
 
 To illustrate how SUDA scores are calculated, we compute the SUDA scores
-for the sample uniques in the data in Table 4.5, which replicates the
-data from Table 4.4. Record 5 contains four MSUs: {Rural} of size 1, and
+for the sample uniques in the data in :numref:`tab45`, which replicates the
+data from :numref:`tab45`. Record 5 contains four MSUs: {Rural} of size 1, and
 {‘Secondary Complete’, ‘Unemployed’}, {‘Female’, ‘Unemployed’} and
 {Female, Secondary Complete} of size 2. Suppose the maximum size of MSUs
 we search for in the data, :math:`M`, is set at 3. Knowing that,
@@ -867,38 +886,33 @@ is 4; the score assigned to {Rural} is computed by
 to {Secondary complete, Unemployed}, {Female, Unemployed} and {Female,
 Secondary Complete} is
 :math:`\prod_{i = 2}^{3}\left( 4 - i \right) = 2*1 = 2`. The SUDA score
-for the fifth record in Table 4.5 is then :math:`6 + 2 + 2 + 2 = 12`,
+for the fifth record in :numref:`tab45` is then :math:`6 + 2 + 2 + 2 = 12`,
 which is the sum of these four scores per MSU. The SUDA scores for the
 other sample uniques are computed accordingly [#foot33]_. The
-values that are in the MSUs in the sample uniques are shaded in Table
-4.5. Records that are not sample uniques (:math:`f_{k} > 1`) cannot be
+values that are in the MSUs in the sample uniques are shaded in :numref:`tab45`. 
+Records that are not sample uniques (:math:`f_{k} > 1`) cannot be
 special uniques and are assigned the score 0.
 
-Table 4.5: Illustrating the calculation of SUDA and DIS-SUDA scores
+.. _tab45:
 
-+----+-----------+--------+----------------------+--------------+--------+-----+------------+----------+
-| No | Residence | Gender | Education level      | Labor status | Weight | f_k | SUDA score | DIS-SUDA |
-+====+===========+========+======================+==============+========+=====+============+==========+
-| 1  | Urban     | Female | Secondary incomplete | Employed     | 180    | 2   | 0          | 0.0000   |
-+----+-----------+--------+----------------------+--------------+--------+-----+------------+----------+
-| 2  | Urban     | Female | Secondary incomplete | Employed     | 180    | 2   | 0          | 0.0000   |
-+----+-----------+--------+----------------------+--------------+--------+-----+------------+----------+
-| 3  | Urban     | Female | Primary incomplete   | Non-LF       | 215    | 1   | 6          | 0.0051   |
-+----+-----------+--------+----------------------+--------------+--------+-----+------------+----------+
-| 4  | Urban     | Male   | Secondary complete   | Employed     | 76     | 2   | 0          | 0.0000   |
-+----+-----------+--------+----------------------+--------------+--------+-----+------------+----------+
-| 5  | Rural     | Female | Secondary complete   | Unemployed   | 186    | 1   | 12         | 0.0107   |
-+----+-----------+--------+----------------------+--------------+--------+-----+------------+----------+
-| 6  | Urban     | Male   | Secondary complete   | Employed     | 76     | 2   | 0          | 0.0000   |
-+----+-----------+--------+----------------------+--------------+--------+-----+------------+----------+
-| 7  | Urban     | Female | Primary complete     | Non-LF       | 180    | 1   | 6          | 0.0051   |
-+----+-----------+--------+----------------------+--------------+--------+-----+------------+----------+
-| 8  | Urban     | Male   | Post-secondary       | Unemployed   | 215    | 1   | 10         | 0.0088   |
-+----+-----------+--------+----------------------+--------------+--------+-----+------------+----------+
-| 9  | Urban     | Female | Secondary incomplete | Non-LF       | 186    | 2   | 0          | 0.0000   |
-+----+-----------+--------+----------------------+--------------+--------+-----+------------+----------+
-| 10 | Urban     | Female | Secondary incomplete | Non-LF       | 76     | 2   | 0          | 0.0000   |
-+----+-----------+--------+----------------------+--------------+--------+-----+------------+----------+
+.. table:: Illustrating the calculation of SUDA and DIS-SUDA scores
+   :widths: auto
+   :align: center
+
+   ====  ===========  ========  ======================  ==============  ========  =====  ============  ==========
+    No    Residence    Gender    Education level         Labor status    Weight    f_k    SUDA score    DIS-SUDA 
+   ====  ===========  ========  ======================  ==============  ========  =====  ============  ==========
+    1     Urban        Female    Secondary incomplete    Employed        180       2      0             0.0000   
+    2     Urban        Female    Secondary incomplete    Employed        180       2      0             0.0000   
+    3     Urban        Female    Primary incomplete      Non-LF          215       1      6             0.0051   
+    4     Urban        Male      Secondary complete      Employed        76        2      0             0.0000   
+    5     Rural        Female    Secondary complete      Unemployed      186       1      12            0.0107   
+    6     Urban        Male      Secondary complete      Employed        76        2      0             0.0000   
+    7     Urban        Female    Primary complete        Non-LF          180       1      6             0.0051   
+    8     Urban        Male      Post-secondary          Unemployed      215       1      10            0.0088   
+    9     Urban        Female    Secondary incomplete    Non-LF          186       2      0             0.0000   
+    10    Urban        Female    Secondary incomplete    Non-LF          76        2      0             0.0000   
+   ====  ===========  ========  ======================  ==============  ========  =====  ============  ==========
 
 To estimate record-level disclosure risks, SUDA scores can be used in
 combination with the Data Intrusion Simulation (DIS) metric (Elliot and
@@ -943,12 +957,13 @@ likely the *R* standard missing value, NA. We mention this because **the
 default missing value code in the sdcMicro suda2() function is -999 and
 will most likely need to be changed to ‘NA’ when using most R
 datasets.** The scores are saved in the risk slot of the *sdcMicro*
-object. The syntax in Example 4.7 shows how to retrieve the output.
-
-Example 4.7: Evaluating SUDA scores
+object. The syntax in :numref:`code47` shows how to retrieve the output.
 
 .. code-block:: R
-
+   :linenos:
+   :caption: Evaluating SUDA scores
+   :name: code47
+   
     # Evaluating SUDA scores for the specified variables
     sdcInitial <- suda2(obj = sdcInitial, missing = NA)
 
@@ -981,9 +996,9 @@ Example 4.7: Evaluating SUDA scores
     - - - - - - - - - - -
 
 To compare DIS scores before and after applying SDC methods, it may be
-useful to use histograms or density plots of these scores. Example 4.8
+useful to use histograms or density plots of these scores. :numref:`code48`
 shows how to generate histograms of the SUDA scores summarized in
-Example 4.7. The histogram is shown in Figure 4.2. All outputs relate to
+:numref:`code47`. The histogram is shown in :numref:`fig2`. All outputs relate to
 the data used in the example. In our case, we have not applied any SDC
 method to the data yet and thus have only the plots for the initial
 values. Typically, after applying SDC methods, one would recalculate the
@@ -991,10 +1006,11 @@ SUDA scores and compare them to the original values. One way to quickly
 see the differences would be to rerun these visualizations and compare
 them to the base for risk changes.
 
-Example 4.8: Histogram and density plots of DIS-SUDA scores
-
 .. code-block:: R
-
+   :linenos:
+   :caption: Histogram and density plots of DIS-SUDA scores
+   :name: code48
+   
     # Plot a histogram of disScore
     hist(sdcInitial@risk$suda2$disScore, main = 'Histogram of DIS-SUDA scores')
 
@@ -1002,13 +1018,14 @@ Example 4.8: Histogram and density plots of DIS-SUDA scores
     density <- density(sdcInitial@risk$suda2$disScore)
     plot(density, main = 'Density plot of DIS-SUDA scores')
 
-.. image:: media/image2.png
-   :width: 2.97727in
-   :height: 2.66667in
+
+.. _fig2:
+
+.. figure:: media/image2.png
    :align: center
-
-Figure 4.2: Visualizations of DIS-SUDA scores
-
+   
+   Visualizations of DIS-SUDA scores
+   
 Risk measures for continuous variables
 --------------------------------------
 
@@ -1077,7 +1094,7 @@ after perturbation are considered too close to the initial value and
 hence unsafe and need more perturbation. Values that are outside of the
 intervals are considered safe. The size of the intervals is based on the
 standard deviation of the observations and a scaling parameter. This
-method is implemented in the function dRisk() in *sdcMicro*. Example 4.9
+method is implemented in the function dRisk() in *sdcMicro*. :numref:`code49`
 shows how to print or display the risk value computed by *sdcMicro* by
 comparing the income variables before and after anonymization. “sdcObj”
 is an *sdcMicro* object and “compExp“ is a vector containing the names
@@ -1089,9 +1106,10 @@ around their original values and the higher the risk measure. The result
 1 indicates that all (100 percent) the observations are outside the
 interval of 0.1 times the standard deviation around the original values.
 
-Example 4.9 Example with the function dRisk()
-
 .. code-block:: R
+   :linenos:
+   :caption: Example with the function dRisk()
+   :name: code49
 
     dRisk(obj = sdcObj@origData[,compExp], xm = sdcObj@manipNumVars[,compExp], k = 0.1)
     [1] 1
@@ -1128,14 +1146,16 @@ depends on the skewness of the data.
 
 We can calculate the :math:`p\%`-percentile of a continuous variable in
 *R* and show the individuals who have income larger than this
-percentile. Example 4.10 provides an illustration for the 90\ :sup:`th`
+percentile. :numref:`code410` provides an illustration for the 90\ :sup:`th`
 percentile.
 
-Example 4.10: Computing 90 % percentile of variable income
 .. code-block:: R
-    
+   :linenos:
+   :caption: Computing 90 % percentile of variable income
+   :name: code410
+   
     # Compute the 90 % percentile for the variable income*
-    perc90 <- **quantile**\ (file[,'income'], 0.90, na.rm = TRUE)
+    perc90 <- quantile(file[,'income'], 0.90, na.rm = TRUE)
 
     # Show the ID of observations with values for income larger than the 90 % percentile
     file[(file[, 'income'] >= perc90), 'ID']
@@ -1178,35 +1198,41 @@ frequencies of these keys and dividing by the sample size n:
 :math:`r_{k}` is the individual risk of key :math:`k` that the
 :math:`i`\ :sup:`th` individual shares (see Section 4.5.1). This measure
 is reported as global risk in *sdcMicro*, is stored in the “risk” slot
-and can be displayed as shown in Example 4.11. It indicates that the
+and can be displayed as shown in :numref:`code411`. It indicates that the
 average re-identification probability is 0.01582 or 0.1582 %.
 
-Example 4.11: Computation of the global risk measure
-
 .. code-block:: R
-
-    # Global risk (average re-identification probability)*
+   :linenos:
+   :caption: Computation of the global risk measure
+   :name: code411
+   
+    # Global risk (average re-identification probability)
     sdcInitial@risk$global$risk
     
     [1] 0.01582
 
-The global risk in the example data in Table 4.1 is 0.01582, which is
+The global risk in the example data in :numref:`tab41` is 0.01582, which is
 the expected proportion of all individuals in the sample that could be
 re-identified by an intruder. Another way of expressing the global risk
 is the number of expected re-identifications, :math:`n*R_{1}`, which is
 in the example 10 \* 0.01582. The expected number of re-identifications
-is also saved in the *sdcMicro* object. Example 4.12 shows how to
-display this. **NOTE: This global risk measure should be used with
-caution. The average risk can be relatively low, but a few individuals
-could have a very high probability of re-identification.** An easy way
-to check for this is to look at the distribution of the individual risk
+is also saved in the *sdcMicro* object. :numref:`code412` shows how to
+display this.
+
+.. NOTE:: 
+	This global risk measure should be used with
+	caution. The average risk can be relatively low, but a few individuals
+	could have a very high probability of re-identification.
+
+An easy way to check for this is to look at the distribution of the individual risk
 values or the number of individuals with risk values above a certain
 threshold, as shown in the next section.
 
-Example 4.12: Computation of expected number of re-identifications
-
 .. code-block:: R
-
+   :linenos:
+   :caption: Computation of expected number of re-identifications
+   :name: code412
+   
     # Global risk (expected number of reidentifications)
     sdcInitial@risk$global$risk_ER
 
@@ -1221,14 +1247,16 @@ the total number of observations that exceed a certain threshold of
 individual risk. Setting the threshold can be absolute (e.g., all those
 individuals who have a disclosure risk higher than 0.05 or 5%) or
 relative (e.g., all those individuals with risks higher than the upper
-quartile of individual risk). Example 4.13 shows how, using *R*, one
+quartile of individual risk). :numref:`code413` shows how, using *R*, one
 would count the number of observations with an individual
 re-identification risk higher than 5%. In the example, no individual has
 a higher disclosure risk than 0.05.
 
-Example 4.13: Number of individuals with individual risk higher than the threshold 0.05
 .. code-block:: R
-
+   :linenos:
+   :caption: Number of individuals with individual risk higher than the threshold 0.05
+   :name: code413
+   
     sum(sdcInitial@risk$individual[,1] > 0.05)
 
 	[1] 0
@@ -1270,13 +1298,13 @@ contain a hierarchical structure, i.e., where a household structure is
 present in the data. Using *sdcMicro*, if a household identifier is
 specified (in the argument *hhId* in the function createSdcObj()) while
 creating an *sdcMicro* object, the household risk will automatically be
-computed. Example 4.14 shows how to display these risk measures.
-
-Example 4.14: Computation of household risk and expected number of
-re-identifications
+computed. :numref:`code414` shows how to display these risk measures.
 
 .. code-block:: R
-
+   :linenos:
+   :caption: Computation of household risk and expected number of re-identifications
+   :name: code414
+   
     # Household risk
     sdcInitial@risk$global$hier_risk
 
@@ -1354,7 +1382,7 @@ re-identifications
    The code examples in this guide are based on *sdcMicro* objects. An
    *sdcMicro* object contains, amongst others, the data and identifies
    all the specified key variables. The code below creates a data.frame
-   with the data from Table 4.1 and the *sdcMicro* objects “sdcInitial”
+   with the data from :numref:`tab41` and the *sdcMicro* objects “sdcInitial”
    used in most examples in this section.
 
    .. code-block:: R
@@ -1366,14 +1394,14 @@ re-identifications
        data <- as.data.frame(cbind(as.factor(c('Urban',
        'Urban', 'Urban', 'Urban', 'Rural', 'Urban', 'Urban', 'Urban',
        'Urban', 'Urban')),
-       as.factor**\ \ (**c**\ \ ('Female', 'Female', 'Female', 'Male',
+       as.factor(c('Female', 'Female', 'Female', 'Male',
        'Female', 'Male', 'Female', 'Male', 'Female', 'Female')),
        as.factor(c('Sec in', 'Sec in', 'Prim in', 'Sec com', 'Sec com', 'Sec com', 'Prim com', 'Post-sec', 'Sec in', 'Sec in')), 
        as.factor(c('Emp', 'Emp', 'Non-LF', 'Emp', 'Unemp', 'Emp', 'Non-LF', 'Unemp', 'Non-LF','Non-LF')),
        as.factor(c('yes', 'yes', 'yes', 'yes', 'yes', 'no', 'no', 'yes', 'no', 'yes')),
        c(180, 180, 215, 76, 186, 76, 180, 215, 186, 76)))
        
-       # Specify variable names*
+       # Specify variable names
        
        names(data) <- c('Residence', 'Gender', 'Educ', 'Lstat', 'Health', 'Weights')
        
@@ -1439,4 +1467,4 @@ re-identifications
    The third record has one MSU, {‘Primary incomplete’}; the seventh
    record has one MSU, {‘Primary complete’}; and the eighth record has
    three MSUs, {‘Urban, Unemployed’}, {‘Male, Unemployed’} and
-   {‘Post-secondary’}.
+   {‘Post-secondary’}. 

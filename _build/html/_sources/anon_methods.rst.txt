@@ -334,25 +334,23 @@ Section 7.4 on classes in *R* and how to change the class of a variable.
 Example 5.1: Using the sdcMicro function groupVars() to recode a
 categorical variable
 
-.. highlight::
+.. code-block:: R
 
-# Frequencies of sizeRes before recoding
-table(sdcInitial@manipKeyVars$sizeRes
-## capital, large city          small city             town       countryside
-##                 686                 310              146              1358
+    # Frequencies of sizeRes before recoding
+    table(sdcInitial@manipKeyVars$sizeRes)
+    ## capital, large city          small city             town       countryside
+    ##                 686                 310              146              1358
 
-# Recode urban
-sdcInitial <- **groupVars**\ (obj = sdcInitial, var =
-c("sizeRes"), before = **c**\ ("capital, large city", "small city", "town"), after = **c**\ ("urban", "urban", "urban"))
-# Recode rural
-sdcInitial <- **groupVars**\ (obj = sdcInitial, var =
-c("sizeRes"), before = **c**\ ("countryside"), after = c("rural"))
-      # Frequencies of sizeRes before recoding
-      table(sdcInitial@manipKeyVars$sizeRes)
+    # Recode urban
+    sdcInitial  <-  groupVars(obj = sdcInitial, var = c("sizeRes"), before = c("capital, large city", "small city", "town"), after = c("urban", "urban", "urban"))
 
-      ## urban rural
-      ##  1142  1358
-.. highlight:: c
+    # Recode rural
+    sdcInitial  <-  groupVars(obj = sdcInitial, var = c("sizeRes"), before = c("countryside"), after = c("rural"))
+
+    # Frequencies of sizeRes before recoding
+    table(sdcInitial@manipKeyVars$sizeRes)
+    ## urban rural
+    ##  1142  1358
 
 Figure 5.1 illustrates the effect of recoding the variable “sizeRes” and
 show respectively the frequency counts before and after recoding. We see
@@ -383,14 +381,15 @@ should cover the entire value range of the variable.
 Example 5.2: Using the *sdcMicro* function globalRecode() to recode a
 continuous variable (age)
 
-sdcInitial <- **globalRecode**\ (sdcInitial, column = **c**\ ('age'),
-breaks = 10 \* **c**\ (0:10))
+.. code-block:: R
 
-*# Frequencies of age after recoding*
+    sdcInitial <- globalRecode(sdcInitial, column = c('age'), breaks = 10 * c(0:10))
 
-| **table**\ (sdcInitial@manipKeyVars$age)
-| ``##   (0,10]  (10,20]  (20,30]  (30,40]  (40,50]  (50,60]  (60,70]  (70,80]  (80,90]  (90,100]``
-| ``##      462      483      344      368      294      214      172       94``\ ``26         3``
+    # Frequencies of age after recoding
+    table(sdcInitial@manipKeyVars$age)
+    ##   (0,10]  (10,20]  (20,30]  (30,40]  (40,50]  (50,60]  (60,70]  (70,80]  (80,90]  (90,100]
+    ##      462      483      344      368      294      214      172       94   	 26         3
+
 
 Figure 5.2 shows the effect of recoding the variable “age”.
 
@@ -413,15 +412,15 @@ and employment. Figure 5.3 shows the effect of recoding the variable
 
 Example 5.3: Using globalRecode() to create intervals of unequal width
 
-sdcInitial <- **globalRecode**\ (sdcInitial, column = **c**\ ('age'),
-breaks = **c**\ (0, 5, 11, 17, 21, 25, 49, 65, 100))
+.. code-block:: R
 
-*# Frequencies of age after recoding*
+    sdcInitial <- globalRecode(sdcInitial, column = c('age'), breaks = c(0, 5, 11, 17, 21, 25, 49, 65, 100))
 
-**table**\ (sdcInitial@manipKeyVars$age)
+    # Frequencies of age after recoding
+    table(sdcInitial@manipKeyVars$age)
+    ##    (0,5]   (5,11]  (11,17]  (17,21]  (21,25]  (25,49]  (49,65] (65,100]
+    ##      192      317      332      134      142      808      350      185
 
-| ``##    (0,5]   (5,11]  (11,17]  (17,21]  (21,25]  (25,49]  (49,65] (65,100]``
-| ``##      192      317      332      134      142      808      350      185``
 
 .. image:: media/image5.png
    :width: 6.5in
@@ -462,9 +461,9 @@ global recoding:
 Example 5.4: Constructing right-open intervals for semi-continuous
 variables using built-in *sdcMicro* function globalRecode()
 
-sdcInitial <- **globalRecode**\ (sdcInitial, column = **c**\ ('age'),
-breaks = **c**\ (-0.1, 14.9, 64.9, 99.9), labels = **c**\ ('[0,15)',
-'[15,65)', '[65,100)'))
+.. code-block:: R
+
+      sdcInitial <- globalRecode(sdcInitial, column = c('age'), breaks = c(-0.1, 14.9, 64.9, 99.9), labels = c('[0,15)', '[15,65)', '[65,100)'))
 
 -  It is also possible to use *R* code to manually recode the variables
    without using *sdcMicro* functions. When using the built-in
@@ -478,21 +477,27 @@ breaks = **c**\ (-0.1, 14.9, 64.9, 99.9), labels = **c**\ ('[0,15)',
 Example 5.5: Constructing intervals for semi-continuous and continuous
 variables using manual recoding in *R*
 
-| *# Group age 0-14*
-| sdcInitial@manipKeyVars$age[sdcInitial@manipKeyVars$age >= 0 &
-| sdcInitial@manipKeyVars$age < 15] <- 0
-| *# Group age 15-64*
-| sdcInitial@manipKeyVars$age[sdcInitial@manipKeyVars$age >= 15 &
-| sdcInitial@manipKeyVars$age < 65] <- 1
-| *# Group age 65-100*
-| sdcInitial@manipKeyVars$age[sdcInitial@manipKeyVars$age >= 65 &
-| sdcInitial@manipKeyVars$age <= 100] <- 2
-| *# Add labels for the new values*
-| sdcInitial@manipKeyVars$age
-  <-**ordered**\ (sdcInitial@manipKeyVars$age,
-| levels = **c**\ (0,1,2), labels = **c**\ ("0-14", "15-64", "65-100"))
-| *# Recalculate risk after manual manipulation*
-| sdcInitial <- **calcRisks**\ (sdcInitial)
+.. code-block:: R
+
+      # Group age 0-14
+    sdcInitial@manipKeyVars$age[sdcInitial@manipKeyVars$age >= 0 &
+    sdcInitial@manipKeyVars$age < 15] <- 0
+
+    # Group age 15-64
+    sdcInitial@manipKeyVars$age[sdcInitial@manipKeyVars$age >= 15 &
+    sdcInitial@manipKeyVars$age < 65] <- 1
+
+    # Group age 65-100
+    sdcInitial@manipKeyVars$age[sdcInitial@manipKeyVars$age >= 65 &
+    sdcInitial@manipKeyVars$age <= 100] <- 2
+
+    # Add labels for the new values
+    sdcInitial@manipKeyVars$age <-ordered(sdcInitial@manipKeyVars$age,
+    levels = c(0,1,2), labels = c("0-14", "15-64", "65-100"))
+
+    # Recalculate risk after manual manipulation
+    sdcInitial <- calcRisks(sdcInitial)
+
 
 Top and bottom coding
 ^^^^^^^^^^^^^^^^^^^^^
@@ -549,12 +554,14 @@ in the previous subsection.
 Example 5.6: Top coding and bottom coding in *sdcMicro* using
 topBotCoding() function
 
-| *# Top coding at age 65*
-| sdcInitial <- **topBotCoding**\ (obj = sdcInitial, value = 65,
-  replacement = 65, kind = 'top', column = 'age')
-| *# Bottom coding at age 5*
-| sdcInitial <- **topBotCoding**\ (obj = sdcInitial, value = 5,
-  replacement = 5, kind = 'bottom', column = 'age')
+.. code-block:: R
+
+    # Top coding at age 65
+    sdcInitial <- topBotCoding(obj = sdcInitial, value = 65, replacement = 65, kind = 'top', column = 'age')
+
+    # Bottom coding at age 5
+    sdcInitial <- topBotCoding(obj = sdcInitial, value = 5, replacement = 5, kind = 'bottom', column = 'age')
+
 
 Rounding
 ^^^^^^^^
@@ -730,35 +737,32 @@ utility for the data users [#foot40]_.
 Example 5.7: Application of local suppression with and without
 importance vector
 
-*# local suppression without importance vector*
+.. code-block:: R
 
-sdcInitial <- **localSuppression**\ (sdcInitial, k = 5)
+    # local suppression without importance vector
+    sdcInitial <- localSuppression(sdcInitial, k = 5)
 
-**print**\ (sdcInitial, 'ls')
+    print(sdcInitial, 'ls')
+    ##     KeyVar | Suppressions (#) | Suppressions (%)
+    ##    sizeRes |                0 |            0.000
+    ##        age |               80 |            3.200
+    ##     gender |                0 |            0.000
+    ##     region |                0 |            0.000
+    ##  ethnicity |                8 |            0.320
 
-| ``##     KeyVar | Suppressions (#) | Suppressions (%)``
-| ``##    sizeRes |                0 |            0.000``
-| ``##        age |               80 |            3.200``
-| ``##     gender |                0 |            0.000``
-| ``##     region |                0 |            0.000``
-| ``##  ethnicity |                8 |            0.320``
+    # Undoing the supressions
+    sdcInitial <- undolast(sdcInitial)
 
-| *# Undoing the supressions*
-| sdcInitial <- **undolast**\ (sdcInitial)
+    # Local suppression with importance vector to avoid suppressions in the first (gender) and fourth (age) variables
+    sdcInitial <- localSuppression(sdcInitial, importance = c(5, 1, 1, 5, 5), k = 5)
+    print(sdcInitial, 'ls')
+    ##     KeyVar | Suppressions (#) | Suppressions (%)
+    ##    sizeRes |               87 |            3.480
+    ##        age |                0 |            0.000
+    ##     gender |                0 |            0.000
+    ##     region |               17 |            0.680
+    ##  ethnicity |               62 |            2.480
 
-| *# Local suppression with importance vector to avoid suppressions in
-  the first (gender) and fourth (age) variables*
-| sdcInitial <- **localSuppression**\ (sdcInitial, importance =
-  **c**\ (5, 1, 1, 5, 5), k = 5)
-| **print**\ (sdcInitial, 'ls')
-
-``##     KeyVar | Suppressions (#) | Suppressions (%)``
-
-| ``##    sizeRes |               87 |            3.480``
-| ``##        age |                0 |            0.000``
-| ``##     gender |                0 |            0.000``
-| ``##     region |               17 |            0.680``
-| ``##  ethnicity |               62 |            2.480``
 
 Figure 5.5 demonstrates the effect of the required :math:`k`-anonymity
 threshold and the importance vector on the data utility by using several
@@ -904,15 +908,13 @@ in *sdcMicro*.
 
 Example 5.8 The all-\ :math:`\mathbf{m}` approach in sdcMicro
 
-| *# Apply k-anonymity with threshold 5 to all subsets of two key
-  variables and subsequently to the complete dataset*
-| sdcInitial <- **localSuppression**\ (sdcInitial, k = 5, combs =
-  **c**\ (2, 5))
+.. code-block:: R
 
-| *# Apply k-anonymity with threshold 5 to all subsets of three key
-  variables and subsequently with threshold 2 to the complete dataset*
-| sdcInitial <- **localSuppression**\ (sdcInitial, k = **c**\ (3, 5),
-  combs = **c**\ (5, 2))
+    # Apply k-anonymity with threshold 5 to all subsets of two key variables and subsequently to the complete dataset
+    sdcInitial <- localSuppression(sdcInitial, k = 5, combs = c(2, 5))
+    # Apply k-anonymity with threshold 5 to all subsets of three key variables and subsequently with threshold 2 to the complete dataset
+    sdcInitial <- localSuppression(sdcInitial, k = c(3, 5), combs = c(5, 2))
+
 
 Table 5.6 presents the results of using the all-\ :math:`m` approach of
 a test dataset with 9 key variables and 4,000 records. The table shows
@@ -1002,9 +1004,11 @@ corresponding to the suppressions in the region variable. All values of
 
 Example 5.9: Manually suppressing values in linked variables
 
-| *# Suppress values of rururb in file if region is suppressed*
-| file[\ **is.na**\ (sdcInitial@manipKeyVars$region) &
-  !\ **is.na**\ (sdcInitial@origData$region),'sizRes'] <- NA
+.. code-block:: R
+
+    # Suppress values of rururb in file if region is suppressed
+    file[is.na(sdcInitial@manipKeyVars$region) & !is.na(sdcInitial@origData$region),'sizRes'] <- NA
+
 
 Alternatively, the linked variables can be specified when creating the
 *sdcMicro* object. The linked variables are called ghost variables. Any
@@ -1015,20 +1019,22 @@ the linkage between “region” and “rururb” with ghost variables.
 Example 5.10: Suppressing values in linked variables by specifying ghost
 variables
 
-| *# Ghost (linked) variables are specified as a list of linkages*
-| ghostVars <- **list**\ ()
+.. code-block:: R
 
-| *# Each linkage is a list, with the first element the key variable and
-  the second element the linked variable(s)*
-| ghostVars[[1]] <- **list**\ ()
-| ghostVars[[1]][[1]] <- "region"
-| ghostVars[[1]][[2]] <- **c**\ ("sizeRes")
-| *## Create the sdcMicroObj*
-| sdcInitial <- **createSdcObj**\ (file, keyVars = keyVars, numVars =
-  numVars, weightVar = weight, ghostVars = ghostVars)
+    # Ghost (linked) variables are specified as a list of linkages
+    ghostVars <- list()
 
-| *# The manipulated ghost variables are in the slot manipGhostVars*
-| sdcInitial@manipGhostVars
+    # Each linkage is a list, with the first element the key variable and the second element the linked variable(s)
+    ghostVars[[1]] <- list()
+    ghostVars[[1]][[1]] <- "region"
+    ghostVars[[1]][[2]] <- c("sizeRes")
+
+    ## Create the sdcMicroObj
+    sdcInitial <- createSdcObj(file, keyVars = keyVars, numVars = numVars, weightVar = weight, ghostVars = ghostVars)
+
+    # The manipulated ghost variables are in the slot manipGhostVars
+    sdcInitial@manipGhostVars
+
 
 The simpler alternative for the localSuppression() function in
 *sdcMicro* is the localSupp() function. The localSupp() function can be
@@ -1048,20 +1054,20 @@ the number of suppressions.
 
 Example 5.11: Application of built-in *sdcMicro* function localSupp()
 
-| *# Summary statistics*
-| **summary**\ (sdcInitial@risk$individual[,1])
+.. code-block:: R
 
-| ``##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.``
-| ``## 0.05882 0.10000 0.14290 0.26480 0.33330 1.00000``
+    # Summary statistics
+    summary(sdcInitial@risk$individual[,1])
+    ##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.
+    ## 0.05882 0.10000 0.14290 0.26480 0.33330 1.00000
 
-| *# Number of individuals with individual risk higher than 0.1*
-| **sum**\ (sdcInitial@risk$individual[,1] > 0.1)
+    # Number of individuals with individual risk higher than 0.1
+    sum(sdcInitial@risk$individual[,1] > 0.1)
+    ## [1] 1863
 
-``## [1] 1863``
+    # local suppression
+    sdcInitial <- localSupp(sdcInitial, threshold = 0.1, keyVar = 'education')
 
-| *# local suppression*
-| sdcInitial <- **localSupp**\ (sdcInitial, threshold = 0.1, keyVar =
-  'education')
 
 Perturbative methods
 --------------------
@@ -1222,22 +1228,25 @@ The number of changed records per variable is also shown.
 
 Example 5.12: Producing reproducible PRAM results by using set.seed()
 
-| *# Set seed for random number generator*
-| **set.seed**\ (123)
-| *# Apply PRAM to all selected variables*
-| sdcInitial <- **pram**\ (obj = sdcInitial)
+.. code-block:: R
 
-| ``## Number of changed observations:``
-| ``## - - - - - - - - - - -``
-| ``## ROOF != ROOF_pram : 75 (3.75%)``
-| ``## TOILET != TOILET_pram : 200 (10%)``
-| ``## WATER != WATER_pram : 111 (5.55%)``
-| ``## ELECTCON != ELECTCON_pram : 99 (4.95%)``
-| ``## FUELCOOK != FUELCOOK_pram : 152 (7.6%)``
-| ``## OWNMOTORCYCLE != OWNMOTORCYCLE_pram : 42 (2.1%)``
-| ``## CAR != CAR_pram : 168 (8.4%)``
-| ``## TV != TV_pram : 170 (8.5%)``
-| ``## LIVESTOCK != LIVESTOCK_pram : 52 (2.6%)``
+    # Set seed for random number generator
+    set.seed(123)
+
+    # Apply PRAM to all selected variables
+    sdcInitial <- pram(obj = sdcInitial)
+    ## Number of changed observations:
+    ## - - - - - - - - - - -
+    ## ROOF != ROOF_pram : 75 (3.75%)
+    ## TOILET != TOILET_pram : 200 (10%)
+    ## WATER != WATER_pram : 111 (5.55%)
+    ## ELECTCON != ELECTCON_pram : 99 (4.95%)
+    ## FUELCOOK != FUELCOOK_pram : 152 (7.6%)
+    ## OWNMOTORCYCLE != OWNMOTORCYCLE_pram : 42 (2.1%)
+    ## CAR != CAR_pram : 168 (8.4%)
+    ## TV != TV_pram : 170 (8.5%)
+    ## LIVESTOCK != LIVESTOCK_pram : 52 (2.6%)
+
 
 Table 5.9 shows the tabulation of the variable after applying invariant
 PRAM. We can see that the deviations from the initial tabulations, which
@@ -1302,15 +1311,16 @@ in the function createSdcObj().
 
 Example 5.13: Selecting the variable “toilet” to apply PRAM
 
-| *# Set seed for random number generator*
-| **set.seed**\ (123)
-| *# Apply PRAM only to the variable TOILET*
-| sdcInitial <- **pram**\ (obj = sdcInitial, variables = **c**
-  ("TOILET"))
+.. code-block:: R
 
-| ``## Number of changed observations:``
-| ``## - - - - - - - - - - -``
-| ``## TOILET != TOILET_pram : 115 (5.75%)``
+    # Set seed for random number generator
+    set.seed(123)
+    # Apply PRAM only to the variable TOILET
+    sdcInitial <- pram(obj = sdcInitial, variables = c ("TOILET"))
+    ## Number of changed observations:
+    ## - - - - - - - - - - -
+    ## TOILET != TOILET_pram : 115 (5.75%)
+
 
 The results for PRAM differ if applied simultaneously to several
 variables or subsequently to each variable separately. It is not
@@ -1330,12 +1340,13 @@ the categories).
 Example 5.14: Specifying minimum values for diagonal entries in PRAM
 transition matrix
 
-sdcInitial <- **pram**\ (obj = sdcInitial, variables =
-**c**\ ("TOILET"), pd = **c**\ (0.9, 0.5, 0.5, 0.5))
+.. code-block:: R
 
-| ``## Number of changed observations:``
-| ``## - - - - - - - - - - -``
-| ``## TOILET != TOILET_pram : 496 (24.8%)``
+    sdcInitial <- pram(obj = sdcInitial, variables = c("TOILET"), pd = c(0.9, 0.5, 0.5, 0.5))
+    ## Number of changed observations:
+    ## - - - - - - - - - - -
+    ## TOILET != TOILET_pram : 496 (24.8%)
+
 
 In the invariant PRAM method, we can also specify the amount of
 perturbation by specifying the parameter alpha. This choice is reflected
@@ -1378,13 +1389,14 @@ gender, age groups, education level.
 Example 5.15: Minimizing unlikely combinations by applying PRAM within
 strata
 
-| *# Applying PRAM within the strata generated by the variable region*
-| sdcInitial <- **pram**\ (obj = sdcInitial, variables =
-  **c**\ ("TOILET"), strata_variables = **c**\ ("REGION"))
+.. code-block:: R
 
-| ``## Number of changed observations:``
-| ``## - - - - - - - - - - -``
-| ``## TOILET != TOILET_pram : 179 (8.95%)``
+    # Applying PRAM within the strata generated by the variable region
+    sdcInitial <- pram(obj = sdcInitial, variables = c("TOILET"), strata_variables = c("REGION"))
+    ## Number of changed observations:
+    ## - - - - - - - - - - -
+    ## TOILET != TOILET_pram : 179 (8.95%)
+
 
 .. admonition:: Recommended Reading Material on PRAM
 
@@ -1463,8 +1475,10 @@ low income (e.g., 832 and 966) and four individuals have a high income
 Example 5.16: Applying univariate microaggregation with *sdcMicro*
 function microaggregation()
 
-sdcInitial <- **microaggregation**\ (obj = sdcInitial, variables =
-'INC', aggr = 3, method = mafast, measure = "mean")
+.. code-block:: R
+
+    sdcInitial <- **microaggregation**\ (obj = sdcInitial, variables =
+    'INC', aggr = 3, method = mafast, measure = "mean")
 
 By default, the microaggregation function replaces values with the group
 mean. An alternative, more robust approach is to replace group values
@@ -1589,8 +1603,9 @@ to choose the MDAV algorithm in *sdcMicro*.
 Example 5.17: Multivariate microaggregation with the Maximum Distance to
 Average Vector (MDAV) algorithm in *sdcMicro*
 
-sdcInitial <- **microaggregation**\ (obj = sdcInitial, variables =
-**c**\ ("INC", "EXP", "WEALTH"), method = "mdav")
+.. code-block:: R
+
+      sdcInitial <- microaggregation(obj = sdcInitial, variables = c("INC", "EXP", "WEALTH"), method = "mdav")
 
 It is also possible to group variables only within strata. This reduces
 the computation time and adds an extra layer of protection to the data,
@@ -1600,9 +1615,9 @@ shown in Example 5.18.
 
 Example 5.18: Specifying strata variables for microaggregation
 
-sdcInitial <- **microaggregation**\ (obj = sdcInitial, variables =
-**c**\ ("INC", "EXP", "WEALTH"), method = "mdav", strata_variables =
-**c**\ ("strata"))
+.. code-block:: R
+
+    sdcInitial <- microaggregation(obj = sdcInitial, variables = c("INC", "EXP", "WEALTH"), method = "mdav", strata_variables = c("strata"))
 
 Besides the method MDAV, there are few other grouping methods
 implemented in *sdcMicro* (Templ, Meindl and Kowarik, 2014). Table 5.13
@@ -1770,10 +1785,9 @@ variables.
 
 Example 5.19: Uncorrelated noise addition
 
-sdcInitial <- **addNoise**\ (obj = sdcInitial, variables =
-**c**\ ('TOTFOOD', 'TOTHLTH', 'TOTALCH', 'TOTCLTH', 'TOTHOUS',
-'TOTFURN', 'TOTTRSP', 'TOTCMNQ', 'TOTRCRE', 'TOTEDUC', 'TOTHOTL',
-'TOTMISC'), noise = 0.5, method = "additive")
+.. code-block:: R
+
+    sdcInitial <- addNoise(obj = sdcInitial, variables = c('TOTFOOD', 'TOTHLTH', 'TOTALCH', 	'TOTCLTH', 'TOTHOUS', 'TOTFURN', 'TOTTRSP', 'TOTCMNQ', 'TOTRCRE', 'TOTEDUC', 'TOTHOTL',	'TOTMISC'), noise = 0.5, method = "additive")
 
 Figure 5.7 shows the frequency distribution of a numeric continuous
 variable and the distribution before and after noise addition with
@@ -1855,10 +1869,9 @@ instance, a Jarque-Bera or Shapiro-Wilk test [#foot53]_.
 
 Example 5.20: Correlated noise addition
 
-sdcInitial <- **addNoise**\ (obj = sdcInitial, variables =
-**c**\ ('TOTFOOD', 'TOTHLTH', 'TOTALCH', 'TOTCLTH', 'TOTHOUS',
-'TOTFURN', 'TOTTRSP', 'TOTCMNQ', 'TOTRCRE', 'TOTEDUC', 'TOTHOTL',
-'TOTMISC'), noise = 0.5, method = "correlated2")
+.. code-block:: R
+
+    sdcInitial <- addNoise(obj = sdcInitial, variables = c('TOTFOOD', 'TOTHLTH', 'TOTALCH', 'TOTCLTH', 'TOTHOUS', 'TOTFURN', 'TOTTRSP', 'TOTCMNQ', 'TOTRCRE', 'TOTEDUC', 'TOTHOTL', 'TOTMISC'), noise = 0.5, method = "correlated2")
 
 In many cases, only the outliers have to be protected, or have to be
 protected more. The method ‘outdect’ adds noise only to the outliers,
@@ -1870,10 +1883,9 @@ outlier protection.
 
 Example 5.21: Noise addition for outliers using the ‘outdect’ method
 
-sdcInitial <- **addNoise**\ (obj = sdcInitial, variables =
-**c**\ ('TOTFOOD', 'TOTHLTH', 'TOTALCH', 'TOTCLTH', 'TOTHOUS',
-'TOTFURN', 'TOTTRSP', 'TOTCMNQ', 'TOTRCRE', 'TOTEDUC', 'TOTHOTL',
-'TOTMISC'), noise = 0.5, method = "outdect")
+.. code-block:: R
+
+    sdcInitial <- addNoise(obj = sdcInitial, variables = c('TOTFOOD', 'TOTHLTH', 'TOTALCH', 'TOTCLTH', 'TOTHOUS', 'TOTFURN', 'TOTTRSP', 'TOTCMNQ', 'TOTRCRE', 'TOTEDUC', 'TOTHOTL', 'TOTMISC'), noise = 0.5, method = "outdect")
 
 If noise addition is applied to variables that are a ratio of an
 aggregate, this structure can be destroyed by noise addition. Examples
@@ -1892,24 +1904,19 @@ expenditure category.
 
 Example 5.22: Noise addition to aggregates and their components
 
-| *# Add noise to totals (income / expenditures)*
-| sdcInital <- **addNoise**\ (noise = 0.5, obj = sdcInitial,
-  variables=\ **c**\ ("EXP", "INC"), method="additive")
+.. code-block:: R
 
-| *# Multiply anonymized totals with ratios to obtain anonymized
-  components*
-| compExp <- **c**\ ("TOTFOOD", "TOTALCH", "TOTCLTH", "TOTHOUS",
-  "TOTFURN", "TOTHLTH", "TOTTRSP", "TOTCMNQ", "TOTRCRE", "TOTEDUC",
-  "TOTHOTL", "TOTMISC")
+    # Add noise to totals (income / expenditures)
+    sdcInital <- addNoise(noise = 0.5, obj = sdcInitial, variables=c("EXP", "INC"), method="additive")
+    # Multiply anonymized totals with ratios to obtain anonymized components
+    compExp <-  c("TOTFOOD",  "TOTALCH",  "TOTCLTH",  "TOTHOUS",  "TOTFURN",  "TOTHLTH",  				"TOTTRSP",  "TOTCMNQ", "TOTRCRE",  "TOTEDUC",  "TOTHOTL",  "TOTMISC")
 
-sdcInital@manipNumVars[,compExp] <- sdcInital@manipNumVars[,"HHEXP_N"]
-\*
+    sdcInital@manipNumVars[,compExp] <- sdcInital@manipNumVars[,"HHEXP_N"] *
+     				sdcInital@origData[,compExp]/ sdcInital@origData[,"HHEXP_N"]
 
-sdcInital@origData[,compExp]/ sdcInital@origData[,"HHEXP_N"]
+    # Recalculate risks after manually changing values in sdcMicro object
+    sdcInitial <- calcRisks(sdcInital)
 
-| *# Recalculate risks after manually changing values in sdcMicro
-  object*
-| **sdcInitial <- calcRisks**\ (sdcInital)
 
 .. admonition:: Recommended Reading Material on Noise Addition
 
@@ -1981,17 +1988,18 @@ Example 5.23.
 
 Example 5.23: Rank swapping using *sdcMicro*
 
-| *# Check correlation structure between the variables*
-| **cor**\ (file$TOTHOUS, file$TOTFOOD)
+.. code-block:: R
 
-``## [1] 0.3811335``
+    # Check correlation structure between the variables
+    cor(file$TOTHOUS, file$TOTFOOD)
+    ## [1] 0.3811335
 
-| *# Set seed for random number generator*
-| **set.seed**\ (12345)
+    # Set seed for random number generator
+    set.seed(12345)
 
-| *# Apply rank swapping*
-| **rankSwap**\ (sdcInitial, variables = **c**\ ("TOTHOUS", "TOTFOOD"),
-  missing = NA)
+    # Apply rank swapping
+    rankSwap(sdcInitial, variables = c("TOTHOUS", "TOTFOOD"), missing = NA)
+
 
 Rank swapping has been found to yield good results with respect to the
 trade-off between information loss and data protection (Domingo-Ferrer
@@ -2087,15 +2095,14 @@ predicted by total household expenditures and household size.
 
 Example 5.24: Shuffling using a specified regression equation
 
-| *# Evaluate R-squared (goodness-of-fit) of the regression model*
-| **summary**\ (**lm**\ (file, form = TOTFOOD + TOTALCH + TOTCLTH +
-  TOTHOUS + TOTFURN + TOTHLTH + TOTTRSP + TOTCMNQ + TOTRCRE + TOTEDUC +
-  TOTHOTL + TOTMISC ~ EXP + HHSIZE))
+.. code-block:: R
 
-| *# Shuffling using the specified regression equation*
-| sdcInitial <- **shuffle**\ (sdcInitial, method='ds', form = TOTFOOD +
-  TOTALCH + TOTCLTH + TOTHOUS + TOTFURN + TOTHLTH + TOTTRSP + TOTCMNQ +
-  TOTRCRE + TOTEDUC + TOTHOTL + TOTMISC ~ EXP + HHSIZE)
+    # Evaluate R-squared (goodness-of-fit) of the regression model
+    summary(lm(file, form = TOTFOOD  + TOTALCH + TOTCLTH + TOTHOUS + TOTFURN + TOTHLTH  + TOTTRSP + TOTCMNQ + TOTRCRE + TOTEDUC + TOTHOTL + TOTMISC ~ EXP + HHSIZE))
+
+    # Shuffling using the specified regression equation
+    sdcInitial <- shuffle(sdcInitial, method='ds', form = TOTFOOD  + TOTALCH + TOTCLTH + TOTHOUS + TOTFURN + TOTHLTH  + TOTTRSP + TOTCMNQ + TOTRCRE + TOTEDUC + TOTHOTL + TOTMISC ~ EXP + HHSIZE)
+
 
 .. admonition:: Recommended Reading Material on Shuffling
 
