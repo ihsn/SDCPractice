@@ -4,95 +4,84 @@ Glossary and list of acronyms
 List of Acronyms
 -------------------
 
-+-----------------------------------+-----------------------------------+
-| AFR                               | Sub Saharan Africa                |
-+-----------------------------------+-----------------------------------+
-| COICOP                            | Classification of Individual      |
-|                                   | Consumption by Purpose            |
-+-----------------------------------+-----------------------------------+
-| CRAN                              | Comprehensive R Archive Network   |
-+-----------------------------------+-----------------------------------+
-| CTBIL                             | Contingency Table-Based           |
-|                                   | Information Loss                  |
-+-----------------------------------+-----------------------------------+
-| DHS                               | Demographic and Health Surveys    |
-+-----------------------------------+-----------------------------------+
-| DIS                               | Data Intrusion Simulation         |
-+-----------------------------------+-----------------------------------+
-| EAP                               | East Asia and the Pacific         |
-+-----------------------------------+-----------------------------------+
-| ECA                               | Europe and Central Asia           |
-+-----------------------------------+-----------------------------------+
-| EU                                | European Union                    |
-+-----------------------------------+-----------------------------------+
-| GIS                               | Geographical Information System   |
-+-----------------------------------+-----------------------------------+
-| GPS                               | Global Positioning System         |
-+-----------------------------------+-----------------------------------+
-| GUI                               | Graphical User Interface          |
-+-----------------------------------+-----------------------------------+
-| HIV/AIDS                          | Human Immunodeficiency            |
-|                                   | Virus/Acquired Immune Deficiency  |
-|                                   | Syndrome                          |
-+-----------------------------------+-----------------------------------+
-| I2D2                              | International Income Distribution |
-|                                   | Database                          |
-+-----------------------------------+-----------------------------------+
-| IHSN                              | International Household Survey    |
-|                                   | Network                           |
-+-----------------------------------+-----------------------------------+
-| LAC                               | Latin America and the Caribbean   |
-+-----------------------------------+-----------------------------------+
-| LSMS                              | Living Standards Measurement      |
-|                                   | Survey                            |
-+-----------------------------------+-----------------------------------+
-| MDAV                              | Maximum Distance Average Vector   |
-+-----------------------------------+-----------------------------------+
-| MDG                               | Millennium Development Goal       |
-+-----------------------------------+-----------------------------------+
-| MENA                              | Middle East and North America     |
-+-----------------------------------+-----------------------------------+
-| MICS                              | Multiple Indicator Cluster Survey |
-+-----------------------------------+-----------------------------------+
-| MME                               | Mean Monthly Expenditures         |
-+-----------------------------------+-----------------------------------+
-| MMI                               | Mean Monthly Income               |
-+-----------------------------------+-----------------------------------+
-| MSU                               | Minimal Sample Uniques            |
-+-----------------------------------+-----------------------------------+
-| NSI                               | National Statistical Institute    |
-+-----------------------------------+-----------------------------------+
-| NSO                               | National Statistical Office       |
-+-----------------------------------+-----------------------------------+
-| OECD                              | Organization for Economic         |
-|                                   | Cooperation and Development       |
-+-----------------------------------+-----------------------------------+
-| PARIS21                           | Partnership in Statistics for     |
-|                                   | Development in the 21\ :sup:`st`  |
-|                                   | century                           |
-+-----------------------------------+-----------------------------------+
-| PRAM                              | Post Randomization Method         |
-+-----------------------------------+-----------------------------------+
-| PC                                | Principal Component               |
-+-----------------------------------+-----------------------------------+
-| PUF                               | Public Use File                   |
-+-----------------------------------+-----------------------------------+
-| SA                                | South Asia                        |
-+-----------------------------------+-----------------------------------+
-| SDC                               | Statistical Disclosure Control    |
-+-----------------------------------+-----------------------------------+
-| SSE                               | Sum of Squared Errors             |
-+-----------------------------------+-----------------------------------+
-| SHIP                              | Survey-based Harmonized           |
-|                                   | Indicators Program                |
-+-----------------------------------+-----------------------------------+
-| SUDA                              | Special Uniques Detection         |
-|                                   | Algorithm                         |
-+-----------------------------------+-----------------------------------+
-| SUF                               | Scientific Use File               |
-+-----------------------------------+-----------------------------------+
-| UNICEF                            | United Nations Children’s Fund    |
-+-----------------------------------+-----------------------------------+
+AFR       
+    Sub Saharan Africa
+COICOP    
+    Classification of Individual Consumption by Purpose         
+CRAN      
+    Comprehensive R Archive Network
+CTBIL     
+    Contingency Table-Based Information Loss               
+DHS       
+    Demographic and Health Surveys 
+DIS       
+    Data Intrusion Simulation      
+EAP       
+    East Asia and the Pacific      
+ECA       
+    Europe and Central Asia        
+EU        
+    European Union                 
+GIS       
+    Geographical Information System
+GPS       
+    Global Positioning System      
+GUI       
+    Graphical User Interface       
+HIV/AIDS  
+    Human Immunodeficiency Virus/Acquired Immune Deficiency Syndrome  
+I2D2      
+    International Income Distribution Database  
+IHSN      
+    International Household Survey Network   
+LAC       
+    Latin America and the Caribbean
+LSMS      
+    Living Standards Measurement Survey    
+MDAV      
+    Maximum Distance Average Vector
+MDG       
+    Millennium Development Goal    
+MENA      
+    Middle East and North America  
+MICS      
+    Multiple Indicator Cluster Survey
+MME       
+    Mean Monthly Expenditures      
+MMI       
+    Mean Monthly Income            
+MSU       
+    Minimal Sample Uniques         
+NSI       
+    National Statistical Institute 
+NSO       
+    National Statistical Office    
+OECD      
+    Organization for Economic Cooperation and Development 
+PARIS21   
+    Partnership in Statistics for Development in the 21\ :sup:`st` century   
+PRAM      
+    Post Randomization Method      
+PC        
+    Principal Component            
+PUF       
+    Public Use File                
+SA        
+    South Asia                     
+SDC       
+    Statistical Disclosure Control 
+SSE       
+    Sum of Squared Errors          
+SHIP      
+    Survey-based Harmonized        
+    Indicators Program             
+SUDA      
+    Special Uniques Detection Algorithm 
+SUF       
+    Scientific Use File            
+UNICEF    
+    United Nations Children’s Fund 
+
 
 Glossary
 -----------
