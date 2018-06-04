@@ -47,7 +47,7 @@ Bibliography
 	Journal of Official Statistics , 14 (4), 463-478.
 .. [GKWW98b] Gouweleeuw, J. M., Kooiman, P., Willenborg, L., & de Wolf, P. P. (1998b). 
 	**The Post Randomization Method for Protecting Microdata.**
-	Qüestiió, Quaderns d’Estadística i Investigació Operativa , 22 (1), 145-156.
+	Qüestiió, Quaderns d’Estadística i Investigació Operativa , 22 (1), 145-156.
 .. [HaMu03] Hansen, S. L., & Mukherjee, S. (2003). 
 	**A polynomial algorithm for univariate optimal.**
 	IEEE Transactions on Knowledge and Data Engineering , 15, 1043-1044.

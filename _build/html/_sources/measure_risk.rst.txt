@@ -55,7 +55,7 @@ For the purpose of the SDC process, we use the classifications of
 variables described in the following paragraphs (see :numref:`fig24`
 for an overview). The initial classification of variables into identifying and
 non-identifying variables depends on the way the variables can be used
-by intruders for re-identification (`HDFG12 <bibliography.html#HDFG12>`_; `TeMK14 <bibliography.rst#TeMK14>`_):
+by intruders for re-identification (`HDFG12 <bibliography.html#HDFG12>`_; `TeMK14 <bibliography.html#TeMK14>`_):
 
 -  **Identifying variables:** these contain information that can lead to
    the identification of respondents and can be further categorized as:
