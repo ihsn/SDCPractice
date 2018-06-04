@@ -67,7 +67,29 @@ reasons of:
    Box 1, extracted from Dupriez and Boyko (2010), provides several
    examples of statistical legislation on microdata release.
 
-Box 1: Examples of statistical legislation on microdata release
+.. admonition:: Info-box - Examples of statistical legislation on microdata release
+
+	1. The US Bureau of the Census operates under Title 13-Census of the US Code. “Title 13, U.S.C., Section 9 prohibits the publication or release of any information that would permit identification of any particular establishment, individual, or household. Disclosure assurance involves the steps taken to ensure that Title 13 data prepared for public release will not result in wrongful disclosure. This includes both the use of disclosure limitation methods and the review process to ensure that the disclosure limitation techniques used provide adequate protection to the information.”
+	
+	Source: https://www.census.gov/srd/sdc/wendy.drb.faq.pdf
+	
+	2. In Canada the Statistics Act states that “no person who has been sworn under section 6 shall disclose or knowingly cause to be disclosed, by any means, any information obtained under this Act in such a manner that it is possible from the disclosure to relate the particulars obtained from any individual return to any identifiable individual person, business or organization.”
+	
+	Source: http://laws-lois.justice.gc.ca/eng/acts/S-19/page-2.html
+	
+		Statistics Canada does release microdata files. Its microdata release policy states that Statistics Canada will authorise the release of microdata files for public use when:
+	
+		(a) the release substantially enhances the analytical value of the data collected; and
+	
+		(b) the Agency is satisfied all reasonable steps have been taken to prevent the identification of particular survey units.
+	
+	3. In Thailand the Act states: “Personal information obtained under this act shall be strictly considered confidential. A person who performs his or her duty hereunder or a person who has the duty of maintaining such information cannot disclose it to anyone who doesn’t have a duty hereunder except in the case that:
+	
+		(1) Such disclosure is for the purpose of any investigation or legal proceedings in a case relating to an offense hereunder.
+	
+		(2) Such disclosure is for the use of agencies in the preparation, analysis or research of statistics provided that such disclosure does not cause damage to the information owner and does not identify or disclose the data owner.”
+	
+	Source: http://web.nso.go.th/eng/en/about/stat_act2007.pdf section 15.
 
 Besides the legal and ethical concerns and codes of conducts of agencies
 producing statistics, SDC is important because it guarantees data
@@ -272,7 +294,19 @@ the application of rules or principles. [Box 2] below [taken from
 Dupriez and Boyko (2010)] shows basic principles normally applying to
 PUFs.” (Dupriez and Boyko, 2010).
 
-Box 2: Conditions for accessing and using PUFs
+.. admonition:: Info-box - Conditions for accessing and using PUFs
+
+	1. Data and other material provided by the NSO will not be redistributed or sold to other individuals, institutions or organisations without the NSO’s written agreement.
+	2. Data will be used for statistical and scientific research purposes only. They will be employed solely for reporting aggregated information, including modelling, and not for investigating specific individuals or organisations.
+	3. No attempt will be made to re-identify respondents, and there will be no use of the identity of any person or establishment discovered inadvertently. Any such discovery will be reported immediately to the NSO.
+	4. No attempt will be made to produce links between datasets provided by the NSO or between NSO data and other datasets that could identify individuals or organisations.
+	5. Any books, articles, conference papers, theses, dissertations, reports or other publications employing data obtained from the NSO will cite the source, in line with the citation requirement provided with the dataset.
+	6. An electronic copy of all publications based on the requested data will be sent to the NSO.
+	7. The original collector of the data, the NSO, and the relevant funding agencies bear no responsibility for the data’s use or interpretation or inferences based upon it.
+
+	Note: Items 3 and 6 in the list require that users be provided with an easy way to communicate with the data provider. It is good practice to provide a contact number, an email address, and possibly an on-line “feedback provision” system.
+
+	Source: Dupriez and Boyko, 2010
 
 Conditions for SUFs
 -------------------
@@ -301,7 +335,24 @@ is only granted when there is a legally-registered sponsoring agency,
 e.g., government ministry, university, research centre or national or
 international organization” (Dupriez and Boyko, 2010).
 
-Box 3: Conditions for accessing and using SUFs
+.. admonition:: Info-box - Conditions for accessing and using SUFs
+
+	Note: Items 1 to 8 below are similar to the conditions for use of public use files in Box 2. Items 9 and 10 would have to be adapted in the case of a blanket agreement.
+	
+	1. Data and other material provided by the NSO will not be redistributed or sold to other individuals, institutions or organisations without the NSO’s written agreement.
+	2. Data will be used for statistical and scientific research purposes only. They will be employed solely for reporting aggregated information, including modelling, and not for investigating specific individuals or organisations.
+	3. No attempt will be made to re-identify respondents, and there will be no use of the identity of any person or establishment discovered inadvertently. Any such discovery will be reported immediately to the NSO.
+	4. No attempt will be made to produce links between datasets provided by the NSO or between NSO data and other datasets that could identify individuals or organisations.
+	5. Any books, articles, conference papers, theses, dissertations, reports or other publications employing data obtained from the NSO will cite the source, in line with the citation requirement provided with the dataset.
+	6. An electronic copy of all publications based on therequested data will be sent to the NSO.
+	7. The NSO and the relevant funding agencies bear no responsibility the data’s use or for interpretation or inferences based upon it.
+	8. An electronic copy of all publications based on the requested data will be sent to the NSO.
+	9. The researcher’s organisation must be identified, as must the principal and other researchers involved in using the data must be identified. The principal researcher must sign the licence on behalf of the organization. If the principal researcher is not authorized to sign on behalf of the receiving organization, a suitable representative must be identified.
+	10. The intended use of the data, including a list of expected outputs and the organisation’s dissemination policy must be identified.
+	
+	(Conditions 9 to 11 may be waved in the case of educational institutions)
+	
+	Source: Dupriez and Boyko, 2010
 
 *Blanket agreement to an organization*
 
