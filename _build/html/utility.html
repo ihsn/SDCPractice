@@ -385,11 +385,10 @@ table() produces contingency tables of one or more variables. Example
 We observe small differences between the tables before and after
 anonymization.</p>
 <p>Example 6.4: Comparing contingency tables of categorical variables</p>
-<div class="line-block">
-<div class="line"><em># Contingency table (cross tabulation) of the variables region and
-urban/rural</em></div>
-<div class="line"><strong>table</strong>(sdcInitial&#64;origData[, <strong>c</strong>(‘REGION’, ‘URBRUR’)]) <em>#
-before anonymization</em></div>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span>  <span class="c1"># Contingency table (cross tabulation) of the variables region and urban/rural</span>
+      <span class="kp">table</span><span class="o">**</span>\ <span class="p">(</span>sdcInitial<span class="o">@</span>origData<span class="p">[,</span> <span class="o">**</span><span class="kt">c</span><span class="o">**</span>\ <span class="p">(</span><span class="s">&#39;REGION&#39;</span><span class="p">,</span> <span class="s">&#39;URBRUR&#39;</span><span class="p">)])</span> <span class="o">*</span>
+before anonymization<span class="o">*</span>
+</pre></div>
 </div>
 <div class="line-block">
 <div class="line"><code class="docutils literal notranslate"><span class="pre">##</span>&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">URBRUR</span></code></div>
@@ -1049,8 +1048,8 @@ interactions between variables. This can be done by cross-tabulations
 and regressions. In general, when anonymizing sampled data, it is
 advisable to compute confidence intervals around estimates to interpret
 the magnitude of changes.</p>
-<p><strong>Recommended Reading Material on Measuring Utility and Information
-Loss</strong></p>
+<div class="admonition-recommended-reading-material-on-measuring-utility-and-information-loss admonition">
+<p class="first admonition-title">Recommended Reading Material on Measuring Utility and Information Loss</p>
 <p>A.G. De Waal and L.C.R.J. Willenborg. 1999. “Information Loss through
 Global Recoding and Local Suppression” In Netherlands Official
 Statistics: Special Issue on SDC, 14, 17-10.</p>
@@ -1058,11 +1057,12 @@ Statistics: Special Issue on SDC, 14, 17-10.</p>
 Methods for Microdata on the basis of Information Loss and Disclosure
 Risk”. In Pre-proceedings of ETK-NTTS 2001 (vol. 2), 807-826.
 <a class="reference external" href="http://neon.vb.cbs.nl/casc/NTTSJosep.pdf">http://neon.vb.cbs.nl/casc/NTTSJosep.pdf</a></p>
-<p>J. Domingo-Ferrer and V. Torra. 2001. “Disclosure Protection Methods and
+<p class="last">J. Domingo-Ferrer and V. Torra. 2001. “Disclosure Protection Methods and
 Information Loss for Microdata”. In P. Doyle, J.I. Lane, J.J.M. Theeuwes
 and L. Zayatz (eds.) <em>Theory and Practical Applications for Statistical
 Agencies</em>, 91-110, Amsterdam.
 <a class="reference external" href="http://crises-deim.urv.cat/webCrises/publications/bcpi/cliatpasa01Disclosure.pdf">http://crises-deim.urv.cat/webCrises/publications/bcpi/cliatpasa01Disclosure.pdf</a></p>
+</div>
 <table class="docutils footnote" frame="void" id="foot58" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
