@@ -30,7 +30,7 @@
 \usepackage{babel}
 \usepackage{times}
 \usepackage[Bjarne]{fncychap}
-\usepackage{sphinx}
+\usepackage[,numfigreset=1,mathnumfig]{sphinx}
 
 \usepackage{geometry}
 
@@ -56,7 +56,7 @@
 
 
 \title{Readthedocs Documentation}
-\date{May 30, 2018}
+\date{Jun 04, 2018}
 \release{}
 \author{Matthew Welch}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -93,7 +93,7 @@ Household Survey and Accelerated Data Program \textendash{} TF071804/TF011722.
 
 
 \chapter{Introduction}
-\label{\detokenize{intro::doc}}\label{\detokenize{intro:introduction}}\label{\detokenize{intro:statistical-disclosure-control-for-microdata-a-practice-guide}}
+\label{\detokenize{intro:statistical-disclosure-control-for-microdata-a-practice-guide}}\label{\detokenize{intro:introduction}}\label{\detokenize{intro::doc}}
 National statistics agencies are mandated to collect
 microdata %
 \begin{footnote}[1]\sphinxAtStartFootnote
@@ -347,23 +347,13 @@ optimal risk-utility solution.
 
 \begin{savenotes}\sphinxatlongtablestart\begin{longtable}{|l|l|}
 \hline
-\sphinxstyletheadfamily 
-AFR
-&\sphinxstyletheadfamily 
-Sub Saharan Africa
-\\
-\hline
+
 \endfirsthead
 
 \multicolumn{2}{c}%
 {\makebox[0pt]{\sphinxtablecontinued{\tablename\ \thetable{} -- continued from previous page}}}\\
 \hline
-\sphinxstyletheadfamily 
-AFR
-&\sphinxstyletheadfamily 
-Sub Saharan Africa
-\\
-\hline
+
 \endhead
 
 \hline
@@ -372,6 +362,11 @@ Sub Saharan Africa
 
 \endlastfoot
 
+AFR
+&
+Sub Saharan Africa
+\\
+\hline
 COICOP
 &
 Classification of Individual
@@ -577,29 +572,13 @@ United Nations Children’s Fund
 
 \begin{savenotes}\sphinxatlongtablestart\begin{longtable}{|l|l|}
 \hline
-\sphinxstyletheadfamily 
-Administrative data
-&\sphinxstyletheadfamily 
-Data collected for administrative
-purposes by government agencies.
-Typically, administrative data
-require specific SDC methods.
-\\
-\hline
+
 \endfirsthead
 
 \multicolumn{2}{c}%
 {\makebox[0pt]{\sphinxtablecontinued{\tablename\ \thetable{} -- continued from previous page}}}\\
 \hline
-\sphinxstyletheadfamily 
-Administrative data
-&\sphinxstyletheadfamily 
-Data collected for administrative
-purposes by government agencies.
-Typically, administrative data
-require specific SDC methods.
-\\
-\hline
+
 \endhead
 
 \hline
@@ -608,6 +587,14 @@ require specific SDC methods.
 
 \endlastfoot
 
+Administrative data
+&
+Data collected for administrative
+purposes by government agencies.
+Typically, administrative data
+require specific SDC methods.
+\\
+\hline
 Anonymization
 &
 Use of techniques that convert
@@ -1224,7 +1211,7 @@ observation.
 
 
 \chapter{Statistical Disclosure Control (SDC): An Introduction}
-\label{\detokenize{SDC_intro::doc}}\label{\detokenize{SDC_intro:statistical-disclosure-control-sdc-an-introduction}}
+\label{\detokenize{SDC_intro:statistical-disclosure-control-sdc-an-introduction}}\label{\detokenize{SDC_intro::doc}}
 
 \section{Need for SDC}
 \label{\detokenize{SDC_intro:need-for-sdc}}
@@ -1588,11 +1575,12 @@ are sworn in under the statistics’ acts in the same way as regular NSO
 employees. This approach tends to favour researchers who live near NSO
 headquarters.” (Dupriez and Boyko, 2010)
 
-\sphinxstylestrong{Recommended Reading Material on Release Types}
+\begin{sphinxadmonition}{note}{Recommended Reading Material on Release Types}
 
 Dupriez, O., \& Boyko, E. (2010). \sphinxstyleemphasis{Dissemination of Microdata Files;
 Principles, Procedures and Practices.} International Household Survey
 Network (IHSN).
+\end{sphinxadmonition}
 
 
 \chapter{Measuring Risk}
@@ -1604,11 +1592,11 @@ Measuring disclosure risk is an important part of the SDC process: risk
 measures are used to judge whether a data file is safe enough for
 release. Before measuring disclosure risk, we have to define what type
 of disclosure is relevant for the data at hand. The literature commonly
-defines three types of disclosure; we take these directly from Lambert
-(1993) (see also Hundepool et al., 2012).
+defines three types of disclosure; we take these directly from \sphinxhref{bibliography.html\#Lamb93}{Lamb93}
+(see also \sphinxhref{bibliography.html\#HDFG12}{HDFG12}).
 \begin{itemize}
 \item {} 
-\sphinxstylestrong{Identity disclosure,} which occurs if the intruder associates a
+\sphinxstylestrong{Identity disclosure}, which occurs if the intruder associates a
 known individual with a released data record. For example, the
 intruder links a released data record with external information, or
 identifies a respondent with extreme data values. In this case, an
@@ -1618,7 +1606,7 @@ other information in the released data related to the specific
 respondent.
 
 \item {} 
-\sphinxstylestrong{Attribute disclosure,} which occurs if the intruder is able to
+\sphinxstylestrong{Attribute disclosure}, which occurs if the intruder is able to
 determine some new characteristics of an individual based on the
 information available in the released data. Attribute disclosure
 occurs if a respondent is correctly re-identified and the dataset
@@ -1630,7 +1618,7 @@ the medical condition of any female patient aged 56 to 60 in the
 dataset without having to identify the specific individual.
 
 \item {} 
-\sphinxstylestrong{Inferential disclosure,} which occurs if the intruder is able to
+\sphinxstylestrong{Inferential disclosure}, which occurs if the intruder is able to
 determine the value of some characteristic of an individual more
 accurately with the released data than would otherwise have been
 possible. For example, with a highly predictive regression model, an
@@ -1653,11 +1641,10 @@ individual data values.
 \section{Classification of variables}
 \label{\detokenize{measure_risk:classification-of-variables}}
 For the purpose of the SDC process, we use the classifications of
-variables described in the following paragraphs (see Figure 4.1 for an
-overview). The initial classification of variables into identifying and
+variables described in the following paragraphs (see \hyperref[\detokenize{measure_risk:fig24}]{Fig.\@ \ref{\detokenize{measure_risk:fig24}}}
+for an overview). The initial classification of variables into identifying and
 non-identifying variables depends on the way the variables can be used
-by intruders for re-identification (Hundepool et al., 2012; Templ,
-Meindl, Kowarik, 2014):
+by intruders for re-identification (\sphinxhref{bibliography.html\#HDFG12}{HDFG12}; \sphinxhref{bibliography.html\#TeMK14}{TeMK14}):
 \begin{itemize}
 \item {} 
 \sphinxstylestrong{Identifying variables:} these contain information that can lead to
@@ -1681,7 +1668,7 @@ external information or data. Examples of quasi-identifiers are
 race, birth date, sex and ZIP/postal codes, which might be easily
 combined or linked to publically available external information
 and make identification possible. The combinations of values of
-several quasi-identifiers are called keys (see also Section 4.4).
+several quasi-identifiers are called keys (see also {\hyperref[\detokenize{measure_risk:levels-of-risk}]{\sphinxcrossref{Levels of Risk}}}).
 The values of quasi-identifiers themselves often do not lead to
 identification (e.g. male/female), but a combination of several
 values of quasi-identifier can render a record unique (e.g. male,
@@ -1716,7 +1703,7 @@ process is to define a list of possible disclosure scenarios based on
 how the quasi-identifiers might be combined with each other and
 information in external datasets and then treating the data to
 prevent disclosure. We discuss disclosure scenarios in more detail in
-Section 4.3.
+{\hyperref[\detokenize{measure_risk:disclosure-scenarios}]{\sphinxcrossref{Disclosure scenarios}}}.
 
 \end{itemize}
 
@@ -1790,7 +1777,12 @@ combined with other variables or other external data.
 
 \end{itemize}
 
-Figure 4.1 Classification of variables
+\begin{figure}[htbp]
+\centering
+\capstart
+
+\noindent\sphinxincludegraphics{{image24}.png}
+\caption{Classification of variables}\label{\detokenize{measure_risk:fig24}}\label{\detokenize{measure_risk:id15}}\end{figure}
 
 
 \section{Disclosure scenarios}
@@ -1827,12 +1819,31 @@ take specialized expertise, or software, and other conditions have to be
 fulfilled. Examples are that the point in time the datasets were
 collected should approximately match and the content of the variables
 should be (nearly) identical. If these conditions are not fulfilled,
-exact matching is much less likely. \sphinxstylestrong{NOTE: Not all external data is
+exact matching is much less likely.
+
+\begin{sphinxadmonition}{note}{Note:}
+Not all external data is
 necessarily in the public domain. Also privately owned datasets or
 datasets which are not released should be taken into consideration for
-determining the suitable disclosure scenario.}
+determining the suitable disclosure scenario.
+\end{sphinxadmonition}
 
-Box 4: Disclosure scenarios and different release types
+\begin{sphinxadmonition}{note}{Info-box - Disclosure scenarios and different release types}
+
+A dataset can have more than one disclosure scenario. Disclosure scenarios
+also differ depending on the data access type that the data will be released
+under; for example, Public Use Files (PUF) or Scientific Use Files (SUF, also
+known as licensed) or in a data enclave. The required level of protection,
+the potential avenues of disclosure as well as the availability of other external
+data sources differ according to the access type under which the data will be
+released. For example, the user of a Scientific Use File (SUF) might be
+contractually restricted by an agreement as to what they are allowed to do
+with the data, whereas a Public Use File (PUF) might be freely available on
+the internet under a much looser set of conditions. PUFs will in general require
+more protection than SUFs and SUFs will require more protection than those files
+only released in an data enclave. Disclosure scenarios should be developed with
+all of this in mind.
+\end{sphinxadmonition}
 
 The evaluation of disclosure risk is based on the quasi-identifiers,
 which are identified in the analysis of disclosure risk scenarios. The
@@ -1890,13 +1901,19 @@ some countries, whereas in other countries this variable is measured
 at the individual level and mixed-religion households exist.
 %
 \end{footnote} This hierarchical structure creates a
-further level of disclosure risk for two reasons: 1) if one individual
-in the household is re-identified, the household structure allows for
+further level of disclosure risk for two reasons:
+\begin{enumerate}
+\item {} 
+if one individual in the household is re-identified, the household structure allows for
 re-identification of the other household members in the same household,
-2) values of variables for other household members that are common for
+
+\item {} 
+values of variables for other household members that are common for
 all household members can be used for re-identification of another
 individual of the same household. This is discussed in more detail in
-Section 4.9.
+{\hyperref[\detokenize{measure_risk:household-risk}]{\sphinxcrossref{Household Risk}}}.
+
+\end{enumerate}
 
 In the following pages, we first discuss risk measures used to evaluate
 disclosure risk in the absence of a hierarchical structure. This
@@ -1937,7 +1954,8 @@ conservative risk measures may overstate the risk as they assume a
 worst-case scenario. Two assumptions should, however, be fulfilled for
 the risk measures to be valid and meaningful; the microdata should be a
 sample of a larger population (no census) and the sampling weights
-should be available. Section 5.6 briefly discusses how to deal with
+should be available. \sphinxhref{anon\_methods.html\#Specialcase:censusdata}{Special case: census data}
+briefly discusses how to deal with
 census data.
 
 
@@ -1957,9 +1975,9 @@ match an individual who has a relatively rare key within the sample data
 with an external dataset in which the same key exists will have a higher
 probability of finding a correct match than when a larger number of
 individuals share the same key. This can be illustrated with the
-following example that is illustrated in Table 4.1.
+following example that is illustrated in \hyperref[\detokenize{measure_risk:tab41}]{Table \ref{\detokenize{measure_risk:tab41}}}.
 
-Table 4.1 shows values for 10 respondents for the quasi-identifiers
+\hyperref[\detokenize{measure_risk:tab41}]{Table \ref{\detokenize{measure_risk:tab41}}} shows values for 10 respondents for the quasi-identifiers
 “residence”, “gender”, “education level” and “labor status”. In the
 data, we find seven unique combinations of values of quasi-identifiers
 (i.e., patterns or keys) of the four quasi-identifiers. Examples of keys
@@ -1979,59 +1997,39 @@ combination of quasi-identifiers, the more likely the individual is to
 be correctly matched in another dataset that contains these
 quasi-identifiers. Even when direct identifiers are removed from the
 dataset, that individual has a higher disclosure risk than others,
-assuming that their sample weights are the same. Table 4.1 reports the
+assuming that their sample weights are the same. \hyperref[\detokenize{measure_risk:tab41}]{Table \ref{\detokenize{measure_risk:tab41}}} reports the
 sample frequencies \(f_{k}\) of the keys for all individuals.
 Individuals with the same keys have the same sample frequency. If
 \(f_{k} = 1\), this individual has a unique combination of values of
-quasi-identifiers and is called “sample unique”. The dataset in Table
-4.1 contains four sample uniques. Risk measures are based on this sample
+quasi-identifiers and is called “sample unique”. The dataset in \hyperref[\detokenize{measure_risk:tab41}]{Table \ref{\detokenize{measure_risk:tab41}}}
+contains four sample uniques. Risk measures are based on this sample
 frequency.
-
-Table 4.1: Example dataset showing sample frequencies, population
-frequencies and individual disclosure risk
 
 
 \begin{savenotes}\sphinxattablestart
 \centering
+\sphinxcapstartof{table}
+\sphinxcaption{Example dataset showing sample frequencies,
+                     population frequencies and individual disclosure risk}\label{\detokenize{measure_risk:tab41}}\label{\detokenize{measure_risk:id16}}
+\sphinxaftercaption
 \begin{tabulary}{\linewidth}[t]{|T|T|T|T|T|T|T|T|T|}
 \hline
 \sphinxstyletheadfamily 
 No
 &\sphinxstyletheadfamily 
-Res
-idenc
-e
+Residence
 &\sphinxstyletheadfamily 
-Gen
-der
+Gender
 &\sphinxstyletheadfamily 
-Edu
-catio
-n
-level
+Education level
 &\sphinxstyletheadfamily 
-Lab
-or
-statu
-s
+Labor status
 &\sphinxstyletheadfamily 
 Weight
 &\sphinxstyletheadfamily 
-\sphinxtitleref{.. m
-th::
-mat
-\{f\}
-\_\{m
-thbf
-k\}\}}
+f\_k
 &\sphinxstyletheadfamily 
-\sphinxtitleref{.. ma
-th::
-math
-\{F\}
-\_\{ma
-thbf\{
-k\}\}}
+F\_k
 &\sphinxstyletheadfamily 
 risk
 \\
@@ -2040,16 +2038,11 @@ risk
 &
 Urban
 &
-Femal
-e
+Female
 &
-Secon
-dary
-incom
-plete
+Secondary incomplete
 &
-Emplo
-yed
+Employed
 &
 180
 &
@@ -2057,24 +2050,18 @@ yed
 &
 360
 &
-0.005
-4
+0.0054
 \\
 \hline
 2
 &
 Urban
 &
-Femal
-e
+Female
 &
-Secon
-dary
-incom
-plete
+Secondary incomplete
 &
-Emplo
-yed
+Employed
 &
 180
 &
@@ -2082,24 +2069,18 @@ yed
 &
 360
 &
-0.005
-4
+0.0054
 \\
 \hline
 3
 &
 Urban
 &
-Femal
-e
+Female
 &
-Prima
-ry
-incom
-plete
+Primary incomplete
 &
-Non-L
-F
+Non-LF
 &
 215
 &
@@ -2107,8 +2088,7 @@ F
 &
 215
 &
-0.025
-1
+0.0251
 \\
 \hline
 4
@@ -2117,13 +2097,9 @@ Urban
 &
 Male
 &
-Secon
-dary
-compl
-ete
+Secondary complete
 &
-Emplo
-yed
+Employed
 &
 76
 &
@@ -2131,24 +2107,18 @@ yed
 &
 152
 &
-0.012
-6
+0.0126
 \\
 \hline
 5
 &
 Rural
 &
-Femal
-e
+Female
 &
-Secon
-dary
-compl
-ete
+Secondary complete
 &
-Unemp
-loyed
+Unemployed
 &
 186
 &
@@ -2156,8 +2126,7 @@ loyed
 &
 186
 &
-0.028
-2
+0.0282
 \\
 \hline
 6
@@ -2166,13 +2135,9 @@ Urban
 &
 Male
 &
-Secon
-dary
-compl
-ete
+Secondary complete
 &
-Emplo
-yed
+Employed
 &
 76
 &
@@ -2180,24 +2145,18 @@ yed
 &
 152
 &
-0.012
-6
+0.0126
 \\
 \hline
 7
 &
 Urban
 &
-Femal
-e
+Female
 &
-Prima
-ry
-compl
-ete
+Primary complete
 &
-Non-L
-F
+Non-LF
 &
 180
 &
@@ -2205,8 +2164,7 @@ F
 &
 180
 &
-0.029
-0
+0.0290
 \\
 \hline
 8
@@ -2215,12 +2173,9 @@ Urban
 &
 Male
 &
-Post-
-secon
-dary
+Post-secondary
 &
-Unemp
-loyed
+Unemployed
 &
 215
 &
@@ -2228,24 +2183,18 @@ loyed
 &
 215
 &
-0.025
-1
+0.0251
 \\
 \hline
 9
 &
 Urban
 &
-Femal
-e
+Female
 &
-Secon
-dary
-incom
-plete
+Secondary incomplete
 &
-Non-L
-F
+Non-LF
 &
 186
 &
@@ -2253,24 +2202,18 @@ F
 &
 262
 &
-0.007
-4
+0.0074
 \\
 \hline
 10
 &
 Urban
 &
-Femal
-e
+Female
 &
-Secon
-dary
-incom
-plete
+Secondary incomplete
 &
-Non-L
-F
+Non-LF
 &
 76
 &
@@ -2278,26 +2221,25 @@ F
 &
 262
 &
-0.007
-4
+0.0074
 \\
 \hline
 \end{tabulary}
 \par
 \sphinxattableend\end{savenotes}
 
-In Example 4.1, we show how to use the \sphinxstyleemphasis{sdcMicro} package to create a
+In \hyperref[\detokenize{measure_risk:code41}]{Listing \ref{\detokenize{measure_risk:code41}}}, we show how to use the \sphinxstyleemphasis{sdcMicro} package to create a
 list of sample frequencies \(f_{k}\) for each record in a dataset.
 This is done by using the \sphinxstyleemphasis{sdcMicro} function freq(). A value of 2 for
 an observation means that in the sample, there is one more individual
 with exactly the same combination of values for the selected key
-variables. In Example 4.1, the function freq() is applied to
+variables. In \hyperref[\detokenize{measure_risk:code41}]{Listing \ref{\detokenize{measure_risk:code41}}}, the function freq() is applied to
 “sdcInitial”, which is an \sphinxstyleemphasis{sdcMicro} object. Footnote %
 \begin{footnote}[5]\sphinxAtStartFootnote
 The code examples in this guide are based on \sphinxstyleemphasis{sdcMicro} objects. An
 \sphinxstyleemphasis{sdcMicro} object contains, amongst others, the data and identifies
 all the specified key variables. The code below creates a data.frame
-with the data from Table 4.1 and the \sphinxstyleemphasis{sdcMicro} objects “sdcInitial”
+with the data from \hyperref[\detokenize{measure_risk:tab41}]{Table \ref{\detokenize{measure_risk:tab41}}} and the \sphinxstyleemphasis{sdcMicro} objects “sdcInitial”
 used in most examples in this section.
 
 \sphinxSetupCodeBlockInFootnote
@@ -2310,14 +2252,14 @@ used in most examples in this section.
 data \PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{k+kp}{as.data.frame}\PYG{p}{(}\PYG{k+kp}{cbind}\PYG{p}{(}\PYG{k+kp}{as.factor}\PYG{p}{(}\PYG{k+kt}{c}\PYG{p}{(}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{Urban\PYGZsq{}}\PYG{p}{,}
 \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{Urban\PYGZsq{}}\PYG{p}{,} \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{Urban\PYGZsq{}}\PYG{p}{,} \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{Urban\PYGZsq{}}\PYG{p}{,} \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{Rural\PYGZsq{}}\PYG{p}{,} \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{Urban\PYGZsq{}}\PYG{p}{,} \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{Urban\PYGZsq{}}\PYG{p}{,} \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{Urban\PYGZsq{}}\PYG{p}{,}
 \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{Urban\PYGZsq{}}\PYG{p}{,} \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{Urban\PYGZsq{}}\PYG{p}{)}\PYG{p}{)}\PYG{p}{,}
-\PYG{k+kp}{as.factor}\PYG{o}{*}\PYG{o}{*}\PYGZbs{} \PYGZbs{} \PYG{p}{(}\PYG{o}{*}\PYG{o}{*}\PYG{k+kt}{c}\PYG{o}{*}\PYG{o}{*}\PYGZbs{} \PYGZbs{} \PYG{p}{(}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{Female\PYGZsq{}}\PYG{p}{,} \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{Female\PYGZsq{}}\PYG{p}{,} \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{Female\PYGZsq{}}\PYG{p}{,} \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{Male\PYGZsq{}}\PYG{p}{,}
+\PYG{k+kp}{as.factor}\PYG{p}{(}\PYG{k+kt}{c}\PYG{p}{(}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{Female\PYGZsq{}}\PYG{p}{,} \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{Female\PYGZsq{}}\PYG{p}{,} \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{Female\PYGZsq{}}\PYG{p}{,} \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{Male\PYGZsq{}}\PYG{p}{,}
 \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{Female\PYGZsq{}}\PYG{p}{,} \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{Male\PYGZsq{}}\PYG{p}{,} \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{Female\PYGZsq{}}\PYG{p}{,} \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{Male\PYGZsq{}}\PYG{p}{,} \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{Female\PYGZsq{}}\PYG{p}{,} \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{Female\PYGZsq{}}\PYG{p}{)}\PYG{p}{)}\PYG{p}{,}
 \PYG{k+kp}{as.factor}\PYG{p}{(}\PYG{k+kt}{c}\PYG{p}{(}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{Sec in\PYGZsq{}}\PYG{p}{,} \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{Sec in\PYGZsq{}}\PYG{p}{,} \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{Prim in\PYGZsq{}}\PYG{p}{,} \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{Sec com\PYGZsq{}}\PYG{p}{,} \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{Sec com\PYGZsq{}}\PYG{p}{,} \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{Sec com\PYGZsq{}}\PYG{p}{,} \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{Prim com\PYGZsq{}}\PYG{p}{,} \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{Post\PYGZhy{}sec\PYGZsq{}}\PYG{p}{,} \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{Sec in\PYGZsq{}}\PYG{p}{,} \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{Sec in\PYGZsq{}}\PYG{p}{)}\PYG{p}{)}\PYG{p}{,}
 \PYG{k+kp}{as.factor}\PYG{p}{(}\PYG{k+kt}{c}\PYG{p}{(}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{Emp\PYGZsq{}}\PYG{p}{,} \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{Emp\PYGZsq{}}\PYG{p}{,} \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{Non\PYGZhy{}LF\PYGZsq{}}\PYG{p}{,} \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{Emp\PYGZsq{}}\PYG{p}{,} \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{Unemp\PYGZsq{}}\PYG{p}{,} \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{Emp\PYGZsq{}}\PYG{p}{,} \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{Non\PYGZhy{}LF\PYGZsq{}}\PYG{p}{,} \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{Unemp\PYGZsq{}}\PYG{p}{,} \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{Non\PYGZhy{}LF\PYGZsq{}}\PYG{p}{,}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{Non\PYGZhy{}LF\PYGZsq{}}\PYG{p}{)}\PYG{p}{)}\PYG{p}{,}
 \PYG{k+kp}{as.factor}\PYG{p}{(}\PYG{k+kt}{c}\PYG{p}{(}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{yes\PYGZsq{}}\PYG{p}{,} \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{yes\PYGZsq{}}\PYG{p}{,} \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{yes\PYGZsq{}}\PYG{p}{,} \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{yes\PYGZsq{}}\PYG{p}{,} \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{yes\PYGZsq{}}\PYG{p}{,} \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{no\PYGZsq{}}\PYG{p}{,} \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{no\PYGZsq{}}\PYG{p}{,} \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{yes\PYGZsq{}}\PYG{p}{,} \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{no\PYGZsq{}}\PYG{p}{,} \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{yes\PYGZsq{}}\PYG{p}{)}\PYG{p}{)}\PYG{p}{,}
 \PYG{k+kt}{c}\PYG{p}{(}\PYG{l+m}{180}\PYG{p}{,} \PYG{l+m}{180}\PYG{p}{,} \PYG{l+m}{215}\PYG{p}{,} \PYG{l+m}{76}\PYG{p}{,} \PYG{l+m}{186}\PYG{p}{,} \PYG{l+m}{76}\PYG{p}{,} \PYG{l+m}{180}\PYG{p}{,} \PYG{l+m}{215}\PYG{p}{,} \PYG{l+m}{186}\PYG{p}{,} \PYG{l+m}{76}\PYG{p}{)}\PYG{p}{)}\PYG{p}{)}
 
-\PYG{c+c1}{\PYGZsh{} Specify variable names*}
+\PYG{c+c1}{\PYGZsh{} Specify variable names}
 
 \PYG{k+kp}{names}\PYG{p}{(}data\PYG{p}{)} \PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{k+kt}{c}\PYG{p}{(}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{Residence\PYGZsq{}}\PYG{p}{,} \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{Gender\PYGZsq{}}\PYG{p}{,} \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{Educ\PYGZsq{}}\PYG{p}{,} \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{Lstat\PYGZsq{}}\PYG{p}{,} \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{Health\PYGZsq{}}\PYG{p}{,} \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{Weights\PYGZsq{}}\PYG{p}{)}
 
@@ -2330,19 +2272,24 @@ keyVars \PYG{o}{=} \PYG{k+kt}{c}\PYG{p}{(}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{Residenc
 \end{footnote}
 shows how to initialize the \sphinxstyleemphasis{sdcMicro} object for
 this example. For a complete discussion of \sphinxstyleemphasis{sdcMicro} objects as well as
-instructions on how to create \sphinxstyleemphasis{sdcMicro} objects, we refer to Section
-7.5. \sphinxstyleemphasis{sdcMicro} objects are used when doing SDC with \sphinxstyleemphasis{sdcMicro}. The
+instructions on how to create \sphinxstyleemphasis{sdcMicro} objects, we refer to
+\begin{quote}
+
+\sphinxhref{sdcMicro.html\#Objectsofclass*sdcMicroObj*}{Objects of class Objects of class *sdcMicroObj*}.
+\sphinxstyleemphasis{sdcMicro} objects are used when doing SDC with \sphinxstyleemphasis{sdcMicro}. The
+\end{quote}
+
 function freq() displays the sample frequency for the keys constructed
-on a defined set of quasi-identifiers. Example 4.1 corresponds to the
-data in Table 4.1.
+on a defined set of quasi-identifiers. \hyperref[\detokenize{measure_risk:code41}]{Listing \ref{\detokenize{measure_risk:code41}}} corresponds to the
+data in \hyperref[\detokenize{measure_risk:tab41}]{Table \ref{\detokenize{measure_risk:tab41}}}.
 
-Example 4.1: Calculating \(\mathbf{f}_{\mathbf{k}}\) using \sphinxstyleemphasis{sdcMicro}
-
+\def\sphinxLiteralBlockLabel{\label{\detokenize{measure_risk:code41}}}
+\sphinxSetupCaptionForVerbatim{Calculating \(\mathbf{f}_{\mathbf{k}}\) using \sphinxstyleemphasis{sdcMicro}}
 \fvset{hllines={, ,}}%
-\begin{sphinxVerbatim}[commandchars=\\\{\}]
-\PYG{c+c1}{\PYGZsh{} Frequency of the particular combination of key variables (keys) for each record in the sample}
-freq\PYG{p}{(}sdcInitial\PYG{p}{,} type \PYG{o}{=} \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{fk\PYGZsq{}}\PYG{p}{)}
-\PYG{l+m}{2} \PYG{l+m}{2} \PYG{l+m}{1} \PYG{l+m}{2} \PYG{l+m}{1} \PYG{l+m}{2} \PYG{l+m}{1} \PYG{l+m}{1} \PYG{l+m}{2} \PYG{l+m}{2}
+\begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
+ \PYG{c+c1}{\PYGZsh{} Frequency of the particular combination of key variables (keys) for each record in the sample}
+ freq\PYG{p}{(}sdcInitial\PYG{p}{,} type \PYG{o}{=} \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{fk\PYGZsq{}}\PYG{p}{)}
+ \PYG{l+m}{2} \PYG{l+m}{2} \PYG{l+m}{1} \PYG{l+m}{2} \PYG{l+m}{1} \PYG{l+m}{2} \PYG{l+m}{1} \PYG{l+m}{1} \PYG{l+m}{2} \PYG{l+m}{2}
 \end{sphinxVerbatim}
 
 For sample data, it is more interesting to look at \(F_{k}\), the
@@ -2371,30 +2318,29 @@ the same frequencies, i.e., the frequency of the key.
 If \(F_{k} = 1\), the key \(k\) is both a sample and a
 population unique and the disclosure risk would be 1. Population uniques
 are an important factor to consider when evaluating risk, and deserve
-special attention. Table 4.1 also shows \(F_{k}\) for the example
+special attention. \hyperref[\detokenize{measure_risk:tab41}]{Table \ref{\detokenize{measure_risk:tab41}}} also shows \(F_{k}\) for the example
 dataset. This is further discussed in the case studies in Chapter 9.
 
 Besides \(f_{k}\), the sample frequency of key
 \(k\) (i.e., the number of individuals in the sample with
 the combination of quasi-identifiers corresponding to the combination
 specified in key \(k\)) and \(F_{k}\), the estimated population
-frequency of key \(k\), can be displayed in \sphinxstyleemphasis{sdcMicro}. Example 4.2
+frequency of key \(k\), can be displayed in \sphinxstyleemphasis{sdcMicro}. \hyperref[\detokenize{measure_risk:code42}]{Listing \ref{\detokenize{measure_risk:code42}}}
 illustrates how to return lists of length \sphinxstyleemphasis{n} of frequencies for all
 individuals. The frequencies are displayed for each individual and not
 for each key.
 
-Example 4.2: Calculating the sample and population frequencies using
-\sphinxstyleemphasis{sdcMicro}
-
+\def\sphinxLiteralBlockLabel{\label{\detokenize{measure_risk:code42}}}
+\sphinxSetupCaptionForVerbatim{Calculating the sample and population frequencies using \sphinxstyleemphasis{sdcMicro}}
 \fvset{hllines={, ,}}%
-\begin{sphinxVerbatim}[commandchars=\\\{\}]
-\PYG{c+c1}{\PYGZsh{} Sample frequency of individual’s key}
-freq\PYG{p}{(}sdcInitial\PYG{p}{,} type \PYG{o}{=} \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{fk\PYGZsq{}}\PYG{p}{)}
-\PYG{l+m}{2} \PYG{l+m}{2} \PYG{l+m}{1} \PYG{l+m}{2} \PYG{l+m}{1} \PYG{l+m}{2} \PYG{l+m}{1} \PYG{l+m}{1} \PYG{l+m}{2} \PYG{l+m}{2}
+\begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
+ \PYG{c+c1}{\PYGZsh{} Sample frequency of individual’s key}
+ freq\PYG{p}{(}sdcInitial\PYG{p}{,} type \PYG{o}{=} \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{fk\PYGZsq{}}\PYG{p}{)}
+ \PYG{l+m}{2} \PYG{l+m}{2} \PYG{l+m}{1} \PYG{l+m}{2} \PYG{l+m}{1} \PYG{l+m}{2} \PYG{l+m}{1} \PYG{l+m}{1} \PYG{l+m}{2} \PYG{l+m}{2}
 
-\PYG{c+c1}{\PYGZsh{} Population frequency of individual’s key}
-freq\PYG{p}{(}sdcInitial\PYG{p}{,} type \PYG{o}{=} \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{Fk\PYGZsq{}}\PYG{p}{)}
-\PYG{l+m}{360} \PYG{l+m}{360} \PYG{l+m}{215} \PYG{l+m}{152} \PYG{l+m}{186} \PYG{l+m}{152} \PYG{l+m}{180} \PYG{l+m}{215} \PYG{l+m}{262} \PYG{l+m}{262}
+ \PYG{c+c1}{\PYGZsh{} Population frequency of individual’s key}
+ freq\PYG{p}{(}sdcInitial\PYG{p}{,} type \PYG{o}{=} \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{Fk\PYGZsq{}}\PYG{p}{)}
+ \PYG{l+m}{360} \PYG{l+m}{360} \PYG{l+m}{215} \PYG{l+m}{152} \PYG{l+m}{186} \PYG{l+m}{152} \PYG{l+m}{180} \PYG{l+m}{215} \PYG{l+m}{262} \PYG{l+m}{262}
 \end{sphinxVerbatim}
 
 In practice, this approach leads to conservative risk estimates, as it
@@ -2440,35 +2386,33 @@ object and saved in the “risk” slot %
 See Section 7.5 for more information on slots and the \sphinxstyleemphasis{sdcMicro}
 object structure.
 %
-\end{footnote}. Example 4.3
+\end{footnote}. \hyperref[\detokenize{measure_risk:code43}]{Listing \ref{\detokenize{measure_risk:code43}}}
 shows how to retrieve the risk measures using \sphinxstyleemphasis{sdcMicro} for our
-example. The risk measures are also presented in Table 4.1.
+example. The risk measures are also presented in \hyperref[\detokenize{measure_risk:tab41}]{Table \ref{\detokenize{measure_risk:tab41}}}.
 
-Example 4.3: The individual risk slot in the \sphinxstyleemphasis{sdcMicro} object
-
+\def\sphinxLiteralBlockLabel{\label{\detokenize{measure_risk:code43}}}
+\sphinxSetupCaptionForVerbatim{The individual risk slot in the \sphinxstyleemphasis{sdcMicro} object}
 \fvset{hllines={, ,}}%
-\begin{sphinxVerbatim}[commandchars=\\\{\}]
-sdcInitial\PYG{o}{@}risk\PYG{o}{\PYGZdl{}}individual
+\begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
+     sdcInitial\PYG{o}{@}risk\PYG{o}{\PYGZdl{}}individual risk fk Fk
 
-\PYG{l+s+sb}{{}`{}`}\PYG{l+s+sb}{{}`{}`}\PYGZbs{} \PYG{l+s+sb}{{}`{}`}risk\PYG{l+s+sb}{{}`{}`}\PYGZbs{} \PYG{l+s+sb}{{}`{}`}\PYG{l+s+sb}{{}`{}`}\PYGZbs{} \PYG{l+s+sb}{{}`{}`}\PYG{l+s+sb}{{}`{}`}\PYGZbs{} \PYG{l+s+sb}{{}`{}`}fk\PYG{l+s+sb}{{}`{}`}\PYGZbs{} \PYG{l+s+sb}{{}`{}`}\PYG{l+s+sb}{{}`{}`}\PYGZbs{} \PYG{l+s+sb}{{}`{}`}Fk\PYG{l+s+sb}{{}`{}`}
-
-\PYG{o}{\textbar{}} \PYG{l+s+sb}{{}`{}`}\PYG{p}{[}\PYG{l+m}{1}\PYG{p}{,}\PYG{p}{]}\PYG{l+s+sb}{{}`{}`}\PYGZbs{} \PYG{l+s+sb}{{}`{}`}\PYG{l+m}{0.005424520}\PYG{l+s+sb}{{}`{}`}\PYGZbs{} \PYG{l+s+sb}{{}`{}`}\PYG{l+m}{2}\PYG{l+s+sb}{{}`{}`}\PYGZbs{} \PYG{l+s+sb}{{}`{}`}\PYG{l+m}{360}\PYG{l+s+sb}{{}`{}`}
-\PYG{o}{\textbar{}} \PYG{l+s+sb}{{}`{}`}\PYG{p}{[}\PYG{l+m}{2}\PYG{p}{,}\PYG{p}{]}\PYG{l+s+sb}{{}`{}`}\PYGZbs{} \PYG{l+s+sb}{{}`{}`}\PYG{l+m}{0.005424520}\PYG{l+s+sb}{{}`{}`}\PYGZbs{} \PYG{l+s+sb}{{}`{}`}\PYG{l+m}{2}\PYG{l+s+sb}{{}`{}`}\PYGZbs{} \PYG{l+s+sb}{{}`{}`}\PYG{l+m}{360}\PYG{l+s+sb}{{}`{}`}
-\PYG{o}{\textbar{}} \PYG{l+s+sb}{{}`{}`}\PYG{p}{[}\PYG{l+m}{3}\PYG{p}{,}\PYG{p}{]}\PYG{l+s+sb}{{}`{}`}\PYGZbs{} \PYG{l+s+sb}{{}`{}`}\PYG{l+m}{0.025096439}\PYG{l+s+sb}{{}`{}`}\PYGZbs{} \PYG{l+s+sb}{{}`{}`}\PYG{l+m}{1}\PYG{l+s+sb}{{}`{}`}\PYGZbs{} \PYG{l+s+sb}{{}`{}`}\PYG{l+m}{215}\PYG{l+s+sb}{{}`{}`}
-\PYG{o}{\textbar{}} \PYG{l+s+sb}{{}`{}`}\PYG{p}{[}\PYG{l+m}{4}\PYG{p}{,}\PYG{p}{]}\PYG{l+s+sb}{{}`{}`}\PYGZbs{} \PYG{l+s+sb}{{}`{}`}\PYG{l+m}{0.012563425}\PYG{l+s+sb}{{}`{}`}\PYGZbs{} \PYG{l+s+sb}{{}`{}`}\PYG{l+m}{2}\PYG{l+s+sb}{{}`{}`}\PYGZbs{} \PYG{l+s+sb}{{}`{}`}\PYG{l+m}{152}\PYG{l+s+sb}{{}`{}`}
-\PYG{o}{\textbar{}} \PYG{l+s+sb}{{}`{}`}\PYG{p}{[}\PYG{l+m}{5}\PYG{p}{,}\PYG{p}{]}\PYG{l+s+sb}{{}`{}`}\PYGZbs{} \PYG{l+s+sb}{{}`{}`}\PYG{l+m}{0.028247279}\PYG{l+s+sb}{{}`{}`}\PYGZbs{} \PYG{l+s+sb}{{}`{}`}\PYG{l+m}{1}\PYG{l+s+sb}{{}`{}`}\PYGZbs{} \PYG{l+s+sb}{{}`{}`}\PYG{l+m}{186}\PYG{l+s+sb}{{}`{}`}
-\PYG{o}{\textbar{}} \PYG{l+s+sb}{{}`{}`}\PYG{p}{[}\PYG{l+m}{6}\PYG{p}{,}\PYG{p}{]}\PYG{l+s+sb}{{}`{}`}\PYGZbs{} \PYG{l+s+sb}{{}`{}`}\PYG{l+m}{0.012563425}\PYG{l+s+sb}{{}`{}`}\PYGZbs{} \PYG{l+s+sb}{{}`{}`}\PYG{l+m}{2}\PYG{l+s+sb}{{}`{}`}\PYGZbs{} \PYG{l+s+sb}{{}`{}`}\PYG{l+m}{152}\PYG{l+s+sb}{{}`{}`}
-\PYG{o}{\textbar{}} \PYG{l+s+sb}{{}`{}`}\PYG{p}{[}\PYG{l+m}{7}\PYG{p}{,}\PYG{p}{]}\PYG{l+s+sb}{{}`{}`}\PYGZbs{} \PYG{l+s+sb}{{}`{}`}\PYG{l+m}{0.029010932}\PYG{l+s+sb}{{}`{}`}\PYGZbs{} \PYG{l+s+sb}{{}`{}`}\PYG{l+m}{1}\PYG{l+s+sb}{{}`{}`}\PYGZbs{} \PYG{l+s+sb}{{}`{}`}\PYG{l+m}{180}\PYG{l+s+sb}{{}`{}`}
-\PYG{o}{\textbar{}} \PYG{l+s+sb}{{}`{}`}\PYG{p}{[}\PYG{l+m}{8}\PYG{p}{,}\PYG{p}{]}\PYG{l+s+sb}{{}`{}`}\PYGZbs{} \PYG{l+s+sb}{{}`{}`}\PYG{l+m}{0.025096439}\PYG{l+s+sb}{{}`{}`}\PYGZbs{} \PYG{l+s+sb}{{}`{}`}\PYG{l+m}{1}\PYG{l+s+sb}{{}`{}`}\PYGZbs{} \PYG{l+s+sb}{{}`{}`}\PYG{l+m}{215}\PYG{l+s+sb}{{}`{}`}
-\PYG{o}{\textbar{}} \PYG{l+s+sb}{{}`{}`}\PYG{p}{[}\PYG{l+m}{9}\PYG{p}{,}\PYG{p}{]}\PYG{l+s+sb}{{}`{}`}\PYGZbs{} \PYG{l+s+sb}{{}`{}`}\PYG{l+m}{0.007403834}\PYG{l+s+sb}{{}`{}`}\PYGZbs{} \PYG{l+s+sb}{{}`{}`}\PYG{l+m}{2}\PYG{l+s+sb}{{}`{}`}\PYGZbs{} \PYG{l+s+sb}{{}`{}`}\PYG{l+m}{262}\PYG{l+s+sb}{{}`{}`}
-\PYG{o}{\textbar{}} \PYG{l+s+sb}{{}`{}`}\PYG{p}{[}\PYG{l+m}{10}\PYG{p}{,}\PYG{p}{]}\PYG{l+s+sb}{{}`{}`}\PYGZbs{} \PYG{l+s+sb}{{}`{}`}\PYG{l+m}{0.007403834}\PYG{l+s+sb}{{}`{}`}\PYGZbs{} \PYG{l+s+sb}{{}`{}`}\PYG{l+m}{2}\PYG{l+s+sb}{{}`{}`}\PYGZbs{} \PYG{l+s+sb}{{}`{}`}\PYG{l+m}{262}\PYG{l+s+sb}{{}`{}`}
+     \PYG{p}{[}\PYG{l+m}{1}\PYG{p}{,}\PYG{p}{]} \PYG{l+m}{0.005424520} \PYG{l+m}{2} \PYG{l+m}{360}
+     \PYG{p}{[}\PYG{l+m}{2}\PYG{p}{,}\PYG{p}{]} \PYG{l+m}{0.005424520} \PYG{l+m}{2} \PYG{l+m}{360}
+     \PYG{p}{[}\PYG{l+m}{3}\PYG{p}{,}\PYG{p}{]} \PYG{l+m}{0.025096439} \PYG{l+m}{1} \PYG{l+m}{215}
+     \PYG{p}{[}\PYG{l+m}{4}\PYG{p}{,}\PYG{p}{]} \PYG{l+m}{0.012563425} \PYG{l+m}{2} \PYG{l+m}{152}
+     \PYG{p}{[}\PYG{l+m}{5}\PYG{p}{,}\PYG{p}{]} \PYG{l+m}{0.028247279} \PYG{l+m}{1} \PYG{l+m}{186}
+     \PYG{p}{[}\PYG{l+m}{6}\PYG{p}{,}\PYG{p}{]} \PYG{l+m}{0.012563425} \PYG{l+m}{2} \PYG{l+m}{152}
+     \PYG{p}{[}\PYG{l+m}{7}\PYG{p}{,}\PYG{p}{]} \PYG{l+m}{0.029010932} \PYG{l+m}{1} \PYG{l+m}{180}
+     \PYG{p}{[}\PYG{l+m}{8}\PYG{p}{,}\PYG{p}{]} \PYG{l+m}{0.025096439} \PYG{l+m}{1} \PYG{l+m}{215}
+     \PYG{p}{[}\PYG{l+m}{9}\PYG{p}{,}\PYG{p}{]} \PYG{l+m}{0.007403834} \PYG{l+m}{2} \PYG{l+m}{262}
+     \PYG{p}{[}\PYG{l+m}{10}\PYG{p}{,}\PYG{p}{]} \PYG{l+m}{0.007403834} \PYG{l+m}{2} \PYG{l+m}{262}
 \end{sphinxVerbatim}
 
 The main factors influencing the individual risk are the sample
 frequencies \(f_{k}\) and the sampling design weights \(w_{i}\).
 If an individual is at relatively high risk of disclosure, in our
-example this would be individuals 3, 5, 7 and 8 in Table 4.1 and Example
-4.3, the probability that a potential intruder correctly matches these
+example this would be individuals 3, 5, 7 and 8 in \hyperref[\detokenize{measure_risk:tab41}]{Table \ref{\detokenize{measure_risk:tab41}}} and
+\hyperref[\detokenize{measure_risk:code43}]{Listing \ref{\detokenize{measure_risk:code43}}}, the probability that a potential intruder correctly matches these
 individuals with an external data file is high \sphinxstylestrong{relative to the other
 individuals in the released data.} In our example, the reason for the
 high risk is the fact that these individuals are sample uniques
@@ -2482,17 +2426,17 @@ frequencies will be positive.
 
 \subsection{\protect\(k\protect\)-anonymity}
 \label{\detokenize{measure_risk:anonymity}}
-The risk measure \sphinxstyleemphasis{k}-anonymity is based on the principle that, in a safe
+The risk measure \(k\)-anonymity is based on the principle that, in a safe
 dataset, the number of individuals sharing the same combination of
 values (keys) of categorical quasi-identifiers should be higher than a
-specified threshold\(\text{\ k}\). \(k\)-anonymity is a risk
+specified threshold \(k\). \(k\)-anonymity is a risk
 measure based on the microdata to be released, since it only takes the
 sample into account. An individual violates \(k\)-anonymity if the
 sample frequency count \(f_{k}\) for the key \(k\) is smaller
-than the specified threshold \(k\text{.\ \ }\) For example, if an
+than the specified threshold \(k\). For example, if an
 individual has the same combination of quasi-identifiers as two other
 individuals in the sample, these individuals satisfy 3-anonymity but
-violate 4-anonymity. In the dataset in Table 4.1, six individuals
+violate 4-anonymity. In the dataset in \hyperref[\detokenize{measure_risk:tab41}]{Table \ref{\detokenize{measure_risk:tab41}}}, six individuals
 satisfy 2-anonymity and four violate 2-anonymity. The individuals that
 violate 2-anonymity are sample uniques. The risk measure is the number
 of observations that violates k-anonymity for a certain value of \sphinxstyleemphasis{k},
@@ -2504,7 +2448,7 @@ where \(I\) is the indicator function and \(i\) refers to the
 \(i\)$^{\text{th}}$ record. This is simply a count of the number of
 individuals with a sample frequency of their key lower than \(k\).
 The count is higher for larger \(k\), since if a record satisfies
-\(k\)-anonimity, it also satisfies (\(k + 1)\)-anonimity. The
+\(k\)-anonimity, it also satisfies (\(k + 1\))-anonimity. The
 risk measure \(k\)-anonymity does not consider the sample weights,
 but it is important to consider the sample weights when determining the
 required level of \(k\)-anonymity. If the sample weights are large,
@@ -2517,34 +2461,33 @@ probability is related to the number of records in the population with a
 particular key through the sample weights.
 
 In \sphinxstyleemphasis{sdcMicro} we can display the number of observations violating a
-given \(k\)-anonymity threshold. In Example 4.4, we use \sphinxstyleemphasis{sdcMicro}
+given \(k\)-anonymity threshold. In \hyperref[\detokenize{measure_risk:code44}]{Listing \ref{\detokenize{measure_risk:code44}}}, we use \sphinxstyleemphasis{sdcMicro}
 to calculate the number of violators for the thresholds \(k = 2\)
 and \(k = 3\). Both the absolute number of violators and the
 relative number as percentage of the number of individuals in the sample
 are given. In the example, four observations violate 2-anonimity and all
 10 observations violate 3-anonymity.
 
-Example 4.4: Using the print() function to display observations
-violating k-anonymity
-
+\def\sphinxLiteralBlockLabel{\label{\detokenize{measure_risk:code44}}}
+\sphinxSetupCaptionForVerbatim{Using the print() function to display observations violating k-anonymity}
 \fvset{hllines={, ,}}%
-\begin{sphinxVerbatim}[commandchars=\\\{\}]
-\PYG{k+kp}{print}\PYG{p}{(}sdcInitial\PYG{p}{,} \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{kAnon\PYGZsq{}}\PYG{p}{)}
+\begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
+ \PYG{k+kp}{print}\PYG{p}{(}sdcInitial\PYG{p}{,} \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{kAnon\PYGZsq{}}\PYG{p}{)}
 
-Number of observations violating
-\PYG{o}{\PYGZhy{}}  \PYG{l+m}{2}\PYG{o}{\PYGZhy{}}anonymity\PYG{o}{:} \PYG{l+m}{4}
-\PYG{o}{\PYGZhy{}}  \PYG{l+m}{3}\PYG{o}{\PYGZhy{}}anonymity\PYG{o}{:} \PYG{l+m}{10}
-\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}
-Percentage of observations violating
-\PYG{o}{\PYGZhy{}}  \PYG{l+m}{2}\PYG{o}{\PYGZhy{}}anonymity\PYG{o}{:} \PYG{l+m}{40} \PYG{o}{\PYGZpc{}}
-\PYG{o}{\PYGZhy{}  3\PYGZhy{}anonymity: 100 \PYGZpc{}}
+ Number of observations violating
+ \PYG{o}{\PYGZhy{}}  \PYG{l+m}{2}\PYG{o}{\PYGZhy{}}anonymity\PYG{o}{:} \PYG{l+m}{4}
+ \PYG{o}{\PYGZhy{}}  \PYG{l+m}{3}\PYG{o}{\PYGZhy{}}anonymity\PYG{o}{:} \PYG{l+m}{10}
+ \PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}
+ Percentage of observations violating
+ \PYG{o}{\PYGZhy{}}  \PYG{l+m}{2}\PYG{o}{\PYGZhy{}}anonymity\PYG{o}{:} \PYG{l+m}{40} \PYG{o}{\PYGZpc{}}
+\PYG{o}{ \PYGZhy{}  3\PYGZhy{}anonymity: 100 \PYGZpc{}}
 \end{sphinxVerbatim}
 
 For other levels of \(k\)-anonymity, it is possible to compute the
 number of violating individuals by using the sample frequency counts in
 the \sphinxstyleemphasis{sdcMicro} object. The number of violators is the number of
 individuals with sample frequency counts smaller than the specified
-threshold \(k\). In Example 4.5, we show an example of how to
+threshold \(k\). In \hyperref[\detokenize{measure_risk:code45}]{Listing \ref{\detokenize{measure_risk:code45}}}, we show an example of how to
 calculate any threshold for \(k\) using the already-stored risk
 measures available after setting up an \sphinxstyleemphasis{sdcMicro} object in \sphinxstyleemphasis{R}.
 \(k\) can be replaced with any required threshold. The choice of the
@@ -2553,12 +2496,12 @@ satisfy depends on many factors and is discussed further in Section 4.3
 on local suppression. In many institutions, typically required
 thresholds for \(k\)-anonymity are 3 and 5.
 
-Example 4.5: Computing k-anonymity violations for other values of k
-.. code-block:: R
-\begin{quote}
-
-sum(sdcInitial@risk\$individual{[},2{]} \textless{} k)
-\end{quote}
+\def\sphinxLiteralBlockLabel{\label{\detokenize{measure_risk:code45}}}
+\sphinxSetupCaptionForVerbatim{Computing k-anonymity violations for other values of k}
+\fvset{hllines={, ,}}%
+\begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
+ \PYG{k+kp}{sum}\PYG{p}{(}sdcInitial\PYG{o}{@}risk\PYG{o}{\PYGZdl{}}individual\PYG{p}{[}\PYG{p}{,}\PYG{l+m}{2}\PYG{p}{]} \PYG{o}{\PYGZlt{}} k\PYG{p}{)}
+\end{sphinxVerbatim}
 
 It is important to note that missing values (‘NA’s in
 \sphinxstyleemphasis{R} %
@@ -2577,19 +2520,23 @@ Two individuals with keys \{‘Male’, NA, ‘Employed’\} and \{‘Male’,
 \{‘Male’, NA, ‘Employed’\} and \{‘Male’, ‘Secondary incomplete’,
 ‘Employed’\} also share the same key. Therefore, the missing value in the
 first key is first interpreted as ‘Secondary complete’, and then as
-‘Secondary incomplete’. This is illustrated in Table 4.2. \sphinxstylestrong{NOTE: The
-sample frequency of the third record is 3, since it is regarded to share
-its key both with the first and second record.} This principle is used
-when applying local suppression to achieve a certain level of
+‘Secondary incomplete’. This is illustrated in \hyperref[\detokenize{measure_risk:tab42}]{Table \ref{\detokenize{measure_risk:tab42}}}.
+
+\begin{sphinxadmonition}{note}{Note:}
+The sample frequency of the third record is 3, since it is regarded to share
+its key both with the first and second record.
+\end{sphinxadmonition}
+
+This principle is used when applying local suppression to achieve a certain level of
 \(k\)-anonymity (see Section 5.2.2) and is based on the fact that
 the value NA could replace any value.
-
-Table 4.2: Example dataset to illustrate the effect of missing values on
-k-anonymity
 
 
 \begin{savenotes}\sphinxattablestart
 \centering
+\sphinxcapstartof{table}
+\sphinxcaption{Example dataset to illustrate the effect of missing values on k-anonymity}\label{\detokenize{measure_risk:tab42}}\label{\detokenize{measure_risk:id17}}
+\sphinxaftercaption
 \begin{tabulary}{\linewidth}[t]{|T|T|T|T|T|}
 \hline
 \sphinxstyletheadfamily 
@@ -2597,8 +2544,7 @@ No
 &\sphinxstyletheadfamily 
 Gender
 &\sphinxstyletheadfamily 
-Education
-level
+Education level
 &\sphinxstyletheadfamily 
 Labor status
 &\sphinxstyletheadfamily 
@@ -2609,8 +2555,7 @@ f\_k
 &
 Male
 &
-Secondary
-complete
+Secondary complete
 &
 Employed
 &
@@ -2621,8 +2566,7 @@ Employed
 &
 Male
 &
-Secondary
-incomplete
+Secondary incomplete
 &
 Employed
 &
@@ -2665,7 +2609,7 @@ satisfies \(k\)-anonymity. This might occur in cases where the data
 contains sensitive (non-identifying) categorical variables that have the
 same value for all individuals that share the same key. Examples of such
 sensitive variables are those containing information on an individual’s
-health status. Table 4.3 illustrates this problem by using the same data
+health status. \hyperref[\detokenize{measure_risk:tab43}]{Table \ref{\detokenize{measure_risk:tab43}}} illustrates this problem by using the same data
 as previously used, but adding a sensitive variable, ”health”. The first
 two individuals satisfy 2-anonymity for the key variables “residence”,
 “gender”, “education level” and “labor status”. This means that an
@@ -2682,36 +2626,32 @@ have different values (‘yes’ and ‘no’) for “health”, and thus the
 intruder would not gain information about the health status from this
 dataset by matching an individual to one of these individuals.
 
-Table 4.3: l-diversity illustration
-
 
 \begin{savenotes}\sphinxattablestart
 \centering
-\begin{tabulary}{\linewidth}[t]{|T|T|T|T|T|T|T|T|}
+\sphinxcapstartof{table}
+\sphinxcaption{l-diversity illustration}\label{\detokenize{measure_risk:tab43}}\label{\detokenize{measure_risk:id18}}
+\sphinxaftercaption
+\begin{tabulary}{\linewidth}[t]{|T|T|T|T|T|T|T|T|T|}
 \hline
 \sphinxstyletheadfamily 
 No
 &\sphinxstyletheadfamily 
-Reside
-nce
+Residence
 &\sphinxstyletheadfamily 
 Gender
 &\sphinxstyletheadfamily 
-Educ
-ation
-level
+Education level
 &\sphinxstyletheadfamily 
-Labor
-
-status
+Labor status
 &\sphinxstyletheadfamily 
 Health
 &\sphinxstyletheadfamily 
 f\_k
 &\sphinxstyletheadfamily 
-l-dive
-rsity
-bf\{l\}{}`
+F\_k
+&\sphinxstyletheadfamily 
+l-diversity
 \\
 \hline
 1
@@ -2720,17 +2660,15 @@ Urban
 &
 Female
 &
-Second
-ary
-incomp
-lete
+Secondary incomplete
 &
-Employ
-ed
+Employed
 &
 yes
 &
 2
+&
+360
 &
 1
 \\
@@ -2741,17 +2679,15 @@ Urban
 &
 Female
 &
-Second
-ary
-incomp
-lete
+Secondary incomplete
 &
-Employ
-ed
+Employed
 &
 yes
 &
 2
+&
+360
 &
 1
 \\
@@ -2762,16 +2698,15 @@ Urban
 &
 Female
 &
-Primar
-y
-incomp
-lete
+Primary incomplete
 &
 Non-LF
 &
 yes
 &
 1
+&
+215
 &
 1
 \\
@@ -2782,17 +2717,15 @@ Urban
 &
 Male
 &
-Second
-ary
-comple
-te
+Secondary complete
 &
-Employ
-ed
+Employed
 &
 yes
 &
 2
+&
+152
 &
 2
 \\
@@ -2803,17 +2736,15 @@ Rural
 &
 Female
 &
-Second
-ary
-comple
-te
+Secondary complete
 &
-Unempl
-oyed
+Unemployed
 &
 yes
 &
 1
+&
+186
 &
 1
 \\
@@ -2824,17 +2755,15 @@ Urban
 &
 Male
 &
-Second
-ary
-comple
-te
+Secondary complete
 &
-Employ
-ed
+Employed
 &
 no
 &
 2
+&
+152
 &
 2
 \\
@@ -2845,16 +2774,15 @@ Urban
 &
 Female
 &
-Primar
-y
-comple
-te
+Primary complete
 &
 Non-LF
 &
 no
 &
 1
+&
+180
 &
 1
 \\
@@ -2865,16 +2793,15 @@ Urban
 &
 Male
 &
-Post-s
-econda
-ry
+Post-secondary
 &
-Unempl
-oyed
+Unemployed
 &
 yes
 &
 1
+&
+215
 &
 1
 \\
@@ -2885,16 +2812,15 @@ Urban
 &
 Female
 &
-Second
-ary
-incomp
-lete
+Secondary incomplete
 &
 Non-LF
 &
 no
 &
 2
+&
+262
 &
 2
 \\
@@ -2905,16 +2831,15 @@ Urban
 &
 Female
 &
-Second
-ary
-incomp
-lete
+Secondary incomplete
 &
 Non-LF
 &
 yes
 &
 2
+&
+262
 &
 2
 \\
@@ -2935,8 +2860,8 @@ if \(l\)-diversity that can be achieved is 2. A sample unique will
 always only satisfy 1-diversity.
 
 To compute \(l\)-diversity for sensitive variables in \sphinxstyleemphasis{sdcMicro},
-the function ldiversity() can be used. This is illustrated in Example
-4.6. As arguments, we specify the names of the sensitive
+the function ldiversity() can be used. This is illustrated in \hyperref[\detokenize{measure_risk:code46}]{Listing \ref{\detokenize{measure_risk:code46}}}.
+As arguments, we specify the names of the sensitive
 variables %
 \begin{footnote}[9]\sphinxAtStartFootnote
 Alternatively, the sensitive variables can be specified when
@@ -2957,29 +2882,29 @@ Besides distinct \(l\)-diversity, there are other
 missing values in the data. The output is saved in the “risk” slot of
 the \sphinxstyleemphasis{sdcMicro} object. The result shows the minimum, maximum, mean and
 quantiles of the \(l\)-diversity scores for all individuals in the
-sample. The output in Example 4.6 reproduces the results based on the
-data in Table 4.3.
+sample. The output in \hyperref[\detokenize{measure_risk:code46}]{Listing \ref{\detokenize{measure_risk:code46}}} reproduces the results based on the
+data in \hyperref[\detokenize{measure_risk:tab43}]{Table \ref{\detokenize{measure_risk:tab43}}}.
 
-Example 4.6: \(\mathbf{l}\)-diversity function in \sphinxstyleemphasis{sdcMicro}
-
+\def\sphinxLiteralBlockLabel{\label{\detokenize{measure_risk:code46}}}
+\sphinxSetupCaptionForVerbatim{\(l\)-diversity function in \sphinxstyleemphasis{sdcMicro}}
 \fvset{hllines={, ,}}%
-\begin{sphinxVerbatim}[commandchars=\\\{\}]
-\PYG{c+c1}{\PYGZsh{} Computing l\PYGZhy{}diversity}
+\begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
+ \PYG{c+c1}{\PYGZsh{} Computing l\PYGZhy{}diversity}
 
-sdcInitial \PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{o}{*}\PYG{o}{*}ldiversity\PYG{o}{*}\PYG{o}{*}\PYGZbs{} \PYG{p}{(}obj \PYG{o}{=} sdcInitial\PYG{p}{,} ldiv\PYGZus{}index \PYG{o}{=} \PYG{k+kt}{c}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}}\PYG{l+s}{Health\PYGZdq{}}\PYG{p}{)}\PYG{p}{,} l\PYGZus{}recurs\PYGZus{}c \PYG{o}{=} \PYG{l+m}{2}\PYG{p}{,} missing \PYG{o}{=} \PYG{k+kc}{NA}\PYG{p}{)}
-\PYG{c+c1}{\PYGZsh{} Output for l\PYGZhy{}diversity}
-sdcInitial\PYG{o}{@}risk\PYG{o}{\PYGZdl{}}ldiversity
+ sdcInitial \PYG{o}{\PYGZlt{}\PYGZhy{}} ldiversity\PYG{p}{(}obj \PYG{o}{=} sdcInitial\PYG{p}{,} ldiv\PYGZus{}index \PYG{o}{=} \PYG{k+kt}{c}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}}\PYG{l+s}{Health\PYGZdq{}}\PYG{p}{)}\PYG{p}{,} l\PYGZus{}recurs\PYGZus{}c \PYG{o}{=} \PYG{l+m}{2}\PYG{p}{,} missing \PYG{o}{=} \PYG{k+kc}{NA}\PYG{p}{)}
+ \PYG{c+c1}{\PYGZsh{} Output for l\PYGZhy{}diversity}
+ sdcInitial\PYG{o}{@}risk\PYG{o}{\PYGZdl{}}ldiversity
 
-\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}
-L\PYG{o}{\PYGZhy{}}Diversity Measures
-\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}
-Min.  \PYG{l+m}{1}st Qu.  Median    Mean   \PYG{l+m}{3}rd Qu.    Max.
-\PYG{l+m}{1.0}   \PYG{l+m}{1.0}      \PYG{l+m}{1.0}       \PYG{l+m}{1.4}    \PYG{l+m}{2.0}        \PYG{l+m}{2.0}
+ \PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}
+ L\PYG{o}{\PYGZhy{}}Diversity Measures
+ \PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}
+ Min.  \PYG{l+m}{1}st Qu.  Median    Mean   \PYG{l+m}{3}rd Qu.    Max.
+ \PYG{l+m}{1.0}   \PYG{l+m}{1.0}      \PYG{l+m}{1.0}       \PYG{l+m}{1.4}    \PYG{l+m}{2.0}        \PYG{l+m}{2.0}
 
-\PYG{c+c1}{\PYGZsh{} l\PYGZhy{}diversity score for each record}
-sdcInitial\PYG{o}{@}risk\PYG{o}{\PYGZdl{}}ldiversity\PYG{p}{[}\PYG{p}{,}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{Health\PYGZus{}Distinct\PYGZus{}Ldiversity\PYGZsq{}}\PYG{p}{]}
+ \PYG{c+c1}{\PYGZsh{} l\PYGZhy{}diversity score for each record}
+ sdcInitial\PYG{o}{@}risk\PYG{o}{\PYGZdl{}}ldiversity\PYG{p}{[}\PYG{p}{,}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{Health\PYGZus{}Distinct\PYGZus{}Ldiversity\PYGZsq{}}\PYG{p}{]}
 
-\PYG{p}{[}\PYG{l+m}{1}\PYG{p}{]} \PYG{l+m}{1} \PYG{l+m}{1} \PYG{l+m}{1} \PYG{l+m}{2} \PYG{l+m}{1} \PYG{l+m}{2} \PYG{l+m}{1} \PYG{l+m}{1} \PYG{l+m}{2} \PYG{l+m}{2}
+ \PYG{p}{[}\PYG{l+m}{1}\PYG{p}{]} \PYG{l+m}{1} \PYG{l+m}{1} \PYG{l+m}{1} \PYG{l+m}{2} \PYG{l+m}{1} \PYG{l+m}{2} \PYG{l+m}{1} \PYG{l+m}{1} \PYG{l+m}{2} \PYG{l+m}{2}
 \end{sphinxVerbatim}
 
 \(l\)-diversity is useful if the data contains categorical sensitive
@@ -3014,7 +2939,7 @@ algorithm leads to good risk estimates for these test datasets.
 \subsection{Sample unique vs. special unique}
 \label{\detokenize{measure_risk:sample-unique-vs-special-unique}}
 The previous measures of risk focused on the uniqueness of the key of a
-record in the dataset. Table 4.4 reproduces the data from Table 4.1. The
+record in the dataset. \hyperref[\detokenize{measure_risk:tab44}]{Table \ref{\detokenize{measure_risk:tab44}}} reproduces the data from \hyperref[\detokenize{measure_risk:tab41}]{Table \ref{\detokenize{measure_risk:tab41}}}. The
 sample dataset has 10 records and four pre-determined quasi-identifiers
 \{“Residence”, “Gender”, “Education level” and “Labor status”\}. Given the
 four quasi-identifiers, we have seven distinct patterns in those key
@@ -3028,12 +2953,13 @@ primary school. Similarly, records 5, 7 and 8 are sample uniques,
 because they possess distinct patterns with respect to the four key
 variables.
 
-Table 4.4: Sample uniques and special uniques
-
 
 \begin{savenotes}\sphinxattablestart
 \centering
-\begin{tabular}[t]{|*{9}{\X{1}{9}|}}
+\sphinxcapstartof{table}
+\sphinxcaption{Sample uniques and special uniques}\label{\detokenize{measure_risk:tab44}}\label{\detokenize{measure_risk:id19}}
+\sphinxaftercaption
+\begin{tabulary}{\linewidth}[t]{|T|T|T|T|T|T|T|T|T|}
 \hline
 \sphinxstyletheadfamily 
 No
@@ -3041,24 +2967,18 @@ No
 Residence
 &\sphinxstyletheadfamily 
 Gender
-&\sphinxstyletheadfamily \begin{description}
-\item[{Education}] \leavevmode
-level
-
-\end{description}
-&\sphinxstyletheadfamily \begin{description}
-\item[{Labor}] \leavevmode
-status
-
-\end{description}
 &\sphinxstyletheadfamily 
-Wgt
-&\sphinxstyletheadfamily \begin{equation*}
-\begin{split}f_{k}\end{split}
-\end{equation*}&\sphinxstyletheadfamily \begin{equation*}
-\begin{split}F_{k}\end{split}
-\end{equation*}&\sphinxstyletheadfamily 
-Risk
+Education level
+&\sphinxstyletheadfamily 
+Labor status
+&\sphinxstyletheadfamily 
+Weight
+&\sphinxstyletheadfamily 
+f\_k
+&\sphinxstyletheadfamily 
+F\_k
+&\sphinxstyletheadfamily 
+risk
 \\
 \hline
 1
@@ -3067,10 +2987,7 @@ Urban
 &
 Female
 &
-Secon
-dary
-incom
-plete
+Secondary incomplete
 &
 Employed
 &
@@ -3089,10 +3006,7 @@ Urban
 &
 Female
 &
-Secon
-dary
-incom
-plete
+Secondary incomplete
 &
 Employed
 &
@@ -3111,10 +3025,7 @@ Urban
 &
 Female
 &
-Prima
-ry
-incom
-plete
+Primary incomplete
 &
 Non-LF
 &
@@ -3133,10 +3044,7 @@ Urban
 &
 Male
 &
-Secon
-dary
-compl
-ete
+Secondary complete
 &
 Employed
 &
@@ -3153,16 +3061,11 @@ Employed
 &
 Rural
 &
-Femal
-e
+Female
 &
-Secon
-dary
-compl
-ete
+Secondary complete
 &
-Unemp
-loyed
+Unemployed
 &
 186
 &
@@ -3179,10 +3082,7 @@ Urban
 &
 Male
 &
-Secon
-dary
-compl
-ete
+Secondary complete
 &
 Employed
 &
@@ -3199,16 +3099,11 @@ Employed
 &
 Urban
 &
-Femal
-e
+Female
 &
-Prima
-ry
-compl
-ete
+Primary complete
 &
 Non-LF
-F
 &
 180
 &
@@ -3225,11 +3120,9 @@ Urban
 &
 Male
 &
-Post-
-secon
-dary
+Post-secondary
 &
-Employed
+Unemployed
 &
 215
 &
@@ -3244,13 +3137,9 @@ Employed
 &
 Urban
 &
-Femal
-e
+Female
 &
-Secon
-dary
-incom
-plete
+Secondary incomplete
 &
 Non-LF
 &
@@ -3267,13 +3156,9 @@ Non-LF
 &
 Urban
 &
-Femal
-e
+Female
 &
-Secon
-dary
-incom
-plete
+Secondary incomplete
 &
 Non-LF
 &
@@ -3286,11 +3171,11 @@ Non-LF
 0.0074
 \\
 \hline
-\end{tabular}
+\end{tabulary}
 \par
 \sphinxattableend\end{savenotes}
 
-In addition to the records 3, 5, 7 and 8 in Table 4.4 being sample
+In addition to the records 3, 5, 7 and 8 in \hyperref[\detokenize{measure_risk:tab44}]{Table \ref{\detokenize{measure_risk:tab44}}} being sample
 uniques with respect to the key variable set \{“Residence”, “Gender”,
 “Education level”, “Labor status”\}, we can find unique patterns in these
 records without even having to consider the complete set of key
@@ -3342,7 +3227,7 @@ risk of the record
 \end{itemize}
 
 A record is defined as a special unique if it is a sample unique both on
-the complete set of quasi-identifiers (e.g., in the data in Table 4.4,
+the complete set of quasi-identifiers (e.g., in the data in \hyperref[\detokenize{measure_risk:tab44}]{Table \ref{\detokenize{measure_risk:tab44}}},
 the variables “Residence”, ”Gender”, “Education level” and “Labor
 status”) and simultaneously has at least one MSU (Elliot et al., 1998).
 Special uniques can be classified according to the number and size of
@@ -3379,12 +3264,12 @@ risk. The SUDA score ranks the individuals according to their level of
 risk. The higher the SUDA score, the riskier the sample unique.
 \begin{quote}
 
-Calculating SUDA scores \textendash{} a simplified example*
+Calculating SUDA scores \textendash{} a simplified example
 \end{quote}
 
 To illustrate how SUDA scores are calculated, we compute the SUDA scores
-for the sample uniques in the data in Table 4.5, which replicates the
-data from Table 4.4. Record 5 contains four MSUs: \{Rural\} of size 1, and
+for the sample uniques in the data in \hyperref[\detokenize{measure_risk:tab45}]{Table \ref{\detokenize{measure_risk:tab45}}}, which replicates the
+data from \hyperref[\detokenize{measure_risk:tab45}]{Table \ref{\detokenize{measure_risk:tab45}}}. Record 5 contains four MSUs: \{Rural\} of size 1, and
 \{‘Secondary Complete’, ‘Unemployed’\}, \{‘Female’, ‘Unemployed’\} and
 \{Female, Secondary Complete\} of size 2. Suppose the maximum size of MSUs
 we search for in the data, \(M\), is set at 3. Knowing that,
@@ -3394,7 +3279,7 @@ is 4; the score assigned to \{Rural\} is computed by
 to \{Secondary complete, Unemployed\}, \{Female, Unemployed\} and \{Female,
 Secondary Complete\} is
 \(\prod_{i = 2}^{3}\left( 4 - i \right) = 2*1 = 2\). The SUDA score
-for the fifth record in Table 4.5 is then \(6 + 2 + 2 + 2 = 12\),
+for the fifth record in \hyperref[\detokenize{measure_risk:tab45}]{Table \ref{\detokenize{measure_risk:tab45}}} is then \(6 + 2 + 2 + 2 = 12\),
 which is the sum of these four scores per MSU. The SUDA scores for the
 other sample uniques are computed accordingly %
 \begin{footnote}[13]\sphinxAtStartFootnote
@@ -3404,16 +3289,17 @@ three MSUs, \{‘Urban, Unemployed’\}, \{‘Male, Unemployed’\} and
 \{‘Post-secondary’\}.
 %
 \end{footnote}. The
-values that are in the MSUs in the sample uniques are shaded in Table
-4.5. Records that are not sample uniques (\(f_{k} > 1\)) cannot be
+values that are in the MSUs in the sample uniques are shaded in \hyperref[\detokenize{measure_risk:tab45}]{Table \ref{\detokenize{measure_risk:tab45}}}.
+Records that are not sample uniques (\(f_{k} > 1\)) cannot be
 special uniques and are assigned the score 0.
-
-Table 4.5: Illustrating the calculation of SUDA and DIS-SUDA scores
 
 
 \begin{savenotes}\sphinxattablestart
 \centering
-\begin{tabulary}{\linewidth}[t]{|T|T|T|T|T|T|T|T|}
+\sphinxcapstartof{table}
+\sphinxcaption{Illustrating the calculation of SUDA and DIS-SUDA scores}\label{\detokenize{measure_risk:tab45}}\label{\detokenize{measure_risk:id20}}
+\sphinxaftercaption
+\begin{tabulary}{\linewidth}[t]{|T|T|T|T|T|T|T|T|T|}
 \hline
 \sphinxstyletheadfamily 
 No
@@ -3426,11 +3312,13 @@ Education level
 &\sphinxstyletheadfamily 
 Labor status
 &\sphinxstyletheadfamily 
+Weight
+&\sphinxstyletheadfamily 
 f\_k
 &\sphinxstyletheadfamily 
 SUDA score
 &\sphinxstyletheadfamily 
-DIS-SUD
+DIS-SUDA
 \\
 \hline
 1
@@ -3442,6 +3330,8 @@ Female
 Secondary incomplete
 &
 Employed
+&
+180
 &
 2
 &
@@ -3459,6 +3349,8 @@ Female
 Secondary incomplete
 &
 Employed
+&
+180
 &
 2
 &
@@ -3477,6 +3369,8 @@ Primary incomplete
 &
 Non-LF
 &
+215
+&
 1
 &
 6
@@ -3493,6 +3387,8 @@ Male
 Secondary complete
 &
 Employed
+&
+76
 &
 2
 &
@@ -3511,6 +3407,8 @@ Secondary complete
 &
 Unemployed
 &
+186
+&
 1
 &
 12
@@ -3527,6 +3425,8 @@ Male
 Secondary complete
 &
 Employed
+&
+76
 &
 2
 &
@@ -3545,6 +3445,8 @@ Primary complete
 &
 Non-LF
 &
+180
+&
 1
 &
 6
@@ -3561,6 +3463,8 @@ Male
 Post-secondary
 &
 Unemployed
+&
+215
 &
 1
 &
@@ -3579,6 +3483,8 @@ Secondary incomplete
 &
 Non-LF
 &
+186
+&
 2
 &
 0
@@ -3595,6 +3501,8 @@ Female
 Secondary incomplete
 &
 Non-LF
+&
+76
 &
 2
 &
@@ -3650,48 +3558,48 @@ likely the \sphinxstyleemphasis{R} standard missing value, NA. We mention this b
 default missing value code in the sdcMicro suda2() function is -999 and
 will most likely need to be changed to ‘NA’ when using most R
 datasets.} The scores are saved in the risk slot of the \sphinxstyleemphasis{sdcMicro}
-object. The syntax in Example 4.7 shows how to retrieve the output.
+object. The syntax in \hyperref[\detokenize{measure_risk:code47}]{Listing \ref{\detokenize{measure_risk:code47}}} shows how to retrieve the output.
 
-Example 4.7: Evaluating SUDA scores
-
+\def\sphinxLiteralBlockLabel{\label{\detokenize{measure_risk:code47}}}
+\sphinxSetupCaptionForVerbatim{Evaluating SUDA scores}
 \fvset{hllines={, ,}}%
-\begin{sphinxVerbatim}[commandchars=\\\{\}]
-\PYG{c+c1}{\PYGZsh{} Evaluating SUDA scores for the specified variables}
-sdcInitial \PYG{o}{\PYGZlt{}\PYGZhy{}} suda2\PYG{p}{(}obj \PYG{o}{=} sdcInitial\PYG{p}{,} missing \PYG{o}{=} \PYG{k+kc}{NA}\PYG{p}{)}
+\begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
+ \PYG{c+c1}{\PYGZsh{} Evaluating SUDA scores for the specified variables}
+ sdcInitial \PYG{o}{\PYGZlt{}\PYGZhy{}} suda2\PYG{p}{(}obj \PYG{o}{=} sdcInitial\PYG{p}{,} missing \PYG{o}{=} \PYG{k+kc}{NA}\PYG{p}{)}
 
-\PYG{c+c1}{\PYGZsh{} The results are saved in the risk slot of the sdcMicro object}
-\PYG{c+c1}{\PYGZsh{} SUDA scores}
-sdcInitial\PYG{o}{@}risk\PYG{o}{\PYGZdl{}}suda2\PYG{o}{\PYGZdl{}}score
+ \PYG{c+c1}{\PYGZsh{} The results are saved in the risk slot of the sdcMicro object}
+ \PYG{c+c1}{\PYGZsh{} SUDA scores}
+ sdcInitial\PYG{o}{@}risk\PYG{o}{\PYGZdl{}}suda2\PYG{o}{\PYGZdl{}}score
 
-\PYG{p}{[}\PYG{l+m}{1}\PYG{p}{]} \PYG{l+m}{0.00} \PYG{l+m}{0.00} \PYG{l+m}{1.75} \PYG{l+m}{0.00} \PYG{l+m}{3.25} \PYG{l+m}{0.00} \PYG{l+m}{1.75} \PYG{l+m}{2.75} \PYG{l+m}{0.00} \PYG{l+m}{0.00}
+ \PYG{p}{[}\PYG{l+m}{1}\PYG{p}{]} \PYG{l+m}{0.00} \PYG{l+m}{0.00} \PYG{l+m}{1.75} \PYG{l+m}{0.00} \PYG{l+m}{3.25} \PYG{l+m}{0.00} \PYG{l+m}{1.75} \PYG{l+m}{2.75} \PYG{l+m}{0.00} \PYG{l+m}{0.00}
 
-\PYG{c+c1}{\PYGZsh{} DIS\PYGZhy{}SUDA scores}
-sdcInitial\PYG{o}{@}risk\PYG{o}{\PYGZdl{}}suda2\PYG{o}{\PYGZdl{}}disScore
+ \PYG{c+c1}{\PYGZsh{} DIS\PYGZhy{}SUDA scores}
+ sdcInitial\PYG{o}{@}risk\PYG{o}{\PYGZdl{}}suda2\PYG{o}{\PYGZdl{}}disScore
 
-\PYG{p}{[}\PYG{l+m}{1}\PYG{p}{]} \PYG{l+m}{0.000000000} \PYG{l+m}{0.000000000} \PYG{l+m}{0.005120313} \PYG{l+m}{0.000000000} \PYG{l+m}{0.010702061}
-\PYG{p}{[}\PYG{l+m}{6}\PYG{p}{]} \PYG{l+m}{0.000000000} \PYG{l+m}{0.005120313} \PYG{l+m}{0.008775093} \PYG{l+m}{0.000000000} \PYG{l+m}{0.000000000}
+ \PYG{p}{[}\PYG{l+m}{1}\PYG{p}{]} \PYG{l+m}{0.000000000} \PYG{l+m}{0.000000000} \PYG{l+m}{0.005120313} \PYG{l+m}{0.000000000} \PYG{l+m}{0.010702061}
+ \PYG{p}{[}\PYG{l+m}{6}\PYG{p}{]} \PYG{l+m}{0.000000000} \PYG{l+m}{0.005120313} \PYG{l+m}{0.008775093} \PYG{l+m}{0.000000000} \PYG{l+m}{0.000000000}
 
-\PYG{c+c1}{\PYGZsh{} Summary of DIS\PYGZhy{}SUDA scores}
-sdcInitial\PYG{o}{@}risk\PYG{o}{\PYGZdl{}}suda2
+ \PYG{c+c1}{\PYGZsh{} Summary of DIS\PYGZhy{}SUDA scores}
+ sdcInitial\PYG{o}{@}risk\PYG{o}{\PYGZdl{}}suda2
 
-Dis suda scores \PYG{k+kp}{table}\PYG{o}{:}
-\PYG{o}{\PYGZhy{}} \PYG{o}{\PYGZhy{}} \PYG{o}{\PYGZhy{}} \PYG{o}{\PYGZhy{}} \PYG{o}{\PYGZhy{}} \PYG{o}{\PYGZhy{}} \PYG{o}{\PYGZhy{}} \PYG{o}{\PYGZhy{}} \PYG{o}{\PYGZhy{}} \PYG{o}{\PYGZhy{}} \PYG{o}{\PYGZhy{}}
-thresholds number
-\PYG{l+m}{1}        \PYG{o}{\PYGZgt{}} \PYG{l+m}{0}      \PYG{l+m}{6}
-\PYG{l+m}{2}      \PYG{o}{\PYGZgt{}} \PYG{l+m}{0.1}      \PYG{l+m}{4}
-\PYG{l+m}{3}      \PYG{o}{\PYGZgt{}} \PYG{l+m}{0.2}      \PYG{l+m}{0}
-\PYG{l+m}{4}      \PYG{o}{\PYGZgt{}} \PYG{l+m}{0.3}      \PYG{l+m}{0}
-\PYG{l+m}{5}      \PYG{o}{\PYGZgt{}} \PYG{l+m}{0.4}      \PYG{l+m}{0}
-\PYG{l+m}{6}      \PYG{o}{\PYGZgt{}} \PYG{l+m}{0.5}      \PYG{l+m}{0}
-\PYG{l+m}{7}      \PYG{o}{\PYGZgt{}} \PYG{l+m}{0.6}      \PYG{l+m}{0}
-\PYG{l+m}{8}      \PYG{o}{\PYGZgt{}} \PYG{l+m}{0.7}      \PYG{l+m}{0}
-\PYG{o}{\PYGZhy{}} \PYG{o}{\PYGZhy{}} \PYG{o}{\PYGZhy{}} \PYG{o}{\PYGZhy{}} \PYG{o}{\PYGZhy{}} \PYG{o}{\PYGZhy{}} \PYG{o}{\PYGZhy{}} \PYG{o}{\PYGZhy{}} \PYG{o}{\PYGZhy{}} \PYG{o}{\PYGZhy{}} \PYG{o}{\PYGZhy{}}
+ Dis suda scores \PYG{k+kp}{table}\PYG{o}{:}
+ \PYG{o}{\PYGZhy{}} \PYG{o}{\PYGZhy{}} \PYG{o}{\PYGZhy{}} \PYG{o}{\PYGZhy{}} \PYG{o}{\PYGZhy{}} \PYG{o}{\PYGZhy{}} \PYG{o}{\PYGZhy{}} \PYG{o}{\PYGZhy{}} \PYG{o}{\PYGZhy{}} \PYG{o}{\PYGZhy{}} \PYG{o}{\PYGZhy{}}
+ thresholds number
+ \PYG{l+m}{1}        \PYG{o}{\PYGZgt{}} \PYG{l+m}{0}      \PYG{l+m}{6}
+ \PYG{l+m}{2}      \PYG{o}{\PYGZgt{}} \PYG{l+m}{0.1}      \PYG{l+m}{4}
+ \PYG{l+m}{3}      \PYG{o}{\PYGZgt{}} \PYG{l+m}{0.2}      \PYG{l+m}{0}
+ \PYG{l+m}{4}      \PYG{o}{\PYGZgt{}} \PYG{l+m}{0.3}      \PYG{l+m}{0}
+ \PYG{l+m}{5}      \PYG{o}{\PYGZgt{}} \PYG{l+m}{0.4}      \PYG{l+m}{0}
+ \PYG{l+m}{6}      \PYG{o}{\PYGZgt{}} \PYG{l+m}{0.5}      \PYG{l+m}{0}
+ \PYG{l+m}{7}      \PYG{o}{\PYGZgt{}} \PYG{l+m}{0.6}      \PYG{l+m}{0}
+ \PYG{l+m}{8}      \PYG{o}{\PYGZgt{}} \PYG{l+m}{0.7}      \PYG{l+m}{0}
+ \PYG{o}{\PYGZhy{}} \PYG{o}{\PYGZhy{}} \PYG{o}{\PYGZhy{}} \PYG{o}{\PYGZhy{}} \PYG{o}{\PYGZhy{}} \PYG{o}{\PYGZhy{}} \PYG{o}{\PYGZhy{}} \PYG{o}{\PYGZhy{}} \PYG{o}{\PYGZhy{}} \PYG{o}{\PYGZhy{}} \PYG{o}{\PYGZhy{}}
 \end{sphinxVerbatim}
 
 To compare DIS scores before and after applying SDC methods, it may be
-useful to use histograms or density plots of these scores. Example 4.8
+useful to use histograms or density plots of these scores. \hyperref[\detokenize{measure_risk:code48}]{Listing \ref{\detokenize{measure_risk:code48}}}
 shows how to generate histograms of the SUDA scores summarized in
-Example 4.7. The histogram is shown in Figure 4.2. All outputs relate to
+\hyperref[\detokenize{measure_risk:code47}]{Listing \ref{\detokenize{measure_risk:code47}}}. The histogram is shown in \hyperref[\detokenize{measure_risk:fig2}]{Fig.\@ \ref{\detokenize{measure_risk:fig2}}}. All outputs relate to
 the data used in the example. In our case, we have not applied any SDC
 method to the data yet and thus have only the plots for the initial
 values. Typically, after applying SDC methods, one would recalculate the
@@ -3699,21 +3607,24 @@ SUDA scores and compare them to the original values. One way to quickly
 see the differences would be to rerun these visualizations and compare
 them to the base for risk changes.
 
-Example 4.8: Histogram and density plots of DIS-SUDA scores
-
+\def\sphinxLiteralBlockLabel{\label{\detokenize{measure_risk:code48}}}
+\sphinxSetupCaptionForVerbatim{Histogram and density plots of DIS-SUDA scores}
 \fvset{hllines={, ,}}%
-\begin{sphinxVerbatim}[commandchars=\\\{\}]
-\PYG{c+c1}{\PYGZsh{} Plot a histogram of disScore}
-hist\PYG{p}{(}sdcInitial\PYG{o}{@}risk\PYG{o}{\PYGZdl{}}suda2\PYG{o}{\PYGZdl{}}disScore\PYG{p}{,} main \PYG{o}{=} \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{Histogram of DIS\PYGZhy{}SUDA scores\PYGZsq{}}\PYG{p}{)}
+\begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
+ \PYG{c+c1}{\PYGZsh{} Plot a histogram of disScore}
+ hist\PYG{p}{(}sdcInitial\PYG{o}{@}risk\PYG{o}{\PYGZdl{}}suda2\PYG{o}{\PYGZdl{}}disScore\PYG{p}{,} main \PYG{o}{=} \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{Histogram of DIS\PYGZhy{}SUDA scores\PYGZsq{}}\PYG{p}{)}
 
-\PYG{c+c1}{\PYGZsh{} Density plot}
-density \PYG{o}{\PYGZlt{}\PYGZhy{}} density\PYG{p}{(}sdcInitial\PYG{o}{@}risk\PYG{o}{\PYGZdl{}}suda2\PYG{o}{\PYGZdl{}}disScore\PYG{p}{)}
-plot\PYG{p}{(}density\PYG{p}{,} main \PYG{o}{=} \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{Density plot of DIS\PYGZhy{}SUDA scores\PYGZsq{}}\PYG{p}{)}
+ \PYG{c+c1}{\PYGZsh{} Density plot}
+ density \PYG{o}{\PYGZlt{}\PYGZhy{}} density\PYG{p}{(}sdcInitial\PYG{o}{@}risk\PYG{o}{\PYGZdl{}}suda2\PYG{o}{\PYGZdl{}}disScore\PYG{p}{)}
+ plot\PYG{p}{(}density\PYG{p}{,} main \PYG{o}{=} \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{Density plot of DIS\PYGZhy{}SUDA scores\PYGZsq{}}\PYG{p}{)}
 \end{sphinxVerbatim}
 
-\noindent{\hspace*{\fill}\sphinxincludegraphics[width=2.97727in,height=2.66667in]{{image2}.png}\hspace*{\fill}}
+\begin{figure}[htbp]
+\centering
+\capstart
 
-Figure 4.2: Visualizations of DIS-SUDA scores
+\noindent\sphinxincludegraphics{{image2}.png}
+\caption{Visualizations of DIS-SUDA scores}\label{\detokenize{measure_risk:fig2}}\label{\detokenize{measure_risk:id21}}\end{figure}
 
 
 \section{Risk measures for continuous variables}
@@ -3783,7 +3694,7 @@ after perturbation are considered too close to the initial value and
 hence unsafe and need more perturbation. Values that are outside of the
 intervals are considered safe. The size of the intervals is based on the
 standard deviation of the observations and a scaling parameter. This
-method is implemented in the function dRisk() in \sphinxstyleemphasis{sdcMicro}. Example 4.9
+method is implemented in the function dRisk() in \sphinxstyleemphasis{sdcMicro}. \hyperref[\detokenize{measure_risk:code49}]{Listing \ref{\detokenize{measure_risk:code49}}}
 shows how to print or display the risk value computed by \sphinxstyleemphasis{sdcMicro} by
 comparing the income variables before and after anonymization. “sdcObj”
 is an \sphinxstyleemphasis{sdcMicro} object and “compExp“ is a vector containing the names
@@ -3795,12 +3706,12 @@ around their original values and the higher the risk measure. The result
 1 indicates that all (100 percent) the observations are outside the
 interval of 0.1 times the standard deviation around the original values.
 
-Example 4.9 Example with the function dRisk()
-
+\def\sphinxLiteralBlockLabel{\label{\detokenize{measure_risk:code49}}}
+\sphinxSetupCaptionForVerbatim{Example with the function dRisk()}
 \fvset{hllines={, ,}}%
-\begin{sphinxVerbatim}[commandchars=\\\{\}]
-dRisk\PYG{p}{(}obj \PYG{o}{=} sdcObj\PYG{o}{@}origData\PYG{p}{[}\PYG{p}{,}compExp\PYG{p}{]}\PYG{p}{,} xm \PYG{o}{=} sdcObj\PYG{o}{@}manipNumVars\PYG{p}{[}\PYG{p}{,}compExp\PYG{p}{]}\PYG{p}{,} k \PYG{o}{=} \PYG{l+m}{0.1}\PYG{p}{)}
-\PYG{p}{[}\PYG{l+m}{1}\PYG{p}{]} \PYG{l+m}{1}
+\begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
+ dRisk\PYG{p}{(}obj \PYG{o}{=} sdcObj\PYG{o}{@}origData\PYG{p}{[}\PYG{p}{,}compExp\PYG{p}{]}\PYG{p}{,} xm \PYG{o}{=} sdcObj\PYG{o}{@}manipNumVars\PYG{p}{[}\PYG{p}{,}compExp\PYG{p}{]}\PYG{p}{,} k \PYG{o}{=} \PYG{l+m}{0.1}\PYG{p}{)}
+ \PYG{p}{[}\PYG{l+m}{1}\PYG{p}{]} \PYG{l+m}{1}
 \end{sphinxVerbatim}
 
 For most values, this is a satisfactory approach. It is not a sufficient
@@ -3835,19 +3746,19 @@ depends on the skewness of the data.
 
 We can calculate the \(p\%\)-percentile of a continuous variable in
 \sphinxstyleemphasis{R} and show the individuals who have income larger than this
-percentile. Example 4.10 provides an illustration for the 90$^{\text{th}}$
+percentile. \hyperref[\detokenize{measure_risk:code410}]{Listing \ref{\detokenize{measure_risk:code410}}} provides an illustration for the 90$^{\text{th}}$
 percentile.
 
-Example 4.10: Computing 90 \% percentile of variable income
-.. code-block:: R
-\begin{quote}
+\def\sphinxLiteralBlockLabel{\label{\detokenize{measure_risk:code410}}}
+\sphinxSetupCaptionForVerbatim{Computing 90 \% percentile of variable income}
+\fvset{hllines={, ,}}%
+\begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
+ \PYG{c+c1}{\PYGZsh{} Compute the 90 \PYGZpc{} percentile for the variable income*}
+ perc90 \PYG{o}{\PYGZlt{}\PYGZhy{}} quantile\PYG{p}{(}\PYG{k+kp}{file}\PYG{p}{[}\PYG{p}{,}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{income\PYGZsq{}}\PYG{p}{]}\PYG{p}{,} \PYG{l+m}{0.90}\PYG{p}{,} na.rm \PYG{o}{=} \PYG{k+kc}{TRUE}\PYG{p}{)}
 
-\# Compute the 90 \% percentile for the variable income*
-perc90 \textless{}- \sphinxstylestrong{quantile}(file{[},’income’{]}, 0.90, na.rm = TRUE)
-
-\# Show the ID of observations with values for income larger than the 90 \% percentile
-file{[}(file{[}, ‘income’{]} \textgreater{}= perc90), ‘ID’{]}
-\end{quote}
+ \PYG{c+c1}{\PYGZsh{} Show the ID of observations with values for income larger than the 90 \PYGZpc{} percentile}
+ \PYG{k+kp}{file}\PYG{p}{[}\PYG{p}{(}\PYG{k+kp}{file}\PYG{p}{[}\PYG{p}{,} \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{income\PYGZsq{}}\PYG{p}{]} \PYG{o}{\PYGZgt{}=} perc90\PYG{p}{)}\PYG{p}{,} \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{ID\PYGZsq{}}\PYG{p}{]}
+\end{sphinxVerbatim}
 
 A second approach for outlier detection is a posteriori measure
 comparing the treated and raw data. An interval is constructed around
@@ -3887,40 +3798,45 @@ frequencies of these keys and dividing by the sample size n:
 \(r_{k}\) is the individual risk of key \(k\) that the
 \(i\)$^{\text{th}}$ individual shares (see Section 4.5.1). This measure
 is reported as global risk in \sphinxstyleemphasis{sdcMicro}, is stored in the “risk” slot
-and can be displayed as shown in Example 4.11. It indicates that the
+and can be displayed as shown in \hyperref[\detokenize{measure_risk:code411}]{Listing \ref{\detokenize{measure_risk:code411}}}. It indicates that the
 average re-identification probability is 0.01582 or 0.1582 \%.
 
-Example 4.11: Computation of the global risk measure
-
+\def\sphinxLiteralBlockLabel{\label{\detokenize{measure_risk:code411}}}
+\sphinxSetupCaptionForVerbatim{Computation of the global risk measure}
 \fvset{hllines={, ,}}%
-\begin{sphinxVerbatim}[commandchars=\\\{\}]
-\PYG{c+c1}{\PYGZsh{} Global risk (average re\PYGZhy{}identification probability)*}
-sdcInitial\PYG{o}{@}risk\PYG{o}{\PYGZdl{}}global\PYG{o}{\PYGZdl{}}risk
+\begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
+ \PYG{c+c1}{\PYGZsh{} Global risk (average re\PYGZhy{}identification probability)}
+ sdcInitial\PYG{o}{@}risk\PYG{o}{\PYGZdl{}}global\PYG{o}{\PYGZdl{}}risk
 
-\PYG{p}{[}\PYG{l+m}{1}\PYG{p}{]} \PYG{l+m}{0.01582}
+ \PYG{p}{[}\PYG{l+m}{1}\PYG{p}{]} \PYG{l+m}{0.01582}
 \end{sphinxVerbatim}
 
-The global risk in the example data in Table 4.1 is 0.01582, which is
+The global risk in the example data in \hyperref[\detokenize{measure_risk:tab41}]{Table \ref{\detokenize{measure_risk:tab41}}} is 0.01582, which is
 the expected proportion of all individuals in the sample that could be
 re-identified by an intruder. Another way of expressing the global risk
 is the number of expected re-identifications, \(n*R_{1}\), which is
 in the example 10 * 0.01582. The expected number of re-identifications
-is also saved in the \sphinxstyleemphasis{sdcMicro} object. Example 4.12 shows how to
-display this. \sphinxstylestrong{NOTE: This global risk measure should be used with
+is also saved in the \sphinxstyleemphasis{sdcMicro} object. \hyperref[\detokenize{measure_risk:code412}]{Listing \ref{\detokenize{measure_risk:code412}}} shows how to
+display this.
+
+\begin{sphinxadmonition}{note}{Note:}
+This global risk measure should be used with
 caution. The average risk can be relatively low, but a few individuals
-could have a very high probability of re-identification.} An easy way
-to check for this is to look at the distribution of the individual risk
+could have a very high probability of re-identification.
+\end{sphinxadmonition}
+
+An easy way to check for this is to look at the distribution of the individual risk
 values or the number of individuals with risk values above a certain
 threshold, as shown in the next section.
 
-Example 4.12: Computation of expected number of re-identifications
-
+\def\sphinxLiteralBlockLabel{\label{\detokenize{measure_risk:code412}}}
+\sphinxSetupCaptionForVerbatim{Computation of expected number of re-identifications}
 \fvset{hllines={, ,}}%
-\begin{sphinxVerbatim}[commandchars=\\\{\}]
-\PYG{c+c1}{\PYGZsh{} Global risk (expected number of reidentifications)}
-sdcInitial\PYG{o}{@}risk\PYG{o}{\PYGZdl{}}global\PYG{o}{\PYGZdl{}}risk\PYGZus{}ER
+\begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
+ \PYG{c+c1}{\PYGZsh{} Global risk (expected number of reidentifications)}
+ sdcInitial\PYG{o}{@}risk\PYG{o}{\PYGZdl{}}global\PYG{o}{\PYGZdl{}}risk\PYGZus{}ER
 
-    \PYG{p}{[}\PYG{l+m}{1}\PYG{p}{]} \PYG{l+m}{0.1582}
+     \PYG{p}{[}\PYG{l+m}{1}\PYG{p}{]} \PYG{l+m}{0.1582}
 \end{sphinxVerbatim}
 
 
@@ -3932,21 +3848,19 @@ the total number of observations that exceed a certain threshold of
 individual risk. Setting the threshold can be absolute (e.g., all those
 individuals who have a disclosure risk higher than 0.05 or 5\%) or
 relative (e.g., all those individuals with risks higher than the upper
-quartile of individual risk). Example 4.13 shows how, using \sphinxstyleemphasis{R}, one
+quartile of individual risk). \hyperref[\detokenize{measure_risk:code413}]{Listing \ref{\detokenize{measure_risk:code413}}} shows how, using \sphinxstyleemphasis{R}, one
 would count the number of observations with an individual
 re-identification risk higher than 5\%. In the example, no individual has
 a higher disclosure risk than 0.05.
 
-Example 4.13: Number of individuals with individual risk higher than the threshold 0.05
-.. code-block:: R
-\begin{quote}
+\def\sphinxLiteralBlockLabel{\label{\detokenize{measure_risk:code413}}}
+\sphinxSetupCaptionForVerbatim{Number of individuals with individual risk higher than the threshold 0.05}
+\fvset{hllines={, ,}}%
+\begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
+ \PYG{k+kp}{sum}\PYG{p}{(}sdcInitial\PYG{o}{@}risk\PYG{o}{\PYGZdl{}}individual\PYG{p}{[}\PYG{p}{,}\PYG{l+m}{1}\PYG{p}{]} \PYG{o}{\PYGZgt{}} \PYG{l+m}{0.05}\PYG{p}{)}
 
-sum(sdcInitial@risk\$individual{[},1{]} \textgreater{} 0.05)
-\begin{quote}
-
-{[}1{]} 0
-\end{quote}
-\end{quote}
+     \PYG{p}{[}\PYG{l+m}{1}\PYG{p}{]} \PYG{l+m}{0}
+\end{sphinxVerbatim}
 
 These calculations can then be used to treat data for individuals whose
 risk values are above a predetermined threshold. We will see later that
@@ -3985,21 +3899,21 @@ contain a hierarchical structure, i.e., where a household structure is
 present in the data. Using \sphinxstyleemphasis{sdcMicro}, if a household identifier is
 specified (in the argument \sphinxstyleemphasis{hhId} in the function createSdcObj()) while
 creating an \sphinxstyleemphasis{sdcMicro} object, the household risk will automatically be
-computed. Example 4.14 shows how to display these risk measures.
+computed. \hyperref[\detokenize{measure_risk:code414}]{Listing \ref{\detokenize{measure_risk:code414}}} shows how to display these risk measures.
 
-Example 4.14: Computation of household risk and expected number of
-re-identifications
-
+\def\sphinxLiteralBlockLabel{\label{\detokenize{measure_risk:code414}}}
+\sphinxSetupCaptionForVerbatim{Computation of household risk and expected number of re-identifications}
 \fvset{hllines={, ,}}%
-\begin{sphinxVerbatim}[commandchars=\\\{\}]
-\PYG{c+c1}{\PYGZsh{} Household risk}
-sdcInitial\PYG{o}{@}risk\PYG{o}{\PYGZdl{}}global\PYG{o}{\PYGZdl{}}hier\PYGZus{}risk
+\begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
+ \PYG{c+c1}{\PYGZsh{} Household risk}
+ sdcInitial\PYG{o}{@}risk\PYG{o}{\PYGZdl{}}global\PYG{o}{\PYGZdl{}}hier\PYGZus{}risk
 
-\PYG{c+c1}{\PYGZsh{} Household risk (expected number of reidentifications}
-sdcInitial\PYG{o}{@}risk\PYG{o}{\PYGZdl{}}global\PYG{o}{\PYGZdl{}}hier\PYGZus{}risk\PYGZus{}ER
+ \PYG{c+c1}{\PYGZsh{} Household risk (expected number of reidentifications}
+ sdcInitial\PYG{o}{@}risk\PYG{o}{\PYGZdl{}}global\PYG{o}{\PYGZdl{}}hier\PYGZus{}risk\PYGZus{}ER
 \end{sphinxVerbatim}
 
-\sphinxstylestrong{NOTE: The size of a household is an important identifier itself,
+\begin{sphinxadmonition}{note}{Note:}
+The size of a household is an important identifier itself,
 especially for large households. Suppression of the actual size variable
 (e.g., number of household members), however, does not suffice to remove
 this information from the dataset, as a simple count of the household
@@ -4008,9 +3922,10 @@ variable as long as a household ID is in the data, which allows
 assigning individuals to households. We flag this for the reader’s
 attention as it is important. Further discussion on approaches to the
 SDC process that take into account the household structure where it
-exists can be found in Section} \sphinxstylestrong{5.4.}
+exists can be found in Section** \sphinxstylestrong{5.4.}
+\end{sphinxadmonition}
 
-\sphinxstylestrong{Recommended Reading Material on Risk Measurement}
+\begin{sphinxadmonition}{note}{Recommended Reading Material on Risk Measurement}
 
 Elliot, Mark J, Anna Manning, Ken Mayes, John Gurd, and Michael Bane.
 2005. “SUDA: A Program for Detecting Special Uniques.” \sphinxstyleemphasis{Joint
@@ -4036,10 +3951,11 @@ Templ, Matthias, Bernhard Meindl, Alexander Kowarik, and Shuang Chen.
 2014. “Introduction to Statistical Disclosure Control (SDC).”
 \sphinxurl{http://www.ihsn.org/home/sites/default/files/resources/ihsn-working-paper-007-Oct27.pdf}\sphinxstyleemphasis{.}
 August 1. Accessed November 13, 2014.
+\end{sphinxadmonition}
 
 
 \chapter{Anonymization Methods}
-\label{\detokenize{anon_methods::doc}}\label{\detokenize{anon_methods:anonymization-methods}}
+\label{\detokenize{anon_methods:anonymization-methods}}\label{\detokenize{anon_methods::doc}}
 This chapter describes the SDC methods most commonly used. All methods
 are implementable in \sphinxstyleemphasis{R} by using the \sphinxstyleemphasis{sdcMicro} package. We discuss for
 every method for what type of data the method is suitable, both in terms
@@ -4124,85 +4040,45 @@ Table 5.1: SDC methods and corresponding functions in \sphinxstyleemphasis{sdcMi
 
 \begin{savenotes}\sphinxattablestart
 \centering
-\begin{tabular}[t]{|*{4}{\X{1}{4}|}}
+\begin{tabulary}{\linewidth}[t]{|T|T|T|T|}
 \hline
 \sphinxstyletheadfamily 
 Method
-&\sphinxstyletheadfamily \begin{quote}
-
-Classificatio
-\end{quote}
-
-n
-of SDC method
 &\sphinxstyletheadfamily 
-Data-type
-&\sphinxstyletheadfamily \begin{quote}
-
-Function in
-\end{quote}
-
-sdcMicro
+Classification of SDC method
+&\sphinxstyletheadfamily 
+Data Type
+&\sphinxstyletheadfamily 
+Function in sdcMicro
 \\
 \hline
 Global recoding
 &
-non-perturbativ
-e,
-deterministic
+non-perturbative, determinitic
 &
-continuous and
-categorical
+continuous and categorical
 &
-{\color{red}\bfseries{}{}`globalRecode \textless{}
-http://www.rdoc
-umentation.org/
-packages/sdcMic
-ro/functions/gl
-obalRecode\textgreater{}{}`\_\_}
-\begin{quote}
-
-(),
-\end{quote}
-
-\sphinxhref{http://www.rdocumentation.org/packages/sdcMicro/functions/groupVars-methods}{groupVars}
-\_()
+\sphinxhref{http://www.rdocumentation.org/packages/sdcMicro/functions/globalrecode/}{globalRecode} ,
+\sphinxhref{http://www.rdocumentation.org/packages/sdcMicro/functions/groupVars-methods/}{groupVars}
 \\
 \hline
-Top and bottom
-coding
+Top and bottom coding
 &
-non-perturbativ
-e,
-deterministic
+non-perturbative, determinitic
 &
-continuous and
-categorical
+continuous and categorical
 &
-{\color{red}\bfseries{}{}`topBotCoding \textless{}
-http://www.rdoc
-umentation.org/
-packages/sdcMic
-ro/functions/to
-pBotCoding\textgreater{}{}`\_\_}
-\begin{quote}
-
-()
-\end{quote}
+\sphinxhref{http://www.rdocumentation.org/packages/sdcMicro/functions/topBotCoding/}{topBotCoding}
 \\
 \hline
 Local
 suppression
 &
-non-perturbativ
-e,
-deterministic
+non-perturbative, determinitic
 &
 categorical
 &
-\sphinxhref{http://www.rdocumentation.org/packages/sdcMicro/functions/localSuppression}{localSuppressi
-on}(),
-localSupp()
+\sphinxhref{http://www.rdocumentation.org/packages/sdcMicro/functions/localSuppression/}{localSuppression}, localSupp
 \\
 \hline
 PRAM
@@ -4212,19 +4088,17 @@ probabilistic
 &
 categorical
 &
-\sphinxhref{http://www.rdocumentation.org/packages/sdcMicro/functions/pram}{pram}()
+\sphinxhref{http://www.rdocumentation.org/packages/sdcMicro/functions/pram/}{pram}
 \\
 \hline
-Micro
-aggregation
+Micro aggregation
 &
 perturbative,
-deterministic
+probabilistic
 &
 continuous
 &
-\sphinxhref{http://www.rdocumentation.org/packages/sdcMicro/functions/microaggregation}{microaggregati
-on}()
+\sphinxhref{http://www.rdocumentation.org/packages/sdcMicro/functions/microaggregation/}{microaggregation}
 \\
 \hline
 Noise addition
@@ -4234,7 +4108,7 @@ probabilistic
 &
 continuous
 &
-\sphinxhref{http://www.rdocumentation.org/packages/sdcMicro/functions/addNoise}{addNoise}()
+\sphinxhref{http://www.rdocumentation.org/packages/sdcMicro/functions/addNoise/}{addNoise}
 \\
 \hline
 Shuffling
@@ -4244,12 +4118,7 @@ probabilistic
 &
 continuous
 &
-{\color{red}\bfseries{}{}`shuffle \textless{}http:
-//www.rdocument
-ation.org/packa
-ges/sdcMicro/fu
-nctions/shuffle
-\textgreater{}{}`\_\_}()
+\sphinxhref{http://www.rdocumentation.org/packages/sdcMicro/functions/shuffle/}{shuffle}
 \\
 \hline
 Rank swapping
@@ -4259,10 +4128,10 @@ probabilistic
 &
 continuous
 &
-\sphinxhref{http://www.rdocumentation.org/packages/sdcMicro/functions/rankSwap}{rankSwap}()
+\sphinxhref{http://www.rdocumentation.org/packages/sdcMicro/functions/rankSwap/}{rankSwap}
 \\
 \hline
-\end{tabular}
+\end{tabulary}
 \par
 \sphinxattableend\end{savenotes}
 
@@ -4769,30 +4638,24 @@ Section 7.4 on classes in \sphinxstyleemphasis{R} and how to change the class of
 Example 5.1: Using the sdcMicro function groupVars() to recode a
 categorical variable
 
-\begin{DUlineblock}{0em}
-\item[] \sphinxstyleemphasis{\# Frequencies of sizeRes before recoding}
-\item[] \sphinxstylestrong{table}(\sphinxhref{mailto:sdcInitial@manipKeyVars\$sizeRes}{sdcInitial@manipKeyVars\$sizeRes})
-\item[] \sphinxcode{\sphinxupquote{\#\# capital, large city          small city             town       countryside}}
-\item[] \sphinxcode{\sphinxupquote{\#\#                 686                 310              146              1358}}
-\end{DUlineblock}
+\fvset{hllines={, ,}}%
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{\PYGZsh{} Frequencies of sizeRes before recoding}
+\PYG{k+kp}{table}\PYG{p}{(}sdcInitial\PYG{o}{@}manipKeyVars\PYG{o}{\PYGZdl{}}sizeRes\PYG{p}{)}
+\PYG{c+c1}{\PYGZsh{}\PYGZsh{} capital, large city          small city             town       countryside}
+\PYG{c+c1}{\PYGZsh{}\PYGZsh{}                 686                 310              146              1358}
 
-\begin{DUlineblock}{0em}
-\item[] \sphinxstyleemphasis{\# Recode urban}
-\item[] sdcInitial \textless{}- \sphinxstylestrong{groupVars}(obj = sdcInitial, var =
-\sphinxstylestrong{c}(“sizeRes”), before = \sphinxstylestrong{c}(“capital, large city”, “small
-city”, “town”), after = \sphinxstylestrong{c}(“urban”, “urban”, “urban”))
-\item[] \sphinxstyleemphasis{\# Recode rural}
-\item[] sdcInitial \textless{}- \sphinxstylestrong{groupVars}(obj = sdcInitial, var =
-\sphinxstylestrong{c}(“sizeRes”), before = \sphinxstylestrong{c}(“countryside”), after =
-\sphinxstylestrong{c}(“rural”))
-\item[] \sphinxstyleemphasis{\# Frequencies of sizeRes before recoding}
-\item[] \sphinxstylestrong{table}(\sphinxhref{mailto:sdcInitial@manipKeyVars\$sizeRes}{sdcInitial@manipKeyVars\$sizeRes})
-\end{DUlineblock}
+\PYG{c+c1}{\PYGZsh{} Recode urban}
+sdcInitial  \PYG{o}{\PYGZlt{}\PYGZhy{}}  groupVars\PYG{p}{(}obj \PYG{o}{=} sdcInitial\PYG{p}{,} var \PYG{o}{=} \PYG{k+kt}{c}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}}\PYG{l+s}{sizeRes\PYGZdq{}}\PYG{p}{)}\PYG{p}{,} before \PYG{o}{=} \PYG{k+kt}{c}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}}\PYG{l+s}{capital, large city\PYGZdq{}}\PYG{p}{,} \PYG{l+s}{\PYGZdq{}}\PYG{l+s}{small city\PYGZdq{}}\PYG{p}{,} \PYG{l+s}{\PYGZdq{}}\PYG{l+s}{town\PYGZdq{}}\PYG{p}{)}\PYG{p}{,} after \PYG{o}{=} \PYG{k+kt}{c}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}}\PYG{l+s}{urban\PYGZdq{}}\PYG{p}{,} \PYG{l+s}{\PYGZdq{}}\PYG{l+s}{urban\PYGZdq{}}\PYG{p}{,} \PYG{l+s}{\PYGZdq{}}\PYG{l+s}{urban\PYGZdq{}}\PYG{p}{)}\PYG{p}{)}
 
-\begin{DUlineblock}{0em}
-\item[] \sphinxcode{\sphinxupquote{\#\# urban rural}}
-\item[] \sphinxcode{\sphinxupquote{\#\#  1142  1358}}
-\end{DUlineblock}
+\PYG{c+c1}{\PYGZsh{} Recode rural}
+sdcInitial  \PYG{o}{\PYGZlt{}\PYGZhy{}}  groupVars\PYG{p}{(}obj \PYG{o}{=} sdcInitial\PYG{p}{,} var \PYG{o}{=} \PYG{k+kt}{c}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}}\PYG{l+s}{sizeRes\PYGZdq{}}\PYG{p}{)}\PYG{p}{,} before \PYG{o}{=} \PYG{k+kt}{c}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}}\PYG{l+s}{countryside\PYGZdq{}}\PYG{p}{)}\PYG{p}{,} after \PYG{o}{=} \PYG{k+kt}{c}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}}\PYG{l+s}{rural\PYGZdq{}}\PYG{p}{)}\PYG{p}{)}
+
+\PYG{c+c1}{\PYGZsh{} Frequencies of sizeRes before recoding}
+\PYG{k+kp}{table}\PYG{p}{(}sdcInitial\PYG{o}{@}manipKeyVars\PYG{o}{\PYGZdl{}}sizeRes\PYG{p}{)}
+\PYG{c+c1}{\PYGZsh{}\PYGZsh{} urban rural}
+\PYG{c+c1}{\PYGZsh{}\PYGZsh{}  1142  1358}
+\end{sphinxVerbatim}
 
 Figure 5.1 illustrates the effect of recoding the variable “sizeRes” and
 show respectively the frequency counts before and after recoding. We see
@@ -4821,16 +4684,15 @@ should cover the entire value range of the variable.
 Example 5.2: Using the \sphinxstyleemphasis{sdcMicro} function globalRecode() to recode a
 continuous variable (age)
 
-sdcInitial \textless{}- \sphinxstylestrong{globalRecode}(sdcInitial, column = \sphinxstylestrong{c}(‘age’),
-breaks = 10 * \sphinxstylestrong{c}(0:10))
+\fvset{hllines={, ,}}%
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+sdcInitial \PYG{o}{\PYGZlt{}\PYGZhy{}} globalRecode\PYG{p}{(}sdcInitial\PYG{p}{,} column \PYG{o}{=} \PYG{k+kt}{c}\PYG{p}{(}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{age\PYGZsq{}}\PYG{p}{)}\PYG{p}{,} breaks \PYG{o}{=} \PYG{l+m}{10} \PYG{o}{*} \PYG{k+kt}{c}\PYG{p}{(}\PYG{l+m}{0}\PYG{o}{:}\PYG{l+m}{10}\PYG{p}{)}\PYG{p}{)}
 
-\sphinxstyleemphasis{\# Frequencies of age after recoding}
-
-\begin{DUlineblock}{0em}
-\item[] \sphinxstylestrong{table}(\sphinxhref{mailto:sdcInitial@manipKeyVars\$age}{sdcInitial@manipKeyVars\$age})
-\item[] \sphinxcode{\sphinxupquote{\#\#   (0,10{]}  (10,20{]}  (20,30{]}  (30,40{]}  (40,50{]}  (50,60{]}  (60,70{]}  (70,80{]}  (80,90{]}  (90,100{]}}}
-\item[] \sphinxcode{\sphinxupquote{\#\#      462      483      344      368      294      214      172       94}}\sphinxcode{\sphinxupquote{26         3}}
-\end{DUlineblock}
+\PYG{c+c1}{\PYGZsh{} Frequencies of age after recoding}
+\PYG{k+kp}{table}\PYG{p}{(}sdcInitial\PYG{o}{@}manipKeyVars\PYG{o}{\PYGZdl{}}age\PYG{p}{)}
+\PYG{c+c1}{\PYGZsh{}\PYGZsh{}   (0,10]  (10,20]  (20,30]  (30,40]  (40,50]  (50,60]  (60,70]  (70,80]  (80,90]  (90,100]}
+\PYG{c+c1}{\PYGZsh{}\PYGZsh{}      462      483      344      368      294      214      172       94           26         3}
+\end{sphinxVerbatim}
 
 Figure 5.2 shows the effect of recoding the variable “age”.
 
@@ -4851,17 +4713,15 @@ and employment. Figure 5.3 shows the effect of recoding the variable
 
 Example 5.3: Using globalRecode() to create intervals of unequal width
 
-sdcInitial \textless{}- \sphinxstylestrong{globalRecode}(sdcInitial, column = \sphinxstylestrong{c}(‘age’),
-breaks = \sphinxstylestrong{c}(0, 5, 11, 17, 21, 25, 49, 65, 100))
+\fvset{hllines={, ,}}%
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+sdcInitial \PYG{o}{\PYGZlt{}\PYGZhy{}} globalRecode\PYG{p}{(}sdcInitial\PYG{p}{,} column \PYG{o}{=} \PYG{k+kt}{c}\PYG{p}{(}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{age\PYGZsq{}}\PYG{p}{)}\PYG{p}{,} breaks \PYG{o}{=} \PYG{k+kt}{c}\PYG{p}{(}\PYG{l+m}{0}\PYG{p}{,} \PYG{l+m}{5}\PYG{p}{,} \PYG{l+m}{11}\PYG{p}{,} \PYG{l+m}{17}\PYG{p}{,} \PYG{l+m}{21}\PYG{p}{,} \PYG{l+m}{25}\PYG{p}{,} \PYG{l+m}{49}\PYG{p}{,} \PYG{l+m}{65}\PYG{p}{,} \PYG{l+m}{100}\PYG{p}{)}\PYG{p}{)}
 
-\sphinxstyleemphasis{\# Frequencies of age after recoding}
-
-\sphinxstylestrong{table}(\sphinxhref{mailto:sdcInitial@manipKeyVars\$age}{sdcInitial@manipKeyVars\$age})
-
-\begin{DUlineblock}{0em}
-\item[] \sphinxcode{\sphinxupquote{\#\#    (0,5{]}   (5,11{]}  (11,17{]}  (17,21{]}  (21,25{]}  (25,49{]}  (49,65{]} (65,100{]}}}
-\item[] \sphinxcode{\sphinxupquote{\#\#      192      317      332      134      142      808      350      185}}
-\end{DUlineblock}
+\PYG{c+c1}{\PYGZsh{} Frequencies of age after recoding}
+\PYG{k+kp}{table}\PYG{p}{(}sdcInitial\PYG{o}{@}manipKeyVars\PYG{o}{\PYGZdl{}}age\PYG{p}{)}
+\PYG{c+c1}{\PYGZsh{}\PYGZsh{}    (0,5]   (5,11]  (11,17]  (17,21]  (21,25]  (25,49]  (49,65] (65,100]}
+\PYG{c+c1}{\PYGZsh{}\PYGZsh{}      192      317      332      134      142      808      350      185}
+\end{sphinxVerbatim}
 
 \noindent\sphinxincludegraphics[width=6.5in,height=3.25556in]{{image5}.png}
 
@@ -4912,9 +4772,10 @@ clear labels for the new categories. This is illustrated in Example
 Example 5.4: Constructing right-open intervals for semi-continuous
 variables using built-in \sphinxstyleemphasis{sdcMicro} function globalRecode()
 
-sdcInitial \textless{}- \sphinxstylestrong{globalRecode}(sdcInitial, column = \sphinxstylestrong{c}(‘age’),
-breaks = \sphinxstylestrong{c}(-0.1, 14.9, 64.9, 99.9), labels = \sphinxstylestrong{c}(‘{[}0,15)’,
-‘{[}15,65)’, ‘{[}65,100)’))
+\fvset{hllines={, ,}}%
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+sdcInitial \PYG{o}{\PYGZlt{}\PYGZhy{}} globalRecode\PYG{p}{(}sdcInitial\PYG{p}{,} column \PYG{o}{=} \PYG{k+kt}{c}\PYG{p}{(}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{age\PYGZsq{}}\PYG{p}{)}\PYG{p}{,} breaks \PYG{o}{=} \PYG{k+kt}{c}\PYG{p}{(}\PYG{l+m}{\PYGZhy{}0.1}\PYG{p}{,} \PYG{l+m}{14.9}\PYG{p}{,} \PYG{l+m}{64.9}\PYG{p}{,} \PYG{l+m}{99.9}\PYG{p}{)}\PYG{p}{,} labels \PYG{o}{=} \PYG{k+kt}{c}\PYG{p}{(}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{[0,15)\PYGZsq{}}\PYG{p}{,} \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{[15,65)\PYGZsq{}}\PYG{p}{,} \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{[65,100)\PYGZsq{}}\PYG{p}{)}\PYG{p}{)}
+\end{sphinxVerbatim}
 \begin{itemize}
 \item {} 
 It is also possible to use \sphinxstyleemphasis{R} code to manually recode the variables
@@ -4931,23 +4792,27 @@ Example 5.5.
 Example 5.5: Constructing intervals for semi-continuous and continuous
 variables using manual recoding in \sphinxstyleemphasis{R}
 
-\begin{DUlineblock}{0em}
-\item[] \sphinxstyleemphasis{\# Group age 0-14}
-\item[] sdcInitial@manipKeyVars\$age{[}\sphinxhref{mailto:sdcInitial@manipKeyVars\$age}{sdcInitial@manipKeyVars\$age} \textgreater{}= 0 \&
-\item[] \sphinxhref{mailto:sdcInitial@manipKeyVars\$age}{sdcInitial@manipKeyVars\$age} \textless{} 15{]} \textless{}- 0
-\item[] \sphinxstyleemphasis{\# Group age 15-64}
-\item[] sdcInitial@manipKeyVars\$age{[}\sphinxhref{mailto:sdcInitial@manipKeyVars\$age}{sdcInitial@manipKeyVars\$age} \textgreater{}= 15 \&
-\item[] \sphinxhref{mailto:sdcInitial@manipKeyVars\$age}{sdcInitial@manipKeyVars\$age} \textless{} 65{]} \textless{}- 1
-\item[] \sphinxstyleemphasis{\# Group age 65-100}
-\item[] sdcInitial@manipKeyVars\$age{[}\sphinxhref{mailto:sdcInitial@manipKeyVars\$age}{sdcInitial@manipKeyVars\$age} \textgreater{}= 65 \&
-\item[] \sphinxhref{mailto:sdcInitial@manipKeyVars\$age}{sdcInitial@manipKeyVars\$age} \textless{}= 100{]} \textless{}- 2
-\item[] \sphinxstyleemphasis{\# Add labels for the new values}
-\item[] \sphinxhref{mailto:sdcInitial@manipKeyVars\$age}{sdcInitial@manipKeyVars\$age}
-\textless{}-\sphinxstylestrong{ordered}(\sphinxhref{mailto:sdcInitial@manipKeyVars\$age}{sdcInitial@manipKeyVars\$age},
-\item[] levels = \sphinxstylestrong{c}(0,1,2), labels = \sphinxstylestrong{c}(“0-14”, “15-64”, “65-100”))
-\item[] \sphinxstyleemphasis{\# Recalculate risk after manual manipulation}
-\item[] sdcInitial \textless{}- \sphinxstylestrong{calcRisks}(sdcInitial)
-\end{DUlineblock}
+\fvset{hllines={, ,}}%
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+  \PYG{c+c1}{\PYGZsh{} Group age 0\PYGZhy{}14}
+sdcInitial\PYG{o}{@}manipKeyVars\PYG{o}{\PYGZdl{}}age\PYG{p}{[}sdcInitial\PYG{o}{@}manipKeyVars\PYG{o}{\PYGZdl{}}age \PYG{o}{\PYGZgt{}=} \PYG{l+m}{0} \PYG{o}{\PYGZam{}}
+sdcInitial\PYG{o}{@}manipKeyVars\PYG{o}{\PYGZdl{}}age \PYG{o}{\PYGZlt{}} \PYG{l+m}{15}\PYG{p}{]} \PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{l+m}{0}
+
+\PYG{c+c1}{\PYGZsh{} Group age 15\PYGZhy{}64}
+sdcInitial\PYG{o}{@}manipKeyVars\PYG{o}{\PYGZdl{}}age\PYG{p}{[}sdcInitial\PYG{o}{@}manipKeyVars\PYG{o}{\PYGZdl{}}age \PYG{o}{\PYGZgt{}=} \PYG{l+m}{15} \PYG{o}{\PYGZam{}}
+sdcInitial\PYG{o}{@}manipKeyVars\PYG{o}{\PYGZdl{}}age \PYG{o}{\PYGZlt{}} \PYG{l+m}{65}\PYG{p}{]} \PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{l+m}{1}
+
+\PYG{c+c1}{\PYGZsh{} Group age 65\PYGZhy{}100}
+sdcInitial\PYG{o}{@}manipKeyVars\PYG{o}{\PYGZdl{}}age\PYG{p}{[}sdcInitial\PYG{o}{@}manipKeyVars\PYG{o}{\PYGZdl{}}age \PYG{o}{\PYGZgt{}=} \PYG{l+m}{65} \PYG{o}{\PYGZam{}}
+sdcInitial\PYG{o}{@}manipKeyVars\PYG{o}{\PYGZdl{}}age \PYG{o}{\PYGZlt{}=} \PYG{l+m}{100}\PYG{p}{]} \PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{l+m}{2}
+
+\PYG{c+c1}{\PYGZsh{} Add labels for the new values}
+sdcInitial\PYG{o}{@}manipKeyVars\PYG{o}{\PYGZdl{}}age \PYG{o}{\PYGZlt{}\PYGZhy{}}\PYG{k+kp}{ordered}\PYG{p}{(}sdcInitial\PYG{o}{@}manipKeyVars\PYG{o}{\PYGZdl{}}age\PYG{p}{,}
+levels \PYG{o}{=} \PYG{k+kt}{c}\PYG{p}{(}\PYG{l+m}{0}\PYG{p}{,}\PYG{l+m}{1}\PYG{p}{,}\PYG{l+m}{2}\PYG{p}{)}\PYG{p}{,} labels \PYG{o}{=} \PYG{k+kt}{c}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}}\PYG{l+s}{0\PYGZhy{}14\PYGZdq{}}\PYG{p}{,} \PYG{l+s}{\PYGZdq{}}\PYG{l+s}{15\PYGZhy{}64\PYGZdq{}}\PYG{p}{,} \PYG{l+s}{\PYGZdq{}}\PYG{l+s}{65\PYGZhy{}100\PYGZdq{}}\PYG{p}{)}\PYG{p}{)}
+
+\PYG{c+c1}{\PYGZsh{} Recalculate risk after manual manipulation}
+sdcInitial \PYG{o}{\PYGZlt{}\PYGZhy{}} calcRisks\PYG{p}{(}sdcInitial\PYG{p}{)}
+\end{sphinxVerbatim}
 
 
 \subsubsection{Top and bottom coding}
@@ -5006,14 +4871,14 @@ in the previous subsection.
 Example 5.6: Top coding and bottom coding in \sphinxstyleemphasis{sdcMicro} using
 topBotCoding() function
 
-\begin{DUlineblock}{0em}
-\item[] \sphinxstyleemphasis{\# Top coding at age 65}
-\item[] sdcInitial \textless{}- \sphinxstylestrong{topBotCoding}(obj = sdcInitial, value = 65,
-replacement = 65, kind = ‘top’, column = ‘age’)
-\item[] \sphinxstyleemphasis{\# Bottom coding at age 5}
-\item[] sdcInitial \textless{}- \sphinxstylestrong{topBotCoding}(obj = sdcInitial, value = 5,
-replacement = 5, kind = ‘bottom’, column = ‘age’)
-\end{DUlineblock}
+\fvset{hllines={, ,}}%
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{\PYGZsh{} Top coding at age 65}
+sdcInitial \PYG{o}{\PYGZlt{}\PYGZhy{}} topBotCoding\PYG{p}{(}obj \PYG{o}{=} sdcInitial\PYG{p}{,} value \PYG{o}{=} \PYG{l+m}{65}\PYG{p}{,} replacement \PYG{o}{=} \PYG{l+m}{65}\PYG{p}{,} kind \PYG{o}{=} \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{top\PYGZsq{}}\PYG{p}{,} column \PYG{o}{=} \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{age\PYGZsq{}}\PYG{p}{)}
+
+\PYG{c+c1}{\PYGZsh{} Bottom coding at age 5}
+sdcInitial \PYG{o}{\PYGZlt{}\PYGZhy{}} topBotCoding\PYG{p}{(}obj \PYG{o}{=} sdcInitial\PYG{p}{,} value \PYG{o}{=} \PYG{l+m}{5}\PYG{p}{,} replacement \PYG{o}{=} \PYG{l+m}{5}\PYG{p}{,} kind \PYG{o}{=} \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{bottom\PYGZsq{}}\PYG{p}{,} column \PYG{o}{=} \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{age\PYGZsq{}}\PYG{p}{)}
+\end{sphinxVerbatim}
 
 
 \subsubsection{Rounding}
@@ -5027,7 +4892,7 @@ The next section discusses the method local suppression. Recoding is
 often used before local suppression to reduce the number of necessary
 suppressions.
 
-\sphinxstylestrong{Recommended Reading Material on Recoding}
+\begin{sphinxadmonition}{note}{Recommended Reading Material on Recoding}
 
 Hundepool, Anco, Josep Domingo-Ferrer, Luisa Franconi, Sarah Giessing,
 Rainer Lenz, Jane Naylor, Eric Schulte Nordholt, Giovanni Seri, and
@@ -5047,6 +4912,7 @@ November 13, 2014).
 De Waal, A.G., and Willenborg, L.C.R.J. 1999. \sphinxstyleemphasis{Information loss through
 global recoding and local suppression}. Netherlands Official Statistics,
 14:17-20, 1999. Special issue on SDC
+\end{sphinxadmonition}
 
 
 \subsection{Local suppression}
@@ -5333,43 +5199,32 @@ This can be assessed with utility measures.
 Example 5.7: Application of local suppression with and without
 importance vector
 
-\sphinxstyleemphasis{\# local suppression without importance vector}
+\fvset{hllines={, ,}}%
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{\PYGZsh{} local suppression without importance vector}
+sdcInitial \PYG{o}{\PYGZlt{}\PYGZhy{}} localSuppression\PYG{p}{(}sdcInitial\PYG{p}{,} k \PYG{o}{=} \PYG{l+m}{5}\PYG{p}{)}
 
-sdcInitial \textless{}- \sphinxstylestrong{localSuppression}(sdcInitial, k = 5)
+\PYG{k+kp}{print}\PYG{p}{(}sdcInitial\PYG{p}{,} \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{ls\PYGZsq{}}\PYG{p}{)}
+\PYG{c+c1}{\PYGZsh{}\PYGZsh{}     KeyVar \textbar{} Suppressions (\PYGZsh{}) \textbar{} Suppressions (\PYGZpc{})}
+\PYG{c+c1}{\PYGZsh{}\PYGZsh{}    sizeRes \textbar{}                0 \textbar{}            0.000}
+\PYG{c+c1}{\PYGZsh{}\PYGZsh{}        age \textbar{}               80 \textbar{}            3.200}
+\PYG{c+c1}{\PYGZsh{}\PYGZsh{}     gender \textbar{}                0 \textbar{}            0.000}
+\PYG{c+c1}{\PYGZsh{}\PYGZsh{}     region \textbar{}                0 \textbar{}            0.000}
+\PYG{c+c1}{\PYGZsh{}\PYGZsh{}  ethnicity \textbar{}                8 \textbar{}            0.320}
 
-\sphinxstylestrong{print}(sdcInitial, ‘ls’)
+\PYG{c+c1}{\PYGZsh{} Undoing the supressions}
+sdcInitial \PYG{o}{\PYGZlt{}\PYGZhy{}} undolast\PYG{p}{(}sdcInitial\PYG{p}{)}
 
-\begin{DUlineblock}{0em}
-\item[] \sphinxcode{\sphinxupquote{\#\#     KeyVar \textbar{} Suppressions (\#) \textbar{} Suppressions (\%)}}
-\item[] \sphinxcode{\sphinxupquote{\#\#    sizeRes \textbar{}                0 \textbar{}            0.000}}
-\item[] \sphinxcode{\sphinxupquote{\#\#        age \textbar{}               80 \textbar{}            3.200}}
-\item[] \sphinxcode{\sphinxupquote{\#\#     gender \textbar{}                0 \textbar{}            0.000}}
-\item[] \sphinxcode{\sphinxupquote{\#\#     region \textbar{}                0 \textbar{}            0.000}}
-\item[] \sphinxcode{\sphinxupquote{\#\#  ethnicity \textbar{}                8 \textbar{}            0.320}}
-\end{DUlineblock}
-
-\begin{DUlineblock}{0em}
-\item[] \sphinxstyleemphasis{\# Undoing the supressions}
-\item[] sdcInitial \textless{}- \sphinxstylestrong{undolast}(sdcInitial)
-\end{DUlineblock}
-
-\begin{DUlineblock}{0em}
-\item[] \sphinxstyleemphasis{\# Local suppression with importance vector to avoid suppressions in
-the first (gender) and fourth (age) variables}
-\item[] sdcInitial \textless{}- \sphinxstylestrong{localSuppression}(sdcInitial, importance =
-\sphinxstylestrong{c}(5, 1, 1, 5, 5), k = 5)
-\item[] \sphinxstylestrong{print}(sdcInitial, ‘ls’)
-\end{DUlineblock}
-
-\sphinxcode{\sphinxupquote{\#\#     KeyVar \textbar{} Suppressions (\#) \textbar{} Suppressions (\%)}}
-
-\begin{DUlineblock}{0em}
-\item[] \sphinxcode{\sphinxupquote{\#\#    sizeRes \textbar{}               87 \textbar{}            3.480}}
-\item[] \sphinxcode{\sphinxupquote{\#\#        age \textbar{}                0 \textbar{}            0.000}}
-\item[] \sphinxcode{\sphinxupquote{\#\#     gender \textbar{}                0 \textbar{}            0.000}}
-\item[] \sphinxcode{\sphinxupquote{\#\#     region \textbar{}               17 \textbar{}            0.680}}
-\item[] \sphinxcode{\sphinxupquote{\#\#  ethnicity \textbar{}               62 \textbar{}            2.480}}
-\end{DUlineblock}
+\PYG{c+c1}{\PYGZsh{} Local suppression with importance vector to avoid suppressions in the first (gender) and fourth (age) variables}
+sdcInitial \PYG{o}{\PYGZlt{}\PYGZhy{}} localSuppression\PYG{p}{(}sdcInitial\PYG{p}{,} importance \PYG{o}{=} \PYG{k+kt}{c}\PYG{p}{(}\PYG{l+m}{5}\PYG{p}{,} \PYG{l+m}{1}\PYG{p}{,} \PYG{l+m}{1}\PYG{p}{,} \PYG{l+m}{5}\PYG{p}{,} \PYG{l+m}{5}\PYG{p}{)}\PYG{p}{,} k \PYG{o}{=} \PYG{l+m}{5}\PYG{p}{)}
+\PYG{k+kp}{print}\PYG{p}{(}sdcInitial\PYG{p}{,} \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{ls\PYGZsq{}}\PYG{p}{)}
+\PYG{c+c1}{\PYGZsh{}\PYGZsh{}     KeyVar \textbar{} Suppressions (\PYGZsh{}) \textbar{} Suppressions (\PYGZpc{})}
+\PYG{c+c1}{\PYGZsh{}\PYGZsh{}    sizeRes \textbar{}               87 \textbar{}            3.480}
+\PYG{c+c1}{\PYGZsh{}\PYGZsh{}        age \textbar{}                0 \textbar{}            0.000}
+\PYG{c+c1}{\PYGZsh{}\PYGZsh{}     gender \textbar{}                0 \textbar{}            0.000}
+\PYG{c+c1}{\PYGZsh{}\PYGZsh{}     region \textbar{}               17 \textbar{}            0.680}
+\PYG{c+c1}{\PYGZsh{}\PYGZsh{}  ethnicity \textbar{}               62 \textbar{}            2.480}
+\end{sphinxVerbatim}
 
 Figure 5.5 demonstrates the effect of the required \(k\)-anonymity
 threshold and the importance vector on the data utility by using several
@@ -5615,19 +5470,13 @@ in \sphinxstyleemphasis{sdcMicro}.
 
 Example 5.8 The all-\(\mathbf{m}\) approach in sdcMicro
 
-\begin{DUlineblock}{0em}
-\item[] \sphinxstyleemphasis{\# Apply k-anonymity with threshold 5 to all subsets of two key
-variables and subsequently to the complete dataset}
-\item[] sdcInitial \textless{}- \sphinxstylestrong{localSuppression}(sdcInitial, k = 5, combs =
-\sphinxstylestrong{c}(2, 5))
-\end{DUlineblock}
-
-\begin{DUlineblock}{0em}
-\item[] \sphinxstyleemphasis{\# Apply k-anonymity with threshold 5 to all subsets of three key
-variables and subsequently with threshold 2 to the complete dataset}
-\item[] sdcInitial \textless{}- \sphinxstylestrong{localSuppression}(sdcInitial, k = \sphinxstylestrong{c}(3, 5),
-combs = \sphinxstylestrong{c}(5, 2))
-\end{DUlineblock}
+\fvset{hllines={, ,}}%
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{\PYGZsh{} Apply k\PYGZhy{}anonymity with threshold 5 to all subsets of two key variables and subsequently to the complete dataset}
+sdcInitial \PYG{o}{\PYGZlt{}\PYGZhy{}} localSuppression\PYG{p}{(}sdcInitial\PYG{p}{,} k \PYG{o}{=} \PYG{l+m}{5}\PYG{p}{,} combs \PYG{o}{=} \PYG{k+kt}{c}\PYG{p}{(}\PYG{l+m}{2}\PYG{p}{,} \PYG{l+m}{5}\PYG{p}{)}\PYG{p}{)}
+\PYG{c+c1}{\PYGZsh{} Apply k\PYGZhy{}anonymity with threshold 5 to all subsets of three key variables and subsequently with threshold 2 to the complete dataset}
+sdcInitial \PYG{o}{\PYGZlt{}\PYGZhy{}} localSuppression\PYG{p}{(}sdcInitial\PYG{p}{,} k \PYG{o}{=} \PYG{k+kt}{c}\PYG{p}{(}\PYG{l+m}{3}\PYG{p}{,} \PYG{l+m}{5}\PYG{p}{)}\PYG{p}{,} combs \PYG{o}{=} \PYG{k+kt}{c}\PYG{p}{(}\PYG{l+m}{5}\PYG{p}{,} \PYG{l+m}{2}\PYG{p}{)}\PYG{p}{)}
+\end{sphinxVerbatim}
 
 Table 5.6 presents the results of using the all-\(m\) approach of
 a test dataset with 9 key variables and 4,000 records. The table shows
@@ -5936,11 +5785,11 @@ corresponding to the suppressions in the region variable. All values of
 
 Example 5.9: Manually suppressing values in linked variables
 
-\begin{DUlineblock}{0em}
-\item[] \sphinxstyleemphasis{\# Suppress values of rururb in file if region is suppressed}
-\item[] file{[}\sphinxstylestrong{is.na}(\sphinxhref{mailto:sdcInitial@manipKeyVars\$region}{sdcInitial@manipKeyVars\$region}) \&
-!\sphinxstylestrong{is.na}(\sphinxhref{mailto:sdcInitial@origData\$region}{sdcInitial@origData\$region}),’sizRes’{]} \textless{}- NA
-\end{DUlineblock}
+\fvset{hllines={, ,}}%
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{\PYGZsh{} Suppress values of rururb in file if region is suppressed}
+\PYG{k+kp}{file}\PYG{p}{[}\PYG{k+kp}{is.na}\PYG{p}{(}sdcInitial\PYG{o}{@}manipKeyVars\PYG{o}{\PYGZdl{}}region\PYG{p}{)} \PYG{o}{\PYGZam{}} \PYG{o}{!}\PYG{k+kp}{is.na}\PYG{p}{(}sdcInitial\PYG{o}{@}origData\PYG{o}{\PYGZdl{}}region\PYG{p}{)}\PYG{p}{,}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{sizRes\PYGZsq{}}\PYG{p}{]} \PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{k+kc}{NA}
+\end{sphinxVerbatim}
 
 Alternatively, the linked variables can be specified when creating the
 \sphinxstyleemphasis{sdcMicro} object. The linked variables are called ghost variables. Any
@@ -5951,26 +5800,22 @@ the linkage between “region” and “rururb” with ghost variables.
 Example 5.10: Suppressing values in linked variables by specifying ghost
 variables
 
-\begin{DUlineblock}{0em}
-\item[] \sphinxstyleemphasis{\# Ghost (linked) variables are specified as a list of linkages}
-\item[] ghostVars \textless{}- \sphinxstylestrong{list}()
-\end{DUlineblock}
+\fvset{hllines={, ,}}%
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{\PYGZsh{} Ghost (linked) variables are specified as a list of linkages}
+ghostVars \PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{k+kt}{list}\PYG{p}{(}\PYG{p}{)}
 
-\begin{DUlineblock}{0em}
-\item[] \sphinxstyleemphasis{\# Each linkage is a list, with the first element the key variable and
-the second element the linked variable(s)}
-\item[] ghostVars{[}{[}1{]}{]} \textless{}- \sphinxstylestrong{list}()
-\item[] ghostVars{[}{[}1{]}{]}{[}{[}1{]}{]} \textless{}- “region”
-\item[] ghostVars{[}{[}1{]}{]}{[}{[}2{]}{]} \textless{}- \sphinxstylestrong{c}(“sizeRes”)
-\item[] \sphinxstyleemphasis{\#\# Create the sdcMicroObj}
-\item[] sdcInitial \textless{}- \sphinxstylestrong{createSdcObj}(file, keyVars = keyVars, numVars =
-numVars, weightVar = weight, ghostVars = ghostVars)
-\end{DUlineblock}
+\PYG{c+c1}{\PYGZsh{} Each linkage is a list, with the first element the key variable and the second element the linked variable(s)}
+ghostVars\PYG{p}{[[}\PYG{l+m}{1}\PYG{p}{]]} \PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{k+kt}{list}\PYG{p}{(}\PYG{p}{)}
+ghostVars\PYG{p}{[[}\PYG{l+m}{1}\PYG{p}{]]}\PYG{p}{[[}\PYG{l+m}{1}\PYG{p}{]]} \PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{l+s}{\PYGZdq{}}\PYG{l+s}{region\PYGZdq{}}
+ghostVars\PYG{p}{[[}\PYG{l+m}{1}\PYG{p}{]]}\PYG{p}{[[}\PYG{l+m}{2}\PYG{p}{]]} \PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{k+kt}{c}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}}\PYG{l+s}{sizeRes\PYGZdq{}}\PYG{p}{)}
 
-\begin{DUlineblock}{0em}
-\item[] \sphinxstyleemphasis{\# The manipulated ghost variables are in the slot manipGhostVars}
-\item[] \sphinxhref{mailto:sdcInitial@manipGhostVars}{sdcInitial@manipGhostVars}
-\end{DUlineblock}
+\PYG{c+c1}{\PYGZsh{}\PYGZsh{} Create the sdcMicroObj}
+sdcInitial \PYG{o}{\PYGZlt{}\PYGZhy{}} createSdcObj\PYG{p}{(}\PYG{k+kp}{file}\PYG{p}{,} keyVars \PYG{o}{=} keyVars\PYG{p}{,} numVars \PYG{o}{=} numVars\PYG{p}{,} weightVar \PYG{o}{=} weight\PYG{p}{,} ghostVars \PYG{o}{=} ghostVars\PYG{p}{)}
+
+\PYG{c+c1}{\PYGZsh{} The manipulated ghost variables are in the slot manipGhostVars}
+sdcInitial\PYG{o}{@}manipGhostVars
+\end{sphinxVerbatim}
 
 The simpler alternative for the localSuppression() function in
 \sphinxstyleemphasis{sdcMicro} is the localSupp() function. The localSupp() function can be
@@ -5990,28 +5835,20 @@ the number of suppressions.
 
 Example 5.11: Application of built-in \sphinxstyleemphasis{sdcMicro} function localSupp()
 
-\begin{DUlineblock}{0em}
-\item[] \sphinxstyleemphasis{\# Summary statistics}
-\item[] \sphinxstylestrong{summary}(sdcInitial@risk\$individual{[},1{]})
-\end{DUlineblock}
+\fvset{hllines={, ,}}%
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{\PYGZsh{} Summary statistics}
+\PYG{k+kp}{summary}\PYG{p}{(}sdcInitial\PYG{o}{@}risk\PYG{o}{\PYGZdl{}}individual\PYG{p}{[}\PYG{p}{,}\PYG{l+m}{1}\PYG{p}{]}\PYG{p}{)}
+\PYG{c+c1}{\PYGZsh{}\PYGZsh{}    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.}
+\PYG{c+c1}{\PYGZsh{}\PYGZsh{} 0.05882 0.10000 0.14290 0.26480 0.33330 1.00000}
 
-\begin{DUlineblock}{0em}
-\item[] \sphinxcode{\sphinxupquote{\#\#    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.}}
-\item[] \sphinxcode{\sphinxupquote{\#\# 0.05882 0.10000 0.14290 0.26480 0.33330 1.00000}}
-\end{DUlineblock}
+\PYG{c+c1}{\PYGZsh{} Number of individuals with individual risk higher than 0.1}
+\PYG{k+kp}{sum}\PYG{p}{(}sdcInitial\PYG{o}{@}risk\PYG{o}{\PYGZdl{}}individual\PYG{p}{[}\PYG{p}{,}\PYG{l+m}{1}\PYG{p}{]} \PYG{o}{\PYGZgt{}} \PYG{l+m}{0.1}\PYG{p}{)}
+\PYG{c+c1}{\PYGZsh{}\PYGZsh{} [1] 1863}
 
-\begin{DUlineblock}{0em}
-\item[] \sphinxstyleemphasis{\# Number of individuals with individual risk higher than 0.1}
-\item[] \sphinxstylestrong{sum}(sdcInitial@risk\$individual{[},1{]} \textgreater{} 0.1)
-\end{DUlineblock}
-
-\sphinxcode{\sphinxupquote{\#\# {[}1{]} 1863}}
-
-\begin{DUlineblock}{0em}
-\item[] \sphinxstyleemphasis{\# local suppression}
-\item[] sdcInitial \textless{}- \sphinxstylestrong{localSupp}(sdcInitial, threshold = 0.1, keyVar =
-‘education’)
-\end{DUlineblock}
+\PYG{c+c1}{\PYGZsh{} local suppression}
+sdcInitial \PYG{o}{\PYGZlt{}\PYGZhy{}} localSupp\PYG{p}{(}sdcInitial\PYG{p}{,} threshold \PYG{o}{=} \PYG{l+m}{0.1}\PYG{p}{,} keyVar \PYG{o}{=} \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{education\PYGZsq{}}\PYG{p}{)}
+\end{sphinxVerbatim}
 
 
 \section{Perturbative methods}
@@ -6333,26 +6170,25 @@ The number of changed records per variable is also shown.
 
 Example 5.12: Producing reproducible PRAM results by using set.seed()
 
-\begin{DUlineblock}{0em}
-\item[] \sphinxstyleemphasis{\# Set seed for random number generator}
-\item[] \sphinxstylestrong{set.seed}(123)
-\item[] \sphinxstyleemphasis{\# Apply PRAM to all selected variables}
-\item[] sdcInitial \textless{}- \sphinxstylestrong{pram}(obj = sdcInitial)
-\end{DUlineblock}
+\fvset{hllines={, ,}}%
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{\PYGZsh{} Set seed for random number generator}
+\PYG{k+kp}{set.seed}\PYG{p}{(}\PYG{l+m}{123}\PYG{p}{)}
 
-\begin{DUlineblock}{0em}
-\item[] \sphinxcode{\sphinxupquote{\#\# Number of changed observations:}}
-\item[] \sphinxcode{\sphinxupquote{\#\# - - - - - - - - - - -}}
-\item[] \sphinxcode{\sphinxupquote{\#\# ROOF != ROOF\_pram : 75 (3.75\%)}}
-\item[] \sphinxcode{\sphinxupquote{\#\# TOILET != TOILET\_pram : 200 (10\%)}}
-\item[] \sphinxcode{\sphinxupquote{\#\# WATER != WATER\_pram : 111 (5.55\%)}}
-\item[] \sphinxcode{\sphinxupquote{\#\# ELECTCON != ELECTCON\_pram : 99 (4.95\%)}}
-\item[] \sphinxcode{\sphinxupquote{\#\# FUELCOOK != FUELCOOK\_pram : 152 (7.6\%)}}
-\item[] \sphinxcode{\sphinxupquote{\#\# OWNMOTORCYCLE != OWNMOTORCYCLE\_pram : 42 (2.1\%)}}
-\item[] \sphinxcode{\sphinxupquote{\#\# CAR != CAR\_pram : 168 (8.4\%)}}
-\item[] \sphinxcode{\sphinxupquote{\#\# TV != TV\_pram : 170 (8.5\%)}}
-\item[] \sphinxcode{\sphinxupquote{\#\# LIVESTOCK != LIVESTOCK\_pram : 52 (2.6\%)}}
-\end{DUlineblock}
+\PYG{c+c1}{\PYGZsh{} Apply PRAM to all selected variables}
+sdcInitial \PYG{o}{\PYGZlt{}\PYGZhy{}} pram\PYG{p}{(}obj \PYG{o}{=} sdcInitial\PYG{p}{)}
+\PYG{c+c1}{\PYGZsh{}\PYGZsh{} Number of changed observations:}
+\PYG{c+c1}{\PYGZsh{}\PYGZsh{} \PYGZhy{} \PYGZhy{} \PYGZhy{} \PYGZhy{} \PYGZhy{} \PYGZhy{} \PYGZhy{} \PYGZhy{} \PYGZhy{} \PYGZhy{} \PYGZhy{}}
+\PYG{c+c1}{\PYGZsh{}\PYGZsh{} ROOF != ROOF\PYGZus{}pram : 75 (3.75\PYGZpc{})}
+\PYG{c+c1}{\PYGZsh{}\PYGZsh{} TOILET != TOILET\PYGZus{}pram : 200 (10\PYGZpc{})}
+\PYG{c+c1}{\PYGZsh{}\PYGZsh{} WATER != WATER\PYGZus{}pram : 111 (5.55\PYGZpc{})}
+\PYG{c+c1}{\PYGZsh{}\PYGZsh{} ELECTCON != ELECTCON\PYGZus{}pram : 99 (4.95\PYGZpc{})}
+\PYG{c+c1}{\PYGZsh{}\PYGZsh{} FUELCOOK != FUELCOOK\PYGZus{}pram : 152 (7.6\PYGZpc{})}
+\PYG{c+c1}{\PYGZsh{}\PYGZsh{} OWNMOTORCYCLE != OWNMOTORCYCLE\PYGZus{}pram : 42 (2.1\PYGZpc{})}
+\PYG{c+c1}{\PYGZsh{}\PYGZsh{} CAR != CAR\PYGZus{}pram : 168 (8.4\PYGZpc{})}
+\PYG{c+c1}{\PYGZsh{}\PYGZsh{} TV != TV\PYGZus{}pram : 170 (8.5\PYGZpc{})}
+\PYG{c+c1}{\PYGZsh{}\PYGZsh{} LIVESTOCK != LIVESTOCK\PYGZus{}pram : 52 (2.6\PYGZpc{})}
+\end{sphinxVerbatim}
 
 Table 5.9 shows the tabulation of the variable after applying invariant
 PRAM. We can see that the deviations from the initial tabulations, which
@@ -6520,19 +6356,16 @@ in the function createSdcObj().
 
 Example 5.13: Selecting the variable “toilet” to apply PRAM
 
-\begin{DUlineblock}{0em}
-\item[] \sphinxstyleemphasis{\# Set seed for random number generator}
-\item[] \sphinxstylestrong{set.seed}(123)
-\item[] \sphinxstyleemphasis{\# Apply PRAM only to the variable TOILET}
-\item[] sdcInitial \textless{}- \sphinxstylestrong{pram}(obj = sdcInitial, variables = \sphinxstylestrong{c}
-(“TOILET”))
-\end{DUlineblock}
-
-\begin{DUlineblock}{0em}
-\item[] \sphinxcode{\sphinxupquote{\#\# Number of changed observations:}}
-\item[] \sphinxcode{\sphinxupquote{\#\# - - - - - - - - - - -}}
-\item[] \sphinxcode{\sphinxupquote{\#\# TOILET != TOILET\_pram : 115 (5.75\%)}}
-\end{DUlineblock}
+\fvset{hllines={, ,}}%
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{\PYGZsh{} Set seed for random number generator}
+\PYG{k+kp}{set.seed}\PYG{p}{(}\PYG{l+m}{123}\PYG{p}{)}
+\PYG{c+c1}{\PYGZsh{} Apply PRAM only to the variable TOILET}
+sdcInitial \PYG{o}{\PYGZlt{}\PYGZhy{}} pram\PYG{p}{(}obj \PYG{o}{=} sdcInitial\PYG{p}{,} variables \PYG{o}{=} \PYG{k+kt}{c} \PYG{p}{(}\PYG{l+s}{\PYGZdq{}}\PYG{l+s}{TOILET\PYGZdq{}}\PYG{p}{)}\PYG{p}{)}
+\PYG{c+c1}{\PYGZsh{}\PYGZsh{} Number of changed observations:}
+\PYG{c+c1}{\PYGZsh{}\PYGZsh{} \PYGZhy{} \PYGZhy{} \PYGZhy{} \PYGZhy{} \PYGZhy{} \PYGZhy{} \PYGZhy{} \PYGZhy{} \PYGZhy{} \PYGZhy{} \PYGZhy{}}
+\PYG{c+c1}{\PYGZsh{}\PYGZsh{} TOILET != TOILET\PYGZus{}pram : 115 (5.75\PYGZpc{})}
+\end{sphinxVerbatim}
 
 The results for PRAM differ if applied simultaneously to several
 variables or subsequently to each variable separately. It is not
@@ -6552,14 +6385,13 @@ the categories).
 Example 5.14: Specifying minimum values for diagonal entries in PRAM
 transition matrix
 
-sdcInitial \textless{}- \sphinxstylestrong{pram}(obj = sdcInitial, variables =
-\sphinxstylestrong{c}(“TOILET”), pd = \sphinxstylestrong{c}(0.9, 0.5, 0.5, 0.5))
-
-\begin{DUlineblock}{0em}
-\item[] \sphinxcode{\sphinxupquote{\#\# Number of changed observations:}}
-\item[] \sphinxcode{\sphinxupquote{\#\# - - - - - - - - - - -}}
-\item[] \sphinxcode{\sphinxupquote{\#\# TOILET != TOILET\_pram : 496 (24.8\%)}}
-\end{DUlineblock}
+\fvset{hllines={, ,}}%
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+sdcInitial \PYG{o}{\PYGZlt{}\PYGZhy{}} pram\PYG{p}{(}obj \PYG{o}{=} sdcInitial\PYG{p}{,} variables \PYG{o}{=} \PYG{k+kt}{c}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}}\PYG{l+s}{TOILET\PYGZdq{}}\PYG{p}{)}\PYG{p}{,} pd \PYG{o}{=} \PYG{k+kt}{c}\PYG{p}{(}\PYG{l+m}{0.9}\PYG{p}{,} \PYG{l+m}{0.5}\PYG{p}{,} \PYG{l+m}{0.5}\PYG{p}{,} \PYG{l+m}{0.5}\PYG{p}{)}\PYG{p}{)}
+\PYG{c+c1}{\PYGZsh{}\PYGZsh{} Number of changed observations:}
+\PYG{c+c1}{\PYGZsh{}\PYGZsh{} \PYGZhy{} \PYGZhy{} \PYGZhy{} \PYGZhy{} \PYGZhy{} \PYGZhy{} \PYGZhy{} \PYGZhy{} \PYGZhy{} \PYGZhy{} \PYGZhy{}}
+\PYG{c+c1}{\PYGZsh{}\PYGZsh{} TOILET != TOILET\PYGZus{}pram : 496 (24.8\PYGZpc{})}
+\end{sphinxVerbatim}
 
 In the invariant PRAM method, we can also specify the amount of
 perturbation by specifying the parameter alpha. This choice is reflected
@@ -6602,19 +6434,16 @@ gender, age groups, education level.
 Example 5.15: Minimizing unlikely combinations by applying PRAM within
 strata
 
-\begin{DUlineblock}{0em}
-\item[] \sphinxstyleemphasis{\# Applying PRAM within the strata generated by the variable region}
-\item[] sdcInitial \textless{}- \sphinxstylestrong{pram}(obj = sdcInitial, variables =
-\sphinxstylestrong{c}(“TOILET”), strata\_variables = \sphinxstylestrong{c}(“REGION”))
-\end{DUlineblock}
+\fvset{hllines={, ,}}%
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{\PYGZsh{} Applying PRAM within the strata generated by the variable region}
+sdcInitial \PYG{o}{\PYGZlt{}\PYGZhy{}} pram\PYG{p}{(}obj \PYG{o}{=} sdcInitial\PYG{p}{,} variables \PYG{o}{=} \PYG{k+kt}{c}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}}\PYG{l+s}{TOILET\PYGZdq{}}\PYG{p}{)}\PYG{p}{,} strata\PYGZus{}variables \PYG{o}{=} \PYG{k+kt}{c}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}}\PYG{l+s}{REGION\PYGZdq{}}\PYG{p}{)}\PYG{p}{)}
+\PYG{c+c1}{\PYGZsh{}\PYGZsh{} Number of changed observations:}
+\PYG{c+c1}{\PYGZsh{}\PYGZsh{} \PYGZhy{} \PYGZhy{} \PYGZhy{} \PYGZhy{} \PYGZhy{} \PYGZhy{} \PYGZhy{} \PYGZhy{} \PYGZhy{} \PYGZhy{} \PYGZhy{}}
+\PYG{c+c1}{\PYGZsh{}\PYGZsh{} TOILET != TOILET\PYGZus{}pram : 179 (8.95\PYGZpc{})}
+\end{sphinxVerbatim}
 
-\begin{DUlineblock}{0em}
-\item[] \sphinxcode{\sphinxupquote{\#\# Number of changed observations:}}
-\item[] \sphinxcode{\sphinxupquote{\#\# - - - - - - - - - - -}}
-\item[] \sphinxcode{\sphinxupquote{\#\# TOILET != TOILET\_pram : 179 (8.95\%)}}
-\end{DUlineblock}
-
-\sphinxstylestrong{Recommended Reading Material on PRAM}
+\begin{sphinxadmonition}{note}{Recommended Reading Material on PRAM}
 
 Gouweleeuw, J. M, P Kooiman, L.C.R.J Willenborg, and P.P de Wolf. “Post
 Randomization for Statistical Disclosure Control: Theory and
@@ -6635,10 +6464,11 @@ Domingo-Ferrer and Emmanouil Magkos, 97-106. Corfú, Greece: Springer.
 Warner, S.L. “Randomized Response: A Survey Technique for Eliminating
 Evasive Answer Bias.” \sphinxstyleemphasis{Journal of American Statistical Association} 57
 (1965): 622-627.
+\end{sphinxadmonition}
 
 
 \subsection{Microaggregation}
-\label{\detokenize{anon_methods:microaggregation}}
+\label{\detokenize{anon_methods:id14}}
 Microaggregation is most suitable for continuous variables, but can be
 extended in some cases to categorical variables. {[}\#foot47{]}\_\_
 It is most useful where confidentiality rules have been predetermined
@@ -6705,8 +6535,11 @@ low income (e.g., 832 and 966) and four individuals have a high income
 Example 5.16: Applying univariate microaggregation with \sphinxstyleemphasis{sdcMicro}
 function microaggregation()
 
-sdcInitial \textless{}- \sphinxstylestrong{microaggregation}(obj = sdcInitial, variables =
-‘INC’, aggr = 3, method = mafast, measure = “mean”)
+\fvset{hllines={, ,}}%
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+sdcInitial \PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{o}{*}\PYG{o}{*}microaggregation\PYG{o}{*}\PYG{o}{*}\PYGZbs{} \PYG{p}{(}obj \PYG{o}{=} sdcInitial\PYG{p}{,} variables \PYG{o}{=}
+\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{INC\PYGZsq{}}\PYG{p}{,} aggr \PYG{o}{=} \PYG{l+m}{3}\PYG{p}{,} method \PYG{o}{=} mafast\PYG{p}{,} measure \PYG{o}{=} \PYG{l+s}{\PYGZdq{}}\PYG{l+s}{mean\PYGZdq{}}\PYG{p}{)}
+\end{sphinxVerbatim}
 
 By default, the microaggregation function replaces values with the group
 mean. An alternative, more robust approach is to replace group values
@@ -7037,8 +6870,10 @@ to choose the MDAV algorithm in \sphinxstyleemphasis{sdcMicro}.
 Example 5.17: Multivariate microaggregation with the Maximum Distance to
 Average Vector (MDAV) algorithm in \sphinxstyleemphasis{sdcMicro}
 
-sdcInitial \textless{}- \sphinxstylestrong{microaggregation}(obj = sdcInitial, variables =
-\sphinxstylestrong{c}(“INC”, “EXP”, “WEALTH”), method = “mdav”)
+\fvset{hllines={, ,}}%
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+sdcInitial \PYG{o}{\PYGZlt{}\PYGZhy{}} microaggregation\PYG{p}{(}obj \PYG{o}{=} sdcInitial\PYG{p}{,} variables \PYG{o}{=} \PYG{k+kt}{c}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}}\PYG{l+s}{INC\PYGZdq{}}\PYG{p}{,} \PYG{l+s}{\PYGZdq{}}\PYG{l+s}{EXP\PYGZdq{}}\PYG{p}{,} \PYG{l+s}{\PYGZdq{}}\PYG{l+s}{WEALTH\PYGZdq{}}\PYG{p}{)}\PYG{p}{,} method \PYG{o}{=} \PYG{l+s}{\PYGZdq{}}\PYG{l+s}{mdav\PYGZdq{}}\PYG{p}{)}
+\end{sphinxVerbatim}
 
 It is also possible to group variables only within strata. This reduces
 the computation time and adds an extra layer of protection to the data,
@@ -7055,9 +6890,10 @@ shown in Example 5.18.
 
 Example 5.18: Specifying strata variables for microaggregation
 
-sdcInitial \textless{}- \sphinxstylestrong{microaggregation}(obj = sdcInitial, variables =
-\sphinxstylestrong{c}(“INC”, “EXP”, “WEALTH”), method = “mdav”, strata\_variables =
-\sphinxstylestrong{c}(“strata”))
+\fvset{hllines={, ,}}%
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+sdcInitial \PYG{o}{\PYGZlt{}\PYGZhy{}} microaggregation\PYG{p}{(}obj \PYG{o}{=} sdcInitial\PYG{p}{,} variables \PYG{o}{=} \PYG{k+kt}{c}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}}\PYG{l+s}{INC\PYGZdq{}}\PYG{p}{,} \PYG{l+s}{\PYGZdq{}}\PYG{l+s}{EXP\PYGZdq{}}\PYG{p}{,} \PYG{l+s}{\PYGZdq{}}\PYG{l+s}{WEALTH\PYGZdq{}}\PYG{p}{)}\PYG{p}{,} method \PYG{o}{=} \PYG{l+s}{\PYGZdq{}}\PYG{l+s}{mdav\PYGZdq{}}\PYG{p}{,} strata\PYGZus{}variables \PYG{o}{=} \PYG{k+kt}{c}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}}\PYG{l+s}{strata\PYGZdq{}}\PYG{p}{)}\PYG{p}{)}
+\end{sphinxVerbatim}
 
 Besides the method MDAV, there are few other grouping methods
 implemented in \sphinxstyleemphasis{sdcMicro} (Templ, Meindl and Kowarik, 2014). Table 5.13
@@ -7136,7 +6972,7 @@ of replacing the values with the mean of the groups rather than other
 replacement values has the advantage that the overall means of the
 variables are preserved.
 
-\sphinxstylestrong{Recommended Reading Material on Microaggregation}
+\begin{sphinxadmonition}{note}{Recommended Reading Material on Microaggregation}
 
 Domingo-Ferrer, Josep, and Josep Maria Mateo-Sanz. 2002.”Practical
 data-oriented microaggregation for statistical disclosure control.”
@@ -7161,6 +6997,7 @@ Templ, Matthias, Bernhard Meindl, Alexander Kowarik, and Shuang Chen.
 2014, August. “International Household Survey Network (IHSN).”
 \sphinxurl{http://www.ihsn.org/home/software/disclosure-control-toolbox}. (accessed
 November 13, 2014).
+\end{sphinxadmonition}
 
 
 \subsection{Noise addition}
@@ -7266,10 +7103,10 @@ variables.
 
 Example 5.19: Uncorrelated noise addition
 
-sdcInitial \textless{}- \sphinxstylestrong{addNoise}(obj = sdcInitial, variables =
-\sphinxstylestrong{c}(‘TOTFOOD’, ‘TOTHLTH’, ‘TOTALCH’, ‘TOTCLTH’, ‘TOTHOUS’,
-‘TOTFURN’, ‘TOTTRSP’, ‘TOTCMNQ’, ‘TOTRCRE’, ‘TOTEDUC’, ‘TOTHOTL’,
-‘TOTMISC’), noise = 0.5, method = “additive”)
+\fvset{hllines={, ,}}%
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+sdcInitial \PYG{o}{\PYGZlt{}\PYGZhy{}} addNoise\PYG{p}{(}obj \PYG{o}{=} sdcInitial\PYG{p}{,} variables \PYG{o}{=} \PYG{k+kt}{c}\PYG{p}{(}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{TOTFOOD\PYGZsq{}}\PYG{p}{,} \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{TOTHLTH\PYGZsq{}}\PYG{p}{,} \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{TOTALCH\PYGZsq{}}\PYG{p}{,}     \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{TOTCLTH\PYGZsq{}}\PYG{p}{,} \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{TOTHOUS\PYGZsq{}}\PYG{p}{,} \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{TOTFURN\PYGZsq{}}\PYG{p}{,} \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{TOTTRSP\PYGZsq{}}\PYG{p}{,} \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{TOTCMNQ\PYGZsq{}}\PYG{p}{,} \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{TOTRCRE\PYGZsq{}}\PYG{p}{,} \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{TOTEDUC\PYGZsq{}}\PYG{p}{,} \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{TOTHOTL\PYGZsq{}}\PYG{p}{,} \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{TOTMISC\PYGZsq{}}\PYG{p}{)}\PYG{p}{,} noise \PYG{o}{=} \PYG{l+m}{0.5}\PYG{p}{,} method \PYG{o}{=} \PYG{l+s}{\PYGZdq{}}\PYG{l+s}{additive\PYGZdq{}}\PYG{p}{)}
+\end{sphinxVerbatim}
 
 Figure 5.7 shows the frequency distribution of a numeric continuous
 variable and the distribution before and after noise addition with
@@ -7354,10 +7191,10 @@ jarque.bera.test() from the package \sphinxstyleemphasis{tseries}.
 
 Example 5.20: Correlated noise addition
 
-sdcInitial \textless{}- \sphinxstylestrong{addNoise}(obj = sdcInitial, variables =
-\sphinxstylestrong{c}(‘TOTFOOD’, ‘TOTHLTH’, ‘TOTALCH’, ‘TOTCLTH’, ‘TOTHOUS’,
-‘TOTFURN’, ‘TOTTRSP’, ‘TOTCMNQ’, ‘TOTRCRE’, ‘TOTEDUC’, ‘TOTHOTL’,
-‘TOTMISC’), noise = 0.5, method = “correlated2”)
+\fvset{hllines={, ,}}%
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+sdcInitial \PYG{o}{\PYGZlt{}\PYGZhy{}} addNoise\PYG{p}{(}obj \PYG{o}{=} sdcInitial\PYG{p}{,} variables \PYG{o}{=} \PYG{k+kt}{c}\PYG{p}{(}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{TOTFOOD\PYGZsq{}}\PYG{p}{,} \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{TOTHLTH\PYGZsq{}}\PYG{p}{,} \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{TOTALCH\PYGZsq{}}\PYG{p}{,} \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{TOTCLTH\PYGZsq{}}\PYG{p}{,} \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{TOTHOUS\PYGZsq{}}\PYG{p}{,} \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{TOTFURN\PYGZsq{}}\PYG{p}{,} \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{TOTTRSP\PYGZsq{}}\PYG{p}{,} \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{TOTCMNQ\PYGZsq{}}\PYG{p}{,} \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{TOTRCRE\PYGZsq{}}\PYG{p}{,} \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{TOTEDUC\PYGZsq{}}\PYG{p}{,} \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{TOTHOTL\PYGZsq{}}\PYG{p}{,} \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{TOTMISC\PYGZsq{}}\PYG{p}{)}\PYG{p}{,} noise \PYG{o}{=} \PYG{l+m}{0.5}\PYG{p}{,} method \PYG{o}{=} \PYG{l+s}{\PYGZdq{}}\PYG{l+s}{correlated2\PYGZdq{}}\PYG{p}{)}
+\end{sphinxVerbatim}
 
 In many cases, only the outliers have to be protected, or have to be
 protected more. The method ‘outdect’ adds noise only to the outliers,
@@ -7369,10 +7206,10 @@ outlier protection.
 
 Example 5.21: Noise addition for outliers using the ‘outdect’ method
 
-sdcInitial \textless{}- \sphinxstylestrong{addNoise}(obj = sdcInitial, variables =
-\sphinxstylestrong{c}(‘TOTFOOD’, ‘TOTHLTH’, ‘TOTALCH’, ‘TOTCLTH’, ‘TOTHOUS’,
-‘TOTFURN’, ‘TOTTRSP’, ‘TOTCMNQ’, ‘TOTRCRE’, ‘TOTEDUC’, ‘TOTHOTL’,
-‘TOTMISC’), noise = 0.5, method = “outdect”)
+\fvset{hllines={, ,}}%
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+sdcInitial \PYG{o}{\PYGZlt{}\PYGZhy{}} addNoise\PYG{p}{(}obj \PYG{o}{=} sdcInitial\PYG{p}{,} variables \PYG{o}{=} \PYG{k+kt}{c}\PYG{p}{(}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{TOTFOOD\PYGZsq{}}\PYG{p}{,} \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{TOTHLTH\PYGZsq{}}\PYG{p}{,} \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{TOTALCH\PYGZsq{}}\PYG{p}{,} \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{TOTCLTH\PYGZsq{}}\PYG{p}{,} \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{TOTHOUS\PYGZsq{}}\PYG{p}{,} \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{TOTFURN\PYGZsq{}}\PYG{p}{,} \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{TOTTRSP\PYGZsq{}}\PYG{p}{,} \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{TOTCMNQ\PYGZsq{}}\PYG{p}{,} \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{TOTRCRE\PYGZsq{}}\PYG{p}{,} \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{TOTEDUC\PYGZsq{}}\PYG{p}{,} \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{TOTHOTL\PYGZsq{}}\PYG{p}{,} \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{TOTMISC\PYGZsq{}}\PYG{p}{)}\PYG{p}{,} noise \PYG{o}{=} \PYG{l+m}{0.5}\PYG{p}{,} method \PYG{o}{=} \PYG{l+s}{\PYGZdq{}}\PYG{l+s}{outdect\PYGZdq{}}\PYG{p}{)}
+\end{sphinxVerbatim}
 
 If noise addition is applied to variables that are a ratio of an
 aggregate, this structure can be destroyed by noise addition. Examples
@@ -7391,32 +7228,21 @@ expenditure category.
 
 Example 5.22: Noise addition to aggregates and their components
 
-\begin{DUlineblock}{0em}
-\item[] \sphinxstyleemphasis{\# Add noise to totals (income / expenditures)}
-\item[] sdcInital \textless{}- \sphinxstylestrong{addNoise}(noise = 0.5, obj = sdcInitial,
-variables=\sphinxstylestrong{c}(“EXP”, “INC”), method=”additive”)
-\end{DUlineblock}
+\fvset{hllines={, ,}}%
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{\PYGZsh{} Add noise to totals (income / expenditures)}
+sdcInital \PYG{o}{\PYGZlt{}\PYGZhy{}} addNoise\PYG{p}{(}noise \PYG{o}{=} \PYG{l+m}{0.5}\PYG{p}{,} obj \PYG{o}{=} sdcInitial\PYG{p}{,} variables\PYG{o}{=}\PYG{k+kt}{c}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}}\PYG{l+s}{EXP\PYGZdq{}}\PYG{p}{,} \PYG{l+s}{\PYGZdq{}}\PYG{l+s}{INC\PYGZdq{}}\PYG{p}{)}\PYG{p}{,} method\PYG{o}{=}\PYG{l+s}{\PYGZdq{}}\PYG{l+s}{additive\PYGZdq{}}\PYG{p}{)}
+\PYG{c+c1}{\PYGZsh{} Multiply anonymized totals with ratios to obtain anonymized components}
+compExp \PYG{o}{\PYGZlt{}\PYGZhy{}}  \PYG{k+kt}{c}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}}\PYG{l+s}{TOTFOOD\PYGZdq{}}\PYG{p}{,}  \PYG{l+s}{\PYGZdq{}}\PYG{l+s}{TOTALCH\PYGZdq{}}\PYG{p}{,}  \PYG{l+s}{\PYGZdq{}}\PYG{l+s}{TOTCLTH\PYGZdq{}}\PYG{p}{,}  \PYG{l+s}{\PYGZdq{}}\PYG{l+s}{TOTHOUS\PYGZdq{}}\PYG{p}{,}  \PYG{l+s}{\PYGZdq{}}\PYG{l+s}{TOTFURN\PYGZdq{}}\PYG{p}{,}  \PYG{l+s}{\PYGZdq{}}\PYG{l+s}{TOTHLTH\PYGZdq{}}\PYG{p}{,}                                \PYG{l+s}{\PYGZdq{}}\PYG{l+s}{TOTTRSP\PYGZdq{}}\PYG{p}{,}  \PYG{l+s}{\PYGZdq{}}\PYG{l+s}{TOTCMNQ\PYGZdq{}}\PYG{p}{,} \PYG{l+s}{\PYGZdq{}}\PYG{l+s}{TOTRCRE\PYGZdq{}}\PYG{p}{,}  \PYG{l+s}{\PYGZdq{}}\PYG{l+s}{TOTEDUC\PYGZdq{}}\PYG{p}{,}  \PYG{l+s}{\PYGZdq{}}\PYG{l+s}{TOTHOTL\PYGZdq{}}\PYG{p}{,}  \PYG{l+s}{\PYGZdq{}}\PYG{l+s}{TOTMISC\PYGZdq{}}\PYG{p}{)}
 
-\begin{DUlineblock}{0em}
-\item[] \sphinxstyleemphasis{\# Multiply anonymized totals with ratios to obtain anonymized
-components}
-\item[] compExp \textless{}- \sphinxstylestrong{c}(“TOTFOOD”, “TOTALCH”, “TOTCLTH”, “TOTHOUS”,
-“TOTFURN”, “TOTHLTH”, “TOTTRSP”, “TOTCMNQ”, “TOTRCRE”, “TOTEDUC”,
-“TOTHOTL”, “TOTMISC”)
-\end{DUlineblock}
+sdcInital\PYG{o}{@}manipNumVars\PYG{p}{[}\PYG{p}{,}compExp\PYG{p}{]} \PYG{o}{\PYGZlt{}\PYGZhy{}} sdcInital\PYG{o}{@}manipNumVars\PYG{p}{[}\PYG{p}{,}\PYG{l+s}{\PYGZdq{}}\PYG{l+s}{HHEXP\PYGZus{}N\PYGZdq{}}\PYG{p}{]} \PYG{o}{*}
+                            sdcInital\PYG{o}{@}origData\PYG{p}{[}\PYG{p}{,}compExp\PYG{p}{]}\PYG{o}{/} sdcInital\PYG{o}{@}origData\PYG{p}{[}\PYG{p}{,}\PYG{l+s}{\PYGZdq{}}\PYG{l+s}{HHEXP\PYGZus{}N\PYGZdq{}}\PYG{p}{]}
 
-sdcInital@manipNumVars{[},compExp{]} \textless{}- sdcInital@manipNumVars{[},”HHEXP\_N”{]}
-*
+\PYG{c+c1}{\PYGZsh{} Recalculate risks after manually changing values in sdcMicro object}
+sdcInitial \PYG{o}{\PYGZlt{}\PYGZhy{}} calcRisks\PYG{p}{(}sdcInital\PYG{p}{)}
+\end{sphinxVerbatim}
 
-sdcInital@origData{[},compExp{]}/ sdcInital@origData{[},”HHEXP\_N”{]}
-
-\begin{DUlineblock}{0em}
-\item[] \sphinxstyleemphasis{\# Recalculate risks after manually changing values in sdcMicro
-object}
-\item[] \sphinxstylestrong{sdcInitial \textless{}- calcRisks}(sdcInital)
-\end{DUlineblock}
-
-\sphinxstylestrong{Recommended Reading Material on Noise Addition}
+\begin{sphinxadmonition}{note}{Recommended Reading Material on Noise Addition}
 
 Brand, Ruth. 2002. “Microdata Protection through Noise Addition.” In
 \sphinxstyleemphasis{Inference Control in Statistical Databases - From Theory to Practice},
@@ -7440,6 +7266,7 @@ Mivule, K. 2013. “Utilizing Noise Addition for Data Privacy, An
 Overview.” \sphinxstyleemphasis{Proceedings of the International Conference on Information
 and Knowledge Engineering (IKE 2012)}, (pp.65-71).Las Vegas, USA.
 \sphinxurl{http://arxiv.org/ftp/arxiv/papers/1309/1309.3958.pdf}
+\end{sphinxadmonition}
 
 
 \subsection{Rank swapping}
@@ -7486,23 +7313,18 @@ Example 5.23.
 
 Example 5.23: Rank swapping using \sphinxstyleemphasis{sdcMicro}
 
-\begin{DUlineblock}{0em}
-\item[] \sphinxstyleemphasis{\# Check correlation structure between the variables}
-\item[] \sphinxstylestrong{cor}(file\$TOTHOUS, file\$TOTFOOD)
-\end{DUlineblock}
+\fvset{hllines={, ,}}%
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{\PYGZsh{} Check correlation structure between the variables}
+cor\PYG{p}{(}\PYG{k+kp}{file}\PYG{o}{\PYGZdl{}}TOTHOUS\PYG{p}{,} \PYG{k+kp}{file}\PYG{o}{\PYGZdl{}}TOTFOOD\PYG{p}{)}
+\PYG{c+c1}{\PYGZsh{}\PYGZsh{} [1] 0.3811335}
 
-\sphinxcode{\sphinxupquote{\#\# {[}1{]} 0.3811335}}
+\PYG{c+c1}{\PYGZsh{} Set seed for random number generator}
+\PYG{k+kp}{set.seed}\PYG{p}{(}\PYG{l+m}{12345}\PYG{p}{)}
 
-\begin{DUlineblock}{0em}
-\item[] \sphinxstyleemphasis{\# Set seed for random number generator}
-\item[] \sphinxstylestrong{set.seed}(12345)
-\end{DUlineblock}
-
-\begin{DUlineblock}{0em}
-\item[] \sphinxstyleemphasis{\# Apply rank swapping}
-\item[] \sphinxstylestrong{rankSwap}(sdcInitial, variables = \sphinxstylestrong{c}(“TOTHOUS”, “TOTFOOD”),
-missing = NA)
-\end{DUlineblock}
+\PYG{c+c1}{\PYGZsh{} Apply rank swapping}
+rankSwap\PYG{p}{(}sdcInitial\PYG{p}{,} variables \PYG{o}{=} \PYG{k+kt}{c}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}}\PYG{l+s}{TOTHOUS\PYGZdq{}}\PYG{p}{,} \PYG{l+s}{\PYGZdq{}}\PYG{l+s}{TOTFOOD\PYGZdq{}}\PYG{p}{)}\PYG{p}{,} missing \PYG{o}{=} \PYG{k+kc}{NA}\PYG{p}{)}
+\end{sphinxVerbatim}
 
 Rank swapping has been found to yield good results with respect to the
 trade-off between information loss and data protection (Domingo-Ferrer
@@ -7515,7 +7337,7 @@ swapping, because the values themselves are not altered and the original
 values are all disclosed. This can be solved by top and bottom coding
 the lowest and/or highest values.
 
-\sphinxstylestrong{Recommended Reading Material on Rank Swapping}
+\begin{sphinxadmonition}{note}{Recommended Reading Material on Rank Swapping}
 
 Dalenius T. and Reiss S.P. 1978. Data-swapping: a technique for
 disclosure control (extended abstract). In Proc. ASA Section on Survey
@@ -7531,6 +7353,7 @@ and L. Zayatz, 111\textendash{}134. Amsterdam, North-Holland.
 Hundepool A., Van de Wetering A., Ramaswamy R., Franconi F., Polettini
 S., Capobianchi A., De Wolf P.-P., Domingo-Ferrer J., Torra V., Brand R.
 and Giessing S. 2007. \(\mu\)-Argus User’s Manual version 4.1.
+\end{sphinxadmonition}
 
 
 \subsection{Shuffling}
@@ -7738,24 +7561,20 @@ predicted by total household expenditures and household size.
 
 Example 5.24: Shuffling using a specified regression equation
 
-\begin{DUlineblock}{0em}
-\item[] \sphinxstyleemphasis{\# Evaluate R-squared (goodness-of-fit) of the regression model}
-\item[] \sphinxstylestrong{summary}(\sphinxstylestrong{lm}(file, form = TOTFOOD + TOTALCH + TOTCLTH +
-TOTHOUS + TOTFURN + TOTHLTH + TOTTRSP + TOTCMNQ + TOTRCRE + TOTEDUC +
-TOTHOTL + TOTMISC \textasciitilde{} EXP + HHSIZE))
-\end{DUlineblock}
+\fvset{hllines={, ,}}%
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{\PYGZsh{} Evaluate R\PYGZhy{}squared (goodness\PYGZhy{}of\PYGZhy{}fit) of the regression model}
+\PYG{k+kp}{summary}\PYG{p}{(}lm\PYG{p}{(}\PYG{k+kp}{file}\PYG{p}{,} form \PYG{o}{=} TOTFOOD  \PYG{o}{+} TOTALCH \PYG{o}{+} TOTCLTH \PYG{o}{+} TOTHOUS \PYG{o}{+} TOTFURN \PYG{o}{+} TOTHLTH  \PYG{o}{+} TOTTRSP \PYG{o}{+} TOTCMNQ \PYG{o}{+} TOTRCRE \PYG{o}{+} TOTEDUC \PYG{o}{+} TOTHOTL \PYG{o}{+} TOTMISC \PYG{o}{\PYGZti{}} EXP \PYG{o}{+} HHSIZE\PYG{p}{)}\PYG{p}{)}
 
-\begin{DUlineblock}{0em}
-\item[] \sphinxstyleemphasis{\# Shuffling using the specified regression equation}
-\item[] sdcInitial \textless{}- \sphinxstylestrong{shuffle}(sdcInitial, method=’ds’, form = TOTFOOD +
-TOTALCH + TOTCLTH + TOTHOUS + TOTFURN + TOTHLTH + TOTTRSP + TOTCMNQ +
-TOTRCRE + TOTEDUC + TOTHOTL + TOTMISC \textasciitilde{} EXP + HHSIZE)
-\end{DUlineblock}
+\PYG{c+c1}{\PYGZsh{} Shuffling using the specified regression equation}
+sdcInitial \PYG{o}{\PYGZlt{}\PYGZhy{}} shuffle\PYG{p}{(}sdcInitial\PYG{p}{,} method\PYG{o}{=}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{ds\PYGZsq{}}\PYG{p}{,} form \PYG{o}{=} TOTFOOD  \PYG{o}{+} TOTALCH \PYG{o}{+} TOTCLTH \PYG{o}{+} TOTHOUS \PYG{o}{+} TOTFURN \PYG{o}{+} TOTHLTH  \PYG{o}{+} TOTTRSP \PYG{o}{+} TOTCMNQ \PYG{o}{+} TOTRCRE \PYG{o}{+} TOTEDUC \PYG{o}{+} TOTHOTL \PYG{o}{+} TOTMISC \PYG{o}{\PYGZti{}} EXP \PYG{o}{+} HHSIZE\PYG{p}{)}
+\end{sphinxVerbatim}
 
-\sphinxstylestrong{Recommended Reading Material on Shuffling}
+\begin{sphinxadmonition}{note}{Recommended Reading Material on Shuffling}
 
 K. Muralidhar and R. Sarathy. 2006.”Data shuffling - A new masking
 approach for numerical data,” \sphinxstyleemphasis{Management Science}, 52, 658-670.
+\end{sphinxadmonition}
 
 
 \subsection{Comparison of PRAM, rank swapping and shuffling}
@@ -7802,7 +7621,7 @@ displacement procedure for a health dataset. This paper also includes
 the code in Python. Hu and Drechsler (2015) propose three different
 strategies for generating synthetic geocodes.
 
-\sphinxstylestrong{Recommended Reading Material on Anonymization of Geospatial Data}
+\begin{sphinxadmonition}{note}{Recommended Reading Material on Anonymization of Geospatial Data}
 
 C.R. Burgert, J. Colston, T. Roy and B. Zachary. 2013. “DHS Spatial
 Analysis Report No. 7 - Geographic Displacement Procedure and
@@ -7812,6 +7631,7 @@ Surveys” (USAID). \sphinxurl{http://dhsprogram.com/pubs/pdf/SAR7/SAR7.pdf}
 J. Hu and J. Drechsler. 2015. “Generating synthetic geocoding
 information for public release.”
 \sphinxurl{http://www.iab.de/389/section.aspx/Publikation/k150601301}
+\end{sphinxadmonition}
 
 
 \section{Anonymization of the quasi-identifier household size}
@@ -7891,7 +7711,7 @@ detail by recoding.{[}\#foot57{]}\_
 
 
 \chapter{Measuring Utility and Information Loss}
-\label{\detokenize{utility::doc}}\label{\detokenize{utility:measuring-utility-and-information-loss}}
+\label{\detokenize{utility:measuring-utility-and-information-loss}}\label{\detokenize{utility::doc}}
 SDC is a trade-off between risk of disclosure and loss of data utility
 and seeks to minimize the latter, while reducing the risk of disclosure
 to an acceptable level. Data utility in this context means the
@@ -8124,12 +7944,12 @@ anonymization.
 
 Example 6.4: Comparing contingency tables of categorical variables
 
-\begin{DUlineblock}{0em}
-\item[] \sphinxstyleemphasis{\# Contingency table (cross tabulation) of the variables region and
-urban/rural}
-\item[] \sphinxstylestrong{table}(sdcInitial@origData{[}, \sphinxstylestrong{c}(‘REGION’, ‘URBRUR’){]}) \sphinxstyleemphasis{\#
-before anonymization}
-\end{DUlineblock}
+\fvset{hllines={, ,}}%
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+  \PYG{c+c1}{\PYGZsh{} Contingency table (cross tabulation) of the variables region and urban/rural}
+      \PYG{k+kp}{table}\PYG{o}{*}\PYG{o}{*}\PYGZbs{} \PYG{p}{(}sdcInitial\PYG{o}{@}origData\PYG{p}{[}\PYG{p}{,} \PYG{o}{*}\PYG{o}{*}\PYG{k+kt}{c}\PYG{o}{*}\PYG{o}{*}\PYGZbs{} \PYG{p}{(}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{REGION\PYGZsq{}}\PYG{p}{,} \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{URBRUR\PYGZsq{}}\PYG{p}{)}\PYG{p}{]}\PYG{p}{)} \PYG{o}{*}
+before anonymization\PYG{o}{*}
+\end{sphinxVerbatim}
 
 \begin{DUlineblock}{0em}
 \item[] \sphinxcode{\sphinxupquote{\#\#       URBRUR}}
@@ -8917,8 +8737,7 @@ and regressions. In general, when anonymizing sampled data, it is
 advisable to compute confidence intervals around estimates to interpret
 the magnitude of changes.
 
-\sphinxstylestrong{Recommended Reading Material on Measuring Utility and Information
-Loss}
+\begin{sphinxadmonition}{note}{Recommended Reading Material on Measuring Utility and Information Loss}
 
 A.G. De Waal and L.C.R.J. Willenborg. 1999. “Information Loss through
 Global Recoding and Local Suppression” In Netherlands Official
@@ -8934,10 +8753,11 @@ Information Loss for Microdata”. In P. Doyle, J.I. Lane, J.J.M. Theeuwes
 and L. Zayatz (eds.) \sphinxstyleemphasis{Theory and Practical Applications for Statistical
 Agencies}, 91-110, Amsterdam.
 \sphinxurl{http://crises-deim.urv.cat/webCrises/publications/bcpi/cliatpasa01Disclosure.pdf}
+\end{sphinxadmonition}
 
 
 \chapter{SDC with \sphinxstyleemphasis{sdcMicro} in \sphinxstyleemphasis{R}: Setting Up Your Data and more}
-\label{\detokenize{sdcMicro::doc}}\label{\detokenize{sdcMicro:sdc-with-sdcmicro-in-r-setting-up-your-data-and-more}}
+\label{\detokenize{sdcMicro:sdc-with-sdcmicro-in-r-setting-up-your-data-and-more}}\label{\detokenize{sdcMicro::doc}}
 
 \section{Installing \sphinxstyleemphasis{R}, \sphinxstyleemphasis{sdcMicro} and other packages}
 \label{\detokenize{sdcMicro:installing-r-sdcmicro-and-other-packages}}
@@ -10719,7 +10539,7 @@ recomputed by using the function calcRisks().
 
 
 \chapter{The SDC Process}
-\label{\detokenize{process::doc}}\label{\detokenize{process:the-sdc-process}}
+\label{\detokenize{process:the-sdc-process}}\label{\detokenize{process::doc}}
 This section presents the SDC process in a step-by-step representation
 and can be used as guidance for the actual SDC process. It should be
 noted, however, that jumping between steps and returning to previous
@@ -11392,12 +11212,13 @@ data. This step depends on the type of release chosen in Step 3. Changes
 to the variables made under Step 2, such a merging variables, can be
 undone to generate a dataset useful for users.
 
-\sphinxstylestrong{Recommended Reading Material}
+\begin{sphinxadmonition}{note}{Recommended Reading Material on Risk Measurement}
 
 Dupriez, Olivier, and Ernie Boyko. 2010. \sphinxstyleemphasis{Dissemination of Microdata
 Files; Principles, Procedures and Practices.} IHSN Working Paper No.
 005, International Household Survey Network (IHSN).
 \sphinxurl{http://www.ihsn.org/HOME/sites/default/files/resources/IHSN-WP005.pdf}
+\end{sphinxadmonition}
 
 \noindent\sphinxincludegraphics[width=6.55208in,height=8.60417in]{{image20}.png}
 
@@ -11405,7 +11226,7 @@ Figure 8.1: Overview of the SDC process
 
 
 \chapter{Appendices}
-\label{\detokenize{appendices::doc}}\label{\detokenize{appendices:appendices}}
+\label{\detokenize{appendices:appendices}}\label{\detokenize{appendices::doc}}
 
 \section{\sphinxstylestrong{Appendix} \sphinxstylestrong{A: Overview of Case Study Variables}}
 \label{\detokenize{appendices:appendix-a-overview-of-case-study-variables}}
@@ -12361,118 +12182,11 @@ individual-level variables.
 \sphinxstylestrong{Description of anonymization scenarios}{\color{red}\bfseries{}\textbar{}image22\textbar{}}
 
 
-\chapter{\sphinxstylestrong{Bibliography}}
+\chapter{Bibliography}
 \label{\detokenize{bibliography::doc}}\label{\detokenize{bibliography:bibliography}}
-\sphinxurl{http://cran.r-project.org/web/packages/sdcMicroGUI/index.html}
-
-{\hyperref[\detokenize{20http:/www.ihsn.org/home/software/disclosure-control-toolbox::doc}]{\sphinxcrossref{http://www.ihsn.org/home/software/disclosure-control-toolbox}}}
-
-\sphinxurl{http://www.ihsn.org/home/software/disclosure-control-toolbox}
-
-Brand, R. (2002). Microdata Protection through Noise Addition. In J.
-Domingo-Ferrer (Ed.), \sphinxstyleemphasis{Inference Control in Statistical Databases - From
-Theory to Practice} (Vol. Lecture Notes in Computer Science Series
-Volume 2316, pp. 97-116). Berlin Heidelberg, Germany: Springer.
-Burgert, C. R., Colston, J., Roy, T., \& Zachary, B. (2013). \sphinxstyleemphasis{Geographic
-Displacement Procedure and Georeferenced Data Release Policy for the
-Demographic and Health Surveys.} DHS Spatial Analysis Report No.
-7.
-Dalenius, T., \& Reiss, S. (1978). Data-swapping: A Technique for
-Disclosure Control (extended abstract). \sphinxstyleemphasis{American Statistical
-Association Proceedings of the Section on Survey Research Methods}, (pp.
-191-194).De Waal, A., \& Willenborg, L. (1999). Information Loss Through
-Global Recoding and Local Suppression. \sphinxstyleemphasis{Netherlands Official Statistics}
-\sphinxstyleemphasis{, 14} (Special issue on SDC), 17-20.De Wolf, P., Gouweleew, J. M.,
-Kooiman, P., \& Willenborg, L. (1998). Reflections on PRAM. \sphinxstyleemphasis{Proceedings
-of the conference “Statistical Data Protection”.} Lisbon.de Wolf, P.-P.
-(2015). \sphinxstyleemphasis{Public Use Files of EU-SILC and EU-LFS data.} Domingo-Ferrer,
-J., \& Mateo-Sanz, J. M. (2002). Practical data-oriented microaggregation
-for statistical disclosure control. \sphinxstyleemphasis{IEEE Transactions on Knowledge and
-Data Engineering} \sphinxstyleemphasis{, 14}, 189-201.Domingo-Ferrer, J., \& Torra, V.
-(2001). A Quantitative Comparison of Disclosure Control Methods for
-Microdata. In P. Doyle, J. Lane, J. Theeuwes, \& L. Zayatz (Eds.),
-\sphinxstyleemphasis{Confidentiality, Disclosure and Data Access: Theory and Practical
-Applications for Statistical Agencies} (pp. 111-133). Amsterdam,
-North-Holland: Elsevier Science.Domingo-Ferrer, J., \& Torra, V. (2001).
-Disclosure Protection Methods and Information Loss for Microdata. In P.
-Doyle, J. Lane, J. Theeuwes, \& Z. L., \sphinxstyleemphasis{Theory and Practical Applications
-for Statistical Agencies} (pp. 91-110). Amsterdam.Domingo-Ferrer, J.,
-Mateo-Sanz, J., \& Torra, V. (2001). Comparing SDC Methods for Microdata
-on the basis of Information Loss and Disclosure Risk. \sphinxstyleemphasis{Pre-proceedings
-of ETK-NTTS 2001}, (pp. 807-826). Crete, Greece.Dupriez, O., \& Boyko, E.
-(2010). \sphinxstyleemphasis{Dissemination of Microdata Files; Principles, Procedures and
-Practices.} International Household Survey Network (IHSN).Elliot , M., \&
-Manning, A. M. (2003). Using DIS to Modify the Classification of Special
-Uniques. \sphinxstyleemphasis{Invited Paper. Joint ECE/Eurostat Work Session on Statistical
-Data Confidentiality.} Luxemboug 2-9 April 2003.Elliot, M. J., Manning,
-A. M., \& Ford, R. W. (2002). A Computational Algorithm for Handling the
-Special Uniques Problem. \sphinxstyleemphasis{International Journal of Uncertainty,
-Fuzziness and Knowledge Based System} \sphinxstyleemphasis{, 10} (5), 493-509.Elliot, M. J.,
-Manning, A., Mayes, K., Gurd, J., \& Bane, M. (2005). SUDA: A Program for
-Detecting Special Uniques. \sphinxstyleemphasis{Joint UNECE/Eurostat Work Session on
-Statistical Data Confidentiality.} Geneva.Gouweleeuw, J. M., Kooiman,
-P., Willenborg, L., \& de Wolf, P. P. (1998b). The Post Randomization
-Method for Protecting Microdata. \sphinxstyleemphasis{Qüestiió, Quaderns d’Estadística i
-Investigació Operativa} \sphinxstyleemphasis{, 22} (1), 145-156.Gouweleeuw, J. M., Kooiman,
-P., Willenborg, L., \& de Wolf, P. (1998a). Post Randomization for
-Statistical Disclosure Control:Theory and Implementation. \sphinxstyleemphasis{Journal of
-Official Statistics} \sphinxstyleemphasis{, 14} (4), 463-478.Hansen, S. L., \& Mukherjee, S.
-(2003). A polynomial algorithm for univariate optimal. \sphinxstyleemphasis{IEEE
-Transactions on Knowledge and Data Engineering} \sphinxstyleemphasis{, 15}, 1043-1044.Hu,
-J., \& Drechsler, J. (2015). Generating synthetic geocoding infromation
-for public release. \sphinxstyleemphasis{NTTS - Conferences on New Techniques and
-Technologies for Statistics.} Brussels.Hundepool, A., Domingo-Ferrer,
-J., Franconi, L., Giessing, S., Lenz, R., Naylor, J., et al. (2006).
-\sphinxstyleemphasis{Handbook on Statistical Disclosure Control.} ESSNet SDC.Hundepool, A.,
-Domingo-Ferrer, J., Franconi, L., Giessing, S., Nordholt, E. S., Spicer,
-K., et al. (2012). \sphinxstyleemphasis{Statistical Disclosure Control.} Chichester, UK:
-John Wiley \& Sons Ltd.Hundepool, A., Van de Wetering, A., Ramaswamy, R.,
-Franconi, L., Polettini, S., Capobianchi, A., et al. (2008). \sphinxstyleemphasis{\(\mu\)-Argus
-User’s Manual.} The Hague: Statistics Netherlands.Kim, J. J., \& Winkler,
-W. W. (2003, April 17). Multiplicative Noise for Masking Continuous
-Data. \sphinxstyleemphasis{Research Report Series} .Kowarik, A., Templ, M., Meindl, B., \&
-Fonteneau, F. (2013). \sphinxstyleemphasis{Graphical User Interface for Package sdcMicro}.
-Retrieved from Lambert, D. (1993). Measures of Disclosure Risk and Harm.
-\sphinxstyleemphasis{Journal of Official Statistics} \sphinxstyleemphasis{, 9} (2), 313-331.Machanavajjhala, A.,
-Kifer, D., Gehrke, J., \& Venkitasubramaniam, M. (2007). L-diversity:
-Privacy Beyond K-anonymity. \sphinxstyleemphasis{ACM Trans. Knowl. Discov. Data} \sphinxstyleemphasis{, 1
-(Article 3)} (1556-4681).Manning, A. M., Haglin, D. J., \& Keane, J. A.
-(2008). A Recursive Search Algorithm for Statistical Disclosure
-Assessment. \sphinxstyleemphasis{Data Mining and Knowledge Discovery} \sphinxstyleemphasis{, 16} (2),
-165-196.Marés, J., \& Torra, V. (2010). PRAM Optimization Using an
-Evolutionary Algorithm. In J. Domingo-Ferrer, \& E. Magkos, \sphinxstyleemphasis{Privacy in
-Statistical Databases} (pp. 97-106). Corfú, Greece: Springer.Mivule, K.
-(July 16-19, 2012). Utilizing Noise Addition for Data Privacy, An
-Overview. \sphinxstyleemphasis{International Conference on Information and Knowledge
-Engineering (IKE 2012)}, (pp. 65-71). Las Vegas, Nevada.Muralidhar, K.,
-\& Sarathy, R. (2006). Data Shuffling- A New Masking Approach for
-Numerical Data. \sphinxstyleemphasis{Management Science} , 658-670.Templ, M., Meindl, B., \&
-Kowarik, A. (2014, August). \sphinxstyleemphasis{Tutorial for SDCMicroGUI.} Retrieved from
-International Household Survey Network (IHSN):Templ, M., Meindl, B.,
-Kowarik, A., \& Chen, S. (2014, August 1). \sphinxstyleemphasis{Introduction to Statistical
-Disclosure Control (SDC).} Retrieved November 13, 2014, from .Torra, V.,
-\& Cano, I. (2011). Edit Constraints on Microaggregation and Additive
-Noise. In A. G.-D. Christos Dimitrakakis (Ed.), \sphinxstyleemphasis{Privacy and Security
-Issues in Data Mining and Machine Learning} (Vol. Lecture Notes in
-Computer Science Volume 6549, pp. 1-14). Berlin Heidelberg:
-Springer.Tudor, C., Lowthian, P., \& Spicer, K. (2015). Opening up
-governemnt data while maintaining data privacy. \sphinxstyleemphasis{EDBT/ICDT 2015 Joint
-Conference.} UK Information Commissioner’s Office. \sphinxstyleemphasis{Anonymisation:
-Managing Data Protection Risk Code of Practice.} UK Information
-Commissioner’s Office.United Nations. (2007). \sphinxstyleemphasis{Managing Statistical
-Confidentiality \& Microdata Access: Principles and Guidelines of Good
-Practice.} New York and Geneva: United Nations.Warner, S. (1965).
-Randomized Response: A Survey Technique for Eliminating Evasive Answer
-Bias. \sphinxstyleemphasis{Journal of American Statistical Association} \sphinxstyleemphasis{, 57},
-622-627.Yancey, W. W., Winkler, W. E., \& Creecy, R. H. (2002).
-Disclosure Risk Assessment in Perturbative Microdata Protection.
-\sphinxstyleemphasis{Research Report Series} \sphinxstyleemphasis{, Statistics 2002-01}.Yang, A., Shan, Y., \&
-Bui, L. T. (2008). \sphinxstyleemphasis{Success in Evolutionary Computation.} Springer
-Science \& Business Media.
-
 
 \chapter{Lists}
-\label{\detokenize{lists::doc}}\label{\detokenize{lists:lists}}
+\label{\detokenize{lists:lists}}\label{\detokenize{lists::doc}}
 May no longer be needed in this format or need to be automated
 
 
@@ -12940,7 +12654,7 @@ Example 9.46: Exporting the anonymized PUF file 171
 
 
 \chapter{Case Study (Illustrating the SDC Process)}
-\label{\detokenize{case_studies::doc}}\label{\detokenize{case_studies:case-study-illustrating-the-sdc-process}}
+\label{\detokenize{case_studies:case-study-illustrating-the-sdc-process}}\label{\detokenize{case_studies::doc}}
 In order to evaluate the use of different SDC methods on different types
 of survey datasets, we compared the results of the different methods
 applied to 75 datasets from 52 countries representing six geographic
@@ -19978,6 +19692,198 @@ Example 9.46: Exporting the anonymized PUF file
 \item[] \sphinxstylestrong{write.dta}(dataframe = dataAnon, file= ‘Case2DataAnon.dta’,
 convert.dates=TRUE)
 \end{DUlineblock}
+
+\begin{sphinxthebibliography}{DoTo01a}
+\bibitem[Bran02]{\detokenize{Bran02}}{\phantomsection\label{\detokenize{bibliography:bran02}} 
+Brand, R. (2002).
+\sphinxstylestrong{Microdata Protection through Noise Addition.}
+In J. Domingo-Ferrer (Ed.), Inference Control in Statistical Databases - From Theory to Practice (Vol. Lecture Notes in Computer Science Series Volume 2316, pp. 97-116). Berlin Heidelberg, Germany: Springer.
+}
+\bibitem[BCRZ13]{\detokenize{BCRZ13}}{\phantomsection\label{\detokenize{bibliography:bcrz13}} 
+Burgert, C. R., Colston, J., Roy, T., \& Zachary, B. (2013).
+\sphinxstylestrong{Geographic Displacement Procedure and Georeferenced Data Release Policy for the Demographic and Health Surveys.}
+DHS Spatial Analysis Report No. 7.
+}
+\bibitem[DaRe78]{\detokenize{DaRe78}}{\phantomsection\label{\detokenize{bibliography:dare78}} 
+Dalenius, T., \& Reiss, S. (1978).
+\sphinxstylestrong{Data-swapping: A Technique for Disclosure Control (extended abstract).}
+American Statistical Association Proceedings of the Section on Survey Research Methods, (pp. 191-194).
+}
+\bibitem[WaWi99]{\detokenize{WaWi99}}{\phantomsection\label{\detokenize{bibliography:wawi99}} 
+de Waal, A., \& Willenborg, L. (1999).
+\sphinxstylestrong{Information Loss Through Global Recoding and Local Suppression.}
+Netherlands Official Statistics , 14 (Special issue on SDC), 17-20.
+}
+\bibitem[WGKW98]{\detokenize{WGKW98}}{\phantomsection\label{\detokenize{bibliography:wgkw98}} 
+de Wolf, P., Gouweleew, J. M., Kooiman, P., \& Willenborg, L. (1998).
+\sphinxstylestrong{Reflections on PRAM.}
+Proceedings of the conference “Statistical Data Protection”. Lisbon.
+}
+\bibitem[Wolf15]{\detokenize{Wolf15}}{\phantomsection\label{\detokenize{bibliography:wolf15}} 
+de Wolf, P.-P. (2015).
+\sphinxstylestrong{Public Use Files of EU-SILC and EU-LFS data.}
+}
+\bibitem[DoMa02]{\detokenize{DoMa02}}{\phantomsection\label{\detokenize{bibliography:doma02}} 
+Domingo-Ferrer, J., \& Mateo-Sanz, J. M. (2002).
+\sphinxstylestrong{Practical data-oriented microaggregation for statistical disclosure control.}
+IEEE Transactions on Knowledge and Data Engineering , 14, 189-201.
+}
+\bibitem[DoTo01a]{\detokenize{DoTo01a}}{\phantomsection\label{\detokenize{bibliography:doto01a}} 
+Domingo-Ferrer, J., \& Torra, V. (2001).
+\sphinxstylestrong{A Quantitative Comparison of Disclosure Control Methods for Microdata.}
+In P. Doyle, J. Lane, J. Theeuwes, \& L. Zayatz (Eds.), Confidentiality, Disclosure and Data Access: Theory and Practical Applications for Statistical Agencies (pp. 111-133). Amsterdam, North-Holland: Elsevier Science.
+}
+\bibitem[DoTo01b]{\detokenize{DoTo01b}}{\phantomsection\label{\detokenize{bibliography:doto01b}} 
+Domingo-Ferrer, J., \& Torra, V. (2001).
+\sphinxstylestrong{Disclosure Protection Methods and Information Loss for Microdata.}
+In P. Doyle, J. Lane, J. Theeuwes, \& Z. L., Theory and Practical Applications for Statistical Agencies (pp. 91-110). Amsterdam.
+}
+\bibitem[DoMT01]{\detokenize{DoMT01}}{\phantomsection\label{\detokenize{bibliography:domt01}} 
+Domingo-Ferrer, J., Mateo-Sanz, J., \& Torra, V. (2001).
+\sphinxstylestrong{Comparing SDC Methods for Microdata on the basis of Information Loss and Disclosure Risk.}
+Pre-proceedings of ETK-NTTS 2001, (pp. 807-826). Crete, Greece.
+}
+\bibitem[DuBo10]{\detokenize{DuBo10}}{\phantomsection\label{\detokenize{bibliography:dubo10}} 
+Dupriez, O., \& Boyko, E. (2010).
+\sphinxstylestrong{Dissemination of Microdata Files; Principles, Procedures and Practices.}
+International Household Survey Network (IHSN).
+}
+\bibitem[ElMa03]{\detokenize{ElMa03}}{\phantomsection\label{\detokenize{bibliography:elma03}} 
+Elliot , M., \& Manning, A. M. (2003).
+\sphinxstylestrong{Using DIS to Modify the Classification of Special Uniques.}
+Invited Paper. Joint ECE/Eurostat Work Session on Statistical Data Confidentiality. Luxemboug 2-9 April 2003.
+}
+\bibitem[ElMF02]{\detokenize{ElMF02}}{\phantomsection\label{\detokenize{bibliography:elmf02}} 
+Elliot, M. J., Manning, A. M., \& Ford, R. W. (2002).
+\sphinxstylestrong{A Computational Algorithm for Handling the Special Uniques Problem.}
+International Journal of Uncertainty, Fuzziness and Knowledge Based System , 10 (5), 493-509.
+}
+\bibitem[EMMG05]{\detokenize{EMMG05}}{\phantomsection\label{\detokenize{bibliography:emmg05}} 
+Elliot, M. J., Manning, A., Mayes, K., Gurd, J., \& Bane, M. (2005).
+\sphinxstylestrong{SUDA: A Program for Detecting Special Uniques.}
+Joint UNECE/Eurostat Work Session on Statistical Data Confidentiality. Geneva.
+}
+\bibitem[GKWW98a]{\detokenize{GKWW98a}}{\phantomsection\label{\detokenize{bibliography:gkww98a}} 
+Gouweleeuw, J. M., Kooiman, P., Willenborg, L., \& de Wolf, P. (1998a).
+\sphinxstylestrong{Post Randomization for Statistical Disclosure Control:Theory and Implementation.}
+Journal of Official Statistics , 14 (4), 463-478.
+}
+\bibitem[GKWW98b]{\detokenize{GKWW98b}}{\phantomsection\label{\detokenize{bibliography:gkww98b}} 
+Gouweleeuw, J. M., Kooiman, P., Willenborg, L., \& de Wolf, P. P. (1998b).
+\sphinxstylestrong{The Post Randomization Method for Protecting Microdata.}
+Qüestiió, Quaderns d’Estadística i Investigació Operativa , 22 (1), 145-156.
+}
+\bibitem[HaMu03]{\detokenize{HaMu03}}{\phantomsection\label{\detokenize{bibliography:hamu03}} 
+Hansen, S. L., \& Mukherjee, S. (2003).
+\sphinxstylestrong{A polynomial algorithm for univariate optimal.}
+IEEE Transactions on Knowledge and Data Engineering , 15, 1043-1044.
+}
+\bibitem[HuDr15]{\detokenize{HuDr15}}{\phantomsection\label{\detokenize{bibliography:hudr15}} 
+Hu, J., \& Drechsler, J. (2015).
+\sphinxstylestrong{Generating synthetic geocoding infromation for public release.}
+NTTS - Conferences on New Techniques and Technologies for Statistics. Brussels.
+}
+\bibitem[HDFG06]{\detokenize{HDFG06}}{\phantomsection\label{\detokenize{bibliography:hdfg06}} 
+Hundepool, A., Domingo-Ferrer, J., Franconi, L., Giessing, S., Lenz, R., Naylor, J., et al. (2006).
+\sphinxstylestrong{Handbook on Statistical Disclosure Control.}
+ESSNet SDC.
+}
+\bibitem[HDFG12]{\detokenize{HDFG12}}{\phantomsection\label{\detokenize{bibliography:hdfg12}} 
+Hundepool, A., Domingo-Ferrer, J., Franconi, L., Giessing, S., Nordholt, E. S., Spicer, K., et al. (2012).
+\sphinxstylestrong{Statistical Disclosure Control.}
+Chichester, UK: John Wiley \& Sons Ltd.
+}
+\bibitem[HWRF08]{\detokenize{HWRF08}}{\phantomsection\label{\detokenize{bibliography:hwrf08}} 
+Hundepool, A., Van de Wetering, A., Ramaswamy, R., Franconi, L., Polettini, S., Capobianchi, A., et al. (2008).
+\sphinxstylestrong{\(\mu\)-Argus User’s Manual.}
+The Hague: Statistics Netherlands.
+}
+\bibitem[KiWi03]{\detokenize{KiWi03}}{\phantomsection\label{\detokenize{bibliography:kiwi03}} 
+Kim, J. J., \& Winkler, W. W. (2003, April 17).
+\sphinxstylestrong{Multiplicative Noise for Masking Continuous Data.}
+Research Report Series.
+}
+\bibitem[KTMF13]{\detokenize{KTMF13}}{\phantomsection\label{\detokenize{bibliography:ktmf13}} 
+Kowarik, A., Templ, M., Meindl, B., \& Fonteneau, F. (2013).
+\sphinxstylestrong{Graphical User Interface for Package sdcMicro.}
+Retrieved from \sphinxurl{http://cran.r-project.org/web/packages/sdcMicroGUI/index.html}
+}
+\bibitem[Lamb93]{\detokenize{Lamb93}}{\phantomsection\label{\detokenize{bibliography:lamb93}} 
+Lambert, D. (1993).
+\sphinxstylestrong{Measures of Disclosure Risk and Harm.}
+Journal of Official Statistics , 9 (2), 313-331.
+}
+\bibitem[MKGV07]{\detokenize{MKGV07}}{\phantomsection\label{\detokenize{bibliography:mkgv07}} 
+Machanavajjhala, A., Kifer, D., Gehrke, J., \& Venkitasubramaniam, M. (2007).
+\sphinxstylestrong{L-diversity: Privacy Beyond K-anonymity.}
+ACM Trans. Knowl. Discov. Data , 1 (Article 3) (1556-4681).
+}
+\bibitem[MaHK08]{\detokenize{MaHK08}}{\phantomsection\label{\detokenize{bibliography:mahk08}} 
+Manning, A. M., Haglin, D. J., \& Keane, J. A. (2008).
+\sphinxstylestrong{A Recursive Search Algorithm for Statistical Disclosure Assessment.}
+Data Mining and Knowledge Discovery , 16 (2), 165-196.
+}
+\bibitem[MaTo10]{\detokenize{MaTo10}}{\phantomsection\label{\detokenize{bibliography:mato10}} 
+Marés, J., \& Torra, V. (2010).
+\sphinxstylestrong{PRAM Optimization Using an Evolutionary Algorithm.}
+In J. Domingo-Ferrer, \& E. Magkos, Privacy in Statistical Databases (pp. 97-106). Corfú, Greece: Springer.
+}
+\bibitem[Mivu12]{\detokenize{Mivu12}}{\phantomsection\label{\detokenize{bibliography:mivu12}} 
+Mivule, K. (July 16-19, 2012).
+\sphinxstylestrong{Utilizing Noise Addition for Data Privacy, An Overview.}
+International Conference on Information and Knowledge Engineering (IKE 2012), (pp. 65-71). Las Vegas, Nevada.
+}
+\bibitem[MuSa06]{\detokenize{MuSa06}}{\phantomsection\label{\detokenize{bibliography:musa06}} 
+Muralidhar, K., \& Sarathy, R. (2006).
+\sphinxstylestrong{Data Shuffling- A New Masking Approach for Numerical Data.}
+Management Science , 658-670.
+}
+\bibitem[TeMK14]{\detokenize{TeMK14}}{\phantomsection\label{\detokenize{bibliography:temk14}} 
+Templ, M., Meindl, B., \& Kowarik, A. (2014, August).
+\sphinxstylestrong{Tutorial for SDCMicroGUI.}
+Retrieved from International Household Survey Network (IHSN): \sphinxurl{http://www.ihsn.org/home/software/disclosure-control-toolbox}
+}
+\bibitem[TMKC14]{\detokenize{TMKC14}}{\phantomsection\label{\detokenize{bibliography:tmkc14}} 
+Templ, M., Meindl, B., Kowarik, A., \& Chen, S. (2014, August 1).
+\sphinxstylestrong{Introduction to Statistical Disclosure Control (SDC).}
+Retrieved November 13, 2014, from \sphinxurl{http://www.ihsn.org/home/software/disclosure-control-toolbox}.
+}
+\bibitem[ToCa11]{\detokenize{ToCa11}}{\phantomsection\label{\detokenize{bibliography:toca11}} 
+Torra, V., \& Cano, I. (2011).
+\sphinxstylestrong{Edit Constraints on Microaggregation and Additive Noise.}
+In A. G.-D. Christos Dimitrakakis (Ed.), Privacy and Security Issues in Data Mining and Machine Learning (Vol. Lecture Notes in Computer Science Volume 6549, pp. 1-14). Berlin Heidelberg: Springer.
+}
+\bibitem[TuLS15]{\detokenize{TuLS15}}{\phantomsection\label{\detokenize{bibliography:tuls15}} 
+Tudor, C., Lowthian, P., \& Spicer, K. (2015).
+\sphinxstylestrong{Opening up governemnt data while maintaining data privacy.}
+EDBT/ICDT 2015 Joint Conference.
+}
+\bibitem[UKIn]{\detokenize{UKIn}}{\phantomsection\label{\detokenize{bibliography:ukin}} 
+UK Information Commissioner’s Office.
+\sphinxstylestrong{Anonymisation: Managing Data Protection Risk Code of Practice.}
+UK Information Commissioner’s Office.
+}
+\bibitem[Unit07]{\detokenize{Unit07}}{\phantomsection\label{\detokenize{bibliography:unit07}} 
+United Nations. (2007).
+\sphinxstylestrong{Managing Statistical Confidentiality \& Microdata Access: Principles and Guidelines of Good Practice.}
+New York and Geneva: United Nations.
+}
+\bibitem[Warn65]{\detokenize{Warn65}}{\phantomsection\label{\detokenize{bibliography:warn65}} 
+Warner, S. (1965).
+\sphinxstylestrong{Randomized Response: A Survey Technique for Eliminating Evasive Answer Bias.}
+Journal of American Statistical Association , 57, 622-627.
+}
+\bibitem[YaWC02]{\detokenize{YaWC02}}{\phantomsection\label{\detokenize{bibliography:yawc02}} 
+Yancey, W. W., Winkler, W. E., \& Creecy, R. H. (2002).
+\sphinxstylestrong{Disclosure Risk Assessment in Perturbative Microdata Protection.}
+Research Report Series , Statistics 2002-01.
+}
+\bibitem[YaSB08]{\detokenize{YaSB08}}{\phantomsection\label{\detokenize{bibliography:yasb08}} 
+Yang, A., Shan, Y., \& Bui, L. T. (2008).
+\sphinxstylestrong{Success in Evolutionary Computation.}
+Springer Science \& Business Media.
+}
+\end{sphinxthebibliography}
 
 
 
