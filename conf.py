@@ -113,6 +113,11 @@ html_static_path = ['_static']
 htmlhelp_basename = 'Readthedocsdoc'
 
 
+def setup(app):
+    app.add_stylesheet('theme_overrides.css')
+
+
+
 # -- Options for LaTeX output ------------------------------------------------
 
 latex_elements = {
