@@ -93,7 +93,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#missing-values">Missing values</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#classes-in-r">Classes in <em>R</em></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#objects-of-class-sdcmicroobj">Objects of class <em>sdcMicroObj</em></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#household-structure"><strong>Household structure</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#household-structure">Household structure</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#randomizing-order-and-numbering-of-individuals-or-households"><strong>Randomizing order and numbering of individuals or households</strong></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#computation-time">Computation time</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#common-errors">Common errors</a></li>
@@ -197,7 +197,7 @@ with the update.packages() command or using the menu options in <em>R</em> or
 <p>When starting <em>R</em> or <em>RStudio</em>, it is necessary to specify each time
 which packages are being used by loading those. This loading of packages
 can be done either with the library() or the require() function. Both
-options are illustrated in Example 7.1.</p>
+options are illustrated in <a class="reference internal" href="#code71"><span class="std std-numref">Listing 15</span></a>.</p>
 <div class="literal-block-wrapper docutils container" id="code71">
 <div class="code-block-caption"><span class="caption-number">Listing 15 </span><span class="caption-text">Loading required packages</span><a class="headerlink" href="#code71" title="Permalink to this code">¶</a></div>
 <div class="highlight-R notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
@@ -213,8 +213,8 @@ documentation of a specific function is to use the built-in help, which
 generally gives an overview of the parameters of the functions as well
 as some examples. The help of a specific function can be called by a
 question mark followed by the function name without any arguments.
-Example 7.2 shows how to call the help file for the microaggregation()
-function of the <em>sdcMicro</em> package.[#foot60]_ The download
+<a class="reference internal" href="#code72"><span class="std std-numref">Listing 16</span></a> shows how to call the help file for the microaggregation()
+function of the <em>sdcMicro</em> package. <a class="footnote-reference" href="#foot60" id="id1">[1]</a> The download
 page of the each package on the CRAN website also provides a reference
 manual with a complete overview of the functions in the package.</p>
 <div class="literal-block-wrapper docutils container" id="code72">
@@ -230,16 +230,16 @@ their GitHub: <a class="reference external" href="https://github.com/alexkowa/sd
 <div class="section" id="read-functions-in-r">
 <h2>Read functions in <em>R</em><a class="headerlink" href="#read-functions-in-r" title="Permalink to this headline">¶</a></h2>
 <p>The first step in the SDC process when using <em>sdcMicro</em> is to read the
-data into <em>R</em> and create a dataframe. <a class="footnote-reference" href="#foot61" id="id1">[2]</a> <em>R</em> is
+data into <em>R</em> and create a dataframe. <a class="footnote-reference" href="#foot61" id="id2">[2]</a> <em>R</em> is
 compatible with most statistical data formats and provides read
 functions for most types of data. For those read functions, it is
 sometimes necessary to install additional packages and their
 dependencies in <em>R</em>. An overview of data formats, functions and the
 packages containing these functions is provided in Table 7.1. These
 functions are also available as write (e.g., write.dta()) to save the
-anonymized data in the required format. #foot[62]_</p>
-<span id="tab71"></span><table border="1" class="colwidths-auto docutils align-center" id="id5">
-<caption><span class="caption-number">Table 6 </span><span class="caption-text">Packages and functions for reading data in <em>R</em></span><a class="headerlink" href="#id5" title="Permalink to this table">¶</a></caption>
+anonymized data in the required format. <a class="footnote-reference" href="#foot62" id="id3">[3]</a></p>
+<span id="tab71"></span><table border="1" class="colwidths-auto docutils align-center" id="id11">
+<caption><span class="caption-number">Table 6 </span><span class="caption-text">Packages and functions for reading data in <em>R</em></span><a class="headerlink" href="#id11" title="Permalink to this table">¶</a></caption>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">Type/software</th>
 <th class="head">Extension</th>
@@ -258,7 +258,7 @@ anonymized data in the required format. #foot[62]_</p>
 <td>foreign</td>
 <td>read.dta()</td>
 </tr>
-<tr class="row-even"><td>STATA (v. 13) <a class="footnote-reference" href="#foot64" id="id2">[5]</a></td>
+<tr class="row-even"><td>STATA (v. 13) <a class="footnote-reference" href="#foot64" id="id4">[5]</a></td>
 <td>.dta</td>
 <td>readstata13</td>
 <td>read.dta13()</td>
@@ -286,8 +286,8 @@ anonymized data in the required format. #foot[62]_</p>
 </tbody>
 </table>
 <p>Most of these functions have options that specify how to handle missing
-values and variables with factor levels and value labels. Example 7.3,
-Example 7.4 and Example 7.5 provide example code for reading in a
+values and variables with factor levels and value labels. <a class="reference internal" href="#code73"><span class="std std-numref">Listing 17</span></a>,
+<a class="reference internal" href="#code74"><span class="std std-numref">Listing 18</span></a> and <a class="reference internal" href="#code75"><span class="std std-numref">Listing 19</span></a> provide example code for reading in a
 <em>STATA</em> (.dta) file, an <em>Excel</em> (.csv) file and a <em>SPSS</em> (.sav) file.</p>
 <div class="literal-block-wrapper docutils container" id="code73">
 <div class="code-block-caption"><span class="caption-number">Listing 17 </span><span class="caption-text">Reading in a <em>STATA</em> file</span><a class="headerlink" href="#code73" title="Permalink to this code">¶</a></div>
@@ -342,7 +342,7 @@ Section 7.7 on computation times).</p>
 ‘NA’, which is different to impossible values, such as division by zero
 or the log of a negative number, which are represented by the symbol
 ‘NaN’. The value ‘NA’ is used for both numeric and categorical
-variables.[#foot65]_ Values suppressed by the
+variables. <a class="footnote-reference" href="#foot65" id="id5">[6]</a> Values suppressed by the
 localSuppression() routine are also replaced by the ‘NA’ symbol. Some
 datasets and statistical software might use different values for missing
 values, such as ‘999’ or strings. It is possible to include arguments in
@@ -358,7 +358,7 @@ value codes. When preparing data, it is important to recode any missing
 values that are not coded as ‘NA’ to ‘NA’ in <em>R</em> before starting the
 anonymization process to ensure the correct measurement of risk (e.g.,
 <span class="math notranslate nohighlight">\(k\)</span>-anonymity), as well as to ensure that many of the methods are
-correctly applied to the data. Example 7.6 shows how to recode the value
+correctly applied to the data. <a class="reference internal" href="#code76"><span class="std std-numref">Listing 20</span></a> shows how to recode the value
 ‘99’ to ‘NA’ for the variable “toilet”.</p>
 <div class="literal-block-wrapper docutils container" id="code76">
 <div class="code-block-caption"><span class="caption-number">Listing 20 </span><span class="caption-text">Recoding missing values to NA</span><a class="headerlink" href="#code76" title="Permalink to this code">¶</a></div>
@@ -383,7 +383,7 @@ The functionality of the functions in the <em>sdcMicro</em> package differs for
 dataframes and <em>sdcMicro</em> objects. It is easy to change the class
 attribute of an object with functions that start with “as.”, followed by
 the name of the class (e.g., as.factor(), as.matrix(), as.data.frame()).
-Example 7.7 shows how to check the class of an object and change the
+<a class="reference internal" href="#code77"><span class="std std-numref">Listing 21</span></a> shows how to check the class of an object and change the
 class to “data.frame”. Before changing the class attribute of the object
 “file”, it was in the class “matrix”. An important class defined and
 used in the <em>sdcMicro</em> package is the class named <em>sdcMicroObj</em>. This
@@ -413,7 +413,7 @@ class is described in the next section.</p>
 </div>
 <div class="section" id="objects-of-class-sdcmicroobj">
 <h2>Objects of class <em>sdcMicroObj</em><a class="headerlink" href="#objects-of-class-sdcmicroobj" title="Permalink to this headline">¶</a></h2>
-<p>The <em>sdcMicro</em> package is built around objects[#foot66]_ of
+<p>The <em>sdcMicro</em> package is built around objects <a class="footnote-reference" href="#foot66" id="id6">[7]</a> of
 class <em>sdcMicroObj</em>, a class especially defined for the <em>sdcMicro</em>
 package. Each member of this class has a certain structure with slots
 that contain information regarding the anonymization process (see Table
@@ -431,7 +431,7 @@ the start of the anonymization process. <strong>NOTE: For this, disclosure
 scenarios must already have been evaluated and quasi-identifiers
 selected. In addition, one must ensure there are no problems with the
 data, such as variables containing only missing values.</strong></p>
-<p>In Example 7.8, we show all arguments of the function createSdcObj(),
+<p>In <a class="reference internal" href="#code78"><span class="std std-numref">Listing 22</span></a>, we show all arguments of the function createSdcObj(),
 and first define vectors with the names of the different variables. This
 practice gives a better overview and later allows for quick changes in
 the variable choices if required. We choose the categorical
@@ -452,7 +452,7 @@ the dataframe containing the microdata to be anonymized. The selection
 of variables is important for the risk measures that are automatically
 calculated. Furthermore, several methods are by default applied to all
 variables of one sort, e.g., microaggregation to all key
-variables.[#foot67]_ After selecting these variables, we can
+variables. <a class="footnote-reference" href="#foot67" id="id7">[8]</a> After selecting these variables, we can
 create the <em>sdcMicro</em> object. To obtain a summary of the object, it is
 sufficient to write the name of the object.</p>
 <div class="literal-block-wrapper docutils container" id="code78">
@@ -633,14 +633,14 @@ sufficient to write the name of the object.</p>
 </div>
 <p>Table 7.2 presents the names of the slots and their respective contents.
 The slot names can be listed using the function slotNames(), which is
-illustrated in Example 7.9. Not all slots are used in all cases. Some
+illustrated in <a class="reference internal" href="#code79"><span class="std std-numref">Listing 23</span></a>. Not all slots are used in all cases. Some
 slots are filled only after applying certain methods, e.g., evaluating a
 specific risk measure. Certain slots of the objects can be accessed by
 accessor functions (e.g., extractManipData for extracting the anonymized
 data) or print functions (e.g., print()) with the appropriate arguments.
 The content of a slot can also be accessed directly with the ‘&#64;’
 operator and the slot name. This is illustrated for the risk slot in
-Example 7.9. This functionality can be practical to save intermediate
+<a class="reference internal" href="#code79"><span class="std std-numref">Listing 23</span></a>. This functionality can be practical to save intermediate
 results and compare the outcomes of different methods. Also, for manual
 changes to the data during the SDC process, such as changing missing
 value codes or manual recoding, the direct accession of the data in the
@@ -704,6 +704,119 @@ risk in the risk slot.</p>
 </td></tr></table></div>
 </div>
 <p>Table 7.2: Slot names and slot description of <em>sdcMicro</em> object</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Slotname</th>
+<th class="head">Content</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>origData</td>
+<td>original data as specified in the
+dat argument of the
+createSdcObj() function</td>
+</tr>
+<tr class="row-odd"><td>keyVars</td>
+<td>indices of columns in origData
+with specified categorical key
+variables</td>
+</tr>
+<tr class="row-even"><td>pramVars</td>
+<td>indices of columns in origData
+with specified PRAM variables</td>
+</tr>
+<tr class="row-odd"><td>numVars</td>
+<td>indices of columns in origData
+with specified numerical key
+variables</td>
+</tr>
+<tr class="row-even"><td>ghostVars</td>
+<td>indices of columns in origData
+with specified ghostVars</td>
+</tr>
+<tr class="row-odd"><td>weightVar</td>
+<td>indices of columns in origData
+with specified weight variable</td>
+</tr>
+<tr class="row-even"><td>hhId</td>
+<td>indices of columns in origData
+with specified cluster variable</td>
+</tr>
+<tr class="row-odd"><td>strataVar</td>
+<td>indices of columns in origData
+with specified strata variable</td>
+</tr>
+<tr class="row-even"><td>sensibleVar</td>
+<td>indices of columns in origData
+with specified sensitive
+variables for lDiversity</td>
+</tr>
+<tr class="row-odd"><td>manipKeyVars</td>
+<td>manipulated categorical key
+variables after applying SDC
+methods (cf. keyVars slot)</td>
+</tr>
+<tr class="row-even"><td>manipPramVars</td>
+<td>manipulated PRAM variables after
+applying PRAM (cf. pramVars slot)</td>
+</tr>
+<tr class="row-odd"><td>manipNumVars</td>
+<td>manipulated numerical key
+variables after applying SDC
+methods (cf. numVars slot)</td>
+</tr>
+<tr class="row-even"><td>manipGhostVars</td>
+<td>manipulated ghost variables (cf.
+ghostVars slot)</td>
+</tr>
+<tr class="row-odd"><td>manipStrataVar</td>
+<td>manipulated strata variables (cf.
+strataVar slot)</td>
+</tr>
+<tr class="row-even"><td>originalRisk</td>
+<td>global and individual risk
+measures before anonymization</td>
+</tr>
+<tr class="row-odd"><td>risk</td>
+<td>global and individual risk
+measures after applied SDC
+methods</td>
+</tr>
+<tr class="row-even"><td>utility</td>
+<td>utility measures (il1 and eigen)</td>
+</tr>
+<tr class="row-odd"><td>pram</td>
+<td>details on PRAM after applying
+PRAM</td>
+</tr>
+<tr class="row-even"><td>localSuppression</td>
+<td>number of suppression per
+variable after local suppression</td>
+</tr>
+<tr class="row-odd"><td>options</td>
+<td>options specified</td>
+</tr>
+<tr class="row-even"><td>additionalResults</td>
+<td>additional results</td>
+</tr>
+<tr class="row-odd"><td>set</td>
+<td>list of slots currently in use
+(for internal use)</td>
+</tr>
+<tr class="row-even"><td>prev</td>
+<td>information to undo one step with
+the undo() function</td>
+</tr>
+<tr class="row-odd"><td>deletedVars</td>
+<td>variables deleted (direct
+identifiers)</td>
+</tr>
+</tbody>
+</table>
 <table border="1" class="docutils">
 <colgroup>
 <col width="50%" />
@@ -826,7 +939,7 @@ altered and can be used for comparing results. This is especially
 useful for comparing several methods and selecting the best option.</p>
 <p>In both cases, the result of any function has to be re-assigned to an
 object with the ‘&lt;-‘ operator. Both methods are illustrated in
-Example 7.10.</p>
+<a class="reference internal" href="#code710"><span class="std std-numref">Listing 24</span></a>.</p>
 </li>
 </ul>
 <div class="literal-block-wrapper docutils container" id="code710">
@@ -850,7 +963,7 @@ possible to undo the last step in the SDC process. This is useful when
 changing parameters. The results of the last step, however, are lost
 after undoing that step. <strong>NOTE: The undolast() function can be used to
 go only one step back, not several.</strong> The result must also be reassigned
-to the same object. This is illustrated in Example 7.11.</p>
+to the same object. This is illustrated in <a class="reference internal" href="#code711"><span class="std std-numref">Listing 25</span></a>.</p>
 <div class="literal-block-wrapper docutils container" id="code711">
 <div class="code-block-caption"><span class="caption-number">Listing 25 </span><span class="caption-text">Undo last step in SDC process</span><a class="headerlink" href="#code711" title="Permalink to this code">¶</a></div>
 <div class="highlight-R notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
@@ -861,7 +974,7 @@ to the same object. This is illustrated in Example 7.11.</p>
 </div>
 </div>
 <div class="section" id="household-structure">
-<h2><strong>Household structure</strong><a class="headerlink" href="#household-structure" title="Permalink to this headline">¶</a></h2>
+<h2>Household structure<a class="headerlink" href="#household-structure" title="Permalink to this headline">¶</a></h2>
 <p>If the data has a hierarchical structure and some variables are measured
 on the higher hierarchical level and others on the lower level, the SDC
 process should be adapted accordingly (see also Sections 4.9 and 5.5). A
@@ -882,7 +995,7 @@ and anonymized jointly. In this section, we explain how to extract
 household variables from a file and merge them with the individual
 levels variables after treatment in <em>R</em>. We illustrate this process with
 an example of household and individual-level variables.</p>
-<p>These steps are illustrated in Example 7.12. We require both an
+<p>These steps are illustrated in <a class="reference internal" href="#code712"><span class="std std-numref">Listing 26</span></a>. We require both an
 individual ID and a household ID in the dataset; if they are lacking,
 they must be generated. The individual ID has to be unique for every
 individual in the dataset and the household ID has to be unique across
@@ -931,7 +1044,7 @@ we merge the data using the merge function. The ‘by’ argument in the
 merge function specifies the variable used for merging – in this case
 the household ID, which has the same variable name in both datasets. All
 other variables should have different names in both datasets. These
-steps are illustrated in Example 7.13.</p>
+steps are illustrated in <a class="reference internal" href="#code713"><span class="std std-numref">Listing 27</span></a>.</p>
 <div class="literal-block-wrapper docutils container" id="code713">
 <div class="code-block-caption"><span class="caption-number">Listing 27 </span><span class="caption-text">Merging anonymized household-level variables with individual-level variables</span><a class="headerlink" href="#code713" title="Permalink to this code">¶</a></div>
 <div class="highlight-R notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
@@ -957,7 +1070,7 @@ in the case studies in Chapter 9.</p>
 quasi-identifier, even if the household size is not included in the
 dataset as variable. For the purpose of evaluating the disclosure risk,
 it might be necessary to create such a variable by a headcount of the
-members of each household. Example 7.14 shows how to generate a variable
+members of each household. <a class="reference internal" href="#code714"><span class="std std-numref">Listing 28</span></a> shows how to generate a variable
 household size with values for each individual based on the household ID
 (HID). Two cases are shown: 1) the file sorted by household ID and 2)
 the file not sorted.</p>
@@ -992,7 +1105,7 @@ the next few are children. Therefore, the line number within the
 household could correlate well with a variable that contains information
 on the relation to the household head. One way to avoid this unintended
 release of information is to change the order of the individuals within
-each household at random. Example 7.15 illustrates a way to do this in
+each household at random. <a class="reference internal" href="#code715"><span class="std std-numref">Listing 29</span></a> illustrates a way to do this in
 <em>R</em>.</p>
 <div class="literal-block-wrapper docutils container" id="code715">
 <div class="code-block-caption"><span class="caption-number">Listing 29 </span><span class="caption-text">Changing the order of individuals within households</span><a class="headerlink" href="#code715" title="Permalink to this code">¶</a></div>
@@ -1059,74 +1172,35 @@ household ID (first digit).</p>
 <p>Table 7.3 Illustration of randomizing order of records in a dataset</p>
 <table border="1" class="docutils">
 <colgroup>
-<col width="11%" />
-<col width="11%" />
-<col width="11%" />
-<col width="11%" />
-<col width="11%" />
-<col width="11%" />
-<col width="11%" />
-<col width="11%" />
-<col width="11%" />
+<col width="17%" />
+<col width="7%" />
+<col width="9%" />
+<col width="18%" />
+<col width="7%" />
+<col width="9%" />
+<col width="15%" />
+<col width="7%" />
+<col width="10%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">Ori
-ginal
-datas
-et</th>
-<th class="head" colspan="3">Dataset with randomize
-household IDs</th>
-<th class="head" colspan="5">Dataset for release ordered by the new
-randomized household ID</th>
+<tr class="row-odd"><th class="head" colspan="3">Original dataset</th>
+<th class="head" colspan="3">Dataset with randomized household ID</th>
+<th class="head" colspan="3">Dataset for release ordered by the
+new randomized household ID</th>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td><blockquote class="first">
-<div>Hou</div></blockquote>
-<p class="last">sehol
-d
-ID**</p>
-</td>
-<td><blockquote class="first">
-<div>Reg</div></blockquote>
-<p class="last">ion</p>
-</td>
-<td><blockquote class="first">
-<div>Dis</div></blockquote>
-<p class="last">trict</p>
-</td>
-<td><blockquote class="first">
-<div>Ran</div></blockquote>
-<p class="last">domiz
-ed
-house
-hold
-ID**</p>
-</td>
-<td><blockquote class="first">
-<div>Reg</div></blockquote>
-<p class="last">ion</p>
-</td>
-<td><blockquote class="first">
-<div>Dis</div></blockquote>
-<p class="last">trict</p>
-</td>
-<td><blockquote class="first">
-<div>Ran</div></blockquote>
-<p class="last">domiz
-ed
-house
-hold
-ID**</p>
-</td>
-<td><blockquote class="first">
-<div>Reg</div></blockquote>
-<p class="last">ion</p>
-</td>
-<td><blockquote class="first">
-<div>Dis</div></blockquote>
-<p class="last">trict</p>
-</td>
+<tr class="row-even"><td>Household ID</td>
+<td>Region</td>
+<td>District</td>
+<td>Randomized
+household ID</td>
+<td>Region</td>
+<td>District</td>
+<td>Randomized
+household ID</td>
+<td>Region</td>
+<td>District</td>
 </tr>
 <tr class="row-odd"><td>101</td>
 <td>1</td>
@@ -1294,7 +1368,7 @@ ID**</p>
 process with <em>sdcMicro</em> and directly on the dataset (data.frame in <em>R</em>).
 To randomize the order, we need an ID, such as an individual ID,
 household ID or geographical ID. If the dataset does not contain such
-ID, this should be created first. Example 7.16 shows how to randomize
+ID, this should be created first. <a class="reference internal" href="#code716"><span class="std std-numref">Listing 30</span></a> shows how to randomize
 households. “HID” is the household ID and “regionid” is the region ID.
 First the variable “HID” is replaced by a randomized variable
 “HIDrandom”. Then the file is sorted by region and the randomized ID and
@@ -1366,15 +1440,11 @@ different sizes</p>
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>Methods</td>
-<td><blockquote class="first">
-<div>Computation</div></blockquote>
-<p class="last">time (hours)</p>
-</td>
+<td>Computation
+time (hours)</td>
 <td>Methods</td>
-<td><blockquote class="first">
-<div>Computation</div></blockquote>
-<p class="last">time (hours)</p>
-</td>
+<td>Computation
+time (hours)</td>
 </tr>
 <tr class="row-odd"><td>Top coding age,
 local
@@ -1447,14 +1517,11 @@ computation times</p>
 <col width="10%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head"><blockquote class="first">
-<div>Sa</div></blockquote>
-<p class="last">mple
-Size</p>
-</th>
-<th class="head" colspan="6"><blockquote class="first">
-<div>Nu</div></blockquote>
-<p class="last">mber
+<tr class="row-odd"><th class="head">Sa
+mple
+Size</th>
+<th class="head" colspan="6">Nu
+mber
 of
 cate
 gori
@@ -1466,11 +1533,9 @@ enti
 fier
 (com
 plex
-ity)</p>
-</th>
-<th class="head"><blockquote class="first">
-<div>Pe</div></blockquote>
-<p class="last">rcen
+ity)</th>
+<th class="head">Pe
+rcen
 tage
 of
 obse
@@ -1488,8 +1553,7 @@ re
 anon
 ymiz
 atio
-n</p>
-</th>
+n</th>
 <th class="head" colspan="2">Execution
 time
 in hours</th>
@@ -1612,8 +1676,8 @@ on</td>
 files from 52 countries, using surveys on topics including health,
 labor, income and expenditure. By applying anonymization methods
 available in the <em>sdcMicro</em> package, at least 20 different anonymization
-scenarios <a class="footnote-reference" href="#foot68" id="id3">[9]</a> were tested on each dataset. Most of the
-processing was done using a powerful server <a class="footnote-reference" href="#foot69" id="id4">[10]</a> and up
+scenarios <a class="footnote-reference" href="#foot68" id="id8">[9]</a> were tested on each dataset. Most of the
+processing was done using a powerful server <a class="footnote-reference" href="#foot69" id="id9">[10]</a> and up
 to 16 – 20 processors (cores) at a time. Other processing platforms
 included a laptop and desktop computers, each using four processors.
 Computation times were significantly shorter for datasets processed on
@@ -1633,7 +1697,7 @@ amount to the time it may take to run them sequentially. The fact that
 the RAM is shared might, however, slightly reduce the gains of
 parallelization. If you want to compare the results of different methods
 on large datasets that require long computation times, using parallel
-computing can be a solution.[#foot70]_</p>
+computing can be a solution. <a class="footnote-reference" href="#foot70" id="id10">[11]</a></p>
 <p>Appendix D zooms in on seven selected datasets from a health survey that
 were processed using the same parallelization program and anonymization
 methods. Note that the computation times in the appendix are only meant
@@ -1668,7 +1732,7 @@ recomputed by using the function calcRisks().</li>
 <table class="docutils footnote" frame="void" id="foot60" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label">[1]</td><td>Often it is also useful to search the internet for help on specific
+<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>Often it is also useful to search the internet for help on specific
 functions in <em>R</em>. There are many fora where <em>R</em> users discuss issues
 they encounter. One particularly useful site is stackoverflow.com.</td></tr>
 </tbody>
@@ -1676,14 +1740,14 @@ they encounter. One particularly useful site is stackoverflow.com.</td></tr>
 <table class="docutils footnote" frame="void" id="foot61" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id1">[2]</a></td><td>A dataframe is an object class in <em>R</em>, which is similar to a data
+<tr><td class="label"><a class="fn-backref" href="#id2">[2]</a></td><td>A dataframe is an object class in <em>R</em>, which is similar to a data
 table or matrix.</td></tr>
 </tbody>
 </table>
 <table class="docutils footnote" frame="void" id="foot62" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label">[3]</td><td>Not all functions are compatible with all versions of the respective
+<tr><td class="label"><a class="fn-backref" href="#id3">[3]</a></td><td>Not all functions are compatible with all versions of the respective
 software package. We refer to the help files of the read and write
 functions for more information.</td></tr>
 </tbody>
@@ -1702,7 +1766,7 @@ package <em>readstata13</em>.</td></tr>
 <table class="docutils footnote" frame="void" id="foot64" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id2">[5]</a></td><td>The function read.dta() in the package <em>foreign</em> does not support
+<tr><td class="label"><a class="fn-backref" href="#id4">[5]</a></td><td>The function read.dta() in the package <em>foreign</em> does not support
 the <em>STATA</em> file format from <em>STATA</em> 13 and <em>STATA</em> 14. Two solutions
 are to use the ‘saveold’ command in <em>STATA</em> 13 or 14 that saves the
 file in the old format that can be read by the function read.dta().
@@ -1713,41 +1777,41 @@ package <em>readstata13</em>.</td></tr>
 <table class="docutils footnote" frame="void" id="foot65" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label">[6]</td><td>This is regardless of the class of the variable in <em>R</em>. See Section
+<tr><td class="label"><a class="fn-backref" href="#id5">[6]</a></td><td>This is regardless of the class of the variable in <em>R</em>. See Section
 7.4 for more on classes in <em>R</em>.</td></tr>
 </tbody>
 </table>
 <table class="docutils footnote" frame="void" id="foot66" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label">[7]</td><td>Class <em>sdcMicroObj</em> has S4 objects, which have slots or attributes
+<tr><td class="label"><a class="fn-backref" href="#id6">[7]</a></td><td>Class <em>sdcMicroObj</em> has S4 objects, which have slots or attributes
 and allow for object-oriented programming.</td></tr>
 </tbody>
 </table>
 <table class="docutils footnote" frame="void" id="foot67" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label">[8]</td><td>Unless otherwise specified in the arguments of the function.</td></tr>
+<tr><td class="label"><a class="fn-backref" href="#id7">[8]</a></td><td>Unless otherwise specified in the arguments of the function.</td></tr>
 </tbody>
 </table>
 <table class="docutils footnote" frame="void" id="foot68" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id3">[9]</a></td><td>Here a scenario refers to a combination of SDC methods and their
+<tr><td class="label"><a class="fn-backref" href="#id8">[9]</a></td><td>Here a scenario refers to a combination of SDC methods and their
 parameters.</td></tr>
 </tbody>
 </table>
 <table class="docutils footnote" frame="void" id="foot69" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id4">[10]</a></td><td>The server has 512 GB RAM and four processors each with 16 cores,
+<tr><td class="label"><a class="fn-backref" href="#id9">[10]</a></td><td>The server has 512 GB RAM and four processors each with 16 cores,
 translating to 64 cores total.</td></tr>
 </tbody>
 </table>
 <table class="docutils footnote" frame="void" id="foot70" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label">[11]</td><td>The following website provides an overview of parallelization
+<tr><td class="label"><a class="fn-backref" href="#id10">[11]</a></td><td>The following website provides an overview of parallelization
 packages and solutions in <em>R</em>:
 <a class="reference external" href="http://cran.r-project.org/web/views/HighPerformanceComputing.html">http://cran.r-project.org/web/views/HighPerformanceComputing.html</a>.
 <strong>NOTE: Solutions are platform-dependent and therefore our solution

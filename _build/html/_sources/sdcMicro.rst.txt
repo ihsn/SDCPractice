@@ -27,7 +27,7 @@ with the update.packages() command or using the menu options in *R* or
 When starting *R* or *RStudio*, it is necessary to specify each time
 which packages are being used by loading those. This loading of packages
 can be done either with the library() or the require() function. Both
-options are illustrated in Example 7.1.
+options are illustrated in :numref:`code71`.
 
 .. code-block:: R
    :linenos:
@@ -43,8 +43,8 @@ documentation of a specific function is to use the built-in help, which
 generally gives an overview of the parameters of the functions as well
 as some examples. The help of a specific function can be called by a
 question mark followed by the function name without any arguments.
-Example 7.2 shows how to call the help file for the microaggregation()
-function of the *sdcMicro* package.[#foot60]_ The download
+:numref:`code72` shows how to call the help file for the microaggregation()
+function of the *sdcMicro* package. [#foot60]_ The download
 page of the each package on the CRAN website also provides a reference
 manual with a complete overview of the functions in the package.
 
@@ -70,7 +70,7 @@ sometimes necessary to install additional packages and their
 dependencies in *R*. An overview of data formats, functions and the
 packages containing these functions is provided in Table 7.1. These
 functions are also available as write (e.g., write.dta()) to save the
-anonymized data in the required format. #foot[62]_
+anonymized data in the required format. [#foot62]_
 
 .. _tab71:
 
@@ -91,8 +91,8 @@ anonymized data in the required format. #foot[62]_
    ===========================  ===============  ======================  =============
 
 Most of these functions have options that specify how to handle missing
-values and variables with factor levels and value labels. Example 7.3,
-Example 7.4 and Example 7.5 provide example code for reading in a
+values and variables with factor levels and value labels. :numref:`code73`,
+:numref:`code74` and :numref:`code75` provide example code for reading in a
 *STATA* (.dta) file, an *Excel* (.csv) file and a *SPSS* (.sav) file.
 
 .. code-block:: R
@@ -140,7 +140,7 @@ The standard way missing values are represented in *R* is by the symbol
 ‘NA’, which is different to impossible values, such as division by zero
 or the log of a negative number, which are represented by the symbol
 ‘NaN’. The value ‘NA’ is used for both numeric and categorical
-variables.[#foot65]_ Values suppressed by the
+variables. [#foot65]_ Values suppressed by the
 localSuppression() routine are also replaced by the ‘NA’ symbol. Some
 datasets and statistical software might use different values for missing
 values, such as ‘999’ or strings. It is possible to include arguments in
@@ -157,7 +157,7 @@ value codes. When preparing data, it is important to recode any missing
 values that are not coded as ‘NA’ to ‘NA’ in *R* before starting the
 anonymization process to ensure the correct measurement of risk (e.g.,
 :math:`k`-anonymity), as well as to ensure that many of the methods are
-correctly applied to the data. Example 7.6 shows how to recode the value
+correctly applied to the data. :numref:`code76` shows how to recode the value
 ‘99’ to ‘NA’ for the variable “toilet”.
 
 .. code-block:: R
@@ -183,7 +183,7 @@ The functionality of the functions in the *sdcMicro* package differs for
 dataframes and *sdcMicro* objects. It is easy to change the class
 attribute of an object with functions that start with “as.”, followed by
 the name of the class (e.g., as.factor(), as.matrix(), as.data.frame()).
-Example 7.7 shows how to check the class of an object and change the
+:numref:`code77` shows how to check the class of an object and change the
 class to “data.frame”. Before changing the class attribute of the object
 “file”, it was in the class “matrix”. An important class defined and
 used in the *sdcMicro* package is the class named *sdcMicroObj*. This
@@ -207,7 +207,7 @@ class is described in the next section.
 Objects of class *sdcMicroObj*
 ------------------------------
 
-The *sdcMicro* package is built around objects[#foot66]_ of
+The *sdcMicro* package is built around objects [#foot66]_ of
 class *sdcMicroObj*, a class especially defined for the *sdcMicro*
 package. Each member of this class has a certain structure with slots
 that contain information regarding the anonymization process (see Table
@@ -227,7 +227,7 @@ scenarios must already have been evaluated and quasi-identifiers
 selected. In addition, one must ensure there are no problems with the
 data, such as variables containing only missing values.**
 
-In Example 7.8, we show all arguments of the function createSdcObj(),
+In :numref:`code78`, we show all arguments of the function createSdcObj(),
 and first define vectors with the names of the different variables. This
 practice gives a better overview and later allows for quick changes in
 the variable choices if required. We choose the categorical
@@ -248,7 +248,7 @@ the dataframe containing the microdata to be anonymized. The selection
 of variables is important for the risk measures that are automatically
 calculated. Furthermore, several methods are by default applied to all
 variables of one sort, e.g., microaggregation to all key
-variables.[#foot67]_ After selecting these variables, we can
+variables. [#foot67]_ After selecting these variables, we can
 create the *sdcMicro* object. To obtain a summary of the object, it is
 sufficient to write the name of the object.
 
@@ -346,14 +346,14 @@ sufficient to write the name of the object.
 
 Table 7.2 presents the names of the slots and their respective contents.
 The slot names can be listed using the function slotNames(), which is
-illustrated in Example 7.9. Not all slots are used in all cases. Some
+illustrated in :numref:`code79`. Not all slots are used in all cases. Some
 slots are filled only after applying certain methods, e.g., evaluating a
 specific risk measure. Certain slots of the objects can be accessed by
 accessor functions (e.g., extractManipData for extracting the anonymized
 data) or print functions (e.g., print()) with the appropriate arguments.
 The content of a slot can also be accessed directly with the ‘@’
 operator and the slot name. This is illustrated for the risk slot in
-Example 7.9. This functionality can be practical to save intermediate
+:numref:`code79`. This functionality can be practical to save intermediate
 results and compare the outcomes of different methods. Also, for manual
 changes to the data during the SDC process, such as changing missing
 value codes or manual recoding, the direct accession of the data in the
@@ -395,6 +395,86 @@ risk in the risk slot.
 	get.sdcMicroObj(sdcInitial, "risk")$individual
 
 Table 7.2: Slot names and slot description of *sdcMicro* object
+
++-----------------------------------+-----------------------------------+
+| Slotname                          | Content                           |
++===================================+===================================+
+| origData                          | original data as specified in the |
+|                                   | dat argument of the               |
+|                                   | createSdcObj() function           |
++-----------------------------------+-----------------------------------+
+| keyVars                           | indices of columns in origData    |
+|                                   | with specified categorical key    |
+|                                   | variables                         |
++-----------------------------------+-----------------------------------+
+| pramVars                          | indices of columns in origData    |
+|                                   | with specified PRAM variables     |
++-----------------------------------+-----------------------------------+
+| numVars                           | indices of columns in origData    |
+|                                   | with specified numerical key      |
+|                                   | variables                         |
++-----------------------------------+-----------------------------------+
+| ghostVars                         | indices of columns in origData    |
+|                                   | with specified ghostVars          |
++-----------------------------------+-----------------------------------+
+| weightVar                         | indices of columns in origData    |
+|                                   | with specified weight variable    |
++-----------------------------------+-----------------------------------+
+| hhId                              | indices of columns in origData    |
+|                                   | with specified cluster variable   |
++-----------------------------------+-----------------------------------+
+| strataVar                         | indices of columns in origData    |
+|                                   | with specified strata variable    |
++-----------------------------------+-----------------------------------+
+| sensibleVar                       | indices of columns in origData    |
+|                                   | with specified sensitive          |
+|                                   | variables for lDiversity          |
++-----------------------------------+-----------------------------------+
+| manipKeyVars                      | manipulated categorical key       |
+|                                   | variables after applying SDC      |
+|                                   | methods (cf. keyVars slot)        |
++-----------------------------------+-----------------------------------+
+| manipPramVars                     | manipulated PRAM variables after  |
+|                                   | applying PRAM (cf. pramVars slot) |
++-----------------------------------+-----------------------------------+
+| manipNumVars                      | manipulated numerical key         |
+|                                   | variables after applying SDC      |
+|                                   | methods (cf. numVars slot)        |
++-----------------------------------+-----------------------------------+
+| manipGhostVars                    | manipulated ghost variables (cf.  |
+|                                   | ghostVars slot)                   |
++-----------------------------------+-----------------------------------+
+| manipStrataVar                    | manipulated strata variables (cf. |
+|                                   | strataVar slot)                   |
++-----------------------------------+-----------------------------------+
+| originalRisk                      | global and individual risk        |
+|                                   | measures before anonymization     |
++-----------------------------------+-----------------------------------+
+| risk                              | global and individual risk        |
+|                                   | measures after applied SDC        |
+|                                   | methods                           |
++-----------------------------------+-----------------------------------+
+| utility                           | utility measures (il1 and eigen)  |
++-----------------------------------+-----------------------------------+
+| pram                              | details on PRAM after applying    |
+|                                   | PRAM                              |
++-----------------------------------+-----------------------------------+
+| localSuppression                  | number of suppression per         |
+|                                   | variable after local suppression  |
++-----------------------------------+-----------------------------------+
+| options                           | options specified                 |
++-----------------------------------+-----------------------------------+
+| additionalResults                 | additional results                |
++-----------------------------------+-----------------------------------+
+| set                               | list of slots currently in use    |
+|                                   | (for internal use)                |
++-----------------------------------+-----------------------------------+
+| prev                              | information to undo one step with |
+|                                   | the undo() function               |
++-----------------------------------+-----------------------------------+
+| deletedVars                       | variables deleted (direct         |
+|                                   | identifiers)                      |
++-----------------------------------+-----------------------------------+
 
 +-----------------------------------+-----------------------------------+
 | **Slotname**                      | **Content**                       |
@@ -486,7 +566,7 @@ There are two options to save the results after applying SDC methods:
 
    In both cases, the result of any function has to be re-assigned to an
    object with the ‘<-‘ operator. Both methods are illustrated in
-   Example 7.10.
+   :numref:`code710`.
 
 .. code-block:: R
    :linenos:
@@ -505,7 +585,7 @@ possible to undo the last step in the SDC process. This is useful when
 changing parameters. The results of the last step, however, are lost
 after undoing that step. **NOTE: The undolast() function can be used to
 go only one step back, not several.** The result must also be reassigned
-to the same object. This is illustrated in Example 7.11.
+to the same object. This is illustrated in :numref:`code711`.
 
 .. code-block:: R
    :linenos:
@@ -515,8 +595,8 @@ to the same object. This is illustrated in Example 7.11.
 	# Undo last step in SDC process
 	sdcInitial <- undolast(sdcInitial)
 
-**Household structure**
------------------------
+Household structure
+-------------------
 
 If the data has a hierarchical structure and some variables are measured
 on the higher hierarchical level and others on the lower level, the SDC
@@ -540,7 +620,7 @@ household variables from a file and merge them with the individual
 levels variables after treatment in *R*. We illustrate this process with
 an example of household and individual-level variables.
 
-These steps are illustrated in Example 7.12. We require both an
+These steps are illustrated in :numref:`code712`. We require both an
 individual ID and a household ID in the dataset; if they are lacking,
 they must be generated. The individual ID has to be unique for every
 individual in the dataset and the household ID has to be unique across
@@ -582,7 +662,7 @@ we merge the data using the merge function. The ‘by’ argument in the
 merge function specifies the variable used for merging – in this case
 the household ID, which has the same variable name in both datasets. All
 other variables should have different names in both datasets. These
-steps are illustrated in Example 7.13.
+steps are illustrated in :numref:`code713`.
 
 .. code-block:: R
    :linenos:
@@ -605,7 +685,7 @@ As discussed in Section 5.5, the size of a household can also be a
 quasi-identifier, even if the household size is not included in the
 dataset as variable. For the purpose of evaluating the disclosure risk,
 it might be necessary to create such a variable by a headcount of the
-members of each household. Example 7.14 shows how to generate a variable
+members of each household. :numref:`code714` shows how to generate a variable
 household size with values for each individual based on the household ID
 (HID). Two cases are shown: 1) the file sorted by household ID and 2)
 the file not sorted.
@@ -634,7 +714,7 @@ the next few are children. Therefore, the line number within the
 household could correlate well with a variable that contains information
 on the relation to the household head. One way to avoid this unintended
 release of information is to change the order of the individuals within
-each household at random. Example 7.15 illustrates a way to do this in
+each household at random. :numref:`code715` illustrates a way to do this in
 *R*.
 
 .. code-block:: R
@@ -695,57 +775,51 @@ household ID (first digit).
 
 Table 7.3 Illustration of randomizing order of records in a dataset
 
-+-------+-------+-------+-------+-------+-------+-------+-------+-------+
-| Ori   | Dataset with randomize| Dataset for release ordered by the new|
-| ginal | household IDs         | randomized household ID               |
-| datas |                       |                                       |
-| et    |                       |                                       |
-+=======+=======+=======+=======+=======+=======+=======+=======+=======+
-|   Hou |   Reg |   Dis |   Ran |   Reg |   Dis |   Ran |   Reg |   Dis |
-| sehol | ion   | trict | domiz | ion   | trict | domiz | ion   | trict |
-| d     |       |       | ed    |       |       | ed    |       |       |
-| ID**  |       |       | house |       |       | house |       |       |
-|       |       |       | hold  |       |       | hold  |       |       |
-|       |       |       | ID**  |       |       | ID**  |       |       |
-+-------+-------+-------+-------+-------+-------+-------+-------+-------+
-| 101   | 1     | 1     | 108   | 1     | 1     | 101   | 1     | 4     |
-+-------+-------+-------+-------+-------+-------+-------+-------+-------+
-| 102   | 1     | 1     | 106   | 1     | 1     | 102   | 1     | 3     |
-+-------+-------+-------+-------+-------+-------+-------+-------+-------+
-| 103   | 1     | 2     | 104   | 1     | 2     | 103   | 1     | 5     |
-+-------+-------+-------+-------+-------+-------+-------+-------+-------+
-| 104   | 1     | 2     | 112   | 1     | 2     | 104   | 1     | 2     |
-+-------+-------+-------+-------+-------+-------+-------+-------+-------+
-| 105   | 1     | 2     | 105   | 1     | 2     | 105   | 1     | 2     |
-+-------+-------+-------+-------+-------+-------+-------+-------+-------+
-| 106   | 1     | 3     | 102   | 1     | 3     | 106   | 1     | 1     |
-+-------+-------+-------+-------+-------+-------+-------+-------+-------+
-| 107   | 1     | 3     | 109   | 1     | NA    | 107   | 1     | 3     |
-+-------+-------+-------+-------+-------+-------+-------+-------+-------+
-| 108   | 1     | 3     | 107   | 1     | 3     | 108   | 1     | 1     |
-+-------+-------+-------+-------+-------+-------+-------+-------+-------+
-| 109   | 1     | 4     | 101   | 1     | 4     | 109   | 1     | NA    |
-+-------+-------+-------+-------+-------+-------+-------+-------+-------+
-| 110   | 1     | 5     | 111   | 1     | 5     | 110   | 1     | NA    |
-+-------+-------+-------+-------+-------+-------+-------+-------+-------+
-| 111   | 1     | 5     | 110   | 1     | NA    | 111   | 1     | 5     |
-+-------+-------+-------+-------+-------+-------+-------+-------+-------+
-| 112   | 1     | 5     | 103   | 1     | 5     | 112   | 1     | 2     |
-+-------+-------+-------+-------+-------+-------+-------+-------+-------+
-| 201   | 2     | 6     | 203   | 2     | 6     | 201   | 2     | 6     |
-+-------+-------+-------+-------+-------+-------+-------+-------+-------+
-| 202   | 2     | 6     | 204   | 2     | 6     | 202   | 2     | 6     |
-+-------+-------+-------+-------+-------+-------+-------+-------+-------+
-| 203   | 2     | 6     | 201   | 2     | 6     | 203   | 2     | 6     |
-+-------+-------+-------+-------+-------+-------+-------+-------+-------+
-| 204   | 2     | 6     | 202   | 2     | 6     | 204   | 2     | 6     |
-+-------+-------+-------+-------+-------+-------+-------+-------+-------+
++------------------+--------+----------+-------------------+--------+----------+----------------+--------+-----------+
+| Original dataset                     | Dataset with randomized household ID  | Dataset for release ordered by the  |
+|                                      |                                       | new randomized household ID         |
++==================+========+==========+===================+========+==========+================+========+===========+
+| Household ID     | Region | District | Randomized        | Region | District | Randomized     | Region | District  |
+|                  |        |          | household ID      |        |          | household ID   |        |           |
++------------------+--------+----------+-------------------+--------+----------+----------------+--------+-----------+
+| 101              | 1      | 1        | 108               | 1      | 1        | 101            | 1      | 4         |
++------------------+--------+----------+-------------------+--------+----------+----------------+--------+-----------+
+| 102              | 1      | 1        | 106               | 1      | 1        | 102            | 1      | 3         |
++------------------+--------+----------+-------------------+--------+----------+----------------+--------+-----------+
+| 103              | 1      | 2        | 104               | 1      | 2        | 103            | 1      | 5         |
++------------------+--------+----------+-------------------+--------+----------+----------------+--------+-----------+
+| 104              | 1      | 2        | 112               | 1      | 2        | 104            | 1      | 2         |
++------------------+--------+----------+-------------------+--------+----------+----------------+--------+-----------+
+| 105              | 1      | 2        | 105               | 1      | 2        | 105            | 1      | 2         |
++------------------+--------+----------+-------------------+--------+----------+----------------+--------+-----------+
+| 106              | 1      | 3        | 102               | 1      | 3        | 106            | 1      | 1         |
++------------------+--------+----------+-------------------+--------+----------+----------------+--------+-----------+
+| 107              | 1      | 3        | 109               | 1      | NA       | 107            | 1      | 3         |
++------------------+--------+----------+-------------------+--------+----------+----------------+--------+-----------+
+| 108              | 1      | 3        | 107               | 1      | 3        | 108            | 1      | 1         |
++------------------+--------+----------+-------------------+--------+----------+----------------+--------+-----------+
+| 109              | 1      | 4        | 101               | 1      | 4        | 109            | 1      | NA        |
++------------------+--------+----------+-------------------+--------+----------+----------------+--------+-----------+
+| 110              | 1      | 5        | 111               | 1      | 5        | 110            | 1      | NA        |
++------------------+--------+----------+-------------------+--------+----------+----------------+--------+-----------+
+| 111              | 1      | 5        | 110               | 1      | NA       | 111            | 1      | 5         |
++------------------+--------+----------+-------------------+--------+----------+----------------+--------+-----------+
+| 112              | 1      | 5        | 103               | 1      | 5        | 112            | 1      | 2         |
++------------------+--------+----------+-------------------+--------+----------+----------------+--------+-----------+
+| 201              | 2      | 6        | 203               | 2      | 6        | 201            | 2      | 6         |
++------------------+--------+----------+-------------------+--------+----------+----------------+--------+-----------+
+| 202              | 2      | 6        | 204               | 2      | 6        | 202            | 2      | 6         |
++------------------+--------+----------+-------------------+--------+----------+----------------+--------+-----------+
+| 203              | 2      | 6        | 201               | 2      | 6        | 203            | 2      | 6         |
++------------------+--------+----------+-------------------+--------+----------+----------------+--------+-----------+
+| 204              | 2      | 6        | 202               | 2      | 6        | 204            | 2      | 6         |
++------------------+--------+----------+-------------------+--------+----------+----------------+--------+-----------+
 
 The randomization is easiest if done before or after the anonymization
 process with *sdcMicro* and directly on the dataset (data.frame in *R*).
 To randomize the order, we need an ID, such as an individual ID,
 household ID or geographical ID. If the dataset does not contain such
-ID, this should be created first. Example 7.16 shows how to randomize
+ID, this should be created first. :numref:`code716` shows how to randomize
 households. “HID” is the household ID and “regionid” is the region ID.
 First the variable “HID” is replaced by a randomized variable
 “HIDrandom”. Then the file is sorted by region and the randomized ID and
@@ -802,7 +876,7 @@ different sizes
 +-----------------+-----------------+-----------------+-----------------+
 | Dataset with 5,000 observations   | Dataset with 45,000 obervations   |
 +=================+=================+=================+=================+
-|   Methods       |   Computation   |   Methods       |   Computation   |
+| Methods         | Computation     | Methods         | Computation     |
 |                 | time (hours)    |                 | time (hours)    |
 +-----------------+-----------------+-----------------+-----------------+
 | Top coding age, | 11              | Top coding age, | 268             |
@@ -847,7 +921,7 @@ Table 7.5: Number of categories (complexity), record uniqueness and
 computation times
 
 +------+------+------+------+------+------+------+------+------+------+
-|   Sa |   Nu                                    |   Pe | Execution   |
+| Sa   | Nu                                      | Pe   | Execution   |
 | mple | mber                                    | rcen | time        |
 | Size | of                                      | tage | in hours    |
 |      | cate                                    | of   |             |
@@ -920,7 +994,7 @@ amount to the time it may take to run them sequentially. The fact that
 the RAM is shared might, however, slightly reduce the gains of
 parallelization. If you want to compare the results of different methods
 on large datasets that require long computation times, using parallel
-computing can be a solution.[#foot70]_
+computing can be a solution. [#foot70]_
 
 Appendix D zooms in on seven selected datasets from a health survey that
 were processed using the same parallelization program and anonymization
