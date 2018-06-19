@@ -68,7 +68,7 @@ compatible with most statistical data formats and provides read
 functions for most types of data. For those read functions, it is
 sometimes necessary to install additional packages and their
 dependencies in *R*. An overview of data formats, functions and the
-packages containing these functions is provided in Table 7.1. These
+packages containing these functions is provided in :numref:`tab71`. These
 functions are also available as write (e.g., write.dta()) to save the
 anonymized data in the required format. [#foot62]_
 
@@ -130,8 +130,9 @@ values and variables with factor levels and value labels. :numref:`code73`,
 
 The maximum data size in *R* is technically restricted. The maximum size
 depends on the *R* build (32-bit or 64-bit) and the operating system.
-Some SDC methods require long computation times for large datasets (see
-Section 7.7 on computation times).
+Some SDC methods require long computation times for large datasets (see the section 
+on `Computation time`_).
+
 
 Missing values
 --------------
@@ -210,8 +211,8 @@ Objects of class *sdcMicroObj*
 The *sdcMicro* package is built around objects [#foot66]_ of
 class *sdcMicroObj*, a class especially defined for the *sdcMicro*
 package. Each member of this class has a certain structure with slots
-that contain information regarding the anonymization process (see Table
-7.2 on page 100 for a description of all slots). Before evaluating risk
+that contain information regarding the anonymization process (see :numref:`tab72`
+for a description of all slots). Before evaluating risk
 and utility and applying SDC methods, creating an object of class
 *sdcMicro* is recommended. All examples in this guide are based on these
 objects. The function used to create an *sdcMicro* object is
@@ -232,8 +233,8 @@ and first define vectors with the names of the different variables. This
 practice gives a better overview and later allows for quick changes in
 the variable choices if required. We choose the categorical
 quasi-identifiers (keyVars); the variables linked to the categorical
-quasi-identifiers that need the same suppression pattern (ghostVars, see
-Section 5.2.2); the numerical quasi-identifiers (numVars); the variables
+quasi-identifiers that need the same suppression pattern (ghostVars, see the 
+`Ghostvars`_ section); the numerical quasi-identifiers (numVars); the variables
 selected for applying PRAM (pramVars); a variable with sampling weights
 (weightVar); the clustering ID (hhId, e.g., a household ID, see Section
 4.9); a variable specifying the strata (strataVar) and the sensitive
@@ -344,7 +345,7 @@ sufficient to write the name of the object.
 	## Difference of Eigenvalues: 0.000% 
 	## ---------------------------------------------------------------------------
 
-Table 7.2 presents the names of the slots and their respective contents.
+:numref:`tab72` presents the names of the slots and their respective contents.
 The slot names can be listed using the function slotNames(), which is
 illustrated in :numref:`code79`. Not all slots are used in all cases. Some
 slots are filled only after applying certain methods, e.g., evaluating a
@@ -394,167 +395,68 @@ risk in the risk slot.
 
 	get.sdcMicroObj(sdcInitial, "risk")$individual
 
-Table 7.2: Slot names and slot description of *sdcMicro* object
+.. _tab72:
 
-+-----------------------------------+-----------------------------------+
-| Slotname                          | Content                           |
-+===================================+===================================+
-| origData                          | original data as specified in the |
-|                                   | dat argument of the               |
-|                                   | createSdcObj() function           |
-+-----------------------------------+-----------------------------------+
-| keyVars                           | indices of columns in origData    |
-|                                   | with specified categorical key    |
-|                                   | variables                         |
-+-----------------------------------+-----------------------------------+
-| pramVars                          | indices of columns in origData    |
-|                                   | with specified PRAM variables     |
-+-----------------------------------+-----------------------------------+
-| numVars                           | indices of columns in origData    |
-|                                   | with specified numerical key      |
-|                                   | variables                         |
-+-----------------------------------+-----------------------------------+
-| ghostVars                         | indices of columns in origData    |
-|                                   | with specified ghostVars          |
-+-----------------------------------+-----------------------------------+
-| weightVar                         | indices of columns in origData    |
-|                                   | with specified weight variable    |
-+-----------------------------------+-----------------------------------+
-| hhId                              | indices of columns in origData    |
-|                                   | with specified cluster variable   |
-+-----------------------------------+-----------------------------------+
-| strataVar                         | indices of columns in origData    |
-|                                   | with specified strata variable    |
-+-----------------------------------+-----------------------------------+
-| sensibleVar                       | indices of columns in origData    |
-|                                   | with specified sensitive          |
-|                                   | variables for lDiversity          |
-+-----------------------------------+-----------------------------------+
-| manipKeyVars                      | manipulated categorical key       |
-|                                   | variables after applying SDC      |
-|                                   | methods (cf. keyVars slot)        |
-+-----------------------------------+-----------------------------------+
-| manipPramVars                     | manipulated PRAM variables after  |
-|                                   | applying PRAM (cf. pramVars slot) |
-+-----------------------------------+-----------------------------------+
-| manipNumVars                      | manipulated numerical key         |
-|                                   | variables after applying SDC      |
-|                                   | methods (cf. numVars slot)        |
-+-----------------------------------+-----------------------------------+
-| manipGhostVars                    | manipulated ghost variables (cf.  |
-|                                   | ghostVars slot)                   |
-+-----------------------------------+-----------------------------------+
-| manipStrataVar                    | manipulated strata variables (cf. |
-|                                   | strataVar slot)                   |
-+-----------------------------------+-----------------------------------+
-| originalRisk                      | global and individual risk        |
-|                                   | measures before anonymization     |
-+-----------------------------------+-----------------------------------+
-| risk                              | global and individual risk        |
-|                                   | measures after applied SDC        |
-|                                   | methods                           |
-+-----------------------------------+-----------------------------------+
-| utility                           | utility measures (il1 and eigen)  |
-+-----------------------------------+-----------------------------------+
-| pram                              | details on PRAM after applying    |
-|                                   | PRAM                              |
-+-----------------------------------+-----------------------------------+
-| localSuppression                  | number of suppression per         |
-|                                   | variable after local suppression  |
-+-----------------------------------+-----------------------------------+
-| options                           | options specified                 |
-+-----------------------------------+-----------------------------------+
-| additionalResults                 | additional results                |
-+-----------------------------------+-----------------------------------+
-| set                               | list of slots currently in use    |
-|                                   | (for internal use)                |
-+-----------------------------------+-----------------------------------+
-| prev                              | information to undo one step with |
-|                                   | the undo() function               |
-+-----------------------------------+-----------------------------------+
-| deletedVars                       | variables deleted (direct         |
-|                                   | identifiers)                      |
-+-----------------------------------+-----------------------------------+
+.. table:: Slot names and slot description of *sdcMicro* object
+   :widths: auto
+   :align: center
 
-+-----------------------------------+-----------------------------------+
-| **Slotname**                      | **Content**                       |
-+===================================+===================================+
-| origData                          | original data as specified in the |
-|                                   | dat argument of the               |
-|                                   | createSdcObj() function           |
-+-----------------------------------+-----------------------------------+
-| keyVars                           | indices of columns in origData    |
-|                                   | with specified categorical key    |
-|                                   | variables                         |
-+-----------------------------------+-----------------------------------+
-| pramVars                          | indices of columns in origData    |
-|                                   | with specified PRAM variables     |
-+-----------------------------------+-----------------------------------+
-| numVars                           | indices of columns in origData    |
-|                                   | with specified numerical key      |
-|                                   | variables                         |
-+-----------------------------------+-----------------------------------+
-| ghostVars                         | indices of columns in origData    |
-|                                   | with specified ghostVars          |
-+-----------------------------------+-----------------------------------+
-| weightVar                         | indices of columns in origData    |
-|                                   | with specified weight variable    |
-+-----------------------------------+-----------------------------------+
-| hhId                              | indices of columns in origData    |
-|                                   | with specified cluster variable   |
-+-----------------------------------+-----------------------------------+
-| strataVar                         | indices of columns in origData    |
-|                                   | with specified strata variable    |
-+-----------------------------------+-----------------------------------+
-| sensibleVar                       | indices of columns in origData    |
-|                                   | with specified sensitive          |
-|                                   | variables for lDiversity          |
-+-----------------------------------+-----------------------------------+
-| manipKeyVars                      | manipulated categorical key       |
-|                                   | variables after applying SDC      |
-|                                   | methods (cf. keyVars slot)        |
-+-----------------------------------+-----------------------------------+
-| manipPramVars                     | manipulated PRAM variables after  |
-|                                   | applying PRAM (cf. pramVars slot) |
-+-----------------------------------+-----------------------------------+
-| manipNumVars                      | manipulated numerical key         |
-|                                   | variables after applying SDC      |
-|                                   | methods (cf. numVars slot)        |
-+-----------------------------------+-----------------------------------+
-| manipGhostVars                    | manipulated ghost variables (cf.  |
-|                                   | ghostVars slot)                   |
-+-----------------------------------+-----------------------------------+
-| manipStrataVar                    | manipulated strata variables (cf. |
-|                                   | strataVar slot)                   |
-+-----------------------------------+-----------------------------------+
-| originalRisk                      | global and individual risk        |
-|                                   | measures before anonymization     |
-+-----------------------------------+-----------------------------------+
-| risk                              | global and individual risk        |
-|                                   | measures after applied SDC        |
-|                                   | methods                           |
-+-----------------------------------+-----------------------------------+
-| utility                           | utility measures (il1 and eigen)  |
-+-----------------------------------+-----------------------------------+
-| pram                              | details on PRAM after applying    |
-|                                   | PRAM                              |
-+-----------------------------------+-----------------------------------+
-| localSuppression                  | number of suppression per         |
-|                                   | variable after local suppression  |
-+-----------------------------------+-----------------------------------+
-| options                           | options specified                 |
-+-----------------------------------+-----------------------------------+
-| additionalResults                 | additional results                |
-+-----------------------------------+-----------------------------------+
-| set                               | list of slots currently in use    |
-|                                   | (for internal use)                |
-+-----------------------------------+-----------------------------------+
-| prev                              | information to undo one step with |
-|                                   | the undo() function               |
-+-----------------------------------+-----------------------------------+
-| deletedVars                       | variables deleted (direct         |
-|                                   | identifiers)                      |
-+-----------------------------------+-----------------------------------+
+   ==================================  ==================================
+    Slotname                           Content                           
+   ==================================  ==================================
+    origData                           original data as specified in the 
+                                       dat argument of the               
+                                       createSdcObj() function           
+    keyVars                            indices of columns in origData    
+                                       with specified categorical key    
+                                       variables                         
+    pramVars                           indices of columns in origData    
+                                       with specified PRAM variables     
+    numVars                            indices of columns in origData    
+                                       with specified numerical key      
+                                       variables                         
+    ghostVars                          indices of columns in origData    
+                                       with specified ghostVars          
+    weightVar                          indices of columns in origData    
+                                       with specified weight variable    
+    hhId                               indices of columns in origData    
+                                       with specified cluster variable   
+    strataVar                          indices of columns in origData    
+                                       with specified strata variable    
+    sensibleVar                        indices of columns in origData    
+                                       with specified sensitive          
+                                       variables for lDiversity          
+    manipKeyVars                       manipulated categorical key       
+                                       variables after applying SDC      
+                                       methods (cf. keyVars slot)        
+    manipPramVars                      manipulated PRAM variables after  
+                                       applying PRAM (cf. pramVars slot) 
+    manipNumVars                       manipulated numerical key         
+                                       variables after applying SDC      
+                                       methods (cf. numVars slot)        
+    manipGhostVars                     manipulated ghost variables (cf.  
+                                       ghostVars slot)                   
+    manipStrataVar                     manipulated strata variables (cf. 
+                                       strataVar slot)                   
+    originalRisk                       global and individual risk        
+                                       measures before anonymization     
+    risk                               global and individual risk        
+                                       measures after applied SDC        
+                                       methods                           
+    utility                            utility measures (il1 and eigen)  
+    pram                               details on PRAM after applying    
+                                       PRAM                              
+    localSuppression                   number of suppression per         
+                                       variable after local suppression  
+    options                            options specified                 
+    additionalResults                  additional results                
+    set                                list of slots currently in use    
+                                       (for internal use)                
+    prev                               information to undo one step with 
+                                       the undo() function               
+    deletedVars                        variables deleted (direct         
+                                       identifiers)                      
+   ==================================  ==================================
 
 There are two options to save the results after applying SDC methods:
 
@@ -758,8 +660,8 @@ in the randomized ID). Therefore, if the variable used for the subsets
 has suppressed values, randomization should be done at the dataset level
 and not at the subset level.
 
-Table 7.3 illustrates the need and process of randomizing the order of
-records in a dataset. The first three columns in Table 7.3 show the
+:numref:`tab73` illustrates the need and process of randomizing the order of
+records in a dataset. The first three columns in :numref:`tab73` show the
 original dataset. Some suppressions were made in the variable
 “district”, as shown in columns 4 to 6 (‘NA’ values). This dataset also
 already shows the randomized household IDs. The order of the records in
@@ -773,47 +675,36 @@ neighboring records. Note that in this example the randomization was
 carried out within the regions and the region number is included in the
 household ID (first digit).
 
-Table 7.3 Illustration of randomizing order of records in a dataset
+.. _tab73:
 
-+------------------+--------+----------+-------------------+--------+----------+----------------+--------+-----------+
-| Original dataset                     | Dataset with randomized household ID  | Dataset for release ordered by the  |
-|                                      |                                       | new randomized household ID         |
-+==================+========+==========+===================+========+==========+================+========+===========+
-| Household ID     | Region | District | Randomized        | Region | District | Randomized     | Region | District  |
-|                  |        |          | household ID      |        |          | household ID   |        |           |
-+------------------+--------+----------+-------------------+--------+----------+----------------+--------+-----------+
-| 101              | 1      | 1        | 108               | 1      | 1        | 101            | 1      | 4         |
-+------------------+--------+----------+-------------------+--------+----------+----------------+--------+-----------+
-| 102              | 1      | 1        | 106               | 1      | 1        | 102            | 1      | 3         |
-+------------------+--------+----------+-------------------+--------+----------+----------------+--------+-----------+
-| 103              | 1      | 2        | 104               | 1      | 2        | 103            | 1      | 5         |
-+------------------+--------+----------+-------------------+--------+----------+----------------+--------+-----------+
-| 104              | 1      | 2        | 112               | 1      | 2        | 104            | 1      | 2         |
-+------------------+--------+----------+-------------------+--------+----------+----------------+--------+-----------+
-| 105              | 1      | 2        | 105               | 1      | 2        | 105            | 1      | 2         |
-+------------------+--------+----------+-------------------+--------+----------+----------------+--------+-----------+
-| 106              | 1      | 3        | 102               | 1      | 3        | 106            | 1      | 1         |
-+------------------+--------+----------+-------------------+--------+----------+----------------+--------+-----------+
-| 107              | 1      | 3        | 109               | 1      | NA       | 107            | 1      | 3         |
-+------------------+--------+----------+-------------------+--------+----------+----------------+--------+-----------+
-| 108              | 1      | 3        | 107               | 1      | 3        | 108            | 1      | 1         |
-+------------------+--------+----------+-------------------+--------+----------+----------------+--------+-----------+
-| 109              | 1      | 4        | 101               | 1      | 4        | 109            | 1      | NA        |
-+------------------+--------+----------+-------------------+--------+----------+----------------+--------+-----------+
-| 110              | 1      | 5        | 111               | 1      | 5        | 110            | 1      | NA        |
-+------------------+--------+----------+-------------------+--------+----------+----------------+--------+-----------+
-| 111              | 1      | 5        | 110               | 1      | NA       | 111            | 1      | 5         |
-+------------------+--------+----------+-------------------+--------+----------+----------------+--------+-----------+
-| 112              | 1      | 5        | 103               | 1      | 5        | 112            | 1      | 2         |
-+------------------+--------+----------+-------------------+--------+----------+----------------+--------+-----------+
-| 201              | 2      | 6        | 203               | 2      | 6        | 201            | 2      | 6         |
-+------------------+--------+----------+-------------------+--------+----------+----------------+--------+-----------+
-| 202              | 2      | 6        | 204               | 2      | 6        | 202            | 2      | 6         |
-+------------------+--------+----------+-------------------+--------+----------+----------------+--------+-----------+
-| 203              | 2      | 6        | 201               | 2      | 6        | 203            | 2      | 6         |
-+------------------+--------+----------+-------------------+--------+----------+----------------+--------+-----------+
-| 204              | 2      | 6        | 202               | 2      | 6        | 204            | 2      | 6         |
-+------------------+--------+----------+-------------------+--------+----------+----------------+--------+-----------+
+.. table:: Illustration of randomizing order of records in a dataset
+   :widths: auto
+   :align: center
+   
+   ==============  ========  ==========  ==============  ========  ==========  ================  ========  ==========
+    | Original dataset                   | Dataset with randomized             | Dataset for release ordered by the
+                                         | household ID                        | new randomized household ID 
+   ------------------------------------  ------------------------------------  --------------------------------------
+   | Household     | Region  | District  | Randomized    | Region  | District   | Randomized     | Region  | District 
+   | ID            |         |           | household ID  |         |            | household ID   |         |
+   ==============  ========  ==========  ==============  ========  ==========  ================  ========  ==========
+    101              1         1             108          1           1             101              1      4       
+    102              1         1             106          1           1             102              1      3       
+    103              1         2             104          1           2             103              1      5       
+    104              1         2             112          1           2             104              1      2       
+    105              1         2             105          1           2             105              1      2       
+    106              1         3             102          1           3             106              1      1       
+    107              1         3             109          1           NA            107              1      3       
+    108              1         3             107          1           3             108              1      1       
+    109              1         4             101          1           4             109              1      NA      
+    110              1         5             111          1           5             110              1      NA      
+    111              1         5             110          1           NA            111              1      5       
+    112              1         5             103          1           5             112              1      2       
+    201              2         6             203          2           6             201              2      6       
+    202              2         6             204          2           6             202              2      6       
+    203              2         6             201          2           6             203              2      6       
+    204              2         6             202          2           6             204              2      6       
+   ==============  ========  ==========  ==============  ========  ==========  ================  ========  ==========
 
 The randomization is easiest if done before or after the anonymization
 process with *sdcMicro* and directly on the dataset (data.frame in *R*).
@@ -857,10 +748,10 @@ number of categories or factor levels of each categorical variable; data
 complexity (e.g., the number of different combinations of values of key
 variables in the data); as well as the computer/server specifications.
 
-Table 7.4 gives some indication of computation times for different
+:numref:`tab74` gives some indication of computation times for different
 methods on datasets of different size and complexity based on findings
 from our experiments. The selected quasi-identifiers and categories for
-those variables in Table 7.3 are the same in both datasets being
+those variables in :numref:`tab73` are the same in both datasets being
 compared. Because it is impossible to predict the exact computation
 time, this table should be used to illustrate how long computations may
 take. These methods have been executed on a powerful server. Given long
@@ -870,31 +761,23 @@ and then choose the appropriate SDC methods. *R* provides functions to
 select subsets from a dataset. After setting up the code, it can then be
 run on the entire dataset on a powerful computer or server.
 
-Table 7.4: Computation times of different methods on datasets of
-different sizes
+.. _tab74:
 
-+-----------------+-----------------+-----------------+-----------------+
-| Dataset with 5,000 observations   | Dataset with 45,000 obervations   |
-+=================+=================+=================+=================+
-| Methods         | Computation     | Methods         | Computation     |
-|                 | time (hours)    |                 | time (hours)    |
-+-----------------+-----------------+-----------------+-----------------+
-| Top coding age, | 11              | Top coding age, | 268             |
-| local           |                 | local           |                 |
-| suppression     |                 | suppression     |                 |
-| (k=3)           |                 | (k=3)           |                 |
-+-----------------+-----------------+-----------------+-----------------+
-| Recoding age,   | 8               | Recoding age,   | 143             |
-| local           |                 | local           |                 |
-| suppression     |                 | suppression     |                 |
-| (k=3)           |                 | (k=3)           |                 |
-+-----------------+-----------------+-----------------+-----------------+
-| Recoding age,   | 10              | Recoding age,   | 156             |
-| local           |                 | local           |                 |
-| suppression     |                 | suppression     |                 |
-| (k=5)           |                 | (k=5)           |                 |
-+-----------------+-----------------+-----------------+-----------------+
+.. table:: Computation times of different methods on datasets of different sizes
+   :widths: auto
+   :align: center
 
+   =========================================  =================  =========================================  ================
+    Dataset with 5,000 observations                               Dataset with 45,000 obervations
+   ------------------------------------------------------------  -----------------------------------------------------------
+       Methods                                 Computation        Methods                                    Computation
+                                               time (hours)                                                  time (hours)
+   =========================================  =================  =========================================  ================
+    Top coding age, local suppression (k=3)    11                 Top coding age, local suppression (k=3)    268                                   
+    Recoding age, local suppression (k=3)      8                  Recoding age, local suppression (k=3)      143                               
+    Recoding age, local suppression (k=5)      10                 Recoding age, local suppression (k=5)      156             
+   =========================================  =================  =========================================  ================
+   
 The number of categories and the product of the number of categories of
 all categorical quasi-identifiers give an idea of the number of
 potential combinations (keys). This is only an indication of the actual
@@ -903,7 +786,7 @@ compute, for example, the frequencies of each key in the dataset. If
 there are many categories but not so many combinations (e.g., when the
 variables correlate), the computation time will be shorter.
 
-Table 7.5 shows the number of categories for seven datasets with the
+:numref:`tab75` shows the number of categories for seven datasets with the
 same variables but of different complexities that were all processed
 using the same script on 16 processors, in order of execution time. The
 table also shows an approximation of the number of unique combinations
@@ -917,56 +800,27 @@ can vary greatly; the longest running time is about 10 times longer than
 the shortest. Computer specifications also influence the computation
 time. This includes the processor, RAM and storage media.
 
-Table 7.5: Number of categories (complexity), record uniqueness and
-computation times
+.. _tab75:
 
-+------+------+------+------+------+------+------+------+------+------+
-| Sa   | Nu                                      | Pe   | Execution   |
-| mple | mber                                    | rcen | time        |
-| Size | of                                      | tage | in hours    |
-|      | cate                                    | of   |             |
-|      | gori                                    | obse |             |
-|      | es                                      | rvat |             |
-|      | per                                     | ions |             |
-|      | quas                                    | viol |             |
-|      | i-id                                    | atin |             |
-|      | enti                                    | g    |             |
-|      | fier                                    | k    |             |
-|      | (com                                    | anon |             |
-|      | plex                                    | ymit |             |       
-|      | ity)                                    | y    |             |       
-|      |                                         | befo |             |
-|      |                                         | re   |             |
-|      |                                         | anon |             |
-|      |                                         | ymiz |             |
-|      |                                         | atio |             |
-|      |                                         | n    |             |
-+======+======+======+======+======+======+======+======+======+======+
-|      | Wate | Toil | Occu | Reli | Ethn | Regi | k3   | k5   |      |
-|      | r    | et   | pati | gion | icit | on   |      |      |      |
-|      |      |      | on   |      | y    |      |      |      |      |
-+------+------+------+------+------+------+------+------+------+------+
-| 20,0 | 10   | 4    | 70   | 5    | 7    | 6    | 74   | 88   | 53.7 |
-| 14   |      |      |      |      |      |      |      |      | 2    |
-+------+------+------+------+------+------+------+------+------+------+
-| 66,2 | 15   | 6    | 39   | 4    | 0    | 24   | 40   | 49   | 67.1 |
-| 85   |      |      |      |      |      |      |      |      | 9    |
-+------+------+------+------+------+------+------+------+------+------+
-| 60,7 | 13   | 6    | 70   | 8    | 9    | 4    | 35   | 45   | 74.4 |
-| 47   |      |      |      |      |      |      |      |      | 7    |
-+------+------+------+------+------+------+------+------+------+------+
-| 26,6 | 19   | 6    | 84   | 10   | 10   | 10   | 77   | 87   | 108. |
-| 01   |      |      |      |      |      |      |      |      | 84   |
-+------+------+------+------+------+------+------+------+------+------+
-| 38,0 | 17   | 6    | 30   | 5    | 56   | 9    | 70   | 81   | 198. |
-| 89   |      |      |      |      |      |      |      |      | 90   |
-+------+------+------+------+------+------+------+------+------+------+
-| 35,8 | 19   | 7    | 67   | 6    | NA   | 6    | 81   | 90   | 267. |
-| 20   |      |      |      |      |      |      |      |      | 60   |
-+------+------+------+------+------+------+------+------+------+------+
-| 51,9 | 12   | 6    | 32   | 8    | 50   | 12   | 77   | 87   | 503. |
-| 76   |      |      |      |      |      |      |      |      | 58   |
-+------+------+------+------+------+------+------+------+------+------+
+.. table:: Number of categories (complexity), record uniqueness and computation times
+   :widths: auto
+   :align: center
+   
+   =============  =======  ========  ============  ==========  ===========  ========  ==============  ==============  =================  
+    Sample size    Number of categories                                                Percentage of observations      Execution time
+                   per quasi-identifier (complexity)                                   violating k-anonimity before    in hours
+                                                                                       before anonymization
+   -------------  ------------------------------------------------------------------  ------------------------------  -----------------
+         n         Water    Toilet    Occupation    Religion    Ethnicity    Region        k3             k5                
+   =============  =======  ========  ============  ==========  ===========  ========  ==============  ==============  =================  
+     20,014         10         4          70            5          7            6           74           88               53.72  
+     66,285         15         6          39            4          0            24          40           49               67.19  
+     60,747         13         6          70            8          9            4           35           45               74.47  
+     26,601         19         6          84            10         10           10          77           87               108.84 
+     38,089         17         6          30            5          56           9           70           81               198.90 
+     35,820         19         7          67            6          NA           6           81           90               267.60 
+     51,976         12         6          32            8          50           12          77           87               503.58  
+   =============  =======  ========  ============  ==========  ===========  ========  ==============  ==============  =================  
 
 The large-scale experiment executed for this guide utilized 75 microdata
 files from 52 countries, using surveys on topics including health,

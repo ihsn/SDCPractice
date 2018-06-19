@@ -235,7 +235,7 @@ compatible with most statistical data formats and provides read
 functions for most types of data. For those read functions, it is
 sometimes necessary to install additional packages and their
 dependencies in <em>R</em>. An overview of data formats, functions and the
-packages containing these functions is provided in Table 7.1. These
+packages containing these functions is provided in <a class="reference internal" href="#tab71"><span class="std std-numref">Table 6</span></a>. These
 functions are also available as write (e.g., write.dta()) to save the
 anonymized data in the required format. <a class="footnote-reference" href="#foot62" id="id3">[3]</a></p>
 <span id="tab71"></span><table border="1" class="colwidths-auto docutils align-center" id="id11">
@@ -333,7 +333,7 @@ values and variables with factor levels and value labels. <a class="reference in
 </div>
 <p>The maximum data size in <em>R</em> is technically restricted. The maximum size
 depends on the <em>R</em> build (32-bit or 64-bit) and the operating system.
-Some SDC methods require long computation times for large datasets (see
+Some SDC methods require long computation times for large datasets (see the section on <a class="reference internal" href="#computation-time">Computation time</a>.
 Section 7.7 on computation times).</p>
 </div>
 <div class="section" id="missing-values">
@@ -416,8 +416,8 @@ class is described in the next section.</p>
 <p>The <em>sdcMicro</em> package is built around objects <a class="footnote-reference" href="#foot66" id="id6">[7]</a> of
 class <em>sdcMicroObj</em>, a class especially defined for the <em>sdcMicro</em>
 package. Each member of this class has a certain structure with slots
-that contain information regarding the anonymization process (see Table
-7.2 on page 100 for a description of all slots). Before evaluating risk
+that contain information regarding the anonymization process (see <a class="reference internal" href="#tab72"><span class="std std-numref">Table 7</span></a>
+for a description of all slots). Before evaluating risk
 and utility and applying SDC methods, creating an object of class
 <em>sdcMicro</em> is recommended. All examples in this guide are based on these
 objects. The function used to create an <em>sdcMicro</em> object is
@@ -631,7 +631,7 @@ sufficient to write the name of the object.</p>
 </pre></div>
 </td></tr></table></div>
 </div>
-<p>Table 7.2 presents the names of the slots and their respective contents.
+<p><a class="reference internal" href="#tab72"><span class="std std-numref">Table 7</span></a> presents the names of the slots and their respective contents.
 The slot names can be listed using the function slotNames(), which is
 illustrated in <a class="reference internal" href="#code79"><span class="std std-numref">Listing 23</span></a>. Not all slots are used in all cases. Some
 slots are filled only after applying certain methods, e.g., evaluating a
@@ -703,128 +703,11 @@ risk in the risk slot.</p>
 </pre></div>
 </td></tr></table></div>
 </div>
-<p>Table 7.2: Slot names and slot description of <em>sdcMicro</em> object</p>
-<table border="1" class="docutils">
-<colgroup>
-<col width="50%" />
-<col width="50%" />
-</colgroup>
+<span id="tab72"></span><table border="1" class="colwidths-auto docutils align-center" id="id12">
+<caption><span class="caption-number">Table 7 </span><span class="caption-text">Slot names and slot description of <em>sdcMicro</em> object</span><a class="headerlink" href="#id12" title="Permalink to this table">¶</a></caption>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">Slotname</th>
 <th class="head">Content</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr class="row-even"><td>origData</td>
-<td>original data as specified in the
-dat argument of the
-createSdcObj() function</td>
-</tr>
-<tr class="row-odd"><td>keyVars</td>
-<td>indices of columns in origData
-with specified categorical key
-variables</td>
-</tr>
-<tr class="row-even"><td>pramVars</td>
-<td>indices of columns in origData
-with specified PRAM variables</td>
-</tr>
-<tr class="row-odd"><td>numVars</td>
-<td>indices of columns in origData
-with specified numerical key
-variables</td>
-</tr>
-<tr class="row-even"><td>ghostVars</td>
-<td>indices of columns in origData
-with specified ghostVars</td>
-</tr>
-<tr class="row-odd"><td>weightVar</td>
-<td>indices of columns in origData
-with specified weight variable</td>
-</tr>
-<tr class="row-even"><td>hhId</td>
-<td>indices of columns in origData
-with specified cluster variable</td>
-</tr>
-<tr class="row-odd"><td>strataVar</td>
-<td>indices of columns in origData
-with specified strata variable</td>
-</tr>
-<tr class="row-even"><td>sensibleVar</td>
-<td>indices of columns in origData
-with specified sensitive
-variables for lDiversity</td>
-</tr>
-<tr class="row-odd"><td>manipKeyVars</td>
-<td>manipulated categorical key
-variables after applying SDC
-methods (cf. keyVars slot)</td>
-</tr>
-<tr class="row-even"><td>manipPramVars</td>
-<td>manipulated PRAM variables after
-applying PRAM (cf. pramVars slot)</td>
-</tr>
-<tr class="row-odd"><td>manipNumVars</td>
-<td>manipulated numerical key
-variables after applying SDC
-methods (cf. numVars slot)</td>
-</tr>
-<tr class="row-even"><td>manipGhostVars</td>
-<td>manipulated ghost variables (cf.
-ghostVars slot)</td>
-</tr>
-<tr class="row-odd"><td>manipStrataVar</td>
-<td>manipulated strata variables (cf.
-strataVar slot)</td>
-</tr>
-<tr class="row-even"><td>originalRisk</td>
-<td>global and individual risk
-measures before anonymization</td>
-</tr>
-<tr class="row-odd"><td>risk</td>
-<td>global and individual risk
-measures after applied SDC
-methods</td>
-</tr>
-<tr class="row-even"><td>utility</td>
-<td>utility measures (il1 and eigen)</td>
-</tr>
-<tr class="row-odd"><td>pram</td>
-<td>details on PRAM after applying
-PRAM</td>
-</tr>
-<tr class="row-even"><td>localSuppression</td>
-<td>number of suppression per
-variable after local suppression</td>
-</tr>
-<tr class="row-odd"><td>options</td>
-<td>options specified</td>
-</tr>
-<tr class="row-even"><td>additionalResults</td>
-<td>additional results</td>
-</tr>
-<tr class="row-odd"><td>set</td>
-<td>list of slots currently in use
-(for internal use)</td>
-</tr>
-<tr class="row-even"><td>prev</td>
-<td>information to undo one step with
-the undo() function</td>
-</tr>
-<tr class="row-odd"><td>deletedVars</td>
-<td>variables deleted (direct
-identifiers)</td>
-</tr>
-</tbody>
-</table>
-<table border="1" class="docutils">
-<colgroup>
-<col width="50%" />
-<col width="50%" />
-</colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head"><strong>Slotname</strong></th>
-<th class="head"><strong>Content</strong></th>
 </tr>
 </thead>
 <tbody valign="top">
@@ -1155,8 +1038,8 @@ derived (for instance, in cases where the geographical unit is included
 in the randomized ID). Therefore, if the variable used for the subsets
 has suppressed values, randomization should be done at the dataset level
 and not at the subset level.</p>
-<p>Table 7.3 illustrates the need and process of randomizing the order of
-records in a dataset. The first three columns in Table 7.3 show the
+<p><a class="reference internal" href="#tab73"><span class="std std-numref">Table 8</span></a> illustrates the need and process of randomizing the order of
+records in a dataset. The first three columns in <a class="reference internal" href="#tab73"><span class="std std-numref">Table 8</span></a> show the
 original dataset. Some suppressions were made in the variable
 “district”, as shown in columns 4 to 6 (‘NA’ values). This dataset also
 already shows the randomized household IDs. The order of the records in
@@ -1169,40 +1052,101 @@ to reconstruct the suppressed values based on the values of the
 neighboring records. Note that in this example the randomization was
 carried out within the regions and the region number is included in the
 household ID (first digit).</p>
-<p>Table 7.3 Illustration of randomizing order of records in a dataset</p>
-<table border="1" class="docutils">
-<colgroup>
-<col width="17%" />
-<col width="7%" />
-<col width="9%" />
-<col width="18%" />
-<col width="7%" />
-<col width="9%" />
-<col width="15%" />
-<col width="7%" />
-<col width="10%" />
-</colgroup>
+<span id="tab73"></span><table border="1" class="colwidths-auto docutils align-center" id="id13">
+<caption><span class="caption-number">Table 8 </span><span class="caption-text">Illustration of randomizing order of records in a dataset</span><a class="headerlink" href="#id13" title="Permalink to this table">¶</a></caption>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head" colspan="3">Original dataset</th>
-<th class="head" colspan="3">Dataset with randomized household ID</th>
-<th class="head" colspan="3">Dataset for release ordered by the
-new randomized household ID</th>
+<tr class="row-odd"><th class="head" colspan="3"><div class="first last line-block">
+<div class="line">Original dataset</div>
+</div>
+</th>
+<th class="head" colspan="3"><div class="first last line-block">
+<div class="line">Dataset with randomized</div>
+<div class="line">household ID</div>
+</div>
+</th>
+<th class="head" colspan="3"><div class="first last line-block">
+<div class="line">Dataset for release ordered by the</div>
+<div class="line">new randomized household ID</div>
+</div>
+</th>
+</tr>
+<tr class="row-even"><th class="head"><div class="first last line-block">
+<div class="line">Household</div>
+</div>
+</th>
+<th class="head"><div class="first last line-block">
+<div class="line">Region</div>
+</div>
+</th>
+<th class="head"><div class="first last line-block">
+<div class="line">District</div>
+</div>
+</th>
+<th class="head"><div class="first last line-block">
+<div class="line">Randomized</div>
+</div>
+</th>
+<th class="head"><div class="first last line-block">
+<div class="line">Region</div>
+</div>
+</th>
+<th class="head"><div class="first last line-block">
+<div class="line">District</div>
+</div>
+</th>
+<th class="head"><div class="first last line-block">
+<div class="line">Randomized</div>
+</div>
+</th>
+<th class="head"><div class="first last line-block">
+<div class="line">Region</div>
+</div>
+</th>
+<th class="head"><div class="first last line-block">
+<div class="line">District</div>
+</div>
+</th>
+</tr>
+<tr class="row-odd"><th class="head"><div class="first last line-block">
+<div class="line">ID</div>
+</div>
+</th>
+<th class="head"><div class="first last line-block">
+<div class="line"><br /></div>
+</div>
+</th>
+<th class="head"><div class="first last line-block">
+<div class="line"><br /></div>
+</div>
+</th>
+<th class="head"><div class="first last line-block">
+<div class="line">household ID</div>
+</div>
+</th>
+<th class="head"><div class="first last line-block">
+<div class="line"><br /></div>
+</div>
+</th>
+<th class="head"><div class="first last line-block">
+<div class="line"><br /></div>
+</div>
+</th>
+<th class="head"><div class="first last line-block">
+<div class="line">household ID</div>
+</div>
+</th>
+<th class="head"><div class="first last line-block">
+<div class="line"><br /></div>
+</div>
+</th>
+<th class="head"><div class="first last line-block">
+<div class="line"><br /></div>
+</div>
+</th>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td>Household ID</td>
-<td>Region</td>
-<td>District</td>
-<td>Randomized
-household ID</td>
-<td>Region</td>
-<td>District</td>
-<td>Randomized
-household ID</td>
-<td>Region</td>
-<td>District</td>
-</tr>
-<tr class="row-odd"><td>101</td>
+<tr class="row-even"><td>101</td>
 <td>1</td>
 <td>1</td>
 <td>108</td>
@@ -1212,7 +1156,7 @@ household ID</td>
 <td>1</td>
 <td>4</td>
 </tr>
-<tr class="row-even"><td>102</td>
+<tr class="row-odd"><td>102</td>
 <td>1</td>
 <td>1</td>
 <td>106</td>
@@ -1222,7 +1166,7 @@ household ID</td>
 <td>1</td>
 <td>3</td>
 </tr>
-<tr class="row-odd"><td>103</td>
+<tr class="row-even"><td>103</td>
 <td>1</td>
 <td>2</td>
 <td>104</td>
@@ -1232,7 +1176,7 @@ household ID</td>
 <td>1</td>
 <td>5</td>
 </tr>
-<tr class="row-even"><td>104</td>
+<tr class="row-odd"><td>104</td>
 <td>1</td>
 <td>2</td>
 <td>112</td>
@@ -1242,7 +1186,7 @@ household ID</td>
 <td>1</td>
 <td>2</td>
 </tr>
-<tr class="row-odd"><td>105</td>
+<tr class="row-even"><td>105</td>
 <td>1</td>
 <td>2</td>
 <td>105</td>
@@ -1252,7 +1196,7 @@ household ID</td>
 <td>1</td>
 <td>2</td>
 </tr>
-<tr class="row-even"><td>106</td>
+<tr class="row-odd"><td>106</td>
 <td>1</td>
 <td>3</td>
 <td>102</td>
@@ -1262,7 +1206,7 @@ household ID</td>
 <td>1</td>
 <td>1</td>
 </tr>
-<tr class="row-odd"><td>107</td>
+<tr class="row-even"><td>107</td>
 <td>1</td>
 <td>3</td>
 <td>109</td>
@@ -1272,7 +1216,7 @@ household ID</td>
 <td>1</td>
 <td>3</td>
 </tr>
-<tr class="row-even"><td>108</td>
+<tr class="row-odd"><td>108</td>
 <td>1</td>
 <td>3</td>
 <td>107</td>
@@ -1282,7 +1226,7 @@ household ID</td>
 <td>1</td>
 <td>1</td>
 </tr>
-<tr class="row-odd"><td>109</td>
+<tr class="row-even"><td>109</td>
 <td>1</td>
 <td>4</td>
 <td>101</td>
@@ -1292,7 +1236,7 @@ household ID</td>
 <td>1</td>
 <td>NA</td>
 </tr>
-<tr class="row-even"><td>110</td>
+<tr class="row-odd"><td>110</td>
 <td>1</td>
 <td>5</td>
 <td>111</td>
@@ -1302,7 +1246,7 @@ household ID</td>
 <td>1</td>
 <td>NA</td>
 </tr>
-<tr class="row-odd"><td>111</td>
+<tr class="row-even"><td>111</td>
 <td>1</td>
 <td>5</td>
 <td>110</td>
@@ -1312,7 +1256,7 @@ household ID</td>
 <td>1</td>
 <td>5</td>
 </tr>
-<tr class="row-even"><td>112</td>
+<tr class="row-odd"><td>112</td>
 <td>1</td>
 <td>5</td>
 <td>103</td>
@@ -1322,7 +1266,7 @@ household ID</td>
 <td>1</td>
 <td>2</td>
 </tr>
-<tr class="row-odd"><td>201</td>
+<tr class="row-even"><td>201</td>
 <td>2</td>
 <td>6</td>
 <td>203</td>
@@ -1332,7 +1276,7 @@ household ID</td>
 <td>2</td>
 <td>6</td>
 </tr>
-<tr class="row-even"><td>202</td>
+<tr class="row-odd"><td>202</td>
 <td>2</td>
 <td>6</td>
 <td>204</td>
@@ -1342,7 +1286,7 @@ household ID</td>
 <td>2</td>
 <td>6</td>
 </tr>
-<tr class="row-odd"><td>203</td>
+<tr class="row-even"><td>203</td>
 <td>2</td>
 <td>6</td>
 <td>201</td>
@@ -1352,7 +1296,7 @@ household ID</td>
 <td>2</td>
 <td>6</td>
 </tr>
-<tr class="row-even"><td>204</td>
+<tr class="row-odd"><td>204</td>
 <td>2</td>
 <td>6</td>
 <td>202</td>
@@ -1412,10 +1356,10 @@ data size, i.e., number of observations, number of variables and the
 number of categories or factor levels of each categorical variable; data
 complexity (e.g., the number of different combinations of values of key
 variables in the data); as well as the computer/server specifications.</p>
-<p>Table 7.4 gives some indication of computation times for different
+<p><a class="reference internal" href="#tab74"><span class="std std-numref">Table 9</span></a> gives some indication of computation times for different
 methods on datasets of different size and complexity based on findings
 from our experiments. The selected quasi-identifiers and categories for
-those variables in Table 7.3 are the same in both datasets being
+those variables in <a class="reference internal" href="#tab73"><span class="std std-numref">Table 8</span></a> are the same in both datasets being
 compared. Because it is impossible to predict the exact computation
 time, this table should be used to illustrate how long computations may
 take. These methods have been executed on a powerful server. Given long
@@ -1424,59 +1368,34 @@ to first test the SDC methods on a subset or sample of the microdata,
 and then choose the appropriate SDC methods. <em>R</em> provides functions to
 select subsets from a dataset. After setting up the code, it can then be
 run on the entire dataset on a powerful computer or server.</p>
-<p>Table 7.4: Computation times of different methods on datasets of
-different sizes</p>
-<table border="1" class="docutils">
-<colgroup>
-<col width="25%" />
-<col width="25%" />
-<col width="25%" />
-<col width="25%" />
-</colgroup>
+<span id="tab74"></span><table border="1" class="colwidths-auto docutils align-center" id="id14">
+<caption><span class="caption-number">Table 9 </span><span class="caption-text">Computation times of different methods on datasets of different sizes</span><a class="headerlink" href="#id14" title="Permalink to this table">¶</a></caption>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head" colspan="2">Dataset with 5,000 observations</th>
 <th class="head" colspan="2">Dataset with 45,000 obervations</th>
 </tr>
+<tr class="row-even"><th class="head">Methods</th>
+<th class="head">Computation
+time (hours)</th>
+<th class="head">Methods</th>
+<th class="head">Computation
+time (hours)</th>
+</tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td>Methods</td>
-<td>Computation
-time (hours)</td>
-<td>Methods</td>
-<td>Computation
-time (hours)</td>
-</tr>
-<tr class="row-odd"><td>Top coding age,
-local
-suppression
-(k=3)</td>
+<tr class="row-odd"><td>Top coding age, local suppression (k=3)</td>
 <td>11</td>
-<td>Top coding age,
-local
-suppression
-(k=3)</td>
+<td>Top coding age, local suppression (k=3)</td>
 <td>268</td>
 </tr>
-<tr class="row-even"><td>Recoding age,
-local
-suppression
-(k=3)</td>
+<tr class="row-even"><td>Recoding age, local suppression (k=3)</td>
 <td>8</td>
-<td>Recoding age,
-local
-suppression
-(k=3)</td>
+<td>Recoding age, local suppression (k=3)</td>
 <td>143</td>
 </tr>
-<tr class="row-odd"><td>Recoding age,
-local
-suppression
-(k=5)</td>
+<tr class="row-odd"><td>Recoding age, local suppression (k=5)</td>
 <td>10</td>
-<td>Recoding age,
-local
-suppression
-(k=5)</td>
+<td>Recoding age, local suppression (k=5)</td>
 <td>156</td>
 </tr>
 </tbody>
@@ -1488,7 +1407,7 @@ number of combinations, which influences the computation time to
 compute, for example, the frequencies of each key in the dataset. If
 there are many categories but not so many combinations (e.g., when the
 variables correlate), the computation time will be shorter.</p>
-<p>Table 7.5 shows the number of categories for seven datasets with the
+<p><a class="reference internal" href="#tab75"><span class="std std-numref">Table 10</span></a> shows the number of categories for seven datasets with the
 same variables but of different complexities that were all processed
 using the same script on 16 processors, in order of execution time. The
 table also shows an approximation of the number of unique combinations
@@ -1501,86 +1420,32 @@ the same script (and hence anonymization methods), the execution time
 can vary greatly; the longest running time is about 10 times longer than
 the shortest. Computer specifications also influence the computation
 time. This includes the processor, RAM and storage media.</p>
-<p>Table 7.5: Number of categories (complexity), record uniqueness and
-computation times</p>
-<table border="1" class="docutils">
-<colgroup>
-<col width="10%" />
-<col width="10%" />
-<col width="10%" />
-<col width="10%" />
-<col width="10%" />
-<col width="10%" />
-<col width="10%" />
-<col width="10%" />
-<col width="10%" />
-<col width="10%" />
-</colgroup>
+<span id="tab75"></span><table border="1" class="colwidths-auto docutils align-center" id="id15">
+<caption><span class="caption-number">Table 10 </span><span class="caption-text">Number of categories (complexity), record uniqueness and computation times</span><a class="headerlink" href="#id15" title="Permalink to this table">¶</a></caption>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">Sa
-mple
-Size</th>
-<th class="head" colspan="6">Nu
-mber
-of
-cate
-gori
-es
-per
-quas
-i-id
-enti
-fier
-(com
-plex
-ity)</th>
-<th class="head">Pe
-rcen
-tage
-of
-obse
-rvat
-ions
-viol
-atin
-g
-k
-anon
-ymit
-y
-befo
-re
-anon
-ymiz
-atio
-n</th>
-<th class="head" colspan="2">Execution
-time
+<tr class="row-odd"><th class="head">Sample size</th>
+<th class="head" colspan="6">Number of categories
+per quasi-identifier (complexity)</th>
+<th class="head" colspan="2">Percentage of observations
+violating k-anonimity before
+before anonymization</th>
+<th class="head">Execution time
 in hours</th>
+</tr>
+<tr class="row-even"><th class="head">n</th>
+<th class="head">Water</th>
+<th class="head">Toilet</th>
+<th class="head">Occupation</th>
+<th class="head">Religion</th>
+<th class="head">Ethnicity</th>
+<th class="head">Region</th>
+<th class="head">k3</th>
+<th class="head">k5</th>
+<th class="head">&#160;</th>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td>&#160;</td>
-<td>Wate
-r</td>
-<td>Toil
-et</td>
-<td>Occu
-pati
-on</td>
-<td>Reli
-gion</td>
-<td>Ethn
-icit
-y</td>
-<td>Regi
-on</td>
-<td>k3</td>
-<td>k5</td>
-<td>&#160;</td>
-</tr>
-<tr class="row-odd"><td>20,0
-14</td>
+<tr class="row-odd"><td>20,014</td>
 <td>10</td>
 <td>4</td>
 <td>70</td>
@@ -1589,11 +1454,9 @@ on</td>
 <td>6</td>
 <td>74</td>
 <td>88</td>
-<td>53.7
-2</td>
+<td>53.72</td>
 </tr>
-<tr class="row-even"><td>66,2
-85</td>
+<tr class="row-even"><td>66,285</td>
 <td>15</td>
 <td>6</td>
 <td>39</td>
@@ -1602,11 +1465,9 @@ on</td>
 <td>24</td>
 <td>40</td>
 <td>49</td>
-<td>67.1
-9</td>
+<td>67.19</td>
 </tr>
-<tr class="row-odd"><td>60,7
-47</td>
+<tr class="row-odd"><td>60,747</td>
 <td>13</td>
 <td>6</td>
 <td>70</td>
@@ -1615,11 +1476,9 @@ on</td>
 <td>4</td>
 <td>35</td>
 <td>45</td>
-<td>74.4
-7</td>
+<td>74.47</td>
 </tr>
-<tr class="row-even"><td>26,6
-01</td>
+<tr class="row-even"><td>26,601</td>
 <td>19</td>
 <td>6</td>
 <td>84</td>
@@ -1628,11 +1487,9 @@ on</td>
 <td>10</td>
 <td>77</td>
 <td>87</td>
-<td>108.
-84</td>
+<td>108.84</td>
 </tr>
-<tr class="row-odd"><td>38,0
-89</td>
+<tr class="row-odd"><td>38,089</td>
 <td>17</td>
 <td>6</td>
 <td>30</td>
@@ -1641,11 +1498,9 @@ on</td>
 <td>9</td>
 <td>70</td>
 <td>81</td>
-<td>198.
-90</td>
+<td>198.90</td>
 </tr>
-<tr class="row-even"><td>35,8
-20</td>
+<tr class="row-even"><td>35,820</td>
 <td>19</td>
 <td>7</td>
 <td>67</td>
@@ -1654,11 +1509,9 @@ on</td>
 <td>6</td>
 <td>81</td>
 <td>90</td>
-<td>267.
-60</td>
+<td>267.60</td>
 </tr>
-<tr class="row-odd"><td>51,9
-76</td>
+<tr class="row-odd"><td>51,976</td>
 <td>12</td>
 <td>6</td>
 <td>32</td>
@@ -1667,8 +1520,7 @@ on</td>
 <td>12</td>
 <td>77</td>
 <td>87</td>
-<td>503.
-58</td>
+<td>503.58</td>
 </tr>
 </tbody>
 </table>
