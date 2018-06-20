@@ -130,8 +130,9 @@ values and variables with factor levels and value labels. :numref:`code73`,
 
 The maximum data size in *R* is technically restricted. The maximum size
 depends on the *R* build (32-bit or 64-bit) and the operating system.
-Some SDC methods require long computation times for large datasets (see the section on `Computation time`_.
-Section 7.7 on computation times).
+Some SDC methods require long computation times for large datasets (see the section 
+on `Computation time`_).
+
 
 Missing values
 --------------
@@ -232,8 +233,8 @@ and first define vectors with the names of the different variables. This
 practice gives a better overview and later allows for quick changes in
 the variable choices if required. We choose the categorical
 quasi-identifiers (keyVars); the variables linked to the categorical
-quasi-identifiers that need the same suppression pattern (ghostVars, see
-Section 5.2.2); the numerical quasi-identifiers (numVars); the variables
+quasi-identifiers that need the same suppression pattern (ghostVars, see the 
+`Ghostvars`_ section); the numerical quasi-identifiers (numVars); the variables
 selected for applying PRAM (pramVars); a variable with sampling weights
 (weightVar); the clustering ID (hhId, e.g., a household ID, see Section
 4.9); a variable specifying the strata (strataVar) and the sensitive

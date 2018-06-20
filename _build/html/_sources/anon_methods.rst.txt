@@ -225,7 +225,7 @@ Table 5.3: Illustration of the effect of recoding on the theoretically
 possible number of combinations an a dataset
 
 +-------------+-------------+-------------+-------------+-------------+
-|  Number of  |  Region     |  Marital    |  Age        |  Possible   |
+| Number of   | Region      | Marital     | Age         | Possible    |
 | categories  |             | status      |             | combination |
 |             |             |             |             | s           |
 +=============+=============+=============+=============+=============+
@@ -319,7 +319,7 @@ groupVars()*
 
 Assume that an object of class *sdcMicro* was created, which is called
 “sdcInitial” [#foot35]_ (see Section 7.5 how to create
-objects of class *sdcMicro*). In Example 5.1, the variable “sizeRes” has
+objects of class *sdcMicro*). In :numref:`code51`, the variable “sizeRes” has
 four different categories: ‘capital, large city’, ‘small city’, town’,
 and ‘countryside’). The first three are recoded or regrouped as ‘urban’
 and the category ‘countryside’ is renamed ‘rural’. In the function
@@ -331,10 +331,10 @@ different values that are recoded to ‘urban’. **NOTE: the function
 groupVars() works only for variables of class factor.** We refer to
 Section 7.4 on classes in *R* and how to change the class of a variable.
 
-Example 5.1: Using the sdcMicro function groupVars() to recode a
-categorical variable
-
 .. code-block:: R
+   :linenos:
+   :caption:  Using the sdcMicro function groupVars() to recode a categorical variable
+   :name: code51
 
     # Frequencies of sizeRes before recoding
     table(sdcInitial@manipKeyVars$sizeRes)
@@ -372,17 +372,17 @@ Global recoding of numerical (continuous) variables can be achieved in
 a vector with the break points between the intervals. Recoding a
 continuous variable changes it into a categorical variable. One can
 additionally specify a vector of labels for the new categories. By
-default, the labels are the intervals, e.g., “(0, 10]”. Example 5.2
+default, the labels are the intervals, e.g., “(0, 10]”. :numref:`code52`
 shows how to recode the variable age in 10-year intervals for age values
 between 0 and 100. **NOTE: Values that fall outside the specified
 intervals are assigned a missing value (NA).** Therefore, the intervals
 should cover the entire value range of the variable.
 
-Example 5.2: Using the *sdcMicro* function globalRecode() to recode a
-continuous variable (age)
-
 .. code-block:: R
-
+   :linenos:
+   :caption: Using the *sdcMicro* function globalRecode() to recode a continuous variable (age)
+   :name: code52
+   
     sdcInitial <- globalRecode(sdcInitial, column = c('age'), breaks = 10 * c(0:10))
 
     # Frequencies of age after recoding
@@ -400,7 +400,7 @@ Figure 5.2 shows the effect of recoding the variable “age”.
 Figure 5.2 Age variable before and after recoding
 
 Instead of creating intervals of equal width, we can also create
-intervals of unequal width. This is illustrated in Example 5.3, where we
+intervals of unequal width. This is illustrated in :numref:`code53`, where we
 use the age groups 1-5, 6-11, 12-17, 18-21, 22-25, 26-49, 50-64 and 65+.
 In this example, this is a useful step, since even after recoding in
 10-year intervals, the categories with high age values have low
@@ -410,10 +410,11 @@ such that the data can still be used for common research on education
 and employment. Figure 5.3 shows the effect of recoding the variable
 “age”.
 
-Example 5.3: Using globalRecode() to create intervals of unequal width
-
 .. code-block:: R
-
+   :linenos:
+   :caption: Using globalRecode() to create intervals of unequal width
+   :name: code53
+ 
     sdcInitial <- globalRecode(sdcInitial, column = c('age'), breaks = c(0, 5, 11, 17, 21, 25, 49, 65, 100))
 
     # Frequencies of age after recoding
@@ -455,13 +456,12 @@ global recoding:
    in the lowest interval and allow for breaks where we want them. We
    set the upper interval boundary to be larger than the maximum value
    for the “age” variable. We can use the option *labels* to define
-   clear labels for the new categories. This is illustrated in Example
-   5.4.
-
-Example 5.4: Constructing right-open intervals for semi-continuous
-variables using built-in *sdcMicro* function globalRecode()
+   clear labels for the new categories. This is illustrated in :numref:`code54`.
 
 .. code-block:: R
+   :linenos:
+   :caption: Constructing right-open intervals for semi-continuous variables using built-in *sdcMicro* function globalRecode()
+   :name: code54
 
       sdcInitial <- globalRecode(sdcInitial, column = c('age'), breaks = c(-0.1, 14.9, 64.9, 99.9), labels = c('[0,15)', '[15,65)', '[65,100)'))
 
@@ -472,12 +472,13 @@ variables using built-in *sdcMicro* function globalRecode()
    this case, we need to take an extra step and recalculate the risk
    after manually changing the variables in the *sdcMicro* object. This
    approach is also valid for continuous variables and is illustrated in
-   Example 5.5.
+   :numref:`code55`.
 
-Example 5.5: Constructing intervals for semi-continuous and continuous
-variables using manual recoding in *R*
 
 .. code-block:: R
+   :linenos:
+   :caption: Constructing intervals for semi-continuous and continuous variables using manual recoding in *R*
+   :name: code55
 
       # Group age 0-14
     sdcInitial@manipKeyVars$age[sdcInitial@manipKeyVars$age >= 0 &
@@ -544,17 +545,17 @@ determine threshold for top coding
 
 Top and bottom coding can be easily done with the function
 topBotCoding() in *sdcMicro*. Top coding and bottom coding cannot be
-done simultaneously in *sdcMicro*. Example 5.6 illustrates how to recode
+done simultaneously in *sdcMicro*. :numref:`code56` illustrates how to recode
 values of age higher than 64 and values of age lower than 5; 65 and 5
 replace the values respectively. To construct several top or bottom
 coding categories, e.g., age 65 – 80 and higher than age 80, one can use
 the groupVars() function in *sdcMicro* or manual recoding as described
-in the previous subsection.
-
-Example 5.6: Top coding and bottom coding in *sdcMicro* using
-topBotCoding() function
+in the previous subsection. 
 
 .. code-block:: R
+   :linenos:
+   :caption: Top coding and bottom coding in *sdcMicro* using topBotCoding() function
+   :name: code56
 
     # Top coding at age 65
     sdcInitial <- topBotCoding(obj = sdcInitial, value = 65, replacement = 65, kind = 'top', column = 'age')
@@ -691,7 +692,7 @@ importance than to variables with lower importance. Nevertheless,
 suppressions in the variables with high importance might be inevitable
 to achieve the required level of :math:`k`-anonymity.
 
-In Example 5.7, local suppression is applied to achieve the
+In :numref:`code57`, local suppression is applied to achieve the
 :math:`k`-anonymity threshold of 5 on the quasi-identifiers “gender”,
 “region”, “religion”, “age” and “ethnicity” [#foot39]_.
 Without ranking the importance of the variables, the value of the
@@ -726,7 +727,7 @@ object. The effect is clear: there are no suppressions in the variables
 and “ethnicity”, received many more suppressions. The total number of
 suppressed values has increased from 88 to 166. **NOTE: Fewer
 suppressions in one variable increase the number of necessary
-suppressions in other variables (cf.** **Example 5.7).** Generally, the
+suppressions in other variables (cf. :numref:`code57`).** Generally, the
 total number of suppressed values needed to achieve the required level
 of :math:`k`-anonymity increases when specifying an importance vector,
 since the importance vector prevents to use the optimal suppression
@@ -734,10 +735,10 @@ pattern. The importance vector should be specified only in cases where
 the variables with many categories play an important role in data
 utility for the data users [#foot40]_.
 
-Example 5.7: Application of local suppression with and without
-importance vector
-
 .. code-block:: R
+   :linenos:
+   :caption: Application of local suppression with and without importance vector
+   :name: code57
 
     # local suppression without importance vector
     sdcInitial <- localSuppression(sdcInitial, k = 5)
@@ -903,13 +904,14 @@ the complete dataset. It is also possible to specify different values
 for *k* for each subset size in the ‘k’ argument. If we would want to
 achieve 5-anonimity on the subsets of size 3 and subsequently
 3-anonimity on the subsets of size 9, we would set the ‘k’ argument to
-c(5,3). Example 5.8 illustrates the use of the all-\ :math:`m` approach
+c(5,3). :numref:`code58` illustrates the use of the all-\ :math:`m` approach
 in *sdcMicro*.
 
-Example 5.8 The all-\ :math:`\mathbf{m}` approach in sdcMicro
-
 .. code-block:: R
-
+   :linenos:
+   :caption:  The all-\ :math:`\mathbf{m}` approach in sdcMicro
+   :name: code58
+   
     # Apply k-anonymity with threshold 5 to all subsets of two key variables and subsequently to the complete dataset
     sdcInitial <- localSuppression(sdcInitial, k = 5, combs = c(2, 5))
     # Apply k-anonymity with threshold 5 to all subsets of three key variables and subsequently with threshold 2 to the complete dataset
@@ -996,15 +998,16 @@ employment status. For example, if region 1 is completely urban, and all
 other regions are only semi-urban or rural, a suppression in the
 variable region for a record in region 1 can be simply reconstructed by
 the rural/urban variable. Therefore, it is useful to suppress the values
-corresponding to the suppressions in those linked variables. Example 5.9
+corresponding to the suppressions in those linked variables. :numref:`code59`
 illustrates how to suppress the values in the variable “rururb”
 corresponding to the suppressions in the region variable. All values of
 “rururb”, which correspond to a suppressed value (NA) in the variable
 “region” are suppressed (set to NA).
 
-Example 5.9: Manually suppressing values in linked variables
-
 .. code-block:: R
+   :linenos:
+   :caption: Manually suppressing values in linked variables
+   :name: code59
 
     # Suppress values of rururb in file if region is suppressed
     file[is.na(sdcInitial@manipKeyVars$region) & !is.na(sdcInitial@origData$region),'sizRes'] <- NA
@@ -1013,13 +1016,13 @@ Example 5.9: Manually suppressing values in linked variables
 Alternatively, the linked variables can be specified when creating the
 *sdcMicro* object. The linked variables are called ghost variables. Any
 suppression in the key variable will lead to a suppression in the
-variables linked to that key variable. Example 5.10 shows how to specify
+variables linked to that key variable. :numref:`code510` shows how to specify
 the linkage between “region” and “rururb” with ghost variables.
 
-Example 5.10: Suppressing values in linked variables by specifying ghost
-variables
-
 .. code-block:: R
+   :linenos:
+   :caption: Suppressing values in linked variables by specifying ghost variables
+   :name: code510
 
     # Ghost (linked) variables are specified as a list of linkages
     ghostVars <- list()
@@ -1047,14 +1050,15 @@ values that should not be released for individuals with high risks of
 re-identification. What is considered high re-identification probability
 depends on legal requirements. In the following example, the values of
 the variable “education” are suppressed for all individuals whose
-individual risk is higher than 0.1, which is illustrated in Example
-5.11. For an overview of the individual risk values, it can be useful to
+individual risk is higher than 0.1, which is illustrated in :numref:`code511`.
+For an overview of the individual risk values, it can be useful to
 look at the summary statistics of the individual risk values as well as
 the number of suppressions.
 
-Example 5.11: Application of built-in *sdcMicro* function localSupp()
-
 .. code-block:: R
+   :linenos:
+   :caption: Application of built-in *sdcMicro* function localSupp()
+   :name: code511
 
     # Summary statistics
     summary(sdcInitial@risk$individual[,1])
@@ -1218,7 +1222,7 @@ for invariant PRAM. **NOTE: Invariant does not guarantee that
 cross-tabulations of variables (unlike univariate tabulations) stay the
 same.**
 
-In Example 5.12, we give an example of invariant PRAM using
+In :numref:`code512`, we give an example of invariant PRAM using
 *sdcMicro*. [#foot44]_ PRAM is a probabilistic method and the
 results can differ every time we apply PRAM to the same variables of a
 dataset. To overcome this and make the results reproducible, it is good
@@ -1226,9 +1230,10 @@ practice to set a seed for the random number generator in *R*, so the
 same random numbers will be generated every time. [#foot45]_
 The number of changed records per variable is also shown.
 
-Example 5.12: Producing reproducible PRAM results by using set.seed()
-
 .. code-block:: R
+   :linenos:
+   :caption: Producing reproducible PRAM results by using set.seed()
+   :name: code512
 
     # Set seed for random number generator
     set.seed(123)
@@ -1302,16 +1307,17 @@ used for PRAM and PRAM is applied within the selected strata** (see
 Section 7.5 on *sdcMicro* objects for more details). Alternatively, PRAM
 can also be applied to variables that are not specified in the
 *sdcMicro* object as PRAM variables, such as key variables, which is
-shown in Example 5.13. In that case, however, the risk measures that are
+shown in :numref:`code513`. In that case, however, the risk measures that are
 automatically computed will not be correct anymore, since the variables
 are perturbed. Therefore, if during the SDC process PRAM will be applied
 to some key variables, it is recommended to create a new *sdcMicro*
 object where the variables to be PRAMmed are selected as PRAM variables
 in the function createSdcObj().
 
-Example 5.13: Selecting the variable “toilet” to apply PRAM
-
 .. code-block:: R
+   :linenos:
+   :caption: Selecting the variable “toilet” to apply PRAM
+   :name: code513
 
     # Set seed for random number generator
     set.seed(123)
@@ -1331,16 +1337,16 @@ same after applying PRAM. Setting the minimum value to 1 will yield no
 changes to this category. By default, this value is 0.8, which applies
 for all categories. It is also possible to specify a vector with value
 for each diagonal element of the transformation matrix/category. In
-Example 5.14 values of the first region are less likely to change than
+:numref:`code514` values of the first region are less likely to change than
 values of the other regions. **NOTE: The invariant PRAM method requires
 that the transition matrix has a unit eigenvalue.** Not all sets of
 restrictions can therefore be used (e.g., the minimum value 1 on any of
 the categories).
 
-Example 5.14: Specifying minimum values for diagonal entries in PRAM
-transition matrix
-
 .. code-block:: R
+   :linenos:
+   :caption: Specifying minimum values for diagonal entries in PRAM transition matrix
+   :name: code514
 
     sdcInitial <- pram(obj = sdcInitial, variables = c("TOILET"), pd = c(0.9, 0.5, 0.5, 0.5))
     ## Number of changed observations:
@@ -1376,7 +1382,7 @@ range within 6 to 18 years and only such changes are allowed. In
 *sdcMicro* the transition matrix cannot be exactly specified. A useful
 alternative is constructing strata and applying PRAM within the strata.
 In this way, the changes between variables will only be applied within
-the strata. Example 5.15 illustrates this by applying PRAM to the
+the strata. :numref:`code515` illustrates this by applying PRAM to the
 variable “toilet” within the strata generated by the “region” education.
 This prevents changes in the variable “toilet”, where toilet types in a
 particular region are exchanged with those in other regions. For
@@ -1386,10 +1392,10 @@ PRAMming. Values are only changed with those that are available in the
 same strata. Strata can be formed by any categorical variable, e.g.,
 gender, age groups, education level.
 
-Example 5.15: Minimizing unlikely combinations by applying PRAM within
-strata
-
 .. code-block:: R
+   :linenos:
+   :caption: Minimizing unlikely combinations by applying PRAM within strata
+   :name: code515
 
     # Applying PRAM within the strata generated by the variable region
     sdcInitial <- pram(obj = sdcInitial, variables = c("TOILET"), strata_variables = c("REGION"))
@@ -1460,7 +1466,7 @@ microaggregation. The argument ‘aggr’ specifies the group size. Forming
 groups is easier if all groups – except maybe the last group of
 remainders – have the same size. This is the case in the implementation
 in *sdcMicro* as it is not possible to have groups of different sizes.
-Example 5.16 shows how to use the function microaggregation() in
+:numref:`code516` shows how to use the function microaggregation() in
 *sdcMicro*. [#foot49]_ The default group size is 3 but the
 user can specify any desired group size. Choice of group size depends on
 the homogeneity within the groups and the required level of protection.
@@ -1472,10 +1478,10 @@ low income (e.g., 832 and 966) and four individuals have a high income
 (e.g., (832 + 966 + 2,987) / 3 = 1,595 and (3,088 + 3,211 + 3,313) / 3 =
 3,204) would represent neither the low nor the high income.
 
-Example 5.16: Applying univariate microaggregation with *sdcMicro*
-function microaggregation()
-
 .. code-block:: R
+   :linenos:
+   :caption: Applying univariate microaggregation with *sdcMicro* function microaggregation()
+   :name: code516
 
     sdcInitial <- **microaggregation**\ (obj = sdcInitial, variables =
     'INC', aggr = 3, method = mafast, measure = "mean")
@@ -1597,13 +1603,13 @@ dataset is then computed by replacing each record in the original
 dataset by the average values of the group to which it belongs. Equal
 group sizes, however, may not be ideal for data characterized by greater
 variability. In *sdcMicro* multivariate microaggregation is also
-implemented in the function microaggregation(). Example 5.17 shows how
+implemented in the function microaggregation(). :numref:`code517` shows how
 to choose the MDAV algorithm in *sdcMicro*.
 
-Example 5.17: Multivariate microaggregation with the Maximum Distance to
-Average Vector (MDAV) algorithm in *sdcMicro*
-
 .. code-block:: R
+   :linenos:
+   :caption: Multivariate microaggregation with the Maximum Distance to Average Vector (MDAV) algorithm in *sdcMicro*
+   :name: code517
 
       sdcInitial <- microaggregation(obj = sdcInitial, variables = c("INC", "EXP", "WEALTH"), method = "mdav")
 
@@ -1611,11 +1617,12 @@ It is also possible to group variables only within strata. This reduces
 the computation time and adds an extra layer of protection to the data,
 because of the greater uncertainty produced [#foot50]_. In
 *sdcMicro* this can be achieved by specifying the strata variables, as
-shown in Example 5.18.
-
-Example 5.18: Specifying strata variables for microaggregation
+shown in :numref:`code518`.
 
 .. code-block:: R
+   :linenos:
+   :caption: Specifying strata variables for microaggregation
+   :name: code518
 
     sdcInitial <- microaggregation(obj = sdcInitial, variables = c("INC", "EXP", "WEALTH"), method = "mdav", strata_variables = c("strata"))
 
@@ -1777,15 +1784,16 @@ In *sdcMicro* noise addition is implemented in the function addNoise().
 The algorithm and parameter can be specified as arguments in the
 function addNoise(). Simple noise addition is implemented in the
 function addNoise() with the value “additive” for the argument ‘method’.
-Example 5.19 shows how to use *sdcMicro* to add uncorrelated noise to
+:numref:`code519` shows how to use *sdcMicro* to add uncorrelated noise to
 expenditure variables, where the standard deviation of the added noise
 equals half the standard deviation of the original
 variables. [#foot52]_ Noise is added to all selected
 variables.
 
-Example 5.19: Uncorrelated noise addition
-
 .. code-block:: R
+   :linenos:
+   :caption: Uncorrelated noise addition
+   :name: code519
 
     sdcInitial <- addNoise(obj = sdcInitial, variables = c('TOTFOOD', 'TOTHLTH', 'TOTALCH', 	'TOTCLTH', 'TOTHOUS', 'TOTFURN', 'TOTTRSP', 'TOTCMNQ', 'TOTRCRE', 'TOTEDUC', 'TOTHOTL',	'TOTMISC'), noise = 0.5, method = "additive")
 
@@ -1863,27 +1871,29 @@ addition can be used by specifying the methods ‘correlated’ or
 ‘correlated2’. The method “correlated” assumes that the variables are
 approximately normally distributed. The method ‘correlated2’ is a
 version of the method ‘correlated’, which is robust against the
-normality assumption. Example 5.20 shows how to use the ‘correlated2’
+normality assumption. :numref:`code520` shows how to use the ‘correlated2’
 method. The normality of variables can be investigated in *R*, with, for
 instance, a Jarque-Bera or Shapiro-Wilk test [#foot53]_.
 
-Example 5.20: Correlated noise addition
-
 .. code-block:: R
+   :linenos:
+   :caption: Correlated noise addition
+   :name: code520
 
     sdcInitial <- addNoise(obj = sdcInitial, variables = c('TOTFOOD', 'TOTHLTH', 'TOTALCH', 'TOTCLTH', 'TOTHOUS', 'TOTFURN', 'TOTTRSP', 'TOTCMNQ', 'TOTRCRE', 'TOTEDUC', 'TOTHOTL', 'TOTMISC'), noise = 0.5, method = "correlated2")
 
 In many cases, only the outliers have to be protected, or have to be
 protected more. The method ‘outdect’ adds noise only to the outliers,
-which is illustrated in Example 5.21. The outliers are identified with
+which is illustrated in :numref:`code521`. The outliers are identified with
 univariate and robust multivariate procedures based on a robust
 Mahalanobis distance calculated by the MCD estimator (Templ et al.,
 2014). Nevertheless, noise addition is not the most suitable method for
 outlier protection.
 
-Example 5.21: Noise addition for outliers using the ‘outdect’ method
-
 .. code-block:: R
+   :linenos:
+   :caption: Noise addition for outliers using the ‘outdect’ method
+   :name: code521
 
     sdcInitial <- addNoise(obj = sdcInitial, variables = c('TOTFOOD', 'TOTHLTH', 'TOTALCH', 'TOTCLTH', 'TOTHOUS', 'TOTFURN', 'TOTTRSP', 'TOTCMNQ', 'TOTRCRE', 'TOTEDUC', 'TOTHOTL', 'TOTMISC'), noise = 0.5, method = "outdect")
 
@@ -1896,15 +1906,16 @@ components. After adding noise to their components (e.g., different
 expenditure categories), however, their new aggregates will not
 necessarily match the sum of the categories anymore. One way to keep
 this structure is to add noise only to the aggregates and release the
-components as ratio of the perturbed aggregates. Example 5.22
+components as ratio of the perturbed aggregates. :numref:`code522`
 illustrates this by adding noise to the total of expenditures.
 Subsequently, the ratios of the initial expenditure categories are used
 for each individual to reconstruct the perturbed values for each
 expenditure category.
 
-Example 5.22: Noise addition to aggregates and their components
-
 .. code-block:: R
+   :linenos:
+   :caption: Noise addition to aggregates and their components
+   :name: code522
 
     # Add noise to totals (income / expenditures)
     sdcInital <- addNoise(noise = 0.5, obj = sdcInitial, variables=c("EXP", "INC"), method="additive")
@@ -1978,17 +1989,18 @@ probabilistic method, i.e., the swapping depends on a random number
 generating mechanism, specifying a seed for the random number generator
 before using rank swapping is recommended to guarantee reproducibility
 of results. The seed can also be specified as a function argument in the
-function rankSwap(). Example 5.23 shows how to apply rank swapping with
+function rankSwap(). :numref:`code523` shows how to apply rank swapping with
 *sdcMicro*. If the variables contain missing values (NA in *R*), the
 function rankSwap() will automatically recode those to the value
 specified in the ‘missing’ argument. This value should not be in the
 value range of any of the variables. After using the function
 rankSwap(), these values should be recoded NA. This is shown in the
-Example 5.23.
-
-Example 5.23: Rank swapping using *sdcMicro*
+:numref:`code523`.
 
 .. code-block:: R
+   :linenos:
+   :caption: Rank swapping using *sdcMicro*
+   :name: code523
 
     # Check correlation structure between the variables
     cor(file$TOTHOUS, file$TOTFOOD)
@@ -2093,9 +2105,10 @@ that are captured by the linear regression model used for shuffling.
 Following is an example for shuffling expenditure variables, which are
 predicted by total household expenditures and household size.
 
-Example 5.24: Shuffling using a specified regression equation
-
 .. code-block:: R
+   :linenos:
+   :caption: Shuffling using a specified regression equation
+   :name: code524
 
     # Evaluate R-squared (goodness-of-fit) of the regression model
     summary(lm(file, form = TOTFOOD  + TOTALCH + TOTCLTH + TOTHOUS + TOTFURN + TOTHLTH  + TOTTRSP + TOTCMNQ + TOTRCRE + TOTEDUC + TOTHOTL + TOTMISC ~ EXP + HHSIZE))
