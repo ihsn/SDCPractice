@@ -62,47 +62,30 @@ As this practice guide is written around the use of the *sdcMicro*
 package, we discuss only SDC methods that are implemented in the
 *sdcMicro* package or can be easily implemented in *R*. These are the
 most commonly applied methods from the literature and used in most
-agencies experienced in using these methods. Table 5.1 gives an overview
+agencies experienced in using these methods. :numref:`tab51` gives an overview
 of the SDC methods discussed in this chapter, their classification,
 types of data to which they are applicable and their function names in
 the *sdcMicro* package.
 
-Table 5.1: SDC methods and corresponding functions in *sdcMicro*
+.. _tab51:
 
-+--------------------------------+--------------------------------+----------------------------+---------------------------------------------------------------------------------------------------+
-| Method                         | Classification of SDC method   | Data Type                  | Function in sdcMicro                                                                              |
-+================================+================================+============================+===================================================================================================+
-| Global recoding                | non-perturbative, determinitic | continuous and categorical | `globalRecode <http://www.rdocumentation.org/packages/sdcMicro/functions/globalrecode/>`_ ,       |
-|                                |                                |                            | `groupVars <http://www.rdocumentation.org/packages/sdcMicro/functions/groupVars-methods/>`_       |
-+--------------------------------+--------------------------------+----------------------------+---------------------------------------------------------------------------------------------------+
-| Top and bottom coding          | non-perturbative, determinitic | continuous and categorical | `topBotCoding <http://www.rdocumentation.org/packages/sdcMicro/functions/topBotCoding/>`_         |
-|                                |                                |                            |                                                                                                   |
-+--------------------------------+--------------------------------+----------------------------+---------------------------------------------------------------------------------------------------+
-| Local                          | non-perturbative, determinitic | categorical                | `localSuppression <http://www.rdocumentation.org/packages/sdcMicro/functions/localSuppress        |
-| suppression                    |                                |                            | ion/>`_, localSupp                                                                                |
-|                                |                                |                            |                                                                                                   |
-+--------------------------------+--------------------------------+----------------------------+---------------------------------------------------------------------------------------------------+
-| PRAM                           | perturbative,                  | categorical                | `pram <http://www.rdocumentation.org/packages/sdcMicro/functions/pram/>`_                         |
-|                                | probabilistic                  |                            |                                                                                                   |
-|                                |                                |                            |                                                                                                   |
-+--------------------------------+--------------------------------+----------------------------+---------------------------------------------------------------------------------------------------+
-| Micro aggregation              | perturbative,                  | continuous                 | `microaggregation <http://www.rdocumentation.org/packages/sdcMicro/functions/microaggregation/>`_ |
-|                                | probabilistic                  |                            |                                                                                                   |
-|                                |                                |                            |                                                                                                   |
-+--------------------------------+--------------------------------+----------------------------+---------------------------------------------------------------------------------------------------+
-| Noise addition                 | perturbative,                  | continuous                 | `addNoise <http://www.rdocumentation.org/packages/sdcMicro/functions/addNoise/>`_                 |
-|                                | probabilistic                  |                            |                                                                                                   |
-|                                |                                |                            |                                                                                                   |
-+--------------------------------+--------------------------------+----------------------------+---------------------------------------------------------------------------------------------------+
-| Shuffling                      | perturbative,                  | continuous                 | `shuffle <http://www.rdocumentation.org/packages/sdcMicro/functions/shuffle/>`_                   |
-|                                | probabilistic                  |                            |                                                                                                   |
-|                                |                                |                            |                                                                                                   |
-+--------------------------------+--------------------------------+----------------------------+---------------------------------------------------------------------------------------------------+
-| Rank swapping                  | perturbative,                  | continuous                 | `rankSwap <http://www.rdocumentation.org/packages/sdcMicro/functions/rankSwap/>`_                 |
-|                                | probabilistic                  |                            |                                                                                                   |
-|                                |                                |                            |                                                                                                   |
-+--------------------------------+--------------------------------+----------------------------+---------------------------------------------------------------------------------------------------+
+.. table:: SDC methods and corresponding functions in *sdcMicro*
+   :widths: auto
+   :align: center
 
+   =======================  ================================  ============================  ==============================================================================================================
+    Method                   Classification of SDC method      Data Type                     Function in sdcMicro                                                                           
+   =======================  ================================  ============================  ==============================================================================================================
+    Global recoding          non-perturbative, determinitic    continuous and categorical    `globalRecode <http://www.rdocumentation.org/packages/sdcMicro/functions/globalrecode/>`_ ,       
+                                                                                             `groupVars <http://www.rdocumentation.org/packages/sdcMicro/functions/groupVars-methods/>`_       
+    Top and bottom coding    non-perturbative, determinitic    continuous and categorical    `topBotCoding <http://www.rdocumentation.org/packages/sdcMicro/functions/topBotCoding/>`_         
+    Local suppression        non-perturbative, determinitic    categorical                   `localSuppression <http://www.rdocumentation.org/packages/sdcMicro/functions/localSuppression/>`_, localSupp
+    PRAM                     perturbative, probabilistic       categorical                   `pram <http://www.rdocumentation.org/packages/sdcMicro/functions/pram/>`_                         
+    Micro aggregation        perturbative, probabilistic       continuous                    `microaggregation <http://www.rdocumentation.org/packages/sdcMicro/functions/microaggregation/>`_ 
+    Noise addition           perturbative, probabilistic       continuous                    `addNoise <http://www.rdocumentation.org/packages/sdcMicro/functions/addNoise/>`_                 
+    Shuffling                perturbative, probabilistic       continuous                    `shuffle <http://www.rdocumentation.org/packages/sdcMicro/functions/shuffle/>`_                   
+    Rank swapping            perturbative, probabilistic       continuous                    `rankSwap <http://www.rdocumentation.org/packages/sdcMicro/functions/rankSwap/>`_                 
+   =======================  ================================  ============================  ==============================================================================================================
 
 Non-perturbative methods
 ------------------------
@@ -139,77 +122,47 @@ random joining of categories.** Examples would be grouping districts
 into provinces, municipalities into districts, or clean water categories
 together. Grouping all small regions without geographical proximity
 together is not necessarily the best option from the utility
-perspective. Table 5.2 illustrates this with a very simplified example
+perspective. :numref:`tab52` illustrates this with a very simplified example
 dataset. Before recoding, three individuals have distinct keys, whereas
 after recoding (grouping ‘Region 1’ and ‘Region 2’ into ‘North’, ‘Region
 3’ into ‘Central’ and ‘Region 4’ and ‘Region 5’ into ‘South’), the
 number of distinct keys is reduced to four and the frequency of every
 key is at least two, based on the three selected quasi-identifiers. The
 frequency counts of the keys :math:`f_{k}` are shown in the last column
-of Table 5.2. An intruder would find at least two individuals for each
+of :numref:`tab52`. An intruder would find at least two individuals for each
 key and cannot distinguish any more between individuals 1 – 3,
 individuals 4 and 6, individuals 5 and 7 and individuals 8 – 10, based
 on the selected key variables.
 
-Table 5.2: Illustration of effect of recoding on frequency counts of
-keys
+.. _tab52:
 
-+---------------------+----------+----------+------------+-----------------+
-| Before recoding                                                          |
-+=====================+==========+==========+============+=================+
-| *Individual*        | *Region* | *Gender* | *Religion* | f_k             |
-+---------------------+----------+----------+------------+-----------------+
-| 1                   | Region 1 | Female   | Catholic   | 1               |
-+---------------------+----------+----------+------------+-----------------+
-| 2                   | Region 2 | Female   | Catholic   | 2               |
-+---------------------+----------+----------+------------+-----------------+
-| 3                   | Region 2 | Female   | Catholic   | 2               |
-+---------------------+----------+----------+------------+-----------------+
-| 4                   | Region 3 | Female   | Protestant | 2               |
-+---------------------+----------+----------+------------+-----------------+
-| 5                   | Region 3 | Male     | Protestant | 1               |
-+---------------------+----------+----------+------------+-----------------+
-| 6                   | Region 3 | Female   | Protestant | 2               |
-+---------------------+----------+----------+------------+-----------------+
-| 7                   | Region 3 | Male     | Protestant | 2               |
-+---------------------+----------+----------+------------+-----------------+
-| 8                   | Region 4 | Male     | Muslim     | 2               |
-+---------------------+----------+----------+------------+-----------------+
-| 9                   | Region 4 | Male     | Muslim     | 2               |
-+---------------------+----------+----------+------------+-----------------+
-| 10                  | Region 5 | Male     | Muslim     | 1               |
-+---------------------+----------+----------+------------+-----------------+
-|   After recoding                                                         |
-+---------------------+----------+----------+------------+-----------------+
-| *Individual*        | *Region* | *Gender* | *Religion* | f_k             |
-+---------------------+----------+----------+------------+-----------------+
-| 1                   | North    | Female   | Catholic   | 3               |
-+---------------------+----------+----------+------------+-----------------+
-| 2                   | North    | Female   | Catholic   | 3               |
-+---------------------+----------+----------+------------+-----------------+
-| 3                   | North    | Female   | Catholic   | 3               |
-+---------------------+----------+----------+------------+-----------------+
-| 4                   | Central  | Female   | Protestant | 2               |
-+---------------------+----------+----------+------------+-----------------+
-| 5                   | Central  | Male     | Protestant | 2               |
-+---------------------+----------+----------+------------+-----------------+
-| 6                   | Central  | Female   | Protestant | 2               |
-+---------------------+----------+----------+------------+-----------------+
-| 7                   | Central  | Male     | Protestant | 2               |
-+---------------------+----------+----------+------------+-----------------+
-| 8                   | South    | Male     | Muslim     | 3               |
-+---------------------+----------+----------+------------+-----------------+
-| 9                   | South    | Male     | Muslim     | 3               |
-+---------------------+----------+----------+------------+-----------------+
-| 10                  | South    | Male     | Muslim     | 3               |
-+---------------------+----------+----------+------------+-----------------+
+.. table:: Illustration of effect of recoding on frequency counts of keys
+   :widths: auto
+   :align: center
+   
+   =================  ==========  ========  ============  =====  ==========  ========  ============  =====
+    .                  Before recoding                            After recoding
+   -----------------  -----------------------------------------  -----------------------------------------
+    Individual         Region      Gender    Religion      f_k    Region      Gender    Religion      f_k
+   =================  ==========  ========  ============  =====  ==========  ========  ============  =====
+    1                  Region 1    Female    Catholic      1      North       Female    Catholic      3   
+    2                  Region 2    Female    Catholic      2      North       Female    Catholic      3   
+    3                  Region 2    Female    Catholic      2      North       Female    Catholic      3   
+    4                  Region 3    Female    Protestant    2      Central     Female    Protestant    2   
+    5                  Region 3    Male      Protestant    1      Central     Male      Protestant    2   
+    6                  Region 3    Female    Protestant    2      Central     Female    Protestant    2   
+    7                  Region 3    Male      Protestant    2      Central     Male      Protestant    2   
+    8                  Region 4    Male      Muslim        2      South       Male      Muslim        3   
+    9                  Region 4    Male      Muslim        2      South       Male      Muslim        3   
+    10                 Region 5    Male      Muslim        1      South       Male      Muslim        3   
+   =================  ==========  ========  ============  =====  ==========  ========  ============  =====
 
 Recoding is commonly the first step in an anonymization process. It can
 be used to reduce the number of unique combinations of values of key
 variables. This generally increases the frequency counts for most keys
 and reduces the risk of disclosure. The reduction in the number of
-possible combinations is illustrated in Table 5.3 with the
-quasi-identifiers “region”, “marital status” and “age”. Table 5.3 shows
+possible combinations is illustrated in :numref:`tab53` with the
+quasi-identifiers “region”, “marital status” and “age”. :numref:`tab53` shows
 the number of categories of each variable and the number of
 theoretically possible combinations, which is the product of the number
 of categories of each quasi-identifier, before and after recoding. “Age”
@@ -221,20 +174,18 @@ number; in practice, these may include very unlikely combinations such
 as age = 3 and marital status = widow and the actual number of
 combinations in a dataset may be lower.
 
-Table 5.3: Illustration of the effect of recoding on the theoretically
-possible number of combinations an a dataset
+.. _tab53:
 
-+-------------+-------------+-------------+-------------+-------------+
-| Number of   | Region      | Marital     | Age         | Possible    |
-| categories  |             | status      |             | combination |
-|             |             |             |             | s           |
-+=============+=============+=============+=============+=============+
-| before      | 20          | 8           | 100         | 16,000      |
-| recoding    |             |             |             |             |
-+-------------+-------------+-------------+-------------+-------------+
-| after       | 6           | 6           | 15          | 540         |
-| recoding    |             |             |             |             |
-+-------------+-------------+-------------+-------------+-------------+
+.. table:: Illustration of the effect of recoding on the theoretically possible number of combinations an a dataset
+   :widths: auto
+   :align: center
+   
+   ======================  ========  ================  =====  =======================
+    Number of categories    Region    Marital status    Age    Possible combinations
+   ======================  ========  ================  =====  =======================
+    before recoding          20             8           100        16,000
+    after recoding            6             6            15           540 
+   ======================  ========  ================  =====  =======================
 
 The main parameters for global recoding are the size of the new groups,
 as well as defining which values are grouped together in new categories.
@@ -616,9 +567,9 @@ individuals of a certain variable are suppressed, which would be the
 case when removing a direct identifier, such as “name”; only certain
 values for a particular variable and a particular respondent or set of
 respondents are suppressed. This is illustrated in the following example
-and Table 5.4.
+and :numref:`tab54`.
 
-Table 5.4 presents a dataset with seven respondents and three
+:numref:`tab54` presents a dataset with seven respondents and three
 quasi-identifiers. The combination {‘female’, ‘rural’, ‘higher’} for the
 variables “gender”, “region” and “education” is an unsafe combination,
 since it is unique in the sample. By suppressing either the value
@@ -637,31 +588,25 @@ necessary. In the example, we can choose between suppressing the value
 data users. In this example we find “gender” more important than
 “education”.
 
-Table 5.4: Local suppression illustration - sample data before and after
-suppression
+.. _tab54:
 
-+---------+---------+---------+---------+---------+---------+----------+
-|Variable | Before local suppression    | After local suppression      |
-+=========+=========+=========+=========+=========+=========+==========+
-| ID      |  Gender | Region  | Educat  |  Gender |  Region | Educat   |
-|         |         |         | ion*    |         |         | ion      |
-+---------+---------+---------+---------+---------+---------+----------+
-| 1       | female  | rural   | higher  | female  | rural   | NA/miss  |
-|         |         |         |         |         |         | ing      |
-|         |         |         |         |         |         |[#foot38]_|
-+---------+---------+---------+---------+---------+---------+----------+
-| 2       | male    | rural   | higher  | male    | rural   | higher   |
-+---------+---------+---------+---------+---------+---------+----------+
-| 3       | male    | rural   | higher  | male    | rural   | higher   |
-+---------+---------+---------+---------+---------+---------+----------+
-| 4       | male    | rural   | higher  | male    | rural   | higher   |
-+---------+---------+---------+---------+---------+---------+----------+
-| 5       | female  | rural   | lower   | female  | rural   | lower    |
-+---------+---------+---------+---------+---------+---------+----------+
-| 6       | female  | rural   | lower   | female  | rural   | lower    |
-+---------+---------+---------+---------+---------+---------+----------+
-| 7       | female  | rural   | lower   | female  | rural   | lower    |
-+---------+---------+---------+---------+---------+---------+----------+
+.. table:: Local suppression illustration - sample data before and after suppression
+   :widths: auto
+   :align: center
+   
+   ==========  ========  ========  ===========  ========  ========  =======================
+    Variable    Before local suppression         After local suppression
+   ----------  -------------------------------  ------------------------------------------- 
+     ID         Gender    Region    Education    Gender    Region    Education
+   ==========  ========  ========  ===========  ========  ========  =======================
+     1          female    rural     higher       female     rural    NA/missing [#foot38]_
+     2          male      rural     higher       male       rural    higher     
+     3          male      rural     higher       male       rural    higher     
+     4          male      rural     higher       male       rural    higher     
+     5          female    rural     lower        female     rural    lower      
+     6          female    rural     lower        female     rural    lower      
+     7          female    rural     lower        female     rural    lower      
+   ==========  ========  ========  ===========  ========  ========  =======================
 
 Since continuous variables have a high number of unique values (e.g.,
 income in dollars or age in years), :math:`k`-anonymity and local
@@ -809,7 +754,7 @@ higher thresholds; 4) the type of variable; 5) the sample weights and
 sample size; and 6) the release type (see Chapter 3). Commonly applied
 levels for the :math:`k`-anonymity threshold are 3 and 5.
 
-Table 5.5 illustrates the influence of the importance vector and
+:numref:`tab55` illustrates the influence of the importance vector and
 :math:`k`-anonymity threshold on the running time, global risk after
 suppression and total number of suppressions required to achieve this
 :math:`k`-anonymity threshold. The dataset contains about 63,000
@@ -825,36 +770,23 @@ categories. This is the variable with the highest number of categories.
 Prioritizing the suppression of other variables leads to a higher total
 number of suppressions and a longer computation time.
 
-Table 5.5: How importance vectors and k-anonymity thresholds affect
-running time and total number of suppressions
+.. _tab55:
 
-+-----------+-----------+-----------+-----------+-----------+-----------+
-| Threshold | Importance| Total     | Number    | Global    | Running   |
-| ld        | nce       | number of | of        | risk      | time      |
-|           | vector**  | suppressi | suppressi | measure   | (hours)   |
-| k-anony   |           | ons       | ons       |           |           |
-| mity      |           |           | age       |           |           |
-+===========+===========+===========+===========+===========+===========+
-| 3         | none      | 6,676     | 5,387     | 293.0     | 11.8      |
-|           | (default) |           |           |           |           |
-+-----------+-----------+-----------+-----------+-----------+-----------+
-| 3         | employmen | 7,254     | 5,512     | 356.5     | 13.1      |
-|           | t         |           |           |           |           |
-|           | status    |           |           |           |           |
-+-----------+-----------+-----------+-----------+-----------+-----------+
-| 3         | age       | 8,175     | 60        | 224.6     | 4.5       |
-|           | variable  |           |           |           |           |
-+-----------+-----------+-----------+-----------+-----------+-----------+
-| 5         | none      | 9,971     | 7,894     | 164.6     | 8.5       |
-|           | (default) |           |           |           |           |
-+-----------+-----------+-----------+-----------+-----------+-----------+
-| 5         | employmen | 11,668    | 8,469     | 217.0     | 10.2      |
-|           | t         |           |           |           |           |
-|           | status    |           |           |           |           |
-+-----------+-----------+-----------+-----------+-----------+-----------+
-| 5         | age       | 13,368    | 58        | 123.1     | 3.8       |
-|           | variable  |           |           |           |           |
-+-----------+-----------+-----------+-----------+-----------+-----------+
+.. table:: How importance vectors and k-anonymity thresholds affect running time and total number of suppressions
+   :widths: auto
+   :align: center
+
+   ==============  ===================  ===================  ==============  ==============  ===================  
+     Threshold      Importance           Total number of      Threshold       Importance      Total number of
+     k-anonimity    vector               suppressions         k-anonimity     vector          suppressions
+   ==============  ===================  ===================  ==============  ==============  ===================  
+    3               none (default)        6,676                 5,387            293.0             11.8    
+    3               employment status     7,254                 5,512            356.5             13.1    
+    3               age variable          8,175                    60            224.6             4.5     
+    5               none (default)        9,971                 7,894            164.6             8.5     
+    5               employment status    11,668                 8,469            217.0             10.2    
+    5               age variable         13,368                    58            123.1             3.8     
+   ==============  ===================  ===================  ==============  ==============  ===================  
 
 In cases where there are a large number of quasi-identifiers and the
 variables have many categories, the number of possible combinations
@@ -918,7 +850,7 @@ in *sdcMicro*.
     sdcInitial <- localSuppression(sdcInitial, k = c(3, 5), combs = c(5, 2))
 
 
-Table 5.6 presents the results of using the all-\ :math:`m` approach of
+:numref:`tab56` presents the results of using the all-\ :math:`m` approach of
 a test dataset with 9 key variables and 4,000 records. The table shows
 the arguments ‘k’ and ‘combs’ of the localSuppression() function, the
 number of :math:`k`\ *-*\ anonymity violators for different levels of
@@ -932,59 +864,35 @@ apparent in this example, since the rerunning algorithm several times
 takes up time. A larger dataset would benefit more from the all-\ *m*
 approach, as the algorithm would take longer in the first place.
 
-Table 5.6 Effect of the all-\ *m* approach on k-anonymity
+.. _tab56:
 
-+---------+---------+---------+---------+---------+---------+---------+
-| Argumen | **Numbe                               | Total   | Running |
-| ts      | r                                     | number  |         |
-|         | of                                    | of      | time    |
-|         | violato                               | suppres | (second |
-|         | rs                                    | sio ns  | s)      |
-|         | for                                   |         |         |
-|         | differe                               |         |         |
-|         | nt                                    |         |         |
-|         | levels                                |         |         |
-|         | of                                    |         |         |
-|         | k-anony                               |         |         |
-|         | mity                                  |         |         |
-|         | on                                    |         |         |
-|         | complet                               |         |         |
-|         | e                                     |         |         |
-|         | set                                   |         |         |
-+=========+=========+=========+=========+=========+=========+=========+
-| *k*     | *combs* | *k = 2* | *k = 3* | *k = 5* |         |         |
-+---------+---------+---------+---------+---------+---------+---------+
-| *before | 2,464   | 3,324   | 3,877   | 0       | 0.00    |         |
-| local   |         |         |         |         |         |         |
-| suppres |         |         |         |         |         |         |
-| sion*   |         |         |         |         |         |         |
-+---------+---------+---------+---------+---------+---------+---------+
-| 3       | -       | 0       | 0       | 1,766   | 2,264   | 17.08   |
-+---------+---------+---------+---------+---------+---------+---------+
-| 5       | -       | 0       | 0       | 0       | 3,318   | 10.57   |
-+---------+---------+---------+---------+---------+---------+---------+
-| 3       | 3       | 2,226   | 3,202   | 3,819   | 3,873   | 13.39   |
-+---------+---------+---------+---------+---------+---------+---------+
-| 3       | 3, 7    | 15      | 108     | 1,831   | 6,164   | 46.84   |
-+---------+---------+---------+---------+---------+---------+---------+
-| 3       | 3, 9    | 0       | 0       | 1,794   | 5,982   | 31.38   |
-+---------+---------+---------+---------+---------+---------+---------+
-| 3       | 5, 9    | 0       | 0       | 1,734   | 6,144   | 62.30   |
-+---------+---------+---------+---------+---------+---------+---------+
-| 5       | 3       | 2,047   | 3,043   | 3,769   | 3,966   | 12.88   |
-+---------+---------+---------+---------+---------+---------+---------+
-| 5       | 3, 7    | 0       | 6       | 86      | 7,112   | 46.57   |
-+---------+---------+---------+---------+---------+---------+---------+
-| 5       | 3, 9    | 0       | 0       | 0       | 7,049   | 24.13   |
-+---------+---------+---------+---------+---------+---------+---------+
-| 5       | 5, 9    | 0       | 0       | 0       | 7,129   | 54.76   |
-+---------+---------+---------+---------+---------+---------+---------+
-| 5, 3    | 3, 7    | 11      | 108     | 1,859   | 6,140   | 45.60   |
-+---------+---------+---------+---------+---------+---------+---------+
-| 5, 3    | 3, 9    | 0       | 0       | 1,766   | 2,264   | 30.07   |
-+---------+---------+---------+---------+---------+---------+---------+
-| 5, 3    | 5, 9    | 0       | 0       | 0       | 3,318   | 51.25   |
-+---------+---------+---------+---------+---------+---------+---------+
+.. table:: Effect of the all-m approach on k-anonymity
+   :widths: auto
+   :align: center
+   
+   =========  ===============  ========  ========  ========  ================  ==============
+   Arguments                    Number of violators for       Total number      Running time
+                                different levels of           of suppressions   (seconds)
+                                k-anonimity on complete set  
+   --------------------------  ----------------------------  ----------------  --------------
+    k          combs            k = 2     k = 3     k = 5
+   =========  ===============  ========  ========  ========  ================  ==============
+    Before local suppression    2,464     3,324     3,877     0                  0.00
+   --------------------------  --------  --------  --------  ----------------  --------------
+     3         .                 0         0         1,766     2,264             17.08    
+     5         .                 0         0         0         3,318             10.57    
+     3         3                 2,226     3,202     3,819     3,873             13.39    
+     3         3, 7              15        108       1,831     6,164             46.84    
+     3         3, 9              0         0         1,794     5,982             31.38    
+     3         5, 9              0         0         1,734     6,144             62.30    
+     5         3                 2,047     3,043     3,769     3,966             12.88    
+     5         3, 7              0         6         86        7,112             46.57    
+     5         3, 9              0         0         0         7,049             24.13    
+     5         5, 9              0         0         0         7,129             54.76    
+     5, 3      3, 7              11        108       1,859     6,140             45.60    
+     5, 3      3, 9              0         0         1,766     2,264             30.07    
+     5, 3      5, 9              0         0         0         3,318             51.25    
+   =========  ===============  ========  ========  ========  ================  ==============
 
 Often the dataset contains variables that are related to the key
 variables used for local suppression. Examples are rural/urban to
@@ -1090,8 +998,8 @@ records, B is a matrix to transform the variables and C is a matrix with
 additive noise.
 
 **NOTE: Risk measures based on frequency counts of keys are no longer
-valid after applying perturbative methods.** This can be seen in Table
-5.7, which displays the same data before and after swapping some values.
+valid after applying perturbative methods.** This can be seen in :numref:`tab57`
+, which displays the same data before and after swapping some values.
 The swapped values are in grey. Both before and after perturbing the
 data, all observations violate :math:`k`-anonymity at the level 3 (i.e.,
 each key does not appear more than twice in the dataset). Nevertheless,
@@ -1106,25 +1014,24 @@ characteristics and hence the matched individual cannot be a correct
 match. The intruder cannot know with certainty whether the information
 disclosed from other variables for that record is correct.
 
-Table 5.7: Sample data before and after perturbation
+.. _tab57:
 
-+---------+---------+---------+---------+---------+---------+---------+
-| Variable|   Original data             | After perturbing the data   |
-+=========+=========+=========+=========+=========+=========+=========+
-|   ID    | Gender  | Region  |Education| Gender  | Region  |Education|
-+---------+---------+---------+---------+---------+---------+---------+
-| 1       | female  | rural   | higher  | female  | rural   | higher  |
-+---------+---------+---------+---------+---------+---------+---------+
-| 2       | female  | rural   | higher  | female  | rural   | lower   |
-+---------+---------+---------+---------+---------+---------+---------+
-| 3       | male    | rural   | lower   | male    | rural   | lower   |
-+---------+---------+---------+---------+---------+---------+---------+
-| 4       | male    | rural   | lower   | female  | rural   | lower   |
-+---------+---------+---------+---------+---------+---------+---------+
-| 5       | female  | urban   | lower   | male    | urban   | higher  |
-+---------+---------+---------+---------+---------+---------+---------+
-| 6       | female  | urban   | lower   | female  | urban   | lower   |
-+---------+---------+---------+---------+---------+---------+---------+
+.. table:: Sample data before and after perturbation
+   :widths: auto
+   :align: center
+   
+   ==========  ========  ========  ==========  ========  ========  ===========
+    Variable    Original data                   After perturbing the data
+   ----------  ------------------------------  -------------------------------
+    ID          Gender    Region    Education   Gender    Region    Education
+   ==========  ========  ========  ==========  ========  ========  ===========
+     1          female     rural     higher     female     rural     higher  
+     2          female     rural     higher     female     rural     lower   
+     3          male       rural     lower      male       rural     lower   
+     4          male       rural     lower      female     rural     lower   
+     5          female     urban     lower      male       urban     higher  
+     6          female     urban     lower      female     urban     lower   
+   ==========  ========  ========  ==========  ========  ========  ===========
 
 One advantage of perturbative methods is that the information loss is
 reduced, since no values will be suppressed, depending on the level of
@@ -1186,13 +1093,13 @@ respectively probability 0.05 and 0.15. If in the initial file we had
 individuals with capital, 460 with rural1 and 395 with
 rural2 [#foot42]_. The recoding is done independently for
 each individual. We see that the tabulation of the variable “region”
-yields different results before and after PRAM, which are shown in Table
-5.8. The deviation from the expectation is due to the fact that PRAM is
+yields different results before and after PRAM, which are shown in :numref:`tab58`.
+The deviation from the expectation is due to the fact that PRAM is
 a probabilistic method, i.e., the results depend on a
 probability-generating mechanism; consequently, the results can differ
 every time we apply PRAM to the same variables of a dataset. **NOTE: The
 number of changed values is larger than one might think when inspecting
-the tabulations in** **Table 5.8. Not all 5,000 individuals with value
+the tabulations in :numref:`tab58`. Not all 5,000 individuals with value
 captial after PRAM had this value before PRAM and the 457 individuals in
 rural1 after PRAM are not all included in the 500 individuals before
 PRAM. The number of changes is larger than the differences in the
@@ -1200,17 +1107,19 @@ tabulation (cf. transition matrix).** Given that the transition matrix
 is known to the end users, there are several ways to correct statistical
 analysis of the data for the distortions introduced by PRAM.
 
-Table 5.8: Tabulation of variable “region” before and after PRAM
+.. _tab58:
 
-+-----------+----------------------------+---------------------------+
-| **Value** | **Tabulation before PRAM** | **Tabulation after PRAM** |
-+===========+============================+===========================+
-| capital   | 5,000                      | 5,052                     |
-+-----------+----------------------------+---------------------------+
-| rural1    | 500                        | 457                       |
-+-----------+----------------------------+---------------------------+
-| rural2    | 400                        | 391                       |
-+-----------+----------------------------+---------------------------+
+.. table:: Tabulation of variable “region” before and after PRAM
+   :widths: auto
+   :align: center
+   
+   =========  ========================  =======================
+    Value      Tabulation before PRAM    Tabulation after PRAM
+   =========  ========================  =======================
+    capital     5,000                      5,052            
+    rural1      500                        457              
+    rural2      400                        391              
+   =========  ========================  =======================
 
 One way to guarantee consistency between the tabulations before and
 after PRAM is to choose the transition matrix so that, in expectation,
@@ -1253,15 +1162,26 @@ The number of changed records per variable is also shown.
     ## LIVESTOCK != LIVESTOCK_pram : 52 (2.6%)
 
 
-Table 5.9 shows the tabulation of the variable after applying invariant
+:numref:`tab59` shows the tabulation of the variable after applying invariant
 PRAM. We can see that the deviations from the initial tabulations, which
 are in expectation 0, are smaller than with the transition matrix that
 does not fulfill the invariance property. The remaining deviations are
 due to the randomness.
 
-Table 5.9: Tabulation of variable “region” before and after (invariant)
-PRAM
+.. _tab59:
 
+.. table:: Tabulation of variable “region” before and after (invariant) PRAM
+   :widths: auto
+   :align: center
+   
+   =========  ========================  =======================  =================================
+    Value      Tabulation before PRAM    Tabulation after PRAM    Tabulation after invariant PRAM
+   =========  ========================  =======================  =================================
+    capital     5,000                      5,052                   4,998
+    rural1      500                        457                       499
+    rural2      400                        391                       403
+   =========  ========================  =======================  =================================
+   
 +-----------------+-----------------+-----------------+-----------------+
 | **Value**       | **Tabulation    | **Tabulation    | **Tabulation    |
 |                 | before PRAM**   | after PRAM**    | after invariant |
@@ -1274,7 +1194,7 @@ PRAM
 | rural2          | 400             | 391             | 403             |
 +-----------------+-----------------+-----------------+-----------------+
 
-Table 5.10 presents the cross-tabulations with the variable gender.
+:numref:`tab510` presents the cross-tabulations with the variable gender.
 Before applying invariant PRAM, the share of males in the city is much
 higher than the share of females (about 60%). This property is not
 maintained after invariant PRAM (the shares of males and females in the
@@ -1284,21 +1204,21 @@ females in this example [#foot46]_. This can be done by
 specifying the strata argument in the pram() function in *sdcMicro* (see
 below).
 
-Table 5.10: Cross-tabulation of variable “region” and variable “gender”
-before and after invariant PRAM
+.. _tab510:
 
-+-------------+-------------+-------------+-------------+-------------+
-|             | Tabulation before PRAM    | Tabulation after invariant|
-|             |                           | PRAM                      |
-+=============+=============+=============+=============+=============+
-| Value       | male        | female      | male        | female      |
-+-------------+-------------+-------------+-------------+-------------+
-| capital     | 3,056       | 1,944       | 2,623       | 2,375       |
-+-------------+-------------+-------------+-------------+-------------+
-| rural1      | 157         | 343         | 225         | 274         |
-+-------------+-------------+-------------+-------------+-------------+
-| rural2      | 113         | 287         | 187         | 216         |
-+-------------+-------------+-------------+-------------+-------------+
+.. table:: Cross-tabulation of variable “region” and variable “gender” before and after invariant PRAM
+   :widths: auto
+   :align: center
+   
+   =========  ==========  ============  ============  ===================
+    .          Tabulation before PRAM    Tabulation after invariant PRAM
+   ---------  ------------------------  ---------------------------------
+    Value      male         female       male		   female
+   =========  ==========  ============  ============  ===================
+    capital     3,056      1,944         2,623         2,375    
+    rural1        157        343           225           274
+    rural2        113        287           187           216
+   =========  ==========  ============  ============  ===================
 
 The pram() function in *sdcMicro* has several options. **NOTE: If no
 options are set and the PRAM method is applied to an sdcMicro object,
@@ -1495,7 +1415,7 @@ In cases where there is a high degree of heterogeneity within the groups
 (this is often the case for larger groups), the median is preferred to
 preserve the information in the data. An example is income, where one
 outlier can lead to multiple outliers being created when using
-microaggregation. This is illustrated in Table 5.11. If we choose the
+microaggregation. This is illustrated in :numref:`tab511`. If we choose the
 mean as replacement for all values, which are grouped with the outlier
 (6,045 in group 2), these records will be assigned values far from their
 original values. If we chose the median, the incomes of individuals 1
@@ -1506,26 +1426,22 @@ of some measures sensitive to outliers, such as the GINI index.** In the
 case where microaggregation is applied to categorical variables, the
 median is used to calculate the replacement value for the group.
 
-Table 5.11: Illustrating the effect of choosing mean vs. median for
-microaggregation where outliers are concerned
+.. _tab511:
 
-+-------------+-------------+-------------+-------------+-------------+
-| **ID**      | **Group**   | **Income**  | **Microaggr | **Microaggr |
-|             |             |             | egation     | egation     |
-|             |             |             | (mean)**    | (median)**  |
-+=============+=============+=============+=============+=============+
-| 1           | 1           | 2,300       | 2,245       | 2,300       |
-+-------------+-------------+-------------+-------------+-------------+
-| 2           | 2           | 2,434       | 3,608       | 2,434       |
-+-------------+-------------+-------------+-------------+-------------+
-| 3           | 1           | 2,123       | 2,245       | 2,300       |
-+-------------+-------------+-------------+-------------+-------------+
-| 4           | 1           | 2,312       | 2,245       | 2,300       |
-+-------------+-------------+-------------+-------------+-------------+
-| 5           | 2           | 6,045       | 3,608       | 2,434       |
-+-------------+-------------+-------------+-------------+-------------+
-| 6           | 2           | 2,345       | 3,608       | 2,434       |
-+-------------+-------------+-------------+-------------+-------------+
+.. table:: Cross-tabulation of variable “region” and variable “gender” before and after invariant PRAM
+   :widths: auto
+   :align: center
+   
+   ====  =======  ========  =========================  ==========================
+    ID    Group    Income    Microaggregation (mean)    Microaggregation (median) 
+   ====  =======  ========  =========================  ==========================
+    1      1       2,300      2,245                     2,300  
+    2      2       2,434      3,608                     2,434  
+    3      1       2,123      2,245                     2,300  
+    4      1       2,312      2,245                     2,300  
+    5      2       6,045      3,608                     2,434  
+    6      2       2,345      3,608                     2,434  
+   ====  =======  ========  =========================  ==========================
 
 In case of multiple variables that are candidates for microaggregation,
 one possibility is to apply univariate microaggregation to each of the
@@ -1543,37 +1459,29 @@ first step in multivariate aggregation is the creation of homogeneous
 groups based on several variables. Groups are formed based on
 multivariate distances between the individuals. Subsequently, the values
 of all variables for all group members are replaced with the same
-values. Table 5.12 illustrates this with three variables. We see that
+values. :numref:`tab512` illustrates this with three variables. We see that
 the grouping by income, expenditure and wealth leads to a different
-grouping, as in the case in Table 5.11, where groups were formed based
+grouping, as in the case in :numref:`tab511`, where groups were formed based
 only on income.
 
-Table 5.12: Illustration of multivariate microaggregation
+.. _tab512:
 
-+--------+--------+--------+--------+--------+--------+--------+--------+
-|   ID   | Group  | Before microaggregation  |   After microaggregation |
-+========+========+========+========+========+========+========+========+
-|        |        | *Incom | *Exp*  | *Wealt | *Incom | *Exp*  | *Wealt |
-|        |        | e*     |        | h*     | e*     |        | h*     |
-+--------+--------+--------+--------+--------+--------+--------+--------+
-| 1      | 1      | 2,300  | 1,714  | 5.3    | 2,285. | 1,846. | 6.3    |
-|        |        |        |        |        | 7      | 3      |        |
-+--------+--------+--------+--------+--------+--------+--------+--------+
-| 2      | 1      | 2,434  | 1,947  | 7.4    | 2,285. | 1,846. | 6.3    |
-|        |        |        |        |        | 7      | 3      |        |
-+--------+--------+--------+--------+--------+--------+--------+--------+
-| 3      | 1      | 2,123  | 1,878  | 6.3    | 2,285. | 1,846. | 6.3    |
-|        |        |        |        |        | 7      | 3      |        |
-+--------+--------+--------+--------+--------+--------+--------+--------+
-| 4      | 2      | 2,312  | 1,950  | 8.0    | 3,567. | 2,814. | 8.3    |
-|        |        |        |        |        | 3      | 0      |        |
-+--------+--------+--------+--------+--------+--------+--------+--------+
-| 5      | 2      | 6,045  | 4,569  | 9.2    | 3,567. | 2,814. | 8.3    |
-|        |        |        |        |        | 3      | 0      |        |
-+--------+--------+--------+--------+--------+--------+--------+--------+
-| 6      | 2      | 2,345  | 1,923  | 7.8    | 3,567. | 2,814. | 8.3    |
-|        |        |        |        |        | 3      | 0      |        |
-+--------+--------+--------+--------+--------+--------+--------+--------+
+.. table:: Illustration of multivariate microaggregation
+   :widths: auto
+   :align: center
+   
+   ====  =======  ========  =======  ========  ========  =========  ========
+    ID    Group    Before microaggregation      After microaggregation 
+   ----  -------  ---------------------------  -----------------------------
+    .     .        Income    Exp      Wealth    Income    Exp        Wealth
+   ====  =======  ========  =======  ========  ========  =========  ========
+     1     1       2,300     1,714     5.3      2,285.7   1,846.3    6.3 
+     2     1       2,434     1,947     7.4      2,285.7   1,846.3    6.3  
+     3     1       2,123     1,878     6.3      2,285.7   1,846.3    6.3  
+     4     2       2,312     1,950     8.0      3,567.3   2,814.0    8.3  
+     5     2       6,045     4,569     9.2      3,567.3   2,814.0    8.3  
+     6     2       2,345     1,923     7.8      3,567.3   2,814.0    8.3  
+   ====  =======  ========  =======  ========  ========  =========  ========
 
 There are several multivariate microaggregation methods that differ with
 respect to the algorithm used for creating groups of individuals. There
@@ -1627,7 +1535,7 @@ shown in :numref:`code518`.
     sdcInitial <- microaggregation(obj = sdcInitial, variables = c("INC", "EXP", "WEALTH"), method = "mdav", strata_variables = c("strata"))
 
 Besides the method MDAV, there are few other grouping methods
-implemented in *sdcMicro* (Templ, Meindl and Kowarik, 2014). Table 5.13
+implemented in *sdcMicro* (Templ, Meindl and Kowarik, 2014). :numref:`tab513`
 gives an overview of these methods. Whereas the method ‘MDAV’ uses the
 Euclidian distance, the method ‘rmd’ uses the Mahalanobis distance
 instead. An alternative to these methods is sorting the respondents
@@ -1639,32 +1547,21 @@ the total variance in the data that is explained by the first PC. The
 Mahalanobis distances, but provides better results with respect to group
 homogeneity. It is recommended for smaller datasets (ibid.).
 
-Table 5.13: Grouping methods for microaggregation that are implemented
-in *sdcMicro*
+.. _tab513:
 
-+-----------------------------------+-----------------------------------+
-| **Method / option in sdcMicro**   | **Description**                   |
-+===================================+===================================+
-| mdav                              | grouping is based on classical    |
-|                                   | (Euclidean) distance measures     |
-+-----------------------------------+-----------------------------------+
-| rmd                               | grouping is based on robust       |
-|                                   | multivariate (Mahalanobis)        |
-|                                   | distance measures                 |
-+-----------------------------------+-----------------------------------+
-| pca                               | grouping is based on principal    |
-|                                   | component analysis whereas the    |
-|                                   | data are sorted on the first      |
-|                                   | principal component               |
-+-----------------------------------+-----------------------------------+
-| clustpppca                        | grouping is based on clustering   |
-|                                   | and (robust) principal component  |
-|                                   | analysis for each cluster         |
-+-----------------------------------+-----------------------------------+
-| influence                         | grouping is based on clustering   |
-|                                   | and aggregation is performed      |
-|                                   | within clusters                   |
-+-----------------------------------+-----------------------------------+
+.. table:: Grouping methods for microaggregation that are implemented in *sdcMicro*
+   :widths: auto
+   :align: center
+   
+   =============================  ================================================================================================================
+    Method / option in sdcMicro    Description
+   =============================  ================================================================================================================
+    mdav                           grouping is based on classical (Euclidean) distance measures  
+    rmd                            grouping is based on robust multivariate (Mahalanobis) distance measures              
+    pca                            grouping is based on principal component analysis whereas the data are sorted on the first principal component            
+    clustpppca                     grouping is based on clustering and (robust) principal component analysis for each cluster      
+    influence                      grouping is based on clustering and aggregation is performed within clusters                
+   =============================  ================================================================================================================
 
 In case of several variables to be used for microaggregation, looking
 first at the covariance or correlation matrix of these variables is
@@ -2061,37 +1958,30 @@ generate :math:`n` synthetic (predicted) values for each variable that
 has to be protected. These generated values are also ranked and each
 original value is replaced with another original value with the rank
 that corresponds to the rank of the generated value. This means that all
-original values will be in the data. Table 5.14 presents a simplified
+original values will be in the data. :numref:`tab514` presents a simplified
 example of the shuffling method. The regressands are not specified in
 this example.
 
-Table 5.14: Simplified example of the shuffling method
+.. _tab514:
 
-+-----------+-----------+-----------+-----------+-----------+-----------+
-| **ID**    | **Income  | **Rank    | **Income  | **Rank    | **Shuffle |
-|           | (orig)**  | (orig)**  | (pred)**  | (pred)**  | d         |
-|           |           |           |           |           | values**  |
-+===========+===========+===========+===========+===========+===========+
-| 1         | 2,300     | 2         | 2,466.56  | 4         | 2,345     |
-+-----------+-----------+-----------+-----------+-----------+-----------+
-| 2         | 2,434     | 6         | 2,583.58  | 7         | 2,543     |
-+-----------+-----------+-----------+-----------+-----------+-----------+
-| 3         | 2,123     | 1         | 2,594.17  | 8         | 2,643     |
-+-----------+-----------+-----------+-----------+-----------+-----------+
-| 4         | 2,312     | 3         | 2,530.97  | 6         | 2,434     |
-+-----------+-----------+-----------+-----------+-----------+-----------+
-| 5         | 6,045     | 10        | 5,964.04  | 10        | 6,045     |
-+-----------+-----------+-----------+-----------+-----------+-----------+
-| 6         | 2,345     | 4         | 2,513.45  | 5         | 2,365     |
-+-----------+-----------+-----------+-----------+-----------+-----------+
-| 7         | 2,543     | 7         | 2,116.16  | 1         | 2,123     |
-+-----------+-----------+-----------+-----------+-----------+-----------+
-| 8         | 2,854     | 9         | 2,624.32  | 9         | 2,854     |
-+-----------+-----------+-----------+-----------+-----------+-----------+
-| 9         | 2,365     | 5         | 2,203.45  | 2         | 2,300     |
-+-----------+-----------+-----------+-----------+-----------+-----------+
-| 10        | 2,643     | 8         | 2,358.29  | 3         | 2,312     |
-+-----------+-----------+-----------+-----------+-----------+-----------+
+.. table:: Simplified example of the shuffling method
+   :widths: auto
+   :align: center
+   
+   ====  ===============  =============  ===============  =============  =================  
+    ID    Income (orig)    Rank (orig)    Income (pred)    Rank (pred)    Shuffled values
+   ====  ===============  =============  ===============  =============  =================  
+     1       2,300           2            2,466.56          4              2,345    
+     2       2,434           6            2,583.58          7              2,543    
+     3       2,123           1            2,594.17          8              2,643    
+     4       2,312           3            2,530.97          6              2,434    
+     5       6,045           10           5,964.04          10             6,045    
+     6       2,345           4            2,513.45          5              2,365    
+     7       2,543           7            2,116.16          1              2,123    
+     8       2,854           9            2,624.32          9              2,854    
+     9       2,365           5            2,203.45          2              2,300    
+     10      2,643           8            2,358.29          3              2,312    
+   ====  ===============  =============  ===============  =============  =================  
 
 The method ‘ds’ (the default method of data shuffling in *sdcMicro*) is
 recommended for use (Templ et al., 2014) [#foot54]_. A
@@ -2213,25 +2103,22 @@ is not sufficient to guarantee confidentiality.**
 Several statistical offices release microdata based on census data. A
 few examples are:
 
-- The British Office for National Statistics (ONS) released several
-files based on the 2011 census: 1) A microdata teaching file for
-educational purposes. This file is a 1% sample of the total census with
-a limited set of variables. 2) Two scientific use files with 5% samples
-are available for registered researchers who accept the terms and
-conditions of their use. 3) Two 10% samples are available in controlled
-research data centers for approved researchers and research goals. All
-these files have been anonymized prior to release. [#foot56]_
+- The British Office for National Statistics (ONS) 
+	released several files based on the 2011 census: 
+	1. A microdata teaching file for educational purposes. This file is a 1% sample of the total census with a limited set of variables. 
+	2. Two scientific use files with 5% samples are available for registered researchers who accept the terms and conditions of their use. 
+	3. Two 10% samples are available in controlled research data centers for approved researchers and research goals. All these files have been anonymized prior to release. [#foot56]_
 
-- The U.S. Census Bureau released two samples of the 2000 census: a 5%
-sample on the national level and a 1% sample on the state level. The
-national level file is more detailed, but the most detailed geographical
-area has at least 400,000 people. This, however, allows representation
-of all states from the dataset. The state-level file has less detailed
-variables but a more detailed geographical structure, which allows
-representation of cities and larger counties from the dataset (the
-minimum size of a geographical area is 100,000). Both files have been
-anonymized by using data swapping, top coding, perturbation and reducing
-detail by recoding.[#foot57]_
+- The U.S. Census Bureau 
+	released two samples of the 2000 census: a 5% sample on the national level and a 1% sample on the state level. The
+	national level file is more detailed, but the most detailed geographical
+	area has at least 400,000 people. This, however, allows representation
+	of all states from the dataset. The state-level file has less detailed
+	variables but a more detailed geographical structure, which allows
+	representation of cities and larger counties from the dataset (the
+	minimum size of a geographical area is 100,000). 
+	Both files have been anonymized by using data swapping, top coding, perturbation and reducing
+	detail by recoding. [#foot57]_
 
 .. [#foot34]
    We also show code examples in *R,* which are drawn from findings we

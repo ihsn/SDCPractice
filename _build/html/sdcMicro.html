@@ -235,11 +235,11 @@ compatible with most statistical data formats and provides read
 functions for most types of data. For those read functions, it is
 sometimes necessary to install additional packages and their
 dependencies in <em>R</em>. An overview of data formats, functions and the
-packages containing these functions is provided in <a class="reference internal" href="#tab71"><span class="std std-numref">Table 6</span></a>. These
+packages containing these functions is provided in <a class="reference internal" href="#tab71"><span class="std std-numref">Table 20</span></a>. These
 functions are also available as write (e.g., write.dta()) to save the
 anonymized data in the required format. <a class="footnote-reference" href="#foot62" id="id3">[3]</a></p>
 <span id="tab71"></span><table border="1" class="colwidths-auto docutils align-center" id="id11">
-<caption><span class="caption-number">Table 6 </span><span class="caption-text">Packages and functions for reading data in <em>R</em></span><a class="headerlink" href="#id11" title="Permalink to this table">¶</a></caption>
+<caption><span class="caption-number">Table 20 </span><span class="caption-text">Packages and functions for reading data in <em>R</em></span><a class="headerlink" href="#id11" title="Permalink to this table">¶</a></caption>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">Type/software</th>
 <th class="head">Extension</th>
@@ -416,7 +416,7 @@ class is described in the next section.</p>
 <p>The <em>sdcMicro</em> package is built around objects <a class="footnote-reference" href="#foot66" id="id6">[7]</a> of
 class <em>sdcMicroObj</em>, a class especially defined for the <em>sdcMicro</em>
 package. Each member of this class has a certain structure with slots
-that contain information regarding the anonymization process (see <a class="reference internal" href="#tab72"><span class="std std-numref">Table 7</span></a>
+that contain information regarding the anonymization process (see <a class="reference internal" href="#tab72"><span class="std std-numref">Table 21</span></a>
 for a description of all slots). Before evaluating risk
 and utility and applying SDC methods, creating an object of class
 <em>sdcMicro</em> is recommended. All examples in this guide are based on these
@@ -631,7 +631,7 @@ sufficient to write the name of the object.</p>
 </pre></div>
 </td></tr></table></div>
 </div>
-<p><a class="reference internal" href="#tab72"><span class="std std-numref">Table 7</span></a> presents the names of the slots and their respective contents.
+<p><a class="reference internal" href="#tab72"><span class="std std-numref">Table 21</span></a> presents the names of the slots and their respective contents.
 The slot names can be listed using the function slotNames(), which is
 illustrated in <a class="reference internal" href="#code79"><span class="std std-numref">Listing 47</span></a>. Not all slots are used in all cases. Some
 slots are filled only after applying certain methods, e.g., evaluating a
@@ -704,7 +704,7 @@ risk in the risk slot.</p>
 </td></tr></table></div>
 </div>
 <span id="tab72"></span><table border="1" class="colwidths-auto docutils align-center" id="id12">
-<caption><span class="caption-number">Table 7 </span><span class="caption-text">Slot names and slot description of <em>sdcMicro</em> object</span><a class="headerlink" href="#id12" title="Permalink to this table">¶</a></caption>
+<caption><span class="caption-number">Table 21 </span><span class="caption-text">Slot names and slot description of <em>sdcMicro</em> object</span><a class="headerlink" href="#id12" title="Permalink to this table">¶</a></caption>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">Slotname</th>
 <th class="head">Content</th>
@@ -1038,8 +1038,8 @@ derived (for instance, in cases where the geographical unit is included
 in the randomized ID). Therefore, if the variable used for the subsets
 has suppressed values, randomization should be done at the dataset level
 and not at the subset level.</p>
-<p><a class="reference internal" href="#tab73"><span class="std std-numref">Table 8</span></a> illustrates the need and process of randomizing the order of
-records in a dataset. The first three columns in <a class="reference internal" href="#tab73"><span class="std std-numref">Table 8</span></a> show the
+<p><a class="reference internal" href="#tab73"><span class="std std-numref">Table 22</span></a> illustrates the need and process of randomizing the order of
+records in a dataset. The first three columns in <a class="reference internal" href="#tab73"><span class="std std-numref">Table 22</span></a> show the
 original dataset. Some suppressions were made in the variable
 “district”, as shown in columns 4 to 6 (‘NA’ values). This dataset also
 already shows the randomized household IDs. The order of the records in
@@ -1053,7 +1053,7 @@ neighboring records. Note that in this example the randomization was
 carried out within the regions and the region number is included in the
 household ID (first digit).</p>
 <span id="tab73"></span><table border="1" class="colwidths-auto docutils align-center" id="id13">
-<caption><span class="caption-number">Table 8 </span><span class="caption-text">Illustration of randomizing order of records in a dataset</span><a class="headerlink" href="#id13" title="Permalink to this table">¶</a></caption>
+<caption><span class="caption-number">Table 22 </span><span class="caption-text">Illustration of randomizing order of records in a dataset</span><a class="headerlink" href="#id13" title="Permalink to this table">¶</a></caption>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head" colspan="3"><div class="first last line-block">
 <div class="line">Original dataset</div>
@@ -1356,10 +1356,10 @@ data size, i.e., number of observations, number of variables and the
 number of categories or factor levels of each categorical variable; data
 complexity (e.g., the number of different combinations of values of key
 variables in the data); as well as the computer/server specifications.</p>
-<p><a class="reference internal" href="#tab74"><span class="std std-numref">Table 9</span></a> gives some indication of computation times for different
+<p><a class="reference internal" href="#tab74"><span class="std std-numref">Table 23</span></a> gives some indication of computation times for different
 methods on datasets of different size and complexity based on findings
 from our experiments. The selected quasi-identifiers and categories for
-those variables in <a class="reference internal" href="#tab73"><span class="std std-numref">Table 8</span></a> are the same in both datasets being
+those variables in <a class="reference internal" href="#tab73"><span class="std std-numref">Table 22</span></a> are the same in both datasets being
 compared. Because it is impossible to predict the exact computation
 time, this table should be used to illustrate how long computations may
 take. These methods have been executed on a powerful server. Given long
@@ -1369,7 +1369,7 @@ and then choose the appropriate SDC methods. <em>R</em> provides functions to
 select subsets from a dataset. After setting up the code, it can then be
 run on the entire dataset on a powerful computer or server.</p>
 <span id="tab74"></span><table border="1" class="colwidths-auto docutils align-center" id="id14">
-<caption><span class="caption-number">Table 9 </span><span class="caption-text">Computation times of different methods on datasets of different sizes</span><a class="headerlink" href="#id14" title="Permalink to this table">¶</a></caption>
+<caption><span class="caption-number">Table 23 </span><span class="caption-text">Computation times of different methods on datasets of different sizes</span><a class="headerlink" href="#id14" title="Permalink to this table">¶</a></caption>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head" colspan="2">Dataset with 5,000 observations</th>
 <th class="head" colspan="2">Dataset with 45,000 obervations</th>
@@ -1407,7 +1407,7 @@ number of combinations, which influences the computation time to
 compute, for example, the frequencies of each key in the dataset. If
 there are many categories but not so many combinations (e.g., when the
 variables correlate), the computation time will be shorter.</p>
-<p><a class="reference internal" href="#tab75"><span class="std std-numref">Table 10</span></a> shows the number of categories for seven datasets with the
+<p><a class="reference internal" href="#tab75"><span class="std std-numref">Table 24</span></a> shows the number of categories for seven datasets with the
 same variables but of different complexities that were all processed
 using the same script on 16 processors, in order of execution time. The
 table also shows an approximation of the number of unique combinations
@@ -1421,7 +1421,7 @@ can vary greatly; the longest running time is about 10 times longer than
 the shortest. Computer specifications also influence the computation
 time. This includes the processor, RAM and storage media.</p>
 <span id="tab75"></span><table border="1" class="colwidths-auto docutils align-center" id="id15">
-<caption><span class="caption-number">Table 10 </span><span class="caption-text">Number of categories (complexity), record uniqueness and computation times</span><a class="headerlink" href="#id15" title="Permalink to this table">¶</a></caption>
+<caption><span class="caption-number">Table 24 </span><span class="caption-text">Number of categories (complexity), record uniqueness and computation times</span><a class="headerlink" href="#id15" title="Permalink to this table">¶</a></caption>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">Sample size</th>
 <th class="head" colspan="6">Number of categories
