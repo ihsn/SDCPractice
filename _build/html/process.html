@@ -106,6 +106,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="appendices.html">10. Appendices</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bibliography.html">11. Bibliography</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acknowledgements.html">12. Acknowledgements</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Case studies</span></p>
 <ul>
@@ -291,7 +292,7 @@ and each variable represents one (sub-) question leading to a dataset
 with hundreds of variables. As an example, we take a survey with several
 labor force variables indicating whether a person is in the labor force,
 employed or unemployed, and if employed, in what sector. The data in
-Table 8.1 illustrates this example. It is possible that each type of
+<a class="reference internal" href="#tab81"><span class="std std-numref">Table 9.1</span></a> illustrates this example. It is possible that each type of
 sector has its own binary variable. In that case, this set of variables
 can be summarized in two variables: one variable indicating whether a
 person is in labor force and another indicating the employment status,
@@ -305,37 +306,22 @@ process by trying to treat more variables than is necessary. This
 approach also guarantees that the relationships between the variables
 are preserved (e.g., no individuals will be employed in several
 sectors).</p>
-<p>Table 8.1: Illustration of merging variables without information loss
-for SDC process</p>
-<table border="1" class="docutils">
-<colgroup>
-<col width="14%" />
-<col width="14%" />
-<col width="14%" />
-<col width="14%" />
-<col width="14%" />
-<col width="14%" />
-<col width="14%" />
-</colgroup>
+<span id="tab81"></span><table border="1" class="colwidths-auto docutils align-center" id="id1">
+<caption><span class="caption-number">Table 9.1 </span><span class="caption-text">Illustration of merging variables without information loss for SDC process</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head" colspan="5">Before</th>
 <th class="head" colspan="2">After</th>
 </tr>
+<tr class="row-even"><th class="head">In labor force</th>
+<th class="head">Employed</th>
+<th class="head">Sector A</th>
+<th class="head">Sector B</th>
+<th class="head">Sector C</th>
+<th class="head">In labor force</th>
+<th class="head">Employed</th>
+</tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td>In
-labor
-force</td>
-<td>Employed</td>
-<td>Sector A</td>
-<td>Sector B</td>
-<td>Sector C</td>
-<td>In
-labor
-force</td>
-<td>Emplo
-yed</td>
-</tr>
 <tr class="row-odd"><td>Yes</td>
 <td>Yes</td>
 <td>Missing</td>
@@ -431,9 +417,12 @@ to be protected more than a file which is available only in an on-site
 facility, since the options the intruder can use the data are limited in
 the latter case.</p>
 <p>Besides the applicable legislation, the choice of the type of release
-depends on the type of the data and the content. <strong>NOTE: Not every
-microdata set is suitable for release in any release type, even after
-SDC.</strong> Some data cannot be protected sufficiently – it might always
+depends on the type of the data and the content.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Not every microdata set is suitable for release in any release type, even after SDC.</p>
+</div>
+<p>Some data cannot be protected sufficiently – it might always
 contain information that is too sensitive to be published as SUF or PUF.
 In such cases, the data can be released in on-site facilities, or the
 number of variables can be reduced by removing problematic variables.</p>
@@ -448,9 +437,13 @@ the SUF file by further anonymization. In that way, all information in
 the PUF file is also contained in the SUF file and the PUF file does not
 provide any additional information for users that have access to the SUF
 file.</p>
-<p><strong>NOTE: The anonymization process is an iterative process where steps
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The anonymization process is an iterative process where steps
 can be revisited, whereas the publication of an anonymized dataset is a
-one-shot process.</strong> Once the anonymized data is published, it is not
+one-shot process.</p>
+</div>
+<p>Once the anonymized data is published, it is not
 possible to revoke and publish another dataset of the same microdata
 file. This would in fact mean publishing more than one anonymized file
 from the same microdata set, since some users might have saved the
@@ -467,10 +460,14 @@ scenarios, which specify what data an intruder could possibly have
 access to and how this auxiliary data can be used for identity
 disclosure. This leads to the specification of quasi-identifiers, which
 are a set of variables that are available both in the dataset to be
-released and in auxiliary datasets and need protection. <strong>NOTE: If the
-number of quasi-identifiers is high, it is recommended to reduce the set
+released and in auxiliary datasets and need protection.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If the number of quasi-identifiers is high, it is recommended to reduce the set
 of quasi-identifiers by removing some variables from the dataset for
-release.</strong> This is especially true for PUF releases. Disclosure
+release.</p>
+</div>
+<p>This is especially true for PUF releases. Disclosure
 scenarios can also help define the required level of anonymization.</p>
 <p>Drafting disclosure scenarios requires the support of subject matter
 specialists, assuming the subject specialist is not the same as the
@@ -478,9 +475,14 @@ person doing the anonymization. Auxiliary datasets may contain
 information on the identity of the individuals and allow identity
 disclosure. Examples of such auxiliary data files are population
 registers and electoral rolls, as well as data collected by specialized
-firms. <strong>NOTE: External datasets can come from many sources (e.g., other
+firms.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">External datasets can come from many sources (e.g., other
 institutions, private companies) and it is sometimes difficult to make a
-full list of external data sources.</strong> In addition, not all external data
+full list of external data sources.</p>
+</div>
+<p>In addition, not all external data
 sources are in the public domain. Nevertheless, proprietary data can be
 used by the owner to re-identify individuals and should be taken into
 account in the SDC process, even if the exact content is not known.
@@ -541,11 +543,15 @@ similar way. This knowledge is important for the selection of useful
 utility measures, which in turn are used for selecting appropriate SDC
 methods.</p>
 <p>The uses of the data depend on the release type, too. Researchers using
-SUF files require a higher level of detail in the data than PUF users.
-<strong>NOTE: Anonymization will always lead to information loss and a PUF
+SUF files require a higher level of detail in the data than PUF users.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Anonymization will always lead to information loss and a PUF
 file will have reduced utility. If certain users require a high level of
 detail, release types other than PUF should be considered, such as SUF
-or release through a research data center.</strong> In the case of SUFs, it is
+or release through a research data center.</p>
+</div>
+<p>In the case of SUFs, it is
 easier to find the main uses of the data since access is documented. One
 way to obtain information on the use of PUF files is to ask for a short
 description of intended use of the data before supplying the data. This
@@ -574,8 +580,9 @@ valid. This may be necessary, as it is not possible to release multiple
 files for different users. This problem occurs especially in
 multi-purpose studies. For more details on utility measures, refer to
 Chapter 6.</p>
-<p><strong>Note on Steps 6 to 10</strong></p>
-<p>The following Steps 6 through 10 should be repeated if the data has
+<div class="admonition-note-on-steps-6-to-10 admonition">
+<p class="first admonition-title">Note on Steps 6 to 10</p>
+<p class="last">The following Steps 6 through 10 should be repeated if the data has
 quasi-identifiers that are on different hierarchical levels, e.g.,
 individual and household. In that case, variables on the higher
 hierarchical level should be anonymized first, and then merged with the
@@ -590,6 +597,7 @@ disclosure; with the household ID the variable region would be easy to
 reconstruct for the two suppressed values. Sections 4.9 and 7.6 provide
 more details on how to deal with data with household structure in <em>R</em>
 and <em>sdcMicro</em>.</p>
+</div>
 </div>
 <div class="section" id="step-6-assessing-disclosure-risk">
 <h2>9.6. Step 6: Assessing disclosure risk<a class="headerlink" href="#step-6-assessing-disclosure-risk" title="Permalink to this headline">¶</a></h2>
@@ -622,10 +630,14 @@ and might therefore be an exaggeration of the real risks for some cases
 <p>To quantify the information loss due to the anonymization, we first
 compute the utility measures selected in Step 6 using the raw data. This
 creates a base for comparison of results obtained when using the
-anonymized data – i.e., in Step 10. <strong>NOTE: If the raw data is a sample,
+anonymized data – i.e., in Step 10.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If the raw data is a sample,
 the utility measures are an estimate with a variance and therefore it is
 useful to construct confidence intervals in addition to the point
-estimates for the utility measures.</strong></p>
+estimates for the utility measures.</p>
+</div>
 </div>
 <div class="section" id="step-8-choice-and-application-of-sdc-methods">
 <h2>9.8. Step 8: Choice and application of SDC methods<a class="headerlink" href="#step-8-choice-and-application-of-sdc-methods" title="Permalink to this headline">¶</a></h2>
@@ -639,7 +651,7 @@ applying a chosen method, disclosure risk and data utility are measured
 and compared to other choices of methods and parameters. The choice of
 methods is bound by legislation on the one hand, and a trade-off between
 utility and risk on the other.</p>
-<p>The classification of methods as presented in Table 5.1 gives a good
+<p>The classification of methods as presented in <a class="reference internal" href="anon_methods.html#tab51"><span class="std std-numref">Table 6.1</span></a> gives a good
 overview for choosing the appropriate methods. Methods should be chosen
 according to the type of variable – continuous or categorical – the
 requirements by the users and the type of release. The anonymization of
@@ -680,11 +692,15 @@ chosen under Step 6 after applying SDC methods. Besides these risk
 measures, it is also important to look at individuals with high risk
 and/or special characteristics, combinations of values or outliers in
 the data. If the risk is not at an acceptable level, Steps 6 to 10
-should be repeated with different methods and/or parameters. <strong>NOTE:
-Risk measures based on frequency counts
-(</strong><span class="math notranslate nohighlight">\(\mathbf{k}\)</span><strong>-anonymity, individual risk, global risk and
+should be repeated with different methods and/or parameters.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Risk measures based on frequency counts
+(<span class="math notranslate nohighlight">\(\mathbf{k}\)</span>-anonymity, individual risk, global risk and
 household risk) cannot be used after applying perturbative methods since
-their risk estimates are not valid.</strong> These methods are based on
+their risk estimates are not valid.</p>
+</div>
+<p>These methods are based on
 introducing uncertainty into the dataset and not on increasing the
 frequencies of keys in the data and will hence overestimate the risk.</p>
 </div>
@@ -699,9 +715,11 @@ Besides these specific utility measures, general utility measures, as
 discussed in Section 6.1, should be evaluated. This is especially
 important if perturbative methods have been applied. If the data does
 not meet the user requirements and deviations are too large, repeat
-Steps 6 to 10 with different methods and/or different parameters.
-<strong>NOTE: Anonymization will always lead to at least some information
-loss.</strong></p>
+Steps 6 to 10 with different methods and/or different parameters.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Anonymization will always lead to at least some information loss.</p>
+</div>
 </div>
 <div class="section" id="step-11-audit-and-reporting">
 <h2>9.11. Step 11: Audit and Reporting<a class="headerlink" href="#step-11-audit-and-reporting" title="Permalink to this headline">¶</a></h2>
@@ -730,9 +748,13 @@ anonymized microdata should be accompanied by the usual metadata of the
 survey (survey weight, strata, survey methodology) as well as
 information on the anonymization methods that allow researchers to do
 valid analysis (e.g., amount of noise added, transition matrix for
-PRAM). <strong>NOTE: Care should be taken that this information cannot be used
-for re-identification (e.g., no release of random seed for PRAM).</strong> The
-metadata must be updated to comply with the anonymized data. Variable
+PRAM).</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Care should be taken that this information cannot be used
+for re-identification (e.g., no release of random seed for PRAM).</p>
+</div>
+<p>The metadata must be updated to comply with the anonymized data. Variable
 descriptions or value labels might have changed as a result of the
 anonymization process. In addition, the information loss due to the
 anonymization process should be explained in detail to the users to make
@@ -751,8 +773,10 @@ Files; Principles, Procedures and Practices.</em> IHSN Working Paper No.
 005, International Household Survey Network (IHSN).
 <a class="reference external" href="http://www.ihsn.org/HOME/sites/default/files/resources/IHSN-WP005.pdf">http://www.ihsn.org/HOME/sites/default/files/resources/IHSN-WP005.pdf</a></p>
 </div>
-<a class="reference internal image-reference" href="_images/image20.png"><img alt="_images/image20.png" src="_images/image20.png" style="width: 6.55208in; height: 8.60417in;" /></a>
-<p>Figure 8.1: Overview of the SDC process</p>
+<div class="figure align-center" id="id2">
+<span id="fig81"></span><img alt="_images/image20.png" src="_images/image20.png" />
+<p class="caption"><span class="caption-number">Fig. 9.1 </span><span class="caption-text">Overview of the SDC process</span></p>
+</div>
 </div>
 </div>
 

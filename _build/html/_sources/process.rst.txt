@@ -124,7 +124,7 @@ and each variable represents one (sub-) question leading to a dataset
 with hundreds of variables. As an example, we take a survey with several
 labor force variables indicating whether a person is in the labor force,
 employed or unemployed, and if employed, in what sector. The data in
-Table 8.1 illustrates this example. It is possible that each type of
+:numref:`tab81` illustrates this example. It is possible that each type of
 sector has its own binary variable. In that case, this set of variables
 can be summarized in two variables: one variable indicating whether a
 person is in labor force and another indicating the employment status,
@@ -139,28 +139,25 @@ approach also guarantees that the relationships between the variables
 are preserved (e.g., no individuals will be employed in several
 sectors).
 
-Table 8.1: Illustration of merging variables without information loss
-for SDC process
+.. _tab81:
 
-+---------+---------+---------+---------+---------+---------+---------+
-| Before                                          |  After            |
-+=========+=========+=========+=========+=========+=========+=========+
-| In      | Employed|Sector A | Sector B|Sector C | In      | Emplo   |
-| labor   |         |         |         |         | labor   | yed     |
-| force   |         |         |         |         | force   |         |
-+---------+---------+---------+---------+---------+---------+---------+
-| Yes     | Yes     | Missing | Yes     | Missing | Yes     | B       |
-+---------+---------+---------+---------+---------+---------+---------+
-| No      | No      | Missing | Missing | Missing | No      | No      |
-+---------+---------+---------+---------+---------+---------+---------+
-| Yes     | Yes     | Yes     | Missing | Missing | Yes     | A       |
-+---------+---------+---------+---------+---------+---------+---------+
-| Yes     | Yes     | Missing | Yes     | Missing | Yes     | B       |
-+---------+---------+---------+---------+---------+---------+---------+
-| Yes     | Yes     | Missing | Missing | Yes     | Yes     | C       |
-+---------+---------+---------+---------+---------+---------+---------+
-| Yes     | No      | Missing | Missing | Missing | Yes     | No      |
-+---------+---------+---------+---------+---------+---------+---------+
+.. table:: Illustration of merging variables without information loss for SDC process
+   :widths: auto
+   :align: center
+
+   ================  =========  =========  =========  =========  ================  ==========
+    Before                                                        After             
+   ------------------------------------------------------------  ----------------------------
+    In labor force    Employed  Sector A    Sector B  Sector C    In labor force    Employed    
+        
+   ================  =========  =========  =========  =========  ================  ==========
+    Yes               Yes        Missing    Yes        Missing    Yes                B       
+    No                No         Missing    Missing    Missing    No                 No      
+    Yes               Yes        Yes        Missing    Missing    Yes                A       
+    Yes               Yes        Missing    Yes        Missing    Yes                B       
+    Yes               Yes        Missing    Missing    Yes        Yes                C       
+    Yes               No         Missing    Missing    Missing    Yes                No      
+   ================  =========  =========  =========  =========  ================  ==========
 
 Besides relationships between variables, we also gather information
 about the survey methodology, such as strata, sampling methods, survey
@@ -212,9 +209,12 @@ facility, since the options the intruder can use the data are limited in
 the latter case.
 
 Besides the applicable legislation, the choice of the type of release
-depends on the type of the data and the content. **NOTE: Not every
-microdata set is suitable for release in any release type, even after
-SDC.** Some data cannot be protected sufficiently – it might always
+depends on the type of the data and the content. 
+
+.. NOTE:: 
+	Not every microdata set is suitable for release in any release type, even after SDC.
+	
+Some data cannot be protected sufficiently – it might always
 contain information that is too sensitive to be published as SUF or PUF.
 In such cases, the data can be released in on-site facilities, or the
 number of variables can be reduced by removing problematic variables.
@@ -231,9 +231,12 @@ the PUF file is also contained in the SUF file and the PUF file does not
 provide any additional information for users that have access to the SUF
 file.
 
-**NOTE: The anonymization process is an iterative process where steps
-can be revisited, whereas the publication of an anonymized dataset is a
-one-shot process.** Once the anonymized data is published, it is not
+.. NOTE:: 
+	The anonymization process is an iterative process where steps
+	can be revisited, whereas the publication of an anonymized dataset is a
+	one-shot process.
+	
+Once the anonymized data is published, it is not
 possible to revoke and publish another dataset of the same microdata
 file. This would in fact mean publishing more than one anonymized file
 from the same microdata set, since some users might have saved the
@@ -251,10 +254,14 @@ scenarios, which specify what data an intruder could possibly have
 access to and how this auxiliary data can be used for identity
 disclosure. This leads to the specification of quasi-identifiers, which
 are a set of variables that are available both in the dataset to be
-released and in auxiliary datasets and need protection. **NOTE: If the
-number of quasi-identifiers is high, it is recommended to reduce the set
-of quasi-identifiers by removing some variables from the dataset for
-release.** This is especially true for PUF releases. Disclosure
+released and in auxiliary datasets and need protection. 
+
+.. NOTE:: 
+	If the number of quasi-identifiers is high, it is recommended to reduce the set
+	of quasi-identifiers by removing some variables from the dataset for
+	release.
+	
+This is especially true for PUF releases. Disclosure
 scenarios can also help define the required level of anonymization.
 
 Drafting disclosure scenarios requires the support of subject matter
@@ -263,9 +270,14 @@ person doing the anonymization. Auxiliary datasets may contain
 information on the identity of the individuals and allow identity
 disclosure. Examples of such auxiliary data files are population
 registers and electoral rolls, as well as data collected by specialized
-firms. **NOTE: External datasets can come from many sources (e.g., other
-institutions, private companies) and it is sometimes difficult to make a
-full list of external data sources.** In addition, not all external data
+firms. 
+
+.. NOTE:: 
+	External datasets can come from many sources (e.g., other
+	institutions, private companies) and it is sometimes difficult to make a
+	full list of external data sources.
+
+In addition, not all external data
 sources are in the public domain. Nevertheless, proprietary data can be
 used by the owner to re-identify individuals and should be taken into
 account in the SDC process, even if the exact content is not known.
@@ -330,10 +342,14 @@ methods.
 
 The uses of the data depend on the release type, too. Researchers using
 SUF files require a higher level of detail in the data than PUF users.
-**NOTE: Anonymization will always lead to information loss and a PUF
-file will have reduced utility. If certain users require a high level of
-detail, release types other than PUF should be considered, such as SUF
-or release through a research data center.** In the case of SUFs, it is
+
+.. NOTE::
+	Anonymization will always lead to information loss and a PUF
+	file will have reduced utility. If certain users require a high level of
+	detail, release types other than PUF should be considered, such as SUF
+	or release through a research data center.
+
+In the case of SUFs, it is
 easier to find the main uses of the data since access is documented. One
 way to obtain information on the use of PUF files is to ask for a short
 description of intended use of the data before supplying the data. This
@@ -365,23 +381,23 @@ files for different users. This problem occurs especially in
 multi-purpose studies. For more details on utility measures, refer to
 Chapter 6.
 
-**Note on Steps 6 to 10**
+.. admonition:: Note on Steps 6 to 10
 
-The following Steps 6 through 10 should be repeated if the data has
-quasi-identifiers that are on different hierarchical levels, e.g.,
-individual and household. In that case, variables on the higher
-hierarchical level should be anonymized first, and then merged with the
-lower-level untreated variables. Subsequently, the merged dataset should
-be anonymized. This approach guarantees consistency in the treated data.
-If we neglect this procedure, the values of variables measured on the
-higher hierarchical level could be treated differently for observations
-of the same unit. For instance, the variable “region” is the same for
-all household members. If the value ‘rural’ would be suppressed for two
-members but not for the remaining three, this would lead to unintended
-disclosure; with the household ID the variable region would be easy to
-reconstruct for the two suppressed values. Sections 4.9 and 7.6 provide
-more details on how to deal with data with household structure in *R*
-and *sdcMicro*.
+	The following Steps 6 through 10 should be repeated if the data has
+	quasi-identifiers that are on different hierarchical levels, e.g.,
+	individual and household. In that case, variables on the higher
+	hierarchical level should be anonymized first, and then merged with the
+	lower-level untreated variables. Subsequently, the merged dataset should
+	be anonymized. This approach guarantees consistency in the treated data.
+	If we neglect this procedure, the values of variables measured on the
+	higher hierarchical level could be treated differently for observations
+	of the same unit. For instance, the variable “region” is the same for
+	all household members. If the value ‘rural’ would be suppressed for two
+	members but not for the remaining three, this would lead to unintended
+	disclosure; with the household ID the variable region would be easy to
+	reconstruct for the two suppressed values. Sections 4.9 and 7.6 provide
+	more details on how to deal with data with household structure in *R*
+	and *sdcMicro*.
 
 Step 6: Assessing disclosure risk
 ---------------------------------
@@ -417,10 +433,13 @@ Step 7: Assessing utility measures
 To quantify the information loss due to the anonymization, we first
 compute the utility measures selected in Step 6 using the raw data. This
 creates a base for comparison of results obtained when using the
-anonymized data – i.e., in Step 10. **NOTE: If the raw data is a sample,
-the utility measures are an estimate with a variance and therefore it is
-useful to construct confidence intervals in addition to the point
-estimates for the utility measures.**
+anonymized data – i.e., in Step 10. 
+
+.. NOTE::
+	If the raw data is a sample,
+	the utility measures are an estimate with a variance and therefore it is
+	useful to construct confidence intervals in addition to the point
+	estimates for the utility measures.
 
 Step 8: Choice and application of SDC methods 
 ----------------------------------------------
@@ -436,7 +455,7 @@ and compared to other choices of methods and parameters. The choice of
 methods is bound by legislation on the one hand, and a trade-off between
 utility and risk on the other.
 
-The classification of methods as presented in Table 5.1 gives a good
+The classification of methods as presented in :numref:`tab51` gives a good
 overview for choosing the appropriate methods. Methods should be chosen
 according to the type of variable – continuous or categorical – the
 requirements by the users and the type of release. The anonymization of
@@ -481,11 +500,15 @@ chosen under Step 6 after applying SDC methods. Besides these risk
 measures, it is also important to look at individuals with high risk
 and/or special characteristics, combinations of values or outliers in
 the data. If the risk is not at an acceptable level, Steps 6 to 10
-should be repeated with different methods and/or parameters. **NOTE:
-Risk measures based on frequency counts
-(**\ :math:`\mathbf{k}`\ **-anonymity, individual risk, global risk and
-household risk) cannot be used after applying perturbative methods since
-their risk estimates are not valid.** These methods are based on
+should be repeated with different methods and/or parameters. 
+
+.. NOTE::
+	Risk measures based on frequency counts
+	(:math:`\mathbf{k}`\ -anonymity, individual risk, global risk and
+	household risk) cannot be used after applying perturbative methods since
+	their risk estimates are not valid.
+	
+These methods are based on
 introducing uncertainty into the dataset and not on increasing the
 frequencies of keys in the data and will hence overestimate the risk.
 
@@ -502,8 +525,9 @@ discussed in Section 6.1, should be evaluated. This is especially
 important if perturbative methods have been applied. If the data does
 not meet the user requirements and deviations are too large, repeat
 Steps 6 to 10 with different methods and/or different parameters.
-**NOTE: Anonymization will always lead to at least some information
-loss.**
+
+.. NOTE:: 	
+	Anonymization will always lead to at least some information loss.
 
 Step 11: Audit and Reporting
 ----------------------------
@@ -535,9 +559,13 @@ anonymized microdata should be accompanied by the usual metadata of the
 survey (survey weight, strata, survey methodology) as well as
 information on the anonymization methods that allow researchers to do
 valid analysis (e.g., amount of noise added, transition matrix for
-PRAM). **NOTE: Care should be taken that this information cannot be used
-for re-identification (e.g., no release of random seed for PRAM).** The
-metadata must be updated to comply with the anonymized data. Variable
+PRAM). 
+
+.. NOTE:: 
+	Care should be taken that this information cannot be used
+	for re-identification (e.g., no release of random seed for PRAM).
+
+The metadata must be updated to comply with the anonymized data. Variable
 descriptions or value labels might have changed as a result of the
 anonymization process. In addition, the information loss due to the
 anonymization process should be explained in detail to the users to make
@@ -558,9 +586,9 @@ undone to generate a dataset useful for users.
 	005, International Household Survey Network (IHSN).
 	http://www.ihsn.org/HOME/sites/default/files/resources/IHSN-WP005.pdf
 
-.. image:: media/image20.png
-   :width: 6.55208in
-   :height: 8.60417in
+.. _fig81:
 
-Figure 8.1: Overview of the SDC process
-
+.. figure:: media/image20.png
+   :align: center
+   
+   Overview of the SDC process
