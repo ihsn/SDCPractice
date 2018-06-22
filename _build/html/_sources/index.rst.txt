@@ -30,6 +30,7 @@ Household Survey and Accelerated Data Program – TF071804/TF011722.
    intro
    glossary_acr
    SDC_intro
+   release_types
    measure_risk
    anon_methods
    utility
