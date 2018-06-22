@@ -37,7 +37,6 @@ Household Survey and Accelerated Data Program – TF071804/TF011722.
    process
    appendices
    bibliography
-   lists
      
 .. toctree::
    :maxdepth: 2
@@ -45,13 +44,7 @@ Household Survey and Accelerated Data Program – TF071804/TF011722.
    
    case_studies
    
-.. [#foot17]
-   The developers of *sdcMicro* have also developed a graphical user
-   interface (GUI) for the package, which is contained in the *sdcMicro* package available from the CRAN mirrors. The GUI,
-   however, does not implement the full functionality of the *sdcMicro*
-   package and is not discussed in this guide. The GUI can be called after loading sdcMicro by typing sdcApp() at the prompt.
-   
-   
+
 .. |image22| image:: media/image23.png
    :width: 6.5in
    :height: 6.53056in
