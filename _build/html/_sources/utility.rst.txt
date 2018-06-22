@@ -232,7 +232,7 @@ anonymization.
     ##      5 121 139 
     ##      6 100 236 
 
-    table(sdcInitial@manipKeyVars[, **c**\ ('REGION', 'URBRUR')]) # after anonymization
+    table(sdcInitial@manipKeyVars[, c('REGION', 'URBRUR')]) # after anonymization
     ##       URBRUR
     ## REGION   1   2 
     ##      1 235  89 
