@@ -24,7 +24,8 @@ Household Survey and Accelerated Data Program – TF071804/TF011722.
 
 .. toctree::
    :maxdepth: 2
-   :caption: Practice guide
+   :caption: Table of Content
+   :numbered:
    
    intro
    glossary_acr
