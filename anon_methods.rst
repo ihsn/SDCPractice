@@ -25,7 +25,7 @@ Classification of SDC methods
 -----------------------------
 
 SDC methods can be classified as **non-perturbative** and
-**perturbative** (see Hundepool et al., 2012).
+**perturbative** (see `HDFG12`_).
 
 -  **Non-perturbative methods** reduce the detail in the data by
    generalization or suppression of certain values (i.e., masking)
@@ -117,8 +117,13 @@ reduce risk would be to combine some of the regions by recoding them. We
 could, for example, make three groups out of the five, call them
 ‘North’, ‘Central’ and ‘South’ and re-label the values accordingly. This
 reduces the number of categories in the variable region from five to
-three. **NOTE: Any grouping should be some logical grouping and not a
-random joining of categories.** Examples would be grouping districts
+three. 
+
+.. NOTE::
+	Any grouping should be some logical grouping and not a
+	random joining of categories.
+
+Examples would be grouping districts
 into provinces, municipalities into districts, or clean water categories
 together. Grouping all small regions without geographical proximity
 together is not necessarily the best option from the utility
@@ -140,22 +145,22 @@ on the selected key variables.
    :widths: auto
    :align: center
    
-   =================  ==========  ========  ============  =====  ==========  ========  ============  =====
-    .                  Before recoding                            After recoding
-   -----------------  -----------------------------------------  -----------------------------------------
-    Individual         Region      Gender    Religion      f_k    Region      Gender    Religion      f_k
-   =================  ==========  ========  ============  =====  ==========  ========  ============  =====
-    1                  Region 1    Female    Catholic      1      North       Female    Catholic      3   
-    2                  Region 2    Female    Catholic      2      North       Female    Catholic      3   
-    3                  Region 2    Female    Catholic      2      North       Female    Catholic      3   
-    4                  Region 3    Female    Protestant    2      Central     Female    Protestant    2   
-    5                  Region 3    Male      Protestant    1      Central     Male      Protestant    2   
-    6                  Region 3    Female    Protestant    2      Central     Female    Protestant    2   
-    7                  Region 3    Male      Protestant    2      Central     Male      Protestant    2   
-    8                  Region 4    Male      Muslim        2      South       Male      Muslim        3   
-    9                  Region 4    Male      Muslim        2      South       Male      Muslim        3   
-    10                 Region 5    Male      Muslim        1      South       Male      Muslim        3   
-   =================  ==========  ========  ============  =====  ==========  ========  ============  =====
+   =================  ==========  ========  ============  ===============  ==========  ========  ============  ===============
+    .                  Before recoding                                      After recoding
+   -----------------  ---------------------------------------------------  ---------------------------------------------------
+    Individual         Region      Gender    Religion      :math:`f_{k}`    Region      Gender    Religion      :math:`f_{k}`
+   =================  ==========  ========  ============  ===============  ==========  ========  ============  ===============
+    1                  Region 1    Female    Catholic      1                North       Female    Catholic      3   
+    2                  Region 2    Female    Catholic      2                North       Female    Catholic      3   
+    3                  Region 2    Female    Catholic      2                North       Female    Catholic      3   
+    4                  Region 3    Female    Protestant    2                Central     Female    Protestant    2   
+    5                  Region 3    Male      Protestant    1                Central     Male      Protestant    2   
+    6                  Region 3    Female    Protestant    2                Central     Female    Protestant    2   
+    7                  Region 3    Male      Protestant    2                Central     Male      Protestant    2   
+    8                  Region 4    Male      Muslim        2                South       Male      Muslim        3   
+    9                  Region 4    Male      Muslim        2                South       Male      Muslim        3   
+    10                 Region 5    Male      Muslim        1                South       Male      Muslim        3   
+   =================  ==========  ========  ============  ===============  ==========  ========  ============  ===============
 
 Recoding is commonly the first step in an anonymization process. It can
 be used to reduce the number of unique combinations of values of key
@@ -189,9 +194,13 @@ combinations in a dataset may be lower.
 
 The main parameters for global recoding are the size of the new groups,
 as well as defining which values are grouped together in new categories.
-**NOTE: Care should be taken to choose new categories in line with the
-data use of the end users and to minimize information loss as a result
-of recoding.** We illustrate this with three examples:
+
+.. NOTE::
+	Care should be taken to choose new categories in line with the
+	data use of the end users and to minimize information loss as a result
+	of recoding.
+
+We illustrate this with three examples:
 
 -  Age variable: The categories of age should be chosen so that they
    still allow data users to make calculations relevant for the subject
@@ -265,12 +274,13 @@ generally used for categorical variables and the function globalRecode()
 for continuous variables. Finally, we discuss the use of rounding to
 reduce the detail in continuous variables.
 
-*Recoding a categorical variable using the sdcMicro function
-groupVars()*
+Recoding a categorical variable using the sdcMicro function groupVars()
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
 Assume that an object of class *sdcMicro* was created, which is called
-“sdcInitial” [#foot35]_ (see Section 7.5 how to create
-objects of class *sdcMicro*). In :numref:`code51`, the variable “sizeRes” has
+“sdcInitial” [#foot35]_ (see the section 
+`Objects of class sdcMicroObj <sdcMicro.html#Objects of class sdcMicroObj>`__)
+how to create objects of class *sdcMicro*). In :numref:`code51`, the variable “sizeRes” has
 four different categories: ‘capital, large city’, ‘small city’, town’,
 and ‘countryside’). The first three are recoded or regrouped as ‘urban’
 and the category ‘countryside’ is renamed ‘rural’. In the function
@@ -278,9 +288,13 @@ arguments, we specify the categories to be grouped (before) and the
 names of the categories after recoding (after). It is important that the
 vectors “before” and “after” have the same length. Therefore, we have to
 repeat ‘urban’ three times in the “after” vector to match the three
-different values that are recoded to ‘urban’. **NOTE: the function
-groupVars() works only for variables of class factor.** We refer to
-Section 7.4 on classes in *R* and how to change the class of a variable.
+different values that are recoded to ‘urban’. 
+
+.. NOTE::
+ 	The function groupVars() works only for variables of class factor.
+
+We refer to the section `Classes in R <sdcMicro.html#Classes in R>`__
+on how to change the class of a variable.
 
 .. code-block:: R
    :linenos:
@@ -303,20 +317,20 @@ Section 7.4 on classes in *R* and how to change the class of a variable.
     ## urban rural
     ##  1142  1358
 
-Figure 5.1 illustrates the effect of recoding the variable “sizeRes” and
+:numref:`fig51` illustrates the effect of recoding the variable “sizeRes” and
 show respectively the frequency counts before and after recoding. We see
 that the number of categories has reduced from 4 to 2 and the small
 categories (‘small city’ and ‘town’) have disappeared.
 
-.. image:: media/image3.png
-   :width: 6.5in
-   :height: 3.25556in
+.. _fig51:
 
-Figure 5.1 Effect of recoding – frequency counts before and after
-recoding
+.. figure:: media/image3.png
+   :align: center
+   
+   Effect of recoding – frequency counts before and after recoding
 
-*Recoding a continuous variable using the sdcMicro function:
-globalRecode()*
+Recoding a continuous variable using the sdcMicro function: globalRecode()
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
 Global recoding of numerical (continuous) variables can be achieved in
 *sdcMicro* by using the function globalRecode(), which allows specifying
@@ -325,9 +339,12 @@ continuous variable changes it into a categorical variable. One can
 additionally specify a vector of labels for the new categories. By
 default, the labels are the intervals, e.g., “(0, 10]”. :numref:`code52`
 shows how to recode the variable age in 10-year intervals for age values
-between 0 and 100. **NOTE: Values that fall outside the specified
-intervals are assigned a missing value (NA).** Therefore, the intervals
-should cover the entire value range of the variable.
+between 0 and 100. 
+
+.. NOTE::
+    Values that fall outside the specified intervals are assigned a missing value (NA).
+    
+Therefore, the intervals should cover the entire value range of the variable.
 
 .. code-block:: R
    :linenos:
@@ -342,13 +359,14 @@ should cover the entire value range of the variable.
     ##      462      483      344      368      294      214      172       94   	 26         3
 
 
-Figure 5.2 shows the effect of recoding the variable “age”.
+:numref:`fig52` shows the effect of recoding the variable “age”.
 
-.. image:: media/image4.png
-   :width: 6.5in
-   :height: 3.25556in
+.. _fig52:
 
-Figure 5.2 Age variable before and after recoding
+.. figure:: media/image4.png
+   :align: center
+   
+   Age variable before and after recoding
 
 Instead of creating intervals of equal width, we can also create
 intervals of unequal width. This is illustrated in :numref:`code53`, where we
@@ -358,7 +376,7 @@ In this example, this is a useful step, since even after recoding in
 frequencies. We chose the intervals by respecting relevant school age
 and employment age values (e.g., retirement age is 65 in this example)
 such that the data can still be used for common research on education
-and employment. Figure 5.3 shows the effect of recoding the variable
+and employment. :numref:`fig53` shows the effect of recoding the variable
 “age”.
 
 .. code-block:: R
@@ -374,18 +392,19 @@ and employment. Figure 5.3 shows the effect of recoding the variable
     ##      192      317      332      134      142      808      350      185
 
 
-.. image:: media/image5.png
-   :width: 6.5in
-   :height: 3.25556in
+.. _fig53:
 
-Figure 5.3 Age variable before and after recoding
-
+.. figure:: media/image5.png
+   :align: center
+   
+   Age variable before and after recoding
+   
 Caution about using the globalRecode() function in *sdcMicro*: In the
 current implementation of *sdcMicro*, the intervals are defined as
 **left-open**. In mathematical terms, this means that, in our example,
 age 0 is excluded from the specified intervals. In interval notation,
-this is denoted as (0, 5] (as in x-axis labels in Figure 5.2 and Figure
-5.3 graph labels for the recoded variable). The interval (0, 5] is
+this is denoted as (0, 5] (as in x-axis labels in :numref:`fig52` and 
+:numref:`fig53` for the recoded variable). The interval (0, 5] is
 interpreted as from 0 to 5 and does not include 0, but does include 5.
 *R* recodes values that are not contained in any of the intervals as
 missing (NA). This implementation would set in our example all age
@@ -475,7 +494,7 @@ grouped requires:
 
 -  Reviewing the overall distribution of the variable to identify at
    which point the frequencies drop below the desired number of
-   observations and identify outliers in the distribution. Figure 5.4
+   observations and identify outliers in the distribution. :numref:`fig54`
    shows the distribution of the age variable and suggests 65 (red
    vertical line) for the top code age.
 
@@ -487,13 +506,13 @@ grouped requires:
    to create the desired measures for which the data were intended. In
    the example, we consider this and code all age larger than 64.
 
-.. image:: media/image6.png
-   :width: 6.5in
-   :height: 3.25556in
+.. _fig54:
 
-Figure 5.4: Utilizing the frequency distribution of variable age to
-determine threshold for top coding
-
+.. figure:: media/image6.png
+   :align: center
+   
+   Utilizing the frequency distribution of variable age to determine threshold for top coding
+   
 Top and bottom coding can be easily done with the function
 topBotCoding() in *sdcMicro*. Top coding and bottom coding cannot be
 done simultaneously in *sdcMicro*. :numref:`code56` illustrates how to recode
@@ -555,12 +574,13 @@ It is common in surveys to encounter values for certain variables or
 combinations of quasi-identifiers (keys) that are shared by very few
 individuals. When this occurs, the risk of re-identification for those
 respondents is higher than the rest of the respondents (see
-:math:`k`-anonymity in Section 4.5.2). Often local suppression is used
+the section on `k-anonymity <measure_risk.html#k-anonimity>`__). 
+Often local suppression is used
 after reducing the number of keys in the data by recoding the
 appropriate variables. Recoding reduces the number of necessary
 suppressions as well as the computation time needed for suppression.
 Suppression of values means that values of a variable are replaced by a
-missing value (NA in *R*). Section 4.5.2 on :math:`k`-anonymity
+missing value (NA in *R*). The the section on `k-anonymity <measure_risk.html#k-anonimity>`__
 discusses how missing values influence frequency counts and
 :math:`k`-anonymity. It is important to note that not all values for all
 individuals of a certain variable are suppressed, which would be the
@@ -670,10 +690,13 @@ according to the order of the specified variables in the *sdcMicro*
 object. The effect is clear: there are no suppressions in the variables
 “age” and “gender”. For that, the other variables, especially “sizeRes”
 and “ethnicity”, received many more suppressions. The total number of
-suppressed values has increased from 88 to 166. **NOTE: Fewer
-suppressions in one variable increase the number of necessary
-suppressions in other variables (cf. :numref:`code57`).** Generally, the
-total number of suppressed values needed to achieve the required level
+suppressed values has increased from 88 to 166. 
+
+.. NOTE::
+	Fewer suppressions in one variable increase the number of necessary
+	suppressions in other variables (cf. :numref:`code57`). 
+
+Generally, the total number of suppressed values needed to achieve the required level
 of :math:`k`-anonymity increases when specifying an importance vector,
 since the importance vector prevents to use the optimal suppression
 pattern. The importance vector should be specified only in cases where
@@ -710,10 +733,10 @@ utility for the data users [#foot40]_.
     ##  ethnicity |               62 |            2.480
 
 
-Figure 5.5 demonstrates the effect of the required :math:`k`-anonymity
+:numref:`fig55` demonstrates the effect of the required :math:`k`-anonymity
 threshold and the importance vector on the data utility by using several
 labor market-related indicators from an I2D2 [#foot41]_
-dataset before and after anonymization. Figure 5.5 displays the relative
+dataset before and after anonymization. :numref:`fig55` displays the relative
 changes as a percentage of the initial value after re-computing the
 indicators with the data to which local suppression was applied. The
 indicators are the proportion of active females and males, and the
@@ -736,23 +759,24 @@ number of suppressions on age greatly reduces the information loss.
 Since specific age groups have a large influence on the computation of
 these indicators (the rare cases are in the extremes and will be
 suppressed), high suppression rates on age distort the indicators. It is
-generally useful to compare utility measures (see Chapter 6) to specify
+generally useful to compare utility measures (see the Chapter on 
+`Measuring Utility and Information Loss <utility.html>`__ ) to specify
 the importance vector, since the effects can be unpredictable.
 
-.. image:: media/image7.png
-   :width: 6.5in
-   :height: 3.25556in
+.. _fig55:
 
-Figure 5.5: Changes in labor market indicators after anonymization of
-I2D2 data
-
+.. figure:: media/image7.png
+   :align: center
+   
+   Changes in labor market indicators after anonymization of I2D2 data
+   
 The threshold of :math:`k`-anonymity to be set depends on several
 factors, which are amongst others: 1) the legal requirements for a safe
 data file; 2) other methods that will be applied to the data; 3) the
 number of suppressions and related information loss resulting from
 higher thresholds; 4) the type of variable; 5) the sample weights and
-sample size; and 6) the release type (see Chapter 3). Commonly applied
-levels for the :math:`k`-anonymity threshold are 3 and 5.
+sample size; and 6) the release type (see the Section on `Release Types <SDC_intro.html#Release Types>`__ ). 
+Commonly applied levels for the :math:`k`-anonymity threshold are 3 and 5.
 
 :numref:`tab55` illustrates the influence of the importance vector and
 :math:`k`-anonymity threshold on the running time, global risk after
@@ -1182,17 +1206,6 @@ due to the randomness.
     rural2      400                        391                       403
    =========  ========================  =======================  =================================
    
-+-----------------+-----------------+-----------------+-----------------+
-| **Value**       | **Tabulation    | **Tabulation    | **Tabulation    |
-|                 | before PRAM**   | after PRAM**    | after invariant |
-|                 |                 |                 | PRAM**          |
-+=================+=================+=================+=================+
-| capital         | 5,000           | 5,052           | 4,998           |
-+-----------------+-----------------+-----------------+-----------------+
-| rural1          | 500             | 457             | 499             |
-+-----------------+-----------------+-----------------+-----------------+
-| rural2          | 400             | 391             | 403             |
-+-----------------+-----------------+-----------------+-----------------+
 
 :numref:`tab510` presents the cross-tabulations with the variable gender.
 Before applying invariant PRAM, the share of males in the city is much
@@ -1619,7 +1632,7 @@ particularly the mean – covariance and correlation between the perturbed
 and original datasets.
 
 Depending on the data, it may also be useful to check that the perturbed
-values fall within a meaningful range of values. Figure 5.7 on page 68
+values fall within a meaningful range of values. :numref:`fig57`
 illustrates the changes in data distribution with increasing levels of
 noise. For data that has outliers, it is important to note that when the
 perturbed data distribution is similar to the original data distribution
@@ -1628,8 +1641,8 @@ After noise addition, these outliers can generally still be detected as
 outliers and hence easily be identified. An example is a single very
 high income in a certain region. After perturbing this income value, the
 value will still be recognized as the highest income in that region and
-can thus be used for re-identification. This is illustrated in Figure
-5.6, where 10 original observations (open circles) and the anonymized
+can thus be used for re-identification. This is illustrated in :numref:`fig56`,\
+where 10 original observations (open circles) and the anonymized
 observations (red triangles) are plotted. The tenth observation is an
 outlier. The values of the first nine observations are sufficiently
 protected by adding noise: their magnitude and order has changed and
@@ -1642,11 +1655,12 @@ not preserved and the information loss is large, which is not an ideal
 situation. One way to circumvent the outlier problem is to add noise of
 larger magnitude to outliers than to the other values.
 
-.. image:: media/image8.png
-   :width: 6.48958in
-   :height: 3.23958in
+.. _fig56:
 
-Figure 5.6: Illustration of effect of noise addition to outliers
+.. figure:: media/image8.png
+   :align: center
+   
+   Illustration of effect of noise addition to outliers
 
 There are several noise addition algorithms. The simplest version of
 noise addition is uncorrelated additive normally distributed noise,
@@ -1694,7 +1708,7 @@ variables.
 
     sdcInitial <- addNoise(obj = sdcInitial, variables = c('TOTFOOD', 'TOTHLTH', 'TOTALCH', 	'TOTCLTH', 'TOTHOUS', 'TOTFURN', 'TOTTRSP', 'TOTCMNQ', 'TOTRCRE', 'TOTEDUC', 'TOTHOTL',	'TOTMISC'), noise = 0.5, method = "additive")
 
-Figure 5.7 shows the frequency distribution of a numeric continuous
+:numref:`fig57` shows the frequency distribution of a numeric continuous
 variable and the distribution before and after noise addition with
 different levels of noise (0.1, 0.5, 1, 2 and 5). The first plot shows
 the distribution of the original values. The histograms clearly show
@@ -1706,21 +1720,21 @@ is preserved, but, with an increased level of noise, the variance of the
 perturbed data grows. After adding noise of magnitude 5, the
 distribution of the original data is completely destroyed.
 
-.. image:: media/image9.png
-   :width: 6.48958in
-   :height: 3.23958in
+.. _fig57:
 
-Figure 5.7: Frequency distribution of a continuous variable before and
-after noise addition
-
-Figure 5.8 shows the value range of a variable before adding noise (no
+.. figure:: media/image9.png
+   :align: center
+   
+   Frequency distribution of a continuous variable before and after noise addition
+   
+:numref:`fig58` shows the value range of a variable before adding noise (no
 noise) and after adding several levels of noise (:math:`\alpha` from 0.1
 to 1.5 with 0.1 increments). In the figure, the minimum value, the
 20\ :sup:`th`, 30\ :sup:`th`, 40\ :sup:`th` percentiles, the median, the
 60\ :sup:`th`, 70\ :sup:`th`, 80\ :sup:`th` and 90\ :sup:`th`
 percentiles and the maximum value are plotted. The median (50:sup:`th`
-percentile) is indicated with the red “+” symbol. From Figure 5.7 and
-Figure 5.8, it is apparent that the range of values expands after noise
+percentile) is indicated with the red “+” symbol. From :numref:`fig57` and
+:numref:`fig58`, it is apparent that the range of values expands after noise
 addition, and the median stays roughly at the same level, as does the
 mean by construction. The larger the magnitude of noise added, the wider
 the value range. In cases where the variable should stay in a certain
@@ -1749,12 +1763,13 @@ and multiplying the data with this vector. For more information on
 multiplicative noise masking and the properties of the data after
 masking, we refer to Kim and Winkler (2003).
 
-.. image:: media/image10.png
-   :width: 6.48958in
-   :height: 3.23958in
+.. _fig58:
 
-Figure 5.8: Noise levels and the impact on the value range (percentiles)
-
+.. figure:: media/image10.png
+   :align: center
+   
+   Noise levels and the impact on the value range (percentiles)
+   
 If two or more variables are selected for noise addition, correlated
 noise addition is preferred to preserve the correlation structure in the
 data. In this case, the covariance matrix of noise
@@ -2257,3 +2272,9 @@ few examples are:
    More information on the anonymization of these files is available on
    the website of the U.S. Census Bureau:
    https://www.census.gov/population/www/cen2000/pums/index.html
+
+.. rubric:: References
+
+.. [HDFG12] Hundepool, A., Domingo-Ferrer, J., Franconi, L., Giessing, S., Nordholt, E. S., Spicer, K., et al. (2012). 
+	**Statistical Disclosure Control.**
+	Chichester, UK: John Wiley & Sons Ltd.

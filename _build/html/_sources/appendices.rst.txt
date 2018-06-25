@@ -1,11 +1,11 @@
 Appendices
 ====================================================
 
-**Appendix** **A: Overview of Case Study Variables**
-------------------------------------------------------
+Appendix A: Overview of Case Study Variables
+---------------------------------------------
 
 +-----------------+-----------------+-----------------+-----------------+
-|                 | **Variable**    | **Description** | **Type**        |
+|                 | Variable        | Description     | Type            |
 +=================+=================+=================+=================+
 | 1               | REGION          | Region          | HH              |
 +-----------------+-----------------+-----------------+-----------------+
@@ -268,7 +268,7 @@ Appendices
 |                 |                 | expenditures    |                 |
 +-----------------+-----------------+-----------------+-----------------+
 
-**Appendix** **B: Example of Blanket Agreement for SUF**
+Appendix B: Example of Blanket Agreement for SUF
 ------------------------------------------------------------
 
 **Agreement between [providing agency] and [receiving agency] regarding
@@ -286,7 +286,7 @@ the deposit and use of microdata**
 
 5. \______________________________________________________\_
 
-B. Terms of the agreement:
+**B. Terms of the agreement:**
 
 As the owner of the copyright in the materials listed in section A, or
 as duly authorized by the owner of the copyright in the materials, the
@@ -345,7 +345,7 @@ agency] employees, subject to the following conditions:
 11. This access is granted for a period of [provide information on this
     period, or state that the agreement is open ended].
 
-C. Communications:
+**C. Communications:**
 
 The [receiving organisation] will appoint a contact person who
 
@@ -405,9 +405,8 @@ Signature \______________________________\_ Date \_____________\_
 
 Source: Dupriez and Boyko, 2010
 
-**Appendix** **C:** **Internal and External Reports for Case Studies**
+Appendix C: Internal and External Reports for Case Studies
 -----------------------------------------------------------------------------------
-
 
 This appendix provides example for internal and external reports on the
 anonymization process for the case studies in Section 9.1. The internal
@@ -415,14 +414,18 @@ report consists of two parts: the first is on the anonymization of the
 household-level variables and the second is on the anonymization of the
 individual-level variables.
 
-**Appendix** **D: Execution Times for Multiple Scenarios Tested using Selected Sample Data**
-----------------------------------=----------------------------------------------------------
+Appendix D: Execution Times for Multiple Scenarios Tested using Selected Sample Data
+-------------------------------------------------------------------------------------
 
-.. image:: media/image22.png
-   :width: 5.10448in
-   :height: 7.80597in
+.. figure:: media/image22.png
+   :align: center
    
-**Description of anonymization scenarios**\ |image22|
+.. figure:: media/image23.png
+   :align: center
+   
+   Description of anonymization scenarios
+
+   
 
 
 

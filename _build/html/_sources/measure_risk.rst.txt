@@ -8,8 +8,8 @@ Measuring disclosure risk is an important part of the SDC process: risk
 measures are used to judge whether a data file is safe enough for
 release. Before measuring disclosure risk, we have to define what type
 of disclosure is relevant for the data at hand. The literature commonly
-defines three types of disclosure; we take these directly from `Lamb93 <bibliography.html#Lamb93>`_
-(see also `HDFG12 <bibliography.html#HDFG12>`_).
+defines three types of disclosure; we take these directly from `Lamb93`_
+(see also `HDFG12`_).
 
 -  **Identity disclosure**, which occurs if the intruder associates a
    known individual with a released data record. For example, the
@@ -55,7 +55,7 @@ For the purpose of the SDC process, we use the classifications of
 variables described in the following paragraphs (see :numref:`fig24`
 for an overview). The initial classification of variables into identifying and
 non-identifying variables depends on the way the variables can be used
-by intruders for re-identification (`HDFG12 <bibliography.html#HDFG12>`_; `TeMK14 <bibliography.html#TeMK14>`_):
+by intruders for re-identification (`HDFG12`_; `TeMK14`_):
 
 -  **Identifying variables:** these contain information that can lead to
    the identification of respondents and can be further categorized as:
@@ -394,8 +394,8 @@ variables. In :numref:`code41`, the function freq() is applied to
 shows how to initialize the *sdcMicro* object for
 this example. For a complete discussion of *sdcMicro* objects as well as
 instructions on how to create *sdcMicro* objects, we refer to 
- `Objects of class Objects of class *sdcMicroObj* <sdcMicro.html#Objects of class *sdcMicroObj*>`__. 
- *sdcMicro* objects are used when doing SDC with *sdcMicro*. The
+the section `Objects of class sdcMicroObj <sdcMicro.html#Objects of class *sdcMicroObj*>`__. 
+*sdcMicro* objects are used when doing SDC with *sdcMicro*. The
 function freq() displays the sample frequency for the keys constructed
 on a defined set of quasi-identifiers. :numref:`code41` corresponds to the
 data in :numref:`tab41`.
@@ -1468,3 +1468,13 @@ computed. :numref:`code414` shows how to display these risk measures.
    record has one MSU, {‘Primary complete’}; and the eighth record has
    three MSUs, {‘Urban, Unemployed’}, {‘Male, Unemployed’} and
    {‘Post-secondary’}. 
+   
+.. rubric:: References
+   
+.. [HDFG12] Hundepool, A., Domingo-Ferrer, J., Franconi, L., Giessing, S., Nordholt, E. S., Spicer, K., et al. (2012). 
+ 	**Statistical Disclosure Control.**
+	Chichester, UK: John Wiley & Sons Ltd.
+	
+.. [Lamb93] Lambert, D. (1993). 
+   **Measures of Disclosure Risk and Harm.** 
+   Journal of Official Statistics , 9 (2), 313-331.
