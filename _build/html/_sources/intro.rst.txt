@@ -230,3 +230,9 @@ This guide is divided into the following main sections:
    One place to start would be the CRAN *R* Project page:
    http://cran.r-project.org/other-docs.html
 
+.. [#foot17]
+   The developers of *sdcMicro* have also developed a graphical user
+   interface (GUI) for the package, which is contained in the *sdcMicro* package available from the CRAN mirrors. The GUI,
+   however, does not implement the full functionality of the *sdcMicro*
+   package and is not discussed in this guide. The GUI can be called after loading sdcMicro by typing sdcApp() at the prompt.
+ 

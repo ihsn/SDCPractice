@@ -169,8 +169,8 @@ correctly applied to the data. :numref:`code76` shows how to recode the value
 	file[file[,'toilet'] == 99,'toilet'] <- NA 
 	# Recode missing value code 99 to NA for variable toilet
 
-Classes in *R*
---------------
+Classes in R
+------------
 
 All objects in *R* are of a specific class, such as integer, character,
 matrix, factor or dataframe. The class of an object is an attribute from
