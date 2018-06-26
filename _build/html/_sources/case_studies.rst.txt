@@ -1,4 +1,4 @@
-Case Study (Illustrating the SDC Process)
+Case Studies (Illustrating the SDC Process)
 =========================================
 
 In order to evaluate the use of different SDC methods on different types
@@ -35,10 +35,13 @@ case study and the dataset are also available to reproduce the results
 and allow the user to adapt the code
 (see http://ihsn.org/home/projects/sdc-practice). Extracts of this code
 are presented in this section to illustrate several steps of the
-anonymization process. **NOTE: The choices of methods and parameters in
-this case study are based on this particular dataset and the results and
-choices might be different for other datasets.** The aim is to show the
-process, not to compare methods per se.
+
+.. NOTE:: 
+	The choices of methods and parameters in 
+	this case study are based on this particular dataset and the results and
+	choices might be different for other datasets. 
+	
+The aim is to show the process, not to compare methods per se.
 
 This example uses a dataset with a similar structure to that of a
 typical social survey with a focus on demographics, labor force
@@ -85,62 +88,64 @@ used later for the computation of the utility measures. If these
 packages are not yet installed, you should do so before trying to load
 them. The *R* code for this case study demonstrates how to do this.
 
-Example 9.1: Loading required packages
-
-| *# Load required packages*
-| **library**\ (foreign) *# for read/write function for STATA files*
-| **library**\ (sdcMicro) *# sdcMicro package with functions for the SDC
-  process*
-
-**library**\ (laeken) *# for GINI*
-
-**library**\ (reldist) *# for GINI*
-
-| **library**\ (bootstrap) *# for bootstrapping*
-| **library**\ (ineq) *# for Lorenz curves*
+.. code-block:: R
+   :linenos:
+   :caption: Loading required packages
+   :name: code91
+   
+   # Load required packages   
+   library(foreign)   # for read/write function for STATA files
+   library(sdcMicro)  # sdcMicro package with functions for the SDC process
+   library(laeken)    # for GINI
+   library(reldist)   # for GINI
+   library(bootstrap) # for bootstrapping*
+   library(ineq)      # for Lorenz curves*
 
 After setting the working directory to the directory where the *STATA*
 file is stored, we load the data into the object called *file*. All
 output, unless otherwise specified, is saved in the working directory.
 
-Example 9.2: Loading the data
+.. code-block:: R
+   :linenos:
+   :caption: Loading the data
+   :name: code92
 
-**setwd**\ ("C:/WorldBank/CaseStudy/") *# Set working directory*
+   setwd("C:/WorldBank/CaseStudy/") # Set working directory
 
-| *# Specify file name*
-| fname <- " case_1_data.dta"
-| *# Read-in file*
-| file <- **read.dta**\ (fname, convert.factors = F) *# factors as
-  numeric code*
+   # Specify file name
+   fname <- " case_1_data.dta"
+   # Read-in file*
+   file <- read.dta(fname, convert.factors = F) # factors as numeric code
 
 We check the number of variables, number of observations and variable
-names, as shown in Example 9.3.
+names, as shown in :numref:`code93`.
 
-Example 9.3: Number of individuals and variables and variable names
+.. code-block:: R
+   :linenos:
+   :caption: Number of individuals and variables and variable names
+   :name: code93
 
-**dim**\ (file) *# Dimensions of file (observations, variables)*
+   dim(file) # Dimensions of file (observations, variables)
+   ## [1] 10574 68
 
-## [1] 10574 68
-
-**colnames**\ (file) *# Variable names*
-
-| ``##  [1] "REGION"        "DIST"          "URBRUR"        "WGTHH"``
-| ``##  [5] "WGTPOP"        "IDH"           "IDP"           "HHSIZE"``
-| ``##  [9] "GENDER"        "REL"           "MARITAL"       "AGEYRS"``
-| ``## [13] "AGEMTH"        "RELIG"         "ETHNICITY"     "LANGUAGE"``
-| ``## [17] "MORBID"        "MEASLES"       "MEDATT"        "CHWEIGHTKG"``
-| ``## [21] "CHHEIGHTCM"    "ATSCHOOL"      "EDUCY"         "EDYRS"``
-| ``## [25] "EDYRSCURRAT"   "SCHTYP"        "LITERACY"      "EMPTYP1"``
-| ``## [29] "UNEMP1"        "INDUSTRY1"     "EMPCAT1"       "WHOURSWEEK1"``
-| ``## [33] "OWNHOUSE"      "ROOF"          "TOILET"        "ELECTCON"``
-| ``## [37] "FUELCOOK"      "WATER"         "OWNAGLAND"     "LANDSIZEHA"``
-| ``## [41] "OWNMOTORCYCLE" "CAR"           "TV"            "LIVESTOCK"``
-| ``## [45] "INCRMT"        "INCWAGE"       "INCBONSOCALL"  "INCFARMBSN"``
-| ``## [49] "INCNFARMBSN"   "INCRENT"       "INCFIN"        "INCPENSN"``
-| ``## [53] "INCOTHER"      "INCTOTGROSSHH" "FARMEMP"       "THOUSEXP"``
-| ``## [57] "TFOODEXP"      "TALCHEXP"      "TCLTHEXP"      "TFURNEXP"``
-| ``## [61] "THLTHEXP"      "TTRANSEXP"     "TCOMMEXP"      "TRECEXP"``
-| ``## [65] "TEDUEXP"       "TRESTHOTEXP"   "TMISCEXP"``\ ``"TANHHEXP"``
+   colnames(file) # Variable names
+   ##  [1] "REGION"        "DIST"          "URBRUR"        "WGTHH"
+   ##  [5] "WGTPOP"        "IDH"           "IDP"           "HHSIZE"
+   ##  [9] "GENDER"        "REL"           "MARITAL"       "AGEYRS"
+   ## [13] "AGEMTH"        "RELIG"         "ETHNICITY"     "LANGUAGE"
+   ## [17] "MORBID"        "MEASLES"       "MEDATT"        "CHWEIGHTKG"
+   ## [21] "CHHEIGHTCM"    "ATSCHOOL"      "EDUCY"         "EDYRS"
+   ## [25] "EDYRSCURRAT"   "SCHTYP"        "LITERACY"      "EMPTYP1"
+   ## [29] "UNEMP1"        "INDUSTRY1"     "EMPCAT1"       "WHOURSWEEK1"
+   ## [33] "OWNHOUSE"      "ROOF"          "TOILET"        "ELECTCON"
+   ## [37] "FUELCOOK"      "WATER"         "OWNAGLAND"     "LANDSIZEHA"
+   ## [41] "OWNMOTORCYCLE" "CAR"           "TV"            "LIVESTOCK"
+   ## [45] "INCRMT"        "INCWAGE"       "INCBONSOCALL"  "INCFARMBSN"
+   ## [49] "INCNFARMBSN"   "INCRENT"       "INCFIN"        "INCPENSN"
+   ## [53] "INCOTHER"      "INCTOTGROSSHH" "FARMEMP"       "THOUSEXP"
+   ## [57] "TFOODEXP"      "TALCHEXP"      "TCLTHEXP"      "TFURNEXP"
+   ## [61] "THLTHEXP"      "TTRANSEXP"     "TCOMMEXP"      "TRECEXP"
+   ## [65] "TEDUEXP"       "TRESTHOTEXP"   "TMISCEXP"      "TANHHEXP"
 
 The dataset has 10,574 individuals in 2,000 households and contains 68
 variables. The survey corresponds to a population of about 4.3 million
@@ -151,11 +156,9 @@ we will see in Steps 6a and 6b.
 To get an overview of the values of the variables, we use tabulations
 and cross-tabulations for categorical variables and summary statistics
 for continuous variables. To include the number of missing values (NA or
-other), we use the option useNA = "ifany" in the table() function (see
+other), we use the option useNA = "ifany" in the table() function (see :numref:`code94`).
 
-Example 9.4).
-
-In Table 9.1 the variables in the dataset are listed along with concise
+In :numref:`tab91` the variables in the dataset are listed along with concise
 descriptions of the variables, the level at which they are collected
 (individual (IND), household (HH)), the measurement type (continuous,
 semi-continuous, categorical) and value ranges. Note that the dataset
@@ -180,366 +183,300 @@ they were present, would need to be removed at this stage. Examples of
 direct identifiers would be names, telephone numbers, geographical
 location coordinates, etc.
 
-Example 9.4: Tabulation of the variable ‘gender’ and summary statistics
-for the variable ‘total annual expenditures’ in *R*
+.. code-block:: R
+   :linenos:
+   :caption: Tabulation of the variable ‘gender’ and summary statistics for the variable ‘total annual expenditures’ in *R*
+   :name: code94
+   
+   table(file$GENDER, useNA = "ifany") # tabulation of variable GENDER (sex, categorical)
+   ##    0    1
+   ## 5448 5126
 
-**table**\ (file$GENDER, useNA = "ifany") *# tabulation of variable
-GENDER (sex, categorical)*
+   summary(file$TANHHEXP) # summary statistics for variable TANHHEXP (total annual household expenditures, continuous)
+   ##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.
+   ##     498   15550   17290   28560   29720  353200
 
-| ``##    0    1``
-| ``## 5448 5126``
+.. _tab91:
 
-**summary**\ (file$TANHHEXP) *# summary statistics for variable TANHHEXP
-(total annual household expenditures, continuous)*
-
-| ``##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.``
-| ``##     498   15550   17290   28560   29720  353200``
-
-Table 9.1 Overview of variables in dataset
-
-+-----------+-----------+-----------+-----------+-----------+-----------+
-|   No.     | Variable  |Description|   Level   |Measurement|   Values  |
-|           | name      |           |           |           |           |
-+===========+===========+===========+===========+===========+===========+
-| 1         | IDH       | Household | HH        | -         | 1-2,000   |
-|           |           | ID        |           |           |           |
-+-----------+-----------+-----------+-----------+-----------+-----------+
-| 2         | IDP       | Individua | IND       | -         | 1-33      |
-|           |           | l         |           |           |           |
-|           |           | ID        |           |           |           |
-+-----------+-----------+-----------+-----------+-----------+-----------+
-| 3         | REGION    | Region    | HH        | categoric | 1-6       |
-|           |           |           |           | al        |           |
-+-----------+-----------+-----------+-----------+-----------+-----------+
-| 4         | DISTRICT  | District  | HH        | categoric | 101-1105  |
-|           |           |           |           | al        |           |
-+-----------+-----------+-----------+-----------+-----------+-----------+
-| 5         | URBRUR    | Area of   | HH        | categoric | 1, 2      |
-|           |           | residence |           | al        |           |
-+-----------+-----------+-----------+-----------+-----------+-----------+
-| 6         | WGTHH     | Individua | HH        | weight    | 31.2-8495 |
-|           |           | l         |           |           | .7        |
-|           |           | weighting |           |           |           |
-|           |           | coefficie |           |           |           |
-|           |           | nt        |           |           |           |
-+-----------+-----------+-----------+-----------+-----------+-----------+
-| 7         | WGTPOP    | Populatio | IND       | weight    | 45.8-9345 |
-|           |           | n         |           |           | 2.2       |
-|           |           | weighting |           |           |           |
-|           |           | coefficie |           |           |           |
-|           |           | nt        |           |           |           |
-+-----------+-----------+-----------+-----------+-----------+-----------+
-| 8         | HHSIZE    | Household | HH        | semi-cont | 1-33      |
-|           |           | size      |           | inuous    |           |
-+-----------+-----------+-----------+-----------+-----------+-----------+
-| 9         | GENDER    | Gender    | IND       | categoric | 0, 1      |
-|           |           |           |           | al        |           |
-+-----------+-----------+-----------+-----------+-----------+-----------+
-| 10        | REL       | Relations | IND       | categoric | 1-9       |
-|           |           | hip       |           | al        |           |
-|           |           | to        |           |           |           |
-|           |           | household |           |           |           |
-|           |           | head      |           |           |           |
-+-----------+-----------+-----------+-----------+-----------+-----------+
-| 11        | MARITAL   | Marital   | IND       | categoric | 1-6       |
-|           |           | status    |           | al        |           |
-+-----------+-----------+-----------+-----------+-----------+-----------+
-| 12        | AGEYRS    | Age in    | IND       | semi-cont | 0-95      |
-|           |           | completed |           | inuous    | (under 1, |
-|           |           | years     |           |           | 1/12 year |
-|           |           |           |           |           | increment |
-|           |           |           |           |           | s)        |
-+-----------+-----------+-----------+-----------+-----------+-----------+
-| 13        | AGEMTH    | Age of    | IND       | semi-cont | 1-1140    |
-|           |           | child in  |           | inuous    |           |
-|           |           | completed |           |           |           |
-|           |           | years     |           |           |           |
-+-----------+-----------+-----------+-----------+-----------+-----------+
-| 14        | RELIG     | Religion  | HH        | categoric | 1, 5-7, 9 |
-|           |           | of        |           | al        |           |
-|           |           | household |           |           |           |
-|           |           | head      |           |           |           |
-+-----------+-----------+-----------+-----------+-----------+-----------+
-| 15        | ETHNICITY | Ethnicity | HH        | categoric | all       |
-|           |           | of        |           | al        | missing   |
-|           |           | household |           |           | values    |
-|           |           | head      |           |           |           |
-+-----------+-----------+-----------+-----------+-----------+-----------+
-| 16        | LANGUAGE  | Language  | HH        | categoric | all       |
-|           |           | of        |           | al        | missing   |
-|           |           | household |           |           | values    |
-|           |           | head      |           |           |           |
-+-----------+-----------+-----------+-----------+-----------+-----------+
-| 17        | MORBID    | Morbidity | IND       | categoric | 0, 1      |
-|           |           | last x    |           | al        |           |
-|           |           | weeks     |           |           |           |
-+-----------+-----------+-----------+-----------+-----------+-----------+
-| 18        | MEASLES   | Child     | IND       | categoric | 0, 1, 9   |
-|           |           | immunized |           | al        |           |
-|           |           | against   |           |           |           |
-|           |           | measles   |           |           |           |
-+-----------+-----------+-----------+-----------+-----------+-----------+
-| 19        | MEDATT    | Sought    | IND       | categoric | 0, 1      |
-|           |           | medical   |           | al        |           |
-|           |           | attention |           |           |           |
-+-----------+-----------+-----------+-----------+-----------+-----------+
-| 20        | CHWEIGHTK | Weight of | IND       | continuou | 2 – 26.5  |
-|           | G         | the child |           | s         |           |
-|           |           | (Kg)      |           |           |           |
-+-----------+-----------+-----------+-----------+-----------+-----------+
-| 21        | CHHEIGHTC | Height of | IND       | continuou | 7 - 140   |
-|           | M         | child     |           | s         |           |
-|           |           | (cms)     |           |           |           |
-+-----------+-----------+-----------+-----------+-----------+-----------+
-| 22        | ATSCHOOL  | Currently | IND       | categoric | 0, 1      |
-|           |           | enrolled  |           | al        |           |
-|           |           | in school |           |           |           |
-+-----------+-----------+-----------+-----------+-----------+-----------+
-| 23        | EDUCY     | Highest   | IND       | categoric | 1-6       |
-|           |           | level of  |           | al        |           |
-|           |           | education |           |           |           |
-|           |           | attended  |           |           |           |
-+-----------+-----------+-----------+-----------+-----------+-----------+
-| 24        | EDYEARS   | Years of  | IND       | semi-cont | 0-18      |
-|           |           | education |           | inuous    |           |
-+-----------+-----------+-----------+-----------+-----------+-----------+
-| 25        | EDYRSCURR | Years of  | IND       | semi-cont | 1-18      |
-|           | AT        | education |           | inuous    |           |
-|           |           | for       |           |           |           |
-|           |           | currently |           |           |           |
-|           |           | enrolled  |           |           |           |
-+-----------+-----------+-----------+-----------+-----------+-----------+
-| 26        | SCHTYP    | Type of   | IND       | categoric | 1-3, 9    |
-|           |           | school    |           | al        |           |
-|           |           | attending |           |           |           |
-+-----------+-----------+-----------+-----------+-----------+-----------+
-| 27        | LITERACY  | Literacy  | IND       | categoric | 1-3       |
-|           |           |           |           | al        |           |
-+-----------+-----------+-----------+-----------+-----------+-----------+
-| 28        | EMPTYP1   | Type of   | IND       | categoric | 1-9       |
-|           |           | employmen |           | al        |           |
-|           |           | t         |           |           |           |
-+-----------+-----------+-----------+-----------+-----------+-----------+
-| 29        | UNEMP1    | Unemploye | IND       | categoric | 0, 1      |
-|           |           | d         |           | al        |           |
-+-----------+-----------+-----------+-----------+-----------+-----------+
-| 30        | INDUSTRY1 | Industry  | IND       | categoric | 1-10      |
-|           |           | classific |           | al        |           |
-|           |           | ation     |           |           |           |
-|           |           | (1-digit) |           |           |           |
-+-----------+-----------+-----------+-----------+-----------+-----------+
-| 31        | EMPCAT1   | Employmen | IND       | categoric | 11, 12,   |
-|           |           | t         |           | al        | 13, 14,   |
-|           |           | categorie |           |           | 21, 22    |
-|           |           | s         |           |           |           |
-+-----------+-----------+-----------+-----------+-----------+-----------+
-| 32        | WHOURSLAS | Hours     | IND       | continuou | 0-154     |
-|           | TWEEK1    | worked    |           | s         |           |
-|           |           | last week |           |           |           |
-+-----------+-----------+-----------+-----------+-----------+-----------+
-| 33        | OWNHOUSE  | Ownership | HH        | categoric | 0, 1      |
-|           |           | of        |           | al        |           |
-|           |           | dwelling  |           |           |           |
-+-----------+-----------+-----------+-----------+-----------+-----------+
-| 34        | ROOF      | Main      | IND       | categoric | 1-5, 9    |
-|           |           | material  |           | al        |           |
-|           |           | used for  |           |           |           |
-|           |           | roof      |           |           |           |
-+-----------+-----------+-----------+-----------+-----------+-----------+
-| 35        | TOILET    | Main      | HH        | categoric | 1-4, 9    |
-|           |           | toilet    |           | al        |           |
-|           |           | facility  |           |           |           |
-+-----------+-----------+-----------+-----------+-----------+-----------+
-| 36        | ELECTCON  | Electrici | HH        | categoric | 0-3       |
-|           |           | ty        |           | al        |           |
-+-----------+-----------+-----------+-----------+-----------+-----------+
-| 37        | FUELCOOK  | Main      | HH        | categoric | 1-5, 9    |
-|           |           | cooking   |           | al        |           |
-|           |           | fuel      |           |           |           |
-+-----------+-----------+-----------+-----------+-----------+-----------+
-| 38        | WATER     | Main      | HH        | categoric | 1-9       |
-|           |           | source of |           | al        |           |
-|           |           | water     |           |           |           |
-+-----------+-----------+-----------+-----------+-----------+-----------+
-| 39        | OWNAGLAND | Ownership | HH        | categoric | 1-3       |
-|           |           | of        |           | al        |           |
-|           |           | agricultu |           |           |           |
-|           |           | ral       |           |           |           |
-|           |           | land      |           |           |           |
-+-----------+-----------+-----------+-----------+-----------+-----------+
-| 40        | LANDSIZEH | Land size | HH        | continuou | 0-1214    |
-|           | A         | owned by  |           | s         |           |
-|           |           | household |           |           |           |
-|           |           | (ha)      |           |           |           |
-|           |           | (agric    |           |           |           |
-|           |           | and non   |           |           |           |
-|           |           | agric)    |           |           |           |
-+-----------+-----------+-----------+-----------+-----------+-----------+
-| 41        | OWNMOTORC | Ownership | HH        | categoric | 0, 1      |
-|           | YCLE      | of        |           | al        |           |
-|           |           | motorcycl |           |           |           |
-|           |           | e         |           |           |           |
-+-----------+-----------+-----------+-----------+-----------+-----------+
-| 42        | CAR       | Ownership | HH        | categoric | 0, 1      |
-|           |           | of car    |           | al        |           |
-+-----------+-----------+-----------+-----------+-----------+-----------+
-| 43        | TV        | Ownership | HH        | categoric | 0, 1      |
-|           |           | of        |           | al        |           |
-|           |           | televisio |           |           |           |
-|           |           | n         |           |           |           |
-+-----------+-----------+-----------+-----------+-----------+-----------+
-| 44        | LIFESTOCK | Number of | HH        | semi-cont | 0-25      |
-|           |           | large-siz |           | inuous    |           |
-|           |           | ed        |           |           |           |
-|           |           | livestock |           |           |           |
-|           |           | owned     |           |           |           |
-+-----------+-----------+-----------+-----------+-----------+-----------+
-| 45        | INCRMT    | Income –  | HH        | continuou | -         |
-|           |           | Remittanc |           | s         |           |
-|           |           | es        |           |           |           |
-+-----------+-----------+-----------+-----------+-----------+-----------+
-| 46        | INCWAGE   | Income -  | HH        | continuou | -         |
-|           |           | Wages and |           | s         |           |
-|           |           | salaries  |           |           |           |
-+-----------+-----------+-----------+-----------+-----------+-----------+
-| 47        | INCBONSOC | Income -  | HH        | continuou | -         |
-|           | ALL       | Bonuses   |           | s         |           |
-|           |           | and       |           |           |           |
-|           |           | social    |           |           |           |
-|           |           | allowance |           |           |           |
-|           |           | s         |           |           |           |
-|           |           | derived   |           |           |           |
-|           |           | from wage |           |           |           |
-|           |           | jobs      |           |           |           |
-+-----------+-----------+-----------+-----------+-----------+-----------+
-| 48        | INCFARMBS | Income -  | HH        | continuou | -         |
-|           | N         | Gross     |           | s         |           |
-|           |           | income    |           |           |           |
-|           |           | from      |           |           |           |
-|           |           | household |           |           |           |
-|           |           | farm      |           |           |           |
-|           |           | businesse |           |           |           |
-|           |           | s         |           |           |           |
-+-----------+-----------+-----------+-----------+-----------+-----------+
-| 49        | INCNFARMB | Income    | HH        | continuou | -         |
-|           | SN        | -Gross    |           | s         |           |
-|           |           | income    |           |           |           |
-|           |           | from      |           |           |           |
-|           |           | household |           |           |           |
-|           |           | nonfarm   |           |           |           |
-|           |           | businesse |           |           |           |
-|           |           | s         |           |           |           |
-+-----------+-----------+-----------+-----------+-----------+-----------+
-| 50        | INCRENT   | Income -  | HH        | continuou | -         |
-|           |           | Rent      |           | s         |           |
-+-----------+-----------+-----------+-----------+-----------+-----------+
-| 51        | INCFIN    | Income -  | HH        | continuou | -         |
-|           |           | Financial |           | s         |           |
-+-----------+-----------+-----------+-----------+-----------+-----------+
-| 52        | INCPENSN  | Income -  | HH        | continuou | -         |
-|           |           | Pensions/ |           | s         |           |
-|           |           | social    |           |           |           |
-|           |           | assistanc |           |           |           |
-|           |           | e         |           |           |           |
-+-----------+-----------+-----------+-----------+-----------+-----------+
-| 53        | INCOTHER  | Income -  | HH        | continuou | -         |
-|           |           | Other     |           | s         |           |
-+-----------+-----------+-----------+-----------+-----------+-----------+
-| 54        | INCTOTGRO | Income -  | HH        | continuou | -         |
-|           | SSHH      | Total     |           | s         |           |
-+-----------+-----------+-----------+-----------+-----------+-----------+
-| 55        | FARMEMP   |           |           |           | -         |
-+-----------+-----------+-----------+-----------+-----------+-----------+
-| 56        | TFOODEXP  | Total     | HH        | continuou | -         |
-|           |           | expenditu |           | s         |           |
-|           |           | re        |           |           |           |
-|           |           | on food   |           |           |           |
-+-----------+-----------+-----------+-----------+-----------+-----------+
-| 57        | TALCHEXP  | Total     | HH        | continuou | -         |
-|           |           | expenditu |           | s         |           |
-|           |           | re        |           |           |           |
-|           |           | on        |           |           |           |
-|           |           | alcoholic |           |           |           |
-|           |           | beverages |           |           |           |
-|           |           | ,         |           |           |           |
-|           |           | tobacco   |           |           |           |
-|           |           | and       |           |           |           |
-|           |           | narcotics |           |           |           |
-+-----------+-----------+-----------+-----------+-----------+-----------+
-| 58        | TCLTHEXP  | Total     | HH        | continuou | -         |
-|           |           | expenditu |           | s         |           |
-|           |           | re        |           |           |           |
-|           |           | on        |           |           |           |
-|           |           | clothing  |           |           |           |
-+-----------+-----------+-----------+-----------+-----------+-----------+
-| 59        | THOUSEXP  | Total     | HH        | continuou | -         |
-|           |           | expenditu |           | s         |           |
-|           |           | re        |           |           |           |
-|           |           | on        |           |           |           |
-|           |           | housing   |           |           |           |
-+-----------+-----------+-----------+-----------+-----------+-----------+
-| 60        | TFURNEXP  | Total     | HH        | continuou | -         |
-|           |           | expenditu |           | s         |           |
-|           |           | re        |           |           |           |
-|           |           | on        |           |           |           |
-|           |           | furnishin |           |           |           |
-|           |           | g         |           |           |           |
-+-----------+-----------+-----------+-----------+-----------+-----------+
-| 61        | THLTHEXP  | Total     | HH        | continuou | -         |
-|           |           | expenditu |           | s         |           |
-|           |           | re        |           |           |           |
-|           |           | on health |           |           |           |
-+-----------+-----------+-----------+-----------+-----------+-----------+
-| 62        | TTRANSEXP | Total     | HH        | continuou | -         |
-|           |           | expenditu |           | s         |           |
-|           |           | re        |           |           |           |
-|           |           | on        |           |           |           |
-|           |           | transport |           |           |           |
-+-----------+-----------+-----------+-----------+-----------+-----------+
-| 63        | TCOMMEXP  | Total     | HH        | continuou | -         |
-|           |           | expenditu |           | s         |           |
-|           |           | re        |           |           |           |
-|           |           | on        |           |           |           |
-|           |           | communica |           |           |           |
-|           |           | tion      |           |           |           |
-+-----------+-----------+-----------+-----------+-----------+-----------+
-| 64        | TRECEXP   | Total     | HH        | continuou | -         |
-|           |           | expenditu |           | s         |           |
-|           |           | re        |           |           |           |
-|           |           | on        |           |           |           |
-|           |           | recreatio |           |           |           |
-|           |           | n         |           |           |           |
-+-----------+-----------+-----------+-----------+-----------+-----------+
-| 65        | TEDUEXP   | Total     | HH        | continuou | -         |
-|           |           | expenditu |           | s         |           |
-|           |           | re        |           |           |           |
-|           |           | on        |           |           |           |
-|           |           | education |           |           |           |
-+-----------+-----------+-----------+-----------+-----------+-----------+
-| 66        | TRESHOTEX | Total     | HH        | continuou | -         |
-|           | P         | expenditu |           | s         |           |
-|           |           | re        |           |           |           |
-|           |           | on        |           |           |           |
-|           |           | restauran |           |           |           |
-|           |           | ts        |           |           |           |
-|           |           | and       |           |           |           |
-|           |           | hotels    |           |           |           |
-+-----------+-----------+-----------+-----------+-----------+-----------+
-| 67        | TMISCEXP  | Total     | HH        | continuou | -         |
-|           |           | expenditu |           | s         |           |
-|           |           | re        |           |           |           |
-|           |           | on        |           |           |           |
-|           |           | miscellan |           |           |           |
-|           |           | eous      |           |           |           |
-|           |           | spending  |           |           |           |
-+-----------+-----------+-----------+-----------+-----------+-----------+
-| 68        | TANHHEXP  | Total     | HH        | continuou | -         |
-|           |           | annual    |           | s         |           |
-|           |           | nominal   |           |           |           |
-|           |           | household |           |           |           |
-|           |           | expenditu |           |           |           |
-|           |           | res       |           |           |           |
-+-----------+-----------+-----------+-----------+-----------+-----------+
+.. table:: Overview of variables in dataset
+   :widths: auto
+   :align: center
+   
+   =====  ===============  =============  =======  =============  ===========
+    No.    Variable name    Description    Level    Measurement   Values  
+   =====  ===============  =============  =======  =============  ===========
+    1      IDH              Household      HH        -             1-2,000   
+                            ID                                               
+    2      IDP              Individua      IND       -             1-33      
+                            l                                                
+                            ID                                               
+    3      REGION           Region         HH        categoric     1-6       
+                                                     al                      
+    4      DISTRICT         District       HH        categoric     101-1105  
+                                                     al                      
+    5      URBRUR           Area of        HH        categoric     1, 2      
+                            residence                al                      
+    6      WGTHH            Individua      HH        weight        31.2-8495 
+                            l                                      .7        
+                            weighting                                        
+                            coefficie                                        
+                            nt                                               
+    7      WGTPOP           Populatio      IND       weight        45.8-9345 
+                            n                                      2.2       
+                            weighting                                        
+                            coefficie                                        
+                            nt                                               
+    8      HHSIZE           Household      HH        semi-cont     1-33      
+                            size                     inuous                  
+    9      GENDER           Gender         IND       categoric     0, 1      
+                                                     al                      
+    10     REL              Relations      IND       categoric     1-9       
+                            hip                      al                      
+                            to                                               
+                            household                                        
+                            head                                             
+    11     MARITAL          Marital        IND       categoric     1-6       
+                            status                   al                      
+    12     AGEYRS           Age in         IND       semi-cont     0-95      
+                            completed                inuous        (under 1, 
+                            years                                  1/12 year 
+                                                                   increment 
+                                                                   s)        
+    13     AGEMTH           Age of         IND       semi-cont     1-1140    
+                            child in                 inuous                  
+                            completed                                        
+                            years                                            
+    14     RELIG            Religion       HH        categoric     1, 5-7, 9 
+                            of                       al                      
+                            household                                        
+                            head                                             
+    15     ETHNICITY        Ethnicity      HH        categoric     all       
+                            of                       al            missing   
+                            household                              values    
+                            head                                             
+    16     LANGUAGE         Language       HH        categoric     all       
+                            of                       al            missing   
+                            household                              values    
+                            head                                             
+    17     MORBID           Morbidity      IND       categoric     0, 1      
+                            last x                   al                      
+                            weeks                                            
+    18     MEASLES          Child          IND       categoric     0, 1, 9   
+                            immunized                al                      
+                            against                                          
+                            measles                                          
+    19     MEDATT           Sought         IND       categoric     0, 1      
+                            medical                  al                      
+                            attention                                        
+    20     CHWEIGHTK        Weight of      IND       continuou     2 – 26.5  
+           G                the child                s                       
+                            (Kg)                                             
+    21     CHHEIGHTC        Height of      IND       continuou     7 - 140   
+           M                child                    s                       
+                            (cms)                                            
+    22     ATSCHOOL         Currently      IND       categoric     0, 1      
+                            enrolled                 al                      
+                            in school                                        
+    23     EDUCY            Highest        IND       categoric     1-6       
+                            level of                 al                      
+                            education                                        
+                            attended                                         
+    24     EDYEARS          Years of       IND       semi-cont     0-18      
+                            education                inuous                  
+    25     EDYRSCURR        Years of       IND       semi-cont     1-18      
+           AT               education                inuous                  
+                            for                                              
+                            currently                                        
+                            enrolled                                         
+    26     SCHTYP           Type of        IND       categoric     1-3, 9    
+                            school                   al                      
+                            attending                                        
+    27     LITERACY         Literacy       IND       categoric     1-3       
+                                                     al                      
+    28     EMPTYP1          Type of        IND       categoric     1-9       
+                            employmen                al                      
+                            t                                                
+    29     UNEMP1           Unemploye      IND       categoric     0, 1      
+                            d                        al                      
+    30     INDUSTRY1        Industry       IND       categoric     1-10      
+                            classific                al                      
+                            ation                                            
+                            (1-digit)                                        
+    31     EMPCAT1          Employmen      IND       categoric     11, 12,   
+                            t                        al            13, 14,   
+                            categorie                              21, 22    
+                            s                                                
+    32     WHOURSLAS        Hours          IND       continuou     0-154     
+           TWEEK1           worked                   s                       
+                            last week                                        
+    33     OWNHOUSE         Ownership      HH        categoric     0, 1      
+                            of                       al                      
+                            dwelling                                         
+    34     ROOF             Main           IND       categoric     1-5, 9    
+                            material                 al                      
+                            used for                                         
+                            roof                                             
+    35     TOILET           Main           HH        categoric     1-4, 9    
+                            toilet                   al                      
+                            facility                                         
+    36     ELECTCON         Electrici      HH        categoric     0-3       
+                            ty                       al                      
+    37     FUELCOOK         Main           HH        categoric     1-5, 9    
+                            cooking                  al                      
+                            fuel                                             
+    38     WATER            Main           HH        categoric     1-9       
+                            source of                al                      
+                            water                                            
+    39     OWNAGLAND        Ownership      HH        categoric     1-3       
+                            of                       al                      
+                            agricultu                                        
+                            ral                                              
+                            land                                             
+    40     LANDSIZEH        Land size      HH        continuou     0-1214    
+           A                owned by                 s                       
+                            household                                        
+                            (ha)                                             
+                            (agric                                           
+                            and non                                          
+                            agric)                                           
+    41     OWNMOTORC        Ownership      HH        categoric     0, 1      
+           YCLE             of                       al                      
+                            motorcycl                                        
+                            e                                                
+    42     CAR              Ownership      HH        categoric     0, 1      
+                            of car                   al                      
+    43     TV               Ownership      HH        categoric     0, 1      
+                            of                       al                      
+                            televisio                                        
+                            n                                                
+    44     LIFESTOCK        Number of      HH        semi-cont     0-25      
+                            large-siz                inuous                  
+                            ed                                               
+                            livestock                                        
+                            owned                                            
+    45     INCRMT           Income –       HH        continuou     -         
+                            Remittanc                s                       
+                            es                                               
+    46     INCWAGE          Income -       HH        continuou     -         
+                            Wages and                s                       
+                            salaries                                         
+    47     INCBONSOC        Income -       HH        continuou     -         
+           ALL              Bonuses                  s                       
+                            and                                              
+                            social                                           
+                            allowance                                        
+                            s                                                
+                            derived                                          
+                            from wage                                        
+                            jobs                                             
+    48     INCFARMBS        Income -       HH        continuou     -         
+           N                Gross                    s                       
+                            income                                           
+                            from                                             
+                            household                                        
+                            farm                                             
+                            businesse                                        
+                            s                                                
+    49     INCNFARMB        Income         HH        continuou     -         
+           SN               -Gross                   s                       
+                            income                                           
+                            from                                             
+                            household                                        
+                            nonfarm                                          
+                            businesse                                        
+                            s                                                
+    50     INCRENT          Income -       HH        continuou     -         
+                            Rent                     s                       
+    51     INCFIN           Income -       HH        continuou     -         
+                            Financial                s                       
+    52     INCPENSN         Income -       HH        continuou     -         
+                            Pensions/                s                       
+                            social                                           
+                            assistanc                                        
+                            e                                                
+    53     INCOTHER         Income -       HH        continuou     -         
+                            Other                    s                       
+    54     INCTOTGRO        Income -       HH        continuou     -         
+           SSHH             Total                    s                       
+    55     FARMEMP                                                 -         
+    56     TFOODEXP         Total          HH        continuou     -         
+                            expenditu                s                       
+                            re                                               
+                            on food                                          
+    57     TALCHEXP         Total          HH        continuou     -         
+                            expenditu                s                       
+                            re                                               
+                            on                                               
+                            alcoholic                                        
+                            beverages                                        
+                            ,                                                
+                            tobacco                                          
+                            and                                              
+                            narcotics                                        
+    58     TCLTHEXP         Total          HH        continuou     -         
+                            expenditu                s                       
+                            re                                               
+                            on                                               
+                            clothing                                         
+    59     THOUSEXP         Total          HH        continuou     -         
+                            expenditu                s                       
+                            re                                               
+                            on                                               
+                            housing                                          
+    60     TFURNEXP         Total          HH        continuou     -         
+                            expenditu                s                       
+                            re                                               
+                            on                                               
+                            furnishin                                        
+                            g                                                
+    61     THLTHEXP         Total          HH        continuou     -         
+                            expenditu                s                       
+                            re                                               
+                            on health                                        
+    62     TTRANSEXP        Total          HH        continuou     -         
+                            expenditu                s                       
+                            re                                               
+                            on                                               
+                            transport                                        
+    63     TCOMMEXP         Total          HH        continuou     -         
+                            expenditu                s                       
+                            re                                               
+                            on                                               
+                            communica                                        
+                            tion                                             
+    64     TRECEXP          Total          HH        continuou     -         
+                            expenditu                s                       
+                            re                                               
+                            on                                               
+                            recreatio                                        
+                            n                                                
+    65     TEDUEXP          Total          HH        continuou     -         
+                            expenditu                s                       
+                            re                                               
+                            on                                               
+                            education                                        
+    66     TRESHOTEX        Total          HH        continuou     -         
+           P                expenditu                s                       
+                            re                                               
+                            on                                               
+                            restauran                                        
+                            ts                                               
+                            and                                              
+                            hotels                                           
+    67     TMISCEXP         Total          HH        continuou     -         
+                            expenditu                s                       
+                            re                                               
+                            on                                               
+                            miscellan                                        
+                            eous                                             
+                            spending                                         
+    68     TANHHEXP         Total          HH        continuou     -         
+                            annual                   s                       
+                            nominal                                          
+                            household                                        
+                            expenditu                                        
+                            res                                              
+   =====  ===============  =============  =======  =============  ===========
 
 It is always important to ensure that the relationships between
 variables in the data are preserved during the anonymization process and
@@ -559,7 +496,7 @@ The variables related to education are available only for individuals in
 the appropriate age groups and missing for other individuals. We make a
 similar observation for variables relating to children, such as height,
 weight and age in months. In addition, the household-level variables
-(cf. fourth column of Table 9.1) have the same values for all members in
+(cf. fourth column of :numref:`tab91`) have the same values for all members in
 any particular household. The value of household size corresponds to the
 actual number of individuals belonging to that household in the dataset.
 As we proceed, we have to take care that these relationships and
@@ -571,19 +508,23 @@ standard missing value code NA. Before proceeding, we need to recode
 these to NA so *R* interprets them correctly. The missing value codes
 are resp. 99999, 99 and 9999 for these three variables. These are
 genuine missing value codes and not caused by the variables being not
-applicable to the individual. Example 9.5 shows how to make these
-changes. **NOTE: At the end of the anonymization process, and if desired
-for users, it is relatively easy to change these values back to their
-original missing value code.**
+applicable to the individual. :numref:`code95` shows how to make these
+changes.
 
-Example 9.5: Recoding missing value codes
+.. NOTE::
+	At the end of the anonymization process, and if desired
+	for users, it is relatively easy to change these values back to their
+	original missing value code.
 
-*# Set different NA codes to R missing value NA*
-
-file[,'RELIG'][file[,'RELIG'] == 99999] <- NA
-
-| file[,'EMPTYP1'][file[,'EMPTYP1'] == 99] <- NA
-| file[,'LIVESTOCK'][file[,'LIVESTOCK'] == 9999] <- NA
+.. code-block:: R
+   :linenos:
+   :caption: Recoding missing value codes
+   :name: code95
+   
+   # Set different NA codes to R missing value NA
+   file[,'RELIG'][file[,'RELIG'] == 99999]        <- NA
+   file[,'EMPTYP1'][file[,'EMPTYP1'] == 99]       <- NA
+   file[,'LIVESTOCK'][file[,'LIVESTOCK'] == 9999] <- NA
 
 We also take note that the variables LANGUAGE and ETHNICITY have only
 missing values. Variables that contain only missing values should be
@@ -596,14 +537,16 @@ methods in *R*. It is always possible to add these variables back into
 the dataset to be released at the end of the anonymization process. It
 is useful to reduce the dataset to those variables and records relevant
 for the anonymization process. This guarantees the best results in *R*
-and fewer errors. In Example 9.6 we drop the variables that contain all
+and fewer errors. In :numref:`code96` we drop the variables that contain all
 missing values.
 
-Example 9.6: Dropping variables with only missing values
-
-| *# Drop variables containing only missings*
-| file <- file[,!\ **names**\ (file) %in% **c**\ ('LANGUAGE',
-  'ETHNICITY')]
+.. code-block:: R
+   :linenos:
+   :caption: Dropping variables with only missing values
+   :name: code96
+   
+   # Drop variables containing only missings
+   file <- file[,!names(file) %in% c('LANGUAGE', 'ETHNICITY')]
 
 We assume that the data are collected in a survey that uses simple
 sampling of households. The data contains two weight coefficients: WGTHH
@@ -660,7 +603,7 @@ quasi-identifiers. According to our assessment, these variables might
 enable an intruder to re-identify an individual or household in the
 dataset by matching with other available datasets.
 
-Table 9.2 gives an overview of the selected quasi-identifiers and their
+:numref:`tab92` gives an overview of the selected quasi-identifiers and their
 levels of measurement.
 
 The decision to release the dataset as a SUF means the level of
@@ -680,56 +623,40 @@ OWNMOTORCYCLE, CAR, TV and LIVESTOCK may also need protection depending
 on what stands out in the community, since a researcher might be able to
 identify persons (s)he knows. This is called the nosy-neighbor scenario.
 
-Table 9.2: List of selected quasi-identifiers
+.. _tab92:
 
-+-----------------------------------+-----------------------------------+
-| **Name**                          | **Measurement**                   |
-+===================================+===================================+
-| REGION (region)                   | Household, categorical            |
-+-----------------------------------+-----------------------------------+
-| URBRUR (area of residence)        | Household, categorical            |
-+-----------------------------------+-----------------------------------+
-| HHSIZE (household size)           | Household, categorical            |
-+-----------------------------------+-----------------------------------+
-| OWNAGLAND (agricultural land      | Household, categorical            |
-| ownership)                        |                                   |
-+-----------------------------------+-----------------------------------+
-| RELIG (religion of household      | Household, categorical            |
-| head)                             |                                   |
-+-----------------------------------+-----------------------------------+
-| LANDSIZEHA (size of agr. and      | Household, continuous             |
-| non-agr. land)                    |                                   |
-+-----------------------------------+-----------------------------------+
-| TANHHEXP (total expenditures)     | Household, continuous             |
-+-----------------------------------+-----------------------------------+
-| T***EXP (expenditures in category | Household, continuous             |
-| \***)                             |                                   |
-+-----------------------------------+-----------------------------------+
-| INCTOTGROSSHH (total income)      | Household, continuous             |
-+-----------------------------------+-----------------------------------+
-| INC**\* (income in category \***) | Household, continuous             |
-+-----------------------------------+-----------------------------------+
-| GENDER (sex)                      | Individual, categorical           |
-+-----------------------------------+-----------------------------------+
-| REL (relationship to household    | Individual, categorical           |
-| head)                             |                                   |
-+-----------------------------------+-----------------------------------+
-| MARITAL (marital status)          | Individual, categorical           |
-+-----------------------------------+-----------------------------------+
-| AGEYRS (age in completed years)   | Individual, semi-continuous       |
-+-----------------------------------+-----------------------------------+
-| EDYRSCURATT (years of education   | Individual, semi-continuous       |
-| for currently enrolled)           |                                   |
-+-----------------------------------+-----------------------------------+
-| EDUCY (highest level of education | Individual, categorical           |
-| completed)                        |                                   |
-+-----------------------------------+-----------------------------------+
-| ATSCHOOL (currently enrolled in   | Individual, categorical           |
-| school)                           |                                   |
-+-----------------------------------+-----------------------------------+
-| INDUSTRY1 (industry               | Individual, categorical           |
-| classification)                   |                                   |
-+-----------------------------------+-----------------------------------+
+.. table:: List of selected quasi-identifiers
+   :widths: auto
+   :align: center
+   
+   ================================================  =============================
+    Name                                              Measurement                  
+   ================================================  =============================
+    REGION (region)                                   Household, categorical       
+    URBRUR (area of residence)                        Household, categorical       
+    HHSIZE (household size)                           Household, categorical       
+    OWNAGLAND (agricultural land                      Household, categorical       
+    ownership)                                                                     
+    RELIG (religion of household                      Household, categorical       
+    head)                                                                          
+    LANDSIZEHA (size of agr. and                      Household, continuous        
+    non-agr. land)                                                                 
+    TANHHEXP (total expenditures)                     Household, continuous        
+    TEXP(expenditures in category)                    Household, continuous        
+    INCTOTGROSSHH (total income)                      Household, continuous        
+    INC(income in category)                           Household, continuous        
+    GENDER (sex)                                      Individual, categorical      
+    REL (relationship to household head)              Individual, categorical      
+    MARITAL (marital status)                          Individual, categorical      
+    AGEYRS (age in completed years)                   Individual, semi-continuous  
+    EDYRSCURATT (years of education                   Individual, semi-continuous  
+    for currently enrolled)                                                        
+    EDUCY (highest level of education completed)      Individual, categorical      
+    ATSCHOOL (currently enrolled in school)           Individual, categorical      
+    INDUSTRY1 (industry classification)               Individual, categorical      
+    classification)                                                                
+   ================================================  =============================
+
 
 **Step 5: Data key uses and selection of utility measures**
 
@@ -738,29 +665,28 @@ information for accredited researchers. We know that the primary use of
 these data will be to evaluate indicators relating to income and
 inequality. Examples are the GINI coefficient and indicators on what
 share of income is spent on what type of expenditures. Furthermore, we
-focus on some education indicators. Table 9.3 gives an overview of the
+focus on some education indicators. :numref:`tab93` gives an overview of the
 utility measures we selected. Besides these utility measures, which are
 specific to the data uses, we also do standard checks, such as comparing
 tabulations, cross-tabulations and summary statistics before and after
 anonymization.
 
-Table 9.3: Overview of selected utility measures
+.. _tab93:
 
-+----------------------------------------------------------------------+
-| Gini point estimates and confidence intervals for total expenditures |
-+======================================================================+
-| Lorenz curves for total expenditures                                 |
-+----------------------------------------------------------------------+
-| Mean monthly per capita total expenditures by area of residence      |
-+----------------------------------------------------------------------+
-| Average share of components for expenditures                         |
-+----------------------------------------------------------------------+
-| Mean monthly per capita total income by area of residence            |
-+----------------------------------------------------------------------+
-| Average share of components for income                               |
-+----------------------------------------------------------------------+
-| Net enrollment in primary education by gender                        |
-+----------------------------------------------------------------------+
+.. table:: Overview of selected utility measures
+   :widths: auto
+   :align: center
+      
+   ======================================================================
+    Gini point estimates and confidence intervals for total expenditures
+    Lorenz curves for total expenditures  
+    Mean monthly per capita total expenditures by area of residence 
+    Average share of components for expenditures 
+    Mean monthly per capita total income by area of residence
+    Average share of components for income  
+    Net enrollment in primary education by gender   
+   ======================================================================
+
 
 There are no published figures and statistics available that are
 calculated from this dataset because it is a demo. In general, the
@@ -793,147 +719,151 @@ continuous key variables and any variables selected for use in PRAM
 routines, as well as household-level sampling weights. We extract these
 selected household variables and the households from the dataset and
 save them as *fileHH*. The choice of PRAM variables is further explained
-in Step 8a. Example 9.7 illustrates how these steps are done in *R* (see
-also Section 7.6). **NOTE: In our dataset, some of the categorical
-variables when imported from the STATA file were not imported as
-factors. sdcMicro requires that these be converted to factors before
-proceeding.** Conversion of these variables to factors is also shown in
-Example 9.7.
+in Step 8a. :numref:`code97` illustrates how these steps are done in *R* (see
+also Section 7.6). 
 
-Example 9.7: Selecting the variables for the household-level
-anonymization
+.. NOTE:: 
+	In our dataset, some of the categorical variables when imported from the STATA file were not imported as
+	factors. sdcMicro requires that these be converted to factors before
+	proceeding.
+	
+Conversion of these variables to factors is also shown in :numref:`code97`.
 
-| ### Select variables (household level)
-| *# Key variables (household level)*
-| selectedKeyVarsHH = **c**\ ('URBRUR', 'REGION', 'HHSIZE', 'OWNHOUSE',
-  'OWNAGLAND', 'RELIG')
+.. code-block:: R
+   :linenos:
+   :caption: Selecting the variables for the household-level anonymization
+   :name: code97
+   
+   ### Select variables (household level)
+   # Key variables (household level)*
+   selectedKeyVarsHH = **c('URBRUR', 'REGION', 'HHSIZE', 'OWNHOUSE',
+   'OWNAGLAND', 'RELIG')
 
-*# Changing variables to class factor*
+   # Changing variables to class factor
+   file$URBRUR    <- as.factor(file$URBRUR)
+   file$REGION    <- as.factor(file$REGION)
+   file$OWNHOUSE  <- as.factor(file$OWNHOUSE)
+   file$OWNAGLAND <- as.factor(file$OWNAGLAND)
+   file$RELIG     <- as.factor(file$RELIG)
 
-file$URBRUR <- **as.factor**\ (file$URBRUR)
+   # Numerical variables
+   numVarsHH = c('LANDSIZEHA', 'TANHHEXP', 'TFOODEXP', 'TALCHEXP',
+                 'TCLTHEXP', 'THOUSEXP', 'TFURNEXP', 'THLTHEXP', 'TTRANSEXP',
+                 'TCOMMEXP', 'TRECEXP', 'TEDUEXP', 'TRESHOTEXP', 'TMISCEXP',
+                 'INCTOTGROSSHH', 'INCRMT', 'INCWAGE', 'INCFARMBSN', 'INCNFARMBSN',
+                 'INCRENT', 'INCFIN', 'INCPENSN', 'INCOTHER')
+   # PRAM variables
+   pramVarsHH = c('ROOF', 'TOILET', 'WATER', 'ELECTCON',
+                  'FUELCOOK', 'OWNMOTORCYCLE', 'CAR', 'TV', 'LIVESTOCK')
 
-file$REGION <- **as.factor**\ (file$REGION)
-
-file$OWNHOUSE <- **as.factor**\ (file$OWNHOUSE)
-
-file$OWNAGLAND <- **as.factor**\ (file$OWNAGLAND)
-
-file$RELIG <- **as.factor**\ (file$RELIG)
-
-| *# Numerical variables*
-| numVarsHH = **c**\ ('LANDSIZEHA', 'TANHHEXP', 'TFOODEXP', 'TALCHEXP',
-  'TCLTHEXP', 'THOUSEXP', 'TFURNEXP', 'THLTHEXP', 'TTRANSEXP',
-  'TCOMMEXP', 'TRECEXP', 'TEDUEXP', 'TRESHOTEXP', 'TMISCEXP',
-  'INCTOTGROSSHH', 'INCRMT', 'INCWAGE', 'INCFARMBSN', 'INCNFARMBSN',
-  'INCRENT', 'INCFIN', 'INCPENSN', 'INCOTHER')
-| *# PRAM variables*
-| pramVarsHH = **c**\ ('ROOF', 'TOILET', 'WATER', 'ELECTCON',
-  'FUELCOOK', 'OWNMOTORCYCLE', 'CAR', 'TV', 'LIVESTOCK')
-
-| *# sample weight (WGTPOP) (household)*
-| weightVarHH = **c**\ ('WGTPOP')
-| *# All household level variables*
-| HHVars <- **c**\ ('HID', selectedKeyVarsHH, pramVarsHH, numVarsHH,
-  weightVarHH)
+   # sample weight (WGTPOP) (household)
+   weightVarHH = c('WGTPOP')
+   # All household level variables
+   HHVars <- c('HID', selectedKeyVarsHH, pramVarsHH, numVarsHH, weightVarHH)
 
 We then extract these variables from *file*, the dataframe in *R* that
 contains all variables. Every household has the same number of entries
 as it has members (e.g., a household of three will be repeated three
 times in *fileHH*). Before analyzing the household-level variables, we
-select only one entry per household, as illustrated in Example 9.8. This
+select only one entry per household, as illustrated in :numref:`code98`. This
 is further explained in Section 7.6.
 
-Example 9.8: Taking a subset with only households
+.. code-block:: R
+   :linenos:
+   :caption: Taking a subset with only households
+   :name: code98
+   
+   # Create subset of file with households and HH variables
+   fileHH <- file[,HHVars]
+   
+   # Remove duplicated rows based on IDH, select uniques, one row per household in fileHH
+   fileHH <- fileHH[which(!duplicated(fileHH$IDH)),]
 
-| *# Create subset of file with households and HH variables*
-| fileHH <- file[,HHVars]
-
-| *# Remove duplicated rows based on IDH, select uniques, one row per
-  household in fileHH*
-| fileHH <- fileHH[which(!duplicated(fileHH$IDH)),]
-
-**dim**\ (fileHH)
-
-``## [1] 2000   39``
+   dim(fileHH)
+   ## [1] 2000   39
 
 The file *fileHH* contains 2,000 households and 39 variables. We are now
 ready to create our *sdcMicro* object with the corresponding variables
-we selected in Example 9.7. For our case study, we will create an
+we selected in :numref:`code97`. For our case study, we will create an
 *sdcMicro* object called *sdcHH* based on the data in *fileHH*, which we
-will use for steps 6a – 10a (see Example 9.9). **NOTE: When the sdcMicro
-object is created, the sdcMicro package automatically calculates and
-stores the risk measures for the data.** This leads us to Step 6a.
+will use for steps 6a – 10a (see :numref:`code99`). 
 
-Example 9.9: Creating a *sdcMicro* object for the household variables
+.. NOTE:: 
+	When the sdcMicro object is created, the sdcMicro package automatically calculates and
+	stores the risk measures for the data.
 
-| *# Create initial SDC object for household level variables*
-| sdcHH <- **createSdcObj**\ (dat = fileHH, keyVars = selectedKeyVarsHH,
-  pramVars = pramVarsHH,
+This leads us to Step 6a.
 
-weightVar = weightVarHH, numVars = numVarsHH)
+.. code-block:: R
+   :linenos:
+   :caption: Creating a *sdcMicro* object for the household variables
+   :name: code99
+   
+   # Create initial SDC object for household level variables*
+   sdcHH <- createSdcObj(dat = fileHH, keyVars = selectedKeyVarsHH, pramVars = pramVarsHH,
+                         weightVar = weightVarHH, numVars = numVarsHH)
 
-numHH <- **length**\ (fileHH[,1]) *# number of households*
+   numHH <- length(fileHH[,1]) # number of households
 
 **Step 6a: Assessing disclosure risk (household level)**
 
 As a first measure, we evaluate the number of households violating
 k-anonymity at the levels 2, 3 and 5.
 
-Table 9.4 shows the number of violating households as well as the
-percentage of the total number of households. Example 9.10 illustrates
+:numref:`tab94` shows the number of violating households as well as the
+percentage of the total number of households. :numref:`code910` illustrates
 how to find these values with *sdcMicro*. The print() function in
 *sdcMicro* shows only the values for thresholds 2 and 3. Values for
 other thresholds can be calculated manually by summing up the
-frequencies smaller than the k-anonymity threshold, as shown in Example
-9.10.
+frequencies smaller than the k-anonymity threshold, as shown in :numref:`code910`.
 
-Table 9.4: Number and proportion of households violating k-anonymity
+.. _tab94:
 
-+-----------------------+-----------------------+-----------------------+
-| **k-anonymity level** | **Number of HH        | **Percentage of total |
-|                       | violating**           | number of HH**        |
-+=======================+=======================+=======================+
-| 2                     | 103                   | 5.15 %                |
-+-----------------------+-----------------------+-----------------------+
-| 3                     | 229                   | 11.45 %               |
-+-----------------------+-----------------------+-----------------------+
-| 5                     | 489                   | 24.45 %               |
-+-----------------------+-----------------------+-----------------------+
+.. table:: Number and proportion of households violating k-anonymity
+   :widths: auto
+   :align: center
+   
+   ===================  ========================  ==================================
+    k-anonymity level    Number of HH violating    Percentage of total number of HH
+   ===================  ========================  ==================================
+     2                       103                    5.15 %                 
+     3                       229                    11.45 %                
+     5                       489                    24.45 %                
+   ===================  ========================  ==================================
 
-Example 9.10: Showing number of households violating k-anonymity for
-levels 2,3 and 5
+.. code-block:: R
+   :linenos:
+   :caption: Showing number of households violating k-anonymity for levels 2,3 and 5
+   :name: code910
+   
+   # Number of observations violating k-anonymity (thresholds 2 and 3)*
+   print(sdcHH)
 
-| *# Number of observations violating k-anonymity (thresholds 2 and 3)*
-| **print**\ (sdcHH)
+   ## Infos on 2/3-Anonymity:
+   ##
+   ## Number of observations violating
+   ##  - 2-anonymity: 103
+   ##  - 3-anonymity: 229
+   ##
+   ## Percentage of observations violating
+   ##  - 2-anonymity: 5.150 %
+   ##  - 3-anonymity: 11.450 %
+   --------------------------------------------------------------------------
 
-| ``## Infos on 2/3-Anonymity:``
-| ``##``
-| ``## Number of observations violating``
-| ``##  - 2-anonymity: 103``
-| ``##  - 3-anonymity: 229``
-| ``##``
-| ``## Percentage of observations violating``
-| ``##  - 2-anonymity: 5.150 %``
-| ``##  - 3-anonymity: 11.450 %``
-| ``--------------------------------------------------------------------------``
+   # Calculate sample frequencies and count number of obs. violating k(5) - anonymity
+   kAnon5 <- sum(sdcHH@risk$individual[,2] < 5)
+   
+   kAnon5
+   ## [1] 489
 
-| *# Calculate sample frequencies and count number of obs. violating k
-  (5) - anonymity*
-| kAnon5 <- **sum**\ (sdcHH@risk$individual[,2] < 5)
-
-kAnon5
-
-## [1] 489
-
-| *# As percentage of total*
-| kAnon5 / numHH
-
-## [1] 0.2445
+   # As percentage of total
+   kAnon5 / numHH
+   ## [1] 0.2445
 
 It is often useful to view the values for the household(s) that violate
 k-anonymity. This might help clarify which variables cause the
 uniqueness of these households; this can then be used later when
-choosing appropriate SDC methods. Example 9.11 shows how to assess the
+choosing appropriate SDC methods. :numref:`code911` shows how to assess the
 values of the households violating 3 and 5-anonymity. It seems that
 among the categorical key variables, the variable HHSIZE is responsible
 for many of the unique combinations and the origin of much of the risk.
@@ -942,20 +872,21 @@ to treat to obtain the required risk level. In practice, with a variable
 like HHSIZE, this will likely involve removing large households from the
 dataset to be released. As explained in Section 5.5, recoding and local
 suppression are no valid options for the variable HHSIZE. The
-frequencies of household size in Table 9.7 on page 132 show that there
+frequencies of household size in :numref:`tab97` show that there
 are few households with more than 13 household members. This makes these
 households easily identifiable based on the number of household members
 and at high risk of re-identification, also in the context of the nosy
 neighbor scenario.
 
-Example 9.11: Showing households that violate k-anonymity
+.. code-block:: R
+   :linenos:
+   :caption: Showing households that violate k-anonymity
+   :name: code911
+   
+   # Show values of key variable of records that violate k-anonymity*
+   fileHH[sdcHH@risk$individual[,2] < 3, selectedKeyVarsHH] # for 3-anonymity
 
-| *# Show values of key variable of records that violate k-anonymity*
-| fileHH[sdcHH@risk$individual[,2] < 3, selectedKeyVarsHH] *# for
-  3-anonymity*
-
-fileHH[sdcHH@risk$individual[,2] < 5, selectedKeyVarsHH] *# for
-5-anonymity*
+   fileHH[sdcHH@risk$individual[,2] < 5, selectedKeyVarsHH] # for 5-anonymity
 
 We also assess the disclosure risk of the categorical variables with the
 individual and global risk measures as described in Sections 4.5 and
@@ -965,38 +896,44 @@ in this case to a household. *fileHH* contains only households and has
 no hierarchical structure. In Step 6b, we evaluate the hierarchical risk
 in *file*, the dataset containing both households and individuals. The
 individual and global risk measures automatically take into
-consideration the household weights, which we defined in Example 9.7. In
+consideration the household weights, which we defined in :numref:`code97`. In
 our file, the global risk measure calculated using the chosen key
 variables is 0.05%. This percentage is extremely low and corresponds to
-1.03 expected re-identifications. The results are also shown in Example
-9.12. This low figure can be explained by the relatively small sample
+1.03 expected re-identifications. The results are also shown in :numref:`code912`. 
+This low figure can be explained by the relatively small sample
 size of 0.25% of the total population. Furthermore, one should keep in
 mind that this risk measure is based only on the categorical
-quasi-identifiers at the household level. Example 9.12 illustrates how
+quasi-identifiers at the household level. :numref:`code912` illustrates how
 to print the global risk measure.
 
-Example 9.12: Printing global risk measures
+.. code-block:: R
+   :linenos:
+   :caption: Printing global risk measures
+   :name: code912
+   
+   print(sdcHH, "risk")
 
-**print**\ (sdcHH, "risk")
-
-| ``## Risk measures:``
-| ``##``
-| ``## Number of observations with higher risk than the main part of the data: 0``
-| ``## Expected number of re-identifications: 1.03 (0.05 %)``
+   ## Risk measures:
+   ##
+   ## Number of observations with higher risk than the main part of the data: 0
+   ## Expected number of re-identifications: 1.03 (0.05 %)
 
 The global risk measure does not provide information about the spread of
 the individual risk measures. There might be a few households with
 relatively high risk, while the global (average) risk is low. It is
 therefore useful as a next step to inspect the observations with
 relatively high risk. The highest risk is 5.5% and only 14 households
-have risk larger than 1%. Example 9.13 shows how to display those
+have risk larger than 1%. :numref:`code913` shows how to display those
 households with risk over a certain threshold. Here the threshold is
 0.01 (1%).
 
-Example 9.13: Observations with individual risk higher than 1%
-
-| *# Observations with risk above certain threshold (0.01)*
-| fileHH[sdcHH@risk$individual[, "risk"] > 0.01,]
+.. code-block:: R
+   :linenos:
+   :caption: Observations with individual risk higher than 1%
+   :name: code913
+   
+   # Observations with risk above certain threshold (0.01)
+   fileHH[sdcHH@risk$individual[, "risk"] > 0.01,]
 
 Since the selected key variables at the household level are both
 categorical and numerical, the individual and global risk measures based
@@ -1031,48 +968,52 @@ LANDSIZEHA high values are rare and can lead to re-identification. An
 example is a large landowner in a specific region. To evaluate the
 distribution of the variable LANDSIZEHA, we look at the percentiles.
 Every percentile represents approximately 20 households. In addition, we
-look at the values of the largest 50 plots. Example 9.14 shows how to
-use *R* to display the quantiles and the largest landplots. Table 9.5
-shows the 90\ :sup:`th` – 100\ :sup:`th` percentiles and Table 9.6
+look at the values of the largest 50 plots. :numref:`code914` shows how to
+use *R* to display the quantiles and the largest landplots. :numref:`tab95`
+shows the 90\ :sup:`th` – 100\ :sup:`th` percentiles and :numref:`tab96`
 displays the largest 50 values for LANDSIZEHA. Based on these values, we
 conclude that values of LANDSIZEHA over 40 make the household very
 identifiable. These large households and households with large land
 plots need extra protection, as discussed in Step 8a.
 
-Example 9.14 Percentiles of LANDSIZE and listing the sizes of the
-largest 50 plots
+.. code-block:: R
+   :linenos:
+   :caption: Percentiles of LANDSIZE and listing the sizes of the largest 50 plots
+   :name: code914
+   
+   # 1st - 100th percentiles of land size
+   quantile(fileHH$LANDSIZEHA, probs = (1:100)/100, na.rm= TRUE)
+   
+   # Values of landsize for largest 50 plots
+   tail(sort(fileHH$LANDSIZEHA), n = 50)
 
-| *# 1st - 100th percentiles of land size*
-| **quantile**\ (fileHH$LANDSIZEHA, probs = (1:100)/100, na.rm= TRUE)
+.. _tab95:
 
-| *# Values of landsize for largest 50 plots*
-| **tail**\ (**sort**\ (fileHH$LANDSIZEHA), n = 50)
+.. table:: Percentiles 90-100 of the variable LANDSIZE
+   :widths: auto
+   :align: center
+   
+   ============  =======  =======  =======  ========  ===========  =======
+    Percentile     90      91       92       93        94           95  
+   ============  =======  =======  =======  ========  ===========  =======
+    Value         6.00     8.00     8.09     10.12      10.12       10.12 
+    Percentile    96       97       98       99         100               
+    Value         12.14    20.23    33.83    121.41     1,214.08          
+   ============  =======  =======  =======  ========  ===========  =======
 
-Table 9.5: Percentiles 90-100 of the variable LANDSIZE
+.. _tab96:
 
-+----------------+-------+-------+-------+--------+----------+-------+
-| **Percentile** | 90    | 91    | 92    | 93     | 94       | 95    |
-+================+=======+=======+=======+========+==========+=======+
-| **Value**      | 6.00  | 8.00  | 8.09  | 10.12  | 10.12    | 10.12 |
-+----------------+-------+-------+-------+--------+----------+-------+
-| **Percentile** | 96    | 97    | 98    | 99     | 100      |       |
-+----------------+-------+-------+-------+--------+----------+-------+
-| **Value**      | 12.14 | 20.23 | 33.83 | 121.41 | 1,214.08 |       |
-+----------------+-------+-------+-------+--------+----------+-------+
+.. table:: 50 largest values of the variable LANDSIZE
+   :widths: auto
+   :align: center
 
-Table 9.6: 50 largest values of the variable LANDSIZE
-
-+--------+--------+--------+--------+--------+--------+--------+--------+--------+---------+
-| 12.14  | 15.00  | 15.37  | 15.78  | 16.19  | 20.00  | 20.23  | 20.23  | 20.23  | 20.23   |
-+========+========+========+========+========+========+========+========+========+=========+
-| 20.23  | 20.23  | 20.23  | 20.23  | 20.23  | 20.23  | 20.23  | 20.23  | 20.23  | 20.23   |
-+--------+--------+--------+--------+--------+--------+--------+--------+--------+---------+
-| 20.23  | 20.23  | 20.50  | 30.35  | 32.38  | 40.47  | 40.47  | 40.47  | 40.47  | 40.47   |
-+--------+--------+--------+--------+--------+--------+--------+--------+--------+---------+
-| 40.47  | 40.47  | 80.93  | 80.93  | 80.93  | 80.93  | 121.41 | 121.41 | 161.88 | 161.88  |
-+--------+--------+--------+--------+--------+--------+--------+--------+--------+---------+
-| 161.88 | 182.11 | 246.86 | 263.05 | 283.29 | 404.69 | 404.69 | 607.04 | 809.39 | 1214.08 |
-+--------+--------+--------+--------+--------+--------+--------+--------+--------+---------+
+   ========  ========  ========  ========  ========  ========  ========  ========  ========  =========  
+    12.14     15.00     15.37     15.78     16.19     20.00     20.23     20.23     20.23     20.23     
+    20.23     20.23     20.23     20.23     20.23     20.23     20.23     20.23     20.23     20.23     
+    20.23     20.23     20.50     30.35     32.38     40.47     40.47     40.47     40.47     40.47     
+    40.47     40.47     80.93     80.93     80.93     80.93     121.41    121.41    161.88    161.88    
+    161.88    182.11    246.86    263.05    283.29    404.69    404.69    607.04    809.39    1214.08   
+   ========  ========  ========  ========  ========  ========  ========  ========  ========  =========  
 
 **Step 7a: Assessing utility measures (household level)**
 
@@ -1102,7 +1043,7 @@ continuous quasi-identifiers.
 The variable HHSIZE poses a problem for the anonymization of the file,
 since suppressing it will not anonymize this variable: a simple
 headcount based on the household ID would allow the reconstruction of
-this variable. Table 9.7 shows the absolute frequencies of HHSIZE. The
+this variable. :numref:`tab97` shows the absolute frequencies of HHSIZE. The
 number of households for each size larger than 13 is 6 or fewer and can
 be considered outliers with a higher risk of re-identification, as
 discussed in Step 6a. One way to deal with this is to remove all
@@ -1118,39 +1059,44 @@ measure of removing these 29 households is, however, limited, due to the
 relatively small number of removed households in comparison to the total
 number of 2,000 households. Removing the households is primarily to
 protect these specific households, not to reduce the global risk.
-**NOTE: When using sdcMicro and manually removing households, the
-sdcMicro object should be recreated based on the new, manually edited
-dataset.** Changes, such as removing records, cannot be done in the
-*sdcMicro* object. Example 9.15 illustrates the way to remove households
+
+.. NOTE: 
+	When using sdcMicro and manually removing households, the
+	sdcMicro object should be recreated based on the new, manually edited
+	dataset. 
+	
+Changes, such as removing records, cannot be done in the
+*sdcMicro* object. :numref:`code915` illustrates the way to remove households
 and recreate the *sdcMicro* object.
 
-Table 9.7: Frequencies of variable HHSIZE (household size)
+.. _tab97:
 
-+---------------+-----+-----+-----+-----+-----+-----+-----+-----+----+----+----+----+
-| **HHSIZE**    | 1   | 2   | 3   | 4   | 5   | 6   | 7   | 8   | 9  | 10 | 11 | 12 |
-+===============+=====+=====+=====+=====+=====+=====+=====+=====+====+====+====+====+
-| **Frequency** | 152 | 194 | 238 | 295 | 276 | 252 | 214 | 134 | 84 | 66 | 34 | 21 |
-+---------------+-----+-----+-----+-----+-----+-----+-----+-----+----+----+----+----+
-| **HHSIZE**    | 13  | 14  | 15  | 16  | 17  | 18  | 19  | 20  | 21 | 22 | 33 |    |
-+---------------+-----+-----+-----+-----+-----+-----+-----+-----+----+----+----+----+
-| **Frequency** | 11  | 6   | 6   | 5   | 4   | 2   | 1   | 2   | 1  | 1  | 1  |    |
-+---------------+-----+-----+-----+-----+-----+-----+-----+-----+----+----+----+----+
+.. table:: Frequencies of variable HHSIZE (household size)
+   :widths: auto
+   :align: center
 
-Example 9.15: Removing households with large (rare) household sizes
+   ===========  =====  =====  =====  =====  =====  =====  =====  =====  ====  ====  ====   ==== 
+    HHSIZE       1      2      3      4      5      6      7      8      9     10    11     12  
+    Frequency    152    194    238    295    276    252    214    134    84    66    34     21  
+    HHSIZE       13     14     15     16     17     18     19     20     21    22    33        
+    Frequency    11     6      6      5      4      2      1      2      1     1     1         
+   ===========  =====  =====  =====  =====  =====  =====  =====  =====  ====  ====  ====   ==== 
 
-| *# Tabulation of variable HHSIZE*
-| **table**\ (sdcHH@manipKeyVars$HHSIZE)
+.. code-block:: R
+   :linenos:
+   :caption: Removing households with large (rare) household sizes
+   :name: code915
+   
+   # Tabulation of variable HHSIZE
+   table(sdcHH@manipKeyVars$HHSIZE)
 
-| *# Remove large households (14 or more household members) from file
-  and fileHH*
-| file <- file[!file[,'HHSIZE'] >= 14,]
+   # Remove large households (14 or more household members) from file and fileHH
+   file <- file[!file[,'HHSIZE'] >= 14,]
 
-fileHHnew <- fileHH[!fileHH[,'HHSIZE'] >= 14,]
+   fileHHnew <- fileHH[!fileHH[,'HHSIZE'] >= 14,]
 
-| *# Create new sdcMicro object based on the file without the removed
-  households*
-| sdcHH <- **createSdcObj**\ (dat=fileHHnew, keyVars=selectedKeyVarsHH,
-  pramVars=pramVarsHH, weightVar=weightVarHH, numVars = numVarsHH)
+   # Create new sdcMicro object based on the file without the removed households
+   sdcHH <- createSdcObj(dat=fileHHnew, keyVars=selectedKeyVarsHH, pramVars=pramVarsHH, weightVar=weightVarHH, numVars = numVarsHH)
 
 **Categorical variables**
 
@@ -1194,7 +1140,7 @@ variables.
 In *sdcMicro* it is possible to tell the algorithm which variables are
 important and less important for making small changes (see also Section
 5.2.2). To prevent HHSIZE being suppressed, we set the importance of
-HHSIZE in the importance vectors to the highest (i.e., 1). Example 9.16
+HHSIZE in the importance vectors to the highest (i.e., 1). :numref:`code916`
 shows how to apply local suppression and put importance on the variable
 HHSIZE. The variable REGION is the type of variable that should not have
 any suppressions either. We also set the importance of REGION to 2 and
@@ -1208,44 +1154,48 @@ suppression. The total number of suppressions is higher than without
 importance vector (71 vs. 46), but 2-anonymity is achieved in the
 dataset with fewer suppressions in the variables HHSIZE and REGION. We
 remove the one household with the suppressed value of HHSIZE (13) to
-protect this household. **NOTE: In** Example 9.16 **we use the
-undolast() function in sdcMicro to go one step back after we had first
-applied local suppression with no importance vector.** The undolast()
-function restores the *sdcMicro* object back to the previous state
+protect this household. 
+
+.. NOTE:: 
+	In :numref:`code916` we use the undolast() function in sdcMicro to go one step back after we had first
+	applied local suppression with no importance vector.
+	
+The undolast() function restores the *sdcMicro* object back to the previous state
 (i.e., before we applied local suppression), which allows us to rerun
 the same command, but this time with an importance vector set. The
 undolast() function can only be used to go one step back.
 
-Example 9.16: Local suppression with and without importance vector
+.. code-block:: R
+   :linenos:
+   :caption: Local suppression with and without importance vector
+   :name: code916
+   
+   # Local suppression
+   sdcHH <- localSuppression(sdcHH, k=2, importance = NULL) # no importance vector
 
-| *# Local suppression*
-| sdcHH <- **localSuppression**\ (sdcHH, k=2, importance = NULL) *# no
-  importance vector*
+   print(sdcHH, "ls")
+   ## Local Suppression:
+   ##     KeyVar | Suppressions (#) | Suppressions (%)
+   ##     URBRUR |                0 |            0.000
+   ##     REGION |                4 |            0.203
+   ##     HHSIZE |               37 |            1.877
+   ##  OWNAGLAND |                0 |            0.000
+   ##      RELIG |                0 |            0.000
 
-**print**\ (sdcHH, "ls")
+   sdcHH <- undolast(sdcHH)
 
-| ``## Local Suppression:``
-| ``##     KeyVar | Suppressions (#) | Suppressions (%)``
-| ``##     URBRUR |                0 |            0.000``
-| ``##     REGION |                4 |            0.203``
-| ``##     HHSIZE |               37 |            1.877``
-| ``##  OWNAGLAND |                0 |            0.000``
-| ``##      RELIG |                0 |            0.000``
+   sdcHH <- localSuppression(sdcHH, k=2, importance = c(3, 2, 1, 5, 5)) 
+   # importance on HHSIZE (1), REGION (2) and URBRUR (3)
 
-sdcHH <- **undolast**\ (sdcHH)
+   print(sdcHH, "ls")
 
-sdcHH <- **localSuppression**\ (sdcHH, k=2, importance = **c**\ (3, 2,
-1, 5, 5)) *# importance on HHSIZE (1), REGION (2) and URBRUR (3)*
-
-**print**\ (sdcHH, "ls")
-
-| ``## Local Suppression:``
-| ``##     KeyVar | Suppressions (#) | Suppressions (%)``
-| ``##     URBRUR |                6 |            0.304``
-| ``##     REGION |                1 |            0.051``
-| ``##     HHSIZE |                1 |            0.051``
-| ``##  OWNAGLAND |               43 |            2.182``
-| ``##      RELIG |               16 |            0.812``
+   ## Local Suppression:
+   ##     KeyVar | Suppressions (#) | Suppressions (%)
+   ##     URBRUR |                6 |            0.304
+   ##     REGION |                1 |            0.051
+   ##     HHSIZE |                1 |            0.051
+   ##  OWNAGLAND |               43 |            2.182
+   ##      RELIG |               16 |            0.812
 
 The variables ROOF, TOILET, WATER, ELECTCON, FUELCOOK, OWNMOTORCYCLE,
 CAR, TV and LIVESTOCK are not sensitive variables and were not selected
@@ -1260,7 +1210,7 @@ variables ROOF, TOILET, WATER, ELECTCON, FUELCOOK, OWNMOTORCYCLE, CAR,
 TV and LIVESTOCK, where we treat LIVESTOCK as a semi-continuous variable
 due to the low number of different values. Section 5.3.1 provides more
 information on the PRAM method and its implementation in *sdcMicro*.
-Example 9.17 illustrates how to apply PRAM. We choose the parameter
+:numref:`code917` illustrates how to apply PRAM. We choose the parameter
 *pd*, the lower bound for the probability that a value is not changed,
 to be relatively high at 0.8. We can choose a high value, because the
 variables themselves are not sensitive and we only want to introduce a
@@ -1270,32 +1220,40 @@ REGION, we decide to use the variable REGION as a strata variable. In
 this way the transition matrix is computed for each region separately.
 Because PRAM is a probabilistic method, we set a seed for the random
 number generator before applying PRAM to ensure reproducibility of the
-results. **NOTE: In practice, it is not advisable to set a seed of
-12345, but rather a longer more complex and less easy to guess
-sequence.** The seed should not be released, since it allows for
+results. 
+
+.. NOTE:: 
+	In practice, it is not advisable to set a seed of
+	12345, but rather a longer more complex and less easy to guess
+	sequence. 
+
+The seed should not be released, since it allows for
 reconstructing the original values if combined with the transition
 matrix. The transition matrix can be released: this allows for
 consistent statistical inference by correcting the statistical methods
 used if the researcher has knowledge about the PRAM method (at this
 point *sdcMicro* does not allow the retrieval of the transition matrix).
 
-Example 9.17: Applying PRAM
+.. code-block:: R
+   :linenos:
+   :caption: Applying PRAM
+   :name: code917
+   
+   # Pram
+   set.seed(12345)
+   sdcHH <- pram(sdcHH, strata_variables = "REGION", pd = 0.8)
 
-| *# Pram*
-| **set.seed**\ (12345)
-| sdcHH <- **pram**\ (sdcHH, strata_variables = "REGION", pd = 0.8)
-
-| ``## Number of changed observations:``
-| ``## - - - - - - - - - - -``
-| ``## ROOF != ROOF_pram : 98 (4.97%)``
-| ``## TOILET != TOILET_pram : 151 (7.66%)``
-| ``## WATER != WATER_pram : 167 (8.47%)``
-| ``## ELECTCON != ELECTCON_pram : 90 (4.57%)``
-| ``## FUELCOOK != FUELCOOK_pram : 113 (5.73%)``
-| ``## OWNMOTORCYCLE != OWNMOTORCYCLE_pram : 41 (2.08%)``
-| ``## CAR != CAR_pram : 172 (8.73%)``
-| ``## TV != TV_pram : 137 (6.95%)``
-| ``## LIVESTOCK != LIVESTOCK_pram : 149 (7.56%)``
+   ## Number of changed observations:
+   ## - - - - - - - - - - -
+   ## ROOF != ROOF_pram : 98 (4.97%)
+   ## TOILET != TOILET_pram : 151 (7.66%)
+   ## WATER != WATER_pram : 167 (8.47%)
+   ## ELECTCON != ELECTCON_pram : 90 (4.57%)
+   ## FUELCOOK != FUELCOOK_pram : 113 (5.73%)
+   ## OWNMOTORCYCLE != OWNMOTORCYCLE_pram : 41 (2.08%)
+   ## CAR != CAR_pram : 172 (8.73%)
+   ## TV != TV_pram : 137 (6.95%)
+   ## LIVESTOCK != LIVESTOCK_pram : 149 (7.56%)
 
 PRAM has changed values within the variables according to the invariant
 transition matrices. Since we used the invariant PRAM method (see
@@ -1313,53 +1271,46 @@ data: many users use the data for measuring inequality and expenditure
 patterns.
 
 Based on the risk evaluation in Step 6a, we decide to anonymize the
-variable LANDSIZEHA by top coding at the value 40 (cf. Table 9.5 and
-Table 9.6) and round values smaller than 1 to one digit, and values
+variable LANDSIZEHA by top coding at the value 40 (cf. :numref:`tab95` and
+:numref:`tab96`) and round values smaller than 1 to one digit, and values
 larger than 1 to zero digits. Rounding the values prevents exact
 matching with the available cadastral register. Furthermore, we group
 the values between 5 and 40 in the groups 5 – 19 and 20 – 39. After
 these steps, no household has a unique plot size and the number of
 households in the sample with the same plot size was increased to at
 least 7. This is shown by the tabulation of the variable LANDSIZEHA
-after manipulation in the last line of Example 9.18. In addition, all
+after manipulation in the last line of :numref:`code918`. In addition, all
 outliers have been removed by top coding the values. This has reduced
 the risk of spontaneous recognition as discussed in Step 6. How to
 recode values in *R* is introduced in Section 5.2.1 and, for this
-particular case, shown in Example 9.18.
+particular case, shown in :numref:`code918`.
 
-Example 9.18: Anonymizing the variable LANDSIZEHA
+.. code-block:: R
+   :linenos:
+   :caption: Anonymizing the variable LANDSIZEHA
+   :name: code918
+   
+   # Rounding values of LANDSIZEHA to 1 digit for plots smaller than 1 and to 0 digits for plots larger than 1
+   sdcHH@manipNumVars$LANDSIZEHA[sdcHH@manipNumVars$LANDSIZEHA <= 1 & !\ is.na(sdcHH@manipNumVars$LANDSIZEHA)] <-
+		round(sdcHH@manipNumVars$LANDSIZEHA[sdcHH@manipNumVars$LANDSIZEHA <= 1 & !is.na(sdcHH@manipNumVars$LANDSIZEHA)], digits = 1)
 
-| *# Rounding values of LANDSIZEHA to 1 digit for plots smaller than 1
-  and to 0 digits for plots larger than 1*
-| sdcHH@manipNumVars$LANDSIZEHA[sdcHH@manipNumVars$LANDSIZEHA <= 1 &
-  !\ **is.na**\ (sdcHH@manipNumVars$LANDSIZEHA)] <-
-  **round**\ (sdcHH@manipNumVars$LANDSIZEHA[sdcHH@manipNumVars$LANDSIZEHA
-  <= 1 & !\ **is.na**\ (sdcHH@manipNumVars$LANDSIZEHA)], digits = 1)
+   sdcHH@manipNumVars$LANDSIZEHA[sdcHH@manipNumVars$LANDSIZEHA > 1 & !is.na(sdcHH@manipNumVars$LANDSIZEHA)] <-
+		round(sdcHH@manipNumVars$LANDSIZEHA[sdcHH@manipNumVars$LANDSIZEHA > 1 & !is.na(sdcHH@manipNumVars$LANDSIZEHA)], digits = 0)
 
-sdcHH@manipNumVars$LANDSIZEHA[sdcHH@manipNumVars$LANDSIZEHA > 1 &
-!\ **is.na**\ (sdcHH@manipNumVars$LANDSIZEHA)] <-
-**round**\ (sdcHH@manipNumVars$LANDSIZEHA[sdcHH@manipNumVars$LANDSIZEHA
-> 1 & !\ **is.na**\ (sdcHH@manipNumVars$LANDSIZEHA)], digits = 0)
+   # Grouping values of LANDSIZEHA into intervals 5-19, 20-39
+   sdcHH@manipNumVars$LANDSIZEHA[sdcHH@manipNumVars$LANDSIZEHA >= 5 &
+   sdcHH@manipNumVars$LANDSIZEHA < 20 & !is.na(sdcHH@manipNumVars$LANDSIZEHA)] <- 13
 
-| *# Grouping values of LANDSIZEHA into intervals 5-19, 20-39*
-| sdcHH@manipNumVars$LANDSIZEHA[sdcHH@manipNumVars$LANDSIZEHA >= 5 &
-  sdcHH@manipNumVars$LANDSIZEHA < 20 &
-  !\ **is.na**\ (sdcHH@manipNumVars$LANDSIZEHA)] <- 13
+   sdcHH@manipNumVars$LANDSIZEHA[sdcHH@manipNumVars$LANDSIZEHA >= 20 &
+   sdcHH@manipNumVars$LANDSIZEHA < 40 &!is.na(sdcHH@manipNumVars$LANDSIZEHA)] <- 30
 
-sdcHH@manipNumVars$LANDSIZEHA[sdcHH@manipNumVars$LANDSIZEHA >= 20 &
-sdcHH@manipNumVars$LANDSIZEHA < 40 &
-!\ **is.na**\ (sdcHH@manipNumVars$LANDSIZEHA)] <- 30
+   # Topcoding values of LANDSIZEHA larger than 40 (also recomputes risk after manual changes)
+   sdcHH <- topBotCoding(sdcHH, value = 40, replacement = 40, kind = 'top', column = 'LANDSIZEHA')
 
-| *# Topcoding values of LANDSIZEHA larger than 40 (also recomputes risk
-  after manual changes)*
-| sdcHH <- **topBotCoding**\ (sdcHH, value = 40, replacement = 40, kind
-  = 'top', column = 'LANDSIZEHA')
-
-| *# Results for LANDSIZEHA*
-| **table**\ (sdcHH@manipNumVars$LANDSIZEHA)
-
-| ``##   0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9   1   2   3   4  13  30  40``
-| ``## 188 109  55  30  24  65  22   7  31  16 154 258  53  60 113  18  25``
+   # Results for LANDSIZEHA
+   table(sdcHH@manipNumVars$LANDSIZEHA)
+   ##   0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9   1   2   3   4  13  30  40
+   ## 188 109  55  30  24  65  22   7  31  16 154 258  53  60 113  18  25
 
 For the expenditure and income variables we compared, **based on the
 actual case study data**, several methods. As mentioned earlier, the
@@ -1393,63 +1344,56 @@ applying noise only to the aggregates. A noise level of 0.01 seems to be
 sufficient with extra noise of 0.05 added to the outliers. The outliers
 are defined by a robust Mahalanobis distance (see Section 5.3.3). After
 adding noise to the components, we recomputed the aggregates as the sum
-of the perturbed components. **NOTE: This result is only based on the
-actual case study dataset and is not necessarily true for other
-datasets.** The noise addition is shown in Example 9.19. Before applying
+of the perturbed components. 
+
+.. NOTE:: 
+	This result is only based on the actual case study dataset and is not necessarily true for other datasets. 
+
+The noise addition is shown in :numref:`code919`. Before applying
 probabilistic methods such as noise addition, we set a seed for the
 random number generator. This allows us to reproduce the results.
 
-Example 9.19: Anonymizing continuous variables
+.. code-block:: R
+   :linenos:
+   :caption: Anonymizing continuous variables
+   :name: code919
+   
+   # Add noise to income and expenditure variables by category
 
-*# Add noise to income and expenditure variables by category*
+   # Anonymize components
+   compExp <- c("TFOODEXP", "TALCHEXP", "TCLTHEXP", "THOUSEXP",
+                "TFURNEXP", "THLTHEXP", "TTRANSEXP", "TCOMMEXP", "TRECEXP", "TEDUEXP",
+                "TRESHOTEXP", "TMISCEXP")
+   set.seed(123)
 
-| *# Anonymize components*
-| compExp <- **c**\ ("TFOODEXP", "TALCHEXP", "TCLTHEXP", "THOUSEXP",
-  "TFURNEXP", "THLTHEXP", "TTRANSEXP", "TCOMMEXP", "TRECEXP", "TEDUEXP",
-  "TRESHOTEXP", "TMISCEXP")
-| **set.seed**\ (123)
+   # Add noise to expenditure variables*
+   sdcHH <- addNoise(noise = 0.01, obj = sdcHH, variables = compExp, method = "additive")
 
-*# Add noise to expenditure variables*
+   # Add noise to outliers
+   sdcHH <- addNoise(noise = 0.05, obj = sdcHH, variables = compExp, method = "outdect")
 
-sdcHH <- **addNoise**\ (noise = 0.01, obj = sdcHH, variables = compExp,
-method = "additive")
+   # Sum over expenditure categories to obtain consistent totals
+   sdcHH@manipNumVars[,'TANHHEXP'] <- rowSums(sdcHH@manipNumVars[,compExp])
+   compInc <- c('INCRMT', 'INCWAGE', 'INCFARMBSN', 'INCNFARMBSN',
+                'INCRENT', 'INCFIN', 'INCPENSN', 'INCOTHER')
+   
+   # Add noise to income variables
+   sdcHH <- addNoise(noise = 0.01, obj = sdcHH, variables = compInc, method = "additive")
 
-*# Add noise to outliers*
+   # Add noise to outliers
+   sdcHH <- addNoise(noise = 0.05, obj = sdcHH, variables = compInc, method = "outdect")
 
-sdcHH <- **addNoise**\ (noise = 0.05, obj = sdcHH, variables = compExp,
-method = "outdect")
+   # Sum over income categories to obtain consistent totals
+   sdcHH@manipNumVars[,'INCTOTGROSSHH'] <- rowSums(sdcHH@manipNumVars[,compInc])
 
-*# Sum over expenditure categories to obtain consistent totals*
-
-sdcHH@manipNumVars[,'TANHHEXP'] <-
-**rowSums**\ (sdcHH@manipNumVars[,compExp])
-
-| compInc <- **c**\ ('INCRMT', 'INCWAGE', 'INCFARMBSN', 'INCNFARMBSN',
-  'INCRENT', 'INCFIN', 'INCPENSN', 'INCOTHER')
-| *# Add noise to income variables*
-
-sdcHH <- **addNoise**\ (noise = 0.01, obj = sdcHH, variables = compInc,
-method = "additive")
-
-*# Add noise to outliers*
-
-sdcHH <- **addNoise**\ (noise = 0.05, obj = sdcHH, variables = compInc,
-method = "outdect")
-
-*# Sum over income categories to obtain consistent totals*
-
-sdcHH@manipNumVars[,'INCTOTGROSSHH'] <-
-**rowSums**\ (sdcHH@manipNumVars[,compInc])
-
-*# recalculate risks after manually changing values in sdcMicro object*
-
-**calcRisks**\ (sdcHH)
+   # recalculate risks after manually changing values in sdcMicro object*
+   calcRisks(sdcHH)
 
 **Step 9a: Re-measure risk**
 
 For the categorical variables, we conclude that we have achieved
 2-anonymity in the data with local suppression. Only 104 households, or
-about 5% of the total number, violate 3-anonymity. Table 9.8 gives an
+about 5% of the total number, violate 3-anonymity. :numref:`tab98` gives an
 overview of these risk measures. The global risk is reduced to 0.02%
 (expected number of re-identifications 0.36), which is extremely low.
 Therefore, we conclude that based on the categorical variables, the data
@@ -1463,18 +1407,19 @@ nosy neighbor scenario. An intruder cannot know with certainty whether a
 household that he recognizes in the data is the correct household, due
 to the noise.
 
-Table 9.8: Number and proportion of households violating k-anonymity
-after anonymization
+.. _tab98:
 
-+-----------------+-------------------------+----------------+
-| **k-anonymity** | **Number HH violating** | **Percentage** |
-+=================+=========================+================+
-| 2               | 0                       | 0 %            |
-+-----------------+-------------------------+----------------+
-| 3               | 104                     | 5.28 %         |
-+-----------------+-------------------------+----------------+
-| 5               | 374                     | 18.70 %        |
-+-----------------+-------------------------+----------------+
+.. table:: Number and proportion of households violating k-anonymity after anonymization
+   :widths: auto
+   :align: center
+
+   =============  =====================  ============
+    k-anonymity    Number HH violating    Percentage
+   =============  =====================  ============
+    2              0                      0 %         
+    3              104                    5.28 %      
+    5              374                    18.70 %     
+   =============  =====================  ============
 
 These measures refer only to the categorical variables. To evaluate the
 risk of the continuous variables we could use an interval measure or
@@ -1486,7 +1431,7 @@ values could be used for matching. Here the main concern is that the
 values are sufficiently far from the original values, which is measured
 with an interval measure.
 
-Example 9.20 shows how to evaluate the interval measure for each of the
+:numref:`code920` shows how to evaluate the interval measure for each of the
 expenditure variables, which are contained in the vector
 *compExp* [#foot72]_. The different values of the parameter
 *k* in the function dRisk() define the size of the interval around the
@@ -1505,23 +1450,19 @@ perspective and based on the interval measure, the chosen levels of
 noise are acceptable. In the next step, we will look at the impact on
 the data utility of the noise addition.
 
-Example 9.20: Measuring risk of re-identification of continuous
-variables
-
-**dRisk**\ (sdcHH@origData[,compExp], xm = sdcHH@manipNumVars[,compExp],
-k = 0.01)
-
-[1] 0.0608828
-
-**dRisk**\ (sdcHH@origData[,compExp], xm = sdcHH@manipNumVars[,compExp],
-k = 0.02)
-
-**[1] 0.9025875**
-
-**dRisk**\ (sdcHH@origData[,compExp], xm = sdcHH@manipNumVars[,compExp],
-k = 0.05)
-
-[1] 1
+.. code-block:: R
+   :linenos:
+   :caption: Measuring risk of re-identification of continuous variables
+   :name: code920
+   
+   dRisk(sdcHH@origData[,compExp], xm = sdcHH@manipNumVars[,compExp], k = 0.01)
+   [1] 0.0608828
+   
+   dRisk(sdcHH@origData[,compExp], xm = sdcHH@manipNumVars[,compExp], k = 0.02)
+   [1] 0.9025875
+   
+   dRisk(sdcHH@origData[,compExp], xm = sdcHH@manipNumVars[,compExp], k = 0.05)
+   [1] 1
 
 **Step 10a: Re-measure utility**
 
@@ -1533,78 +1474,69 @@ variables, which has not greatly reduced the validity of the data.
 The univariate frequency distributions of the variables ROOF, TOILET,
 WATER, ELECTCON, FUELCOOK, OWNMOTORCYCLE, CAR, TV and LIVESTOCK did not,
 by definition of the invariant PRAM method (see Section 5.3.1), change
-to a large extent. The tabulations are presented in Table 9.9 (the
+to a large extent. The tabulations are presented in :numref:`tab99` (the
 values 1 – 9 and NA in the first row are the values of the variables and
 .m after the variable name refers to the values after anonymization).
-**NOTE: Although the frequencies are almost the same, this does not mean
-that the values of particular households did not change.** Values have
-been swapped between households. This becomes apparent when looking at
+
+.. NOTE:: 
+	Although the frequencies are almost the same, this does not mean
+	that the values of particular households did not change.
+	
+Values have been swapped between households. This becomes apparent when looking at
 the multivariate frequencies of the WATER with the variable URBRUR in
-Table 9.10. The multivariate frequencies of the PRAMmed with the
+:numref:`tab910`. The multivariate frequencies of the PRAMmed with the
 variable URBRUR could be of interest for users, but these are not
 preserved. Since we applied PRAM within the regions, the multivariate
 frequencies of the PRAMmed variables with REGION are preserved.
 
-Table 9.9: Univariate frequencies of the PRAMmed variable before and
-after anonymization
+.. _tab99:
 
-+-----------------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+--------+
-|                 | **0** | **1** | **2** | **3** | **4** | **5** | **6** | **7** | **8** | **9** | **NA** |
-+=================+=======+=======+=======+=======+=======+=======+=======+=======+=======+=======+========+
-| ROOF            |       | 27    | 1     | 914   | 307   | 711   |       |       |       | 10    | 1      |
-+-----------------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+--------+
-| ROOF.m          |       | 25    | 1     | 907   | 319   | 712   |       |       |       | 6     | 1      |
-+-----------------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+--------+
-| TOILET          |       | 76    | 594   | 817   | 481   |       |       |       |       | 3     |        |
-+-----------------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+--------+
-| TOILET.m        |       | 71    | 597   | 816   | 483   |       |       |       |       | 4     |        |
-+-----------------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+--------+
-| WATER           |       | 128   | 323   | 304   | 383   | 562   | 197   | 18    | 21    | 35    |        |
-+-----------------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+--------+
-| WATER.m         |       | 134   | 319   | 308   | 378   | 573   | 188   | 16    | 21    | 34    |        |
-+-----------------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+--------+
-| ELECTCON        | 768   | 216   | 8     | 2     |       |       |       |       |       |       | 977    |
-+-----------------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+--------+
-| ELECTCON.m      | 761   | 218   | 8     | 3     |       |       |       |       |       |       | 981    |
-+-----------------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+--------+
-| FUELCOOK        |       | 1289  | 21    | 376   | 55    | 36    |       |       |       | 139   | 55     |
-+-----------------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+--------+
-| FUELCOOK.m      |       | 1284  | 22    | 383   | 50    | 39    |       |       |       | 143   | 50     |
-+-----------------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+--------+
-| OWNMOTORCYCLE   | 1883  | 86    |       |       |       |       |       |       |       |       | 2      |
-+-----------------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+--------+
-| OWNMOTORCYCLE.m | 1882  | 86    |       |       |       |       |       |       |       |       | 2      |
-+-----------------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+--------+
-| CAR             | 963   | 31    |       |       |       |       |       |       |       |       | 977    |
-+-----------------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+--------+
-| CAR.m           | 966   | 25    |       |       |       |       |       |       |       |       |        |
-+-----------------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+--------+
-| TV              | 1216  | 264   |       |       |       |       |       |       |       |       | 491    |
-+-----------------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+--------+
-| TV.m            | 1203  | 272   |       |       |       |       |       |       |       |       | 496    |
-+-----------------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+--------+
+.. table:: Univariate frequencies of the PRAMmed variable before and after anonymization
+   :widths: auto
+   :align: center
+   
+  =================  =======  =======  =======  =======  =======  =======  =======  =======  =======  =======  ========
+                        0        1        2        3        4        5        6        7        8        9        NA   
+  =================  =======  =======  =======  =======  =======  =======  =======  =======  =======  =======  ========
+   ROOF                        27       1        914      307      711                                 10       1      
+   ROOF.m                      25       1        907      319      712                                 6        1      
+   TOILET                      76       594      817      481                                          3               
+   TOILET.m                    71       597      816      483                                          4               
+   WATER                       128      323      304      383      562      197      18       21       35              
+   WATER.m                     134      319      308      378      573      188      16       21       34              
+   ELECTCON           768      216      8        2                                                              977    
+   ELECTCON.m         761      218      8        3                                                              981    
+   FUELCOOK                    1289     21       376      55       36                                  139      55     
+   FUELCOOK.m                  1284     22       383      50       39                                  143      50     
+   OWNMOTORCYCLE      1883     86                                                                               2      
+   OWNMOTORCYCLE.m    1882     86                                                                               2      
+   CAR                963      31                                                                               977    
+   CAR.m              966      25                                                                                      
+   TV                 1216     264                                                                              491    
+   TV.m               1203     272                                                                              496    
+  =================  =======  =======  =======  =======  =======  =======  =======  =======  =======  =======  ========
 
-Table 9.10: Multivariate frequencies of the variables WATER with RURURB
-before and after anonymization
+.. _tab910:
 
-+-------------+-------+-------+-------+-------+-------+-------+-------+-------+-------+
-|             | **1** | **2** | **3** | **4** | **5** | **6** | **7** | **8** | **9** |
-+=============+=======+=======+=======+=======+=======+=======+=======+=======+=======+
-| WATER/URB   | 11    | 49    | 270   | 306   | 432   | 183   | 12    | 15    | 21    |
-+-------------+-------+-------+-------+-------+-------+-------+-------+-------+-------+
-| WATER/RUR   | 114   | 274   | 32    | 76    | 130   | 14    | 6     | 6     | 14    |
-+-------------+-------+-------+-------+-------+-------+-------+-------+-------+-------+
-| WATER/URB.m | 79    | 220   | 203   | 229   | 402   | 125   | 10    | 12    | 19    |
-+-------------+-------+-------+-------+-------+-------+-------+-------+-------+-------+
-| WATER/RUR.m | 54    | 98    | 105   | 147   | 169   | 63    | 6     | 9     | 15    |
-+-------------+-------+-------+-------+-------+-------+-------+-------+-------+-------+
+.. table:: Multivariate frequencies of the variables WATER with RURURB before and after anonymization
+   :widths: auto
+   :align: center
+
+   =============  =======  =======  =======  =======  =======  =======  =======  =======  =======
+                     1        2        3        4        5        6        7        8        9   
+   =============  =======  =======  =======  =======  =======  =======  =======  =======  =======
+    WATER/URB      11       49       270      306      432      183      12       15       21    
+    WATER/RUR      114      274      32       76       130      14       6        6        14    
+    WATER/URB.m    79       220      203      229      402      125      10       12       19    
+    WATER/RUR.m    54       98       105      147      169      63       6        9        15    
+   =============  =======  =======  =======  =======  =======  =======  =======  =======  =======
 
 For conciseness, we restrict ourselves to the analysis of the
 expenditure variables. The analysis of the income variables can be done
 in the same way and leads to similar results.
 
 We look at the effect of anonymization on some indicators as discussed
-in Step 5. Table 9.11 presents the point estimates and bootstrapped
+in Step 5. :numref:`tab911` presents the point estimates and bootstrapped
 confidence interval of the GINI coefficient [#foot73]_ for
 the sum of the expenditure components. The calculation of the GINI
 coefficient and the confidence interval are based on the positive
@@ -1613,72 +1545,70 @@ coefficient, that are statistically negligible. We use a visualization
 to illustrate the impact on utility of the anonymization. Visualizations
 are discussed in Section 6.4 and the specific *R* code for this case
 study is available in the *R* script. The change in the inequality
-measures is illustrated in Figure 9.1, which shows the Lorenz curves
+measures is illustrated in :numref:`fig91`, which shows the Lorenz curves
 based on the positive expenditure values before and after anonymization.
 
-Table 9.11: GINI point estimates and bootstrapped confidence intervals
-for sum of expenditure components
+.. _tab911:
 
-+-------------------+------------+-----------+
-|                   | **before** | **after** |
-+===================+============+===========+
-| Point estimate    | 0.510      | 0.508     |
-+-------------------+------------+-----------+
-| Left bound of CI  | 0.476      | 0.476     |
-+-------------------+------------+-----------+
-| Right bound of CI | 0.539      | 0.538     |
-+-------------------+------------+-----------+
+.. table:: GINI point estimates and bootstrapped confidence intervals for sum of expenditure components
+   :widths: auto
+   :align: center
+   
+   ===================   ============   =========== 
+                            before         after    
+   ===================   ============   =========== 
+    Point estimate        0.510          0.508      
+    Left bound of CI      0.476          0.476      
+    Right bound of CI     0.539          0.538      
+   ===================   ============   =========== 
 
-.. image:: media/image21.png
-   :width: 6.5in
-   :height: 3.25in
+.. _fig91:
 
-Figure 9.1: Lorenz curve based on positive total expenditures values
+.. figure:: media/image21.png
+   :align: center
+   
+   Lorenz curve based on positive total expenditures values
 
 We compare the mean monthly expenditures (MME) and mean monthly income
 (MMI) for rural, urban and total population. The results are shown in
-Table 9.12. We observe that the chosen levels of noise add only small
+:numref:`tab912`. We observe that the chosen levels of noise add only small
 distortions to the MME and slightly larger changes to the MMI.
 
-Table 9.12: Mean monthly expenditure and mean monthly income per capita
-by rural/urban
+.. _tab912:
 
-+-----------+------------+-----------+
-|           | **before** | **after** |
-+===========+============+===========+
-| MME rural | 400.5      | 398.5     |
-+-----------+------------+-----------+
-| MME urban | 457.3      | 459.9     |
-+-----------+------------+-----------+
-| MME total | 412.6      | 412.6     |
-+-----------+------------+-----------+
-| MMI rural | 397.1      | 402.2     |
-+-----------+------------+-----------+
-| MMI urban | 747.6      | 767.8     |
-+-----------+------------+-----------+
-| MMI total | 472.1      | 478.5     |
-+-----------+------------+-----------+
+.. table:: Mean monthly expenditure and mean monthly income per capita by rural/urban
+   :widths: auto
+   :align: center
+   
+   ===========  ============  ===========
+                   before        after   
+   ===========  ============  ===========
+    MME rural    400.5         398.5     
+    MME urban    457.3         459.9     
+    MME total    412.6         412.6     
+    MMI rural    397.1         402.2     
+    MMI urban    747.6         767.8     
+    MMI total    472.1         478.5     
+   ===========  ============  ===========
 
-Table 9.13 shows the share of each of the components of the expenditure
+:numref:`tab913` shows the share of each of the components of the expenditure
 variables before and after anonymization.
 
-Table 9.13 Shares of expenditures components
+.. _tab913:
 
-+---------+---------+---------+---------+---------+---------+---------+
-|         | **TFOOD | **TALCH | **TCLTH | **THOUS | **TFURN | **THLTH |
-|         | EXP**   | EXP**   | EXP**   | EXP**   | EXP**   | EXP**   |
-+=========+=========+=========+=========+=========+=========+=========+
-| before  | 0.58    | 0.01    | 0.03    | 0.09    | 0.02    | 0.03    |
-+---------+---------+---------+---------+---------+---------+---------+
-| after   | 0.59    | 0.01    | 0.03    | 0.09    | 0.02    | 0.03    |
-+---------+---------+---------+---------+---------+---------+---------+
-|         | **TTRAN | **TCOMM | **TRECE | **TEDUE | **TRESH | **TMISC |
-|         | SEXP**  | EXP**   | XP**    | XP**    | OTEXP** | EXP**   |
-+---------+---------+---------+---------+---------+---------+---------+
-| before  | 0.04    | 0.02    | 0.00    | 0.08    | 0.03    | 0.05    |
-+---------+---------+---------+---------+---------+---------+---------+
-| after   | 0.04    | 0.02    | 0.00    | 0.08    | 0.03    | 0.05    |
-+---------+---------+---------+---------+---------+---------+---------+
+.. table:: Shares of expenditures components
+   :widths: auto
+   :align: center
+   
+   ========  ==========  ==========  ==========  ==========  ============  ==========
+    .         TFOODEXP    TALCHEXP    TCLTHEXP    THOUSEXP    TFURNEXP      THLTHEXP
+   ========  ==========  ==========  ==========  ==========  ============  ==========
+    before    0.58        0.01        0.03        0.09        0.02          0.03    
+    after     0.59        0.01        0.03        0.09        0.02          0.03    
+    .        TTRANSEXP    TCOMMEXP    TRECEXP     TEDUEXP     TRESHOTEXP    TMISCEXP 
+    before    0.04        0.02        0.00        0.08        0.03          0.05    
+    after     0.04        0.02        0.00        0.08        0.03          0.05    
+   ========  ==========  ==========  ==========  ==========  ============  ==========
 
 Anonymization for the creation of a SUF will inevitably lead to some
 degree of utility loss. It is important to describe this loss in the
@@ -1691,48 +1621,47 @@ variables before and after anonymization.
 
 The next step is to merge the treated household variables with the
 untreated individual variables for the anonymization of the individual
-level variables. Example 9.21 shows the steps to merge these files. This
+level variables. :numref:`code921` shows the steps to merge these files. This
 also includes the selection of variables used in the anonymization of
 the individual-level variables. We create the *sdcMicro* object for the
 anonymization of the individual variables in the same way as for the
-household variable in Example 9.9. Subsequently, we repeat Steps 6-10
+household variable in :numref:`code99`. Subsequently, we repeat Steps 6-10
 for the individual-level variables.
 
-Example 9.21: Merging the files with household and individual-level
-variables and creating an *sdcMicro* object for the anonymization of the
-individual-level variables
+.. code-block:: R
+   :linenos:
+   :caption: Merging the files with household and individual-level variables and creating an *sdcMicro* object for the anonymization of the individual-level variables
+   :name: code921
+   
+   ### Select variables (individual level)
+   # Key variables (individual level)
+   selectedKeyVarsIND = c('GENDER', 'REL', 'MARITAL', 'AGEYRS',
+                          'EDUCY', 'ATSCHOOL', 'INDUSTRY1') # list of selected key variables
+   # Sample weight (WGTHH, individual weight)
+   selectedWeightVarIND = c('WGTHH')
+   # Household ID
+   selectedHouseholdID = c('IDH')
+   # No strata
+   
+   # Recombining anonymized HH datasets and individual level variables
+   indVars <- c("IDH", "IDP", selectedKeyVarsIND, "WGTHH") # HID and all non HH variables
+   fileInd <- file[indVars] # subset of file without HHVars
 
-*### Select variables (individual level)*
+   HHmanip <- extractManipData(sdcHH) # manipulated variables HH
+   HHmanip <- HHmanip[HHmanip[,'IDH'] != 1782,]
 
-| *# Key variables (individual level)*
-| selectedKeyVarsIND = **c**\ ('GENDER', 'REL', 'MARITAL', 'AGEYRS',
-  'EDUCY', 'ATSCHOOL', 'INDUSTRY1') *# list of selected key variables*
-| *# Sample weight (WGTHH, individual weight)*
-| selectedWeightVarIND = **c**\ ('WGTHH')
-| *# Household ID*
-| selectedHouseholdID = **c**\ ('IDH')
-| *# No strata*
-| *# Recombining anonymized HH datasets and individual level variables*
-| indVars <- **c**\ ("IDH", "IDP", selectedKeyVarsIND, "WGTHH") *# HID
-  and all non HH variables*
-| fileInd <- file[indVars] *# subset of file without HHVars*
+   fileCombined <- merge(HHmanip, fileInd, by.x= c('IDH'))
 
-HHmanip <- **extractManipData**\ (sdcHH) *# manipulated variables HH*
+   fileCombined <- fileCombined[order(fileCombined[,'IDH'],
+   fileCombined[,'IDP']),]
 
-HHmanip <- HHmanip[HHmanip[,'IDH'] != 1782,]
+   dim(fileCombined)
 
-fileCombined <- **merge**\ (HHmanip, fileInd, by.x=\ **c**\ ('IDH'))
-
-fileCombined <- fileCombined[\ **order**\ (fileCombined[,'IDH'],
-fileCombined[,'IDP']),]
-
-**dim**\ (fileCombined)
-
-| *# SDC objects with all variables and treated HH vars for
-  anonymization of individual level variables*
-| sdcCombined <- **createSdcObj**\ (dat = fileCombined, keyVars =
-  selectedKeyVarsIND, weightVar = selectedWeightVarIND, hhId =
-  selectedHouseholdID)
+   # SDC objects with all variables and treated HH vars for
+   anonymization of individual level variables*
+   sdcCombined <- createSdcObj(dat = fileCombined, keyVars = 
+                               selectedKeyVarsIND, weightVar = selectedWeightVarIND, hhId =
+                               selectedHouseholdID)
 
 **Step 6b: Assessing disclosure risk (individual level)**
 
@@ -1742,25 +1671,28 @@ Sections 4.5 and 4.8). The hierarchical risk is now of interest, given
 the household structure in the dataset *fileCombined*, which includes
 both household- and individual-level variables. The number of
 individuals (absolute and relative) that violate k-anonymity at the
-levels 2, 3 and 5 are shown in Table 9.14. **NOTE: k-anonymity does not
-consider the household structure and therefore underestimates the risk.
-Therefore, we are more interested in the individual and global
-hierarchical risk measures.**
+levels 2, 3 and 5 are shown in :numref:`tab914`. 
 
-Table 9.14: k-anonymity violations
+.. NOTE:: 
+	k-anonymity does not consider the household structure and therefore underestimates the risk.
+	Therefore, we are more interested in the individual and global hierarchical risk measures.
 
-+-----------------+-------------------------+----------------+
-| **k-anonymity** | **Number HH violating** | **Percentage** |
-+=================+=========================+================+
-| 2               | 998                     | 9.91%          |
-+-----------------+-------------------------+----------------+
-| 3               | 1,384                   | 13.75%         |
-+-----------------+-------------------------+----------------+
-| 5               | 2,194                   | 21.79%         |
-+-----------------+-------------------------+----------------+
+.. _tab914:
+
+.. table:: k-anonymity violations
+   :widths: auto
+   :align: center
+   
+   =============  =====================  ===============
+    k-anonymity    Number HH violating    Percentage  
+   =============  =====================  ===============
+    2              998                    9.91%         
+    3              1,384                  13.75%        
+    5              2,194                  21.79%        
+   =============  =====================  ===============
 
 The global risk measures can be found using *R* as illustrated in
-Example 9.22. The global risk is 0.24%, which corresponds to 24 expected
+:numref:`code922`. The global risk is 0.24%, which corresponds to 24 expected
 re-identifications. Accounting for the hierarchical structure, this
 rises to 1.26%, or 127 expected re-identifications. The global risk
 measures are low compared to the number of k-anonymity violators due to
@@ -1773,17 +1705,20 @@ variables are used simultaneously by an intruder to re-identify
 individuals, the household level variables should also be taken into
 account here. This would results in a high number of key variables.
 
-Example 9.22: Global risk of the individual-level variables
+.. code-block:: R
+   :linenos:
+   :caption: Global risk of the individual-level variables
+   :name: code922
+   
+   print(sdcCombined, 'risk')
 
-**print**\ (sdcCombined, 'risk')
-
-| ``## Risk measures:``
-| ``##``
-| ``## Number of observations with higher risk than the main part of the data: 0``
-| ``## Expected number of re-identifications: 23.98 (0.24 %)``
-| ``##``
-| ``## Information on hierarchical risk:``
-| ``## Expected number of re-identifications: 127.12 (1.26 %)``
+   ## Risk measures:
+   ##
+   ## Number of observations with higher risk than the main part of the data: 0
+   ## Expected number of re-identifications: 23.98 (0.24 %)
+   ##
+   ## Information on hierarchical risk:
+   ## Expected number of re-identifications: 127.12 (1.26 %)
 
 **Step 7b: Assessing utility (individual level)**
 
@@ -1810,36 +1745,38 @@ recoding). First, we recode the values from 15 to 65 in ten-year
 intervals. Since some indicators related to education are computed from
 the survey dataset, our first approach is not to recode the age range 0
 – 15 years. For children under the age of 1 year, we reduce the level of
-detail and recode these to 0 years. These recodes are shown in Example
-9.23. We also top-code age at the age of 65 years. This protects
+detail and recode these to 0 years. These recodes are shown in :numref:`code923`. 
+We also top-code age at the age of 65 years. This protects
 individuals with high (rare) age values.
 
-Example 9.23: Recoding age in 10-year intervals in the range 15 – 65 and
-top code age over 65 years
+.. code-block:: R
+   :linenos:
+   :caption: Recoding age in 10-year intervals in the range 15 – 65 anD top code age over 65 years
+   :name: code923
+   
+   # Recoding age and top coding age (top code 65), below that 10 year age
+   groups, children aged under 1 are recoded 0 (previously in months)*
 
-*# Recoding age and top coding age (top code 65), below that 10 year age
-groups, children aged under 1 are recoded 0 (previously in months)*
+   sdcCombined@manipKeyVars$AGEYRS[sdcCombined@manipKeyVars$AGEYRS >= 0 &
+   sdcCombined@manipKeyVars$AGEYRS < 1] <- 0
 
-sdcCombined@manipKeyVars$AGEYRS[sdcCombined@manipKeyVars$AGEYRS >= 0 &
-sdcCombined@manipKeyVars$AGEYRS < 1] <- 0
+   sdcCombined@manipKeyVars$AGEYRS[sdcCombined@manipKeyVars$AGEYRS >= 15 &
+   sdcCombined@manipKeyVars$AGEYRS < 25] <- 20
 
-sdcCombined@manipKeyVars$AGEYRS[sdcCombined@manipKeyVars$AGEYRS >= 15 &
-sdcCombined@manipKeyVars$AGEYRS < 25] <- 20
+   ...
 
-...
+   sdcCombined@manipKeyVars$AGEYRS[sdcCombined@manipKeyVars$AGEYRS >= 55 &
+   sdcCombined@manipKeyVars$AGEYRS < 66] <- 60
 
-sdcCombined@manipKeyVars$AGEYRS[sdcCombined@manipKeyVars$AGEYRS >= 55 &
-sdcCombined@manipKeyVars$AGEYRS < 66] <- 60
+   #topBotCoding also recalculates risk based on manual recoding above*
+   sdcCombined <- **topBotCoding(obj = sdcCombined, value = 65,
+   replacement = 65, kind = 'top', column = 'AGEYRS')
 
-| *#topBotCoding also recalculates risk based on manual recoding above*
-| sdcCombined <- **topBotCoding**\ (obj = sdcCombined, value = 65,
-  replacement = 65, kind = 'top', column = 'AGEYRS')
-
-| **table**\ (sdcCombined@manipKeyVars$AGEYRS) *# check results*
-| ``##    0    1    2    3    4    5    6    7    8    9   10   11   12   13   14``
-| ``##  311  367  340  332  260  334  344  297  344  281  336  297  326  299  263``
-| ``##   20   30   40   50   60   65``
-| ``## 1847 1220  889  554  314  325``
+   table(sdcCombined@manipKeyVars$AGEYRS) # check results
+   ##    0    1    2    3    4    5    6    7    8    9   10   11   12   13   14
+   ##  311  367  340  332  260  334  344  297  344  281  336  297  326  299  263
+   ##   20   30   40   50   60   65
+   ## 1847 1220  889  554  314  325
 
 These recodes already reduce the risk to 531 individuals violating
 3-anonymity. We could recode the values of age in the lower range
@@ -1851,11 +1788,11 @@ first at the number of suppressions needed in local suppression after
 this limited recoding. If the number of suppressions is too high, we can
 go back and recode age in the range 1 – 14 years.
 
-In Example 9.24 we demonstrate how one might experiment with local
+In :numref:`code924` we demonstrate how one might experiment with local
 suppression to find the best option. We use local suppression to achieve
 3-anonymity (see Section 5.2.2 on local suppression). On the first
 attempt, we do not specify any importance vector; this leads to many
-suppressions in the variable AGEYRS (see Table 9.15 below, first row),
+suppressions in the variable AGEYRS (see :numref:`tab915` below, first row),
 however. This is undesirable from a utility point of view. Therefore, we
 decide to specify an importance vector to prevent suppressions in the
 variable AGEYRS. Suppressing the variable GENDER is also undesirable
@@ -1863,7 +1800,7 @@ from the utility point of view. The variable GENDER is a type of
 variable that should not have suppressions. We set GENDER as variable
 with the second highest importance. After specifying the importance
 vector to prevent suppressions of the age variable, there are no age
-suppressions (see Table 9.15, second row). The total number of
+suppressions (see :numref:`tab915`, second row). The total number of
 suppressions in the other variables increased, however, from 253 to 323
 because of the importance vector. This is to be expected because the
 algorithm without the importance vector minimizes the total number of
@@ -1873,112 +1810,101 @@ vector prevents reaching this optimality and hence leads to a higher
 total number of suppressions. There is a trade-off between which
 variables are suppressed and the total number of suppressions. After
 specifying an importance vector, the variable REL has many suppressions
-(see Table 9.15, second row). We choose this second option.
+(see :numref:`tab915`, second row). We choose this second option.
 
-Example 9.24: Experimenting with different options in local suppression
+.. code-block:: R
+   :linenos:
+   :caption: Experimenting with different options in local suppression
+   :name: code924
+   
+   # Copy of sdcMicro object to later undo steps
+   sdcCopy <- sdcCombined
+   
+   # Importance vectors for local suppression (depending on utility measures)
+   impVec1 <- NULL # for optimal suppression
+   impVec2 <- rep(length(selectedKeyVarsIND), length(selectedKeyVarsIND))
+   impVec2[match('AGEYRS', selectedKeyVarsIND)] <- 1 # AGEYRS
+   impVec2[match('GENDER', selectedKeyVarsIND)] <- 2 # GENDER
 
-| *# Copy of sdcMicro object to later undo steps*
-| sdcCopy <- sdcCombined
+   # Local suppression without importance vector*
+   sdcCombined <- localSuppression(sdcCombined, k = 2, importance = impVec1)
 
-| *# Importance vectors for local suppression (depending on utility
-  measures)*
-| impVec1 <- NULL *# for optimal suppression*
-| impVec2 <- **rep**\ (**length**\ (selectedKeyVarsIND),
-  **length**\ (selectedKeyVarsIND))
-| impVec2[\ **match**\ ('AGEYRS', selectedKeyVarsIND)] <- 1 *# AGEYRS*
-| impVec2[\ **match**\ ('GENDER', selectedKeyVarsIND)] <- 2 *# GENDER*
+   # Number of suppressions per variable
+   print(sdcCombined, "ls")
 
-| *# Local suppression without importance vector*
-| sdcCombined <- **localSuppression**\ (sdcCombined, k = 2, importance =
-  impVec1)
+   ## Local Suppression:
+   ##       KeyVar | Suppressions (#) | Suppressions (%)
+   ##       GENDER |                0 |            0.000
+   ##          REL |               34 |            0.338
+   ##      MARITAL |                0 |            0.000
+   ##       AGEYRS |              195 |            1.937
+   ##        EDUCY |                0 |            0.000
+   ##  EDYRSCURRAT |                3 |            0.030
+   ##     ATSCHOOL |                0 |            0.000
+   ##    INDUSTRY1 |               21 |            0.209
 
-| *# Number of suppressions per variable*
-| **print**\ (sdcCombined, "ls")
+   # Number of suppressions per variable for each value of AGEYRS
+   table(sdcCopy@manipKeyVars$AGEYRS) - table(sdcCombined@manipKeyVars$AGEYRS)
 
-| ``## Local Suppression:``
-| ``##       KeyVar | Suppressions (#) | Suppressions (%)``
-| ``##       GENDER |                0 |            0.000``
-| ``##          REL |               34 |            0.338``
-| ``##      MARITAL |                0 |            0.000``
-| ``##       AGEYRS |              195 |            1.937``
-| ``##        EDUCY |                0 |            0.000``
-| ``##  EDYRSCURRAT |                3 |            0.030``
-| ``##     ATSCHOOL |                0 |            0.000``
-| ``##    INDUSTRY1 |               21 |            0.209``
+   ##  0  1  2  3  4  5  6  7  8  9 10 11 12 13 14 20 30 40 50 60 65
+   ##  0  0  0  0  0  0  2  0  2  1  0  1  4  1  5 25 53 37 36 15 13
 
-| *# Number of suppressions per variable for each value of AGEYRS*
-| **table**\ (sdcCopy@manipKeyVars$AGEYRS) -
-  **table**\ (sdcCombined@manipKeyVars$AGEYRS)
+   # Undo local suppression
+   sdcCombined <- undolast(sdcCombined)
 
-| ``##  0  1  2  3  4  5  6  7  8  9 10 11 12 13 14 20 30 40 50 60 65``
-| ``##  0  0  0  0  0  0  2  0  2  1  0  1  4  1  5 25 53 37 36 15 13``
+   # Local suppression with importance vector on AGEYRS and GENDER
+   sdcCombined <- localSuppression(sdcCombined, k = 2, importance = impVec2)
 
-| *# Undo local suppression*
-| sdcCombined <- **undolast**\ (sdcCombined)
+   # Number of suppressions per variable
+   print(sdcCombined, "ls")
+   ## Local Suppression:
+   ##       KeyVar | Suppressions (#) | Suppressions (%)
+   ##       GENDER |                0 |            0.000
+   ##          REL |              323 |            3.208
+   ##      MARITAL |                0 |            0.000
+   ##       AGEYRS |                0 |            0.000
+   ##        EDUCY |                0 |            0.000
+   ##  EDYRSCURRAT |                0 |            0.000
+   ##     ATSCHOOL |                0 |            0.000
+   ##    INDUSTRY1 |                0 |            0.000
 
-| *# Local suppression with importance vector on AGEYRS and GENDER*
-| sdcCombined <- **localSuppression**\ (sdcCombined, k = 2, importance =
-  impVec2)
+   # Number of suppressions for each value of the variable AGEYRS
+   table(sdcCopy@manipKeyVars$AGEYRS) - table(sdcCombined@manipKeyVars$AGEYRS)
+   ##  0  1  2  3  4  5  6  7  8  9 10 11 12 13 14 20 30 40 50 60 65
+   ##  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
 
-| *# Number of suppressions per variable*
-| **print**\ (sdcCombined, "ls")
+.. _tab915:
 
-| ``## Local Suppression:``
-| ``##       KeyVar | Suppressions (#) | Suppressions (%)``
-| ``##       GENDER |                0 |            0.000``
-| ``##          REL |              323 |            3.208``
-| ``##      MARITAL |                0 |            0.000``
-| ``##       AGEYRS |                0 |            0.000``
-| ``##        EDUCY |                0 |            0.000``
-| ``##  EDYRSCURRAT |                0 |            0.000``
-| ``##     ATSCHOOL |                0 |            0.000``
-| ``##    INDUSTRY1 |                0 |            0.000``
-
-| *# Number of suppressions for each value of the variable AGEYRS*
-| **table**\ (sdcCopy@manipKeyVars$AGEYRS) -
-  **table**\ (sdcCombined@manipKeyVars$AGEYRS)
-
-| ``##  0  1  2  3  4  5  6  7  8  9 10 11 12 13 14 20 30 40 50 60 65``
-| ``##  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0``
-
-Table 9.15: Number of suppressions by variable for different variations
-of local suppression
-
-+-------+-------+-------+-------+-------+-------+-------+-------+-------+
-| Loc   | GENDER|REL    |MARITAL|AGEYRS | EDUCY |EDYRS  | ATS   | IND   |
-| al    |       |       |       |       |       | CURRAT| CHOOL | USTRY1|
-| suppr |       |       |       |       |       |       |       |       |
-| essio |       |       |       |       |       |       |       |       |
-| n     |       |       |       |       |       |       |       |       |
-| optio |       |       |       |       |       |       |       |       |
-| ns    |       |       |       |       |       |       |       |       |
-+=======+=======+=======+=======+=======+=======+=======+=======+=======+
-| k = 2,| 0     | 34    | 0     | 195   | 0     | 3     | 0     | 21    |
-| no imp|       |       |       |       |       |       |       |       |
-+-------+-------+-------+-------+-------+-------+-------+-------+-------+
-| k = 2,| 0     | 323   | 0     | 0     | 0     | 0     | 0     | 0     |
-| imp   |       |       |       |       |       |       |       |       |
-| on    |       |       |       |       |       |       |       |       |
-| AGEYRS|       |       |       |       |       |       |       |       |
-+-------+-------+-------+-------+-------+-------+-------+-------+-------+
+.. table:: Number of suppressions by variable for different variations of local suppression
+   :widths: auto
+   :align: center
+   
+   ==============================  ========  =======  =========  ========  =======  ============= ==========  ===========
+    Local suppression options       GENDER    REL      MARITAL    AGEYRS    EDUCY    EDYRSCURATT   ATSCHOOL    INDUSTRY1
+   ==============================  ========  =======  =========  ========  =======  ============= ==========  ===========
+    k = 2, no imp                   0         34       0          195       0        3             0           21    
+    k = 2, imp on AGEYRS            0         323      0          0         0        0             0            0     
+   ==============================  ========  =======  =========  ========  =======  ============= ==========  ===========
 
 **Step 9b: Re-measure risk (individual level)**
 
-We re-evaluate the risk measures selected in Step 6b. Table 9.16 shows
+We re-evaluate the risk measures selected in Step 6b. :numref:`tab916` shows
 that local suppression, not surprisingly, has reduced the number of
 individuals violating 2-anonymity to 0.
 
-Table 9.16: k-anonymity violations
+.. _tab916:
 
-+-----------------+-------------------------+----------------+
-| **k-anonymity** | **Number HH violating** | **Percentage** |
-+=================+=========================+================+
-| 2               | 0                       | 0.00 %         |
-+-----------------+-------------------------+----------------+
-| 3               | 197                     | 1.96 %         |
-+-----------------+-------------------------+----------------+
-| 5               | 518                     | 5.15 %         |
-+-----------------+-------------------------+----------------+
+.. table:: k-anonymity violations
+   :widths: auto
+   :align: center
+   
+   =============  =====================  ============
+    k-anonymity    Number HH violating    Percentage 
+   =============  =====================  ============
+    2                0                        0.00 %     
+    3                197                      1.96 %     
+    5                518                      5.15 %     
+   =============  =====================  ============
 
 The hierarchical global risk was reduced to 0.11%, which corresponds to
 11.3 expected re-identifications. The highest individual hierarchical
@@ -1991,21 +1917,24 @@ We selected two utility measures for the individual variables: primary
 and secondary education enrollment, both also by gender. These two
 measures are sensitive to changes in the variables gender (GENDER), age
 (AGEYRS) and education (EDUCY and EDYRSATCURR), and therefore give a
-good overview of the impact of the anonymization. As shown in Table 9.17
+good overview of the impact of the anonymization. As shown in :numref:`tab917`
 the anonymization did not change the results. The results of the
 tabulations in Appendix A confirm these results.
 
-Table 9.17: Net enrollment in primary and secondary education by gender
+.. _tab917:
 
-+---------+---------+---------+---------+---------+---------+---------+
-|         | Primary education           | Secondary education         |
-+=========+=========+=========+=========+=========+=========+=========+
-|         | Total   |  Male   | Female  | Total   |  Male   | Female  |
-+---------+---------+---------+---------+---------+---------+---------+
-| Before  | 72.6%   | 74.2%   | 70.9%   | 42.0%   | 44.8%   | 39.1%   |
-+---------+---------+---------+---------+---------+---------+---------+
-| After   | 72.6%   | 74.2%   | 70.9%   | 42.0%   | 44.8%   | 39.1%   |
-+---------+---------+---------+---------+---------+---------+---------+
+.. table:: Net enrollment in primary and secondary education by gender
+   :widths: auto
+   :align: center
+   
+   =========   =======  =======  =========   ========  =======  =========
+    .           Primary education             Secondary education         
+   ---------   ---------------------------   ----------------------------
+                Total     Male    Female      Total      Male    Female  
+   =========   =======  =======  =========   ========  =======  =========
+    Before      72.6%    74.2%    70.9%       42.0%     44.8%    39.1%   
+    After       72.6%    74.2%    70.9%       42.0%     44.8%    39.1%   
+   =========   =======  =======  =========   ========  =======  =========
 
 **Step 11: Audit and reporting**
 
@@ -2039,52 +1968,57 @@ the methods used, the risk before and after anonymization as well as the
 reasons for the selected methods and their parameters. The external
 report focuses on the changes in the data and the loss in utility. Focus
 here should be on the number of suppressions as well as the perturbative
-methods (PRAM). This is described in the previous steps. **NOTE: When
-creating a SUF, it is inevitable that there will be a loss of
-information and it is very important for the users to be aware of these
-changes and release them in a report that accompanies the data**.
+methods (PRAM). This is described in the previous steps. 
+
+.. NOTE:: When creating a SUF, it is inevitable that there will be a loss of
+	information and it is very important for the users to be aware of these
+	changes and release them in a report that accompanies the data.
+	
 Appendix A provides examples of an internal and external report of the
 anonymization process of this dataset. Depending on the users and
 readers of the reports, the content may differ. The code to this case
 study shows how to obtain the information for the reports. Some measures
 are also available in the standard reports generated with the report()
-function. This is shown in Example 9.25. The report() function will only
+function. This is shown in :numref:`code925`. The report() function will only
 use the data available in the *sdcMicro* object, which does not contain
 all households for sdcHH.
 
-Example 9.25: Using the report() function for internal and external
-reports
+.. code-block:: R
+   :linenos:
+   :caption: Using the report() function for internal and external reports
+   :name: code925
+   
+   # Create reports with sdcMicro report() function
+   report(sdcHH, internal = F) # external (brief) report
 
-| *# Create reports with sdcMicro report() function*
-| **report**\ (sdcHH, internal = F) *# external (brief) report*
+   report(sdcHH, internal = T) # internal (extended) report
 
-**report**\ (sdcHH, internal = T) *# internal (extended) report*
-
-| *# Create reports with sdcMicro report() function*
-| **report**\ (sdcCombined, internal = F) *# external (brief) report*
-
-**report**\ (sdcCombined, internal = T) *# internal (extended) report*
+   # Create reports with sdcMicro report() function*
+   report(sdcCombined, internal = F) # external (brief) report
+   report(sdcCombined, internal = T) # internal (extended) report
 
 **Step 12: Data release**
 
 The final step is the release of the anonymized dataset together with
-the external report. Example 9.26 shows how to collect the data from the
+the external report. :numref:`code926` shows how to collect the data from the
 *sdcMicro* object with the extractManipData() function. Before releasing
 the file, we add an individual ID to the file (line number in
 household). We export the anonymized dataset in as *STATA* file. Section
 7.2 presents functions for exporting files in other data formats.
 
-Example 9.26: Exporting the anonymized dataset
+.. code-block:: R
+   :linenos:
+   :caption: Exporting the anonymized dataset
+   :name: code926
+   
+   # Anonymized dataset
+   # Household variables and individual variables
+   dataAnon <- extractManipData(sdcCombined, ignoreKeyVars = F,
+   ignorePramVars = F, ignoreNumVars = F, ignoreStrataVar = F)
+   # extracts all variables, not just the manipulated ones*
 
-| *# Anonymized dataset*
-| *# Household variables and individual variables*
-| dataAnon <- **extractManipData**\ (sdcCombined, ignoreKeyVars = F,
-  ignorePramVars = F, ignoreNumVars = F, ignoreStrataVar = F) *#
-  extracts all variables, not just the manipulated ones*
-
-| *# Create STATA file*
-| **write.dta**\ (dataframe = dataAnon, file= 'Case1DataAnon.dta',
-  convert.dates=TRUE)
+   # Create STATA file
+   write.dta(dataframe = dataAnon, file= 'Case1DataAnon.dta', convert.dates=TRUE)
 
 Case study 2 - PUF
 ------------------
@@ -2095,8 +2029,10 @@ produce a PUF file of the same dataset, which can be freely distributed.
 The structure of the SUF and PUF releases will be the same. However, the
 PUF will contain fewer variables and less (detailed) information than
 the SUF. We refer to Section 9.1 for a description of the dataset.
-**NOTE**: **It is also possible to directly produce a PUF from a dataset
-without first creating a SUF.**
+
+.. NOTE:: 
+	It is also possible to directly produce a PUF from a dataset
+	without first creating a SUF.
 
 As in case study 1, we show how the creation of a PUF can be achieved
 using the open source and free *sdcMicro* package and *R*. A
@@ -2104,9 +2040,11 @@ ready-to-run *R* script for this case study and the dataset are also
 available to reproduce the results and allow the user to adapt the code
 (see http://ihsn.org/home/projects/sdc-practice). Extracts of this code
 are presented in this section to illustrate several steps of the
-anonymization process. **NOTE: The choices of methods and parameters in
-this case study are based on this particular dataset and the results and
-choices might be different for other datasets.**
+anonymization process. 
+
+.. NOTE:: 
+	The choices of methods and parameters in this case study are based on this particular dataset and the results and
+	choices might be different for other datasets.
 
 This case study follows the steps of the SDC process outlined in Chapter
 8.
@@ -2134,7 +2072,7 @@ In this way all information in the PUF file is also contained in the
 SUF, and the PUF does not provide additional information to an intruder
 with access to the SUF. We load the required packages to read the data
 (*foreign* package for *STATA* files) and load the SUF dataset into
-“file” as illustrated in Example 9.27. We also load the original data
+“file” as illustrated in :numref:`code927`. We also load the original data
 file (raw data) as “fileOrig”. We need the raw data to undo perturbative
 methods used in case study 1 (see Step 8) and to compare data utility
 measures (see Step 5). To evaluate the utility loss in the PUF, we have
@@ -2143,60 +2081,60 @@ information in the raw data. For an overview of the data characteristics
 and a description of the variables in both files, we refer to Step 2 of
 case study 1 in Section 9.1.
 
-Example 9.27: Loading required packages and datasets
+.. code-block:: R
+   :linenos:
+   :caption: Loading required packages and datasets
+   :name: code927
+   
+   # Load required packages*
+   library(foreign) *# for read/write function for STATA
+   library(sdcMicro) *# sdcMicro package*
 
-| *# Load required packages*
-| **library**\ (foreign) *# for read/write function for STATA*
-| **library**\ (sdcMicro) *# sdcMicro package*
+   # Set working directory - set to the path on your machine
+   setwd("/Users/CaseStudy2")
 
-| *# Set working directory - set to the path on your machine*
-| **setwd**\ ("/Users/CaseStudy2")
+   # Specify file name of SUF file from case study 1
+   fname <- "CaseDataAnon.dta"
 
-| *# Specify file name of SUF file from case study 1*
-| fname <- "CaseDataAnon.dta"
+   # Specify file name of original dataset (raw data)
+   fnameOrig <- "CaseA.dta"
 
-| *# Specify file name of original dataset (raw data)*
-| fnameOrig <- "CaseA.dta"
-
-| *# Read-in files*
-| file <- **read.dta**\ (fname, convert.factors = TRUE) *# SUF file case
-  study 1
-  *\ fileOrig <- **read.dta**\ (fnameOrig, convert.factors = TRUE) *#
-  original data*
+   # Read-in files
+   file     <- read.dta(fname, convert.factors = TRUE) # SUF file case study 1
+   fileOrig <- read.dta(fnameOrig, convert.factors = TRUE) # original data
 
 We check the number of variables and number of observations of both
-files and the variable names of the SUF file, as shown in Example 9.28.
+files and the variable names of the SUF file, as shown in :numref:`code928`.
 The PUF file has fewer records and fewer variables than the original
 data file, since we removed large households and several variables to
 generate the SUF file.
 
-Example 9.28 Number of individuals and variables and variable names
+.. code-block:: R
+   :linenos:
+   :caption: Number of individuals and variables and variable names
+   :name: code928
+   
+   # Dimensions of file (observations, variables)
+   dim(file)
+   ## [1] 10068    49
 
-*# Dimensions of file (observations, variables)*
+   dim(fileOrig)
+   ## [1] 10574    68
 
-**dim**\ (file)
-
-``## [1] 10068    49``
-
-**dim**\ (fileOrig)
-
-``## [1] 10574    68``
-
-**colnames**\ (file) *# Variable names*
-
-| ``##  [1] "IDH"           "URBRUR"        "REGION"        "HHSIZE"``
-| ``##  [5] "OWNAGLAND"     "RELIG"         "ROOF"          "TOILET"``
-| ``##  [9] "WATER"         "ELECTCON"      "FUELCOOK"      "OWNMOTORCYCLE"``
-| ``## [13] "CAR"           "TV"            "LIVESTOCK"     "LANDSIZEHA"``
-| ``## [17] "TANHHEXP"      "TFOODEXP"      "TALCHEXP"      "TCLTHEXP"``
-| ``## [21] "THOUSEXP"      "TFURNEXP"      "THLTHEXP"      "TTRANSEXP"``
-| ``## [25] "TCOMMEXP"      "TRECEXP"       "TEDUEXP"       "TRESTHOTEXP"``
-| ``## [29] "TMISCEXP"      "INCTOTGROSSHH" "INCRMT"        "INCWAGE"``
-| ``## [33] "INCFARMBSN"    "INCNFARMBSN"   "INCRENT"       "INCFIN"``
-| ``## [37] "INCPENSN"      "INCOTHER"      "WGTPOP"        "IDP"``
-| ``## [41] "GENDER"        "REL"           "MARITAL"       "AGEYRS"``
-| ``## [45] "EDUCY"         "EDYRSCURRAT"   "ATSCHOOL"      "INDUSTRY1"``
-| ``## [49] "WGTHH"``
+   colnames(file) # Variable names
+   ##  [1] "IDH"           "URBRUR"        "REGION"        "HHSIZE"
+   ##  [5] "OWNAGLAND"     "RELIG"         "ROOF"          "TOILET"
+   ##  [9] "WATER"         "ELECTCON"      "FUELCOOK"      "OWNMOTORCYCLE"
+   ## [13] "CAR"           "TV"            "LIVESTOCK"     "LANDSIZEHA"
+   ## [17] "TANHHEXP"      "TFOODEXP"      "TALCHEXP"      "TCLTHEXP"
+   ## [21] "THOUSEXP"      "TFURNEXP"      "THLTHEXP"      "TTRANSEXP"
+   ## [25] "TCOMMEXP"      "TRECEXP"       "TEDUEXP"       "TRESTHOTEXP"
+   ## [29] "TMISCEXP"      "INCTOTGROSSHH" "INCRMT"        "INCWAGE"
+   ## [33] "INCFARMBSN"    "INCNFARMBSN"   "INCRENT"       "INCFIN"
+   ## [37] "INCPENSN"      "INCOTHER"      "WGTPOP"        "IDP"
+   ## [41] "GENDER"        "REL"           "MARITAL"       "AGEYRS"
+   ## [45] "EDUCY"         "EDYRSCURRAT"   "ATSCHOOL"      "INDUSTRY1"
+   ## [49] "WGTHH"
 
 To get an overview of the values of the variables, we use tabulations
 and cross-tabulations for categorical variables and summary statistics
@@ -2205,7 +2143,7 @@ or other), we use the option useNA = "ifany" in the table() function.
 For some variables, these tabulations differ from the tabulations of the
 raw data, due to the anonymization of the SUF file.
 
-In Table 9.18 the variables in the dataset “file” are listed along with
+In :numref:`tab918` the variables in the dataset “file” are listed along with
 concise descriptions of the variables, the level at which they are
 collected (individual level (IND) or household level (HH)), the
 measurement type (continuous, semi-continuous or categorical) and value
@@ -2229,269 +2167,224 @@ and expenditure related variables. These variables need protection.
 Whether a variable is considered sensitive may depend on the release
 type, country and the dataset itself.
 
-Table 9.18: Overview of the variables in the dataset
+.. _tab918:
 
-+-----------+-----------+-----------+-----------+-----------+-----------+
-|   No.     |Variable   |Description|   Level   |Measurement|   Values  |
-|           | name      |           |           |           |           |
-+===========+===========+===========+===========+===========+===========+
-| 1         | IDH       | Household | HH        | -         | 1-2,000   |
-|           |           | ID        |           |           |           |
-+-----------+-----------+-----------+-----------+-----------+-----------+
-| 2         | IDP       | Individua | IND       | -         | 1-13      |
-|           |           | l         |           |           |           |
-|           |           | ID        |           |           |           |
-+-----------+-----------+-----------+-----------+-----------+-----------+
-| 3         | REGION    | Region    | HH        | categoric | 1-6       |
-|           |           |           |           | al        |           |
-+-----------+-----------+-----------+-----------+-----------+-----------+
-| 4         | URBRUR    | Area of   | HH        | categoric | 1, 2      |
-|           |           | residence |           | al        |           |
-+-----------+-----------+-----------+-----------+-----------+-----------+
-| 5         | WGTHH     | Individua | HH        | weight    | 31.2-8495 |
-|           |           | l         |           |           | .7        |
-|           |           | weighting |           |           |           |
-|           |           | coefficie |           |           |           |
-|           |           | nt        |           |           |           |
-+-----------+-----------+-----------+-----------+-----------+-----------+
-| 6         | WGTPOP    | Populatio | IND       | weight    | 45.8-9345 |
-|           |           | n         |           |           | 2.2       |
-|           |           | weighting |           |           |           |
-|           |           | coefficie |           |           |           |
-|           |           | nt        |           |           |           |
-+-----------+-----------+-----------+-----------+-----------+-----------+
-| 7         | HHSIZE    | Household | HH        | semi-cont | 1-33      |
-|           |           | size      |           | inuous    |           |
-+-----------+-----------+-----------+-----------+-----------+-----------+
-| 8         | GENDER    | Gender    | IND       | categoric | 0, 1      |
-|           |           |           |           | al        |           |
-+-----------+-----------+-----------+-----------+-----------+-----------+
-| 9         | REL       | Relations | IND       | categoric | 1-9       |
-|           |           | hip       |           | al        |           |
-|           |           | to        |           |           |           |
-|           |           | household |           |           |           |
-|           |           | head      |           |           |           |
-+-----------+-----------+-----------+-----------+-----------+-----------+
-| 10        | MARITAL   | Marital   | IND       | categoric | 1-6       |
-|           |           | status    |           | al        |           |
-+-----------+-----------+-----------+-----------+-----------+-----------+
-| 11        | AGEYRS    | Age in    | IND       | semi-cont | 0-65      |
-|           |           | completed |           | inuous    |           |
-|           |           | years     |           |           |           |
-+-----------+-----------+-----------+-----------+-----------+-----------+
-| 12        | RELIG     | Religion  | HH        | categoric | 1, 5-7, 9 |
-|           |           | of        |           | al        |           |
-|           |           | household |           |           |           |
-|           |           | head      |           |           |           |
-+-----------+-----------+-----------+-----------+-----------+-----------+
-| 13        | ATSCHOOL  | Currently | IND       | categoric | 0, 1      |
-|           |           | enrolled  |           | al        |           |
-|           |           | in school |           |           |           |
-+-----------+-----------+-----------+-----------+-----------+-----------+
-| 14        | EDUCY     | Highest   | IND       | categoric | 1-6       |
-|           |           | level of  |           | al        |           |
-|           |           | education |           |           |           |
-|           |           | attended  |           |           |           |
-+-----------+-----------+-----------+-----------+-----------+-----------+
-| 15        | EDYRSCURR | Years of  | IND       | semi-cont | 1-18      |
-|           | AT        | education |           | inuous    |           |
-|           |           | for       |           |           |           |
-|           |           | currently |           |           |           |
-|           |           | enrolled  |           |           |           |
-+-----------+-----------+-----------+-----------+-----------+-----------+
-| 16        | INDUSTRY1 | Industry  | IND       | categoric | 1-10      |
-|           |           | classific |           | al        |           |
-|           |           | ation     |           |           |           |
-|           |           | (1-digit) |           |           |           |
-+-----------+-----------+-----------+-----------+-----------+-----------+
-| 17        | ROOF      | Main      | IND       | categoric | 1-5, 9    |
-|           |           | material  |           | al        |           |
-|           |           | used for  |           |           |           |
-|           |           | roof      |           |           |           |
-+-----------+-----------+-----------+-----------+-----------+-----------+
-| 18        | TOILET    | Main      | HH        | categoric | 1-4, 9    |
-|           |           | toilet    |           | al        |           |
-|           |           | facility  |           |           |           |
-+-----------+-----------+-----------+-----------+-----------+-----------+
-| 19        | ELECTCON  | Electrici | HH        | categoric | 0-3       |
-|           |           | ty        |           | al        |           |
-+-----------+-----------+-----------+-----------+-----------+-----------+
-| 20        | FUELCOOK  | Main      | HH        | categoric | 1-5, 9    |
-|           |           | cooking   |           | al        |           |
-|           |           | fuel      |           |           |           |
-+-----------+-----------+-----------+-----------+-----------+-----------+
-| 21        | WATER     | Main      | HH        | categoric | 1-9       |
-|           |           | source of |           | al        |           |
-|           |           | water     |           |           |           |
-+-----------+-----------+-----------+-----------+-----------+-----------+
-| 22        | OWNAGLAND | Ownership | HH        | categoric | 1-3       |
-|           |           | of        |           | al        |           |
-|           |           | agricultu |           |           |           |
-|           |           | ral       |           |           |           |
-|           |           | land      |           |           |           |
-+-----------+-----------+-----------+-----------+-----------+-----------+
-| 23        | LANDSIZEH | Land size | HH        | continuou | 0-40      |
-|           | A         | owned by  |           | s         |           |
-|           |           | household |           |           |           |
-|           |           | (ha)      |           |           |           |
-|           |           | (agric    |           |           |           |
-|           |           | and non   |           |           |           |
-|           |           | agric)    |           |           |           |
-+-----------+-----------+-----------+-----------+-----------+-----------+
-| 24        | OWNMOTORC | Ownership | HH        | categoric | 0, 1      |
-|           | YCLE      | of        |           | al        |           |
-|           |           | motorcycl |           |           |           |
-|           |           | e         |           |           |           |
-+-----------+-----------+-----------+-----------+-----------+-----------+
-| 25        | CAR       | Ownership | HH        | categoric | 0, 1      |
-|           |           | of car    |           | al        |           |
-+-----------+-----------+-----------+-----------+-----------+-----------+
-| 26        | TV        | Ownership | HH        | categoric | 0, 1      |
-|           |           | of        |           | al        |           |
-|           |           | televisio |           |           |           |
-|           |           | n         |           |           |           |
-+-----------+-----------+-----------+-----------+-----------+-----------+
-| 27        | LIVESTOCK | Number of | HH        | semi-cont | 0-25      |
-|           |           | large-siz |           | inuous    |           |
-|           |           | ed        |           |           |           |
-|           |           | livestock |           |           |           |
-|           |           | owned     |           |           |           |
-+-----------+-----------+-----------+-----------+-----------+-----------+
-| 28        | INCRMT    | Income –  | HH        | continuou | -         |
-|           |           | Remittanc |           | s         |           |
-|           |           | es        |           |           |           |
-+-----------+-----------+-----------+-----------+-----------+-----------+
-| 29        | INCWAGE   | Income -  | HH        | continuou | -         |
-|           |           | Wages and |           | s         |           |
-|           |           | salaries  |           |           |           |
-+-----------+-----------+-----------+-----------+-----------+-----------+
-| 30        | INCFARMBS | Income -  | HH        | continuou | -         |
-|           | N         | Gross     |           | s         |           |
-|           |           | income    |           |           |           |
-|           |           | from      |           |           |           |
-|           |           | household |           |           |           |
-|           |           | farm      |           |           |           |
-|           |           | businesse |           |           |           |
-|           |           | s         |           |           |           |
-+-----------+-----------+-----------+-----------+-----------+-----------+
-| 31        | INCNFARMB | Income    | HH        | continuou | -         |
-|           | SN        | -Gross    |           | s         |           |
-|           |           | income    |           |           |           |
-|           |           | from      |           |           |           |
-|           |           | household |           |           |           |
-|           |           | nonfarm   |           |           |           |
-|           |           | businesse |           |           |           |
-|           |           | s         |           |           |           |
-+-----------+-----------+-----------+-----------+-----------+-----------+
-| 32        | INCRENT   | Income -  | HH        | continuou | -         |
-|           |           | Rent      |           | s         |           |
-+-----------+-----------+-----------+-----------+-----------+-----------+
-| 33        | INCFIN    | Income -  | HH        | continuou | -         |
-|           |           | Financial |           | s         |           |
-+-----------+-----------+-----------+-----------+-----------+-----------+
-| 34        | INCPENSN  | Income -  | HH        | continuou | -         |
-|           |           | Pensions/ |           | s         |           |
-|           |           | social    |           |           |           |
-|           |           | assistanc |           |           |           |
-|           |           | e         |           |           |           |
-+-----------+-----------+-----------+-----------+-----------+-----------+
-| 35        | INCOTHER  | Income -  | HH        | continuou | -         |
-|           |           | Other     |           | s         |           |
-+-----------+-----------+-----------+-----------+-----------+-----------+
-| 36        | INCTOTGRO | Income -  | HH        | continuou | -         |
-|           | SSHH      | Total     |           | s         |           |
-+-----------+-----------+-----------+-----------+-----------+-----------+
-| 37        | TFOODEXP  | Total     | HH        | continuou | -         |
-|           |           | expenditu |           | s         |           |
-|           |           | re        |           |           |           |
-|           |           | on food   |           |           |           |
-+-----------+-----------+-----------+-----------+-----------+-----------+
-| 38        | TALCHEXP  | Total     | HH        | continuou | -         |
-|           |           | expenditu |           | s         |           |
-|           |           | re        |           |           |           |
-|           |           | on        |           |           |           |
-|           |           | alcoholic |           |           |           |
-|           |           | beverages |           |           |           |
-|           |           | ,         |           |           |           |
-|           |           | tobacco   |           |           |           |
-|           |           | and       |           |           |           |
-|           |           | narcotics |           |           |           |
-+-----------+-----------+-----------+-----------+-----------+-----------+
-| 39        | TCLTHEXP  | Total     | HH        | continuou | -         |
-|           |           | expenditu |           | s         |           |
-|           |           | re        |           |           |           |
-|           |           | on        |           |           |           |
-|           |           | clothing  |           |           |           |
-+-----------+-----------+-----------+-----------+-----------+-----------+
-| 40        | THOUSEXP  | Total     | HH        | continuou | -         |
-|           |           | expenditu |           | s         |           |
-|           |           | re        |           |           |           |
-|           |           | on        |           |           |           |
-|           |           | housing   |           |           |           |
-+-----------+-----------+-----------+-----------+-----------+-----------+
-| 41        | TFURNEXP  | Total     | HH        | continuou | -         |
-|           |           | expenditu |           | s         |           |
-|           |           | re        |           |           |           |
-|           |           | on        |           |           |           |
-|           |           | furnishin |           |           |           |
-|           |           | g         |           |           |           |
-+-----------+-----------+-----------+-----------+-----------+-----------+
-| 42        | THLTHEXP  | Total     | HH        | continuou | -         |
-|           |           | expenditu |           | s         |           |
-|           |           | re        |           |           |           |
-|           |           | on health |           |           |           |
-+-----------+-----------+-----------+-----------+-----------+-----------+
-| 43        | TTRANSEXP | Total     | HH        | continuou | -         |
-|           |           | expenditu |           | s         |           |
-|           |           | re        |           |           |           |
-|           |           | on        |           |           |           |
-|           |           | transport |           |           |           |
-+-----------+-----------+-----------+-----------+-----------+-----------+
-| 44        | TCOMMEXP  | Total     | HH        | continuou | -         |
-|           |           | expenditu |           | s         |           |
-|           |           | re        |           |           |           |
-|           |           | on        |           |           |           |
-|           |           | communica |           |           |           |
-|           |           | tion      |           |           |           |
-+-----------+-----------+-----------+-----------+-----------+-----------+
-| 45        | TRECEXP   | Total     | HH        | continuou | -         |
-|           |           | expenditu |           | s         |           |
-|           |           | re        |           |           |           |
-|           |           | on        |           |           |           |
-|           |           | recreatio |           |           |           |
-|           |           | n         |           |           |           |
-+-----------+-----------+-----------+-----------+-----------+-----------+
-| 46        | TEDUEXP   | Total     | HH        | continuou | -         |
-|           |           | expenditu |           | s         |           |
-|           |           | re        |           |           |           |
-|           |           | on        |           |           |           |
-|           |           | education |           |           |           |
-+-----------+-----------+-----------+-----------+-----------+-----------+
-| 47        | TRESHOTEX | Total     | HH        | continuou | -         |
-|           | P         | expenditu |           | s         |           |
-|           |           | re        |           |           |           |
-|           |           | on        |           |           |           |
-|           |           | restauran |           |           |           |
-|           |           | ts        |           |           |           |
-|           |           | and       |           |           |           |
-|           |           | hotels    |           |           |           |
-+-----------+-----------+-----------+-----------+-----------+-----------+
-| 48        | TMISCEXP  | Total     | HH        | continuou | -         |
-|           |           | expenditu |           | s         |           |
-|           |           | re        |           |           |           |
-|           |           | on        |           |           |           |
-|           |           | miscellan |           |           |           |
-|           |           | eous      |           |           |           |
-|           |           | spending  |           |           |           |
-+-----------+-----------+-----------+-----------+-----------+-----------+
-| 49        | TANHHEXP  | Total     | HH        | continuou | -         |
-|           |           | annual    |           | s         |           |
-|           |           | nominal   |           |           |           |
-|           |           | household |           |           |           |
-|           |           | expenditu |           |           |           |
-|           |           | res       |           |           |           |
-+-----------+-----------+-----------+-----------+-----------+-----------+
+.. table:: Overview of the variables in the dataset
+   :widths: auto
+   :align: center
 
+   =====  ==============  =============  =======  ============= ========
+    No.   Variable name    Description    Level    Measurement   Values  
+   =====  ==============  =============  =======  ============= ========
+    1      IDH             Household       HH      -             1-2,000   
+                           ID                                              
+    2      IDP             Individua       IND     -             1-13      
+                           l                                               
+                           ID                                              
+    3      REGION          Region          HH      categoric     1-6       
+                                                   al                      
+    4      URBRUR          Area of         HH      categoric     1, 2      
+                           residence               al                      
+    5      WGTHH           Individua       HH      weight        31.2-8495 
+                           l                                     .7        
+                           weighting                                       
+                           coefficie                                       
+                           nt                                              
+    6      WGTPOP          Populatio       IND     weight        45.8-9345 
+                           n                                     2.2       
+                           weighting                                       
+                           coefficie                                       
+                           nt                                              
+    7      HHSIZE          Household       HH      semi-cont     1-33      
+                           size                    inuous                  
+    8      GENDER          Gender          IND     categoric     0, 1      
+                                                   al                      
+    9      REL             Relations       IND     categoric     1-9       
+                           hip                     al                      
+                           to                                              
+                           household                                       
+                           head                                            
+    10     MARITAL         Marital         IND     categoric     1-6       
+                           status                  al                      
+    11     AGEYRS          Age in          IND     semi-cont     0-65      
+                           completed               inuous                  
+                           years                                           
+    12     RELIG           Religion        HH      categoric     1, 5-7, 9 
+                           of                      al                      
+                           household                                       
+                           head                                            
+    13     ATSCHOOL        Currently       IND     categoric     0, 1      
+                           enrolled                al                      
+                           in school                                       
+    14     EDUCY           Highest         IND     categoric     1-6       
+                           level of                al                      
+                           education                                       
+                           attended                                        
+    15     EDYRSCUR        Years of        IND     semi-cont     1-18      
+           AT              education               inuous                  
+                           for                                             
+                           currently                                       
+                           enrolled                                        
+    16     INDUSTRY        Industry        IND     categoric     1-10      
+                           classific               al                      
+                           ation                                           
+                           (1-digit)                                       
+    17     ROOF            Main            IND     categoric     1-5, 9    
+                           material                al                      
+                           used for                                        
+                           roof                                            
+    18     TOILET          Main            HH      categoric     1-4, 9    
+                           toilet                  al                      
+                           facility                                        
+    19     ELECTCON        Electrici       HH      categoric     0-3       
+                           ty                      al                      
+    20     FUELCOOK        Main            HH      categoric     1-5, 9    
+                           cooking                 al                      
+                           fuel                                            
+    21     WATER           Main            HH      categoric     1-9       
+                           source of               al                      
+                           water                                           
+    22     OWNAGLAN        Ownership       HH      categoric     1-3       
+                           of                      al                      
+                           agricultu                                       
+                           ral                                             
+                           land                                            
+    23     LANDSIZE        Land size       HH      continuou     0-40      
+           A               owned by                s                       
+                           household                                       
+                           (ha)                                            
+                           (agric                                          
+                           and non                                         
+                           agric)                                          
+    24     OWNMOTOR        Ownership       HH      categoric     0, 1      
+           YCLE            of                      al                      
+                           motorcycl                                       
+                           e                                               
+    25     CAR             Ownership       HH      categoric     0, 1      
+                           of car                  al                      
+    26     TV              Ownership       HH      categoric     0, 1      
+                           of                      al                      
+                           televisio                                       
+                           n                                               
+    27     LIVESTOC        Number of       HH      semi-cont     0-25      
+                           large-siz               inuous                  
+                           ed                                              
+                           livestock                                       
+                           owned                                           
+    28     INCRMT          Income –        HH      continuou     -         
+                           Remittanc               s                       
+                           es                                              
+    29     INCWAGE         Income -        HH      continuou     -         
+                           Wages and               s                       
+                           salaries                                        
+    30     INCFARMB        Income -        HH      continuou     -         
+           N               Gross                   s                       
+                           income                                          
+                           from                                            
+                           household                                       
+                           farm                                            
+                           businesse                                       
+                           s                                               
+    31     INCNFARM        Income          HH      continuou     -         
+           SN              -Gross                  s                       
+                           income                                          
+                           from                                            
+                           household                                       
+                           nonfarm                                         
+                           businesse                                       
+                           s                                               
+    32     INCRENT         Income -        HH      continuou     -         
+                           Rent                    s                       
+    33     INCFIN          Income -        HH      continuou     -         
+                           Financial               s                       
+    34     INCPENSN        Income -        HH      continuou     -         
+                           Pensions/               s                       
+                           social                                          
+                           assistanc                                       
+                           e                                               
+    35     INCOTHER        Income -        HH      continuou     -         
+                           Other                   s                       
+    36     INCTOTGR        Income -        HH      continuou     -         
+           SSHH            Total                   s                       
+    37     TFOODEXP        Total           HH      continuou     -         
+                           expenditu               s                       
+                           re                                              
+                           on food                                         
+    38     TALCHEXP        Total           HH      continuou     -         
+                           expenditu               s                       
+                           re                                              
+                           on                                              
+                           alcoholic                                       
+                           beverages                                       
+                           ,                                               
+                           tobacco                                         
+                           and                                             
+                           narcotics                                       
+    39     TCLTHEXP        Total           HH      continuou     -         
+                           expenditu               s                       
+                           re                                              
+                           on                                              
+                           clothing                                        
+    40     THOUSEXP        Total           HH      continuou     -         
+                           expenditu               s                       
+                           re                                              
+                           on                                              
+                           housing                                         
+    41     TFURNEXP        Total           HH      continuou     -         
+                           expenditu               s                       
+                           re                                              
+                           on                                              
+                           furnishin                                       
+                           g                                               
+    42     THLTHEXP        Total           HH      continuou     -         
+                           expenditu               s                       
+                           re                                              
+                           on health                                       
+    43     TTRANSEX        Total           HH      continuou     -         
+                           expenditu               s                       
+                           re                                              
+                           on                                              
+                           transport                                       
+    44     TCOMMEXP        Total           HH      continuou     -         
+                           expenditu               s                       
+                           re                                              
+                           on                                              
+                           communica                                       
+                           tion                                            
+    45     TRECEXP         Total           HH      continuou     -         
+                           expenditu               s                       
+                           re                                              
+                           on                                              
+                           recreatio                                       
+                           n                                               
+    46     TEDUEXP         Total           HH      continuou     -         
+                           expenditu               s                       
+                           re                                              
+                           on                                              
+                           education                                       
+    47     TRESHOTE        Total           HH      continuou     -         
+           P               expenditu               s                       
+                           re                                              
+                           on                                              
+                           restauran                                       
+                           ts                                              
+                           and                                             
+                           hotels                                          
+    48     TMISCEXP        Total           HH      continuou     -         
+                           expenditu               s                       
+                           re                                              
+                           on                                              
+                           miscellan                                       
+                           eous                                            
+                           spending                                        
+    49     TANHHEXP        Total           HH      continuou     -         
+                           annual                  s                       
+                           nominal                                         
+                           household                                       
+                           expenditu                                       
+                           res                                             
+   =====  ==============  =============  =======  ============= ========
+ 
 It is always important to ensure that the relationships between
 variables in the data are preserved during the anonymization process and
 to explore and take note of these relationships before beginning the
@@ -2588,50 +2481,47 @@ PUF users. Assuming the typical users are mainly interested in aggregate
 income and expenditure data, we can therefore remove from the initial
 set of key variables “OWNAGLAND”, “RELIG” and “LANDSIZEHA” at the
 household level and “EDYRSCURRAT” and “ATSCHOOL” at the individual
-level. **NOTE: These variables will not be released in the PUF file.**
+level. 
+
+.. NOTE:: 
+	These variables will not be released in the PUF file.
+	
 We also remove the income and expenditure components from the list of
 key variables, since we reduce their information content by building
 proportions (see Step 8a). The list of the remaining key variables is
-presented in Table 9.19.
+presented in :numref:`tab919`.
 
-Table 9.19: Overview of selected key variables for PUF file
+.. _tab919:
 
-+-----------------------+-----------------------+-----------------------+
-| **Variable name**     | **Variable            | **Measurement level** |
-|                       | description**         |                       |
-+=======================+=======================+=======================+
-| REGION                | region                | Household,            |
-|                       |                       | categorical           |
-+-----------------------+-----------------------+-----------------------+
-| URBRUR                | area of residence     | Household,            |
-|                       |                       | categorical           |
-+-----------------------+-----------------------+-----------------------+
-| HHSIZE                | household size        | Household,            |
-|                       |                       | categorical           |
-+-----------------------+-----------------------+-----------------------+
-| TANHHEXP              | total expenditure     | Household, continuous |
-+-----------------------+-----------------------+-----------------------+
-| INCTOTGROSSHH         | total income          | Household, continuous |
-+-----------------------+-----------------------+-----------------------+
-| GENDER                | gender                | Individual,           |
-|                       |                       | categorical           |
-+-----------------------+-----------------------+-----------------------+
-| REL                   | relationship to       | Individual,           |
-|                       | household head        | categorical           |
-+-----------------------+-----------------------+-----------------------+
-| MARITAL               | marital status        | Individual,           |
-|                       |                       | categorical           |
-+-----------------------+-----------------------+-----------------------+
-| AGEYRS                | age in completed      | Individual,           |
-|                       | years                 | semi-continuous/categ |
-|                       |                       | orical                |
-+-----------------------+-----------------------+-----------------------+
-| EDUCY                 | highest level of      | Individual,           |
-|                       | education completed   | categorical           |
-+-----------------------+-----------------------+-----------------------+
-| INDUSTRY1             | industry              | Individual,           |
-|                       | classification        | categorical           |
-+-----------------------+-----------------------+-----------------------+
+.. table:: Overview of selected key variables for PUF file
+   :widths: auto
+   :align: center
+   
+   =================  ======================  =======================
+    Variable name      Variable description    Measurement level     
+   =================  ======================  =======================
+    REGION             region                  Household,            
+                                               categorical           
+    URBRUR             area of residence       Household,            
+                                               categorical           
+    HHSIZE             household size          Household,            
+                                               categorical           
+    TANHHEXP           total expenditure       Household, continuous 
+    INCTOTGROSSHH      total income            Household, continuous 
+    GENDER             gender                  Individual,           
+                                               categorical           
+    REL                relationship to         Individual,           
+                       household head          categorical           
+    MARITAL            marital status          Individual,           
+                                               categorical           
+    AGEYRS             age in completed        Individual,           
+                       years                   semi-continuous/categ 
+                                               orical                
+    EDUCY              highest level of        Individual,           
+                       education completed     categorical           
+    INDUSTRY1          industry                Individual,           
+                       classification          categorical           
+   =================  ======================  =======================
 
 The decision to release the dataset as a PUF means the level of
 anonymization will be relatively high and consequently, the variables
@@ -2699,73 +2589,78 @@ collect the variable names of the variables that will not be released.
 The PRAM variables are variables select for the PRAM routine, which we
 discuss further in Step 8a. We extract these selected household
 variables from the SUF dataset and save them as “fileHH”. The choice of
-PRAM variables is further explained in Step 8a. Example 9.29 illustrates
+PRAM variables is further explained in Step 8a. :numref:`code929` illustrates
 how these steps are done in *R* (see also Section 7.6).
 
-Example 9.29: Selecting the variables for the household-level
-anonymization
+.. code-block:: R
+   :linenos:
+   :caption: Selecting the variables for the household-level anonymization
+   :name: code929
+   
+   # Categorical key variables at household level
+   selectedKeyVarsHH <- c('URBRUR', 'REGION', 'HHSIZE')
+   # Continuous key variables
+   numVarsHH <- c('TANHHEXP', 'INCTOTGROSSHH')
+   # PRAM variables
+   pramVarsHH <- c('ROOF', 'TOILET', 'WATER', 'ELECTCON',
+                   'FUELCOOK', 'OWNMOTORCYCLE', 'CAR', 'TV', 'LIVESTOCK')
+   # Household weight
+   weightVarHH <- c('WGTPOP')
+   # Variables not suitable for release in PUF (HH level)
+   varsNotToBeReleasedHH <- c("OWNAGLAND", "RELIG", "LANDSIZEHA")
+   # Vector with names of all HH level variables
+   HHVars <- c('IDH', selectedKeyVarsHH, pramVarsHH, numVarsHH, weightVarHH)
 
-| *# Categorical key variables at household level*
-| selectedKeyVarsHH <- **c**\ ('URBRUR', 'REGION', 'HHSIZE')
-| *# Continuous key variables*
-| numVarsHH <- **c**\ ('TANHHEXP', 'INCTOTGROSSHH')
-| *# PRAM variables*
-| pramVarsHH <- **c**\ ('ROOF', 'TOILET', 'WATER', 'ELECTCON',
-  'FUELCOOK', 'OWNMOTORCYCLE', 'CAR', 'TV', 'LIVESTOCK')
-| *# Household weight*
-| weightVarHH <- **c**\ ('WGTPOP')
-| *# Variables not suitable for release in PUF (HH level)*
-| varsNotToBeReleasedHH <- **c**\ ("OWNAGLAND", "RELIG", "LANDSIZEHA")
-| *# Vector with names of all HH level variables*
-| HHVars <- **c**\ ('IDH', selectedKeyVarsHH, pramVarsHH, numVarsHH,
-  weightVarHH)
-
-| *# Create subset of file with only HH level variables*
-| fileHH <- file[,HHVars]
+   # Create subset of file with only HH level variables*
+   fileHH <- file[,HHVars]
 
 Every household has the same number of entries as it has members (e.g.,
 a household of three will be repeated three times in “fileHH”). Before
 analyzing the household-level variables, we select only one entry per
-household, as illustrated in Example 9.30. This is further explained in
+household, as illustrated in :numref:`code930`. This is further explained in
 Section 7.6. In the same way we extract “fileOrigHH” from “fileOrig”.
 “fileOrigHH” contains all variables from the raw data, but contains
 every household only once. We need “fileOrigHH” in Steps 8a and 10a for
 undoing some perturbative methods used in the SUF file and computing
 utility measures from the raw data respectively.
 
-Example 9.30: Taking a subset with only households
+.. code-block:: R
+   :linenos:
+   :caption: Taking a subset with only households
+   :name: code930
+   
+   # Remove duplicated rows based on IDH, one row per household in fileHH
+   fileHH <- fileHH[\ which(!duplicated(fileHH$IDH)),] # SUF file
+   fileOrigHH <- fileOrig[\ which(!duplicated(fileOrig$IDH)),] # original dataset
+   
+   # Dimensions of fileHH
+   dim(fileHH)
+   ## [1] 1970   16
 
-| *# Remove duplicated rows based on IDH, one row per household in
-  fileHH*
-| fileHH <- fileHH[\ **which**\ (!**duplicated**\ (fileHH$IDH)),] *# SUF
-  file*
-| fileOrigHH <-
-  fileOrig[\ **which**\ (!**duplicated**\ (fileOrig$IDH)),] *# original
-  dataset*
-| *# Dimensions of fileHH*
-| **dim**\ (fileHH)
-
-``## [1] 1970   16``
-
-**dim**\ (fileOrigHH)
-
-``## [1] 2000   68``
+   dim(fileOrigHH)
+   ## [1] 2000   68
 
 The file “fileHH” contains 1,970 households and 16 variables. We are now
 ready to create our *sdcMicro* object with the corresponding variables
-we selected in Example 9.28. For our case study, we will create an
+we selected in :numref:`code928`. For our case study, we will create an
 *sdcMicro* object called “sdcHH” based on the data in “fileHH”, which we
-will use for steps 6a – 10a (see Example 9.31). **NOTE: When the
-sdcMicro object is created, the sdcMicro package automatically
-calculates and stores the risk measures for the data.** This leads us to
-Step 6a.
+will use for steps 6a – 10a (see :numref:`code934`). 
 
-Example 9.31: Creating a *sdcMicro* object for the household variables
+.. NOTE:: 
+	When the sdcMicro object is created, the sdcMicro package automatically
+	calculates and stores the risk measures for the data.
+	
+This leads us to Step 6a.
 
-| *# Create initial sdcMicro object for household level variables*
-| sdcHH <- **createSdcObj**\ (dat = fileHH, keyVars = selectedKeyVarsHH,
-| pramVars = pramVarsHH, weightVar = weightVarHH, numVars = numVarsHH)
-| numHH <- **length**\ (fileHH[,1]) *# number of households*
+.. code-block:: R
+   :linenos:
+   :caption: Creating a *sdcMicro* object for the household variables
+   :name: code931
+   
+   # Create initial sdcMicro object for household level variables
+   sdcHH <- createSdcObj(dat = fileHH, keyVars = selectedKeyVarsHH,
+                         pramVars = pramVarsHH, weightVar = weightVarHH, numVars = numVarsHH)
+   numHH <- length(fileHH[,1]) # number of households
 
 **Step 6a: Assessing disclosure risk (household level)**
 
@@ -2777,78 +2672,75 @@ variables will not be released in the PUF file. Removing (key) variables
 reduces the risk, and it is one of the most straightforward SDC methods.
 
 As a first measure, we evaluate the number of households violating
-:math:`k`-anonymity at the levels 2, 3 and 5. Table 9.20 shows the
+:math:`k`-anonymity at the levels 2, 3 and 5. :numref:`tab920` shows the
 number of violating households as well as the percentage of the total
-number of households. Example 9.32 illustrates how to find these values
+number of households. :numref:`code932` illustrates how to find these values
 with *sdcMicro*. The print() function in *sdcMicro* shows only the
 values for thresholds 2 and 3. Values for other thresholds can be
 calculated manually by summing up the frequencies smaller than the
-:math:`k`-anonymity threshold, as shown in Example 9.32. The number of
+:math:`k`-anonymity threshold, as shown in :numref:`code932`. The number of
 violators is already at a low level, due to the prior anonymization of
 the SUF file and the reduced set of key variables.
 
-Table 9.20: Number and proportion of households violating
-:math:`\mathbf{k}`-anonymity
+.. _tab920:
 
-+-----------------------+-----------------------+-----------------------+
-| **k-anonymity level** | **Number of HH        | **Percentage of total |
-|                       | violating**           | number of HH**        |
-+=======================+=======================+=======================+
-| 2                     | 0                     | 0.0%                  |
-+-----------------------+-----------------------+-----------------------+
-| 3                     | 18                    | 0.9%                  |
-+-----------------------+-----------------------+-----------------------+
-| 5                     | 92                    | 4.7%                  |
-+-----------------------+-----------------------+-----------------------+
+.. table:: Number and proportion of households violating :math:`k`-anonymity
+   :widths: auto
+   :align: center
+   
+   ===================  ========================  ==================================
+    k-anonymity level    Number of HH violating    Percentage of total number of HH
+   ===================  ========================  ==================================
+    2                        0                      0.0%                
+    3                        18                     0.9%                
+    5                        92                     4.7%                
+   ===================  ========================  ==================================
 
-Example 9.32: Showing number of households violating
-:math:`\mathbf{k}`-anonymity for levels 2, 3 and 5
+.. code-block:: R
+   :linenos:
+   :caption: Showing number of households violating :math:`k`-anonymity for levels 2, 3 and 5
+   :name: code932
+   
+   # Number of observations violating k-anonymity (thresholds 2 and 3)
+   print(sdcHH)
+   ## Infos on 2/3-Anonymity:
+   ##
+   ## Number of observations violating
+   ##  - 2-anonymity: 0
+   ##  - 3-anonymity: 18
+   ##
+   ## Percentage of observations violating
+   ##  - 2-anonymity: 0.000 %
+   ##  - 3-anonymity: 0.914 %
+   --------------------------------------------------------------------------
 
-| *# Number of observations violating k-anonymity (thresholds 2 and 3)*
-| **print**\ (sdcHH)
+   # Calculate sample frequencies and count number of obs. violating k(5) - anonymity
+   kAnon5 <- sum(sdcHH@risk$individual[,2] < 5)
+   kAnon5
+   ## [1] 92
 
-| ``## Infos on 2/3-Anonymity:``
-| ``##``
-| ``## Number of observations violating``
-| ``##  - 2-anonymity: 0``
-| ``##  - 3-anonymity: 18``
-| ``##``
-| ``## Percentage of observations violating``
-| ``##  - 2-anonymity: 0.000 %``
-| ``##  - 3-anonymity: 0.914 %``
-| ``--------------------------------------------------------------------------``
-
-| *# Calculate sample frequencies and count number of obs. violating k
-  (5) - anonymity*
-| kAnon5 <- **sum**\ (sdcHH@risk$individual[,2] < 5)
-
-kAnon5
-
-## [1] 92
-
-| *# As percentage of total*
-| kAnon5 / numHH
-
-## [1] ``0.04670051``
+   # As percentage of total
+   kAnon5 / numHH
+   ## [1] 0.04670051
 
 It is often useful to view the records of the household(s) that violate
 :math:`k`-anonymity. This might help to find which variables cause the
 uniqueness of these households; this can then be used later when
-choosing appropriate SDC methods. Example 9.32 shows how to access the
+choosing appropriate SDC methods. :numref:`code932` shows how to access the
 values of the households violating 3 and 5-anonymity. Not surprisingly,
 the variable “HHSIZE” is responsible for many of the unique combinations
 and the origin of much of the risk. This is even the case after removing
 large households for the SUF release.
 
-Example 9.33: Showing records of households that violate
-:math:`\mathbf{k}`-anonymity
+.. code-block:: R
+   :linenos:
+   :caption: Showing records of households that violate :math:`k`-anonymity
+   :name: code933
+   
+   # Show values of key variable of records that violate k-anonymity
+   fileHH[sdcHH@risk$individual[,2] < 3, selectedKeyVarsHH] # for 3-anonymity
 
-| *# Show values of key variable of records that violate k-anonymity*
-| fileHH[sdcHH@risk$individual[,2] < 3, selectedKeyVarsHH] *# for
-  3-anonymity*
-
-fileHH[sdcHH@risk$individual[,2] < 5, selectedKeyVarsHH] *# for
-5-anonymity*
+   fileHH[sdcHH@risk$individual[,2] < 5, selectedKeyVarsHH] # for 5-anonymity
 
 We also assess the disclosure risk of the categorical variables with the
 individual and global risk measures as described in Sections 4.5 and
@@ -2860,38 +2752,42 @@ dataset, no hierarchical structure. In Step 6b, we evaluate the
 hierarchical risk in the dataset “file”, the dataset containing both
 households and individuals. The individual and global risk measures
 automatically take into consideration the household weights, which we
-defined in Example 9.29. In our file, the global risk measure calculated
+defined in :numref:`code929`. In our file, the global risk measure calculated
 using the chosen key variables is lower than 0.01% (the smallest
 reported value is 0.01%, in fact the global risk is 0.0000642 %). This
 percentage is extremely low and corresponds to 0.13 expected
-re-identifications. The results are also shown in Example 9.34. This low
+re-identifications. The results are also shown in :numref:`code934`. This low
 figure can be explained by the relatively small sample size of 0.25% of
 the total population (see case study 1). Furthermore, one should keep in
 mind that this risk measure is based only on the categorical
 quasi-identifiers at the household level.
 
-Example 9.34: Printing global risk measures
-
-**print**\ (sdcHH, "risk")
-
-| ``## Risk measures:``
-| ``##``
-| ``## Number of observations with higher risk than the main part of the data: 0``
-| ``## Expected number of re-identifications:``\ ``0``\ ``.``\ ``1``\ ``3 (0.0``\ ``1``\ ``%)``
+.. code-block:: R
+   :linenos:
+   :caption: Printing global risk measures
+   :name: code934
+   
+   print(sdcHH, "risk")
+   ## Risk measures:
+   ##
+   ## Number of observations with higher risk than the main part of the data: 0
+   ## Expected number of re-identifications: 0.13 (0.01 %)
 
 The global risk measure does not provide information about the spread of
 the individual risk measures. There might be a few households with
 relatively high risk, while the global (average) risk is low. Therefore
-we check the highest individual risk as shown in Example 9.35. The
+we check the highest individual risk as shown in :numref:`code935`. The
 individual risk of the household with the highest risk is 0.1 %, which
 is still very low.
 
-Example 9.35 Determining the highest individual risk
-
-| *# Highest individual risk*
-| **max**\ (sdcHH@risk$individual[, "risk"])
-
-``## [1] 0.001011633``
+.. code-block:: R
+   :linenos:
+   :caption: Determining the highest individual risk
+   :name: code935
+   
+   # Highest individual risk
+   max(sdcHH@risk$individual[, "risk"])
+   ## [1] 0.001011633
 
 Since the selected key variables at the household level are both
 categorical and numerical, the individual and global risk measures based
@@ -2920,9 +2816,14 @@ presented in Step 10a, together with the results after anonymization,
 which allow direct comparison. If after the next anonymization step it
 appears that the data utility has been significantly decreased by the
 suppression of some household level variables, we can return to this
-step. **NOTE: to analyze the utility loss, the utility measures before
-anonymization have to be calculated from the raw data and not from the
-anonymized SUF file.** Not all measures from case study 1 can be
+step. 
+
+.. NOTE:: 
+	To analyze the utility loss, the utility measures before
+	anonymization have to be calculated from the raw data and not from the
+	anonymized SUF file.
+	
+Not all measures from case study 1 can be
 computed from the PUF file, since the information content is lower. The
 set of utility measures we use to evaluate the information loss in the
 PUF file consists of measures that need less detailed variables. This
@@ -2985,18 +2886,22 @@ important and less important for making small changes (see also Section
 set the importance of “HHSIZE” in the importance vectors to the highest
 (i.e., 1). We try two different importance vectors: the first where
 “REGION” is more important than “URBRUR” and the second with the
-importance of “REGION” and “URBRUR” swapped. Example 9.36 shows how to
+importance of “REGION” and “URBRUR” swapped. :numref:`code936` shows how to
 apply local suppression and put importance on the variable “HHSIZE”.
-**NOTE: In** **Example 9.36 we use the undolast() function in sdcMicro
-to go one step back after we had first applied local suppression with no
-importance vector.** The undolast() function restores the *sdcMicro*
+
+.. NOTE:: 
+	In :numref:`code936` we use the undolast() function in sdcMicro
+	to go one step back after we had first applied local suppression with no
+	importance vector.
+	
+The undolast() function restores the *sdcMicro*
 object back to the previous state (i.e., before we applied local
 suppression), which allows us to rerun the same command, but this time
 with an importance vector set. The undolast() function can only be used
 to go one step back.
 
 The suppression patterns of the three different options are shown in
-Table 9.21. The importance is clearly reflected in the number of
+:numref:`tab921`. The importance is clearly reflected in the number of
 suppressions per variable. The total number of suppressions is with an
 importance vector higher than without an importance vector (44/73 vs.
 39), but 5-anonymity is achieved in the dataset with no suppressions in
@@ -3006,66 +2911,61 @@ not have any suppressions either. From that perspective we chose the
 third option. This leads to more suppressions, but no suppressions in
 “HHSIZE” and as few as possible in “REGION”.
 
-Table 9.21: Number of suppressions by variable after local suppression
-with and without importance vector
+.. _tab921:
 
-+-----------------+-----------------+-----------------+-----------------+
-| Key variable    | Number of suppressions and proportion of total      |
-+=================+=================+=================+=================+
-|                 | *No importance  | *Importance     | *Importance     |
-|                 | vector*         | HHSIZE, URBRUR, | HHSIZE, REGION, |
-|                 |                 | REGION*         | URBRUR*         |
-+-----------------+-----------------+-----------------+-----------------+
-| *URBRUR*        | 0 (0.0 %)       | 2 (0.1 %)       | 61 (3.1 %)      |
-+-----------------+-----------------+-----------------+-----------------+
-| *REGION*        | 0 (0.0 %)       | 42 (2.1 %)      | 12 (0.6 %)      |
-+-----------------+-----------------+-----------------+-----------------+
-| *HHSIZE*        | 39 (2.0 %)      | 0 (0.0 %)       | 0 (0.0 %)       |
-+-----------------+-----------------+-----------------+-----------------+
+.. table:: Number of suppressions by variable after local suppression with and without importance vector
+   :widths: auto
+   :align: center
 
-Example 9.36: Local suppression with and without importance vector
+   ==============  ======================  ===================================  ===================================
+    Key variable    Number of suppressions and proportion of total      
+   --------------  ------------------------------------------------------------------------------------------------
+                    No importance vector    Importance HHSIZE, URBRUR, REGION    Importance HHSIZE, REGION, URBRUR  
+   ==============  ======================  ===================================  ===================================
+    URBRUR           0 (0.0 %)                2 (0.1 %)                           61 (3.1 %)      
+    REGION           0 (0.0 %)                42 (2.1 %)                          12 (0.6 %)      
+    HHSIZE           39 (2.0 %)               0 (0.0 %)                           0 (0.0 %)       
+   ==============  ======================  ===================================  ===================================
 
-| *# Local suppression to achieve 5-anonimity*
-| sdcHH <- **localSuppression**\ (sdcHH, k = 5, importance = NULL) *# no
-  importance vector*
-| **print**\ (sdcHH, "ls")
+.. code-block:: R
+   :linenos:
+   :caption: Local suppression with and without importance vector
+   :name: code936
+   
+   # Local suppression to achieve 5-anonimity
+   sdcHH <- localSuppression(sdcHH, k = 5, importance = NULL) # no importance vector
+   print(sdcHH, "ls")
 
-| ``## Local Suppression:``
-| ``##  KeyVar | Suppressions (#) | Suppressions (%)``
-| ``##  URBRUR |                0 |            0.000``
-| ``##  REGION |                0 |            0.000``
-| ``##  HHSIZE |               39 |            1.980``
-| ``## ---------------------------------------------------------------------------``
+   ## Local Suppression:
+   ##  KeyVar | Suppressions (#) | Suppressions (%)
+   ##  URBRUR |                0 |            0.000
+   ##  REGION |                0 |            0.000
+   ##  HHSIZE |               39 |            1.980
+   ## ---------------------------------------------------------------------------
 
-| sdcHH <- **undolast**\ (sdcHH) *# undo suppressions to see the effect
-  of an importance vector*
-| *# Redo local suppression minimizing the number of suppressions in
-  HHSIZE*
-| sdcHH <- **localSuppression**\ (sdcHH, k = 5, importance = **c**\ (2,
-  3, 1))
-| **print**\ (sdcHH, "ls")
+   sdcHH <- undolast(sdcHH) # undo suppressions to see the effect of an importance vector
+   # Redo local suppression minimizing the number of suppressions in HHSIZE
+   sdcHH <- localSuppression(sdcHH, k = 5, importance = c(2, 3, 1))
+   
+   print(sdcHH, "ls")
+   ## Local Suppression:
+   ##  KeyVar | Suppressions (#) | Suppressions (%)
+   ##  URBRUR |                2 |            0.102
+   ##  REGION |               42 |            2.132
+   ##  HHSIZE |                0 |            0.000
+   ## ---------------------------------------------------------------------------
 
-| ``## Local Suppression:``
-| ``##  KeyVar | Suppressions (#) | Suppressions (%)``
-| ``##  URBRUR |                2 |            0.102``
-| ``##  REGION |               42 |            2.132``
-| ``##  HHSIZE |                0 |            0.000``
-| ``## ---------------------------------------------------------------------------``
+   sdcHH <- undolast(sdcHH) # undo suppressions to see the effect of a different importance vector
+   # Redo local suppression minimizing the number of suppressions in HHSIZE
+   sdcHH <- localSuppression*(sdcHH, k = 5, importance = c(3, 2, 1))
+   print(sdcHH, "ls")
 
-| sdcHH <- **undolast**\ (sdcHH) *# undo suppressions to see the effect
-  of a different importance vector*
-| *# Redo local suppression minimizing the number of suppressions in
-  HHSIZE*
-| sdcHH <- **localSuppression**\ (sdcHH, k = 5, importance = **c**\ (3,
-  2, 1))
-| **print**\ (sdcHH, "ls")
-
-| ``## Local Suppression:``
-| ``##  KeyVar | Suppressions (#) | Suppressions (%)``
-| ``##  URBRUR |``\ ``61``\ ``|``\ ``3``\ ``.``\ ``096``
-| ``##  REGION |``\ ``1``\ ``2 |``\ ``0``\ ``.``\ ``609``
-| ``##  HHSIZE |                0 |            0.000``
-| ``## ---------------------------------------------------------------------------``
+   ## Local Suppression:
+   ##  KeyVar | Suppressions (#) | Suppressions (%)
+   ##  URBRUR |               61 |            3.096
+   ##  REGION |               12 |            0.609
+   ##  HHSIZE |                0 |            0.000
+   ## ---------------------------------------------------------------------------
 
 In case study 1 we applied invariant PRAM to the variables “ROOF”,
 “TOILET”, “WATER”, “ELECTCON”, “FUELCOOK”, “OWNMOTORCYCLE”, “CAR”, “TV”
@@ -3082,48 +2982,51 @@ distributions do not change. To maintain this property, we reapply PRAM
 to the raw data, rather than to the already PRAMmed variables in the SUF
 file.
 
-Example 9.37 illustrates how to apply PRAM. We use the original values
+:numref:`code937` illustrates how to apply PRAM. We use the original values
 to apply PRAM and replace the values in the *sdcMicro* object with these
 values. We choose the parameter ‘pd’, the lower bound for the
 probability that a value is not changed, to be relatively low at 0.6.
 This is a lower value than the 0.8 used in the SUF file and will lead to
-a higher number of changes (cf. Example 9.17 on page 135). This is
+a higher number of changes (cf. :numref:`code917`). This is
 acceptable for a PUF file and introduces more uncertainty as required
-for a PUF release. Example 9.37 also shows the number of changed records
+for a PUF release. :numref:`code937` also shows the number of changed records
 per variables. Because PRAM is a probabilistic method, we set a seed for
 the random number generator before applying PRAM to ensure
-reproducibility of the results. **Note: In some cases the choice of the
-seed matters. The choice of seed changes the results.** The seed should
-not be released, since it allows for reconstructing the original values
+reproducibility of the results. 
+
+.. Note:: 
+	In some cases the choice of the seed matters. The choice of seed changes the results.
+	
+The seed should not be released, since it allows for reconstructing the original values
 if combined with the transition matrix. The transition matrix can be
 released: this allows for consistent statistical inference by correcting
 the statistical methods used if the researcher has knowledge about the
 PRAM method (at this point *sdcMicro* does not allow to retrieve the
 transition matrix).
 
-Example 9.37: Applying PRAM
-
-| *# PRAM*
-| **set.seed**\ (10987)
-| *# Replace PRAM variables in sdcMicro object sdcHH with the original
-  raw values*
-| sdcHH@origData[,pramVarsHH] <- fileHH[\ **match**\ (fileHH$IDH,
-  fileOrigHH$IDH), pramVarsHH]
-| sdcHH@manipPramVars <- fileHH[\ **match**\ (fileHH$IDH,
-  fileOrigHH$IDH), pramVarsHH]
-| sdcHH <- **pram**\ (obj = sdcHH, pd = 0.6)
-
-| ``## Number of changed observations:``
-| ``## - - - - - - - - - - -``
-| ``## ROOF != ROOF_pram : 305 (15.48%)``
-| ``## TOILET != TOILET_pram : 260 (13.2%)``
-| ``## WATER != WATER_pram : 293 (14.87%)``
-| ``## ELECTCON != ELECTCON_pram : 210 (10.66%)``
-| ``## FUELCOOK != FUELCOOK_pram : 315 (15.99%)``
-| ``## OWNMOTORCYCLE != OWNMOTORCYCLE_pram : 95 (4.82%)``
-| ``## CAR != CAR_pram : 255 (12.94%)``
-| ``## TV != TV_pram : 275 (13.96%)``
-| ``## LIVESTOCK != LIVESTOCK_pram : 109 (5.53%)``
+.. code-block:: R
+   :linenos:
+   :caption: Applying PRAM
+   :name: code937
+   
+   # PRAM
+   set.seed(10987)
+   # Replace PRAM variables in sdcMicro object sdcHH with the original raw values
+   sdcHH@origData[,pramVarsHH] <- fileHH[match(fileHH$IDH, fileOrigHH$IDH), pramVarsHH]
+   sdcHH@manipPramVars <- fileHH[match(fileHH$IDH, fileOrigHH$IDH), pramVarsHH]
+   
+   sdcHH <- pram(obj = sdcHH, pd = 0.6)
+   ## Number of changed observations:
+   ## - - - - - - - - - - -
+   ## ROOF != ROOF_pram : 305 (15.48%)
+   ## TOILET != TOILET_pram : 260 (13.2%)
+   ## WATER != WATER_pram : 293 (14.87%)
+   ## ELECTCON != ELECTCON_pram : 210 (10.66%)
+   ## FUELCOOK != FUELCOOK_pram : 315 (15.99%)
+   ## OWNMOTORCYCLE != OWNMOTORCYCLE_pram : 95 (4.82%)
+   ## CAR != CAR_pram : 255 (12.94%)
+   ## TV != TV_pram : 275 (13.96%)
+   ## LIVESTOCK != LIVESTOCK_pram : 109 (5.53%)
 
 PRAM has changed values within the variables according to the invariant
 transition matrices. Since we used the invariant PRAM method (see
@@ -3159,57 +3062,37 @@ allow an intruder to reconstruct the totals. PUF users might however be
 interested in the shares. Therefore, we decide to keep the income and
 expenditure components as proportions of the raw totals, rounded to two
 digits. The anonymization of the income and expenditure variables is
-shown in Example 9.38.
+shown in :numref:`code938`.
 
-Example 9.38: Anonymization of income and expenditure variables
+.. code-block:: R
+   :linenos:
+   :caption: Anonymization of income and expenditure variables
+   :name: code938
+   
+   # Create bands (deciles) for income and expenditure variables
+   (aggregates) based on the original data
+   decExp <- as.numeric(cut(fileOrigHH[match(fileHH$IDH, fileOrigHH$IDH), "TANHHEXP"], quantile(fileOrigHH[match(fileHH$IDH, fileOrigHH$IDH),
+   "TANHHEXP"], (0:10)/10, na.rm = T), include.lowest = TRUE, labels = c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)))
+    decInc <- as.numeric(cut(fileOrigHH[match(fileHH$IDH, fileOrigHH$IDH), "INCTOTGROSSHH"], quantile(fileOrigHH[match(fileHH$IDH, fileOrigHH$IDH),
+   "INCTOTGROSSHH"], (0:10)/10, na.rm = T), include.lowest = TRUE, labels  = c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)))
 
-| *# Create bands (deciles) for income and expenditure variables
-  (aggregates) based on the original data*
-| decExp <-
-  **as.numeric**\ (**cut**\ (fileOrigHH[**match**\ (fileHH$IDH,
-  fileOrigHH$IDH), "TANHHEXP"],
-  **quantile**\ (fileOrigHH[**match**\ (fileHH$IDH, fileOrigHH$IDH),
-  "TANHHEXP"], (0:10)/10, na.rm = T), include.lowest = TRUE, labels =
-  **c**\ (1, 2, 3, 4, 5, 6, 7, 8, 9, 10)))
-| decInc <-
-  **as.numeric**\ (**cut**\ (fileOrigHH[**match**\ (fileHH$IDH,
-  fileOrigHH$IDH), "INCTOTGROSSHH"],
-  **quantile**\ (fileOrigHH[**match**\ (fileHH$IDH, fileOrigHH$IDH),
-  "INCTOTGROSSHH"], (0:10)/10, na.rm = T), include.lowest = TRUE, labels
-  = **c**\ (1, 2, 3, 4, 5, 6, 7, 8, 9, 10)))
-| *# Mean values of deciles*
-| decExpMean <-
-  **round**\ (**sapply**\ (**split**\ (fileOrigHH[**match**\ (fileHH$IDH,
-  fileOrigHH$IDH), "TANHHEXP"], decExp), mean))
-| decIncMean <-
-  **round**\ (**sapply**\ (**split**\ (fileOrigHH[**match**\ (fileHH$IDH,
-  fileOrigHH$IDH), "INCTOTGROSSHH"], decInc), mean))
-| *# Replace with mean value of decile*
-| sdcHH@manipNumVars$TANHHEXP <- decExpMean[\ **match**\ (decExp,
-  **names**\ (decExpMean))]
-| sdcHH@manipNumVars$INCTOTGROSSHH <- decIncMean[\ **match**\ (decInc,
-  **names**\ (decIncMean))]
-| *# Recalculate risks after manually changing values in sdcMicro
-  object*
-| **calcRisks**\ (sdcHH)
+   # Mean values of deciles
+   decExpMean <- round(sapply(split(fileOrigHH[match(fileHH$IDH, fileOrigHH$IDH), "TANHHEXP"], decExp), mean))
+   decIncMean <- round(sapply(split(fileOrigHH[match(fileHH$IDH, fileOrigHH$IDH), "INCTOTGROSSHH"], decInc), mean))
+   # Replace with mean value of decile
+   sdcHH@manipNumVars$TANHHEXP <- decExpMean[match(decExp,names(decExpMean))]
+   sdcHH@manipNumVars$INCTOTGROSSHH <- decIncMean[\ match(decInc, names(decIncMean))]
+   # Recalculate risks after manually changing values in sdcMicro object calcRisks(sdcHH)
 
-| *# Extract data from sdcHH*
-| HHmanip <- **extractManipData**\ (sdcHH) *# manipulated variables HH*
-| *# Keep components of expenditure and income as share of total, use
-  original data since previous data was perturbed*
-| compExp <- **c**\ ('TFOODEXP', 'TALCHEXP', 'TCLTHEXP', 'THOUSEXP',
-  'TFURNEXP', 'THLTHEXP', 'TTRANSEXP', 'TCOMMEXP', 'TRECEXP', 'TEDUEXP',
-  'TRESTHOTEXP', 'TMISCEXP')
-| compInc <- **c**\ ('INCRMT', 'INCWAGE', 'INCFARMBSN', 'INCNFARMBSN',
-  'INCRENT', 'INCFIN', 'INCPENSN', 'INCOTHER')
-| HHmanip <- **cbind**\ (HHmanip,
-  **round**\ (fileOrigHH[**match**\ (fileHH$IDH, fileOrigHH$IDH),
-  compExp] / fileOrigHH[\ **match**\ (fileHH$IDH, fileOrigHH$IDH),
-  "TANHHEXP"], 2))
-| HHmanip <- **cbind**\ (HHmanip,
-  **round**\ (fileOrigHH[**match**\ (fileHH$IDH, fileOrigHH$IDH),
-  compInc] / fileOrigHH[\ **match**\ (fileHH$IDH, fileOrigHH$IDH),
-  "INCTOTGROSSHH"], 2))
+   # Extract data from sdcHH
+   HHmanip <- extractManipData(sdcHH) # manipulated variables HH
+   # Keep components of expenditure and income as share of total, use original data since previous data was perturbed*
+   compExp <- c('TFOODEXP', 'TALCHEXP', 'TCLTHEXP', 'THOUSEXP',
+                'TFURNEXP', 'THLTHEXP', 'TTRANSEXP', 'TCOMMEXP', 'TRECEXP', 'TEDUEXP', 'TRESTHOTEXP', 'TMISCEXP')
+   compInc <- c('INCRMT', 'INCWAGE', 'INCFARMBSN', 'INCNFARMBSN',
+                'INCRENT', 'INCFIN', 'INCPENSN', 'INCOTHER')
+   HHmanip <- cbind(HHmanip, round(fileOrigHH[match(fileHH$IDH, fileOrigHH$IDH), compExp] / fileOrigHH[match(fileHH$IDH, fileOrigHH$IDH), "TANHHEXP"], 2))
+   HHmanip <- cbind(HHmanip, round(fileOrigHH[match(fileHH$IDH, fileOrigHH$IDH), compInc] / fileOrigHH[match(fileHH$IDH, fileOrigHH$IDH), "INCTOTGROSSHH"], 2))
 
 **Step 9a: Re-measure risk (household level)**
 
@@ -3219,9 +3102,11 @@ For the categorical variables, we conclude that we have achieved
 expected number of re-identifications), which is very low. Therefore, we
 conclude that based on the categorical variables, the data has been
 sufficiently anonymized. One should keep in mind that the anonymization
-methods applied are complementing the ones used for the SUF. **NOTE: The
-methods selected methods in this case study alone would not be
-sufficient to protect the data set for a PUF release.**
+methods applied are complementing the ones used for the SUF. 
+
+.. NOTE:: 
+	The methods selected methods in this case study alone would not be
+	sufficient to protect the data set for a PUF release.
 
 We have reduced the risk of spontaneous recognition of households, by
 removing the variable “LANDSIZEHA” and PRAMming the variables identified
@@ -3239,7 +3124,7 @@ values could be used for matching. Here the main concern is that the
 values are sufficiently far from the original values, which is measured
 with an interval measure.
 
-Example 9.39 shows how to evaluate the interval measure for the
+:numref:`code939` shows how to evaluate the interval measure for the
 variables “INCTOTGROSSHH” and “TANHHEXP” (total income and expenditure).
 The different values of the parameter :math:`k` in the function dRisk()
 define the size of the interval around the original value as a function
@@ -3253,25 +3138,20 @@ Looking at the proportions of the components, we do not detect any
 outliers (households with an unusual high or low spending pattern in one
 component).
 
-Example 9.39: Measuring risk of re-identification of continuous
-variables
+.. code-block:: R
+   :linenos:
+   :caption: Measuring risk of re-identification of continuous variables
+   :name: code939
+   
+   # Risk evaluation continuous variables
+   dRisk(sdcHH@origData[,c("TANHHEXP", "INCTOTGROSSHH")], xm = sdcHH@manipNumVars[,c("TANHHEXP", "INCTOTGROSSHH")], k = 0.01)
+   ## [1] 0.4619289
 
-| *# Risk evaluation continuous variables*
-| **dRisk**\ (sdcHH@origData[,**c**\ ("TANHHEXP", "INCTOTGROSSHH")], xm
-  = sdcHH@manipNumVars[,\ **c**\ ("TANHHEXP", "INCTOTGROSSHH")], k =
-  0.01)
+   dRisk(sdcHH@origData[,c("TANHHEXP", "INCTOTGROSSHH")], xm = sdcHH@manipNumVars[,c("TANHHEXP", "INCTOTGROSSHH")], k = 0.02)
+   ## [1] 0.642132
 
-``## [1] 0.4619289``
-
-**dRisk**\ (sdcHH@origData[,**c**\ ("TANHHEXP", "INCTOTGROSSHH")], xm =
-sdcHH@manipNumVars[,\ **c**\ ("TANHHEXP", "INCTOTGROSSHH")], k = 0.02)
-
-``## [1] 0.642132``
-
-**dRisk**\ (sdcHH@origData[,**c**\ ("TANHHEXP", "INCTOTGROSSHH")], xm =
-sdcHH@manipNumVars[,\ **c**\ ("TANHHEXP", "INCTOTGROSSHH")], k = 0.05)
-
-``## [1] 0.8258883``
+   dRisk(sdcHH@origData[,c("TANHHEXP", "INCTOTGROSSHH")], xm = sdcHH@manipNumVars[,c("TANHHEXP", "INCTOTGROSSHH")], k = 0.05)
+   ## [1] 0.8258883
 
 **Step 10a Re-measure utility (household level)**
 
@@ -3286,57 +3166,53 @@ based on the raw data.
 We select two additional utility measures: the decile dispersion ratio
 and the share of total consumption by the poorest decile. The decile
 dispersion ratio is the ratio of the average income of the top decile
-and the average income of the bottom decile. Example 9.40 shows how to
+and the average income of the bottom decile. :numref:`code940` shows how to
 compute these from the raw data and the household variables after
-anonymization. Table 9.22 presents the estimated values. The differences
+anonymization. :numref:`tab922` presents the estimated values. The differences
 are small and mainly due to the removed households.
 
-Table 9.22: Comparison of utility measures
+.. _tab922:
 
-+------------------------------------------------+--------------+--------------+
-|                                                | **Raw data** | **PUF file** |
-+================================================+==============+==============+
-| **Decile dispersion ratio**                    | 24.12        | 23.54        |
-+------------------------------------------------+--------------+--------------+
-| **Share of consumption by the poorest decile** | 0.0034       | 0.0035       |
-+------------------------------------------------+--------------+--------------+
+.. table:: Comparison of utility measures
+   :widths: auto
+   :align: center
+   
+   ============================================  ==========  ==========
+    .                                             Raw data    PUF file
+   ============================================  ==========  ==========
+    Decile dispersion ratio                       24.12       23.54   
+    Share of consumption by the poorest decile    0.0034      0.0035  
+   ============================================  ==========  ==========
 
-Example 9.40: Computation of decile dispersion ratio and share of total
-consumption by the poorest decile
+.. code-block:: R
+   :linenos:
+   :caption: Computation of decile dispersion ratio and share of total consumption by the poorest decile
+   :name: code940
+   
+   # Decile dispersion ratio
+   # raw data
+   mean(tail(sort(fileOrigHH$INCTOTGROSSHH), n = 200)) / mean(head(sort(fileOrigHH$INCTOTGROSSHH), n = 200))
+   ## [1] 24.12152
 
-| *# Decile dispersion ratio*
-| *# raw data*
-| **mean**\ (**tail**\ (**sort**\ (fileOrigHH$INCTOTGROSSHH), n = 200))
-  / **mean**\ (**head**\ (**sort**\ (fileOrigHH$INCTOTGROSSHH), n =
-  200))
+   mean(tail(sort(HHmanip$INCTOTGROSSHH), n = 197)) / mean(head(sort(HHmanip$INCTOTGROSSHH), n = 197))
+   ## [1] 23.54179
 
-``## [1] 24.12152``
+   # Share of total consumption by the poorest decile households
+   sum(head(sort(fileOrigHH$TANHHEXP), n = 200)) / sum(fileOrigHH$TANHHEXP)
+   ## [1] 0.003411664
 
-**mean**\ (**tail**\ (**sort**\ (HHmanip$INCTOTGROSSHH), n = 197)) /
-**mean**\ (**head**\ (**sort**\ (HHmanip$INCTOTGROSSHH), n = 197))
-
-``## [1] 23.54179``
-
-| *# Share of total consumption by the poorest decile households*
-| **sum**\ (**head**\ (**sort**\ (fileOrigHH$TANHHEXP), n = 200)) /
-  **sum**\ (fileOrigHH$TANHHEXP)
-
-``## [1] 0.003411664``
-
-**sum**\ (**head**\ (**sort**\ (HHmanip$TANHHEXP), n = 197)) /
-**sum**\ (HHmanip$TANHHEXP)
-
-``## [1] 0.003530457``
+   sum(head(sort(HHmanip$TANHHEXP), n = 197)) / sum(HHmanip$TANHHEXP)
+   ## [1] 0.003530457
 
 **Merging the household- and individual-level variables**
 
 The next step is to merge the treated household variables with the
 untreated individual variables for the anonymization of the individual
-level variables. Example 9.41 shows the steps to merge these files. This
+level variables. :numref:`code941` shows the steps to merge these files. This
 also includes the selection of variables used in the anonymization of
 the individual-level variables. We create the *sdcMicro* object for the
 anonymization of the individual variables in the same way as for the
-household variable in Example 9.31. Generally, at this stage, the
+household variable in :numref:`code931`. Generally, at this stage, the
 household level and individual level variables should be combined and
 quasi-identifiers at both levels be used (see Section 4.4).
 Unfortunately, in our dataset, this leads to long computation times.
@@ -3347,46 +3223,40 @@ and in Step 8b we discuss alternative approaches to keeping the complete
 set of variables. We now repeat Steps 6-10 for the individual-level
 variables.
 
-Example 9.41: Merging the files with household and individual-level
-variables and creating an *sdcMicro* object for the anonymization of the
-individual-level variables
+.. code-block:: R
+   :linenos:
+   :caption: Merging the files with household and individual-level variables and creating an *sdcMicro* object for the anonymization of the individual-level variables
+   :name: code941
+   
+   ### Select variables (individual level)
+   selectedKeyVarsIND = c('GENDER', 'REL', 'MARITAL', 'AGEYRS', 'EDUCY', 'INDUSTRY1') # list of selected key variables
+   # sample weight (WGTHH, individual weight)
+   selectedWeightVarIND = c('WGTHH')
+   # Household ID
+   selectedHouseholdID = c('IDH')
+   # Variables not suitable for release in PUF (IND level)
+   varsNotToBeReleasedIND <- c("ATSCHOOL", "EDYRSCURRAT")
+   # All individual level variables
+   INDVars <- c(selectedKeyVarsIND)
+   # Recombining anonymized HH data sets and individual level variables
+   indVars <- c("IDH", "IDP", selectedKeyVarsIND, "WGTHH") # HID and all non HH vars
+   fileInd <- file[indVars] # subset of file without HHVars
+   fileCombined <- merge(HHmanip, fileInd, by.x = c('IDH'))
+   fileCombined <- fileCombined[order(fileCombined[,'IDH'],  fileCombined[,'IDP']),]
 
-| ### Select variables (individual level)
-| selectedKeyVarsIND = **c**\ ('GENDER', 'REL', 'MARITAL', 'AGEYRS',
-  'EDUCY', 'INDUSTRY1') *# list of selected key variables*
-| *# sample weight (WGTHH, individual weight)*
-| selectedWeightVarIND = **c**\ ('WGTHH')
-| *# Household ID*
-| selectedHouseholdID = **c**\ ('IDH')
-| *# Variables not suitable for release in PUF (IND level)*
-| varsNotToBeReleasedIND <- **c**\ ("ATSCHOOL", "EDYRSCURRAT")
-| *# All individual level variables*
-| INDVars <- **c**\ (selectedKeyVarsIND)
-| *# Recombining anonymized HH data sets and individual level variables*
-| indVars <- **c**\ ("IDH", "IDP", selectedKeyVarsIND, "WGTHH") *# HID
-  and all non HH vars*
-| fileInd <- file[indVars] *# subset of file without HHVars*
-| fileCombined <- **merge**\ (HHmanip, fileInd, by.x = **c**\ ('IDH'))
-| fileCombined <- fileCombined[\ **order**\ (fileCombined[,'IDH'],
-  fileCombined[,'IDP']),]
-| **dim**\ (fileCombined)
+   dim(fileCombined)
+   ## [1] 10068    44
 
-``## [1] 10068    44``
+   # SDC objects with only IND level variables
+   sdcCombined <- createSdcObj(dat = fileCombined, keyVars = c(selectedKeyVarsIND), weightVar = selectedWeightVarIND, hhId = selectedHouseholdID)
 
-| *# SDC objects with only IND level variables*
-| sdcCombined <- **createSdcObj**\ (dat = fileCombined, keyVars =
-  **c**\ (selectedKeyVarsIND), weightVar = selectedWeightVarIND, hhId =
-  selectedHouseholdID)
-
-| *# SDC objects with both HH and IND level variables*
-| sdcCombinedAll <- **createSdcObj**\ (dat = fileCombined, keyVars =
-  **c**\ (selectedKeyVarsIND, selectedKeyVarsHH ), weightVar =
-  selectedWeightVarIND, hhId = selectedHouseholdID)
+   # SDC objects with both HH and IND level variables
+   sdcCombinedAll <- createSdcObj(dat = fileCombined, keyVars = c(selectedKeyVarsIND, selectedKeyVarsHH ), weightVar = selectedWeightVarIND, hhId = selectedHouseholdID)
 
 **Step 6b: Assessing disclosure risk (individual level)**
 
 As first measure, we evaluate the number of records violating
-:math:`k`-anonymity at the levels 2, 3 and 5. Table 9.23 shows the
+:math:`k`-anonymity at the levels 2, 3 and 5. :numref:`tab923` shows the
 number of violating individuals as well as the percentage of the total
 number of households. The second and third column refer to “sdcCombined”
 and the fourth and fifth column to “sdcCombinedAll”. We see that
@@ -3399,22 +3269,23 @@ assume that these variables are not available in the same dataset and
 can therefore not simultaneously be used by an intruder to re-identify
 individuals.
 
-Table 9.23: Number of records violating k-anonimity
+.. _tab923:
 
-+-------------+-------------+-------------+-------------+-------------+
-|             | sdcCombined               | sdcCombinedAll            |
-+=============+=============+=============+=============+=============+
-| k-anonymity | Number of   | Percentage  | Number of   | Percentage  |
-|             | records     |             | records     |             |
-|             | violating   | of total    | violating   | of total    |
-|             |             | records     |             | records     |
-+-------------+-------------+-------------+-------------+-------------+
-| 2           | 0           | 0.0 %       | 4,048       | 40.2 %      |
-+-------------+-------------+-------------+-------------+-------------+
-| 3           | 167         | 1.7 %       | 6,107       | 60.7 %      |
-+-------------+-------------+-------------+-------------+-------------+
-| 5           | 463         | 4.6 %       | 8,292       | 82.4 %      |
-+-------------+-------------+-------------+-------------+-------------+
+.. table:: Number of records violating k-anonimity
+   :widths: auto
+   :align: center
+   
+   =============  =============  =============  =============  =============
+    .              sdcCombined                   sdcCombinedAll            
+   -------------  ----------------------------  ----------------------------
+    k-anonymity    Number of      Percentage      Number of      Percentage  
+                   records        of total        records        of total    
+                   violating      records         violating      records     
+   =============  =============  =============  =============  =============
+    2              0              0.0 %           4,048          40.2 %      
+    3              167            1.7 %           6,107          60.7 %      
+    5              463            4.6 %           8,292          82.4 %      
+   =============  =============  =============  =============  =============
 
 The global hierarchical risk measure is 0.095%, which corresponds to
 approximately 10 expected re-identifications. We use here the
@@ -3425,60 +3296,55 @@ number of :math:`k`-anonymity violations, due to the high sample
 weights, which protect the data already to a large extent. Only 24
 observations have an individual hierarchical risk higher than 1%, with a
 maximum of 1.17%. This is mainly because of the lower sample weights of
-these records. Example 9.42 shows how to retrieve these measures in *R*.
+these records. :numref:`code942` shows how to retrieve these measures in *R*.
 
-Example 9.42: Risk measures before anonymization
+.. code-block:: R
+   :linenos:
+   :caption: Risk measures before anonymization
+   :name: code942
+   
+   numIND <- length(fileCombined[,1]) # number of households
 
-numIND <- **length**\ (fileCombined[,1]) *# number of households*
+   # Number of observations violating k-anonymity
+   print(sdcCombined)
+   ## Infos on 2/3-Anonymity:
+   ##
+   ## Number of observations violating
+   ##  - 2-anonymity: 0
+   ##  - 3-anonymity: 167
+   ##
+   ## Percentage of observations violating
+   ##  - 2-anonymity: 0.000 %
+   ##  - 3-anonymity: 1.659 %
+   ## ---------------------------------------------------------------------------
 
-| *# Number of observations violating k-anonymity*
-| **print**\ (sdcCombined)
+   # Calculate sample frequencies and count number of obs. violating k(3,5) - anonymity
+   kAnon5 <- sum(sdcCombined@risk$individual[,2] 5)
+   kAnon5
+   ## [1] 463
 
-| ``## Infos on 2/3-Anonymity:``
-| ``##``
-| ``## Number of observations violating``
-| ``##  - 2-anonymity: 0``
-| ``##  - 3-anonymity: 167``
-| ``##``
-| ``## Percentage of observations violating``
-| ``##  - 2-anonymity: 0.000 %``
-| ``##  - 3-anonymity: 1.659 %``
-| ``## ---------------------------------------------------------------------------``
+   # As percentage of total
+   kAnon5 / numIND
+   ## [1] 0.04598729
 
-| *# Calculate sample frequencies and count number of obs. violating k
-  (3,5) - anonymity*
-| kAnon5 <- **sum**\ (sdcCombined@risk$individual[,2] <5)
-| kAnon5
+   # Global risk on individual level
+   print(sdcCombined, 'risk')
+   ## Risk measures:
+   ##
+   ## Number of observations with higher risk than the main part of the data: 0
+   ## Expected number of re-identifications: 1.69 (0.02 %)
+   ##
+   ## Information on hierarchical risk:
+   ## Expected number of re-identifications: 9.57 (0.10 %)
+   ## ---------------------------------------------------------------------------
 
-``## [1] 463``
+   # Number of observation with relatively high risk
+   dim(fileCombined[sdcCombined@risk$individual[, "hier_risk"] > 0.01,])
+   ## [1] 24 44
 
-| *# As percentage of total*
-| kAnon5 / numIND
-
-``## [1] 0.04598729``
-
-| *# Global risk on individual level*
-| **print**\ (sdcCombined, 'risk')
-
-| ``## Risk measures:``
-| ``##``
-| ``## Number of observations with higher risk than the main part of the data: 0``
-| ``## Expected number of re-identifications: 1.69 (0.02 %)``
-| ``##``
-| ``## Information on hierarchical risk:``
-| ``## Expected number of re-identifications: 9.57 (0.10 %)``
-| ``## ---------------------------------------------------------------------------``
-
-| *# Number of observation with relatively high risk*
-| **dim**\ (fileCombined[sdcCombined@risk$individual[, "hier_risk"] >
-  0.01,])
-
-``## [1] 24 44``
-
-| *# Highest individual risk*
-| **max**\ (sdcCombined@risk$individual[, "hier_risk"])
-
-``## [1] 0.01169091``
+   # Highest individual risk
+   max(sdcCombined@risk$individual[, "hier_risk"])
+   ## [1] 0.01169091
 
 **Step 7b: Assessing utility measures (individual level)**
 
@@ -3510,9 +3376,12 @@ In our case, we decide to remove at the individual level the variables
 “EDYRSCURRAT”, as this variable is too identifying (identifies whether
 there are school-going children in the household). We keep the variable
 “EDUCY” (highest level of education attended) for information on
-education. **NOTE: As an alternative to removing the variables from the
-dataset, one could also set all values to missing. This would allow the
-user to see the structure and variables contained in the SUF file.**
+education. 
+
+.. NOTE:: 
+	As an alternative to removing the variables from the
+	dataset, one could also set all values to missing. This would allow the
+	user to see the structure and variables contained in the SUF file.
 
 **Recoding**
 
@@ -3520,175 +3389,146 @@ As noted before, PUF users require a lower level of information and
 therefore we can recode the key variables even further to reduce the
 disclosure risk. The recoding of variables in case study 1 is not
 sufficient for a PUF release. Therefore, we recode most of the
-categorical key variables from Table 9.19 to reduce the risk and number
-of necessary suppressions by local suppression. Table 9.24 gives an
+categorical key variables from :numref:`tab919` to reduce the risk and number
+of necessary suppressions by local suppression. :numref:`tab924` gives an
 overview of the recodes made. All new categories are formed with the
-needs of the data user in mind. Example 9.43 shows how to do this in *R*
+needs of the data user in mind. :numref:`code943` shows how to do this in *R*
 and also shows value labels and the univariate tabulations of these
 variables before and after recoding.
 
-Table 9.24: Overview of recodes of categorical variables at individual
-level
+.. _tab924:
 
-+-----------------------------------+-----------------------------------+
-| **Variable**                      | **Recoding**                      |
-+===================================+===================================+
-| REL (relation to household head)  | recode ‘Father/Mother’, ‘         |
-|                                   | Grandchild’, ‘Son/Daughter in     |
-|                                   | law’, ‘Other relative’ to ‘Other  |
-|                                   | relative’ and recode ‘Domestic    |
-|                                   | help’ and ‘Non-relative’ to       |
-|                                   | ‘Other’                           |
-+-----------------------------------+-----------------------------------+
-| MARITAL (marital status)          | recode ‘Married monogamous’,      |
-|                                   | ‘Married polygamous’, ’Common     |
-|                                   | law, union coutumiere, union      |
-|                                   | libre, living together’ to        |
-|                                   | ‘Married/living together’ and     |
-|                                   | ‘Divorced/Separated’ and          |
-|                                   | ‘Widowed’ to                      |
-|                                   | ‘Divorced/Separated/Widowed’      |
-+-----------------------------------+-----------------------------------+
-| AGEYRS (age in completed years)   | recode values under 15 to 7       |
-|                                   | (other values have been recoded   |
-|                                   | for SUF)                          |
-+-----------------------------------+-----------------------------------+
-| EDUCY (highest level of education | recode ‘Completed lower secondary |
-| completed)                        | (or post-primary vocational       |
-|                                   | education) but less than          |
-|                                   | completed upper secondary’,       |
-|                                   | ‘Completed upper secondary (or    |
-|                                   | extended vocational/technical     |
-|                                   | education)’, ‘Post secondary      |
-|                                   | technical’ and ‘University and    |
-|                                   | higher’ to ‘Completed lower       |
-|                                   | secondary or higher’              |
-+-----------------------------------+-----------------------------------+
-| INDUSTRY1                         | recode to ‘primary’, ‘secondary’  |
-|                                   | and ‘tertiary’                    |
-+-----------------------------------+-----------------------------------+
+.. table:: Overview of recodes of categorical variables at individual level
+   :widths: auto
+   :align: center
+   
+   ==================================================  ===================================
+    Variable                                            Recoding
+   ==================================================  ===================================
+    REL (relation to household head)                    recode ‘Father/Mother’, ‘         
+                                                        Grandchild’, ‘Son/Daughter in     
+                                                        law’, ‘Other relative’ to ‘Other  
+                                                        relative’ and recode ‘Domestic    
+                                                        help’ and ‘Non-relative’ to       
+                                                        ‘Other’                           
+    MARITAL (marital status)                            recode ‘Married monogamous’,      
+                                                        ‘Married polygamous’, ’Common     
+                                                        law, union coutumiere, union      
+                                                        libre, living together’ to        
+                                                        ‘Married/living together’ and     
+                                                        ‘Divorced/Separated’ and          
+                                                        ‘Widowed’ to                      
+                                                        ‘Divorced/Separated/Widowed’      
+    AGEYRS (age in completed years)                     recode values under 15 to 7       
+                                                        (other values have been recoded   
+                                                        for SUF)                          
+    EDUCY (highest level of education completed)        recode ‘Completed lower secondary 
+                                                        (or post-primary vocational       
+                                                        education) but less than          
+                                                        completed upper secondary’,       
+                                                        ‘Completed upper secondary (or    
+                                                        extended vocational/technical     
+                                                        education)’, ‘Post secondary      
+                                                        technical’ and ‘University and    
+                                                        higher’ to ‘Completed lower       
+                                                        secondary or higher’              
+    INDUSTRY1                                           recode to ‘primary’, ‘secondary’  
+                                                        and ‘tertiary’                    
+   ==================================================  ===================================
 
-Example 9.43: Recoding the categorical and continuous variables
+.. code-block:: R
+   :linenos:
+   :caption: Recoding the categorical and continuous variables
+   :name: code943
+   
+   # Recode REL (relation to household head)
+   table(sdcCombined@manipKeyVars$REL, useNA = "ifany")
+   ##
+   ##    1    2    3    4    5    6    7    8    9 <NA>
+   ## 1698 1319 4933   52  765   54  817   40   63  327
 
-| *# Recode REL (relation to household head)*
-| **table**\ (sdcCombined@manipKeyVars$REL, useNA = "ifany")
+   # 1 - Head, 2 - Spouse, 3 - Child, 4 - Father/Mother, 5 - Grandchild, 6 - Son/Daughter in law
+   # 7 - Other relative, 8 - Domestic help, 9 - Non-relative
+   sdcCombined <- groupVars(sdcCombined, var = "REL", before = c("4", "5", "6", "7"), after = c("7", "7", "7", "7")) # other relative
+   sdcCombined <- groupVars(sdcCombined, var = "REL", before = c("8", "9"), after = c("9", "9")) # other
+   
+   table(sdcCombined@manipKeyVars$REL, useNA = "ifany")
+   ##
+   ##    1    2    3    7    9 <NA>
+   ## 1698 1319 4933 1688  103  327
 
-| ``##``
-| ``##    1    2    3    4    5    6    7    8    9 <NA>``
-| ``## 1698 1319 4933   52  765   54  817   40   63  327``
+   # Recode MARITAL (marital status)
+   table(sdcCombined@manipKeyVars$MARITAL, useNA = "ifany")
 
-| *# 1 - Head, 2 - Spouse, 3 - Child, 4 - Father/Mother, 5 - Grandchild,
-  6 - Son/Daughter in law*
-| *# 7 - Other relative, 8 - Domestic help, 9 - Non-relative*
-| sdcCombined <- **groupVars**\ (sdcCombined, var = "REL", before =
-  **c**\ ("4", "5", "6", "7"), after = **c**\ ("7", "7", "7", "7")) *#
-  other relative*
-| sdcCombined <- **groupVars**\ (sdcCombined, var = "REL", before =
-  **c**\ ("8", "9"), after = **c**\ ("9", "9")) *# other*
-| **table**\ (sdcCombined@manipKeyVars$REL, useNA = "ifany")
+   ##
+   ##    1    2    3    4    5    6 <NA>
+   ## 3542 2141  415  295  330  329 3016
 
-| ``##``
-| ``##    1    2    3    7    9 <NA>``
-| ``## 1698 1319 4933 1688  103  327``
+   # 1 - Never married, 2 - Married monogamous, 3 - Married polygamous,
+   # 4 - Common law, union coutumiere, union libre, living together, 5 - Divorced/Separated, 6 - Widowed
+   sdcCombined <- groupVars(sdcCombined, var = "MARITAL", before = c("2", "3", "4"), after = c("2", "2", "2")) # married/living together
+   sdcCombined <- groupVars(sdcCombined, var = "MARITAL", before = c("5", "6"), after = c("9", "9")) # divorced/seperated/widowed*
+   
+   table(sdcCombined@manipKeyVars$MARITAL, useNA = "ifany")
+   ##
+   ##    1    2    9 <NA>
+   ## 3542 2851  659 3016
 
-| *# Recode MARITAL (marital status)*
-| **table**\ (sdcCombined@manipKeyVars$MARITAL, useNA = "ifany")
+   # Recode AGEYRS (0-15 years)
+   table(sdcCombined@manipKeyVars$AGEYRS, useNA = "ifany")
+   ##
+   ##    0    1    2    3    4    5    6    7    8    9   10   11   12   13   14
+   ##  311  367  340  332  260  334  344  297  344  281  336  297  326  299  263
+   ##   20   30   40   50   60   65 <NA>
+   ## 1847 1220  889  554  314  325  188
 
-| ``##``
-| ``##    1    2    3    4    5    6 <NA>``
-| ``## 3542 2141  415  295  330  329 3016``
+   sdcCombined <- groupVars(sdcCombined, var = "AGEYRS", before = c("0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14"), after = rep("7", 15))
+   
+   table(sdcCombined@manipKeyVars$AGEYRS, useNA = "ifany")
+   ##
+   ##    7   20   30   40   50   60   65 <NA>
+   ## 4731 1847 1220  889  554  314  325  188
 
-| *# 1 - Never married, 2 - Married monogamous, 3 - Married polygamous,*
-| *# 4 - Common law, union coutumiere, union libre, living together, 5 -
-  Divorced/Separated, 6 - Widowed*
-| sdcCombined <- **groupVars**\ (sdcCombined, var = "MARITAL", before =
-  **c**\ ("2", "3", "4"), after = **c**\ ("2", "2", "2")) *#
-  married/living together*
-| sdcCombined <- **groupVars**\ (sdcCombined, var = "MARITAL", before =
-  **c**\ ("5", "6"), after = **c**\ ("9", "9")) *#
-  divorced/seperated/widowed*
-| **table**\ (sdcCombined@manipKeyVars$MARITAL, useNA = "ifany")
+   sdcCombined <- calcRisks(sdcCombined)
+   # Recode EDUCY (highest level of educ compl)
+   table(sdcCombined@manipKeyVars$EDUCY, useNA = "ifany")
+   ##
+   ##    0    1    2    3    4    5    6 <NA>
+   ## 1582 4755 1062  330  139   46  104 2050
 
-| ``##``
-| ``##    1    2    9 <NA>``
-| ``## 3542 2851  659 3016``
+   # 0 - No education, 1 - Pre-school/ Primary not completed, 2 -  Completed primary, but less than completed lower secondary*
+   # 3 - Completed lower secondary (or post-primary vocational education) but less than completed upper secondary*
+   # 4 - Completed upper secondary (or extended vocational/technical education), 5 - Post secondary technical*
+   # 6 - University and higher
+   sdcCombined <- groupVars(sdcCombined, var = "EDUCY", before = c("3", "4", "5", "6"), after = c("3", "3", "3", "3")) # completed lower secondary or higher
+   table(sdcCombined@manipKeyVars$EDUCY, useNA = "ifany")
+   ##
+   ##    0    1    2    3 <NA>
+   ## 1582 4755 1062  619 2050
 
-| *# Recode AGEYRS (0-15 years)*
-| **table**\ (sdcCombined@manipKeyVars$AGEYRS, useNA = "ifany")
+   # Recode INDUSTRY1 ()
+   table(sdcCombined@manipKeyVars$INDUSTRY1, useNA = "ifany")
+   ##
+   ##    1    2    3    4    5    6    7    8    9   10 <NA>
+   ## 5300   16  153    2   93  484   95   17   70  292 3546
 
-| ``##``
-| ``##    0    1    2    3    4    5    6    7    8    9   10   11   12   13   14``
-| ``##  311  367  340  332  260  334  344  297  344  281  336  297  326  299  263``
-| ``##   20   30   40   50   60   65 <NA>``
-| ``## 1847 1220  889  554  314  325  188``
-
-| sdcCombined <- **groupVars**\ (sdcCombined, var = "AGEYRS", before =
-  **c**\ ("0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11",
-  "12", "13", "14")
-| , after = **rep**\ ("7", 15))
-| **table**\ (sdcCombined@manipKeyVars$AGEYRS, useNA = "ifany")
-
-| ``##``
-| ``##    7   20   30   40   50   60   65 <NA>``
-| ``## 4731 1847 1220  889  554  314  325  188``
-
-| sdcCombined <- **calcRisks**\ (sdcCombined)
-| *# Recode EDUCY (highest level of educ compl)*
-| **table**\ (sdcCombined@manipKeyVars$EDUCY, useNA = "ifany")
-
-| ``##``
-| ``##    0    1    2    3    4    5    6 <NA>``
-| ``## 1582 4755 1062  330  139   46  104 2050``
-
-| *# 0 - No education, 1 - Pre-school/ Primary not completed, 2 -
-  Completed primary, but less than completed lower secondary*
-| *# 3 - Completed lower secondary (or post-primary vocational
-  education) but less than completed upper secondary*
-| *# 4 - Completed upper secondary (or extended vocational/technical
-  education), 5 - Post secondary technical*
-| *# 6 - University and higher*
-| sdcCombined <- **groupVars**\ (sdcCombined, var = "EDUCY", before =
-  **c**\ ("3", "4", "5", "6"), after = **c**\ ("3", "3", "3", "3")) *#
-  completed lower secondary or higher*
-| **table**\ (sdcCombined@manipKeyVars$EDUCY, useNA = "ifany")
-
-| ``##``
-| ``##    0    1    2    3 <NA>``
-| ``## 1582 4755 1062  619 2050``
-
-| *# Recode INDUSTRY1 ()*
-| **table**\ (sdcCombined@manipKeyVars$INDUSTRY1, useNA = "ifany")
-
-| ``##``
-| ``##    1    2    3    4    5    6    7    8    9   10 <NA>``
-| ``## 5300   16  153    2   93  484   95   17   70  292 3546``
-
-| *# 1 - Agriculture and Fishing, 2 - Mining, 3 - Manufacturing, 4 -
-  Electricity and Utilities*
-| *# 5 - Construction, 6 - Commerce, 7 - Transportation, Storage and
-  Communication, 8 - Financial, Insurance and Real Estate*
-| *# 9 - Services: Public Administration, 10 - Other Services, 11 -
-  Unspecified*
-| sdcCombined <- **groupVars**\ (sdcCombined, var = "INDUSTRY1", before
-  = **c**\ ("1", "2"), after = **c**\ ("1", "1")) *# primary*
-| sdcCombined <- **groupVars**\ (sdcCombined, var = "INDUSTRY1", before
-  = **c**\ ("3", "4", "5"), after = **c**\ ("2", "2", "2")) *#
-  secondary*
-| sdcCombined <- **groupVars**\ (sdcCombined, var = "INDUSTRY1", before
-  = **c**\ ("6", "7", "8", "9", "10"), after = **c**\ ("3", "3", "3",
-  "3", "3")) *# tertiary*
-| **table**\ (sdcCombined@manipKeyVars$INDUSTRY1, useNA = "ifany")
-
-| ``##``
-| ``##    1    2    3 <NA>``
-| ``## 5316  248  958 3546``
+   # 1 - Agriculture and Fishing, 2 - Mining, 3 - Manufacturing, 4 -  Electricity and Utilities
+   # 5 - Construction, 6 - Commerce, 7 - Transportation, Storage and  Communication, 8 - Financial, Insurance and Real Estate
+   # 9 - Services: Public Administration, 10 - Other Services, 11 - Unspecified
+   sdcCombined <- groupVars(sdcCombined, var = "INDUSTRY1", before = c("1", "2"), after = c("1", "1")) # primary
+   sdcCombined <- groupVars(sdcCombined, var = "INDUSTRY1", before = c("3", "4", "5"), after = c("2", "2", "2")) # secondary
+   sdcCombined <- groupVars(sdcCombined, var = "INDUSTRY1", before = c("6", "7", "8", "9", "10"), after = c("3", "3", "3", "3", "3")) # tertiary
+   table(sdcCombined@manipKeyVars$INDUSTRY1, useNA = "ifany")
+   ##
+   ##    1    2    3 <NA>
+   ## 5316  248  958 3546
 
 **Local suppression**
 
 The recoding has reduced the risk already considerably. We use local
 suppression to achieve the required level of :math:`k`-anonymity.
 Generally, the required level of :math:`k`-anonymity for PUF files is 3
-or 5. In this case study, we require 5-anonimity. Example 9.44 shows the
+or 5. In this case study, we require 5-anonimity. :numref:`code944` shows the
 suppression pattern without specifying an importance vector. All
 suppressions are made in the variable “AGEYRS”. This is the variable
 with the highest number of different values, and hence considered first
@@ -3699,22 +3539,24 @@ total number of suppressions. Less than 1 percent suppression in the age
 variable is acceptable. We could reduce this number by further recoding
 the variable “AGEYRS”.
 
-Example 9.44: Local suppression to reach 5-anonimity
+.. code-block:: R
+   :linenos:
+   :caption: Local suppression to reach 5-anonimity
+   :name: code944
+   
+   # Local suppression without importance vector
+   sdcCombined <- localSuppression(sdcCombined, k = 5, importance = NULL)
+   # Number of suppressions per variable
+   print(sdcCombined, "ls")
 
-| *# Local suppression without importance vector*
-| sdcCombined <- **localSuppression**\ (sdcCombined, k = 5, importance =
-  NULL)
-| *# Number of suppressions per variable*
-| **print**\ (sdcCombined, "ls")
-
-| ``## Local Suppression:``
-| ``##     KeyVar | Suppressions (#) | Suppressions (%)``
-| ``##     GENDER |                0 |            0.000``
-| ``##        REL |                0 |            0.000``
-| ``##    MARITAL |                0 |            0.000``
-| ``##     AGEYRS |               91 |            0.904``
-| ``##      EDUCY |                0 |            0.000``
-| ``##  INDUSTRY1 |                0 |            0.000``
+   ## Local Suppression:
+   ##     KeyVar | Suppressions (#) | Suppressions (%)
+   ##     GENDER |                0 |            0.000
+   ##        REL |                0 |            0.000
+   ##    MARITAL |                0 |            0.000
+   ##     AGEYRS |               91 |            0.904
+   ##      EDUCY |                0 |            0.000
+   ##  INDUSTRY1 |                0 |            0.000
 
 **Randomization of order of records**
 
@@ -3722,39 +3564,39 @@ The records in the dataset are ordered by region and household ID. There
 is a certain geographical order of the households within the regions,
 due to the way the households IDs were assigned. Intruders could
 reconstruct suppressed values by using this structure. To prevent this,
-we randomly reorder the records within the regions. Example 9.45 shows
+we randomly reorder the records within the regions. :numref:`code945` shows
 how to do this in *R*. We first count the number of records per region
-(**NOTE: Some records have their region value suppressed, so we include
-the count of NAs**). Subsequently, we draw randomly household IDs, in
+
+.. NOTE:: 
+	Some records have their region value suppressed, so we include the count of NAs*. 
+	
+Subsequently, we draw randomly household IDs, in
 such way that the regional division is respected. Finally, we sort the
 file by the new, randomized, individual ID (“IDP”). Households with
 suppressed values for “REGION” will be last in the reordered file.
 Before randomizing the order, we extract the data from the *sdcMicro*
-object “sdcCombined” as shown in Example 9.45.
+object “sdcCombined” as shown in :numref:`code945`.
 
-Example 9.45: Randomizing the order of records within regions
+.. code-block:: R
+   :linenos:
+   :caption: Randomizing the order of records within regions
+   :name: code945
+   
+   # Randomize order of households dataAnon and recode IDH to random
+   number (sort file by region)
+   set.seed(97254)
+   # Sort by region
+   dataAnon <- dataAnon[order(dataAnon$REGION),]
 
-| *# Randomize order of households dataAnon and recode IDH to random
-  number (sort file by region)*
-| **set.seed**\ (97254)
-| *# Sort by region*
-| dataAnon <- dataAnon[\ **order**\ (dataAnon$REGION),]
+   # Number of households per region
+   hhperregion <- table(dataAnon[match(unique(dataAnon$IDH), dataAnon$IDH), "REGION"], useNA = "ifany")
+   # Randomized IDH (household ID)
+   randomHHid <- c(sample(1:hhperregion[1], hhperregion[1]), unlist(lapply(1:(length(hhperregion)-1), function(i){sample((sum(hhperregion[1:i]) + 1): sum(hhperregion[1:(i+1)]), hhperregion[(i+1)])})))
 
-| *# Number of households per region*
-| hhperregion <-
-  **table**\ (dataAnon[**match**\ (**unique**\ (dataAnon$IDH),
-  dataAnon$IDH), "REGION"], useNA = "ifany")
-| *# Randomized IDH (household ID)*
-| randomHHid <- **c**\ (**sample**\ (1:hhperregion[1], hhperregion[1]),
-  **unlist**\ (**lapply**\ (1:(**length**\ (hhperregion)-1),
-  function(i){\ **sample**\ ((**sum**\ (hhperregion[1:i]) + 1):
-  **sum**\ (hhperregion[1:(i+1)]), hhperregion[(i+1)])})))
-
-| dataAnon$IDH <- **rep**\ (randomHHid,
-  **table**\ (dataAnon$IDH)[**match**\ (**unique**\ (dataAnon$IDH),
-  **as.numeric**\ (**names**\ (**table**\ (dataAnon$IDH))))])
-| *# Sort by IDH (and region)*
-| dataAnon <- dataAnon[\ **order**\ (dataAnon$IDH),]
+   dataAnon$IDH <- rep(randomHHid, table(dataAnon$IDH)[match(unique(dataAnon$IDH),  as.numeric(names(table(dataAnon$IDH))))])
+   
+   # Sort by IDH (and region)
+   dataAnon <- dataAnon[order(dataAnon$IDH),]
 
 **Alternative options for dealing with household structure**
 
@@ -3805,27 +3647,30 @@ variables. It is therefore important to check the results.
 
 **Step 9b: Re-measure risk**
 
-We re-evaluate the risk measures selected in Step 6. Table 9.25 shows
+We re-evaluate the risk measures selected in Step 6. :numref:`tab925` shows
 that local suppression, not surprisingly, has reduced the number of
 individuals violating 5-anonymity to 0. The global hierarchical risk was
 reduced to 0.02%, which corresponds to approximately 2 correct
 re-identifications. The highest individual hierarchical
 re-identification risk is 0.2%. These risk levels are acceptable for a
 PUF release. Furthermore, the recoding has removed any unusual
-combinations in the data. **NOTE: The risk may be underestimated by
-excluding the household level variables.**
+combinations in the data. 
 
-Table 9.25: k-anonymity violations
+.. NOTE:: The risk may be underestimated by excluding the household level variables.
 
-+-----------------+---------------------------------+----------------+
-| **k-anonymity** | **Number of records violating** | **Percentage** |
-+=================+=================================+================+
-| 2               | 0                               | 0.0 %          |
-+-----------------+---------------------------------+----------------+
-| 3               | 0                               | 0.0 %          |
-+-----------------+---------------------------------+----------------+
-| 5               | 0                               | 0.0 %          |
-+-----------------+---------------------------------+----------------+
+.. _tab925:
+
+.. table:: k-anonymity violations
+   :widths: auto
+   :align: center
+   
+   =============  =============================  ============
+    k-anonymity    Number of records violating    Percentage
+   =============  =============================  ============
+    2                0                             0.0 %        
+    3                0                             0.0 %        
+    5                0                             0.0 %        
+   =============  =============================  ============
 
 **Step 10b: Re-measure utility**
 
@@ -3862,30 +3707,37 @@ the methods used, the risk before and after anonymization as well as the
 reasons for the selected methods and their parameters. The external
 report focuses on the changes in the data and the loss in utility. Focus
 here should be on the number of suppressions as well as the perturbative
-methods (PRAM). This is described in the previous steps. **NOTE: When
-creating a PUF, it is inevitable that there will be a loss of
-information and it is very important for the users to be aware of these
-changes and release them in a report that accompanies the data.**
+methods (PRAM). This is described in the previous steps. 
+
+.. NOTE:: 
+	When creating a PUF, it is inevitable that there will be a loss of
+	information and it is very important for the users to be aware of these
+	changes and release them in a report that accompanies the data.
+
 Appendix C provides examples of an internal and external report of the
 anonymization process of this dataset. Depending on the users and
-readers of the reports, the content may differ. **NOTE: The report()
-function in sdcMicro** **is at this point not useful, since this will
-only report on the SDC measures in the second case study.** However, the
-report should contain the entire process, including the measures applied
+readers of the reports, the content may differ. 
+
+..	NOTE:: The report() function in sdcMicro is at this point not useful, since this will
+	only report on the SDC measures in the second case study. 
+	
+However, the report should contain the entire process, including the measures applied
 in case study 1.
 
 **Step 12: Data release**
 
 The final step is the release of the anonymized dataset together with
-the external report. Example 9.46 shows how to export the anonymized
+the external report. :numref:`code946` shows how to export the anonymized
 dataset as *STATA* file. Section 7.2 presents functions for exporting
 files in other data formats.
 
-Example 9.46: Exporting the anonymized PUF file
-
-| *# Create STATA file*
-| **write.dta**\ (dataframe = dataAnon, file= 'Case2DataAnon.dta',
-  convert.dates=TRUE)
+.. code-block:: R
+   :linenos:
+   :caption: Exporting the anonymized PUF file
+   :name: code946
+   
+   # Create STATA file
+   write.dta(dataframe = dataAnon, file= 'Case2DataAnon.dta', convert.dates=TRUE)
 
 
 .. [#foot71]
