@@ -25,9 +25,4 @@ Statistical Disclosure Control for Microdata: A Practice Guide
    :caption: Case studies
    
    case_studies
-   
-
-.. |image22| image:: media/image23.png
-   :width: 6.5in
-   :height: 6.53056in
-
+  
