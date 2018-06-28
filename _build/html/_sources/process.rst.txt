@@ -8,8 +8,8 @@ steps is often required during the actual SDC process, as it is not
 necessarily a linear step-by-step process. This guidance brings together
 the different parts of the SDC process as discussed in the previous
 chapters and links to these chapters. The case studies in the next
-chapter follow these steps. This presentation is adapted from Hundepool
-et al. (2012). Figure 8.1 at the end of this chapter presents the entire
+chapter follow these steps. This presentation is adapted from  `HDFG12`_. 
+:numref:`Fig81` at the end of this chapter presents the entire
 process in a schematic way.
 
 Step 1: Need for confidentiality protection
@@ -592,3 +592,9 @@ undone to generate a dataset useful for users.
    :align: center
    
    Overview of the SDC process
+
+.. rubric:: References
+
+.. [HDFG12] Hundepool, A., Domingo-Ferrer, J., Franconi, L., Giessing, S., Nordholt, E. S., Spicer, K., et al. (2012). 
+ 	**Statistical Disclosure Control.**
+	Chichester, UK: John Wiley & Sons Ltd.

@@ -16,7 +16,6 @@ Statistical Disclosure Control for Microdata: A Practice Guide
    sdcMicro
    process
    appendices
-   bibliography
    acknowledgements
 
      

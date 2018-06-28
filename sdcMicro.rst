@@ -223,10 +223,12 @@ information (e.g., quasi-identifiers, sample weights) from the
 
 The arguments of the function createSdcObj() allow one to specify the
 original data file and categorize the variables in this data file before
-the start of the anonymization process. **NOTE: For this, disclosure
-scenarios must already have been evaluated and quasi-identifiers
-selected. In addition, one must ensure there are no problems with the
-data, such as variables containing only missing values.**
+the start of the anonymization process. 
+
+.. NOTE:: 
+	For this, disclosure scenarios must already have been evaluated and quasi-identifiers
+	selected. In addition, one must ensure there are no problems with the
+	data, such as variables containing only missing values.
 
 In :numref:`code78`, we show all arguments of the function createSdcObj(),
 and first define vectors with the names of the different variables. This
@@ -239,9 +241,14 @@ selected for applying PRAM (pramVars); a variable with sampling weights
 (weightVar); the clustering ID (hhId, e.g., a household ID, see Section
 4.9); a variable specifying the strata (strataVar) and the sensitive
 variables specified for the computation of :math:`l`-diversity
-(sensibleVar , see Section 4.5.3). **NOTE: Most SDC methods in the
-sdcMicro package are automatically applied within the strata, if the
-‘strataVar’ argument is specified.** Examples are local suppression and
+(sensibleVar , see Section 4.5.3). 
+
+.. NOTE:: 
+	Most SDC methods in the 
+	sdcMicro package are automatically applied within the strata, if the
+	‘strataVar’ argument is specified.
+	
+Examples are local suppression and
 PRAM. Not all variables must be specified, e.g., if there is no
 hierarchical (household) structure, the argument ‘hhId’ can be omitted.
 The names of the variables correspond to the names of the variables in
@@ -485,8 +492,13 @@ There are two options to save the results after applying SDC methods:
 If the results are reassigned to the same *sdcMicro* object, it is
 possible to undo the last step in the SDC process. This is useful when
 changing parameters. The results of the last step, however, are lost
-after undoing that step. **NOTE: The undolast() function can be used to
-go only one step back, not several.** The result must also be reassigned
+after undoing that step. 
+
+.. NOTE:: 
+	The undolast() function can be used to
+	go only one step back, not several.
+	
+The result must also be reassigned
 to the same object. This is illustrated in :numref:`code711`.
 
 .. code-block:: R
@@ -607,9 +619,12 @@ the file not sorted.
 	file$hhsize <- rep(diff(c(1, 1 + which(diff(file$HID) != 0), length(b)+1)),
 	diff(c(1, 1 + which(diff(file$HID) != 0), length(file$HID) + 1)))
 
-**NOTE: In some cases, the order of the individuals within the
-households can provide information that could lead to
-re-identification.** An example is information on the relation to the
+.. NOTE:: 
+	In some cases, the order of the individuals within the
+	households can provide information that could lead to
+	re-identification.
+	
+An example is information on the relation to the
 household head. In many countries, the first individual in the household
 is the household head, the second the partner of the household head and
 the next few are children. Therefore, the line number within the
@@ -859,10 +874,13 @@ anonymized using the parallelization program, computation times were
 significantly shorter for datasets processed on the server, compared to
 those processed on the laptop and desktop. Among those datasets
 processed on the server using the same number of processors (datasets 1,
-2 and 6), some variation also exists in the computation times. **NOTE:
-Computation time in the table in** Appendix **D includes recalculating
-the risk after applying the anonymization methods, which is
-automatically done in sdcMicro when using standard methods/functions.**
+2 and 6), some variation also exists in the computation times. 
+
+.. NOTE:: 
+	Computation time in the table in Appendix D includes recalculating
+	the risk after applying the anonymization methods, which is
+	automatically done in sdcMicro when using standard methods/functions.
+
 Using the function groupVars(), for instance, is not computationally
 intensive but can still take a long time if the dataset is large and
 risk measures have to be recalculated.
@@ -936,5 +954,6 @@ anonymization of microdata:
    The following website provides an overview of parallelization
    packages and solutions in *R*:
    http://cran.r-project.org/web/views/HighPerformanceComputing.html.
-   **NOTE: Solutions are platform-dependent and therefore our solution
-   is not further presented.**
+   .. NOTE:: 
+   		Solutions are platform-dependent and therefore our solution
+   		is not further presented.

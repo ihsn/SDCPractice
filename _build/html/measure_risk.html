@@ -121,11 +121,11 @@
 <li class="toctree-l1"><a class="reference internal" href="sdcMicro.html">8. SDC with <em>sdcMicro</em> in <em>R</em>: Setting Up Your Data and more</a></li>
 <li class="toctree-l1"><a class="reference internal" href="process.html">9. The SDC Process</a></li>
 <li class="toctree-l1"><a class="reference internal" href="appendices.html">10. Appendices</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bibliography.html">11. Bibliography</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acknowledgements.html">11. Acknowledgements</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Case studies</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="case_studies.html">Case Study (Illustrating the SDC Process)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="case_studies.html">Case Studies (Illustrating the SDC Process)</a></li>
 </ul>
 
             
@@ -242,7 +242,7 @@ individual data values.</p>
 variables described in the following paragraphs (see <a class="reference internal" href="#fig24"><span class="std std-numref">Fig. 5.1</span></a>
 for an overview). The initial classification of variables into identifying and
 non-identifying variables depends on the way the variables can be used
-by intruders for re-identification (<a class="reference internal" href="#hdfg12">HDFG12</a>; <a href="#id21"><span class="problematic" id="id22">`TeMK14`_</span></a>):</p>
+by intruders for re-identification (<a class="reference internal" href="#hdfg12">HDFG12</a>, <a href="#id21"><span class="problematic" id="id22">`TeMK14`_</span></a>):</p>
 <ul>
 <li><p class="first"><strong>Identifying variables:</strong> these contain information that can lead to
 the identification of respondents and can be further categorized as:</p>
@@ -362,8 +362,7 @@ datasets include direct identifiers. In that case, the re-identification
 of records in the released dataset leads to identity and, possibly,
 attribute disclosure. The main outcome of the evaluation of disclosure
 scenarios is the identification of a set of quasi-identifiers (i.e., key
-variables) that need to be treated during the SDC process (see Elliot et
-al., 2010).</p>
+variables) that need to be treated during the SDC process (see <a class="reference internal" href="#elmp10">ELMP10</a>).</p>
 <p>An example of a disclosure scenario could be the spontaneous recognition
 of a respondent by a researcher. For instance, while going through the
 data, the researcher recognizes a person with an unusual combination of
@@ -735,7 +734,7 @@ If this overestimated risk is used, the data may be overprotected (i.e.,
 information loss will be higher than was necessary) when applying SDC
 measures. Instead, a Bayesian approach to risk measurement is
 recommended, where the posterior distribution of <span class="math notranslate nohighlight">\(F_{k}\)</span> is used
-(see e.g., Hundepool et al., 2012) to estimate an individual risk
+(see e.g., <a class="reference internal" href="#hdfg12">HDFG12</a>) to estimate an individual risk
 measure <span class="math notranslate nohighlight">\(r_{k}\)</span> for each key <span class="math notranslate nohighlight">\(k\)</span>.</p>
 <p>The risk measure <span class="math notranslate nohighlight">\(r_{k}\)</span> is, as <span class="math notranslate nohighlight">\(f_{k}\)</span> and <span class="math notranslate nohighlight">\(F_{k}\)</span>,
 the same for all individuals sharing the same pattern of values of key
@@ -1075,7 +1074,7 @@ dataset by matching an individual to one of these individuals.</p>
 </tbody>
 </table>
 <p>The concept of (distinct) <span class="math notranslate nohighlight">\(l\)</span>-diversity addresses this shortcoming
-of <span class="math notranslate nohighlight">\(k\)</span>-anonymity (see Machanavajjhala et al., 2007). A dataset
+of <span class="math notranslate nohighlight">\(k\)</span>-anonymity (see <a class="reference internal" href="#mkgv07">MKGV07</a>). A dataset
 satisfies <span class="math notranslate nohighlight">\(l\)</span>-diversity if for every key <em>k</em> there are at least
 <em>l</em> different values for each of the sensitive variables. In the
 example, the first two individuals satisfy only 1-diversity, individuals
@@ -1147,7 +1146,7 @@ always be possible to conduct an inventory of all available datasets and
 their variables and thus assess all known external linkages and risks.</p>
 <p>To overcome this, an alternative heuristic measure based on special
 uniques has been developed to determine the riskiness of a record, which
-leads to a SUDA metric or score (see Elliot et al., 2002). These
+leads to a SUDA metric or score (see <a class="reference internal" href="#elmf02">ElMF02</a>). These
 measures are based on the search for special uniques. To find these
 special uniques, algorithms, called SUDA (Special Uniqueness Detection
 Algorithm), have been developed. SUDA algorithms are based on the
@@ -1329,11 +1328,11 @@ risk of the record</li>
 <p>A record is defined as a special unique if it is a sample unique both on
 the complete set of quasi-identifiers (e.g., in the data in <a class="reference internal" href="#tab44"><span class="std std-numref">Table 5.4</span></a>,
 the variables “Residence”, ”Gender”, “Education level” and “Labor
-status”) and simultaneously has at least one MSU (Elliot et al., 1998).
+status”) and simultaneously has at least one MSU (<a class="reference internal" href="#elsd98">ElSD98</a>).
 Special uniques can be classified according to the number and size of
 subsets that are MSUs. Research has shown that special uniques are more
-likely to be population uniques than random uniques (Elliot et al.,
-2002) and are thus relevant for risk assessment.</p>
+likely to be population uniques than random uniques (<a class="reference internal" href="#elmf02">ElMF02</a>)
+and are thus relevant for risk assessment.</p>
 </div>
 <div class="section" id="calculating-suda-scores">
 <h3>5.6.2. Calculating SUDA scores<a class="headerlink" href="#calculating-suda-scores" title="Permalink to this headline">¶</a></h3>
@@ -1350,8 +1349,8 @@ computed by <span class="math notranslate nohighlight">\(\prod_{i = k}^{M}{(ATT 
 user-specified maximum size of MSUs <a class="footnote-reference" href="#foot32" id="id12">[12]</a>, and
 <span class="math notranslate nohighlight">\(\text{ATT}\)</span> is the total number of attributes or variables in the
 dataset. By definition, the smaller the size <span class="math notranslate nohighlight">\(k\)</span> of the MSU, the
-larger the score for the MSU, which reflects greater risk (see Elliot et
-al., 2005). The final SUDA score for each record is computed by adding
+larger the score for the MSU, which reflects greater risk (see <a class="reference internal" href="#emmg05">EMMG05</a>).
+The final SUDA score for each record is computed by adding
 the scores for each MSU in the record. In this way, records with more
 MSUs are assigned a higher SUDA score, which also reflects the higher
 risk. The SUDA score ranks the individuals according to their level of
@@ -1494,8 +1493,8 @@ special uniques and are assigned the score 0.</p>
 </tbody>
 </table>
 <p>To estimate record-level disclosure risks, SUDA scores can be used in
-combination with the Data Intrusion Simulation (DIS) metric (Elliot and
-Manning, 2003), a method for assessing disclosure risks for the entire
+combination with the Data Intrusion Simulation (DIS) metric (<a class="reference internal" href="#elma03">ElMa03</a>
+, a method for assessing disclosure risks for the entire
 dataset (i.e., file-level disclosure risks). Roughly speaking, the
 DIS-SUDA method distributes the file-level risk measure generated by the
 DIS metric between records according to the SUDA scores of each record.
@@ -1521,11 +1520,11 @@ already available datasets and their variables is difficult.</p>
 </div>
 <div class="section" id="application-of-suda-dis-suda-using-sdcmicro">
 <h3>5.6.3. Application of SUDA, DIS-SUDA using <em>sdcMicro</em><a class="headerlink" href="#application-of-suda-dis-suda-using-sdcmicro" title="Permalink to this headline">¶</a></h3>
-<p>Both SUDA and DIS-SUDA scores can be computed using <em>sdcMicro</em> (Templ et
-al., 2014). Given that the search for MSUs with the SUDA algorithm can
+<p>Both SUDA and DIS-SUDA scores can be computed using <em>sdcMicro</em> (<a class="reference internal" href="#tmkc14">TMKC14</a>
+). Given that the search for MSUs with the SUDA algorithm can
 be computationally demanding, <em>sdcMicro</em> uses an improved SUDA2
 algorithm, which more effectively locates the boundaries of the search
-space for MSUs (Manning et al., 2008).</p>
+space for MSUs (<a class="reference internal" href="#mahk08">MaHK08</a>).</p>
 <p>SUDA scores can be calculated using the suda2() function in <em>sdcMicro</em>.
 It is important to specify the missing argument in suda2(). This should
 match the code for missing values in your dataset. In <em>R</em> this is most
@@ -1673,7 +1672,7 @@ based on both the raw data and treated data, examples of their
 applications require the introduction of SDC methods and are therefore
 postponed to the case studies in Chapter 9.</p>
 <p>Besides distance-based record linkage, another method for linking is
-probabilistic record linkage (see Domingo-Ferrer and Torra, 2003). The
+probabilistic record linkage (see <a class="reference internal" href="#doto03">DoTo03</a>). The
 literature shows, however, that results from distance-based record
 linkage are better than the results from probabilistic record linkage.
 Individuals in the treated data that are linked to the correct
@@ -2100,6 +2099,54 @@ three MSUs, {‘Urban, Unemployed’}, {‘Male, Unemployed’} and
 </tbody>
 </table>
 <p class="rubric">References</p>
+<table class="docutils citation" frame="void" id="doto03" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[DoTo03]</td><td>Domingo-Ferrer, J., &amp; Torra, V. (2003).
+<strong>Disclosure Risk Assesment in Statistical Microdata Protection via Advanced Record Linkage.</strong>
+Statistics and Computing 13 (4), 343-354</td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="elma03" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[ElMa03]</td><td>Elliot , M. J., &amp; Manning, A. M. (2003).
+<strong>Using DIS to Modify the Classification of Special Uniques.</strong>
+Invited Paper. Joint ECE/Eurostat Work Session on Statistical Data Confidentiality. Luxemboug 2-9 April 2003.</td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="elmf02" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[ElMF02]</td><td>Elliot, M. J., Manning, A. M., &amp; Ford, R. W. (2002).
+<strong>A Computational Algorithm for Handling the Special Uniques Problem.</strong>
+International Journal of Uncertainty, Fuzziness and Knowledge Based System , 10 (5), 493-509.</td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="elmp10" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[ELMP10]</td><td>Elliot, M. J., Lomax, S., Mackey, E. &amp; Purdam, K. (2010)
+<strong>Data Environment Analysismand the Key Variable Mapping System.</strong>
+In Privacy in Databases, PSD 2010 (ed. Domingo-Ferrer, J. &amp; Magkos, E.), vol. 6344 of Lecture Notes in Computer Science, pp. 138-145. Berlin/Heidelberg: Springer</td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="elsd98" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[ElSD98]</td><td>Elliot, M.J., Skinner, C.J. &amp; Dale, A. (1998)
+<strong>Special Uniques, Random Uniques, and Sticky Populations: Some Counterintuitive Effects of Geographical Detail on Disclosure Risk</strong>
+Reasearch in Official Statistics 1(2), pp. 53-67</td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="emmg05" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[EMMG05]</td><td>Elliot, M. J., Manning, A., Mayes, K., Gurd, J., &amp; Bane, M. (2005).
+<strong>SUDA: A Program for Detecting Special Uniques.</strong>
+Joint UNECE/Eurostat Work Session on Statistical Data Confidentiality. Geneva.</td></tr>
+</tbody>
+</table>
 <table class="docutils citation" frame="void" id="hdfg12" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
@@ -2114,6 +2161,30 @@ Chichester, UK: John Wiley &amp; Sons Ltd.</td></tr>
 <tr><td class="label">[Lamb93]</td><td>Lambert, D. (1993).
 <strong>Measures of Disclosure Risk and Harm.</strong>
 Journal of Official Statistics , 9 (2), 313-331.</td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="mahk08" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[MaHK08]</td><td>Manning, A. M., Haglin, D. J., &amp; Keane, J. A. (2008).
+<strong>A Recursive Search Algorithm for Statistical Disclosure Assessment.</strong>
+Data Mining and Knowledge Discovery , 16 (2), 165-196.</td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="mkgv07" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[MKGV07]</td><td>Machanavajjhala, A., Kifer, D., Gehrke, J., &amp; Venkitasubramaniam, M. (2007).
+<strong>L-diversity: Privacy Beyond K-anonymity.</strong>
+ACM Trans. Knowl. Discov. Data , 1 (Article 3) (1556-4681).</td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="tmkc14" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[TMKC14]</td><td>Templ, M., Meindl, B., Kowarik, A., &amp; Chen, S. (2014, August 1).
+<strong>Introduction to Statistical Disclosure Control (SDC).</strong>
+Retrieved November 13, 2014, from <a class="reference external" href="http://www.ihsn.org/home/software/disclosure-control-toolbox">http://www.ihsn.org/home/software/disclosure-control-toolbox</a>.</td></tr>
 </tbody>
 </table>
 </div>

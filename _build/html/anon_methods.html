@@ -116,11 +116,11 @@
 <li class="toctree-l1"><a class="reference internal" href="sdcMicro.html">8. SDC with <em>sdcMicro</em> in <em>R</em>: Setting Up Your Data and more</a></li>
 <li class="toctree-l1"><a class="reference internal" href="process.html">9. The SDC Process</a></li>
 <li class="toctree-l1"><a class="reference internal" href="appendices.html">10. Appendices</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bibliography.html">11. Bibliography</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acknowledgements.html">11. Acknowledgements</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Case studies</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="case_studies.html">Case Study (Illustrating the SDC Process)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="case_studies.html">Case Studies (Illustrating the SDC Process)</a></li>
 </ul>
 
             
@@ -1259,7 +1259,7 @@ those values that pose most risk.</p>
 quasi-identifiers and even after reducing the number of categories by
 recoding, the local suppression algorithm takes a long time to compute
 the required suppressions. A solution in such cases can be the so-called
-‘all-<span class="math notranslate nohighlight">\(m\)</span> approach’ (see de Wolf, 2015). The all-<span class="math notranslate nohighlight">\(m\)</span>
+‘all-<span class="math notranslate nohighlight">\(m\)</span> approach’ (see <a class="reference internal" href="#wolf15">Wolf15</a>). The all-<span class="math notranslate nohighlight">\(m\)</span>
 approach consists of applying the local suppression algorithm as
 described above to all possible subsets of size <em>m</em> of the total set of
 quasi-identifiers. The advantage of this approach is that the partial
@@ -1271,10 +1271,13 @@ higher threshold for <em>k</em> or 2) to re-apply the local suppression
 algorithm on the complete set of quasi-identifiers after using the
 all-<span class="math notranslate nohighlight">\(m\)</span> approach to achieve the required threshold. In the
 second case, the all-<span class="math notranslate nohighlight">\(m\)</span> approach leads to a shorter computation
-time at the cost of a higher total number of suppressions. <strong>NOTE: The
-required level is not achieved automatically on the entire set of
-quasi-identifiers if the all-m approach is used.</strong> Therefore, it is
-important to evaluate the risk measures carefully after using the
+time at the cost of a higher total number of suppressions.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The required level is not achieved automatically on the entire set of
+quasi-identifiers if the all-m approach is used.</p>
+</div>
+<p>Therefore, it is important to evaluate the risk measures carefully after using the
 all-<span class="math notranslate nohighlight">\(m\)</span> approach.</p>
 <p>In <em>sdcMicro</em> the all-<span class="math notranslate nohighlight">\(m\)</span> approach is implemented in the ‘combs’
 argument in the localSuppression() function. The value for <em>m</em> is
@@ -1566,8 +1569,12 @@ dataset Z is computed as</p>
 <p>where X is the original data, A is a matrix used to transform the
 records, B is a matrix to transform the variables and C is a matrix with
 additive noise.</p>
-<p><strong>NOTE: Risk measures based on frequency counts of keys are no longer
-valid after applying perturbative methods.</strong> This can be seen in <a class="reference internal" href="#tab57"><span class="std std-numref">Table 6.7</span></a>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Risk measures based on frequency counts of keys are no longer
+valid after applying perturbative methods.</p>
+</div>
+<p>This can be seen in <a class="reference internal" href="#tab57"><span class="std std-numref">Table 6.7</span></a>
 , which displays the same data before and after swapping some values.
 The swapped values are in grey. Both before and after perturbing the
 data, all observations violate <span class="math notranslate nohighlight">\(k\)</span>-anonymity at the level 3 (i.e.,
@@ -1706,13 +1713,17 @@ yields different results before and after PRAM, which are shown in <a class="ref
 The deviation from the expectation is due to the fact that PRAM is
 a probabilistic method, i.e., the results depend on a
 probability-generating mechanism; consequently, the results can differ
-every time we apply PRAM to the same variables of a dataset. <strong>NOTE: The
-number of changed values is larger than one might think when inspecting
-the tabulations in :numref:`tab58`. Not all 5,000 individuals with value
+every time we apply PRAM to the same variables of a dataset.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The number of changed values is larger than one might think when inspecting
+the tabulations in <a class="reference internal" href="#tab58"><span class="std std-numref">Table 6.8</span></a>. Not all 5,000 individuals with value
 captial after PRAM had this value before PRAM and the 457 individuals in
 rural1 after PRAM are not all included in the 500 individuals before
 PRAM. The number of changes is larger than the differences in the
-tabulation (cf. transition matrix).</strong> Given that the transition matrix
+tabulation (cf. transition matrix).</p>
+</div>
+<p>Given that the transition matrix
 is known to the end users, there are several ways to correct statistical
 analysis of the data for the distortions introduced by PRAM.</p>
 <span id="tab58"></span><table border="1" class="colwidths-auto docutils align-center" id="id35">
@@ -1744,9 +1755,12 @@ the tabulations before and after applying PRAM are the same for all
 variables.[#foot43]_ This method is called invariant PRAM
 and is implemented in <em>sdcMicro</em> in the function pram(). The method
 pram() determines the transition matrix that satisfies the requirements
-for invariant PRAM. <strong>NOTE: Invariant does not guarantee that
-cross-tabulations of variables (unlike univariate tabulations) stay the
-same.</strong></p>
+for invariant PRAM.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Invariant does not guarantee that
+cross-tabulations of variables (unlike univariate tabulations) stay the same.</p>
+</div>
 <p>In <a class="reference internal" href="#code512"><span class="std std-numref">Listing 6.12</span></a>, we give an example of invariant PRAM using
 <em>sdcMicro</em>. <a class="footnote-reference" href="#foot44" id="id9">[11]</a> PRAM is a probabilistic method and the
 results can differ every time we apply PRAM to the same variables of a
@@ -1866,11 +1880,15 @@ below).</p>
 </tr>
 </tbody>
 </table>
-<p>The pram() function in <em>sdcMicro</em> has several options. <strong>NOTE: If no
-options are set and the PRAM method is applied to an sdcMicro object,
+<p>The pram() function in <em>sdcMicro</em> has several options.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If no options are set and the PRAM method is applied to an sdcMicro object,
 all PRAM variables selected in the sdcMicro object are automatically
-used for PRAM and PRAM is applied within the selected strata</strong> (see
-Section 7.5 on <em>sdcMicro</em> objects for more details). Alternatively, PRAM
+used for PRAM and PRAM is applied within the selected strata (see
+Section 7.5 on <em>sdcMicro</em> objects for more details).</p>
+</div>
+<p>Alternatively, PRAM
 can also be applied to variables that are not specified in the
 <em>sdcMicro</em> object as PRAM variables, such as key variables, which is
 shown in <a class="reference internal" href="#code513"><span class="std std-numref">Listing 6.13</span></a>. In that case, however, the risk measures that are
@@ -1907,8 +1925,13 @@ changes to this category. By default, this value is 0.8, which applies
 for all categories. It is also possible to specify a vector with value
 for each diagonal element of the transformation matrix/category. In
 <a class="reference internal" href="#code514"><span class="std std-numref">Listing 6.14</span></a> values of the first region are less likely to change than
-values of the other regions. <strong>NOTE: The invariant PRAM method requires
-that the transition matrix has a unit eigenvalue.</strong> Not all sets of
+values of the other regions.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The invariant PRAM method requires
+that the transition matrix has a unit eigenvalue.</p>
+</div>
+<p>Not all sets of
 restrictions can therefore be used (e.g., the minimum value 1 on any of
 the categories).</p>
 <div class="literal-block-wrapper docutils container" id="code514">
@@ -2060,9 +2083,14 @@ mean as replacement for all values, which are grouped with the outlier
 (6,045 in group 2), these records will be assigned values far from their
 original values. If we chose the median, the incomes of individuals 1
 and 2 are not perturbed, but no value is an outlier. Of course, this
-might in itself present problems. <strong>NOTE: If microaggregation alters
+might in itself present problems.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If microaggregation alters
 outlying values, this can have a significant impact on the computation
-of some measures sensitive to outliers, such as the GINI index.</strong> In the
+of some measures sensitive to outliers, such as the GINI index.</p>
+</div>
+<p>In the
 case where microaggregation is applied to categorical variables, the
 median is used to calculate the replacement value for the group.</p>
 <span id="tab511"></span><table border="1" class="colwidths-auto docutils align-center" id="id38">
@@ -2255,7 +2283,7 @@ shown in <a class="reference internal" href="#code518"><span class="std std-numr
 </td></tr></table></div>
 </div>
 <p>Besides the method MDAV, there are few other grouping methods
-implemented in <em>sdcMicro</em> (Templ, Meindl and Kowarik, 2014). <a class="reference internal" href="#tab513"><span class="std std-numref">Table 6.13</span></a>
+implemented in <em>sdcMicro</em> (<a href="#id45"><span class="problematic" id="id46">`TeMK2014`_</span></a>). <a class="reference internal" href="#tab513"><span class="std std-numref">Table 6.13</span></a>
 gives an overview of these methods. Whereas the method ‘MDAV’ uses the
 Euclidian distance, the method ‘rmd’ uses the Mahalanobis distance
 instead. An alternative to these methods is sorting the respondents
@@ -2617,8 +2645,8 @@ rankSwap(), these values should be recoded NA. This is shown in the
 </td></tr></table></div>
 </div>
 <p>Rank swapping has been found to yield good results with respect to the
-trade-off between information loss and data protection (Domingo-Ferrer
-and Torra, 2001). Rank swapping is not useful for variables with few
+trade-off between information loss and data protection (DoTo01a).
+Rank swapping is not useful for variables with few
 different values or many missing values, since the swapping in that case
 will not result in altered values. Also, if the intruder knows to whom
 the highest or lowest value of a specific variable belongs (e.g.,
@@ -2748,7 +2776,7 @@ this example.</p>
 </tbody>
 </table>
 <p>The method ‘ds’ (the default method of data shuffling in <em>sdcMicro</em>) is
-recommended for use (Templ et al., 2014) <a class="footnote-reference" href="#foot54" id="id19">[21]</a>. A
+recommended for use (<a class="reference internal" href="#temk14">TeMK14</a>) <a class="footnote-reference" href="#foot54" id="id19">[21]</a>. A
 regression function with regressors for the variables to be protected
 must be specified in the argument ‘form’. At least two regressands
 should be specified and the regressors should have predictive power for
@@ -2815,9 +2843,9 @@ also pose a challenge to the privacy of the respondents.</p>
 and instead leaving in or creating other geographical variables, such as
 province, region. However, this approach also removes the benefits of
 geospatial data. Another option is the geographical displacement of
-areas and/or records. Burgert et al. (2013) describe a geographical
+areas and/or records. <a class="reference internal" href="#bcrz13">BCRZ13</a> describe a geographical
 displacement procedure for a health dataset. This paper also includes
-the code in Python. Hu and Drechsler (2015) propose three different
+the code in Python. <a class="reference internal" href="#hudr15">HuDr15</a> propose three different
 strategies for generating synthetic geocodes.</p>
 <div class="admonition-recommended-reading-material-on-anonymization-of-geospatial-data admonition">
 <p class="first admonition-title">Recommended Reading Material on Anonymization of Geospatial Data</p>
@@ -2856,9 +2884,12 @@ correctness of a match are no longer applicable. If an intruder has
 identified a sample unique and successfully matched, there is no doubt
 whether the match is correct, as it would be in the case of a sample.
 One approach to release census microdata is to release a stratified
-sample of the sample (1 – 5% of the total census). <strong>NOTE: After
-sampling, the anonymization process has to be followed; sampling alone
-is not sufficient to guarantee confidentiality.</strong></p>
+sample of the sample (1 – 5% of the total census).</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">After sampling, the anonymization process has to be followed; sampling alone
+is not sufficient to guarantee confidentiality.</p>
+</div>
 <p>Several statistical offices release microdata based on census data. A
 few examples are:</p>
 <ul class="simple">
@@ -3095,12 +3126,51 @@ the website of the U.S. Census Bureau:
 </tbody>
 </table>
 <p class="rubric">References</p>
+<table class="docutils citation" frame="void" id="bcrz13" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[BCRZ13]</td><td>Burgert, C. R., Colston, J., Roy, T., &amp; Zachary, B. (2013).
+<strong>Geographic Displacement Procedure and Georeferenced Data Release Policy for the Demographic and Health Surveys.</strong>
+DHS Spatial Analysis Report No. 7.</td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="doto01a" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[DoTo01a]</td><td>Domingo-Ferrer, J., &amp; Torra, V. (2001).
+<strong>A Quantitative Comparison of Disclosure Control Methods for Microdata.</strong>
+In P. Doyle, J. Lane, J. Theeuwes, &amp; L. Zayatz (Eds.), Confidentiality, Disclosure and Data Access: Theory and Practical Applications for Statistical Agencies (pp. 111-133). Amsterdam, North-Holland: Elsevier Science.</td></tr>
+</tbody>
+</table>
 <table class="docutils citation" frame="void" id="hdfg12" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
 <tr><td class="label">[HDFG12]</td><td>Hundepool, A., Domingo-Ferrer, J., Franconi, L., Giessing, S., Nordholt, E. S., Spicer, K., et al. (2012).
 <strong>Statistical Disclosure Control.</strong>
 Chichester, UK: John Wiley &amp; Sons Ltd.</td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="hudr15" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[HuDr15]</td><td>Hu, J., &amp; Drechsler, J. (2015).
+<strong>Generating synthetic geocoding infromation for public release.</strong>
+NTTS - Conferences on New Techniques and Technologies for Statistics. Brussels.</td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="temk14" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[TeMK14]</td><td>Templ, M., Meindl, B., &amp; Kowarik, A. (2014, August).
+<strong>Tutorial for SDCMicroGUI.</strong>
+Retrieved from International Household Survey Network (IHSN): <a class="reference external" href="http://www.ihsn.org/home/software/disclosure-control-toolbox">http://www.ihsn.org/home/software/disclosure-control-toolbox</a></td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="wolf15" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[Wolf15]</td><td>de Wolf, P.-P. (2015).
+<strong>Public Use Files of EU-SILC and EU-LFS data.</strong></td></tr>
 </tbody>
 </table>
 </div>
