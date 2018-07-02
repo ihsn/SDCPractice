@@ -96,11 +96,12 @@ teaching files, files for other specific purposes, remote execution or
 remote access. Obviously, the required level of protection depends on
 the type of release; a PUF file must be protected to a much larger
 extent than a SUF file, which in turn has to be protected more than a
-file which is only available in an on-site facility. Section 8.3 gives
+file which is only available in an on-site facility. 
+The Section `Step 3: Type of release <process.html#Step 3: Type of release` gives
 more guidance on the choice of the release type and its implications for
 the anonymization process. The same microdata set can be released in
 different ways for different users, e.g., as SUF and teaching file.
-Section 8.3 discusses the particular issues of multiple releases of one
+The Section `Step 3: Type of release <process.html#Step 3: Type of release` discusses the particular issues of multiple releases of one
 dataset.
 
 The first step for any agency that wants to release data would be

@@ -11,10 +11,13 @@ should be used with caution, since every dataset has different
 characteristics and our findings may not always address your particular
 dataset. The last three sections of this chapter are on the
 anonymization of variables and datasets with particular characteristics
-that deserve special attention. Section 5.4 deals with for anonymizing
-geographical data, such as GPS coordinates, Section 5.5 discusses the
+that deserve special attention. The Section 
+`Anonymization of geospatial variables <anon_methods.html#Anonymization of geospatial variables>`_
+deals with for anonymizing
+geographical data, such as GPS coordinates, the Section 
+`Anonymization of the quasi-identifier household size <anon_methods.html#Anonymization of the quasi-identifier household size>`_ discusses the
 anonymization of data with a hierarchical structure (household
-structure) and Section 5.6 describes the peculiarities of dealing with
+structure) and the Section `Special case: census data <anon_methods.html#Special case: census data>`_ describes the peculiarities of dealing with
 and releasing census microdata.
 
 To determine which anonymization methods are suitable for specific
@@ -278,7 +281,7 @@ Recoding a categorical variable using the sdcMicro function groupVars()
 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
 Assume that an object of class *sdcMicro* was created, which is called
-“sdcInitial” [#foot35]_ (see the section 
+“sdcInitial” [#foot35]_ (see the Section 
 `Objects of class sdcMicroObj <sdcMicro.html#Objects of class sdcMicroObj>`__)
 how to create objects of class *sdcMicro*). In :numref:`code51`, the variable “sizeRes” has
 four different categories: ‘capital, large city’, ‘small city’, town’,
@@ -293,7 +296,7 @@ different values that are recoded to ‘urban’.
 .. NOTE::
  	The function groupVars() works only for variables of class factor.
 
-We refer to the section `Classes in R <sdcMicro.html#Classes in R>`__
+We refer to the Section `Classes in R <sdcMicro.html#Classes in R>`__
 on how to change the class of a variable.
 
 .. code-block:: R
@@ -580,7 +583,7 @@ after reducing the number of keys in the data by recoding the
 appropriate variables. Recoding reduces the number of necessary
 suppressions as well as the computation time needed for suppression.
 Suppression of values means that values of a variable are replaced by a
-missing value (NA in *R*). The the section on `k-anonymity <measure_risk.html#k-anonimity>`__
+missing value (NA in *R*). The the Section on `k-anonymity <measure_risk.html#k-anonimity>`__
 discusses how missing values influence frequency counts and
 :math:`k`-anonymity. It is important to note that not all values for all
 individuals of a certain variable are suppressed, which would be the
@@ -816,7 +819,8 @@ In cases where there are a large number of quasi-identifiers and the
 variables have many categories, the number of possible combinations
 increases rapidly (see :math:`k`-anonymity). If the number of variables
 and categories is very large, the computation time of the
-localSuppression() algorithm can be very long (see Section 7.7 on
+localSuppression() algorithm can be very long (see the Section 
+`Computation time <sdcMicro.html#Computation time>`__ on
 computation time). Also, the algorithm may not reach a solution, or may
 come to a solution that will not meet the specified level of
 :math:`k`-anonymity. Therefore, reducing the number of quasi-identifiers
@@ -980,7 +984,8 @@ used to suppress values of certain key variables of individuals with
 risks above a certain threshold. In this case, all values of the
 specified variable for respondents with a risk higher than the specified
 threshold will be suppressed. The risk measure used is the individual
-risk (see Section 4.5). This is useful if one variable has sensitive
+risk (see the Section `Individual risk <measure_risk.html#Individual risk>`__). 
+This is useful if one variable has sensitive
 values that should not be released for individuals with high risks of
 re-identification. What is considered high re-identification probability
 depends on legal requirements. In the following example, the values of
@@ -1068,14 +1073,14 @@ reduced, since no values will be suppressed, depending on the level of
 perturbation. One disadvantage is that data users might have the
 impression that the data was not anonymized before release and will be
 less willing to participate in future surveys. Therefore, there is a
-need for reporting both for internal and external use (see Section
-8.11).
+need for reporting both for internal and external use (see the Section
+`Step 11: Audit and Reporting <process.html#Step 11: Audit and Reporting>`__).
 
 An alternative to perturbative methods is the generation of synthetic
 data files with the same characteristics as the original data files.
 Synthetic data files are not discussed in these guidelines. For more
 information and an overview of the use of synthetic data as SDC method,
-we refer to Drechsler (2011) and Section 3.8 in Hundepool et al. (2012).
+we refer to Drechsler (2011) and the Section 3.8 in Hundepool et al. (2012).
 We discuss here five perturbative methods: Post Randomization Method
 (PRAM), microaggregation, noise addition, shuffling and rank swapping.
 
@@ -1251,7 +1256,8 @@ The pram() function in *sdcMicro* has several options.
 	If no options are set and the PRAM method is applied to an sdcMicro object,
 	all PRAM variables selected in the sdcMicro object are automatically
 	used for PRAM and PRAM is applied within the selected strata (see
-	Section 7.5 on *sdcMicro* objects for more details). 
+	the Section `Objects of class sdcMicroObj <sdcMicro.html#Objects of class sdcMicroObj>`__ 
+	on *sdcMicro* objects for more details). 
 
 Alternatively, PRAM
 can also be applied to variables that are not specified in the
@@ -1574,7 +1580,7 @@ shown in :numref:`code518`.
     sdcInitial <- microaggregation(obj = sdcInitial, variables = c("INC", "EXP", "WEALTH"), method = "mdav", strata_variables = c("strata"))
 
 Besides the method MDAV, there are few other grouping methods
-implemented in *sdcMicro* (`TeMK2014`_). :numref:`tab513`
+implemented in *sdcMicro* (`TeMK14`_). :numref:`tab513`
 gives an overview of these methods. Whereas the method ‘MDAV’ uses the
 Euclidian distance, the method ‘rmd’ uses the Mahalanobis distance
 instead. An alternative to these methods is sorting the respondents
@@ -1917,7 +1923,8 @@ plausible. Rank swapping is implemented in the function rankSwap() in
 *sdcMicro*. The variables, which have to be swapped, should be specified
 in the argument ‘variables’. By default, values below the 5\ :sup:`th`
 percentile and above the 95\ :sup:`th` percentile are top and bottom
-coded and replaced by their average value (see Section 5.2.1.2 on top
+coded and replaced by their average value (see the Section 
+`Top and bottom coding <anon_methods.html#Top and bottom coding>`__ on top
 and bottom coding). By specifying the options ‘TopPercent’ and
 ‘BottomPercent’ we can choose these percentiles. The argument ‘P’
 defines the size of the neighborhood as percentage of the sample size.
@@ -2288,7 +2295,7 @@ few examples are:
 .. [#foot55]
    Even if the dataset does not contain an explicit variable with
    household size, this information can be easily extracted from the
-   data and should be taken into account. Section 7.6 shows how to
+   data and should be taken into account. The Section `Household structure <sdcMicro.html#Household structure>`__ shows how to
    create a variable “household size” based on the household IDs.
 
 .. [#foot56]

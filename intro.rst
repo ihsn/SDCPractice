@@ -178,12 +178,12 @@ Outline of this guide
 
 This guide is divided into the following main sections:
 
-(i)   Section 2 is a primer on SDC.
+(i)   the Section `Statistical Disclosure Control (SDC): An Introduction <SDC_intro.html>`__ is a primer on SDC.
 
-(ii)  Section 3 gives an introduction to different release types for
+(ii)  the Section `Release Types <release_types.html>`__ gives an introduction to different release types for
       microdata.
 
-(iii) Sections 4 to 6 cover SDC methods, risk and utility measurement.
+(iii) the Sections `Anonymization Methods <anon_methods.html>`__ , `Measuring Risk <measure_risk.html>`__ and `Measuring Utility and Information Loss <utility.html>`__ cover SDC methods, risk and utility measurement.
       Here the goal is to provide knowledge that allows the reader to
       independently apply and execute the SDC process. This section is
       enriched with real examples as well as code snippets from the
@@ -191,16 +191,16 @@ This guide is divided into the following main sections:
       information in the references and recommended readings at the end
       of each section.
 
-(iv)  Section 7 gives an overview of issues encountered when carrying
+(iv)  the Section `SDC with sdcMicro in R: Setting Up Your Data and more <sdcMicro.html>`__ gives an overview of issues encountered when carrying
       out anonymization with the *sdcMicro* package in *R*, which exceed
       basic *R* knowledge. This section also includes tips and solutions
       to some of the common issues and problems that might be
       encountered when applying SDC methods in *R* with *sdcMicro.*
 
-(v)   Section 8 provides a step-by-step guide to disclosure control,
+(v)   the Section `The SDC Process <process.html>`__ provides a step-by-step guide to disclosure control,
       which draws upon the knowledge presented in the previous sections.
 
-(vi)  Section 9 presents a number of detailed case studies that
+(vi)  the Section `Case Studies (Illustrating the SDC Process) <case_studies.html>`__ presents a number of detailed case studies that
       demonstrate the use of the methods, their implementation in
       *sdcMicro* and the process that should be followed to reach the
       optimal risk-utility solution.

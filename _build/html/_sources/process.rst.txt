@@ -167,7 +167,9 @@ methods. It is important to distinguish between a full census and a
 sample. For a full census, it is common practice to publish only a
 sample, as the risk of disclosure for a full sample is too high, given
 that we know that everyone in the country or institution is in the data
-(see also Section 5.6). Strata and sample weights can disclose
+(see also the Section 
+`Special case: census data <anon_methods.html#Special case: census data` 5.6). 
+Strata and sample weights can disclose
 information about the area or group to which an individual belongs
 (e.g., the weights can be linked with the geographical area or specific
 group in case of stratified sampling); this should be taken into account
@@ -296,7 +298,8 @@ agreement is breached (see Chapter 3). Furthermore, it should be
 evaluated whether, in case of a sample, possible intruders have
 knowledge as to which individuals are in the sample. This can be the
 case if it is known which schools were visited by the survey team, for
-example. A few examples of disclosure scenarios are (see Section 4.3 for
+example. A few examples of disclosure scenarios are (see the Section 
+`Disclosure scenarios < measure_risk.html#Disclosure scenarios` for
 more information):
 
 -  Matching: The intruder uses auxiliary data, e.g., data on region,
@@ -395,7 +398,9 @@ Chapter 6.
 	all household members. If the value ‘rural’ would be suppressed for two
 	members but not for the remaining three, this would lead to unintended
 	disclosure; with the household ID the variable region would be easy to
-	reconstruct for the two suppressed values. Sections 4.9 and 7.6 provide
+	reconstruct for the two suppressed values. The Sections
+	`Household risk <measure_risk.html#Household risk` and 
+	`Household structure <sdcMicro.html#Household structure` provide
 	more details on how to deal with data with household structure in *R*
 	and *sdcMicro*.
 
@@ -414,7 +419,8 @@ the disclosure scenarios in Step 4 and the thresholds for risk
 calculations (e.g., the level of :math:`k`-anonymity or the threshold
 for which an individual is considered at risk). If the data has a
 hierarchical structure (e.g., a household structure), the risk should be
-measured taking into account this structure as described Section 4.9.
+measured taking into account this structure as described the Section
+`Household risk <measure_risk.html#Household risk`.
 
 The different risk measures described in Chapter 4 each have advantages
 and disadvantages. Generally,\ :math:`\text{\ k}`-anonymity, individual
@@ -425,7 +431,7 @@ thresholds shall be determined according to the release type. Always
 remember, though, that when using a sample, the risk measures based on
 the models presented in the literature offer a worst-case risk scenario
 and might therefore be an exaggeration of the real risks for some cases
-(see Section 4.5).
+(see the Section `Individual risk <measure_risk.html#Individual risk` 4.5).
 
 Step 7: Assessing utility measures
 ----------------------------------
@@ -460,7 +466,7 @@ overview for choosing the appropriate methods. Methods should be chosen
 according to the type of variable – continuous or categorical – the
 requirements by the users and the type of release. The anonymization of
 datasets with both continuous and categorical variables is discussed in
-Section 4.2.
+the Section `Classification of variables <measure_risk.html#Classification of variables`.
 
 In general for anonymization of categorical variables, it is useful to
 restrict the number of suppressions by first applying global recoding
@@ -482,8 +488,9 @@ result, especially in cases where the number of select quasi-identifiers
 is high, an alternative is using perturbative methods. These can be used
 without prior recoding of variables. These methods, however, preserve
 data structure only partially. The preferred method depends on the
-requirements of the users. We refer to Chapter 5 and especially Section
-5.3 for a discussion of perturbative methods implemented in *sdcMicro*.
+requirements of the users. We refer to Chapter 5 and especially the Section
+`Perturbative methods <anon_methods.html# Perturbative methods`
+for a discussion of perturbative methods implemented in *sdcMicro*.
 
 Finally, the choice of SDC methods depends on the data used since the
 same methods produce different results on different datasets. Therefore,
@@ -521,7 +528,8 @@ construct confidence intervals around the point estimates and compare
 these confidence intervals. The importance of the absolute value of a
 deviation can only be interpreted knowing the variance of the estimate.
 Besides these specific utility measures, general utility measures, as
-discussed in Section 6.1, should be evaluated. This is especially
+discussed in the Section `Measuring Utility and Information Loss <utility.html#Measuring Utility and Information Loss` 
+, should be evaluated. This is especially
 important if perturbative methods have been applied. If the data does
 not meet the user requirements and deviations are too large, repeat
 Steps 6 to 10 with different methods and/or different parameters.

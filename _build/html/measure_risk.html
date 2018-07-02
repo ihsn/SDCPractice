@@ -864,7 +864,8 @@ calculate any threshold for <span class="math notranslate nohighlight">\(k\)</sp
 measures available after setting up an <em>sdcMicro</em> object in <em>R</em>.
 <span class="math notranslate nohighlight">\(k\)</span> can be replaced with any required threshold. The choice of the
 required threshold that all individuals in the microdata file should
-satisfy depends on many factors and is discussed further in Section 4.3
+satisfy depends on many factors and is discussed further in the Section
+<a class="reference external" href="anon_methods.html#Localsuppression">Local suppression</a>
 on local suppression. In many institutions, typically required
 thresholds for <span class="math notranslate nohighlight">\(k\)</span>-anonymity are 3 and 5.</p>
 <div class="literal-block-wrapper docutils container" id="code45">
@@ -887,8 +888,8 @@ first key is first interpreted as ‘Secondary complete’, and then as
 its key both with the first and second record.</p>
 </div>
 <p>This principle is used when applying local suppression to achieve a certain level of
-<span class="math notranslate nohighlight">\(k\)</span>-anonymity (see Section 5.2.2) and is based on the fact that
-the value NA could replace any value.</p>
+<span class="math notranslate nohighlight">\(k\)</span>-anonymity (see the Section <a class="reference external" href="anon_methods.html#Localsuppression">Local suppression</a>)
+and is based on the fact that the value NA could replace any value.</p>
 <span id="tab42"></span><table border="1" class="colwidths-auto docutils align-center" id="id16">
 <caption><span class="caption-number">Table 5.2 </span><span class="caption-text">Example dataset to illustrate the effect of missing values on k-anonymity</span><a class="headerlink" href="#id16" title="Permalink to this table">¶</a></caption>
 <thead valign="bottom">
@@ -1789,9 +1790,10 @@ frequencies of these keys and dividing by the sample size n:</p>
 <div class="math notranslate nohighlight">
 \[R_{1} = \frac{1}{n}\sum_{i}^{}r_{k} = \frac{1}{n}\sum_{k}^{}{f_{k}r}_{k}\]</div>
 <p><span class="math notranslate nohighlight">\(r_{k}\)</span> is the individual risk of key <span class="math notranslate nohighlight">\(k\)</span> that the
-<span class="math notranslate nohighlight">\(i\)</span><sup>th</sup> individual shares (see Section 4.5.1). This measure
-is reported as global risk in <em>sdcMicro</em>, is stored in the “risk” slot
-and can be displayed as shown in <a class="reference internal" href="#code411"><span class="std std-numref">Listing 5.11</span></a>. It indicates that the
+<span class="math notranslate nohighlight">\(i\)</span><sup>th</sup> individual shares (see the Section
+<cite>Categorical key variables and frequency counts &lt;measure_risk.html#Categorical key variables and frequency counts&gt;). This measure
+is reported as global risk in *sdcMicro*, is stored in the “risk” slot
+and can be displayed as shown in :numref:`code411</cite>. It indicates that the
 average re-identification probability is 0.01582 or 0.1582 %.</p>
 <div class="literal-block-wrapper docutils container" id="code411">
 <div class="code-block-caption"><span class="caption-number">Listing 5.11 </span><span class="caption-text">Computation of the global risk measure</span><a class="headerlink" href="#code411" title="Permalink to this code">¶</a></div>
@@ -1860,14 +1862,15 @@ a higher disclosure risk than 0.05.</p>
 risk values are above a predetermined threshold. We will see later that
 there are methods in <em>sdcMicro</em>, such as localSupp(), that can be used
 to suppress values of certain key variables for those individuals with
-risk above a specified threshold. This is explained further in Section
-5.2.2.</p>
+risk above a specified threshold. This is explained further in the Section
+<a class="reference external" href="anon_methods.html#Localsuppression">Local suppression</a> .</p>
 </div>
 </div>
 <div class="section" id="household-risk">
 <h2>5.9. Household risk<a class="headerlink" href="#household-risk" title="Permalink to this headline">¶</a></h2>
 <p>In many social surveys, the data have a hierarchical structure where an
-individual belongs to a higher-level entity (see Section 4.4). Typical
+individual belongs to a higher-level entity (see the Section
+<a class="reference external" href="measure_risk.html#Levelsofrisk">Levels of risk</a>). Typical
 examples are households in social surveys or pupils in schools.
 Re-identification of one household member can lead to re-identification
 of the other household members, too. It is therefore easy to see that if
@@ -1916,7 +1919,8 @@ variable as long as a household ID is in the data, which allows
 assigning individuals to households. We flag this for the reader’s
 attention as it is important. Further discussion on approaches to the
 SDC process that take into account the household structure where it
-exists can be found in Section** <strong>5.4.</strong></p>
+exists can be found in the Section
+<a class="reference external" href="anon_methods.html#Anonymizationofthequasi-identifierhouseholdsize">Anonymization of the quasi-identifier household size</a></p>
 </div>
 <div class="admonition-recommended-reading-material-on-risk-measurement admonition">
 <p class="first admonition-title">Recommended Reading Material on Risk Measurement</p>
@@ -1945,7 +1949,7 @@ August 1. Accessed November 13, 2014.</p>
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
 <tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>Recoding a continuous variable is sometimes useful in cases where the
-data contains only a few continuous variables. We will see in Section
+data contains only a few continuous variables. We will see in the Section
 3 that many methods used for risk calculation depend on whether the
 variables are categorical. We will also see that it is easier for the
 measurement of risk if the data contains only categorical or only
@@ -2038,7 +2042,8 @@ assumptions assume a worst-case scenario.</td></tr>
 <table class="docutils footnote" frame="void" id="foot27" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id7">[7]</a></td><td>See Section 7.5 for more information on slots and the <em>sdcMicro</em>
+<tr><td class="label"><a class="fn-backref" href="#id7">[7]</a></td><td>See the Section <cite>Objects of class sdcMicroObj &lt;sdcMicro.html#Objects of class sdcMicroObj</cite>
+for more information on slots and the <em>sdcMicro</em>
 object structure.</td></tr>
 </tbody>
 </table>
@@ -2059,7 +2064,8 @@ categorical variables.</td></tr>
 <tbody valign="top">
 <tr><td class="label"><a class="fn-backref" href="#id9">[9]</a></td><td>Alternatively, the sensitive variables can be specified when
 creating the <em>sdcMicro</em> object using the function createSdcObj() in
-the <em>sensibleVar</em> argument. This is further explained in Section 7.5.
+the <em>sensibleVar</em> argument. This is further explained in the Section
+<cite>Objects of class sdcMicroObj &lt;sdcMicro.html#Objects of class sdcMicroObj</cite> .
 In that case, the argument <em>ldiv_index</em> does not have to be specified
 in the ldiversity() function. and the variables in the <em>sensibleVar</em>
 argument will automatically be used to compute <span class="math notranslate nohighlight">\(l\)</span>-diversity.</td></tr>

@@ -585,7 +585,8 @@ calculate any threshold for :math:`k` using the already-stored risk
 measures available after setting up an *sdcMicro* object in *R*.
 :math:`k` can be replaced with any required threshold. The choice of the
 required threshold that all individuals in the microdata file should
-satisfy depends on many factors and is discussed further in Section 4.3
+satisfy depends on many factors and is discussed further in the Section 
+`Local suppression <anon_methods.html#Local suppression>`__
 on local suppression. In many institutions, typically required
 thresholds for :math:`k`-anonymity are 3 and 5.
 
@@ -610,8 +611,8 @@ first key is first interpreted as ‘Secondary complete’, and then as
 	its key both with the first and second record.
 	
 This principle is used when applying local suppression to achieve a certain level of
-:math:`k`-anonymity (see Section 5.2.2) and is based on the fact that
-the value NA could replace any value.
+:math:`k`-anonymity (see the Section `Local suppression <anon_methods.html#Local suppression>`__) 
+and is based on the fact that the value NA could replace any value.
 
 .. _tab42:
 
@@ -1195,7 +1196,8 @@ frequencies of these keys and dividing by the sample size n:
 .. math:: R_{1} = \frac{1}{n}\sum_{i}^{}r_{k} = \frac{1}{n}\sum_{k}^{}{f_{k}r}_{k}
 
 :math:`r_{k}` is the individual risk of key :math:`k` that the
-:math:`i`\ :sup:`th` individual shares (see Section 4.5.1). This measure
+:math:`i`\ :sup:`th` individual shares (see the Section
+`Categorical key variables and frequency counts <measure_risk.html#Categorical key variables and frequency counts>). This measure
 is reported as global risk in *sdcMicro*, is stored in the “risk” slot
 and can be displayed as shown in :numref:`code411`. It indicates that the
 average re-identification probability is 0.01582 or 0.1582 %.
@@ -1264,14 +1266,15 @@ These calculations can then be used to treat data for individuals whose
 risk values are above a predetermined threshold. We will see later that
 there are methods in *sdcMicro*, such as localSupp(), that can be used
 to suppress values of certain key variables for those individuals with
-risk above a specified threshold. This is explained further in Section
-5.2.2.
+risk above a specified threshold. This is explained further in the Section
+`Local suppression <anon_methods.html#Local suppression>`__ .
 
 Household risk
 --------------
 
 In many social surveys, the data have a hierarchical structure where an
-individual belongs to a higher-level entity (see Section 4.4). Typical
+individual belongs to a higher-level entity (see the Section
+`Levels of risk <measure_risk.html#Levels of risk>`__). Typical
 examples are households in social surveys or pupils in schools.
 Re-identification of one household member can lead to re-identification
 of the other household members, too. It is therefore easy to see that if
@@ -1320,8 +1323,9 @@ computed. :numref:`code414` shows how to display these risk measures.
 	assigning individuals to households. We flag this for the reader’s
 	attention as it is important. Further discussion on approaches to the
 	SDC process that take into account the household structure where it
-	exists can be found in Section** **5.4.**
-
+	exists can be found in the Section 
+	`Anonymization of the quasi-identifier household size <anon_methods.html#Anonymization of the quasi-identifier household size>`__
+	
 .. admonition:: Recommended Reading Material on Risk Measurement
 
 	Elliot, Mark J, Anna Manning, Ken Mayes, John Gurd, and Michael Bane.
@@ -1352,7 +1356,7 @@ computed. :numref:`code414` shows how to display these risk measures.
 
 .. [#foot21]
    Recoding a continuous variable is sometimes useful in cases where the
-   data contains only a few continuous variables. We will see in Section
+   data contains only a few continuous variables. We will see in the Section
    3 that many methods used for risk calculation depend on whether the
    variables are categorical. We will also see that it is easier for the
    measurement of risk if the data contains only categorical or only 
@@ -1427,7 +1431,8 @@ computed. :numref:`code414` shows how to display these risk measures.
    assumptions assume a worst-case scenario.
 
 .. [#foot27]
-   See Section 7.5 for more information on slots and the *sdcMicro*
+   See the Section `Objects of class sdcMicroObj <sdcMicro.html#Objects of class sdcMicroObj` 
+   for more information on slots and the *sdcMicro*
    object structure.
 
 .. [#foot28]
@@ -1442,7 +1447,8 @@ computed. :numref:`code414` shows how to display these risk measures.
 .. [#foot29]
    Alternatively, the sensitive variables can be specified when
    creating the *sdcMicro* object using the function createSdcObj() in
-   the *sensibleVar* argument. This is further explained in Section 7.5.
+   the *sensibleVar* argument. This is further explained in the Section
+   `Objects of class sdcMicroObj <sdcMicro.html#Objects of class sdcMicroObj` .
    In that case, the argument *ldiv_index* does not have to be specified
    in the ldiversity() function. and the variables in the *sensibleVar*
    argument will automatically be used to compute :math:`l`-diversity.

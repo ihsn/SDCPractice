@@ -650,8 +650,8 @@ each household at random. :numref:`code715` illustrates a way to do this in
 	# Order the file by HID and randomized INDID (line number)
 	dataAnon <- dataAnon[order(dataAnon$HID, dataAnon$INDID),]
 
-**Randomizing order and numbering of individuals or households**
-----------------------------------------------------------------
+Randomizing order and numbering of individuals or households
+------------------------------------------------------------
 
 Often the order and numbering of individuals, households, and also
 geographical units contains information that could be used by an
