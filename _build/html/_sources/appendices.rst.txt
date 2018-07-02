@@ -414,6 +414,116 @@ report consists of two parts: the first is on the anonymization of the
 household-level variables and the second is on the anonymization of the
 individual-level variables.
 
+Case study 1 - Internal report
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+**SDC report (adapted from the report function in sdcMicro)**
+
+The dataset consists of 10,574 observations (i.e., 10,574 individuals in 2,000 households).
+Household-level variables
+
+Anonymization methods applied to household-level variables:
+
+- Removing households of size larger than 13 (29 households)
+- Local suppression to achieve 2-anonymity, with importance vector to prevent suppressing values of the variables HHSIZE, REGION and URBRUR
+- Recoding the variable LANDSIZEHA: rounding to one digit for values smaller than 1, rounding to zero digits for other values, grouping values 5-19 and 20-40, topcoding at 40
+- PRAMming the variables ROOF, TOILET, WATER, ELECTCON, FUELCOOK, OWNMOTORCYCLE, CAR, TV and LIVESTOCK
+- Noise addition (level 0.01 and 0.05 for outliers) to the income and expenditure components, replacing aggregates by sum of perturbed components
+
+Selected (key) variables:
+
+
+- Modifications on categorical key variables: TRUE
+- Modifications on continuous key variables: TRUE
+- Modifications using PRAM: TRUE
+- Local suppressions: TRUE
+
+Disclosure risk (household-level variables):
+Frequency analysis for categorical key variables: 181
+
+Number of observations violating
+2-Anonymity: 0 (unmodified data: 103)
+3-Anonymity: 104 (unmodified data: 229)
+5-Anonymity: 374 (unmodified data: 489)
+Percentage of observations violating
+2-Anonymity: 0% (unmodified data: 5.15%)
+3-Anonymity: 5.28% (unmodified data: 11.45%)
+5-Anonymity: 18.7% (unmodified data: 24.45%)
+Disclosure risk categorical variables:
+Expected Percentage of Re-identifications: 0.05161614% (~ 1.0 observations)
+(unmodified data: 0.001820465% (~ 0.36 observations))
+10 combinations of categories with highest risk:
+
+Case study 1 - External report
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+This case study microdata set has been treated to protect confidentiality. Several methods have been applied to protect the confidentiality: removing variables from the original dataset, removing records from the dataset, reducing detail in variables by recoding and top-coding, removing particular values of individuals at risk (local suppression) and perturbing values of certain variables.
+
+*Removing variables*
+
+The released microdata set has only a selected number of variables contained in the initial survey. Not all variables could be released in this SUF without breaching confidentiality rules.
+
+*Removing records*
+
+To protect confidentiality, records of households larger than 13 were removed. Thirty households out of a total of 2,000 households in the dataset were removed.
+Reducing detail in variables by recoding and top-coding
+The variable LANDSIZEHA was rounded to one digit for values smaller than 1, rounded to zero digits for other values, grouped for values 5-19 and 20-40 and topcoded at 40. The variable AGEYRS was recoded to ten-year age intervals for values in the age range 15 – 65.
+
+*Local suppression*
+
+Values of certain variables for particular households and individuals were deleted. In total, six values of the variable URBRUR, one of the REGION variable, 48 for the OWNAGLAND variable, 16 for the RELIG variable and 323 values of the variable REL were deleted.
+
+*Perturbing values*
+
+Uncertainty was introduced in the variables ROOF, TOILET, WATER, ELECTCON, FUELCOOK, OWNMOTORCYCLE, CAR, TV and LIVESTOCK by using the PRAM method. This method changes a certain percentage of values of variables within each variable. Here invariant PRAM was used, which guarantees that the univariate tabulations stay unchanged. Multivariate tabulations may be changed. Unfortunately, the transition matrix cannot be published.
+The income and expenditure variables were perturbed by adding noise (adding small random values to the original values). The noise added was 0.01 times the standard deviation in the original data and 0.05 for outliers. Noise was added to the components and the aggregates were recomputed to guarantee that the proportions of the different components did not change.
+
+Case study 2 - Internal report
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+**SDC report (adapted from the report function in sdcMicro)**
+
+This report describes the anonymization measures for the PUF release additional to those already taken in the first case study. Therefore, this report should be read in conjunction with the internal report for case study 1. The original dataset consists of 10,574 observations (i.e., 10,574 individuals in 2,000 households). The dataset used for the anonymization of the PUF file is the anonymized SUF file from case study 1. This dataset consists of 10.068 observations in 1,970 households. The difference is due to the removal of large households and sensitive or identifying variables in the first case study.
+
+Household-level variables
+
+Anonymization methods applied to household-level variables:
+
+- For SUF release (see case study 1):
+	- Removing households of size larger than 13 (29 households)
+	- Local suppression to achieve 2-anonymity, with importance vector to prevent suppressing values of the variables HHSIZE, REGION and URBRUR
+- For PUF release:
+	- Remove variables OWNLANDAG, RELIG and LANDSIZEHA
+	- Local suppression to achieve 5-anonymity, with importance vector to prevent suppressing values of the variables HHSIZE and REGION
+	- PRAMming the variables ROOF, TOILET, WATER, ELECTCON, FUELCOOK, OWNMOTORCYCLE, CAR, TV and LIVESTOCK
+	- Create deciles for aggregate income and expenditure (TANNEXP and INCTOTGROSSHH) and replace the actual values with the mean of the corresponding decile. Replace income and expenditure components with the proportion of original totals.
+
+Selected (key) variables:
+
+
+Case study 2 - External report
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+This case study microdata set has been treated to protect confidentiality. Several methods have been applied to protect the confidentiality: removing variables from the original dataset, removing records from the dataset, reducing detail in variables by recoding and top-coding, removing particular values of individuals at risk (local suppression) and perturbing values of certain variables.
+
+*Removing variables*
+
+The released microdata set has only a selected number of variables contained in the initial survey. Not all variables could be released in this PUF without breaching confidentiality rules.
+
+*Removing records*
+
+To protect confidentiality, records of households larger than 13 were removed. Twenty-nine households out of a total of 2,000 households in the dataset were removed.
+
+*Reducing detail in variables by recoding and top-coding*
+
+The variable AGEYRS was recoded to ten-year age intervals for values in the age range 15 – 65 and bottom- and top-coded at 15 and 65. The variables REL, MARITAL, EDUCY and INDUSTRY1 were recoded to less detailed categories. The total income and expenditure variables were recoded to the mean of the corresponding deciles and the income and expenditure components to the proportion of the totals.
+
+*Local suppression*
+
+Values of certain variables for particular households and individuals were deleted. In total, 67 values of the variable URBRUR, 126 of the REGION variable, 91 for the AGEYRS variable and 323 values of the variable REL were deleted.
+
+*Perturbing values*
+
+Uncertainty was introduced in the variables ROOF, TOILET, WATER, ELECTCON, FUELCOOK, OWNMOTORCYCLE, CAR, TV and LIVESTOCK by using the PRAM method. This method changes a certain percentage of values of variables within each variable. Here invariant PRAM was used, which guarantees that the univariate tabulations stay unchanged. Multivariate tabulations may be changed. Unfortunately, the transition matrix cannot be published.
+
+
 Appendix D: Execution Times for Multiple Scenarios Tested using Selected Sample Data
 -------------------------------------------------------------------------------------
 

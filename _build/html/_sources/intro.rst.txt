@@ -122,7 +122,7 @@ building our knowledge base. All risk assessments were based on
 frequencies and probabilities.
 
 Using this guide
--------------------
+----------------
 
 The methods discussed in this guide originate from a large body of
 literature on SDC. The processes underlying many of the methods are the

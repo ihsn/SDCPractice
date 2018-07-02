@@ -1080,7 +1080,7 @@ An alternative to perturbative methods is the generation of synthetic
 data files with the same characteristics as the original data files.
 Synthetic data files are not discussed in these guidelines. For more
 information and an overview of the use of synthetic data as SDC method,
-we refer to Drechsler (2011) and the Section 3.8 in Hundepool et al. (2012).
+we refer to Drechsler (2011) and the Section 3.8 in `HDFG12`_.
 We discuss here five perturbative methods: Post Randomization Method
 (PRAM), microaggregation, noise addition, shuffling and rank swapping.
 
