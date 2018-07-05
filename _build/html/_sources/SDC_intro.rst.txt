@@ -24,8 +24,8 @@ formulated in the dissemination policies and programs of the data
 providers and based on considerations including “[…] the costs and
 expertise involved; questions of data quality, potential misuse and
 misunderstanding of data by users; legal and ethical matters; and
-maintaining the trust and support of respondents” (Dupriez and Boyko,
-2010). There is a moral, ethical and legal obligation for the data
+maintaining the trust and support of respondents” (`DuBo10`_). 
+There is a moral, ethical and legal obligation for the data
 producers to ensure that data provided by the respondents are used only
 for statistical purposes.
 
@@ -40,7 +40,7 @@ confidentiality protection on the one hand, and the public benefits of
 research on the other. A decision on whether or not to provide access
 might depend on the merits of specific research proposals and the
 credibility of the researcher, and there should be some allowance for
-this in the legal arrangements.” (Dupriez and Boyko, 2010).
+this in the legal arrangements.” (`DuBo10`_).
 
 “Data access arrangements should respect the legal rights and legitimate
 interests of all stakeholders in the public research enterprise. Access
@@ -62,9 +62,9 @@ reasons of:
 
 -  Trade secrets and intellectual property rights: data on, or from,
    businesses or other parties that contain confidential information may
-   not be accessible for research. (...)” (Dupriez and Boyko, 2010).
+   not be accessible for research. (...)” (`DuBo10`_).
 
-   Box 1, extracted from Dupriez and Boyko (2010), provides several
+   Box 1, extracted from `DuBo10`_, provides several
    examples of statistical legislation on microdata release.
 
 .. admonition:: Info-box - Examples of statistical legislation on microdata release
@@ -114,7 +114,7 @@ without any treatment, and thus with maximum risk of disclosure, but
 also maximum utility to the user (i.e., no information loss). The goal
 of a well-implemented SDC process is to find the optimal point where
 utility for end users is maximized at an acceptable level of risk.
-Figure 2.1 illustrates this trade-off. The triangle corresponds to the
+:numref:`fig21` illustrates this trade-off. The triangle corresponds to the
 raw data. The raw data have no information loss, but generally have a
 disclosure risk higher than the acceptable level. The other extreme is
 the square, which corresponds to no data release. In that case there is
@@ -125,12 +125,13 @@ process looks for the SDC methods and the parameters for those methods
 and applies these in a way that reduces the risk sufficiently, while
 minimizing the information loss.
 
-.. image:: media/image1.png
-   :width: 6.03524in
-   :height: 4.3072in
+.. _fig21:
 
-Figure 2.1: Risk-utility trade-off
-
+.. figure:: media/image1.png
+   :align: center
+   
+   Risk-utility trade-off
+   
 SDC cannot achieve total risk elimination, but can reduce the risk to an
 acceptable level. Any application of SDC methods will suppress or alter
 values in the data and as such decrease the utility (i.e., result in
@@ -167,4 +168,9 @@ versions. We discuss how this might be achieved later in the guide.
    There is another strand of literature on the anonymization of tabular
    data, see e.g., Hundepool et al. (2012).
 
+.. rubric:: References
 
+.. [DuBo10] Dupriez, O., & Boyko, E. (2010). 
+	**Dissemination of Microdata Files; Principles, Procedures and Practices.**
+	International Household Survey Network (IHSN).
+	

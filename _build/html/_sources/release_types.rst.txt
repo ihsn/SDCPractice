@@ -3,8 +3,7 @@ Release Types
 
 This section discusses data release. Rather than rewriting work that has
 already been conducted through the World Bank and its partners at the
-IHSN, this section extracts from an excellent guide published by Dupriez
-and Boyko (2010).
+IHSN, this section extracts from an excellent guide published by `DuBo10`_.
 
 The trade-off between risk and utility in the anonymization process
 depends greatly on who the users are [#foot19]_ and under
@@ -35,7 +34,7 @@ data release methods are practiced and apply to different target groups.
    anonymization methods)]. PUFs are typically generated from census
    data files using a sub-set [or sample] of records rather than the
    entire file and [from sample surveys, such as] household surveys.”
-   (Dupriez and Boyko, 2010).
+   (`DuBo10`_).
 
 -  **Scientific Use File (SUF)** (also known as a licensed file,
    microdata under contract or research file): the “dissemination is
@@ -60,7 +59,7 @@ data release methods are practiced and apply to different target groups.
    access and use agreement, the data producer asks potential users to
    complete an application form to demonstrate the need to use a
    licensed file (instead of the PUF version, if available) for a stated
-   statistical or research purpose” (Dupriez and Boyko, 2010). This also
+   statistical or research purpose” (`DuBo10`_). This also
    allows the data producer to learn which characteristics of the data
    are important for the users, which is valuable information for
    optimizing future anonymization processes.
@@ -97,11 +96,12 @@ teaching files, files for other specific purposes, remote execution or
 remote access. Obviously, the required level of protection depends on
 the type of release; a PUF file must be protected to a much larger
 extent than a SUF file, which in turn has to be protected more than a
-file which is only available in an on-site facility. Section 8.3 gives
+file which is only available in an on-site facility. 
+The Section `Step 3: Type of release <process.html#Step 3: Type of release` gives
 more guidance on the choice of the release type and its implications for
 the anonymization process. The same microdata set can be released in
 different ways for different users, e.g., as SUF and teaching file.
-Section 8.3 discusses the particular issues of multiple releases of one
+The Section `Step 3: Type of release <process.html#Step 3: Type of release` discusses the particular issues of multiple releases of one
 dataset.
 
 The first step for any agency that wants to release data would be
@@ -126,8 +126,8 @@ attempts to link the data to other sources can be part of the ‘use
 statement’ to which the user must agree, on-line, before the data can be
 downloaded. […] Dissemination of microdata files necessarily involves
 the application of rules or principles. [Box 2] below [taken from
-Dupriez and Boyko (2010)] shows basic principles normally applying to
-PUFs.” (Dupriez and Boyko, 2010).
+`DuBo10`_] shows basic principles normally applying to
+PUFs.” (`DuBo10`_).
 
 .. admonition:: Info-box - Conditions for accessing and using PUFs
 
@@ -141,7 +141,7 @@ PUFs.” (Dupriez and Boyko, 2010).
 
 	Note: Items 3 and 6 in the list require that users be provided with an easy way to communicate with the data provider. It is good practice to provide a contact number, an email address, and possibly an on-line “feedback provision” system.
 
-	Source: Dupriez and Boyko, 2010
+	Source: `DuBo10`_
 
 Conditions for SUFs
 -------------------
@@ -153,7 +153,7 @@ researcher or a team for a specific purpose; secondly, data are provided
 to an organization under a blanket agreement for internal use, e.g., to
 an international body or research agency. In both cases, the
 researcher’s organisation must be identified, as must suitable
-representatives to sign the licence” (Dupriez and Boyko, 2010).
+representatives to sign the licence” (`DuBo10`_).
 
 *Access to a researcher or research team for a specific purpose*
 
@@ -168,7 +168,7 @@ data – including a list of expected outputs and the organisation’s
 dissemination policy – must be identified. Access to licensed datasets
 is only granted when there is a legally-registered sponsoring agency,
 e.g., government ministry, university, research centre or national or
-international organization” (Dupriez and Boyko, 2010).
+international organization” (`DuBo10`_).
 
 .. admonition:: Info-box - Conditions for accessing and using SUFs
 
@@ -187,7 +187,7 @@ international organization” (Dupriez and Boyko, 2010).
 	
 	(Conditions 9 to 11 may be waved in the case of educational institutions)
 	
-	Source: Dupriez and Boyko, 2010
+	Source: `DuBo10`_
 
 *Blanket agreement to an organization*
 
@@ -198,7 +198,7 @@ responsibility for this. Each additional user must be made aware of the
 terms and conditions that apply to data files: this can be achieved by
 having to sign an affidavit. Where such an agreement exists, with
 security in place, it is not necessary for users to destroy the data
-after use” (Dupriez and Boyko, 2010). Appendix B provides an example of
+after use” (`DuBo10`_). Appendix B provides an example of
 the formulation of such an agreement.
 
 Conditions for microdata available in a controlled research data center
@@ -218,7 +218,7 @@ centre]; and the results obtained by the researchers must be screened
 for confidentiality by an NSO analyst before taken outside. A model of a
 data enclave access policy is provided in Appendix 2 [in Dupriez and
 Boyko (2010)], and a model of a data enclave access request form is in
-Appendix 3 [in Dupriez and Boyko (2010)]” (Dupriez and Boyko, 2010).
+Appendix 3 [in `DuBo10`_]” (`DuBo10`_).
 
 Research data centers “have the advantage of providing access to
 detailed microdata but the disadvantage of requiring researchers to work
@@ -227,7 +227,7 @@ It is, however, quite likely that many countries have used on-site
 researchers as a way of providing access to microdata. These researchers
 are sworn in under the statistics’ acts in the same way as regular NSO
 employees. This approach tends to favour researchers who live near NSO
-headquarters.” (Dupriez and Boyko, 2010)
+headquarters.” (`DuBo10`_)
 
 .. admonition:: Recommended Reading Material on Release Types
 
@@ -242,3 +242,8 @@ headquarters.” (Dupriez and Boyko, 2010)
 .. [#foot20]
    Appendix B provides an example of a blanket agreement.
 
+.. rubric:: References
+
+.. [DuBo10] Dupriez, O., & Boyko, E. (2010). 
+	**Dissemination of Microdata Files; Principles, Procedures and Practices.**
+	International Household Survey Network (IHSN).

@@ -29,7 +29,7 @@
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="12. Acknowledgements" href="acknowledgements.html" /> 
+    <link rel="prev" title="11. Acknowledgements" href="acknowledgements.html" /> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -90,8 +90,7 @@
 <li class="toctree-l1"><a class="reference internal" href="sdcMicro.html">8. SDC with <em>sdcMicro</em> in <em>R</em>: Setting Up Your Data and more</a></li>
 <li class="toctree-l1"><a class="reference internal" href="process.html">9. The SDC Process</a></li>
 <li class="toctree-l1"><a class="reference internal" href="appendices.html">10. Appendices</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bibliography.html">11. Bibliography</a></li>
-<li class="toctree-l1"><a class="reference internal" href="acknowledgements.html">12. Acknowledgements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acknowledgements.html">11. Acknowledgements</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Case studies</span></p>
 <ul class="current">
@@ -196,7 +195,7 @@ and free <em>sdcMicro</em> package and <em>R</em>. A ready-to-run <em>R</em> scr
 case study and the dataset are also available to reproduce the results
 and allow the user to adapt the code
 (see&nbsp;<a class="reference external" href="http://ihsn.org/home/projects/sdc-practice">http://ihsn.org/home/projects/sdc-practice</a>). Extracts of this code
-are presented in this section to illustrate several steps of the</p>
+are presented in this section to illustrate several steps of the anonymization process.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">The choices of methods and parameters in
@@ -237,7 +236,9 @@ as this is a hypothetical dataset.</p>
 <p>The first step is to explore the data. To analyze the data in <em>R</em> we
 first have to read the data into <em>R</em>. In our case, the data is saved in
 a <em>STATA</em> file (.dta). To read <em>STATA</em> files, we need to load the <em>R</em>
-package <em>foreign</em> (see Section 7.2 on importing other data formats in
+package <em>foreign</em> (see the Section
+<a class="reference external" href="sdcMicro.html#ReadfunctionsinR">Read functions in R</a>
+on importing other data formats in
 <em>R</em>). We also load the <em>sdcMicro</em> package and several other packages
 used later for the computation of the utility measures. If these
 packages are not yet installed, you should do so before trying to load
@@ -376,8 +377,8 @@ location coordinates, etc.</p>
 </pre></div>
 </td></tr></table></div>
 </div>
-<span id="tab91"></span><table border="1" class="colwidths-auto docutils align-center" id="id4">
-<caption><span class="caption-number">Table 1 </span><span class="caption-text">Overview of variables in dataset</span><a class="headerlink" href="#id4" title="Permalink to this table">¶</a></caption>
+<span id="tab91"></span><table border="1" class="colwidths-auto docutils align-center" id="id8">
+<caption><span class="caption-number">Table 1 </span><span class="caption-text">Overview of variables in dataset</span><a class="headerlink" href="#id8" title="Permalink to this table">¶</a></caption>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">No.</th>
 <th class="head">Variable name</th>
@@ -390,840 +391,492 @@ location coordinates, etc.</p>
 <tbody valign="top">
 <tr class="row-even"><td>1</td>
 <td>IDH</td>
-<td>Household
-ID</td>
+<td>Household ID</td>
 <td>HH</td>
-<td><ul class="first last simple">
-<li></li>
-</ul>
-</td>
+<td>.</td>
 <td>1-2,000</td>
 </tr>
 <tr class="row-odd"><td>2</td>
 <td>IDP</td>
-<td>Individua
-l
-ID</td>
+<td>Individual ID</td>
 <td>IND</td>
-<td><ul class="first last simple">
-<li></li>
-</ul>
-</td>
+<td>.</td>
 <td>1-33</td>
 </tr>
 <tr class="row-even"><td>3</td>
 <td>REGION</td>
 <td>Region</td>
 <td>HH</td>
-<td>categoric
-al</td>
+<td>categorical</td>
 <td>1-6</td>
 </tr>
 <tr class="row-odd"><td>4</td>
 <td>DISTRICT</td>
 <td>District</td>
 <td>HH</td>
-<td>categoric
-al</td>
+<td>categorical</td>
 <td>101-1105</td>
 </tr>
 <tr class="row-even"><td>5</td>
 <td>URBRUR</td>
-<td>Area of
-residence</td>
+<td>Area of residence</td>
 <td>HH</td>
-<td>categoric
-al</td>
+<td>categorical</td>
 <td>1, 2</td>
 </tr>
 <tr class="row-odd"><td>6</td>
 <td>WGTHH</td>
-<td>Individua
-l
-weighting
-coefficie
-nt</td>
+<td>Individual weighting coefficient</td>
 <td>HH</td>
 <td>weight</td>
-<td>31.2-8495
-.7</td>
+<td>31.2-8495</td>
 </tr>
 <tr class="row-even"><td>7</td>
 <td>WGTPOP</td>
-<td>Populatio
-n
-weighting
-coefficie
-nt</td>
+<td>Population weighting coefficient</td>
 <td>IND</td>
 <td>weight</td>
-<td>45.8-9345
-2.2</td>
+<td>45.8-93452.2</td>
 </tr>
 <tr class="row-odd"><td>8</td>
 <td>HHSIZE</td>
-<td>Household
-size</td>
+<td>Household size</td>
 <td>HH</td>
-<td>semi-cont
-inuous</td>
+<td>semi-cont</td>
 <td>1-33</td>
 </tr>
 <tr class="row-even"><td>9</td>
 <td>GENDER</td>
 <td>Gender</td>
 <td>IND</td>
-<td>categoric
-al</td>
+<td>categorical</td>
 <td>0, 1</td>
 </tr>
 <tr class="row-odd"><td>10</td>
 <td>REL</td>
-<td>Relations
-hip
-to
-household
-head</td>
+<td>Relationship to household head</td>
 <td>IND</td>
-<td>categoric
-al</td>
+<td>categorical</td>
 <td>1-9</td>
 </tr>
 <tr class="row-even"><td>11</td>
 <td>MARITAL</td>
-<td>Marital
-status</td>
+<td>Marital status</td>
 <td>IND</td>
-<td>categoric
-al</td>
+<td>categorical</td>
 <td>1-6</td>
 </tr>
 <tr class="row-odd"><td>12</td>
 <td>AGEYRS</td>
-<td>Age in
-completed
-years</td>
+<td>Age in completed years</td>
 <td>IND</td>
-<td>semi-cont
-inuous</td>
-<td>0-95
-(under 1,
-1/12 year
-increment
-s)</td>
+<td>semi-continuous</td>
+<td>0-95 (under 1, 1/12 year increments)</td>
 </tr>
 <tr class="row-even"><td>13</td>
 <td>AGEMTH</td>
-<td>Age of
-child in
-completed
-years</td>
+<td>Age of child in completed years</td>
 <td>IND</td>
-<td>semi-cont
-inuous</td>
+<td>semi-continuous</td>
 <td>1-1140</td>
 </tr>
 <tr class="row-odd"><td>14</td>
 <td>RELIG</td>
-<td>Religion
-of
-household
-head</td>
+<td>Religion of household head</td>
 <td>HH</td>
-<td>categoric
-al</td>
+<td>categorical</td>
 <td>1, 5-7, 9</td>
 </tr>
 <tr class="row-even"><td>15</td>
 <td>ETHNICITY</td>
-<td>Ethnicity
-of
-household
-head</td>
+<td>Ethnicity of household head</td>
 <td>HH</td>
-<td>categoric
-al</td>
-<td>all
-missing
-values</td>
+<td>categorical</td>
+<td>all missing values</td>
 </tr>
 <tr class="row-odd"><td>16</td>
 <td>LANGUAGE</td>
-<td>Language
-of
-household
-head</td>
+<td>Language of household head</td>
 <td>HH</td>
-<td>categoric
-al</td>
-<td>all
-missing
-values</td>
+<td>categorical</td>
+<td>all missing values</td>
 </tr>
 <tr class="row-even"><td>17</td>
 <td>MORBID</td>
-<td>Morbidity
-last x
-weeks</td>
+<td>Morbidity last x weeks</td>
 <td>IND</td>
-<td>categoric
-al</td>
+<td>categorical</td>
 <td>0, 1</td>
 </tr>
 <tr class="row-odd"><td>18</td>
 <td>MEASLES</td>
-<td>Child
-immunized
-against
-measles</td>
+<td>Child immunized against measles</td>
 <td>IND</td>
-<td>categoric
-al</td>
+<td>categorical</td>
 <td>0, 1, 9</td>
 </tr>
 <tr class="row-even"><td>19</td>
 <td>MEDATT</td>
-<td>Sought
-medical
-attention</td>
+<td>Sought medical attention</td>
 <td>IND</td>
-<td>categoric
-al</td>
+<td>categorical</td>
 <td>0, 1</td>
 </tr>
 <tr class="row-odd"><td>20</td>
-<td>CHWEIGHTK
-G</td>
-<td>Weight of
-the child
-(Kg)</td>
+<td>CHWEIGHTKG</td>
+<td>Weight of child (Kg)</td>
 <td>IND</td>
-<td>continuou
-s</td>
+<td>continuous</td>
 <td>2 – 26.5</td>
 </tr>
 <tr class="row-even"><td>21</td>
-<td>CHHEIGHTC
-M</td>
-<td>Height of
-child
-(cms)</td>
+<td>CHHEIGHTCM</td>
+<td>Height of child (cms)</td>
 <td>IND</td>
-<td>continuou
-s</td>
+<td>continuous</td>
 <td>7 - 140</td>
 </tr>
 <tr class="row-odd"><td>22</td>
 <td>ATSCHOOL</td>
-<td>Currently
-enrolled
-in school</td>
+<td>Currently enrolled in school</td>
 <td>IND</td>
-<td>categoric
-al</td>
+<td>categorical</td>
 <td>0, 1</td>
 </tr>
 <tr class="row-even"><td>23</td>
 <td>EDUCY</td>
 <td>Highest
-level of
-education
-attended</td>
+level of education attended</td>
 <td>IND</td>
-<td>categoric
-al</td>
+<td>categorical</td>
 <td>1-6</td>
 </tr>
 <tr class="row-odd"><td>24</td>
 <td>EDYEARS</td>
-<td>Years of
-education</td>
+<td>Years of education</td>
 <td>IND</td>
-<td>semi-cont
-inuous</td>
+<td>semi-continuous</td>
 <td>0-18</td>
 </tr>
 <tr class="row-even"><td>25</td>
-<td>EDYRSCURR
-AT</td>
-<td>Years of
-education
-for
-currently
-enrolled</td>
+<td>EDYRSCURRAT</td>
+<td>Years of education
+for currently enrolled</td>
 <td>IND</td>
-<td>semi-cont
-inuous</td>
+<td>semi-continuous</td>
 <td>1-18</td>
 </tr>
 <tr class="row-odd"><td>26</td>
 <td>SCHTYP</td>
 <td>Type of
-school
-attending</td>
+school attending</td>
 <td>IND</td>
-<td>categoric
-al</td>
+<td>categorical</td>
 <td>1-3, 9</td>
 </tr>
 <tr class="row-even"><td>27</td>
 <td>LITERACY</td>
 <td>Literacy</td>
 <td>IND</td>
-<td>categoric
-al</td>
+<td>categorical</td>
 <td>1-3</td>
 </tr>
 <tr class="row-odd"><td>28</td>
 <td>EMPTYP1</td>
-<td>Type of
-employmen
-t</td>
+<td>Type of employment</td>
 <td>IND</td>
-<td>categoric
-al</td>
+<td>categorical</td>
 <td>1-9</td>
 </tr>
 <tr class="row-even"><td>29</td>
 <td>UNEMP1</td>
-<td>Unemploye
-d</td>
+<td>Unemployed</td>
 <td>IND</td>
-<td>categoric
-al</td>
+<td>categorical</td>
 <td>0, 1</td>
 </tr>
 <tr class="row-odd"><td>30</td>
 <td>INDUSTRY1</td>
 <td>Industry
-classific
-ation
-(1-digit)</td>
+classification (1-digit)</td>
 <td>IND</td>
-<td>categoric
-al</td>
+<td>categorical</td>
 <td>1-10</td>
 </tr>
 <tr class="row-even"><td>31</td>
 <td>EMPCAT1</td>
-<td>Employmen
-t
-categorie
-s</td>
+<td>Employment categories</td>
 <td>IND</td>
-<td>categoric
-al</td>
-<td>11, 12,
-13, 14,
-21, 22</td>
+<td>categorical</td>
+<td>11, 12, 13, 14, 21, 22</td>
 </tr>
 <tr class="row-odd"><td>32</td>
-<td>WHOURSLAS
-TWEEK1</td>
-<td>Hours
-worked
-last week</td>
+<td>WHOURSLASTWEEK1</td>
+<td>Hours worked last week</td>
 <td>IND</td>
-<td>continuou
-s</td>
+<td>continuous</td>
 <td>0-154</td>
 </tr>
 <tr class="row-even"><td>33</td>
 <td>OWNHOUSE</td>
-<td>Ownership
-of
-dwelling</td>
+<td>Ownership of dwelling</td>
 <td>HH</td>
-<td>categoric
-al</td>
+<td>categorical</td>
 <td>0, 1</td>
 </tr>
 <tr class="row-odd"><td>34</td>
 <td>ROOF</td>
-<td>Main
-material
-used for
-roof</td>
+<td>Main material used for roof</td>
 <td>IND</td>
-<td>categoric
-al</td>
+<td>categorical</td>
 <td>1-5, 9</td>
 </tr>
 <tr class="row-even"><td>35</td>
 <td>TOILET</td>
-<td>Main
-toilet
-facility</td>
+<td>Main toilet facility</td>
 <td>HH</td>
-<td>categoric
-al</td>
+<td>categorical</td>
 <td>1-4, 9</td>
 </tr>
 <tr class="row-odd"><td>36</td>
 <td>ELECTCON</td>
-<td>Electrici
-ty</td>
+<td>Electricity</td>
 <td>HH</td>
-<td>categoric
-al</td>
+<td>categorical</td>
 <td>0-3</td>
 </tr>
 <tr class="row-even"><td>37</td>
 <td>FUELCOOK</td>
-<td>Main
-cooking
-fuel</td>
+<td>Main cooking fuel</td>
 <td>HH</td>
-<td>categoric
-al</td>
+<td>categorical</td>
 <td>1-5, 9</td>
 </tr>
 <tr class="row-odd"><td>38</td>
 <td>WATER</td>
-<td>Main
-source of
-water</td>
+<td>Main source of water</td>
 <td>HH</td>
-<td>categoric
-al</td>
+<td>categorical</td>
 <td>1-9</td>
 </tr>
 <tr class="row-even"><td>39</td>
 <td>OWNAGLAND</td>
-<td>Ownership
-of
-agricultu
-ral
-land</td>
+<td>Ownership of agricultural land</td>
 <td>HH</td>
-<td>categoric
-al</td>
+<td>categorical</td>
 <td>1-3</td>
 </tr>
 <tr class="row-odd"><td>40</td>
-<td>LANDSIZEH
-A</td>
-<td>Land size
-owned by
-household
-(ha)
-(agric
-and non
-agric)</td>
+<td>LANDSIZEHA</td>
+<td>Land size owned by household
+(ha) (agric and non agric)</td>
 <td>HH</td>
-<td>continuou
-s</td>
+<td>continuous</td>
 <td>0-1214</td>
 </tr>
 <tr class="row-even"><td>41</td>
-<td>OWNMOTORC
-YCLE</td>
-<td>Ownership
-of
-motorcycl
-e</td>
+<td>OWNMOTORCYCLE</td>
+<td>Ownership of motorcycle</td>
 <td>HH</td>
-<td>categoric
-al</td>
+<td>categorical</td>
 <td>0, 1</td>
 </tr>
 <tr class="row-odd"><td>42</td>
 <td>CAR</td>
-<td>Ownership
-of car</td>
+<td>Ownership of car</td>
 <td>HH</td>
-<td>categoric
-al</td>
+<td>categorical</td>
 <td>0, 1</td>
 </tr>
 <tr class="row-even"><td>43</td>
 <td>TV</td>
-<td>Ownership
-of
-televisio
-n</td>
+<td>Ownership of television</td>
 <td>HH</td>
-<td>categoric
-al</td>
+<td>categorical</td>
 <td>0, 1</td>
 </tr>
 <tr class="row-odd"><td>44</td>
 <td>LIFESTOCK</td>
 <td>Number of
-large-siz
-ed
-livestock
-owned</td>
+large-sized livestock owned</td>
 <td>HH</td>
-<td>semi-cont
-inuous</td>
+<td>semi-continuous</td>
 <td>0-25</td>
 </tr>
 <tr class="row-even"><td>45</td>
 <td>INCRMT</td>
-<td>Income –
-Remittanc
-es</td>
+<td>Income – Remittances</td>
 <td>HH</td>
-<td>continuou
-s</td>
-<td><ul class="first last simple">
-<li></li>
-</ul>
-</td>
+<td>continuous</td>
+<td>&#160;</td>
 </tr>
 <tr class="row-odd"><td>46</td>
 <td>INCWAGE</td>
-<td>Income -
-Wages and
-salaries</td>
+<td>Income - Wages and salaries</td>
 <td>HH</td>
-<td>continuou
-s</td>
-<td><ul class="first last simple">
-<li></li>
-</ul>
-</td>
+<td>continuous</td>
+<td>&#160;</td>
 </tr>
 <tr class="row-even"><td>47</td>
-<td>INCBONSOC
-ALL</td>
-<td>Income -
-Bonuses
-and
-social
-allowance
-s
-derived
-from wage
-jobs</td>
+<td>INCBONSOCAL</td>
+<td>Income - Bonuses and social
+allowances derived from wage jobs</td>
 <td>HH</td>
-<td>continuou
-s</td>
-<td><ul class="first last simple">
-<li></li>
-</ul>
-</td>
+<td>continuous</td>
+<td>&#160;</td>
 </tr>
 <tr class="row-odd"><td>48</td>
-<td>INCFARMBS
-N</td>
-<td>Income -
-Gross
-income
-from
-household
-farm
-businesse
-s</td>
+<td>INCFARMBSN</td>
+<td>Income - Gross income
+from household farm businesses</td>
 <td>HH</td>
-<td>continuou
-s</td>
-<td><ul class="first last simple">
-<li></li>
-</ul>
-</td>
+<td>continuous</td>
+<td>&#160;</td>
 </tr>
 <tr class="row-even"><td>49</td>
-<td>INCNFARMB
-SN</td>
-<td>Income
--Gross
-income
-from
-household
-nonfarm
-businesse
-s</td>
+<td>INCNFARMBSN</td>
+<td>Income - Gross income from
+household nonfarm businesses</td>
 <td>HH</td>
-<td>continuou
-s</td>
-<td><ul class="first last simple">
-<li></li>
-</ul>
-</td>
+<td>continuous</td>
+<td>&#160;</td>
 </tr>
 <tr class="row-odd"><td>50</td>
 <td>INCRENT</td>
-<td>Income -
-Rent</td>
+<td>Income - Rent</td>
 <td>HH</td>
-<td>continuou
-s</td>
-<td><ul class="first last simple">
-<li></li>
-</ul>
-</td>
+<td>continuous</td>
+<td>&#160;</td>
 </tr>
 <tr class="row-even"><td>51</td>
 <td>INCFIN</td>
-<td>Income -
-Financial</td>
+<td>Income - Financial</td>
 <td>HH</td>
-<td>continuou
-s</td>
-<td><ul class="first last simple">
-<li></li>
-</ul>
-</td>
+<td>continuous</td>
+<td>&#160;</td>
 </tr>
 <tr class="row-odd"><td>52</td>
 <td>INCPENSN</td>
-<td>Income -
-Pensions/
-social
-assistanc
-e</td>
+<td>Income - Pensions/social assistance</td>
 <td>HH</td>
-<td>continuou
-s</td>
-<td><ul class="first last simple">
-<li></li>
-</ul>
-</td>
+<td>continuous</td>
+<td>&#160;</td>
 </tr>
 <tr class="row-even"><td>53</td>
 <td>INCOTHER</td>
-<td>Income -
-Other</td>
+<td>Income - Other</td>
 <td>HH</td>
-<td>continuou
-s</td>
-<td><ul class="first last simple">
-<li></li>
-</ul>
-</td>
+<td>continuous</td>
+<td>&#160;</td>
 </tr>
 <tr class="row-odd"><td>54</td>
-<td>INCTOTGRO
-SSHH</td>
-<td>Income -
-Total</td>
+<td>INCTOTGROSHH</td>
+<td>Income - Total</td>
 <td>HH</td>
-<td>continuou
-s</td>
-<td><ul class="first last simple">
-<li></li>
-</ul>
-</td>
+<td>continuous</td>
+<td>&#160;</td>
 </tr>
 <tr class="row-even"><td>55</td>
 <td>FARMEMP</td>
 <td>&#160;</td>
 <td>&#160;</td>
 <td>&#160;</td>
-<td><ul class="first last simple">
-<li></li>
-</ul>
-</td>
+<td>&#160;</td>
 </tr>
 <tr class="row-odd"><td>56</td>
 <td>TFOODEXP</td>
-<td>Total
-expenditu
-re
-on food</td>
+<td>Total expenditure on food</td>
 <td>HH</td>
-<td>continuou
-s</td>
-<td><ul class="first last simple">
-<li></li>
-</ul>
-</td>
+<td>continuous</td>
+<td>&#160;</td>
 </tr>
 <tr class="row-even"><td>57</td>
 <td>TALCHEXP</td>
-<td>Total
-expenditu
-re
-on
-alcoholic
-beverages
-,
-tobacco
-and
-narcotics</td>
+<td>Total expenditure on alcoholic
+beverages, tobacco and narcotics</td>
 <td>HH</td>
-<td>continuou
-s</td>
-<td><ul class="first last simple">
-<li></li>
-</ul>
-</td>
+<td>continuous</td>
+<td>&#160;</td>
 </tr>
 <tr class="row-odd"><td>58</td>
 <td>TCLTHEXP</td>
-<td>Total
-expenditu
-re
-on
-clothing</td>
+<td>Total expenditure on clothing</td>
 <td>HH</td>
-<td>continuou
-s</td>
-<td><ul class="first last simple">
-<li></li>
-</ul>
-</td>
+<td>continuous</td>
+<td>&#160;</td>
 </tr>
 <tr class="row-even"><td>59</td>
 <td>THOUSEXP</td>
-<td>Total
-expenditu
-re
-on
-housing</td>
+<td>Total expenditure on housing</td>
 <td>HH</td>
-<td>continuou
-s</td>
-<td><ul class="first last simple">
-<li></li>
-</ul>
-</td>
+<td>continuous</td>
+<td>&#160;</td>
 </tr>
 <tr class="row-odd"><td>60</td>
 <td>TFURNEXP</td>
-<td>Total
-expenditu
-re
-on
-furnishin
-g</td>
+<td>Total expenditure on furnishing</td>
 <td>HH</td>
-<td>continuou
-s</td>
-<td><ul class="first last simple">
-<li></li>
-</ul>
-</td>
+<td>continuous</td>
+<td>&#160;</td>
 </tr>
 <tr class="row-even"><td>61</td>
 <td>THLTHEXP</td>
-<td>Total
-expenditu
-re
-on health</td>
+<td>Total expenditure on health</td>
 <td>HH</td>
-<td>continuou
-s</td>
-<td><ul class="first last simple">
-<li></li>
-</ul>
-</td>
+<td>continuous</td>
+<td>&#160;</td>
 </tr>
 <tr class="row-odd"><td>62</td>
 <td>TTRANSEXP</td>
-<td>Total
-expenditu
-re
-on
-transport</td>
+<td>Total expenditure on transport</td>
 <td>HH</td>
-<td>continuou
-s</td>
-<td><ul class="first last simple">
-<li></li>
-</ul>
-</td>
+<td>continuous</td>
+<td>&#160;</td>
 </tr>
 <tr class="row-even"><td>63</td>
 <td>TCOMMEXP</td>
-<td>Total
-expenditu
-re
-on
-communica
-tion</td>
+<td>Total expenditure on communication</td>
 <td>HH</td>
-<td>continuou
-s</td>
-<td><ul class="first last simple">
-<li></li>
-</ul>
-</td>
+<td>continuous</td>
+<td>&#160;</td>
 </tr>
 <tr class="row-odd"><td>64</td>
 <td>TRECEXP</td>
-<td>Total
-expenditu
-re
-on
-recreatio
-n</td>
+<td>Total expenditure on recreation</td>
 <td>HH</td>
-<td>continuou
-s</td>
-<td><ul class="first last simple">
-<li></li>
-</ul>
-</td>
+<td>continuous</td>
+<td>&#160;</td>
 </tr>
 <tr class="row-even"><td>65</td>
 <td>TEDUEXP</td>
-<td>Total
-expenditu
-re
-on
-education</td>
+<td>Total expenditure on education</td>
 <td>HH</td>
-<td>continuou
-s</td>
-<td><ul class="first last simple">
-<li></li>
-</ul>
-</td>
+<td>continuous</td>
+<td>&#160;</td>
 </tr>
 <tr class="row-odd"><td>66</td>
-<td>TRESHOTEX
-P</td>
-<td>Total
-expenditu
-re
-on
-restauran
-ts
-and
-hotels</td>
+<td>TRESHOTEXP</td>
+<td>Total expenditure on restaurants
+and hotels</td>
 <td>HH</td>
-<td>continuou
-s</td>
-<td><ul class="first last simple">
-<li></li>
-</ul>
-</td>
+<td>continuous</td>
+<td>&#160;</td>
 </tr>
 <tr class="row-even"><td>67</td>
 <td>TMISCEXP</td>
-<td>Total
-expenditu
-re
-on
-miscellan
-eous
-spending</td>
+<td>Total expenditure on
+miscellaneous spending</td>
 <td>HH</td>
-<td>continuou
-s</td>
-<td><ul class="first last simple">
-<li></li>
-</ul>
-</td>
+<td>continuous</td>
+<td>&#160;</td>
 </tr>
 <tr class="row-odd"><td>68</td>
 <td>TANHHEXP</td>
-<td>Total
-annual
-nominal
-household
-expenditu
-res</td>
+<td>Total annual nominal household
+expenditures</td>
 <td>HH</td>
-<td>continuou
-s</td>
-<td><ul class="first last simple">
-<li></li>
-</ul>
-</td>
+<td>continuous</td>
+<td>&#160;</td>
 </tr>
 </tbody>
 </table>
@@ -1309,8 +962,10 @@ variables.</p>
 <p><strong>Step 3: Type of release</strong></p>
 <p>In this case study, we assume that data will be released as a SUF, which
 will be only available under license to accredited researchers with
-approved research proposals (see Section 3.2 for more information of the
-release of SUF). Therefore, the accepted risk level is higher and a
+approved research proposals (see the Section
+<a class="reference external" href="release_types.html#ConditionsforSUFs">Conditions for SUFs</a>
+for more information of the
+release of a SUF). Therefore, the accepted risk level is higher and a
 broader set of variables can be released than would be the case when
 releasing a PUF. Since we do not have an overview of the requirements of
 all users, we restrict the utility measures to a selected number of data
@@ -1362,8 +1017,8 @@ by neighbors such as ROOF, TOILET, WATER, ELECTCON, FUELCOOK,
 OWNMOTORCYCLE, CAR, TV and LIVESTOCK may also need protection depending
 on what stands out in the community, since a researcher might be able to
 identify persons (s)he knows. This is called the nosy-neighbor scenario.</p>
-<span id="tab92"></span><table border="1" class="colwidths-auto docutils align-center" id="id5">
-<caption><span class="caption-number">Table 2 </span><span class="caption-text">List of selected quasi-identifiers</span><a class="headerlink" href="#id5" title="Permalink to this table">¶</a></caption>
+<span id="tab92"></span><table border="1" class="colwidths-auto docutils align-center" id="id9">
+<caption><span class="caption-number">Table 2 </span><span class="caption-text">List of selected quasi-identifiers</span><a class="headerlink" href="#id9" title="Permalink to this table">¶</a></caption>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">Name</th>
 <th class="head">Measurement</th>
@@ -1379,53 +1034,41 @@ identify persons (s)he knows. This is called the nosy-neighbor scenario.</p>
 <tr class="row-even"><td>HHSIZE (household size)</td>
 <td>Household, categorical</td>
 </tr>
-<tr class="row-odd"><td>OWNAGLAND (agricultural land</td>
+<tr class="row-odd"><td>OWNAGLAND (agricultural land ownership)</td>
 <td>Household, categorical</td>
 </tr>
-<tr class="row-even"><td>ownership)</td>
-<td>&#160;</td>
-</tr>
-<tr class="row-odd"><td>RELIG (religion of household</td>
+<tr class="row-even"><td>RELIG (religion of household  head)</td>
 <td>Household, categorical</td>
 </tr>
-<tr class="row-even"><td>head)</td>
-<td>&#160;</td>
-</tr>
-<tr class="row-odd"><td>LANDSIZEHA (size of agr. and</td>
+<tr class="row-odd"><td>LANDSIZEHA (size of agr. and non-agr. land)</td>
 <td>Household, continuous</td>
 </tr>
-<tr class="row-even"><td>non-agr. land)</td>
-<td>&#160;</td>
-</tr>
-<tr class="row-odd"><td>TANHHEXP (total expenditures)</td>
+<tr class="row-even"><td>TANHHEXP (total expenditures)</td>
 <td>Household, continuous</td>
 </tr>
-<tr class="row-even"><td>TEXP(expenditures in category)</td>
+<tr class="row-odd"><td>TEXP (expenditures in category)</td>
 <td>Household, continuous</td>
 </tr>
-<tr class="row-odd"><td>INCTOTGROSSHH (total income)</td>
+<tr class="row-even"><td>INCTOTGROSSHH (total income)</td>
 <td>Household, continuous</td>
 </tr>
-<tr class="row-even"><td>INC(income in category)</td>
+<tr class="row-odd"><td>INC(income in category)</td>
 <td>Household, continuous</td>
 </tr>
-<tr class="row-odd"><td>GENDER (sex)</td>
+<tr class="row-even"><td>GENDER (sex)</td>
 <td>Individual, categorical</td>
 </tr>
-<tr class="row-even"><td>REL (relationship to household head)</td>
+<tr class="row-odd"><td>REL (relationship to household head)</td>
 <td>Individual, categorical</td>
 </tr>
-<tr class="row-odd"><td>MARITAL (marital status)</td>
+<tr class="row-even"><td>MARITAL (marital status)</td>
 <td>Individual, categorical</td>
 </tr>
-<tr class="row-even"><td>AGEYRS (age in completed years)</td>
+<tr class="row-odd"><td>AGEYRS (age in completed years)</td>
 <td>Individual, semi-continuous</td>
 </tr>
-<tr class="row-odd"><td>EDYRSCURATT (years of education</td>
+<tr class="row-even"><td>EDYRSCURATT (years of education for currently enrolled)</td>
 <td>Individual, semi-continuous</td>
-</tr>
-<tr class="row-even"><td>for currently enrolled)</td>
-<td>&#160;</td>
 </tr>
 <tr class="row-odd"><td>EDUCY (highest level of education completed)</td>
 <td>Individual, categorical</td>
@@ -1435,9 +1078,6 @@ identify persons (s)he knows. This is called the nosy-neighbor scenario.</p>
 </tr>
 <tr class="row-odd"><td>INDUSTRY1 (industry classification)</td>
 <td>Individual, categorical</td>
-</tr>
-<tr class="row-even"><td>classification)</td>
-<td>&#160;</td>
 </tr>
 </tbody>
 </table>
@@ -1463,7 +1103,9 @@ household structure is important for data users and should be considered
 in the risk assessment. Since some variables are measured on the
 household level and thus have identical values for each household
 member, the values of the household variables should be treated in the
-same way for each household member (see Section 5.5). Therefore, we
+same way for each household member (see the Section
+<a class="reference external" href="anon_methods.html#Anonymizationofthequasi-identifierhouseholdsize">Anonymization of the quasi-identifier household size</a>).
+Therefore, we
 first anonymize only the household variables. After this, we merge them
 with the individual-level variables and then anonymize the
 individual-level and household-level variables jointly.</p>
@@ -1473,14 +1115,15 @@ variables and Steps 6b through 10b for the combined dataset. In this
 way, we ensure that household-level variable values remain consistent
 across household members for each household and the household structure
 cannot be used to re-identify individuals. This is further explained in
-Sections 4.4 and 7.6.</p>
+the Sections <a class="reference external" href="measure_risk.html#Levelsofrisk">Levels of risk</a>
+and <a class="reference external" href="sdcMicro.html#Randomizingorderandnumberingofindividualsorhouseholds">Randomizing order and numbering of individuals or households</a> .</p>
 <p>Before continuing to Step 6a, we select the categorical key variables,
 continuous key variables and any variables selected for use in PRAM
 routines, as well as household-level sampling weights. We extract these
 selected household variables and the households from the dataset and
 save them as <em>fileHH</em>. The choice of PRAM variables is further explained
 in Step 8a. <a class="reference internal" href="#code97"><span class="std std-numref">Listing 7</span></a> illustrates how these steps are done in <em>R</em> (see
-also Section 7.6).</p>
+also the Section <a class="reference external" href="sdcMicro.html#Householdstructure">Household structure</a>).</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">In our dataset, some of the categorical variables when imported from the STATA file were not imported as
@@ -1549,7 +1192,7 @@ contains all variables. Every household has the same number of entries
 as it has members (e.g., a household of three will be repeated three
 times in <em>fileHH</em>). Before analyzing the household-level variables, we
 select only one entry per household, as illustrated in <a class="reference internal" href="#code98"><span class="std std-numref">Listing 8</span></a>. This
-is further explained in Section 7.6.</p>
+is further explained in the Section <a class="reference external" href="sdcMicro.html#Householdstructure">Household structure</a>.</p>
 <div class="literal-block-wrapper docutils container" id="code98">
 <div class="code-block-caption"><span class="caption-number">Listing 8 </span><span class="caption-text">Taking a subset with only households</span><a class="headerlink" href="#code98" title="Permalink to this code">¶</a></div>
 <div class="highlight-R notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
@@ -1604,8 +1247,8 @@ how to find these values with <em>sdcMicro</em>. The print() function in
 <em>sdcMicro</em> shows only the values for thresholds 2 and 3. Values for
 other thresholds can be calculated manually by summing up the
 frequencies smaller than the k-anonymity threshold, as shown in <a class="reference internal" href="#code910"><span class="std std-numref">Listing 10</span></a>.</p>
-<span id="tab94"></span><table border="1" class="colwidths-auto docutils align-center" id="id6">
-<caption><span class="caption-number">Table 3 </span><span class="caption-text">Number and proportion of households violating k-anonymity</span><a class="headerlink" href="#id6" title="Permalink to this table">¶</a></caption>
+<span id="tab94"></span><table border="1" class="colwidths-auto docutils align-center" id="id10">
+<caption><span class="caption-number">Table 3 </span><span class="caption-text">Number and proportion of households violating k-anonymity</span><a class="headerlink" href="#id10" title="Permalink to this table">¶</a></caption>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">k-anonymity level</th>
 <th class="head">Number of HH violating</th>
@@ -1687,7 +1330,9 @@ for many of the unique combinations and the origin of much of the risk.
 Having determined this, we can flag HHSIZE as a possible first variable
 to treat to obtain the required risk level. In practice, with a variable
 like HHSIZE, this will likely involve removing large households from the
-dataset to be released. As explained in Section 5.5, recoding and local
+dataset to be released. As explained in the Section
+<a class="reference external" href="anon_methods.html#Anonymizationofthequasi-identifierhouseholdsize">Anonymization of the quasi-identifier household size</a>
+, recoding and local
 suppression are no valid options for the variable HHSIZE. The
 frequencies of household size in <a class="reference internal" href="#tab97"><span class="std std-numref">Table 6</span></a> show that there
 are few households with more than 13 household members. This makes these
@@ -1707,8 +1352,10 @@ fileHH<span class="p">[</span>sdcHH<span class="o">@</span>risk<span class="o">$
 </td></tr></table></div>
 </div>
 <p>We also assess the disclosure risk of the categorical variables with the
-individual and global risk measures as described in Sections 4.5 and
-4.8. In <em>fileHH</em> every entry represents a household. Therefore, we use
+individual and global risk measures as described in the Sections
+<a class="reference external" href="measure_risk.html#Individualrisk">Individual risk</a> and
+<a class="reference external" href="measure_risk.html#Globalrisk">Global risk</a>.
+In <em>fileHH</em> every entry represents a household. Therefore, we use
 the individual non-hierarchical risk here, where the individual refers
 in this case to a household. <em>fileHH</em> contains only households and has
 no hierarchical structure. In Step 6b, we evaluate the hierarchical risk
@@ -1771,7 +1418,8 @@ and as such will not be used simultaneously for matching.</p>
 <p><strong>Continuous variables</strong></p>
 <p>To measure the risk of the continuous variables, we use an interval
 measure, which measures the number of anonymized values that are too
-close to their original values. See Section 4.7.2 for more information
+close to their original values. See the Section <a class="reference external" href="measure_risk.html#Intervalmeasure">Interval measure</a>
+for more information
 on interval-based risk measures for continuous variables. This measure
 is an ex-post measure, meaning that the risk can be evaluated only after
 anonymization and measures whether the perturbation is sufficiently
@@ -1806,8 +1454,8 @@ quantile<span class="p">(</span>fileHH<span class="o">$</span>LANDSIZEHA<span cl
 </pre></div>
 </td></tr></table></div>
 </div>
-<span id="tab95"></span><table border="1" class="colwidths-auto docutils align-center" id="id7">
-<caption><span class="caption-number">Table 4 </span><span class="caption-text">Percentiles 90-100 of the variable LANDSIZE</span><a class="headerlink" href="#id7" title="Permalink to this table">¶</a></caption>
+<span id="tab95"></span><table border="1" class="colwidths-auto docutils align-center" id="id11">
+<caption><span class="caption-number">Table 4 </span><span class="caption-text">Percentiles 90-100 of the variable LANDSIZE</span><a class="headerlink" href="#id11" title="Permalink to this table">¶</a></caption>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">Percentile</th>
 <th class="head">90</th>
@@ -1845,8 +1493,8 @@ quantile<span class="p">(</span>fileHH<span class="o">$</span>LANDSIZEHA<span cl
 </tr>
 </tbody>
 </table>
-<span id="tab96"></span><table border="1" class="colwidths-auto docutils align-center" id="id8">
-<caption><span class="caption-number">Table 5 </span><span class="caption-text">50 largest values of the variable LANDSIZE</span><a class="headerlink" href="#id8" title="Permalink to this table">¶</a></caption>
+<span id="tab96"></span><table border="1" class="colwidths-auto docutils align-center" id="id12">
+<caption><span class="caption-number">Table 5 </span><span class="caption-text">50 largest values of the variable LANDSIZE</span><a class="headerlink" href="#id12" title="Permalink to this table">¶</a></caption>
 <tbody valign="top">
 <tr class="row-odd"><td>12.14</td>
 <td>15.00</td>
@@ -1947,8 +1595,8 @@ protect these specific households, not to reduce the global risk.</p>
 <p>Changes, such as removing records, cannot be done in the
 <em>sdcMicro</em> object. <a class="reference internal" href="#code915"><span class="std std-numref">Listing 15</span></a> illustrates the way to remove households
 and recreate the <em>sdcMicro</em> object.</p>
-<span id="tab97"></span><table border="1" class="colwidths-auto docutils align-center" id="id9">
-<caption><span class="caption-number">Table 6 </span><span class="caption-text">Frequencies of variable HHSIZE (household size)</span><a class="headerlink" href="#id9" title="Permalink to this table">¶</a></caption>
+<span id="tab97"></span><table border="1" class="colwidths-auto docutils align-center" id="id13">
+<caption><span class="caption-number">Table 6 </span><span class="caption-text">Frequencies of variable HHSIZE (household size)</span><a class="headerlink" href="#id13" title="Permalink to this table">¶</a></caption>
 <tbody valign="top">
 <tr class="row-odd"><td>HHSIZE</td>
 <td>1</td>
@@ -2069,8 +1717,9 @@ Therefore, we redo the local suppression, but this time we tell
 <em>sdcMicro</em> to, if possible, not suppress HHSIZE but one of the other
 variables.</p>
 <p>In <em>sdcMicro</em> it is possible to tell the algorithm which variables are
-important and less important for making small changes (see also Section
-5.2.2). To prevent HHSIZE being suppressed, we set the importance of
+important and less important for making small changes (see also the Section
+<a class="reference external" href="anon_methods.html#Localsuppression">Local suppression</a>).
+To prevent HHSIZE being suppressed, we set the importance of
 HHSIZE in the importance vectors to the highest (i.e., 1). <a class="reference internal" href="#code916"><span class="std std-numref">Listing 16</span></a>
 shows how to apply local suppression and put importance on the variable
 HHSIZE. The variable REGION is the type of variable that should not have
@@ -2162,7 +1811,8 @@ anonymize these variables, we want to introduce a low level of
 uncertainty in them. Therefore, we decide to use invariant PRAM for the
 variables ROOF, TOILET, WATER, ELECTCON, FUELCOOK, OWNMOTORCYCLE, CAR,
 TV and LIVESTOCK, where we treat LIVESTOCK as a semi-continuous variable
-due to the low number of different values. Section 5.3.1 provides more
+due to the low number of different values.
+The Section <a class="reference external" href="anon_methods.html#PRAM(PostRAndomizationMethod)">PRAM (Post RAndomization Method)</a> provides more
 information on the PRAM method and its implementation in <em>sdcMicro</em>.
 <a class="reference internal" href="#code917"><span class="std std-numref">Listing 17</span></a> illustrates how to apply PRAM. We choose the parameter
 <em>pd</em>, the lower bound for the probability that a value is not changed,
@@ -2223,7 +1873,8 @@ sdcHH <span class="o">&lt;-</span> pram<span class="p">(</span>sdcHH<span class=
 </div>
 <p>PRAM has changed values within the variables according to the invariant
 transition matrices. Since we used the invariant PRAM method (see
-Section 5.3.1), the absolute univariate frequencies remain unchanged.
+the Section <a class="reference external" href="anon_methods.html#PRAM(PostRAndomizationMethod)">PRAM (Post RAndomization Method)</a>),
+the absolute univariate frequencies remain unchanged.
 This is not the case for the multivariate frequencies. In Step 10a we
 compare the changes in the multivariate frequencies for the PRAMmed
 variables.</p>
@@ -2245,8 +1896,8 @@ least 7. This is shown by the tabulation of the variable LANDSIZEHA
 after manipulation in the last line of <a class="reference internal" href="#code918"><span class="std std-numref">Listing 18</span></a>. In addition, all
 outliers have been removed by top coding the values. This has reduced
 the risk of spontaneous recognition as discussed in Step 6. How to
-recode values in <em>R</em> is introduced in Section 5.2.1 and, for this
-particular case, shown in <a class="reference internal" href="#code918"><span class="std std-numref">Listing 18</span></a>.</p>
+recode values in <em>R</em> is introduced in the Section <a class="reference external" href="anon_methods.html#Recoding">Recoding</a>
+and, for this particular case, shown in <a class="reference internal" href="#code918"><span class="std std-numref">Listing 18</span></a>.</p>
 <div class="literal-block-wrapper docutils container" id="code918">
 <div class="code-block-caption"><span class="caption-number">Listing 18 </span><span class="caption-text">Anonymizing the variable LANDSIZEHA</span><a class="headerlink" href="#code918" title="Permalink to this code">¶</a></div>
 <div class="highlight-R notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
@@ -2306,13 +1957,14 @@ information in the data, by removing high (and low) incomes. Therefore,
 we decide to use noise addition. To take into account the higher risk of
 outliers, we add a higher level of noise to those.</p>
 <p>Adding noise can lead to a transformation of the shape of the
-distribution. Depending on the magnitude of the noise (see Section 5.3.3
+distribution. Depending on the magnitude of the noise (see the Section
+<a class="reference external" href="anon_methods.html#Noiseaddition">Noise addition</a>
 for the definition of the magnitude of noise), the values of income can
 also become negative. One way to solve this would be to cut off the
 values below zero and set them to zero. This would, however, destroy the
 properties conserved by noise addition (amongst others the value of the
-expected mean, see also Section 5.3.3) and we chose to keep the negative
-values.</p>
+expected mean, see also the Section <a class="reference external" href="anon_methods.html#Noiseaddition">Noise addition</a>)
+and we chose to keep the negative values.</p>
 <p>As mentioned before, the aggregates of income and expenditures are the
 sums of the components. Adding noise to each of the components might
 lead to violation of this condition. Therefore, one solution is to add
@@ -2321,7 +1973,7 @@ components in the data and apply noise addition to each component
 separately. This allows to apply a lower level of noise than when
 applying noise only to the aggregates. A noise level of 0.01 seems to be
 sufficient with extra noise of 0.05 added to the outliers. The outliers
-are defined by a robust Mahalanobis distance (see Section 5.3.3). After
+are defined by a robust Mahalanobis distance (&lt;anon_methods.html#Noise addition&gt;`__). After
 adding noise to the components, we recomputed the aggregates as the sum
 of the perturbed components.</p>
 <div class="admonition note">
@@ -2411,8 +2063,8 @@ LANDSIZEHA and PRAMming the variables identified to be important in the
 nosy neighbor scenario. An intruder cannot know with certainty whether a
 household that he recognizes in the data is the correct household, due
 to the noise.</p>
-<span id="tab98"></span><table border="1" class="colwidths-auto docutils align-center" id="id10">
-<caption><span class="caption-number">Table 7 </span><span class="caption-text">Number and proportion of households violating k-anonymity after anonymization</span><a class="headerlink" href="#id10" title="Permalink to this table">¶</a></caption>
+<span id="tab98"></span><table border="1" class="colwidths-auto docutils align-center" id="id14">
+<caption><span class="caption-number">Table 7 </span><span class="caption-text">Number and proportion of households violating k-anonymity after anonymization</span><a class="headerlink" href="#id14" title="Permalink to this table">¶</a></caption>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">k-anonymity</th>
 <th class="head">Number HH violating</th>
@@ -2436,8 +2088,9 @@ to the noise.</p>
 </table>
 <p>These measures refer only to the categorical variables. To evaluate the
 risk of the continuous variables we could use an interval measure or
-closest neighbor algorithm. These risk measures are discussed in Section
-4.7. We chose to use an interval measure, since exact value matching is
+closest neighbor algorithm. These risk measures are discussed in the Section
+<a class="reference external" href="measure_risk.html#Riskmeasuresforcontinuousvariables">Risk measures for continuous variables</a>.
+We chose to use an interval measure, since exact value matching is
 not our largest concern based on the assumed scenarios and external data
 sources. Instead, datasets with similar values but not the exact same
 values could be used for matching. Here the main concern is that the
@@ -2447,7 +2100,8 @@ with an interval measure.</p>
 expenditure variables, which are contained in the vector
 <em>compExp</em> <a class="footnote-reference" href="#foot72" id="id2">[2]</a>. The different values of the parameter
 <em>k</em> in the function dRisk() define the size of the interval around the
-original value, as explained in Section 4.7.2<em>.</em> The larger <em>k</em>, the
+original value, as explained in the Section <a class="reference external" href="risk_measure.html#Intervalmeasure">Interval measure</a>.
+The larger <em>k</em>, the
 larger the intervals, the higher the probability that a perturbed value
 is in the interval around the original value and the higher the risk
 measure. The result is satisfactory with relatively small intervals (k =
@@ -2488,7 +2142,8 @@ Step 8a, local suppression has only removed a few values in the other
 variables, which has not greatly reduced the validity of the data.</p>
 <p>The univariate frequency distributions of the variables ROOF, TOILET,
 WATER, ELECTCON, FUELCOOK, OWNMOTORCYCLE, CAR, TV and LIVESTOCK did not,
-by definition of the invariant PRAM method (see Section 5.3.1), change
+by definition of the invariant PRAM method (see the Section
+<a class="reference external" href="anon_methods.html#PRAM(PostRAndomizationMethod)">PRAM (Post RAndomization Method)</a>), change
 to a large extent. The tabulations are presented in <a class="reference internal" href="#tab99"><span class="std std-numref">Table 8</span></a> (the
 values 1 – 9 and NA in the first row are the values of the variables and
 .m after the variable name refers to the values after anonymization).</p>
@@ -2503,10 +2158,10 @@ the multivariate frequencies of the WATER with the variable URBRUR in
 variable URBRUR could be of interest for users, but these are not
 preserved. Since we applied PRAM within the regions, the multivariate
 frequencies of the PRAMmed variables with REGION are preserved.</p>
-<span id="tab99"></span><table border="1" class="docutils" id="id11">
+<span id="tab99"></span><table border="1" class="docutils" id="id15">
 <caption><span class="caption-number">Table 8 </span><span class="caption-text">Univariate frequencies of the PRAMmed variable before and after anonymization
  :widths: auto
- :align: center</span><a class="headerlink" href="#id11" title="Permalink to this table">¶</a></caption>
+ :align: center</span><a class="headerlink" href="#id15" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col width="18%" />
 <col width="7%" />
@@ -2747,8 +2402,8 @@ frequencies of the PRAMmed variables with REGION are preserved.</p>
 </tr>
 </tbody>
 </table>
-<span id="tab910"></span><table border="1" class="colwidths-auto docutils align-center" id="id12">
-<caption><span class="caption-number">Table 9 </span><span class="caption-text">Multivariate frequencies of the variables WATER with RURURB before and after anonymization</span><a class="headerlink" href="#id12" title="Permalink to this table">¶</a></caption>
+<span id="tab910"></span><table border="1" class="colwidths-auto docutils align-center" id="id16">
+<caption><span class="caption-number">Table 9 </span><span class="caption-text">Multivariate frequencies of the variables WATER with RURURB before and after anonymization</span><a class="headerlink" href="#id16" title="Permalink to this table">¶</a></caption>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">&#160;</th>
 <th class="head">&#160;</th>
@@ -2820,12 +2475,14 @@ coefficient and the confidence interval are based on the positive
 expenditure values. We observe very small changes in the Gini
 coefficient, that are statistically negligible. We use a visualization
 to illustrate the impact on utility of the anonymization. Visualizations
-are discussed in Section 6.4 and the specific <em>R</em> code for this case
+are discussed in the Section
+<a class="reference external" href="utility.html#Assessingdatautilitywiththehelpofdatavisualizations(inR)">Assessing data utility with the help of data visualizations (in R)</a>
+and the specific <em>R</em> code for this case
 study is available in the <em>R</em> script. The change in the inequality
 measures is illustrated in <a class="reference internal" href="#fig91"><span class="std std-numref">Fig. 1</span></a>, which shows the Lorenz curves
 based on the positive expenditure values before and after anonymization.</p>
-<span id="tab911"></span><table border="1" class="colwidths-auto docutils align-center" id="id13">
-<caption><span class="caption-number">Table 10 </span><span class="caption-text">GINI point estimates and bootstrapped confidence intervals for sum of expenditure components</span><a class="headerlink" href="#id13" title="Permalink to this table">¶</a></caption>
+<span id="tab911"></span><table border="1" class="colwidths-auto docutils align-center" id="id17">
+<caption><span class="caption-number">Table 10 </span><span class="caption-text">GINI point estimates and bootstrapped confidence intervals for sum of expenditure components</span><a class="headerlink" href="#id17" title="Permalink to this table">¶</a></caption>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">&#160;</th>
 <th class="head">&#160;</th>
@@ -2847,7 +2504,7 @@ based on the positive expenditure values before and after anonymization.</p>
 </tr>
 </tbody>
 </table>
-<div class="figure align-center" id="id14">
+<div class="figure align-center" id="id18">
 <span id="fig91"></span><img alt="_images/image21.png" src="_images/image21.png" />
 <p class="caption"><span class="caption-number">Fig. 1 </span><span class="caption-text">Lorenz curve based on positive total expenditures values</span></p>
 </div>
@@ -2855,8 +2512,8 @@ based on the positive expenditure values before and after anonymization.</p>
 (MMI) for rural, urban and total population. The results are shown in
 <a class="reference internal" href="#tab912"><span class="std std-numref">Table 11</span></a>. We observe that the chosen levels of noise add only small
 distortions to the MME and slightly larger changes to the MMI.</p>
-<span id="tab912"></span><table border="1" class="colwidths-auto docutils align-center" id="id15">
-<caption><span class="caption-number">Table 11 </span><span class="caption-text">Mean monthly expenditure and mean monthly income per capita by rural/urban</span><a class="headerlink" href="#id15" title="Permalink to this table">¶</a></caption>
+<span id="tab912"></span><table border="1" class="colwidths-auto docutils align-center" id="id19">
+<caption><span class="caption-number">Table 11 </span><span class="caption-text">Mean monthly expenditure and mean monthly income per capita by rural/urban</span><a class="headerlink" href="#id19" title="Permalink to this table">¶</a></caption>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">&#160;</th>
 <th class="head">&#160;</th>
@@ -2892,8 +2549,8 @@ distortions to the MME and slightly larger changes to the MMI.</p>
 </table>
 <p><a class="reference internal" href="#tab913"><span class="std std-numref">Table 12</span></a> shows the share of each of the components of the expenditure
 variables before and after anonymization.</p>
-<span id="tab913"></span><table border="1" class="colwidths-auto docutils align-center" id="id16">
-<caption><span class="caption-number">Table 12 </span><span class="caption-text">Shares of expenditures components</span><a class="headerlink" href="#id16" title="Permalink to this table">¶</a></caption>
+<span id="tab913"></span><table border="1" class="colwidths-auto docutils align-center" id="id20">
+<caption><span class="caption-number">Table 12 </span><span class="caption-text">Shares of expenditures components</span><a class="headerlink" href="#id20" title="Permalink to this table">¶</a></caption>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">.</th>
 <th class="head">TFOODEXP</th>
@@ -3027,7 +2684,9 @@ sdcCombined <span class="o">&lt;-</span> createSdcObj<span class="p">(</span>dat
 <p><strong>Step 6b: Assessing disclosure risk (individual level)</strong></p>
 <p>All key variables at the individual level are categorical. Therefore, we
 can use k-anonymity and the individual and global risk measures (see
-Sections 4.5 and 4.8). The hierarchical risk is now of interest, given
+the Sections <a class="reference external" href="measure_risk.html#Individualrisk">Individual risk</a>
+and <a class="reference external" href="measure_risk.html#Globalrisk">Global risk</a>).
+The hierarchical risk is now of interest, given
 the household structure in the dataset <em>fileCombined</em>, which includes
 both household- and individual-level variables. The number of
 individuals (absolute and relative) that violate k-anonymity at the
@@ -3037,8 +2696,8 @@ levels 2, 3 and 5 are shown in <a class="reference internal" href="#tab914"><spa
 <p class="last">k-anonymity does not consider the household structure and therefore underestimates the risk.
 Therefore, we are more interested in the individual and global hierarchical risk measures.</p>
 </div>
-<span id="tab914"></span><table border="1" class="colwidths-auto docutils align-center" id="id17">
-<caption><span class="caption-number">Table 13 </span><span class="caption-text">k-anonymity violations</span><a class="headerlink" href="#id17" title="Permalink to this table">¶</a></caption>
+<span id="tab914"></span><table border="1" class="colwidths-auto docutils align-center" id="id21">
+<caption><span class="caption-number">Table 13 </span><span class="caption-text">k-anonymity violations</span><a class="headerlink" href="#id21" title="Permalink to this table">¶</a></caption>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">k-anonymity</th>
 <th class="head">Number HH violating</th>
@@ -3111,8 +2770,8 @@ in months for children 0 – 1 years and age in years for individuals over
 1 year). This level of detail leads to a high level of re-identification
 risk, given external datasets with exact age as well as knowledge of the
 exact age of close relatives. We have to reduce the level of detail in
-the age variables by recoding the age values (see Section 5.2.1 on
-recoding). First, we recode the values from 15 to 65 in ten-year
+the age variables by recoding the age values (see the Section
+<a class="reference external" href="anon_methods.html#Recoding">Recoding</a> ). First, we recode the values from 15 to 65 in ten-year
 intervals. Since some indicators related to education are computed from
 the survey dataset, our first approach is not to recode the age range 0
 – 15 years. For children under the age of 1 year, we reduce the level of
@@ -3180,7 +2839,7 @@ this limited recoding. If the number of suppressions is too high, we can
 go back and recode age in the range 1 – 14 years.</p>
 <p>In <a class="reference internal" href="#code924"><span class="std std-numref">Listing 24</span></a> we demonstrate how one might experiment with local
 suppression to find the best option. We use local suppression to achieve
-3-anonymity (see Section 5.2.2 on local suppression). On the first
+3-anonymity (see the Section <a class="reference external" href="anon_methods.html#Localsuppression">Local suppression</a> . On the first
 attempt, we do not specify any importance vector; this leads to many
 suppressions in the variable AGEYRS (see <a class="reference internal" href="#tab915"><span class="std std-numref">Table 14</span></a> below, first row),
 however. This is undesirable from a utility point of view. Therefore, we
@@ -3315,8 +2974,8 @@ sdcCombined <span class="o">&lt;-</span> localSuppression<span class="p">(</span
 </pre></div>
 </td></tr></table></div>
 </div>
-<span id="tab915"></span><table border="1" class="colwidths-auto docutils align-center" id="id18">
-<caption><span class="caption-number">Table 14 </span><span class="caption-text">Number of suppressions by variable for different variations of local suppression</span><a class="headerlink" href="#id18" title="Permalink to this table">¶</a></caption>
+<span id="tab915"></span><table border="1" class="colwidths-auto docutils align-center" id="id22">
+<caption><span class="caption-number">Table 14 </span><span class="caption-text">Number of suppressions by variable for different variations of local suppression</span><a class="headerlink" href="#id22" title="Permalink to this table">¶</a></caption>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">Local suppression options</th>
 <th class="head">GENDER</th>
@@ -3356,8 +3015,8 @@ sdcCombined <span class="o">&lt;-</span> localSuppression<span class="p">(</span
 <p>We re-evaluate the risk measures selected in Step 6b. <a class="reference internal" href="#tab916"><span class="std std-numref">Table 15</span></a> shows
 that local suppression, not surprisingly, has reduced the number of
 individuals violating 2-anonymity to 0.</p>
-<span id="tab916"></span><table border="1" class="colwidths-auto docutils align-center" id="id19">
-<caption><span class="caption-number">Table 15 </span><span class="caption-text">k-anonymity violations</span><a class="headerlink" href="#id19" title="Permalink to this table">¶</a></caption>
+<span id="tab916"></span><table border="1" class="colwidths-auto docutils align-center" id="id23">
+<caption><span class="caption-number">Table 15 </span><span class="caption-text">k-anonymity violations</span><a class="headerlink" href="#id23" title="Permalink to this table">¶</a></caption>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">k-anonymity</th>
 <th class="head">Number HH violating</th>
@@ -3391,8 +3050,8 @@ measures are sensitive to changes in the variables gender (GENDER), age
 good overview of the impact of the anonymization. As shown in <a class="reference internal" href="#tab917"><span class="std std-numref">Table 16</span></a>
 the anonymization did not change the results. The results of the
 tabulations in Appendix A confirm these results.</p>
-<span id="tab917"></span><table border="1" class="colwidths-auto docutils align-center" id="id20">
-<caption><span class="caption-number">Table 16 </span><span class="caption-text">Net enrollment in primary and secondary education by gender</span><a class="headerlink" href="#id20" title="Permalink to this table">¶</a></caption>
+<span id="tab917"></span><table border="1" class="colwidths-auto docutils align-center" id="id24">
+<caption><span class="caption-number">Table 16 </span><span class="caption-text">Net enrollment in primary and secondary education by gender</span><a class="headerlink" href="#id24" title="Permalink to this table">¶</a></caption>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">.</th>
 <th class="head" colspan="3">Primary education</th>
@@ -3495,8 +3154,9 @@ report<span class="p">(</span>sdcCombined<span class="p">,</span> internal <span
 the external report. <a class="reference internal" href="#code926"><span class="std std-numref">Listing 26</span></a> shows how to collect the data from the
 <em>sdcMicro</em> object with the extractManipData() function. Before releasing
 the file, we add an individual ID to the file (line number in
-household). We export the anonymized dataset in as <em>STATA</em> file. Section
-7.2 presents functions for exporting files in other data formats.</p>
+household). We export the anonymized dataset in as <em>STATA</em> file. The Section
+<a class="reference external" href="sdcMicro.html#ReadfunctionsinR">Read functions in R</a>
+presents functions for exporting files in other data formats.</p>
 <div class="literal-block-wrapper docutils container" id="code926">
 <div class="code-block-caption"><span class="caption-number">Listing 26 </span><span class="caption-text">Exporting the anonymized dataset</span><a class="headerlink" href="#code926" title="Permalink to this code">¶</a></div>
 <div class="highlight-R notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
@@ -3520,12 +3180,14 @@ write.dta<span class="p">(</span>dataframe <span class="o">=</span> dataAnon<spa
 </div>
 <div class="section" id="case-study-2-puf">
 <h2>Case study 2 - PUF<a class="headerlink" href="#case-study-2-puf" title="Permalink to this headline">¶</a></h2>
-<p>This case study is a continuation of case study 1 in Section 9.1. Case
+<p>This case study is a continuation of case study 1 in the Section
+<a class="reference internal" href="#case-study-1-suf">Case study 1- SUF</a> . Case
 study 1 produces a SUF file. In this case study we use this SUF file to
 produce a PUF file of the same dataset, which can be freely distributed.
 The structure of the SUF and PUF releases will be the same. However, the
 PUF will contain fewer variables and less (detailed) information than
-the SUF. We refer to Section 9.1 for a description of the dataset.</p>
+the SUF. We refer to the Section <a class="reference internal" href="#case-study-1-suf">Case study 1- SUF</a>
+for a description of the dataset.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">It is also possible to directly produce a PUF from a dataset
@@ -3560,7 +3222,8 @@ risk measures, lower accepted risk levels and different SDC methods.</p>
 <p>In order to guarantee consistency between the released PUF and SUF
 files, which is required to prevent intruders from using the datasets
 together (SUF users have also access to the PUF file), we have to use
-the anonymized SUF file to create the PUF file (see also Section 8.3).
+the anonymized SUF file to create the PUF file (see also the Section
+<a class="reference external" href="process.html#Step3:Typeofrelease">Step 3: Type of release</a>).
 In this way all information in the PUF file is also contained in the
 SUF, and the PUF does not provide additional information to an intruder
 with access to the SUF. We load the required packages to read the data
@@ -3572,7 +3235,7 @@ measures (see Step 5). To evaluate the utility loss in the PUF, we have
 to compare the information in the anonymized PUF file with the
 information in the raw data. For an overview of the data characteristics
 and a description of the variables in both files, we refer to Step 2 of
-case study 1 in Section 9.1.</p>
+<a class="reference internal" href="#case-study-1-suf">Case study 1- SUF</a> .</p>
 <div class="literal-block-wrapper docutils container" id="code927">
 <div class="code-block-caption"><span class="caption-number">Listing 27 </span><span class="caption-text">Loading required packages and datasets</span><a class="headerlink" href="#code927" title="Permalink to this code">¶</a></div>
 <div class="highlight-R notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
@@ -3687,8 +3350,8 @@ variables related to schooling and labor force status as well as income
 and expenditure related variables. These variables need protection.
 Whether a variable is considered sensitive may depend on the release
 type, country and the dataset itself.</p>
-<span id="tab918"></span><table border="1" class="colwidths-auto docutils align-center" id="id21">
-<caption><span class="caption-number">Table 17 </span><span class="caption-text">Overview of the variables in the dataset</span><a class="headerlink" href="#id21" title="Permalink to this table">¶</a></caption>
+<span id="tab918"></span><table border="1" class="colwidths-auto docutils align-center" id="id25">
+<caption><span class="caption-number">Table 17 </span><span class="caption-text">Overview of the variables in the dataset</span><a class="headerlink" href="#id25" title="Permalink to this table">¶</a></caption>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">No.</th>
 <th class="head">Variable name</th>
@@ -3701,628 +3364,371 @@ type, country and the dataset itself.</p>
 <tbody valign="top">
 <tr class="row-even"><td>1</td>
 <td>IDH</td>
-<td>Household
-ID</td>
+<td>Household ID</td>
 <td>HH</td>
-<td><ul class="first last simple">
-<li></li>
-</ul>
-</td>
+<td>.</td>
 <td>1-2,000</td>
 </tr>
 <tr class="row-odd"><td>2</td>
 <td>IDP</td>
-<td>Individua
-l
-ID</td>
+<td>Individual ID</td>
 <td>IND</td>
-<td><ul class="first last simple">
-<li></li>
-</ul>
-</td>
+<td>.</td>
 <td>1-13</td>
 </tr>
 <tr class="row-even"><td>3</td>
 <td>REGION</td>
 <td>Region</td>
 <td>HH</td>
-<td>categoric
-al</td>
+<td>categorical</td>
 <td>1-6</td>
 </tr>
 <tr class="row-odd"><td>4</td>
 <td>URBRUR</td>
-<td>Area of
-residence</td>
+<td>Area of residence</td>
 <td>HH</td>
-<td>categoric
-al</td>
+<td>categorical</td>
 <td>1, 2</td>
 </tr>
 <tr class="row-even"><td>5</td>
 <td>WGTHH</td>
-<td>Individua
-l
-weighting
-coefficie
-nt</td>
+<td>Individual weighting coefficient</td>
 <td>HH</td>
 <td>weight</td>
-<td>31.2-8495
-.7</td>
+<td>31.2-8495.7</td>
 </tr>
 <tr class="row-odd"><td>6</td>
 <td>WGTPOP</td>
-<td>Populatio
-n
-weighting
-coefficie
-nt</td>
+<td>Population weighting coefficient</td>
 <td>IND</td>
 <td>weight</td>
-<td>45.8-9345
-2.2</td>
+<td>45.8-93452.2</td>
 </tr>
 <tr class="row-even"><td>7</td>
 <td>HHSIZE</td>
-<td>Household
-size</td>
+<td>Household size</td>
 <td>HH</td>
-<td>semi-cont
-inuous</td>
+<td>semi-continuous</td>
 <td>1-33</td>
 </tr>
 <tr class="row-odd"><td>8</td>
 <td>GENDER</td>
 <td>Gender</td>
 <td>IND</td>
-<td>categoric
-al</td>
+<td>categorical</td>
 <td>0, 1</td>
 </tr>
 <tr class="row-even"><td>9</td>
 <td>REL</td>
-<td>Relations
-hip
-to
-household
-head</td>
+<td>Relationship to household head</td>
 <td>IND</td>
-<td>categoric
-al</td>
+<td>categorical</td>
 <td>1-9</td>
 </tr>
 <tr class="row-odd"><td>10</td>
 <td>MARITAL</td>
-<td>Marital
-status</td>
+<td>Marital status</td>
 <td>IND</td>
-<td>categoric
-al</td>
+<td>categorical</td>
 <td>1-6</td>
 </tr>
 <tr class="row-even"><td>11</td>
 <td>AGEYRS</td>
-<td>Age in
-completed
-years</td>
+<td>Age in completed years</td>
 <td>IND</td>
-<td>semi-cont
-inuous</td>
+<td>semi-continuous</td>
 <td>0-65</td>
 </tr>
 <tr class="row-odd"><td>12</td>
 <td>RELIG</td>
-<td>Religion
-of
-household
-head</td>
+<td>Religion of household head</td>
 <td>HH</td>
-<td>categoric
-al</td>
+<td>categorical</td>
 <td>1, 5-7, 9</td>
 </tr>
 <tr class="row-even"><td>13</td>
 <td>ATSCHOOL</td>
-<td>Currently
-enrolled
-in school</td>
+<td>Currently enrolled in school</td>
 <td>IND</td>
-<td>categoric
-al</td>
+<td>categorical</td>
 <td>0, 1</td>
 </tr>
 <tr class="row-odd"><td>14</td>
 <td>EDUCY</td>
 <td>Highest
-level of
-education
-attended</td>
+level of education attended</td>
 <td>IND</td>
-<td>categoric
-al</td>
+<td>categorical</td>
 <td>1-6</td>
 </tr>
 <tr class="row-even"><td>15</td>
 <td>EDYRSCUR
 AT</td>
 <td>Years of
-education
-for
-currently
-enrolled</td>
+education for currently enrolled</td>
 <td>IND</td>
-<td>semi-cont
-inuous</td>
+<td>semi-continuous</td>
 <td>1-18</td>
 </tr>
 <tr class="row-odd"><td>16</td>
 <td>INDUSTRY</td>
 <td>Industry
-classific
-ation
-(1-digit)</td>
+classification (1-digit)</td>
 <td>IND</td>
-<td>categoric
-al</td>
+<td>categorical</td>
 <td>1-10</td>
 </tr>
 <tr class="row-even"><td>17</td>
 <td>ROOF</td>
 <td>Main
-material
-used for
-roof</td>
+material used for roof</td>
 <td>IND</td>
-<td>categoric
-al</td>
+<td>categorical</td>
 <td>1-5, 9</td>
 </tr>
 <tr class="row-odd"><td>18</td>
 <td>TOILET</td>
 <td>Main
-toilet
-facility</td>
+toilet facility</td>
 <td>HH</td>
-<td>categoric
-al</td>
+<td>categorical</td>
 <td>1-4, 9</td>
 </tr>
 <tr class="row-even"><td>19</td>
 <td>ELECTCON</td>
-<td>Electrici
-ty</td>
+<td>Electricity</td>
 <td>HH</td>
-<td>categoric
-al</td>
+<td>categorical</td>
 <td>0-3</td>
 </tr>
 <tr class="row-odd"><td>20</td>
 <td>FUELCOOK</td>
 <td>Main
-cooking
-fuel</td>
+cooking fuel</td>
 <td>HH</td>
-<td>categoric
-al</td>
+<td>categorical</td>
 <td>1-5, 9</td>
 </tr>
 <tr class="row-even"><td>21</td>
 <td>WATER</td>
 <td>Main
-source of
-water</td>
+source of water</td>
 <td>HH</td>
-<td>categoric
-al</td>
+<td>categorical</td>
 <td>1-9</td>
 </tr>
 <tr class="row-odd"><td>22</td>
 <td>OWNAGLAN</td>
 <td>Ownership
-of
-agricultu
-ral
-land</td>
+of agricultural land</td>
 <td>HH</td>
-<td>categoric
-al</td>
+<td>categorical</td>
 <td>1-3</td>
 </tr>
 <tr class="row-even"><td>23</td>
-<td>LANDSIZE
-A</td>
-<td>Land size
-owned by
-household
-(ha)
-(agric
-and non
-agric)</td>
+<td>LANDSIZE</td>
+<td>Land size owned by household (ha)
+(agric and non agric)</td>
 <td>HH</td>
-<td>continuou
-s</td>
+<td>continuous</td>
 <td>0-40</td>
 </tr>
 <tr class="row-odd"><td>24</td>
-<td>OWNMOTOR
-YCLE</td>
-<td>Ownership
-of
-motorcycl
-e</td>
+<td>OWNMOTORYCLE</td>
+<td>Ownership of motorcycle</td>
 <td>HH</td>
-<td>categoric
-al</td>
+<td>categorical</td>
 <td>0, 1</td>
 </tr>
 <tr class="row-even"><td>25</td>
 <td>CAR</td>
-<td>Ownership
-of car</td>
+<td>Ownership of car</td>
 <td>HH</td>
-<td>categoric
-al</td>
+<td>categorical</td>
 <td>0, 1</td>
 </tr>
 <tr class="row-odd"><td>26</td>
 <td>TV</td>
 <td>Ownership
-of
-televisio
-n</td>
+of television</td>
 <td>HH</td>
-<td>categoric
-al</td>
+<td>categorical</td>
 <td>0, 1</td>
 </tr>
 <tr class="row-even"><td>27</td>
 <td>LIVESTOC</td>
 <td>Number of
-large-siz
-ed
-livestock
-owned</td>
+large-sized livestock owned</td>
 <td>HH</td>
-<td>semi-cont
-inuous</td>
+<td>semi-continuous</td>
 <td>0-25</td>
 </tr>
 <tr class="row-odd"><td>28</td>
 <td>INCRMT</td>
-<td>Income –
-Remittanc
-es</td>
+<td>Income – Remittances</td>
 <td>HH</td>
-<td>continuou
-s</td>
-<td><ul class="first last simple">
-<li></li>
-</ul>
-</td>
+<td>continuous</td>
+<td>&#160;</td>
 </tr>
 <tr class="row-even"><td>29</td>
 <td>INCWAGE</td>
-<td>Income -
-Wages and
-salaries</td>
+<td>Income - Wages and salaries</td>
 <td>HH</td>
-<td>continuou
-s</td>
-<td><ul class="first last simple">
-<li></li>
-</ul>
-</td>
+<td>continuous</td>
+<td>&#160;</td>
 </tr>
 <tr class="row-odd"><td>30</td>
-<td>INCFARMB
-N</td>
-<td>Income -
-Gross
-income
-from
-household
-farm
-businesse
-s</td>
+<td>INCFARMBSN</td>
+<td>Income - Gross income
+from household farm businesses</td>
 <td>HH</td>
-<td>continuou
-s</td>
-<td><ul class="first last simple">
-<li></li>
-</ul>
-</td>
+<td>continuous</td>
+<td>&#160;</td>
 </tr>
 <tr class="row-even"><td>31</td>
-<td>INCNFARM
-SN</td>
-<td>Income
--Gross
-income
-from
-household
-nonfarm
-businesse
-s</td>
+<td>INCNFARMBSN</td>
+<td>Income - Gross income from
+household nonfarm businesses</td>
 <td>HH</td>
-<td>continuou
-s</td>
-<td><ul class="first last simple">
-<li></li>
-</ul>
-</td>
+<td>continuous</td>
+<td>&#160;</td>
 </tr>
 <tr class="row-odd"><td>32</td>
 <td>INCRENT</td>
-<td>Income -
-Rent</td>
+<td>Income - Rent</td>
 <td>HH</td>
-<td>continuou
-s</td>
-<td><ul class="first last simple">
-<li></li>
-</ul>
-</td>
+<td>continuous</td>
+<td>&#160;</td>
 </tr>
 <tr class="row-even"><td>33</td>
 <td>INCFIN</td>
-<td>Income -
-Financial</td>
+<td>Income - Financial</td>
 <td>HH</td>
-<td>continuou
-s</td>
-<td><ul class="first last simple">
-<li></li>
-</ul>
-</td>
+<td>continuous</td>
+<td>&#160;</td>
 </tr>
 <tr class="row-odd"><td>34</td>
 <td>INCPENSN</td>
-<td>Income -
-Pensions/
-social
-assistanc
-e</td>
+<td>Income - Pensions/social assistance</td>
 <td>HH</td>
-<td>continuou
-s</td>
-<td><ul class="first last simple">
-<li></li>
-</ul>
-</td>
+<td>continuous</td>
+<td>&#160;</td>
 </tr>
 <tr class="row-even"><td>35</td>
 <td>INCOTHER</td>
-<td>Income -
-Other</td>
+<td>Income - Other</td>
 <td>HH</td>
-<td>continuou
-s</td>
-<td><ul class="first last simple">
-<li></li>
-</ul>
-</td>
+<td>continuous</td>
+<td>&#160;</td>
 </tr>
 <tr class="row-odd"><td>36</td>
-<td>INCTOTGR
-SSHH</td>
-<td>Income -
-Total</td>
+<td>INCTOTGROSHH</td>
+<td>Income - Total</td>
 <td>HH</td>
-<td>continuou
-s</td>
-<td><ul class="first last simple">
-<li></li>
-</ul>
-</td>
+<td>continuous</td>
+<td>&#160;</td>
 </tr>
 <tr class="row-even"><td>37</td>
-<td>TFOODEXP</td>
-<td>Total
-expenditu
-re
-on food</td>
-<td>HH</td>
-<td>continuou
-s</td>
-<td><ul class="first last simple">
-<li></li>
-</ul>
-</td>
+<td>FARMEMP</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
 </tr>
 <tr class="row-odd"><td>38</td>
-<td>TALCHEXP</td>
-<td>Total
-expenditu
-re
-on
-alcoholic
-beverages
-,
-tobacco
-and
-narcotics</td>
+<td>TFOODEXP</td>
+<td>Total expenditure on food</td>
 <td>HH</td>
-<td>continuou
-s</td>
-<td><ul class="first last simple">
-<li></li>
-</ul>
-</td>
+<td>continuous</td>
+<td>&#160;</td>
 </tr>
 <tr class="row-even"><td>39</td>
-<td>TCLTHEXP</td>
-<td>Total
-expenditu
-re
-on
-clothing</td>
+<td>TALCHEXP</td>
+<td>Total expenditure on alcoholic
+beverages, tobacco and narcotics</td>
 <td>HH</td>
-<td>continuou
-s</td>
-<td><ul class="first last simple">
-<li></li>
-</ul>
-</td>
+<td>continuous</td>
+<td>&#160;</td>
 </tr>
 <tr class="row-odd"><td>40</td>
-<td>THOUSEXP</td>
-<td>Total
-expenditu
-re
-on
-housing</td>
+<td>TCLTHEXP</td>
+<td>Total expenditure on clothing</td>
 <td>HH</td>
-<td>continuou
-s</td>
-<td><ul class="first last simple">
-<li></li>
-</ul>
-</td>
+<td>continuous</td>
+<td>&#160;</td>
 </tr>
 <tr class="row-even"><td>41</td>
-<td>TFURNEXP</td>
-<td>Total
-expenditu
-re
-on
-furnishin
-g</td>
+<td>THOUSEXP</td>
+<td>Total expenditure on housing</td>
 <td>HH</td>
-<td>continuou
-s</td>
-<td><ul class="first last simple">
-<li></li>
-</ul>
-</td>
+<td>continuous</td>
+<td>&#160;</td>
 </tr>
 <tr class="row-odd"><td>42</td>
-<td>THLTHEXP</td>
-<td>Total
-expenditu
-re
-on health</td>
+<td>TFURNEXP</td>
+<td>Total expenditure on furnishing</td>
 <td>HH</td>
-<td>continuou
-s</td>
-<td><ul class="first last simple">
-<li></li>
-</ul>
-</td>
+<td>continuous</td>
+<td>&#160;</td>
 </tr>
 <tr class="row-even"><td>43</td>
-<td>TTRANSEX</td>
-<td>Total
-expenditu
-re
-on
-transport</td>
+<td>THLTHEXP</td>
+<td>Total expenditure on health</td>
 <td>HH</td>
-<td>continuou
-s</td>
-<td><ul class="first last simple">
-<li></li>
-</ul>
-</td>
+<td>continuous</td>
+<td>&#160;</td>
 </tr>
-<tr class="row-odd"><td>44</td>
+<tr class="row-odd"><td>43</td>
+<td>TTRANSEXP</td>
+<td>Total expenditure on transport</td>
+<td>HH</td>
+<td>continuous</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>44</td>
 <td>TCOMMEXP</td>
-<td>Total
-expenditu
-re
-on
-communica
-tion</td>
+<td>Total expenditure on communication</td>
 <td>HH</td>
-<td>continuou
-s</td>
-<td><ul class="first last simple">
-<li></li>
-</ul>
-</td>
+<td>continuous</td>
+<td>&#160;</td>
 </tr>
-<tr class="row-even"><td>45</td>
+<tr class="row-odd"><td>45</td>
 <td>TRECEXP</td>
-<td>Total
-expenditu
-re
-on
-recreatio
-n</td>
+<td>Total expenditure on recreation</td>
 <td>HH</td>
-<td>continuou
-s</td>
-<td><ul class="first last simple">
-<li></li>
-</ul>
-</td>
+<td>continuous</td>
+<td>&#160;</td>
 </tr>
-<tr class="row-odd"><td>46</td>
+<tr class="row-even"><td>46</td>
 <td>TEDUEXP</td>
-<td>Total
-expenditu
-re
-on
-education</td>
+<td>Total expenditure on education</td>
 <td>HH</td>
-<td>continuou
-s</td>
-<td><ul class="first last simple">
-<li></li>
-</ul>
-</td>
+<td>continuous</td>
+<td>&#160;</td>
 </tr>
-<tr class="row-even"><td>47</td>
-<td>TRESHOTE
-P</td>
-<td>Total
-expenditu
-re
-on
-restauran
-ts
-and
-hotels</td>
+<tr class="row-odd"><td>47</td>
+<td>TRESHOTEXP</td>
+<td>Total expenditure on restaurants
+and hotels</td>
 <td>HH</td>
-<td>continuou
-s</td>
-<td><ul class="first last simple">
-<li></li>
-</ul>
-</td>
+<td>continuous</td>
+<td>&#160;</td>
 </tr>
-<tr class="row-odd"><td>48</td>
+<tr class="row-even"><td>48</td>
 <td>TMISCEXP</td>
-<td>Total
-expenditu
-re
-on
-miscellan
-eous
-spending</td>
+<td>Total expenditure on
+miscellaneous spending</td>
 <td>HH</td>
-<td>continuou
-s</td>
-<td><ul class="first last simple">
-<li></li>
-</ul>
-</td>
+<td>continuous</td>
+<td>&#160;</td>
 </tr>
-<tr class="row-even"><td>49</td>
+<tr class="row-odd"><td>49</td>
 <td>TANHHEXP</td>
-<td>Total
-annual
-nominal
-household
-expenditu
-res</td>
+<td>Total annual nominal household
+expenditures</td>
 <td>HH</td>
-<td>continuou
-s</td>
-<td><ul class="first last simple">
-<li></li>
-</ul>
-</td>
+<td>continuous</td>
+<td>&#160;</td>
 </tr>
 </tbody>
 </table>
@@ -4350,7 +3756,7 @@ preserved in the anonymization process.</p>
 <p>We assume that the data are collected in a survey that uses simple
 sampling of households. The data contains two weight coefficients:
 “WGTHH” and “WGTPOP”. The relationship between the weights is
-<span class="math notranslate nohighlight">\(WGTPOP\  = \ WGTHH\ *\ HHSIZE\)</span>. “WGTPOP” is the sampling weight
+<span class="math notranslate nohighlight">\(WGTPOP = WGTHH * HHSIZE\)</span>. “WGTPOP” is the sampling weight
 for the households and “WGTHH” is the sampling weight for the
 individuals to be used for disclosure risk calculations. “WGTHH” is used
 for computing individual-level indicators (such as education) and
@@ -4361,7 +3767,8 @@ will use “WGTPOP” for the anonymization of the household variables and
 <p><strong>Step 3: Type of release</strong></p>
 <p>In this case study, we assume that the file will be released as a PUF,
 which will be freely available to anyone interested in the data (see
-Section 3.1 for the conditions and more information on the release of
+the Section <a href="#id4"><span class="problematic" id="id5">`</span></a>Conditions for PUFs &lt;release_types.html#Conditions for PUFs <a href="#id6"><span class="problematic" id="id7">`</span></a>__
+for the conditions and more information on the release of
 PUFs). The PUF release is intended for users with lower information
 requirements (e.g., students) and researchers interested in the
 structure of the data and willing to do preliminary research. The PUF
@@ -4422,8 +3829,8 @@ level.</p>
 key variables, since we reduce their information content by building
 proportions (see Step 8a). The list of the remaining key variables is
 presented in <a class="reference internal" href="#tab919"><span class="std std-numref">Table 18</span></a>.</p>
-<span id="tab919"></span><table border="1" class="colwidths-auto docutils align-center" id="id22">
-<caption><span class="caption-number">Table 18 </span><span class="caption-text">Overview of selected key variables for PUF file</span><a class="headerlink" href="#id22" title="Permalink to this table">¶</a></caption>
+<span id="tab919"></span><table border="1" class="colwidths-auto docutils align-center" id="id26">
+<caption><span class="caption-number">Table 18 </span><span class="caption-text">Overview of selected key variables for PUF file</span><a class="headerlink" href="#id26" title="Permalink to this table">¶</a></caption>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">Variable name</th>
 <th class="head">Variable description</th>
@@ -4532,7 +3939,9 @@ SUF release, we protected large households by removing these from the
 dataset. Since some variables are measured on the household level and
 thus have identical values for each household member, the values of the
 household variables should be treated in the same way for each household
-member (see Section 5.5). Therefore, we first anonymize only the
+member (see the Section
+<a class="reference external" href="anon_methods.html#Anonymizationofthequasi-identifierhouseholdsize">Anonymization of the quasi-identifier household size</a>
+). Therefore, we first anonymize only the
 household variables. After this, we merge them with the individual-level
 variables and then anonymize the individual-level and household-level
 variables jointly.</p>
@@ -4542,7 +3951,8 @@ variables and Steps 6b through 10b for the combined dataset. In this
 way, we ensure that household-level variable values remain consistent
 across household members for each household and the household structure
 cannot be used to re-identify individuals. This is further explained in
-Sections 4.4 and 7.6.</p>
+the Sections <a class="reference external" href="measure_risk.html#Levelsofrisk">Levels of risk</a>
+and <a class="reference external" href="sdcMicro.html#Householdstructure">Household structure</a>.</p>
 <p>Before continuing to Step 6a, we select the categorical key variables,
 continuous key variables and any variables selected for use in PRAM
 routines, as well as household-level sampling weights in <em>R</em>. We also
@@ -4551,7 +3961,8 @@ The PRAM variables are variables select for the PRAM routine, which we
 discuss further in Step 8a. We extract these selected household
 variables from the SUF dataset and save them as “fileHH”. The choice of
 PRAM variables is further explained in Step 8a. <a class="reference internal" href="#code929"><span class="std std-numref">Listing 29</span></a> illustrates
-how these steps are done in <em>R</em> (see also Section 7.6).</p>
+how these steps are done in <em>R</em> (see also the Section
+<a class="reference external" href="sdcMicro.html#Householdstructure">Household structure</a>).</p>
 <div class="literal-block-wrapper docutils container" id="code929">
 <div class="code-block-caption"><span class="caption-number">Listing 29 </span><span class="caption-text">Selecting the variables for the household-level anonymization</span><a class="headerlink" href="#code929" title="Permalink to this code">¶</a></div>
 <div class="highlight-R notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
@@ -4592,7 +4003,8 @@ fileHH <span class="o">&lt;-</span> <span class="kp">file</span><span class="p">
 a household of three will be repeated three times in “fileHH”). Before
 analyzing the household-level variables, we select only one entry per
 household, as illustrated in <a class="reference internal" href="#code930"><span class="std std-numref">Listing 30</span></a>. This is further explained in
-Section 7.6. In the same way we extract “fileOrigHH” from “fileOrig”.
+the Section <a class="reference external" href="sdcMicro.html#Householdstructure">Household structure</a>.
+In the same way we extract “fileOrigHH” from “fileOrig”.
 “fileOrigHH” contains all variables from the raw data, but contains
 every household only once. We need “fileOrigHH” in Steps 8a and 10a for
 undoing some perturbative methods used in the SUF file and computing
@@ -4661,8 +4073,8 @@ calculated manually by summing up the frequencies smaller than the
 <span class="math notranslate nohighlight">\(k\)</span>-anonymity threshold, as shown in <a class="reference internal" href="#code932"><span class="std std-numref">Listing 32</span></a>. The number of
 violators is already at a low level, due to the prior anonymization of
 the SUF file and the reduced set of key variables.</p>
-<span id="tab920"></span><table border="1" class="colwidths-auto docutils align-center" id="id23">
-<caption><span class="caption-number">Table 19 </span><span class="caption-text">Number and proportion of households violating <span class="math notranslate nohighlight">\(k\)</span>-anonymity</span><a class="headerlink" href="#id23" title="Permalink to this table">¶</a></caption>
+<span id="tab920"></span><table border="1" class="colwidths-auto docutils align-center" id="id27">
+<caption><span class="caption-number">Table 19 </span><span class="caption-text">Number and proportion of households violating <span class="math notranslate nohighlight">\(k\)</span>-anonymity</span><a class="headerlink" href="#id27" title="Permalink to this table">¶</a></caption>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">k-anonymity level</th>
 <th class="head">Number of HH violating</th>
@@ -4751,8 +4163,10 @@ fileHH<span class="p">[</span>sdcHH<span class="o">@</span>risk<span class="o">$
 </td></tr></table></div>
 </div>
 <p>We also assess the disclosure risk of the categorical variables with the
-individual and global risk measures as described in Sections 4.5 and
-4.8. In “fileHH” every entry represents a household. Therefore, we use
+individual and global risk measures as described in the Sections 4.5
+<a class="reference external" href="measure_risk.html#Individualrisk">Individual risk</a>
+and <a class="reference external" href="measure_risk.html#Globalrisk">Global risk</a>.
+In “fileHH” every entry represents a household. Therefore, we use
 the individual non-hierarchical risk here, where the individual refers
 in this case to a household. “fileHH” is a subset of the complete
 dataset and contains only households and has, contrary to the complete
@@ -4882,8 +4296,9 @@ variables. Alternatively, we could remove households with suppressed
 values of the variable “HHSIZE”, remove large households or split
 households.</p>
 <p>In <em>sdcMicro</em> it is possible to tell the algorithm which variables are
-important and less important for making small changes (see also Section
-5.2.2). To prevent values of the variable “HHSIZE” being suppressed, we
+important and less important for making small changes (see also the Section
+<a class="reference external" href="anon_methods.html#Localsuppression">Local suppression</a>).
+To prevent values of the variable “HHSIZE” being suppressed, we
 set the importance of “HHSIZE” in the importance vectors to the highest
 (i.e., 1). We try two different importance vectors: the first where
 “REGION” is more important than “URBRUR” and the second with the
@@ -4910,8 +4325,8 @@ households. The variable “REGION” is the type of variable that should
 not have any suppressions either. From that perspective we chose the
 third option. This leads to more suppressions, but no suppressions in
 “HHSIZE” and as few as possible in “REGION”.</p>
-<span id="tab921"></span><table border="1" class="colwidths-auto docutils align-center" id="id24">
-<caption><span class="caption-number">Table 20 </span><span class="caption-text">Number of suppressions by variable after local suppression with and without importance vector</span><a class="headerlink" href="#id24" title="Permalink to this table">¶</a></caption>
+<span id="tab921"></span><table border="1" class="colwidths-auto docutils align-center" id="id28">
+<caption><span class="caption-number">Table 20 </span><span class="caption-text">Number of suppressions by variable after local suppression with and without importance vector</span><a class="headerlink" href="#id28" title="Permalink to this table">¶</a></caption>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">Key variable</th>
 <th class="head" colspan="3">Number of suppressions and proportion of total</th>
@@ -5021,7 +4436,8 @@ matching. Values can be easily observed or be known to neighbors,
 however, and therefore are important, together with other variables, for
 the nosy neighbor scenario. For the PUF release we would like to level
 of uncertainty by increasing the number of changes. Therefore, we redo
-PRAM with a different transition matrix. As discussed in Section 5.3.1,
+PRAM with a different transition matrix. As discussed in Section
+<a class="reference external" href="anon_methods.html#PRAM(PostRAndomizationMethod)">PRAM (Post RAndomization Method)</a>,
 the invariant PRAM method has the property that the univariate
 distributions do not change. To maintain this property, we reapply PRAM
 to the raw data, rather than to the already PRAMmed variables in the SUF
@@ -5089,7 +4505,8 @@ sdcHH <span class="o">&lt;-</span> pram<span class="p">(</span>obj <span class="
 </div>
 <p>PRAM has changed values within the variables according to the invariant
 transition matrices. Since we used the invariant PRAM method (see
-Section 5.3.1), the absolute univariate frequencies remain approximately
+the Section <a href="#id33"><span class="problematic" id="id34">`PRAM (Post RAndomization Method) &lt;anon_methods.html#PRAM (Post RAndomization Method)`__</span></a>),
+the absolute univariate frequencies remain approximately
 unchanged. This is not the case for the multivariate frequencies. In
 Step 10a we compare the multivariate frequencies before and after
 anonymization for the PRAMmed variables.</p>
@@ -5110,7 +4527,8 @@ data and replace the values for total income and total expenditures with
 the mean of the respective decile. In this way the mean of both
 variables does not change. This approach can be interpreted as
 univariate microaggregation with very large groups (group size n/10)
-with the mean as replacement value (see Section 5.3.2).</p>
+with the mean as replacement value (see Section 5.3.2
+<a class="reference external" href="anon_methods.html#Microaggregation">Microaggregation</a>).</p>
 <p>The information in the income and expenditure variables by component is
 too sensitive to release as PUF, and, summing those variables would
 allow an intruder to reconstruct the totals. PUF users might however be
@@ -5190,8 +4608,9 @@ with certainty whether a household that (s)he recognizes in the data is
 the correct household, due to the noise in these variables.</p>
 <p>These measures refer only to the categorical variables. To evaluate the
 risk of the continuous variables we could use an interval measure or
-closest neighbor algorithm. These risk measures are discussed in Section
-4.7. We chose to use an interval measure, since exact value matching is
+closest neighbor algorithm. These risk measures are discussed in the Section
+<a class="reference external" href="measure_risk.html#Riskmeasuresforcontinuousvariables">Risk measures for continuous variables</a>.
+We chose to use an interval measure, since exact value matching is
 not our largest concern based on the assumed scenarios and external data
 sources. Instead, datasets with similar values but not the exact same
 values could be used for matching. Here the main concern is that the
@@ -5201,7 +4620,8 @@ with an interval measure.</p>
 variables “INCTOTGROSSHH” and “TANHHEXP” (total income and expenditure).
 The different values of the parameter <span class="math notranslate nohighlight">\(k\)</span> in the function dRisk()
 define the size of the interval around the original value as a function
-of the standard deviation, as explained in Section 4.7.2<em>.</em> The larger
+of the standard deviation, as explained in the Section
+<a class="reference external" href="measure_risk.html#Intervalmeasure">Interval measure</a> . The larger
 <span class="math notranslate nohighlight">\(k\)</span>, the larger the intervals, the higher the probability that a
 perturbed value is in the interval around the original value and the
 higher the risk measure. The results are satisfactory, especially when
@@ -5247,8 +4667,8 @@ and the average income of the bottom decile. <a class="reference internal" href=
 compute these from the raw data and the household variables after
 anonymization. <a class="reference internal" href="#tab922"><span class="std std-numref">Table 21</span></a> presents the estimated values. The differences
 are small and mainly due to the removed households.</p>
-<span id="tab922"></span><table border="1" class="colwidths-auto docutils align-center" id="id25">
-<caption><span class="caption-number">Table 21 </span><span class="caption-text">Comparison of utility measures</span><a class="headerlink" href="#id25" title="Permalink to this table">¶</a></caption>
+<span id="tab922"></span><table border="1" class="colwidths-auto docutils align-center" id="id29">
+<caption><span class="caption-number">Table 21 </span><span class="caption-text">Comparison of utility measures</span><a class="headerlink" href="#id29" title="Permalink to this table">¶</a></caption>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">.</th>
 <th class="head">Raw data</th>
@@ -5307,7 +4727,7 @@ the individual-level variables. We create the <em>sdcMicro</em> object for the
 anonymization of the individual variables in the same way as for the
 household variable in <a class="reference internal" href="#code931"><span class="std std-numref">Listing 31</span></a>. Generally, at this stage, the
 household level and individual level variables should be combined and
-quasi-identifiers at both levels be used (see Section 4.4).
+quasi-identifiers at both levels be used (see the Section <a class="reference external" href="measur_risk.html#Levelsofrisk">Levels of risk</a>).
 Unfortunately, in our dataset, this leads to long computation times.
 Therefore, we create two <em>sdcMicro</em> objects, one with all key variables
 (“sdcCombinedAll”) and one with only the individual level key variables
@@ -5381,8 +4801,8 @@ type of variables on the household level and individual level. One could
 assume that these variables are not available in the same dataset and
 can therefore not simultaneously be used by an intruder to re-identify
 individuals.</p>
-<span id="tab923"></span><table border="1" class="colwidths-auto docutils align-center" id="id26">
-<caption><span class="caption-number">Table 22 </span><span class="caption-text">Number of records violating k-anonimity</span><a class="headerlink" href="#id26" title="Permalink to this table">¶</a></caption>
+<span id="tab923"></span><table border="1" class="colwidths-auto docutils align-center" id="id30">
+<caption><span class="caption-number">Table 22 </span><span class="caption-text">Number of records violating k-anonimity</span><a class="headerlink" href="#id30" title="Permalink to this table">¶</a></caption>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">.</th>
 <th class="head" colspan="2">sdcCombined</th>
@@ -5564,8 +4984,8 @@ overview of the recodes made. All new categories are formed with the
 needs of the data user in mind. <a class="reference internal" href="#code943"><span class="std std-numref">Listing 43</span></a> shows how to do this in <em>R</em>
 and also shows value labels and the univariate tabulations of these
 variables before and after recoding.</p>
-<span id="tab924"></span><table border="1" class="colwidths-auto docutils align-center" id="id27">
-<caption><span class="caption-number">Table 23 </span><span class="caption-text">Overview of recodes of categorical variables at individual level</span><a class="headerlink" href="#id27" title="Permalink to this table">¶</a></caption>
+<span id="tab924"></span><table border="1" class="colwidths-auto docutils align-center" id="id31">
+<caption><span class="caption-number">Table 23 </span><span class="caption-text">Overview of recodes of categorical variables at individual level</span><a class="headerlink" href="#id31" title="Permalink to this table">¶</a></caption>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">Variable</th>
 <th class="head">Recoding</th>
@@ -5906,7 +5326,8 @@ household structure is an important feature of the data, and should be
 kept in the PUF file.</p>
 <p><em>Using different options for local suppression</em></p>
 <p>The long running time is mainly due to the local suppression algorithm.
-In Section 5.2.2 we discuss options to reduce the running time of the
+In the Section <a class="reference external" href="anon_methods.html#Localsuppression">Local suppression</a>
+we discuss options to reduce the running time of the
 local suppression in case of many key variables. The all-<span class="math notranslate nohighlight">\(m\)</span>
 approach reduces the running time by first considering subsets of the
 complete set of key variables. This reduces the complexity of the
@@ -5928,8 +5349,8 @@ combinations in the data.</p>
 <p class="first admonition-title">Note</p>
 <p class="last">The risk may be underestimated by excluding the household level variables.</p>
 </div>
-<span id="tab925"></span><table border="1" class="colwidths-auto docutils align-center" id="id28">
-<caption><span class="caption-number">Table 24 </span><span class="caption-text">k-anonymity violations</span><a class="headerlink" href="#id28" title="Permalink to this table">¶</a></caption>
+<span id="tab925"></span><table border="1" class="colwidths-auto docutils align-center" id="id32">
+<caption><span class="caption-number">Table 24 </span><span class="caption-text">k-anonymity violations</span><a class="headerlink" href="#id32" title="Permalink to this table">¶</a></caption>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">k-anonymity</th>
 <th class="head">Number of records violating</th>
@@ -6001,8 +5422,8 @@ in case study 1.</p>
 <p><strong>Step 12: Data release</strong></p>
 <p>The final step is the release of the anonymized dataset together with
 the external report. <a class="reference internal" href="#code946"><span class="std std-numref">Listing 46</span></a> shows how to export the anonymized
-dataset as <em>STATA</em> file. Section 7.2 presents functions for exporting
-files in other data formats.</p>
+dataset as <em>STATA</em> file. The Section <a class="reference external" href="sdcMicro.html#ReadfunctionsinR">Read functions in R</a>
+presents functions for exporting files in other data formats.</p>
 <div class="literal-block-wrapper docutils container" id="code946">
 <div class="code-block-caption"><span class="caption-number">Listing 46 </span><span class="caption-text">Exporting the anonymized PUF file</span><a class="headerlink" href="#code946" title="Permalink to this code">¶</a></div>
 <div class="highlight-R notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
@@ -6015,7 +5436,8 @@ write.dta<span class="p">(</span>dataframe <span class="o">=</span> dataAnon<spa
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
 <tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>Other methods and guidance on treating datasets where household size
-is a quasi-identifier are discussed in Section 5.5.</td></tr>
+is a quasi-identifier are discussed in the Section
+<a class="reference external" href="anon_methods.html#Anonymizationofthequasi-identifierhouseholdsize">Anonymization of the quasi-identifier household size</a>.</td></tr>
 </tbody>
 </table>
 <table class="docutils footnote" frame="void" id="foot72" rules="none">
@@ -6046,7 +5468,7 @@ packages <em>laeken, reldist, bootstrap</em> and <em>ineq</em>.</td></tr>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
       
-        <a href="acknowledgements.html" class="btn btn-neutral" title="12. Acknowledgements" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="acknowledgements.html" class="btn btn-neutral" title="11. Acknowledgements" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

@@ -55,7 +55,7 @@ For the purpose of the SDC process, we use the classifications of
 variables described in the following paragraphs (see :numref:`fig24`
 for an overview). The initial classification of variables into identifying and
 non-identifying variables depends on the way the variables can be used
-by intruders for re-identification (`HDFG12`_; `TeMK14`_):
+by intruders for re-identification (`HDFG12`_, `TeMK14`_):
 
 -  **Identifying variables:** these contain information that can lead to
    the identification of respondents and can be further categorized as:
@@ -181,8 +181,7 @@ datasets include direct identifiers. In that case, the re-identification
 of records in the released dataset leads to identity and, possibly,
 attribute disclosure. The main outcome of the evaluation of disclosure
 scenarios is the identification of a set of quasi-identifiers (i.e., key
-variables) that need to be treated during the SDC process (see Elliot et
-al., 2010).
+variables) that need to be treated during the SDC process (see `ELMP10`_).
 
 An example of a disclosure scenario could be the spontaneous recognition
 of a respondent by a researcher. For instance, while going through the
@@ -467,7 +466,7 @@ If this overestimated risk is used, the data may be overprotected (i.e.,
 information loss will be higher than was necessary) when applying SDC
 measures. Instead, a Bayesian approach to risk measurement is
 recommended, where the posterior distribution of :math:`F_{k}` is used
-(see e.g., Hundepool et al., 2012) to estimate an individual risk
+(see e.g., `HDFG12`_) to estimate an individual risk
 measure :math:`r_{k}` for each key :math:`k`.
 
 The risk measure :math:`r_{k}` is, as :math:`f_{k}` and :math:`F_{k}`,
@@ -586,7 +585,8 @@ calculate any threshold for :math:`k` using the already-stored risk
 measures available after setting up an *sdcMicro* object in *R*.
 :math:`k` can be replaced with any required threshold. The choice of the
 required threshold that all individuals in the microdata file should
-satisfy depends on many factors and is discussed further in Section 4.3
+satisfy depends on many factors and is discussed further in the Section 
+`Local suppression <anon_methods.html#Local suppression>`__
 on local suppression. In many institutions, typically required
 thresholds for :math:`k`-anonymity are 3 and 5.
 
@@ -611,8 +611,8 @@ first key is first interpreted as ‘Secondary complete’, and then as
 	its key both with the first and second record.
 	
 This principle is used when applying local suppression to achieve a certain level of
-:math:`k`-anonymity (see Section 5.2.2) and is based on the fact that
-the value NA could replace any value.
+:math:`k`-anonymity (see the Section `Local suppression <anon_methods.html#Local suppression>`__) 
+and is based on the fact that the value NA could replace any value.
 
 .. _tab42:
 
@@ -689,7 +689,7 @@ dataset by matching an individual to one of these individuals.
    ====  ===========  ========  ======================  ==============  ========  =====  =====  =============
 
 The concept of (distinct) :math:`l`-diversity addresses this shortcoming
-of :math:`k`-anonymity (see Machanavajjhala et al., 2007). A dataset
+of :math:`k`-anonymity (see `MKGV07`_). A dataset
 satisfies :math:`l`-diversity if for every key *k* there are at least
 *l* different values for each of the sensitive variables. In the
 example, the first two individuals satisfy only 1-diversity, individuals
@@ -751,7 +751,7 @@ their variables and thus assess all known external linkages and risks.
 
 To overcome this, an alternative heuristic measure based on special
 uniques has been developed to determine the riskiness of a record, which
-leads to a SUDA metric or score (see Elliot et al., 2002). These
+leads to a SUDA metric or score (see `ElMF02`_). These
 measures are based on the search for special uniques. To find these
 special uniques, algorithms, called SUDA (Special Uniqueness Detection
 Algorithm), have been developed. SUDA algorithms are based on the
@@ -842,11 +842,11 @@ based on two observations:
 A record is defined as a special unique if it is a sample unique both on
 the complete set of quasi-identifiers (e.g., in the data in :numref:`tab44`,
 the variables “Residence”, ”Gender”, “Education level” and “Labor
-status”) and simultaneously has at least one MSU (Elliot et al., 1998).
+status”) and simultaneously has at least one MSU (`ElSD98`_).
 Special uniques can be classified according to the number and size of
 subsets that are MSUs. Research has shown that special uniques are more
-likely to be population uniques than random uniques (Elliot et al.,
-2002) and are thus relevant for risk assessment.
+likely to be population uniques than random uniques (`ElMF02`_)
+and are thus relevant for risk assessment.
 
 Calculating SUDA scores
 ~~~~~~~~~~~~~~~~~~~~~~~
@@ -865,8 +865,8 @@ computed by :math:`\prod_{i = k}^{M}{(ATT - i)}`, where :math:`M` is the
 user-specified maximum size of MSUs [#foot32]_, and
 :math:`\text{ATT}` is the total number of attributes or variables in the
 dataset. By definition, the smaller the size :math:`k` of the MSU, the
-larger the score for the MSU, which reflects greater risk (see Elliot et
-al., 2005). The final SUDA score for each record is computed by adding
+larger the score for the MSU, which reflects greater risk (see `EMMG05`_). 
+The final SUDA score for each record is computed by adding
 the scores for each MSU in the record. In this way, records with more
 MSUs are assigned a higher SUDA score, which also reflects the higher
 risk. The SUDA score ranks the individuals according to their level of
@@ -915,8 +915,8 @@ special uniques and are assigned the score 0.
    ====  ===========  ========  ======================  ==============  ========  =====  ============  ==========
 
 To estimate record-level disclosure risks, SUDA scores can be used in
-combination with the Data Intrusion Simulation (DIS) metric (Elliot and
-Manning, 2003), a method for assessing disclosure risks for the entire
+combination with the Data Intrusion Simulation (DIS) metric (`ElMa03`_
+, a method for assessing disclosure risks for the entire
 dataset (i.e., file-level disclosure risks). Roughly speaking, the
 DIS-SUDA method distributes the file-level risk measure generated by the
 DIS metric between records according to the SUDA scores of each record.
@@ -944,11 +944,11 @@ already available datasets and their variables is difficult.
 Application of SUDA, DIS-SUDA using *sdcMicro*
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Both SUDA and DIS-SUDA scores can be computed using *sdcMicro* (Templ et
-al., 2014). Given that the search for MSUs with the SUDA algorithm can
+Both SUDA and DIS-SUDA scores can be computed using *sdcMicro* (`TMKC14`_
+). Given that the search for MSUs with the SUDA algorithm can
 be computationally demanding, *sdcMicro* uses an improved SUDA2
 algorithm, which more effectively locates the boundaries of the search
-space for MSUs (Manning et al., 2008).
+space for MSUs (`MaHK08`_).
 
 SUDA scores can be calculated using the suda2() function in *sdcMicro*.
 It is important to specify the missing argument in suda2(). This should
@@ -1074,7 +1074,7 @@ applications require the introduction of SDC methods and are therefore
 postponed to the case studies in Chapter 9.
 
 Besides distance-based record linkage, another method for linking is
-probabilistic record linkage (see Domingo-Ferrer and Torra, 2003). The
+probabilistic record linkage (see `DoTo03`_). The
 literature shows, however, that results from distance-based record
 linkage are better than the results from probabilistic record linkage.
 Individuals in the treated data that are linked to the correct
@@ -1196,7 +1196,8 @@ frequencies of these keys and dividing by the sample size n:
 .. math:: R_{1} = \frac{1}{n}\sum_{i}^{}r_{k} = \frac{1}{n}\sum_{k}^{}{f_{k}r}_{k}
 
 :math:`r_{k}` is the individual risk of key :math:`k` that the
-:math:`i`\ :sup:`th` individual shares (see Section 4.5.1). This measure
+:math:`i`\ :sup:`th` individual shares (see the Section
+`Categorical key variables and frequency counts <measure_risk.html#Categorical key variables and frequency counts>). This measure
 is reported as global risk in *sdcMicro*, is stored in the “risk” slot
 and can be displayed as shown in :numref:`code411`. It indicates that the
 average re-identification probability is 0.01582 or 0.1582 %.
@@ -1265,14 +1266,15 @@ These calculations can then be used to treat data for individuals whose
 risk values are above a predetermined threshold. We will see later that
 there are methods in *sdcMicro*, such as localSupp(), that can be used
 to suppress values of certain key variables for those individuals with
-risk above a specified threshold. This is explained further in Section
-5.2.2.
+risk above a specified threshold. This is explained further in the Section
+`Local suppression <anon_methods.html#Local suppression>`__ .
 
 Household risk
 --------------
 
 In many social surveys, the data have a hierarchical structure where an
-individual belongs to a higher-level entity (see Section 4.4). Typical
+individual belongs to a higher-level entity (see the Section
+`Levels of risk <measure_risk.html#Levels of risk>`__). Typical
 examples are households in social surveys or pupils in schools.
 Re-identification of one household member can lead to re-identification
 of the other household members, too. It is therefore easy to see that if
@@ -1321,8 +1323,9 @@ computed. :numref:`code414` shows how to display these risk measures.
 	assigning individuals to households. We flag this for the reader’s
 	attention as it is important. Further discussion on approaches to the
 	SDC process that take into account the household structure where it
-	exists can be found in Section** **5.4.**
-
+	exists can be found in the Section 
+	`Anonymization of the quasi-identifier household size <anon_methods.html#Anonymization of the quasi-identifier household size>`__
+	
 .. admonition:: Recommended Reading Material on Risk Measurement
 
 	Elliot, Mark J, Anna Manning, Ken Mayes, John Gurd, and Michael Bane.
@@ -1353,7 +1356,7 @@ computed. :numref:`code414` shows how to display these risk measures.
 
 .. [#foot21]
    Recoding a continuous variable is sometimes useful in cases where the
-   data contains only a few continuous variables. We will see in Section
+   data contains only a few continuous variables. We will see in the Section
    3 that many methods used for risk calculation depend on whether the
    variables are categorical. We will also see that it is easier for the
    measurement of risk if the data contains only categorical or only 
@@ -1428,7 +1431,8 @@ computed. :numref:`code414` shows how to display these risk measures.
    assumptions assume a worst-case scenario.
 
 .. [#foot27]
-   See Section 7.5 for more information on slots and the *sdcMicro*
+   See the Section `Objects of class sdcMicroObj <sdcMicro.html#Objects of class sdcMicroObj` 
+   for more information on slots and the *sdcMicro*
    object structure.
 
 .. [#foot28]
@@ -1443,7 +1447,8 @@ computed. :numref:`code414` shows how to display these risk measures.
 .. [#foot29]
    Alternatively, the sensitive variables can be specified when
    creating the *sdcMicro* object using the function createSdcObj() in
-   the *sensibleVar* argument. This is further explained in Section 7.5.
+   the *sensibleVar* argument. This is further explained in the Section
+   `Objects of class sdcMicroObj <sdcMicro.html#Objects of class sdcMicroObj` .
    In that case, the argument *ldiv_index* does not have to be specified
    in the ldiversity() function. and the variables in the *sensibleVar*
    argument will automatically be used to compute :math:`l`-diversity.
@@ -1470,11 +1475,37 @@ computed. :numref:`code414` shows how to display these risk measures.
    {‘Post-secondary’}. 
    
 .. rubric:: References
-   
+
+.. [DoTo03] Domingo-Ferrer, J., & Torra, V. (2003). 
+	**Disclosure Risk Assesment in Statistical Microdata Protection via Advanced Record Linkage.**
+	Statistics and Computing 13 (4), 343-354
+.. [ElMa03] Elliot , M. J., & Manning, A. M. (2003). 
+	**Using DIS to Modify the Classification of Special Uniques.**
+	Invited Paper. Joint ECE/Eurostat Work Session on Statistical Data Confidentiality. Luxemboug 2-9 April 2003.
+.. [ElMF02] Elliot, M. J., Manning, A. M., & Ford, R. W. (2002). 
+	**A Computational Algorithm for Handling the Special Uniques Problem.**
+	International Journal of Uncertainty, Fuzziness and Knowledge Based System , 10 (5), 493-509.
+.. [ELMP10] Elliot, M. J., Lomax, S., Mackey, E. & Purdam, K. (2010)
+   **Data Environment Analysismand the Key Variable Mapping System.**
+   In Privacy in Databases, PSD 2010 (ed. Domingo-Ferrer, J. & Magkos, E.), vol. 6344 of Lecture Notes in Computer Science, pp. 138-145. Berlin/Heidelberg: Springer
+.. [ElSD98] Elliot, M.J., Skinner, C.J. & Dale, A. (1998)
+   **Special Uniques, Random Uniques, and Sticky Populations: Some Counterintuitive Effects of Geographical Detail on Disclosure Risk**
+   Reasearch in Official Statistics 1(2), pp. 53-67
+.. [EMMG05] Elliot, M. J., Manning, A., Mayes, K., Gurd, J., & Bane, M. (2005). 
+	**SUDA: A Program for Detecting Special Uniques.**
+	Joint UNECE/Eurostat Work Session on Statistical Data Confidentiality. Geneva.
 .. [HDFG12] Hundepool, A., Domingo-Ferrer, J., Franconi, L., Giessing, S., Nordholt, E. S., Spicer, K., et al. (2012). 
  	**Statistical Disclosure Control.**
 	Chichester, UK: John Wiley & Sons Ltd.
-	
 .. [Lamb93] Lambert, D. (1993). 
    **Measures of Disclosure Risk and Harm.** 
-   Journal of Official Statistics , 9 (2), 313-331.
+   Journal of Official Statistics , 9 (2), 313-331. 
+.. [MaHK08] Manning, A. M., Haglin, D. J., & Keane, J. A. (2008). 
+	**A Recursive Search Algorithm for Statistical Disclosure Assessment.**
+	Data Mining and Knowledge Discovery , 16 (2), 165-196.
+.. [MKGV07] Machanavajjhala, A., Kifer, D., Gehrke, J., & Venkitasubramaniam, M. (2007). 
+	**L-diversity: Privacy Beyond K-anonymity.**
+	ACM Trans. Knowl. Discov. Data , 1 (Article 3) (1556-4681).
+.. [TMKC14] Templ, M., Meindl, B., Kowarik, A., & Chen, S. (2014, August 1). 
+	**Introduction to Statistical Disclosure Control (SDC).**
+	Retrieved November 13, 2014, from http://www.ihsn.org/home/software/disclosure-control-toolbox.
