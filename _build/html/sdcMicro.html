@@ -95,18 +95,18 @@
 <li class="toctree-l2"><a class="reference internal" href="#classes-in-r">8.4. Classes in R</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#objects-of-class-sdcmicroobj">8.5. Objects of class <em>sdcMicroObj</em></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#household-structure">8.6. Household structure</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#randomizing-order-and-numbering-of-individuals-or-households">8.7. <strong>Randomizing order and numbering of individuals or households</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#randomizing-order-and-numbering-of-individuals-or-households">8.7. Randomizing order and numbering of individuals or households</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#computation-time">8.8. Computation time</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#common-errors">8.9. Common errors</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="process.html">9. The SDC Process</a></li>
 <li class="toctree-l1"><a class="reference internal" href="appendices.html">10. Appendices</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bibliography.html">11. Bibliography</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acknowledgements.html">11. Acknowledgements</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Case studies</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="case_studies.html">Case Study (Illustrating the SDC Process)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="case_studies.html">Case Studies (Illustrating the SDC Process)</a></li>
 </ul>
 
             
@@ -427,10 +427,13 @@ information (e.g., quasi-identifiers, sample weights) from the
 <em>sdcMicro</em> object if applied to an object of class <em>sdcMicro</em>.</p>
 <p>The arguments of the function createSdcObj() allow one to specify the
 original data file and categorize the variables in this data file before
-the start of the anonymization process. <strong>NOTE: For this, disclosure
-scenarios must already have been evaluated and quasi-identifiers
+the start of the anonymization process.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">For this, disclosure scenarios must already have been evaluated and quasi-identifiers
 selected. In addition, one must ensure there are no problems with the
-data, such as variables containing only missing values.</strong></p>
+data, such as variables containing only missing values.</p>
+</div>
 <p>In <a class="reference internal" href="#code78"><span class="std std-numref">Listing 8.8</span></a>, we show all arguments of the function createSdcObj(),
 and first define vectors with the names of the different variables. This
 practice gives a better overview and later allows for quick changes in
@@ -442,9 +445,14 @@ selected for applying PRAM (pramVars); a variable with sampling weights
 (weightVar); the clustering ID (hhId, e.g., a household ID, see Section
 4.9); a variable specifying the strata (strataVar) and the sensitive
 variables specified for the computation of <span class="math notranslate nohighlight">\(l\)</span>-diversity
-(sensibleVar , see Section 4.5.3). <strong>NOTE: Most SDC methods in the
+(sensibleVar , see Section 4.5.3).</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Most SDC methods in the
 sdcMicro package are automatically applied within the strata, if the
-‘strataVar’ argument is specified.</strong> Examples are local suppression and
+‘strataVar’ argument is specified.</p>
+</div>
+<p>Examples are local suppression and
 PRAM. Not all variables must be specified, e.g., if there is no
 hierarchical (household) structure, the argument ‘hhId’ can be omitted.
 The names of the variables correspond to the names of the variables in
@@ -844,8 +852,13 @@ object with the ‘&lt;-‘ operator. Both methods are illustrated in
 <p>If the results are reassigned to the same <em>sdcMicro</em> object, it is
 possible to undo the last step in the SDC process. This is useful when
 changing parameters. The results of the last step, however, are lost
-after undoing that step. <strong>NOTE: The undolast() function can be used to
-go only one step back, not several.</strong> The result must also be reassigned
+after undoing that step.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The undolast() function can be used to
+go only one step back, not several.</p>
+</div>
+<p>The result must also be reassigned
 to the same object. This is illustrated in <a class="reference internal" href="#code711"><span class="std std-numref">Listing 8.11</span></a>.</p>
 <div class="literal-block-wrapper docutils container" id="code711">
 <div class="code-block-caption"><span class="caption-number">Listing 8.11 </span><span class="caption-text">Undo last step in SDC process</span><a class="headerlink" href="#code711" title="Permalink to this code">¶</a></div>
@@ -979,9 +992,13 @@ the file not sorted.</p>
 </pre></div>
 </td></tr></table></div>
 </div>
-<p><strong>NOTE: In some cases, the order of the individuals within the
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">In some cases, the order of the individuals within the
 households can provide information that could lead to
-re-identification.</strong> An example is information on the relation to the
+re-identification.</p>
+</div>
+<p>An example is information on the relation to the
 household head. In many countries, the first individual in the household
 is the household head, the second the partner of the household head and
 the next few are children. Therefore, the line number within the
@@ -1016,7 +1033,7 @@ each household at random. <a class="reference internal" href="#code715"><span cl
 </div>
 </div>
 <div class="section" id="randomizing-order-and-numbering-of-individuals-or-households">
-<h2>8.7. <strong>Randomizing order and numbering of individuals or households</strong><a class="headerlink" href="#randomizing-order-and-numbering-of-individuals-or-households" title="Permalink to this headline">¶</a></h2>
+<h2>8.7. Randomizing order and numbering of individuals or households<a class="headerlink" href="#randomizing-order-and-numbering-of-individuals-or-households" title="Permalink to this headline">¶</a></h2>
 <p>Often the order and numbering of individuals, households, and also
 geographical units contains information that could be used by an
 intruder to re-identify records. For example, households with IDs that
@@ -1559,11 +1576,14 @@ anonymized using the parallelization program, computation times were
 significantly shorter for datasets processed on the server, compared to
 those processed on the laptop and desktop. Among those datasets
 processed on the server using the same number of processors (datasets 1,
-2 and 6), some variation also exists in the computation times. <strong>NOTE:
-Computation time in the table in</strong> Appendix <strong>D includes recalculating
+2 and 6), some variation also exists in the computation times.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Computation time in the table in Appendix D includes recalculating
 the risk after applying the anonymization methods, which is
-automatically done in sdcMicro when using standard methods/functions.</strong>
-Using the function groupVars(), for instance, is not computationally
+automatically done in sdcMicro when using standard methods/functions.</p>
+</div>
+<p>Using the function groupVars(), for instance, is not computationally
 intensive but can still take a long time if the dataset is large and
 risk measures have to be recalculated.</p>
 </div>
@@ -1663,11 +1683,15 @@ translating to 64 cores total.</td></tr>
 <table class="docutils footnote" frame="void" id="foot70" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id10">[11]</a></td><td>The following website provides an overview of parallelization
+<tr><td class="label"><a class="fn-backref" href="#id10">[11]</a></td><td><p class="first">The following website provides an overview of parallelization
 packages and solutions in <em>R</em>:
 <a class="reference external" href="http://cran.r-project.org/web/views/HighPerformanceComputing.html">http://cran.r-project.org/web/views/HighPerformanceComputing.html</a>.
-<strong>NOTE: Solutions are platform-dependent and therefore our solution
-is not further presented.</strong></td></tr>
+.. NOTE:</p>
+<div class="last highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Solutions</span> <span class="n">are</span> <span class="n">platform</span><span class="o">-</span><span class="n">dependent</span> <span class="ow">and</span> <span class="n">therefore</span> <span class="n">our</span> <span class="n">solution</span>
+<span class="ow">is</span> <span class="ow">not</span> <span class="n">further</span> <span class="n">presented</span><span class="o">.</span>
+</pre></div>
+</div>
+</td></tr>
 </tbody>
 </table>
 </div>

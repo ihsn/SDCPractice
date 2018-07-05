@@ -11,10 +11,13 @@ should be used with caution, since every dataset has different
 characteristics and our findings may not always address your particular
 dataset. The last three sections of this chapter are on the
 anonymization of variables and datasets with particular characteristics
-that deserve special attention. Section 5.4 deals with for anonymizing
-geographical data, such as GPS coordinates, Section 5.5 discusses the
+that deserve special attention. The Section 
+`Anonymization of geospatial variables <anon_methods.html#Anonymization of geospatial variables>`_
+deals with for anonymizing
+geographical data, such as GPS coordinates, the Section 
+`Anonymization of the quasi-identifier household size <anon_methods.html#Anonymization of the quasi-identifier household size>`_ discusses the
 anonymization of data with a hierarchical structure (household
-structure) and Section 5.6 describes the peculiarities of dealing with
+structure) and the Section `Special case: census data <anon_methods.html#Special case: census data>`_ describes the peculiarities of dealing with
 and releasing census microdata.
 
 To determine which anonymization methods are suitable for specific
@@ -278,7 +281,7 @@ Recoding a categorical variable using the sdcMicro function groupVars()
 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
 Assume that an object of class *sdcMicro* was created, which is called
-“sdcInitial” [#foot35]_ (see the section 
+“sdcInitial” [#foot35]_ (see the Section 
 `Objects of class sdcMicroObj <sdcMicro.html#Objects of class sdcMicroObj>`__)
 how to create objects of class *sdcMicro*). In :numref:`code51`, the variable “sizeRes” has
 four different categories: ‘capital, large city’, ‘small city’, town’,
@@ -293,7 +296,7 @@ different values that are recoded to ‘urban’.
 .. NOTE::
  	The function groupVars() works only for variables of class factor.
 
-We refer to the section `Classes in R <sdcMicro.html#Classes in R>`__
+We refer to the Section `Classes in R <sdcMicro.html#Classes in R>`__
 on how to change the class of a variable.
 
 .. code-block:: R
@@ -580,7 +583,7 @@ after reducing the number of keys in the data by recoding the
 appropriate variables. Recoding reduces the number of necessary
 suppressions as well as the computation time needed for suppression.
 Suppression of values means that values of a variable are replaced by a
-missing value (NA in *R*). The the section on `k-anonymity <measure_risk.html#k-anonimity>`__
+missing value (NA in *R*). The the Section on `k-anonymity <measure_risk.html#k-anonimity>`__
 discusses how missing values influence frequency counts and
 :math:`k`-anonymity. It is important to note that not all values for all
 individuals of a certain variable are suppressed, which would be the
@@ -816,7 +819,8 @@ In cases where there are a large number of quasi-identifiers and the
 variables have many categories, the number of possible combinations
 increases rapidly (see :math:`k`-anonymity). If the number of variables
 and categories is very large, the computation time of the
-localSuppression() algorithm can be very long (see Section 7.7 on
+localSuppression() algorithm can be very long (see the Section 
+`Computation time <sdcMicro.html#Computation time>`__ on
 computation time). Also, the algorithm may not reach a solution, or may
 come to a solution that will not meet the specified level of
 :math:`k`-anonymity. Therefore, reducing the number of quasi-identifiers
@@ -830,7 +834,7 @@ In some datasets, it might prove difficult to reduce the number of
 quasi-identifiers and even after reducing the number of categories by
 recoding, the local suppression algorithm takes a long time to compute
 the required suppressions. A solution in such cases can be the so-called
-‘all-\ :math:`m` approach’ (see de Wolf, 2015). The all-\ :math:`m`
+‘all-\ :math:`m` approach’ (see `Wolf15`_). The all-\ :math:`m`
 approach consists of applying the local suppression algorithm as
 described above to all possible subsets of size *m* of the total set of
 quasi-identifiers. The advantage of this approach is that the partial
@@ -842,10 +846,13 @@ higher threshold for *k* or 2) to re-apply the local suppression
 algorithm on the complete set of quasi-identifiers after using the
 all-\ :math:`m` approach to achieve the required threshold. In the
 second case, the all-\ :math:`m` approach leads to a shorter computation
-time at the cost of a higher total number of suppressions. **NOTE: The
-required level is not achieved automatically on the entire set of
-quasi-identifiers if the all-\ m approach is used.** Therefore, it is
-important to evaluate the risk measures carefully after using the
+time at the cost of a higher total number of suppressions. 
+
+.. NOTE:: 
+	The required level is not achieved automatically on the entire set of
+	quasi-identifiers if the all-\ m approach is used.
+	
+Therefore, it is important to evaluate the risk measures carefully after using the
 all-\ :math:`m` approach.
 
 In *sdcMicro* the all-\ :math:`m` approach is implemented in the ‘combs’
@@ -977,7 +984,8 @@ used to suppress values of certain key variables of individuals with
 risks above a certain threshold. In this case, all values of the
 specified variable for respondents with a risk higher than the specified
 threshold will be suppressed. The risk measure used is the individual
-risk (see Section 4.5). This is useful if one variable has sensitive
+risk (see the Section `Individual risk <measure_risk.html#Individual risk>`__). 
+This is useful if one variable has sensitive
 values that should not be released for individuals with high risks of
 re-identification. What is considered high re-identification probability
 depends on legal requirements. In the following example, the values of
@@ -1021,8 +1029,11 @@ where X is the original data, A is a matrix used to transform the
 records, B is a matrix to transform the variables and C is a matrix with
 additive noise.
 
-**NOTE: Risk measures based on frequency counts of keys are no longer
-valid after applying perturbative methods.** This can be seen in :numref:`tab57`
+.. NOTE:: 
+	Risk measures based on frequency counts of keys are no longer
+	valid after applying perturbative methods.
+
+This can be seen in :numref:`tab57`
 , which displays the same data before and after swapping some values.
 The swapped values are in grey. Both before and after perturbing the
 data, all observations violate :math:`k`-anonymity at the level 3 (i.e.,
@@ -1062,14 +1073,14 @@ reduced, since no values will be suppressed, depending on the level of
 perturbation. One disadvantage is that data users might have the
 impression that the data was not anonymized before release and will be
 less willing to participate in future surveys. Therefore, there is a
-need for reporting both for internal and external use (see Section
-8.11).
+need for reporting both for internal and external use (see the Section
+`Step 11: Audit and Reporting <process.html#Step 11: Audit and Reporting>`__).
 
 An alternative to perturbative methods is the generation of synthetic
 data files with the same characteristics as the original data files.
 Synthetic data files are not discussed in these guidelines. For more
 information and an overview of the use of synthetic data as SDC method,
-we refer to Drechsler (2011) and Section 3.8 in Hundepool et al. (2012).
+we refer to Drechsler (2011) and the Section 3.8 in `HDFG12`_.
 We discuss here five perturbative methods: Post Randomization Method
 (PRAM), microaggregation, noise addition, shuffling and rank swapping.
 
@@ -1121,13 +1132,17 @@ yields different results before and after PRAM, which are shown in :numref:`tab5
 The deviation from the expectation is due to the fact that PRAM is
 a probabilistic method, i.e., the results depend on a
 probability-generating mechanism; consequently, the results can differ
-every time we apply PRAM to the same variables of a dataset. **NOTE: The
-number of changed values is larger than one might think when inspecting
-the tabulations in :numref:`tab58`. Not all 5,000 individuals with value
-captial after PRAM had this value before PRAM and the 457 individuals in
-rural1 after PRAM are not all included in the 500 individuals before
-PRAM. The number of changes is larger than the differences in the
-tabulation (cf. transition matrix).** Given that the transition matrix
+every time we apply PRAM to the same variables of a dataset. 
+
+.. NOTE:: 
+	The number of changed values is larger than one might think when inspecting
+	the tabulations in :numref:`tab58`. Not all 5,000 individuals with value
+	captial after PRAM had this value before PRAM and the 457 individuals in
+	rural1 after PRAM are not all included in the 500 individuals before
+	PRAM. The number of changes is larger than the differences in the
+	tabulation (cf. transition matrix).
+	
+Given that the transition matrix
 is known to the end users, there are several ways to correct statistical
 analysis of the data for the distortions introduced by PRAM.
 
@@ -1151,9 +1166,11 @@ the tabulations before and after applying PRAM are the same for all
 variables.[#foot43]_ This method is called invariant PRAM
 and is implemented in *sdcMicro* in the function pram(). The method
 pram() determines the transition matrix that satisfies the requirements
-for invariant PRAM. **NOTE: Invariant does not guarantee that
-cross-tabulations of variables (unlike univariate tabulations) stay the
-same.**
+for invariant PRAM. 
+
+.. NOTE:: 
+	Invariant does not guarantee that
+	cross-tabulations of variables (unlike univariate tabulations) stay the same.
 
 In :numref:`code512`, we give an example of invariant PRAM using
 *sdcMicro*. [#foot44]_ PRAM is a probabilistic method and the
@@ -1233,11 +1250,16 @@ below).
     rural2        113        287           187           216
    =========  ==========  ============  ============  ===================
 
-The pram() function in *sdcMicro* has several options. **NOTE: If no
-options are set and the PRAM method is applied to an sdcMicro object,
-all PRAM variables selected in the sdcMicro object are automatically
-used for PRAM and PRAM is applied within the selected strata** (see
-Section 7.5 on *sdcMicro* objects for more details). Alternatively, PRAM
+The pram() function in *sdcMicro* has several options. 
+
+.. NOTE:: 
+	If no options are set and the PRAM method is applied to an sdcMicro object,
+	all PRAM variables selected in the sdcMicro object are automatically
+	used for PRAM and PRAM is applied within the selected strata (see
+	the Section `Objects of class sdcMicroObj <sdcMicro.html#Objects of class sdcMicroObj>`__ 
+	on *sdcMicro* objects for more details). 
+
+Alternatively, PRAM
 can also be applied to variables that are not specified in the
 *sdcMicro* object as PRAM variables, such as key variables, which is
 shown in :numref:`code513`. In that case, however, the risk measures that are
@@ -1271,8 +1293,13 @@ changes to this category. By default, this value is 0.8, which applies
 for all categories. It is also possible to specify a vector with value
 for each diagonal element of the transformation matrix/category. In
 :numref:`code514` values of the first region are less likely to change than
-values of the other regions. **NOTE: The invariant PRAM method requires
-that the transition matrix has a unit eigenvalue.** Not all sets of
+values of the other regions. 
+
+.. NOTE:: 
+	The invariant PRAM method requires
+	that the transition matrix has a unit eigenvalue.
+	
+Not all sets of
 restrictions can therefore be used (e.g., the minimum value 1 on any of
 the categories).
 
@@ -1433,9 +1460,14 @@ mean as replacement for all values, which are grouped with the outlier
 (6,045 in group 2), these records will be assigned values far from their
 original values. If we chose the median, the incomes of individuals 1
 and 2 are not perturbed, but no value is an outlier. Of course, this
-might in itself present problems. **NOTE: If microaggregation alters
-outlying values, this can have a significant impact on the computation
-of some measures sensitive to outliers, such as the GINI index.** In the
+might in itself present problems. 
+
+.. NOTE:: 
+	If microaggregation alters
+	outlying values, this can have a significant impact on the computation
+	of some measures sensitive to outliers, such as the GINI index.
+	
+In the
 case where microaggregation is applied to categorical variables, the
 median is used to calculate the replacement value for the group.
 
@@ -1548,7 +1580,7 @@ shown in :numref:`code518`.
     sdcInitial <- microaggregation(obj = sdcInitial, variables = c("INC", "EXP", "WEALTH"), method = "mdav", strata_variables = c("strata"))
 
 Besides the method MDAV, there are few other grouping methods
-implemented in *sdcMicro* (Templ, Meindl and Kowarik, 2014). :numref:`tab513`
+implemented in *sdcMicro* (`TeMK14`_). :numref:`tab513`
 gives an overview of these methods. Whereas the method ‘MDAV’ uses the
 Euclidian distance, the method ‘rmd’ uses the Mahalanobis distance
 instead. An alternative to these methods is sorting the respondents
@@ -1891,7 +1923,8 @@ plausible. Rank swapping is implemented in the function rankSwap() in
 *sdcMicro*. The variables, which have to be swapped, should be specified
 in the argument ‘variables’. By default, values below the 5\ :sup:`th`
 percentile and above the 95\ :sup:`th` percentile are top and bottom
-coded and replaced by their average value (see Section 5.2.1.2 on top
+coded and replaced by their average value (see the Section 
+`Top and bottom coding <anon_methods.html#Top and bottom coding>`__ on top
 and bottom coding). By specifying the options ‘TopPercent’ and
 ‘BottomPercent’ we can choose these percentiles. The argument ‘P’
 defines the size of the neighborhood as percentage of the sample size.
@@ -1926,8 +1959,8 @@ rankSwap(), these values should be recoded NA. This is shown in the
 
 
 Rank swapping has been found to yield good results with respect to the
-trade-off between information loss and data protection (Domingo-Ferrer
-and Torra, 2001). Rank swapping is not useful for variables with few
+trade-off between information loss and data protection (DoTo01a). 
+Rank swapping is not useful for variables with few
 different values or many missing values, since the swapping in that case
 will not result in altered values. Also, if the intruder knows to whom
 the highest or lowest value of a specific variable belongs (e.g.,
@@ -1999,7 +2032,7 @@ this example.
    ====  ===============  =============  ===============  =============  =================  
 
 The method ‘ds’ (the default method of data shuffling in *sdcMicro*) is
-recommended for use (Templ et al., 2014) [#foot54]_. A
+recommended for use (`TeMK14`_) [#foot54]_. A
 regression function with regressors for the variables to be protected
 must be specified in the argument ‘form’. At least two regressands
 should be specified and the regressors should have predictive power for
@@ -2067,9 +2100,9 @@ One way to anonymize georeferenced data is removing the GIS variables
 and instead leaving in or creating other geographical variables, such as
 province, region. However, this approach also removes the benefits of
 geospatial data. Another option is the geographical displacement of
-areas and/or records. Burgert et al. (2013) describe a geographical
+areas and/or records. `BCRZ13`_ describe a geographical
 displacement procedure for a health dataset. This paper also includes
-the code in Python. Hu and Drechsler (2015) propose three different
+the code in Python. `HuDr15`_ propose three different
 strategies for generating synthetic geocodes.
 
 .. admonition:: Recommended Reading Material on Anonymization of Geospatial Data
@@ -2111,9 +2144,11 @@ correctness of a match are no longer applicable. If an intruder has
 identified a sample unique and successfully matched, there is no doubt
 whether the match is correct, as it would be in the case of a sample.
 One approach to release census microdata is to release a stratified
-sample of the sample (1 – 5% of the total census). **NOTE: After
-sampling, the anonymization process has to be followed; sampling alone
-is not sufficient to guarantee confidentiality.**
+sample of the sample (1 – 5% of the total census). 
+
+.. NOTE:: 
+	After sampling, the anonymization process has to be followed; sampling alone
+	is not sufficient to guarantee confidentiality.
 
 Several statistical offices release microdata based on census data. A
 few examples are:
@@ -2260,7 +2295,7 @@ few examples are:
 .. [#foot55]
    Even if the dataset does not contain an explicit variable with
    household size, this information can be easily extracted from the
-   data and should be taken into account. Section 7.6 shows how to
+   data and should be taken into account. The Section `Household structure <sdcMicro.html#Household structure>`__ shows how to
    create a variable “household size” based on the household IDs.
 
 .. [#foot56]
@@ -2275,6 +2310,20 @@ few examples are:
 
 .. rubric:: References
 
+.. [BCRZ13] Burgert, C. R., Colston, J., Roy, T., & Zachary, B. (2013). 
+	**Geographic Displacement Procedure and Georeferenced Data Release Policy for the Demographic and Health Surveys.**
+	DHS Spatial Analysis Report No. 7.
+.. [DoTo01a] Domingo-Ferrer, J., & Torra, V. (2001). 
+	**A Quantitative Comparison of Disclosure Control Methods for Microdata.**
+	In P. Doyle, J. Lane, J. Theeuwes, & L. Zayatz (Eds.), Confidentiality, Disclosure and Data Access: Theory and Practical Applications for Statistical Agencies (pp. 111-133). Amsterdam, North-Holland: Elsevier Science.
 .. [HDFG12] Hundepool, A., Domingo-Ferrer, J., Franconi, L., Giessing, S., Nordholt, E. S., Spicer, K., et al. (2012). 
 	**Statistical Disclosure Control.**
 	Chichester, UK: John Wiley & Sons Ltd.
+.. [HuDr15] Hu, J., & Drechsler, J. (2015). 
+	**Generating synthetic geocoding infromation for public release.**
+	NTTS - Conferences on New Techniques and Technologies for Statistics. Brussels.
+.. [TeMK14] Templ, M., Meindl, B., & Kowarik, A. (2014, August). 
+	**Tutorial for SDCMicroGUI.**
+	Retrieved from International Household Survey Network (IHSN): http://www.ihsn.org/home/software/disclosure-control-toolbox
+.. [Wolf15] de Wolf, P.-P. (2015). 
+	**Public Use Files of EU-SILC and EU-LFS data.**

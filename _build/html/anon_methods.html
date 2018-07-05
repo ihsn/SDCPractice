@@ -107,20 +107,20 @@
 <li class="toctree-l3"><a class="reference internal" href="#comparison-of-pram-rank-swapping-and-shuffling">6.3.6. Comparison of PRAM, rank swapping and shuffling</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#anonymization-of-geospatial-variables">6.4. Anonymization of geospatial variables</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#anonymization-of-the-quasi-identifier-household-size">6.5. Anonymization of the quasi-identifier household size</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#special-case-census-data">6.6. Special case: census data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id20">6.4. Anonymization of geospatial variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id21">6.5. Anonymization of the quasi-identifier household size</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id23">6.6. Special case: census data</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="utility.html">7. Measuring Utility and Information Loss</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sdcMicro.html">8. SDC with <em>sdcMicro</em> in <em>R</em>: Setting Up Your Data and more</a></li>
 <li class="toctree-l1"><a class="reference internal" href="process.html">9. The SDC Process</a></li>
 <li class="toctree-l1"><a class="reference internal" href="appendices.html">10. Appendices</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bibliography.html">11. Bibliography</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acknowledgements.html">11. Acknowledgements</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Case studies</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="case_studies.html">Case Study (Illustrating the SDC Process)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="case_studies.html">Case Studies (Illustrating the SDC Process)</a></li>
 </ul>
 
             
@@ -197,10 +197,13 @@ should be used with caution, since every dataset has different
 characteristics and our findings may not always address your particular
 dataset. The last three sections of this chapter are on the
 anonymization of variables and datasets with particular characteristics
-that deserve special attention. Section 5.4 deals with for anonymizing
-geographical data, such as GPS coordinates, Section 5.5 discusses the
+that deserve special attention. The Section
+<a class="reference external" href="anon_methods.html#Anonymizationofgeospatialvariables">Anonymization of geospatial variables</a>
+deals with for anonymizing
+geographical data, such as GPS coordinates, the Section
+<a class="reference external" href="anon_methods.html#Anonymizationofthequasi-identifierhouseholdsize">Anonymization of the quasi-identifier household size</a> discusses the
 anonymization of data with a hierarchical structure (household
-structure) and Section 5.6 describes the peculiarities of dealing with
+structure) and the Section <a class="reference external" href="anon_methods.html#Specialcase:censusdata">Special case: census data</a> describes the peculiarities of dealing with
 and releasing census microdata.</p>
 <p>To determine which anonymization methods are suitable for specific
 variables and/or datasets, we begin by presenting some classifications
@@ -247,8 +250,8 @@ agencies experienced in using these methods. <a class="reference internal" href=
 of the SDC methods discussed in this chapter, their classification,
 types of data to which they are applicable and their function names in
 the <em>sdcMicro</em> package.</p>
-<span id="tab51"></span><table border="1" class="colwidths-auto docutils align-center" id="id23">
-<caption><span class="caption-number">Table 6.1 </span><span class="caption-text">SDC methods and corresponding functions in <em>sdcMicro</em></span><a class="headerlink" href="#id23" title="Permalink to this table">¶</a></caption>
+<span id="tab51"></span><table border="1" class="colwidths-auto docutils align-center" id="id26">
+<caption><span class="caption-number">Table 6.1 </span><span class="caption-text">SDC methods and corresponding functions in <em>sdcMicro</em></span><a class="headerlink" href="#id26" title="Permalink to this table">¶</a></caption>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">Method</th>
 <th class="head">Classification of SDC method</th>
@@ -348,8 +351,8 @@ of <a class="reference internal" href="#tab52"><span class="std std-numref">Tabl
 key and cannot distinguish any more between individuals 1 – 3,
 individuals 4 and 6, individuals 5 and 7 and individuals 8 – 10, based
 on the selected key variables.</p>
-<span id="tab52"></span><table border="1" class="colwidths-auto docutils align-center" id="id24">
-<caption><span class="caption-number">Table 6.2 </span><span class="caption-text">Illustration of effect of recoding on frequency counts of keys</span><a class="headerlink" href="#id24" title="Permalink to this table">¶</a></caption>
+<span id="tab52"></span><table border="1" class="colwidths-auto docutils align-center" id="id27">
+<caption><span class="caption-number">Table 6.2 </span><span class="caption-text">Illustration of effect of recoding on frequency counts of keys</span><a class="headerlink" href="#id27" title="Permalink to this table">¶</a></caption>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">.</th>
 <th class="head" colspan="4">Before recoding</th>
@@ -485,8 +488,8 @@ bear in mind that the number of possible combinations is a theoretical
 number; in practice, these may include very unlikely combinations such
 as age = 3 and marital status = widow and the actual number of
 combinations in a dataset may be lower.</p>
-<span id="tab53"></span><table border="1" class="colwidths-auto docutils align-center" id="id25">
-<caption><span class="caption-number">Table 6.3 </span><span class="caption-text">Illustration of the effect of recoding on the theoretically possible number of combinations an a dataset</span><a class="headerlink" href="#id25" title="Permalink to this table">¶</a></caption>
+<span id="tab53"></span><table border="1" class="colwidths-auto docutils align-center" id="id28">
+<caption><span class="caption-number">Table 6.3 </span><span class="caption-text">Illustration of the effect of recoding on the theoretically possible number of combinations an a dataset</span><a class="headerlink" href="#id28" title="Permalink to this table">¶</a></caption>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">Number of categories</th>
 <th class="head">Region</th>
@@ -591,7 +594,7 @@ reduce the detail in continuous variables.</p>
 <div class="section" id="recoding-a-categorical-variable-using-the-sdcmicro-function-groupvars">
 <h5>6.2.1.1.1. Recoding a categorical variable using the sdcMicro function groupVars()<a class="headerlink" href="#recoding-a-categorical-variable-using-the-sdcmicro-function-groupvars" title="Permalink to this headline">¶</a></h5>
 <p>Assume that an object of class <em>sdcMicro</em> was created, which is called
-“sdcInitial” <a class="footnote-reference" href="#foot35" id="id2">[2]</a> (see the section
+“sdcInitial” <a class="footnote-reference" href="#foot35" id="id2">[2]</a> (see the Section
 <a class="reference external" href="sdcMicro.html#ObjectsofclasssdcMicroObj">Objects of class sdcMicroObj</a>)
 how to create objects of class <em>sdcMicro</em>). In <a class="reference internal" href="#code51"><span class="std std-numref">Listing 6.1</span></a>, the variable “sizeRes” has
 four different categories: ‘capital, large city’, ‘small city’, town’,
@@ -606,7 +609,7 @@ different values that are recoded to ‘urban’.</p>
 <p class="first admonition-title">Note</p>
 <p class="last">The function groupVars() works only for variables of class factor.</p>
 </div>
-<p>We refer to the section <a class="reference external" href="sdcMicro.html#ClassesinR">Classes in R</a>
+<p>We refer to the Section <a class="reference external" href="sdcMicro.html#ClassesinR">Classes in R</a>
 on how to change the class of a variable.</p>
 <div class="literal-block-wrapper docutils container" id="code51">
 <div class="code-block-caption"><span class="caption-number">Listing 6.1 </span><span class="caption-text">Using the sdcMicro function groupVars() to recode a categorical variable</span><a class="headerlink" href="#code51" title="Permalink to this code">¶</a></div>
@@ -646,7 +649,7 @@ on how to change the class of a variable.</p>
 show respectively the frequency counts before and after recoding. We see
 that the number of categories has reduced from 4 to 2 and the small
 categories (‘small city’ and ‘town’) have disappeared.</p>
-<div class="figure align-center" id="id26">
+<div class="figure align-center" id="id29">
 <span id="fig51"></span><img alt="_images/image3.png" src="_images/image3.png" />
 <p class="caption"><span class="caption-number">Fig. 6.1 </span><span class="caption-text">Effect of recoding – frequency counts before and after recoding</span></p>
 </div>
@@ -683,7 +686,7 @@ between 0 and 100.</p>
 </td></tr></table></div>
 </div>
 <p><a class="reference internal" href="#fig52"><span class="std std-numref">Fig. 6.2</span></a> shows the effect of recoding the variable “age”.</p>
-<div class="figure align-center" id="id27">
+<div class="figure align-center" id="id30">
 <span id="fig52"></span><img alt="_images/image4.png" src="_images/image4.png" />
 <p class="caption"><span class="caption-number">Fig. 6.2 </span><span class="caption-text">Age variable before and after recoding</span></p>
 </div>
@@ -713,7 +716,7 @@ and employment. <a class="reference internal" href="#fig53"><span class="std std
 </pre></div>
 </td></tr></table></div>
 </div>
-<div class="figure align-center" id="id28">
+<div class="figure align-center" id="id31">
 <span id="fig53"></span><img alt="_images/image5.png" src="_images/image5.png" />
 <p class="caption"><span class="caption-number">Fig. 6.3 </span><span class="caption-text">Age variable before and after recoding</span></p>
 </div>
@@ -836,7 +839,7 @@ categories 15 to 64. Otherwise the analyst would find it impossible
 to create the desired measures for which the data were intended. In
 the example, we consider this and code all age larger than 64.</li>
 </ul>
-<div class="figure align-center" id="id29">
+<div class="figure align-center" id="id32">
 <span id="fig54"></span><img alt="_images/image6.png" src="_images/image6.png" />
 <p class="caption"><span class="caption-number">Fig. 6.4 </span><span class="caption-text">Utilizing the frequency distribution of variable age to determine threshold for top coding</span></p>
 </div>
@@ -904,7 +907,7 @@ after reducing the number of keys in the data by recoding the
 appropriate variables. Recoding reduces the number of necessary
 suppressions as well as the computation time needed for suppression.
 Suppression of values means that values of a variable are replaced by a
-missing value (NA in <em>R</em>). The the section on <a class="reference external" href="measure_risk.html#k-anonimity">k-anonymity</a>
+missing value (NA in <em>R</em>). The the Section on <a class="reference external" href="measure_risk.html#k-anonimity">k-anonymity</a>
 discusses how missing values influence frequency counts and
 <span class="math notranslate nohighlight">\(k\)</span>-anonymity. It is important to note that not all values for all
 individuals of a certain variable are suppressed, which would be the
@@ -930,8 +933,8 @@ necessary. In the example, we can choose between suppressing the value
 ‘higher’. This choice should be made taking into account the needs of
 data users. In this example we find “gender” more important than
 “education”.</p>
-<span id="tab54"></span><table border="1" class="colwidths-auto docutils align-center" id="id30">
-<caption><span class="caption-number">Table 6.4 </span><span class="caption-text">Local suppression illustration - sample data before and after suppression</span><a class="headerlink" href="#id30" title="Permalink to this table">¶</a></caption>
+<span id="tab54"></span><table border="1" class="colwidths-auto docutils align-center" id="id33">
+<caption><span class="caption-number">Table 6.4 </span><span class="caption-text">Local suppression illustration - sample data before and after suppression</span><a class="headerlink" href="#id33" title="Permalink to this table">¶</a></caption>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">Variable</th>
 <th class="head" colspan="3">Before local suppression</th>
@@ -1154,7 +1157,7 @@ suppressed), high suppression rates on age distort the indicators. It is
 generally useful to compare utility measures (see the Chapter on
 <a class="reference external" href="utility.html">Measuring Utility and Information Loss</a> ) to specify
 the importance vector, since the effects can be unpredictable.</p>
-<div class="figure align-center" id="id31">
+<div class="figure align-center" id="id34">
 <span id="fig55"></span><img alt="_images/image7.png" src="_images/image7.png" />
 <p class="caption"><span class="caption-number">Fig. 6.5 </span><span class="caption-text">Changes in labor market indicators after anonymization of I2D2 data</span></p>
 </div>
@@ -1179,8 +1182,8 @@ the search for an optimal suppression pattern.</p>
 categories. This is the variable with the highest number of categories.
 Prioritizing the suppression of other variables leads to a higher total
 number of suppressions and a longer computation time.</p>
-<span id="tab55"></span><table border="1" class="colwidths-auto docutils align-center" id="id32">
-<caption><span class="caption-number">Table 6.5 </span><span class="caption-text">How importance vectors and k-anonymity thresholds affect running time and total number of suppressions</span><a class="headerlink" href="#id32" title="Permalink to this table">¶</a></caption>
+<span id="tab55"></span><table border="1" class="colwidths-auto docutils align-center" id="id35">
+<caption><span class="caption-number">Table 6.5 </span><span class="caption-text">How importance vectors and k-anonymity thresholds affect running time and total number of suppressions</span><a class="headerlink" href="#id35" title="Permalink to this table">¶</a></caption>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">Threshold</th>
 <th class="head">Importance</th>
@@ -1246,7 +1249,8 @@ number of suppressions and a longer computation time.</p>
 variables have many categories, the number of possible combinations
 increases rapidly (see <span class="math notranslate nohighlight">\(k\)</span>-anonymity). If the number of variables
 and categories is very large, the computation time of the
-localSuppression() algorithm can be very long (see Section 7.7 on
+localSuppression() algorithm can be very long (see the Section
+<a class="reference external" href="sdcMicro.html#Computationtime">Computation time</a> on
 computation time). Also, the algorithm may not reach a solution, or may
 come to a solution that will not meet the specified level of
 <span class="math notranslate nohighlight">\(k\)</span>-anonymity. Therefore, reducing the number of quasi-identifiers
@@ -1259,7 +1263,7 @@ those values that pose most risk.</p>
 quasi-identifiers and even after reducing the number of categories by
 recoding, the local suppression algorithm takes a long time to compute
 the required suppressions. A solution in such cases can be the so-called
-‘all-<span class="math notranslate nohighlight">\(m\)</span> approach’ (see de Wolf, 2015). The all-<span class="math notranslate nohighlight">\(m\)</span>
+‘all-<span class="math notranslate nohighlight">\(m\)</span> approach’ (see <a class="reference internal" href="#wolf15">Wolf15</a>). The all-<span class="math notranslate nohighlight">\(m\)</span>
 approach consists of applying the local suppression algorithm as
 described above to all possible subsets of size <em>m</em> of the total set of
 quasi-identifiers. The advantage of this approach is that the partial
@@ -1271,10 +1275,13 @@ higher threshold for <em>k</em> or 2) to re-apply the local suppression
 algorithm on the complete set of quasi-identifiers after using the
 all-<span class="math notranslate nohighlight">\(m\)</span> approach to achieve the required threshold. In the
 second case, the all-<span class="math notranslate nohighlight">\(m\)</span> approach leads to a shorter computation
-time at the cost of a higher total number of suppressions. <strong>NOTE: The
-required level is not achieved automatically on the entire set of
-quasi-identifiers if the all-m approach is used.</strong> Therefore, it is
-important to evaluate the risk measures carefully after using the
+time at the cost of a higher total number of suppressions.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The required level is not achieved automatically on the entire set of
+quasi-identifiers if the all-m approach is used.</p>
+</div>
+<p>Therefore, it is important to evaluate the risk measures carefully after using the
 all-<span class="math notranslate nohighlight">\(m\)</span> approach.</p>
 <p>In <em>sdcMicro</em> the all-<span class="math notranslate nohighlight">\(m\)</span> approach is implemented in the ‘combs’
 argument in the localSuppression() function. The value for <em>m</em> is
@@ -1315,8 +1322,8 @@ to the smaller sample size, the gains in running time are not yet
 apparent in this example, since the rerunning algorithm several times
 takes up time. A larger dataset would benefit more from the all-<em>m</em>
 approach, as the algorithm would take longer in the first place.</p>
-<span id="tab56"></span><table border="1" class="colwidths-auto docutils align-center" id="id33">
-<caption><span class="caption-number">Table 6.6 </span><span class="caption-text">Effect of the all-m approach on k-anonymity</span><a class="headerlink" href="#id33" title="Permalink to this table">¶</a></caption>
+<span id="tab56"></span><table border="1" class="colwidths-auto docutils align-center" id="id36">
+<caption><span class="caption-number">Table 6.6 </span><span class="caption-text">Effect of the all-m approach on k-anonymity</span><a class="headerlink" href="#id36" title="Permalink to this table">¶</a></caption>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head" colspan="2">Arguments</th>
 <th class="head" colspan="3">Number of violators for
@@ -1516,7 +1523,8 @@ used to suppress values of certain key variables of individuals with
 risks above a certain threshold. In this case, all values of the
 specified variable for respondents with a risk higher than the specified
 threshold will be suppressed. The risk measure used is the individual
-risk (see Section 4.5). This is useful if one variable has sensitive
+risk (see the Section <a class="reference external" href="measure_risk.html#Individualrisk">Individual risk</a>).
+This is useful if one variable has sensitive
 values that should not be released for individuals with high risks of
 re-identification. What is considered high re-identification probability
 depends on legal requirements. In the following example, the values of
@@ -1566,8 +1574,12 @@ dataset Z is computed as</p>
 <p>where X is the original data, A is a matrix used to transform the
 records, B is a matrix to transform the variables and C is a matrix with
 additive noise.</p>
-<p><strong>NOTE: Risk measures based on frequency counts of keys are no longer
-valid after applying perturbative methods.</strong> This can be seen in <a class="reference internal" href="#tab57"><span class="std std-numref">Table 6.7</span></a>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Risk measures based on frequency counts of keys are no longer
+valid after applying perturbative methods.</p>
+</div>
+<p>This can be seen in <a class="reference internal" href="#tab57"><span class="std std-numref">Table 6.7</span></a>
 , which displays the same data before and after swapping some values.
 The swapped values are in grey. Both before and after perturbing the
 data, all observations violate <span class="math notranslate nohighlight">\(k\)</span>-anonymity at the level 3 (i.e.,
@@ -1582,8 +1594,8 @@ original dataset did not contain any individual with these
 characteristics and hence the matched individual cannot be a correct
 match. The intruder cannot know with certainty whether the information
 disclosed from other variables for that record is correct.</p>
-<span id="tab57"></span><table border="1" class="colwidths-auto docutils align-center" id="id34">
-<caption><span class="caption-number">Table 6.7 </span><span class="caption-text">Sample data before and after perturbation</span><a class="headerlink" href="#id34" title="Permalink to this table">¶</a></caption>
+<span id="tab57"></span><table border="1" class="colwidths-auto docutils align-center" id="id37">
+<caption><span class="caption-number">Table 6.7 </span><span class="caption-text">Sample data before and after perturbation</span><a class="headerlink" href="#id37" title="Permalink to this table">¶</a></caption>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">Variable</th>
 <th class="head" colspan="3">Original data</th>
@@ -1654,13 +1666,13 @@ reduced, since no values will be suppressed, depending on the level of
 perturbation. One disadvantage is that data users might have the
 impression that the data was not anonymized before release and will be
 less willing to participate in future surveys. Therefore, there is a
-need for reporting both for internal and external use (see Section
-8.11).</p>
+need for reporting both for internal and external use (see the Section
+<a class="reference external" href="process.html#Step11:AuditandReporting">Step 11: Audit and Reporting</a>).</p>
 <p>An alternative to perturbative methods is the generation of synthetic
 data files with the same characteristics as the original data files.
 Synthetic data files are not discussed in these guidelines. For more
 information and an overview of the use of synthetic data as SDC method,
-we refer to Drechsler (2011) and Section 3.8 in Hundepool et al. (2012).
+we refer to Drechsler (2011) and the Section 3.8 in <a class="reference internal" href="#hdfg12">HDFG12</a>.
 We discuss here five perturbative methods: Post Randomization Method
 (PRAM), microaggregation, noise addition, shuffling and rank swapping.</p>
 <div class="section" id="pram-post-randomization-method">
@@ -1706,17 +1718,21 @@ yields different results before and after PRAM, which are shown in <a class="ref
 The deviation from the expectation is due to the fact that PRAM is
 a probabilistic method, i.e., the results depend on a
 probability-generating mechanism; consequently, the results can differ
-every time we apply PRAM to the same variables of a dataset. <strong>NOTE: The
-number of changed values is larger than one might think when inspecting
-the tabulations in :numref:`tab58`. Not all 5,000 individuals with value
+every time we apply PRAM to the same variables of a dataset.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The number of changed values is larger than one might think when inspecting
+the tabulations in <a class="reference internal" href="#tab58"><span class="std std-numref">Table 6.8</span></a>. Not all 5,000 individuals with value
 captial after PRAM had this value before PRAM and the 457 individuals in
 rural1 after PRAM are not all included in the 500 individuals before
 PRAM. The number of changes is larger than the differences in the
-tabulation (cf. transition matrix).</strong> Given that the transition matrix
+tabulation (cf. transition matrix).</p>
+</div>
+<p>Given that the transition matrix
 is known to the end users, there are several ways to correct statistical
 analysis of the data for the distortions introduced by PRAM.</p>
-<span id="tab58"></span><table border="1" class="colwidths-auto docutils align-center" id="id35">
-<caption><span class="caption-number">Table 6.8 </span><span class="caption-text">Tabulation of variable “region” before and after PRAM</span><a class="headerlink" href="#id35" title="Permalink to this table">¶</a></caption>
+<span id="tab58"></span><table border="1" class="colwidths-auto docutils align-center" id="id38">
+<caption><span class="caption-number">Table 6.8 </span><span class="caption-text">Tabulation of variable “region” before and after PRAM</span><a class="headerlink" href="#id38" title="Permalink to this table">¶</a></caption>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">Value</th>
 <th class="head">Tabulation before PRAM</th>
@@ -1744,9 +1760,12 @@ the tabulations before and after applying PRAM are the same for all
 variables.[#foot43]_ This method is called invariant PRAM
 and is implemented in <em>sdcMicro</em> in the function pram(). The method
 pram() determines the transition matrix that satisfies the requirements
-for invariant PRAM. <strong>NOTE: Invariant does not guarantee that
-cross-tabulations of variables (unlike univariate tabulations) stay the
-same.</strong></p>
+for invariant PRAM.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Invariant does not guarantee that
+cross-tabulations of variables (unlike univariate tabulations) stay the same.</p>
+</div>
 <p>In <a class="reference internal" href="#code512"><span class="std std-numref">Listing 6.12</span></a>, we give an example of invariant PRAM using
 <em>sdcMicro</em>. <a class="footnote-reference" href="#foot44" id="id9">[11]</a> PRAM is a probabilistic method and the
 results can differ every time we apply PRAM to the same variables of a
@@ -1795,8 +1814,8 @@ PRAM. We can see that the deviations from the initial tabulations, which
 are in expectation 0, are smaller than with the transition matrix that
 does not fulfill the invariance property. The remaining deviations are
 due to the randomness.</p>
-<span id="tab59"></span><table border="1" class="colwidths-auto docutils align-center" id="id36">
-<caption><span class="caption-number">Table 6.9 </span><span class="caption-text">Tabulation of variable “region” before and after (invariant) PRAM</span><a class="headerlink" href="#id36" title="Permalink to this table">¶</a></caption>
+<span id="tab59"></span><table border="1" class="colwidths-auto docutils align-center" id="id39">
+<caption><span class="caption-number">Table 6.9 </span><span class="caption-text">Tabulation of variable “region” before and after (invariant) PRAM</span><a class="headerlink" href="#id39" title="Permalink to this table">¶</a></caption>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">Value</th>
 <th class="head">Tabulation before PRAM</th>
@@ -1831,8 +1850,8 @@ maintained. One solution is to apply PRAM separately for the males and
 females in this example <a class="footnote-reference" href="#foot46" id="id11">[13]</a>. This can be done by
 specifying the strata argument in the pram() function in <em>sdcMicro</em> (see
 below).</p>
-<span id="tab510"></span><table border="1" class="colwidths-auto docutils align-center" id="id37">
-<caption><span class="caption-number">Table 6.10 </span><span class="caption-text">Cross-tabulation of variable “region” and variable “gender” before and after invariant PRAM</span><a class="headerlink" href="#id37" title="Permalink to this table">¶</a></caption>
+<span id="tab510"></span><table border="1" class="colwidths-auto docutils align-center" id="id40">
+<caption><span class="caption-number">Table 6.10 </span><span class="caption-text">Cross-tabulation of variable “region” and variable “gender” before and after invariant PRAM</span><a class="headerlink" href="#id40" title="Permalink to this table">¶</a></caption>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">.</th>
 <th class="head" colspan="2">Tabulation before PRAM</th>
@@ -1866,11 +1885,16 @@ below).</p>
 </tr>
 </tbody>
 </table>
-<p>The pram() function in <em>sdcMicro</em> has several options. <strong>NOTE: If no
-options are set and the PRAM method is applied to an sdcMicro object,
+<p>The pram() function in <em>sdcMicro</em> has several options.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If no options are set and the PRAM method is applied to an sdcMicro object,
 all PRAM variables selected in the sdcMicro object are automatically
-used for PRAM and PRAM is applied within the selected strata</strong> (see
-Section 7.5 on <em>sdcMicro</em> objects for more details). Alternatively, PRAM
+used for PRAM and PRAM is applied within the selected strata (see
+the Section <a class="reference external" href="sdcMicro.html#ObjectsofclasssdcMicroObj">Objects of class sdcMicroObj</a>
+on <em>sdcMicro</em> objects for more details).</p>
+</div>
+<p>Alternatively, PRAM
 can also be applied to variables that are not specified in the
 <em>sdcMicro</em> object as PRAM variables, such as key variables, which is
 shown in <a class="reference internal" href="#code513"><span class="std std-numref">Listing 6.13</span></a>. In that case, however, the risk measures that are
@@ -1907,8 +1931,13 @@ changes to this category. By default, this value is 0.8, which applies
 for all categories. It is also possible to specify a vector with value
 for each diagonal element of the transformation matrix/category. In
 <a class="reference internal" href="#code514"><span class="std std-numref">Listing 6.14</span></a> values of the first region are less likely to change than
-values of the other regions. <strong>NOTE: The invariant PRAM method requires
-that the transition matrix has a unit eigenvalue.</strong> Not all sets of
+values of the other regions.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The invariant PRAM method requires
+that the transition matrix has a unit eigenvalue.</p>
+</div>
+<p>Not all sets of
 restrictions can therefore be used (e.g., the minimum value 1 on any of
 the categories).</p>
 <div class="literal-block-wrapper docutils container" id="code514">
@@ -2060,13 +2089,18 @@ mean as replacement for all values, which are grouped with the outlier
 (6,045 in group 2), these records will be assigned values far from their
 original values. If we chose the median, the incomes of individuals 1
 and 2 are not perturbed, but no value is an outlier. Of course, this
-might in itself present problems. <strong>NOTE: If microaggregation alters
+might in itself present problems.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If microaggregation alters
 outlying values, this can have a significant impact on the computation
-of some measures sensitive to outliers, such as the GINI index.</strong> In the
+of some measures sensitive to outliers, such as the GINI index.</p>
+</div>
+<p>In the
 case where microaggregation is applied to categorical variables, the
 median is used to calculate the replacement value for the group.</p>
-<span id="tab511"></span><table border="1" class="colwidths-auto docutils align-center" id="id38">
-<caption><span class="caption-number">Table 6.11 </span><span class="caption-text">Cross-tabulation of variable “region” and variable “gender” before and after invariant PRAM</span><a class="headerlink" href="#id38" title="Permalink to this table">¶</a></caption>
+<span id="tab511"></span><table border="1" class="colwidths-auto docutils align-center" id="id41">
+<caption><span class="caption-number">Table 6.11 </span><span class="caption-text">Cross-tabulation of variable “region” and variable “gender” before and after invariant PRAM</span><a class="headerlink" href="#id41" title="Permalink to this table">¶</a></caption>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">ID</th>
 <th class="head">Group</th>
@@ -2133,8 +2167,8 @@ values. <a class="reference internal" href="#tab512"><span class="std std-numref
 the grouping by income, expenditure and wealth leads to a different
 grouping, as in the case in <a class="reference internal" href="#tab511"><span class="std std-numref">Table 6.11</span></a>, where groups were formed based
 only on income.</p>
-<span id="tab512"></span><table border="1" class="colwidths-auto docutils align-center" id="id39">
-<caption><span class="caption-number">Table 6.12 </span><span class="caption-text">Illustration of multivariate microaggregation</span><a class="headerlink" href="#id39" title="Permalink to this table">¶</a></caption>
+<span id="tab512"></span><table border="1" class="colwidths-auto docutils align-center" id="id42">
+<caption><span class="caption-number">Table 6.12 </span><span class="caption-text">Illustration of multivariate microaggregation</span><a class="headerlink" href="#id42" title="Permalink to this table">¶</a></caption>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">ID</th>
 <th class="head">Group</th>
@@ -2255,7 +2289,7 @@ shown in <a class="reference internal" href="#code518"><span class="std std-numr
 </td></tr></table></div>
 </div>
 <p>Besides the method MDAV, there are few other grouping methods
-implemented in <em>sdcMicro</em> (Templ, Meindl and Kowarik, 2014). <a class="reference internal" href="#tab513"><span class="std std-numref">Table 6.13</span></a>
+implemented in <em>sdcMicro</em> (<a class="reference internal" href="#temk14">TeMK14</a>). <a class="reference internal" href="#tab513"><span class="std std-numref">Table 6.13</span></a>
 gives an overview of these methods. Whereas the method ‘MDAV’ uses the
 Euclidian distance, the method ‘rmd’ uses the Mahalanobis distance
 instead. An alternative to these methods is sorting the respondents
@@ -2266,8 +2300,8 @@ the total variance in the data that is explained by the first PC. The
 ‘rmd’ method is computationally more intensive due to the computation of
 Mahalanobis distances, but provides better results with respect to group
 homogeneity. It is recommended for smaller datasets (ibid.).</p>
-<span id="tab513"></span><table border="1" class="colwidths-auto docutils align-center" id="id40">
-<caption><span class="caption-number">Table 6.13 </span><span class="caption-text">Grouping methods for microaggregation that are implemented in <em>sdcMicro</em></span><a class="headerlink" href="#id40" title="Permalink to this table">¶</a></caption>
+<span id="tab513"></span><table border="1" class="colwidths-auto docutils align-center" id="id43">
+<caption><span class="caption-number">Table 6.13 </span><span class="caption-text">Grouping methods for microaggregation that are implemented in <em>sdcMicro</em></span><a class="headerlink" href="#id43" title="Permalink to this table">¶</a></caption>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">Method / option in sdcMicro</th>
 <th class="head">Description</th>
@@ -2361,7 +2395,7 @@ protection is higher even for the outliers, but the data structure is
 not preserved and the information loss is large, which is not an ideal
 situation. One way to circumvent the outlier problem is to add noise of
 larger magnitude to outliers than to the other values.</p>
-<div class="figure align-center" id="id41">
+<div class="figure align-center" id="id44">
 <span id="fig56"></span><img alt="_images/image8.png" src="_images/image8.png" />
 <p class="caption"><span class="caption-number">Fig. 6.6 </span><span class="caption-text">Illustration of effect of noise addition to outliers</span></p>
 </div>
@@ -2417,7 +2451,7 @@ noise grows respective to the variance of the data. The mean in the data
 is preserved, but, with an increased level of noise, the variance of the
 perturbed data grows. After adding noise of magnitude 5, the
 distribution of the original data is completely destroyed.</p>
-<div class="figure align-center" id="id42">
+<div class="figure align-center" id="id45">
 <span id="fig57"></span><img alt="_images/image9.png" src="_images/image9.png" />
 <p class="caption"><span class="caption-number">Fig. 6.7 </span><span class="caption-text">Frequency distribution of a continuous variable before and after noise addition</span></p>
 </div>
@@ -2455,7 +2489,7 @@ easily implemented in base <em>R</em> by generating a vector of random numbers
 and multiplying the data with this vector. For more information on
 multiplicative noise masking and the properties of the data after
 masking, we refer to Kim and Winkler (2003).</p>
-<div class="figure align-center" id="id43">
+<div class="figure align-center" id="id46">
 <span id="fig58"></span><img alt="_images/image10.png" src="_images/image10.png" />
 <p class="caption"><span class="caption-number">Fig. 6.8 </span><span class="caption-text">Noise levels and the impact on the value range (percentiles)</span></p>
 </div>
@@ -2577,7 +2611,8 @@ plausible. Rank swapping is implemented in the function rankSwap() in
 <em>sdcMicro</em>. The variables, which have to be swapped, should be specified
 in the argument ‘variables’. By default, values below the 5<sup>th</sup>
 percentile and above the 95<sup>th</sup> percentile are top and bottom
-coded and replaced by their average value (see Section 5.2.1.2 on top
+coded and replaced by their average value (see the Section
+<a class="reference external" href="anon_methods.html#Topandbottomcoding">Top and bottom coding</a> on top
 and bottom coding). By specifying the options ‘TopPercent’ and
 ‘BottomPercent’ we can choose these percentiles. The argument ‘P’
 defines the size of the neighborhood as percentage of the sample size.
@@ -2617,8 +2652,8 @@ rankSwap(), these values should be recoded NA. This is shown in the
 </td></tr></table></div>
 </div>
 <p>Rank swapping has been found to yield good results with respect to the
-trade-off between information loss and data protection (Domingo-Ferrer
-and Torra, 2001). Rank swapping is not useful for variables with few
+trade-off between information loss and data protection (DoTo01a).
+Rank swapping is not useful for variables with few
 different values or many missing values, since the swapping in that case
 will not result in altered values. Also, if the intruder knows to whom
 the highest or lowest value of a specific variable belongs (e.g.,
@@ -2663,8 +2698,8 @@ that corresponds to the rank of the generated value. This means that all
 original values will be in the data. <a class="reference internal" href="#tab514"><span class="std std-numref">Table 6.14</span></a> presents a simplified
 example of the shuffling method. The regressands are not specified in
 this example.</p>
-<span id="tab514"></span><table border="1" class="colwidths-auto docutils align-center" id="id44">
-<caption><span class="caption-number">Table 6.14 </span><span class="caption-text">Simplified example of the shuffling method</span><a class="headerlink" href="#id44" title="Permalink to this table">¶</a></caption>
+<span id="tab514"></span><table border="1" class="colwidths-auto docutils align-center" id="id47">
+<caption><span class="caption-number">Table 6.14 </span><span class="caption-text">Simplified example of the shuffling method</span><a class="headerlink" href="#id47" title="Permalink to this table">¶</a></caption>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">ID</th>
 <th class="head">Income (orig)</th>
@@ -2748,7 +2783,7 @@ this example.</p>
 </tbody>
 </table>
 <p>The method ‘ds’ (the default method of data shuffling in <em>sdcMicro</em>) is
-recommended for use (Templ et al., 2014) <a class="footnote-reference" href="#foot54" id="id19">[21]</a>. A
+recommended for use (<a class="reference internal" href="#temk14">TeMK14</a>) <a class="footnote-reference" href="#foot54" id="id19">[21]</a>. A
 regression function with regressors for the variables to be protected
 must be specified in the argument ‘form’. At least two regressands
 should be specified and the regressors should have predictive power for
@@ -2797,8 +2832,8 @@ the possibility of specifying restrictions on the transition matrix and
 applying PRAM only within strata, which can be user defined.</p>
 </div>
 </div>
-<div class="section" id="anonymization-of-geospatial-variables">
-<h2>6.4. Anonymization of geospatial variables<a class="headerlink" href="#anonymization-of-geospatial-variables" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id20">
+<h2>6.4. Anonymization of geospatial variables<a class="headerlink" href="#id20" title="Permalink to this headline">¶</a></h2>
 <p>Recently, geospatial data has become increasingly popular with
 researchers and wide-spread. Georeferenced data identifies the
 geographical location for each record with the help of a Geographical
@@ -2815,9 +2850,9 @@ also pose a challenge to the privacy of the respondents.</p>
 and instead leaving in or creating other geographical variables, such as
 province, region. However, this approach also removes the benefits of
 geospatial data. Another option is the geographical displacement of
-areas and/or records. Burgert et al. (2013) describe a geographical
+areas and/or records. <a class="reference internal" href="#bcrz13">BCRZ13</a> describe a geographical
 displacement procedure for a health dataset. This paper also includes
-the code in Python. Hu and Drechsler (2015) propose three different
+the code in Python. <a class="reference internal" href="#hudr15">HuDr15</a> propose three different
 strategies for generating synthetic geocodes.</p>
 <div class="admonition-recommended-reading-material-on-anonymization-of-geospatial-data admonition">
 <p class="first admonition-title">Recommended Reading Material on Anonymization of Geospatial Data</p>
@@ -2830,10 +2865,10 @@ information for public release.”
 <a class="reference external" href="http://www.iab.de/389/section.aspx/Publikation/k150601301">http://www.iab.de/389/section.aspx/Publikation/k150601301</a></p>
 </div>
 </div>
-<div class="section" id="anonymization-of-the-quasi-identifier-household-size">
-<h2>6.5. Anonymization of the quasi-identifier household size<a class="headerlink" href="#anonymization-of-the-quasi-identifier-household-size" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id21">
+<h2>6.5. Anonymization of the quasi-identifier household size<a class="headerlink" href="#id21" title="Permalink to this headline">¶</a></h2>
 <p>The size of a household is an important identifier, especially for large
-households. <a class="footnote-reference" href="#foot55" id="id20">[22]</a>  Suppression of the actual size
+households. <a class="footnote-reference" href="#foot55" id="id22">[22]</a>  Suppression of the actual size
 variable, if available (e.g., number of household members), however,
 does not suffice to remove this information from the dataset, as a
 simple count of the household members for a particular household will
@@ -2847,8 +2882,8 @@ households to prevent an intruder from immediately understanding that
 these households have been split and reconstructing them by combining
 the two households with the same values.</p>
 </div>
-<div class="section" id="special-case-census-data">
-<h2>6.6. Special case: census data<a class="headerlink" href="#special-case-census-data" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id23">
+<h2>6.6. Special case: census data<a class="headerlink" href="#id23" title="Permalink to this headline">¶</a></h2>
 <p>Census microdata are a special case because the user (and intruder)
 knows that all respondents are included in the dataset. Therefore, risk
 measures that use the sample weights and are based on uncertainty of the
@@ -2856,9 +2891,12 @@ correctness of a match are no longer applicable. If an intruder has
 identified a sample unique and successfully matched, there is no doubt
 whether the match is correct, as it would be in the case of a sample.
 One approach to release census microdata is to release a stratified
-sample of the sample (1 – 5% of the total census). <strong>NOTE: After
-sampling, the anonymization process has to be followed; sampling alone
-is not sufficient to guarantee confidentiality.</strong></p>
+sample of the sample (1 – 5% of the total census).</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">After sampling, the anonymization process has to be followed; sampling alone
+is not sufficient to guarantee confidentiality.</p>
+</div>
 <p>Several statistical offices release microdata based on census data. A
 few examples are:</p>
 <ul class="simple">
@@ -2867,7 +2905,7 @@ few examples are:</p>
 <dd>released several files based on the 2011 census:
 1. A microdata teaching file for educational purposes. This file is a 1% sample of the total census with a limited set of variables.
 2. Two scientific use files with 5% samples are available for registered researchers who accept the terms and conditions of their use.
-3. Two 10% samples are available in controlled research data centers for approved researchers and research goals. All these files have been anonymized prior to release. <a class="footnote-reference" href="#foot56" id="id21">[23]</a></dd>
+3. Two 10% samples are available in controlled research data centers for approved researchers and research goals. All these files have been anonymized prior to release. <a class="footnote-reference" href="#foot56" id="id24">[23]</a></dd>
 </dl>
 </li>
 <li><dl class="first docutils">
@@ -2880,7 +2918,7 @@ variables but a more detailed geographical structure, which allows
 representation of cities and larger counties from the dataset (the
 minimum size of a geographical area is 100,000).
 Both files have been anonymized by using data swapping, top coding, perturbation and reducing
-detail by recoding. <a class="footnote-reference" href="#foot57" id="id22">[24]</a></dd>
+detail by recoding. <a class="footnote-reference" href="#foot57" id="id25">[24]</a></dd>
 </dl>
 </li>
 </ul>
@@ -3072,16 +3110,16 @@ and ‘mlm’.</td></tr>
 <table class="docutils footnote" frame="void" id="foot55" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id20">[22]</a></td><td>Even if the dataset does not contain an explicit variable with
+<tr><td class="label"><a class="fn-backref" href="#id22">[22]</a></td><td>Even if the dataset does not contain an explicit variable with
 household size, this information can be easily extracted from the
-data and should be taken into account. Section 7.6 shows how to
+data and should be taken into account. The Section <a class="reference external" href="sdcMicro.html#Householdstructure">Household structure</a> shows how to
 create a variable “household size” based on the household IDs.</td></tr>
 </tbody>
 </table>
 <table class="docutils footnote" frame="void" id="foot56" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id21">[23]</a></td><td>More information on census microdata at ONS is available on their
+<tr><td class="label"><a class="fn-backref" href="#id24">[23]</a></td><td>More information on census microdata at ONS is available on their
 website:
 <a class="reference external" href="http://www.ons.gov.uk/ons/guide-method/census/2011/census-data/census-microdata/index.html">http://www.ons.gov.uk/ons/guide-method/census/2011/census-data/census-microdata/index.html</a></td></tr>
 </tbody>
@@ -3089,18 +3127,57 @@ website:
 <table class="docutils footnote" frame="void" id="foot57" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id22">[24]</a></td><td>More information on the anonymization of these files is available on
+<tr><td class="label"><a class="fn-backref" href="#id25">[24]</a></td><td>More information on the anonymization of these files is available on
 the website of the U.S. Census Bureau:
 <a class="reference external" href="https://www.census.gov/population/www/cen2000/pums/index.html">https://www.census.gov/population/www/cen2000/pums/index.html</a></td></tr>
 </tbody>
 </table>
 <p class="rubric">References</p>
+<table class="docutils citation" frame="void" id="bcrz13" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[BCRZ13]</td><td>Burgert, C. R., Colston, J., Roy, T., &amp; Zachary, B. (2013).
+<strong>Geographic Displacement Procedure and Georeferenced Data Release Policy for the Demographic and Health Surveys.</strong>
+DHS Spatial Analysis Report No. 7.</td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="doto01a" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[DoTo01a]</td><td>Domingo-Ferrer, J., &amp; Torra, V. (2001).
+<strong>A Quantitative Comparison of Disclosure Control Methods for Microdata.</strong>
+In P. Doyle, J. Lane, J. Theeuwes, &amp; L. Zayatz (Eds.), Confidentiality, Disclosure and Data Access: Theory and Practical Applications for Statistical Agencies (pp. 111-133). Amsterdam, North-Holland: Elsevier Science.</td></tr>
+</tbody>
+</table>
 <table class="docutils citation" frame="void" id="hdfg12" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
 <tr><td class="label">[HDFG12]</td><td>Hundepool, A., Domingo-Ferrer, J., Franconi, L., Giessing, S., Nordholt, E. S., Spicer, K., et al. (2012).
 <strong>Statistical Disclosure Control.</strong>
 Chichester, UK: John Wiley &amp; Sons Ltd.</td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="hudr15" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[HuDr15]</td><td>Hu, J., &amp; Drechsler, J. (2015).
+<strong>Generating synthetic geocoding infromation for public release.</strong>
+NTTS - Conferences on New Techniques and Technologies for Statistics. Brussels.</td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="temk14" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[TeMK14]</td><td>Templ, M., Meindl, B., &amp; Kowarik, A. (2014, August).
+<strong>Tutorial for SDCMicroGUI.</strong>
+Retrieved from International Household Survey Network (IHSN): <a class="reference external" href="http://www.ihsn.org/home/software/disclosure-control-toolbox">http://www.ihsn.org/home/software/disclosure-control-toolbox</a></td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="wolf15" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[Wolf15]</td><td>de Wolf, P.-P. (2015).
+<strong>Public Use Files of EU-SILC and EU-LFS data.</strong></td></tr>
 </tbody>
 </table>
 </div>

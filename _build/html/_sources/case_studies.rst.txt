@@ -1,5 +1,5 @@
 Case Studies (Illustrating the SDC Process)
-=========================================
+============================================
 
 In order to evaluate the use of different SDC methods on different types
 of survey datasets, we compared the results of the different methods
@@ -34,7 +34,7 @@ and free *sdcMicro* package and *R*. A ready-to-run *R* script for this
 case study and the dataset are also available to reproduce the results
 and allow the user to adapt the code
 (see http://ihsn.org/home/projects/sdc-practice). Extracts of this code
-are presented in this section to illustrate several steps of the
+are presented in this section to illustrate several steps of the anonymization process.
 
 .. NOTE:: 
 	The choices of methods and parameters in 
@@ -82,7 +82,9 @@ as this is a hypothetical dataset.
 The first step is to explore the data. To analyze the data in *R* we
 first have to read the data into *R*. In our case, the data is saved in
 a *STATA* file (.dta). To read *STATA* files, we need to load the *R*
-package *foreign* (see Section 7.2 on importing other data formats in
+package *foreign* (see the Section 
+`Read functions in R <sdcMicro.html#Read functions in R>`__ 
+on importing other data formats in
 *R*). We also load the *sdcMicro* package and several other packages
 used later for the computation of the utility measures. If these
 packages are not yet installed, you should do so before trying to load
@@ -201,282 +203,92 @@ location coordinates, etc.
 .. table:: Overview of variables in dataset
    :widths: auto
    :align: center
-   
-   =====  ===============  =============  =======  =============  ===========
-    No.    Variable name    Description    Level    Measurement   Values  
-   =====  ===============  =============  =======  =============  ===========
-    1      IDH              Household      HH        -             1-2,000   
-                            ID                                               
-    2      IDP              Individua      IND       -             1-33      
-                            l                                                
-                            ID                                               
-    3      REGION           Region         HH        categoric     1-6       
-                                                     al                      
-    4      DISTRICT         District       HH        categoric     101-1105  
-                                                     al                      
-    5      URBRUR           Area of        HH        categoric     1, 2      
-                            residence                al                      
-    6      WGTHH            Individua      HH        weight        31.2-8495 
-                            l                                      .7        
-                            weighting                                        
-                            coefficie                                        
-                            nt                                               
-    7      WGTPOP           Populatio      IND       weight        45.8-9345 
-                            n                                      2.2       
-                            weighting                                        
-                            coefficie                                        
-                            nt                                               
-    8      HHSIZE           Household      HH        semi-cont     1-33      
-                            size                     inuous                  
-    9      GENDER           Gender         IND       categoric     0, 1      
-                                                     al                      
-    10     REL              Relations      IND       categoric     1-9       
-                            hip                      al                      
-                            to                                               
-                            household                                        
-                            head                                             
-    11     MARITAL          Marital        IND       categoric     1-6       
-                            status                   al                      
-    12     AGEYRS           Age in         IND       semi-cont     0-95      
-                            completed                inuous        (under 1, 
-                            years                                  1/12 year 
-                                                                   increment 
-                                                                   s)        
-    13     AGEMTH           Age of         IND       semi-cont     1-1140    
-                            child in                 inuous                  
-                            completed                                        
-                            years                                            
-    14     RELIG            Religion       HH        categoric     1, 5-7, 9 
-                            of                       al                      
-                            household                                        
-                            head                                             
-    15     ETHNICITY        Ethnicity      HH        categoric     all       
-                            of                       al            missing   
-                            household                              values    
-                            head                                             
-    16     LANGUAGE         Language       HH        categoric     all       
-                            of                       al            missing   
-                            household                              values    
-                            head                                             
-    17     MORBID           Morbidity      IND       categoric     0, 1      
-                            last x                   al                      
-                            weeks                                            
-    18     MEASLES          Child          IND       categoric     0, 1, 9   
-                            immunized                al                      
-                            against                                          
-                            measles                                          
-    19     MEDATT           Sought         IND       categoric     0, 1      
-                            medical                  al                      
-                            attention                                        
-    20     CHWEIGHTK        Weight of      IND       continuou     2 – 26.5  
-           G                the child                s                       
-                            (Kg)                                             
-    21     CHHEIGHTC        Height of      IND       continuou     7 - 140   
-           M                child                    s                       
-                            (cms)                                            
-    22     ATSCHOOL         Currently      IND       categoric     0, 1      
-                            enrolled                 al                      
-                            in school                                        
-    23     EDUCY            Highest        IND       categoric     1-6       
-                            level of                 al                      
-                            education                                        
-                            attended                                         
-    24     EDYEARS          Years of       IND       semi-cont     0-18      
-                            education                inuous                  
-    25     EDYRSCURR        Years of       IND       semi-cont     1-18      
-           AT               education                inuous                  
-                            for                                              
-                            currently                                        
-                            enrolled                                         
-    26     SCHTYP           Type of        IND       categoric     1-3, 9    
-                            school                   al                      
-                            attending                                        
-    27     LITERACY         Literacy       IND       categoric     1-3       
-                                                     al                      
-    28     EMPTYP1          Type of        IND       categoric     1-9       
-                            employmen                al                      
-                            t                                                
-    29     UNEMP1           Unemploye      IND       categoric     0, 1      
-                            d                        al                      
-    30     INDUSTRY1        Industry       IND       categoric     1-10      
-                            classific                al                      
-                            ation                                            
-                            (1-digit)                                        
-    31     EMPCAT1          Employmen      IND       categoric     11, 12,   
-                            t                        al            13, 14,   
-                            categorie                              21, 22    
-                            s                                                
-    32     WHOURSLAS        Hours          IND       continuou     0-154     
-           TWEEK1           worked                   s                       
-                            last week                                        
-    33     OWNHOUSE         Ownership      HH        categoric     0, 1      
-                            of                       al                      
-                            dwelling                                         
-    34     ROOF             Main           IND       categoric     1-5, 9    
-                            material                 al                      
-                            used for                                         
-                            roof                                             
-    35     TOILET           Main           HH        categoric     1-4, 9    
-                            toilet                   al                      
-                            facility                                         
-    36     ELECTCON         Electrici      HH        categoric     0-3       
-                            ty                       al                      
-    37     FUELCOOK         Main           HH        categoric     1-5, 9    
-                            cooking                  al                      
-                            fuel                                             
-    38     WATER            Main           HH        categoric     1-9       
-                            source of                al                      
-                            water                                            
-    39     OWNAGLAND        Ownership      HH        categoric     1-3       
-                            of                       al                      
-                            agricultu                                        
-                            ral                                              
-                            land                                             
-    40     LANDSIZEH        Land size      HH        continuou     0-1214    
-           A                owned by                 s                       
-                            household                                        
-                            (ha)                                             
-                            (agric                                           
-                            and non                                          
-                            agric)                                           
-    41     OWNMOTORC        Ownership      HH        categoric     0, 1      
-           YCLE             of                       al                      
-                            motorcycl                                        
-                            e                                                
-    42     CAR              Ownership      HH        categoric     0, 1      
-                            of car                   al                      
-    43     TV               Ownership      HH        categoric     0, 1      
-                            of                       al                      
-                            televisio                                        
-                            n                                                
-    44     LIFESTOCK        Number of      HH        semi-cont     0-25      
-                            large-siz                inuous                  
-                            ed                                               
-                            livestock                                        
-                            owned                                            
-    45     INCRMT           Income –       HH        continuou     -         
-                            Remittanc                s                       
-                            es                                               
-    46     INCWAGE          Income -       HH        continuou     -         
-                            Wages and                s                       
-                            salaries                                         
-    47     INCBONSOC        Income -       HH        continuou     -         
-           ALL              Bonuses                  s                       
-                            and                                              
-                            social                                           
-                            allowance                                        
-                            s                                                
-                            derived                                          
-                            from wage                                        
-                            jobs                                             
-    48     INCFARMBS        Income -       HH        continuou     -         
-           N                Gross                    s                       
-                            income                                           
-                            from                                             
-                            household                                        
-                            farm                                             
-                            businesse                                        
-                            s                                                
-    49     INCNFARMB        Income         HH        continuou     -         
-           SN               -Gross                   s                       
-                            income                                           
-                            from                                             
-                            household                                        
-                            nonfarm                                          
-                            businesse                                        
-                            s                                                
-    50     INCRENT          Income -       HH        continuou     -         
-                            Rent                     s                       
-    51     INCFIN           Income -       HH        continuou     -         
-                            Financial                s                       
-    52     INCPENSN         Income -       HH        continuou     -         
-                            Pensions/                s                       
-                            social                                           
-                            assistanc                                        
-                            e                                                
-    53     INCOTHER         Income -       HH        continuou     -         
-                            Other                    s                       
-    54     INCTOTGRO        Income -       HH        continuou     -         
-           SSHH             Total                    s                       
-    55     FARMEMP                                                 -         
-    56     TFOODEXP         Total          HH        continuou     -         
-                            expenditu                s                       
-                            re                                               
-                            on food                                          
-    57     TALCHEXP         Total          HH        continuou     -         
-                            expenditu                s                       
-                            re                                               
-                            on                                               
-                            alcoholic                                        
-                            beverages                                        
-                            ,                                                
-                            tobacco                                          
-                            and                                              
-                            narcotics                                        
-    58     TCLTHEXP         Total          HH        continuou     -         
-                            expenditu                s                       
-                            re                                               
-                            on                                               
-                            clothing                                         
-    59     THOUSEXP         Total          HH        continuou     -         
-                            expenditu                s                       
-                            re                                               
-                            on                                               
-                            housing                                          
-    60     TFURNEXP         Total          HH        continuou     -         
-                            expenditu                s                       
-                            re                                               
-                            on                                               
-                            furnishin                                        
-                            g                                                
-    61     THLTHEXP         Total          HH        continuou     -         
-                            expenditu                s                       
-                            re                                               
-                            on health                                        
-    62     TTRANSEXP        Total          HH        continuou     -         
-                            expenditu                s                       
-                            re                                               
-                            on                                               
-                            transport                                        
-    63     TCOMMEXP         Total          HH        continuou     -         
-                            expenditu                s                       
-                            re                                               
-                            on                                               
-                            communica                                        
-                            tion                                             
-    64     TRECEXP          Total          HH        continuou     -         
-                            expenditu                s                       
-                            re                                               
-                            on                                               
-                            recreatio                                        
-                            n                                                
-    65     TEDUEXP          Total          HH        continuou     -         
-                            expenditu                s                       
-                            re                                               
-                            on                                               
-                            education                                        
-    66     TRESHOTEX        Total          HH        continuou     -         
-           P                expenditu                s                       
-                            re                                               
-                            on                                               
-                            restauran                                        
-                            ts                                               
-                            and                                              
-                            hotels                                           
-    67     TMISCEXP         Total          HH        continuou     -         
-                            expenditu                s                       
-                            re                                               
-                            on                                               
-                            miscellan                                        
-                            eous                                             
-                            spending                                         
-    68     TANHHEXP         Total          HH        continuou     -         
-                            annual                   s                       
-                            nominal                                          
-                            household                                        
-                            expenditu                                        
-                            res                                              
-   =====  ===============  =============  =======  =============  ===========
+    
+   =====  =================  =====================================  =======  ==================  ========================================
+    No.    Variable name      Description                            Level    Measurement         Values  
+   =====  =================  =====================================  =======  ==================  ========================================
+    1      IDH                Household ID                           HH        .                  1-2,000   
+    2      IDP                Individual ID                          IND       .                  1-33                                                                        
+    3      REGION             Region                                 HH        categorical        1-6       
+    4      DISTRICT           District                               HH        categorical        101-1105  
+    5      URBRUR             Area of residence                      HH        categorical        1, 2      
+    6      WGTHH              Individual weighting coefficient       HH        weight             31.2-8495       
+    7      WGTPOP             Population weighting coefficient       IND       weight             45.8-93452.2    
+    8      HHSIZE             Household size                         HH        semi-cont          1-33      
+    9      GENDER             Gender                                 IND       categorical        0, 1      
+    10     REL                Relationship to household head         IND       categorical        1-9       
+    11     MARITAL            Marital status                         IND       categorical        1-6       
+    12     AGEYRS             Age in completed years                 IND       semi-continuous    0-95 (under 1, 1/12 year increments)        
+    13     AGEMTH             Age of child in completed years        IND       semi-continuous    1-1140               
+    14     RELIG              Religion of household head             HH        categorical        1, 5-7, 9                                                       
+    15     ETHNICITY          Ethnicity of household head            HH        categorical        all missing values      
+    16     LANGUAGE           Language of household head             HH        categorical        all missing values 
+    17     MORBID             Morbidity last x weeks                 IND       categorical        0, 1               
+    18     MEASLES            Child immunized against measles        IND       categorical        0, 1, 9                                                           
+    19     MEDATT             Sought medical attention               IND       categorical        0, 1                                                                
+    20     CHWEIGHTKG         Weight of child (Kg)                   IND       continuous         2 – 26.5                                                                     
+    21     CHHEIGHTCM         Height of child (cms)                  IND       continuous         7 - 140                                                             
+    22     ATSCHOOL           Currently enrolled in school           IND       categorical        0, 1                             
+    23     EDUCY              Highest                                IND       categorical        1-6       
+                              level of education attended                                                                      
+    24     EDYEARS            Years of education                     IND       semi-continuous    0-18      
+    25     EDYRSCURRAT        Years of education                     IND       semi-continuous    1-18      
+                              for currently enrolled                                                                      
+    26     SCHTYP             Type of                                IND       categorical        1-3, 9    
+                              school attending                                                                     
+    27     LITERACY           Literacy                               IND       categorical        1-3       
+    28     EMPTYP1            Type of employment                     IND       categorical        1-9                                                                    
+    29     UNEMP1             Unemployed                             IND       categorical        0, 1      
+    30     INDUSTRY1          Industry                               IND       categorical        1-10      
+                              classification (1-digit)                                                                     
+    31     EMPCAT1            Employment categories                  IND       categorical        11, 12, 13, 14, 21, 22         
+    32     WHOURSLASTWEEK1    Hours worked last week                 IND       continuous         0-154                                                                   
+    33     OWNHOUSE           Ownership of dwelling                  HH        categorical        0, 1                                                                    
+    34     ROOF               Main material used for roof            IND       categorical        1-5, 9    
+    35     TOILET             Main toilet facility                   HH        categorical        1-4, 9                                                                  
+    36     ELECTCON           Electricity                            HH        categorical        0-3       
+    37     FUELCOOK           Main cooking fuel                      HH        categorical        1-5, 9                                                                         
+    38     WATER              Main source of water                   HH        categorical        1-9                                                                           
+    39     OWNAGLAND          Ownership of agricultural land         HH        categorical        1-3       
+    40     LANDSIZEHA         Land size owned by household           HH        continuous         0-1214    
+                              (ha) (agric and non agric)                                                                        
+    41     OWNMOTORCYCLE      Ownership of motorcycle                HH        categorical        0, 1                                                                           
+    42     CAR                Ownership of car                       HH        categorical        0, 1      
+    43     TV                 Ownership of television                HH        categorical        0, 1      
+    44     LIFESTOCK          Number of                              HH        semi-continuous    0-25      
+                              large-sized livestock owned                                                                         
+    45     INCRMT             Income – Remittances                   HH        continuous                
+    46     INCWAGE            Income - Wages and salaries            HH        continuous                
+    47     INCBONSOCAL        Income - Bonuses and social            HH        continuous                 
+                              allowances derived from wage jobs                                                                       
+    48     INCFARMBSN         Income - Gross income                  HH        continuous                 
+                              from household farm businesses                                                                           
+    49     INCNFARMBSN        Income - Gross income from             HH        continuous                 
+                              household nonfarm businesses                                                                   
+    50     INCRENT            Income - Rent                          HH        continuous                
+    51     INCFIN             Income - Financial                     HH        continuous                
+    52     INCPENSN           Income - Pensions/social assistance    HH        continuous                
+    53     INCOTHER           Income - Other                         HH        continuous                
+    54     INCTOTGROSHH       Income - Total                         HH        continuous                
+    55     FARMEMP                                                                                       
+    56     TFOODEXP           Total expenditure on food              HH        continuous                
+    57     TALCHEXP           Total expenditure on alcoholic         HH        continuous                                                                             
+                              beverages, tobacco and narcotics                                                                   
+    58     TCLTHEXP           Total expenditure on clothing          HH        continuous                                                                            
+    59     THOUSEXP           Total expenditure on housing           HH        continuous                                                                              
+    60     TFURNEXP           Total expenditure on furnishing        HH        continuous                                                                                
+    61     THLTHEXP           Total expenditure on health            HH        continuous                                                                           
+    62     TTRANSEXP          Total expenditure on transport         HH        continuous                                                                           
+    63     TCOMMEXP           Total expenditure on communication     HH        continuous                                                                                  
+    64     TRECEXP            Total expenditure on recreation        HH        continuous                                                                                       
+    65     TEDUEXP            Total expenditure on education         HH        continuous                                                                            
+    66     TRESHOTEXP         Total expenditure on restaurants       HH        continuous                                                                                      
+                              and hotels                                                                      
+    67     TMISCEXP           Total expenditure on                   HH        continuous                                                                                      
+                              miscellaneous spending                                                                    
+    68     TANHHEXP           Total annual nominal household         HH        continuous                                                                             
+                              expenditures                                                                     
+   =====  =================  =====================================  =======  ==================  ========================================
 
 It is always important to ensure that the relationships between
 variables in the data are preserved during the anonymization process and
@@ -564,8 +376,10 @@ variables.
 
 In this case study, we assume that data will be released as a SUF, which
 will be only available under license to accredited researchers with
-approved research proposals (see Section 3.2 for more information of the
-release of SUF). Therefore, the accepted risk level is higher and a
+approved research proposals (see the Section 
+`Conditions for SUFs <release_types.html#Conditions for SUFs>`__  
+for more information of the
+release of a SUF). Therefore, the accepted risk level is higher and a
 broader set of variables can be released than would be the case when
 releasing a PUF. Since we do not have an overview of the requirements of
 all users, we restrict the utility measures to a selected number of data
@@ -629,33 +443,28 @@ identify persons (s)he knows. This is called the nosy-neighbor scenario.
    :widths: auto
    :align: center
    
-   ================================================  =============================
-    Name                                              Measurement                  
-   ================================================  =============================
-    REGION (region)                                   Household, categorical       
-    URBRUR (area of residence)                        Household, categorical       
-    HHSIZE (household size)                           Household, categorical       
-    OWNAGLAND (agricultural land                      Household, categorical       
-    ownership)                                                                     
-    RELIG (religion of household                      Household, categorical       
-    head)                                                                          
-    LANDSIZEHA (size of agr. and                      Household, continuous        
-    non-agr. land)                                                                 
-    TANHHEXP (total expenditures)                     Household, continuous        
-    TEXP(expenditures in category)                    Household, continuous        
-    INCTOTGROSSHH (total income)                      Household, continuous        
-    INC(income in category)                           Household, continuous        
-    GENDER (sex)                                      Individual, categorical      
-    REL (relationship to household head)              Individual, categorical      
-    MARITAL (marital status)                          Individual, categorical      
-    AGEYRS (age in completed years)                   Individual, semi-continuous  
-    EDYRSCURATT (years of education                   Individual, semi-continuous  
-    for currently enrolled)                                                        
-    EDUCY (highest level of education completed)      Individual, categorical      
-    ATSCHOOL (currently enrolled in school)           Individual, categorical      
-    INDUSTRY1 (industry classification)               Individual, categorical      
-    classification)                                                                
-   ================================================  =============================
+   =========================================================  =============================
+    Name                                                       Measurement                  
+   =========================================================  =============================
+    REGION (region)                                            Household, categorical       
+    URBRUR (area of residence)                                 Household, categorical       
+    HHSIZE (household size)                                    Household, categorical       
+    OWNAGLAND (agricultural land ownership)                    Household, categorical       
+    RELIG (religion of household  head)                        Household, categorical       
+    LANDSIZEHA (size of agr. and non-agr. land)                Household, continuous        
+    TANHHEXP (total expenditures)                              Household, continuous        
+    TEXP (expenditures in category)                            Household, continuous        
+    INCTOTGROSSHH (total income)                               Household, continuous        
+    INC(income in category)                                    Household, continuous        
+    GENDER (sex)                                               Individual, categorical      
+    REL (relationship to household head)                       Individual, categorical      
+    MARITAL (marital status)                                   Individual, categorical      
+    AGEYRS (age in completed years)                            Individual, semi-continuous  
+    EDYRSCURATT (years of education for currently enrolled)    Individual, semi-continuous  
+    EDUCY (highest level of education completed)               Individual, categorical      
+    ATSCHOOL (currently enrolled in school)                    Individual, categorical      
+    INDUSTRY1 (industry classification)                        Individual, categorical      
+   =========================================================  =============================
 
 
 **Step 5: Data key uses and selection of utility measures**
@@ -701,7 +510,9 @@ household structure is important for data users and should be considered
 in the risk assessment. Since some variables are measured on the
 household level and thus have identical values for each household
 member, the values of the household variables should be treated in the
-same way for each household member (see Section 5.5). Therefore, we
+same way for each household member (see the Section 
+`Anonymization of the quasi-identifier household size <anon_methods.html#Anonymization of the quasi-identifier household size>`__). 
+Therefore, we
 first anonymize only the household variables. After this, we merge them
 with the individual-level variables and then anonymize the
 individual-level and household-level variables jointly.
@@ -712,7 +523,8 @@ variables and Steps 6b through 10b for the combined dataset. In this
 way, we ensure that household-level variable values remain consistent
 across household members for each household and the household structure
 cannot be used to re-identify individuals. This is further explained in
-Sections 4.4 and 7.6.
+the Sections `Levels of risk <measure_risk.html#Levels of risk>`__
+and `Randomizing order and numbering of individuals or households <sdcMicro.html#Randomizing order and numbering of individuals or households>`__ .
 
 Before continuing to Step 6a, we select the categorical key variables,
 continuous key variables and any variables selected for use in PRAM
@@ -720,7 +532,7 @@ routines, as well as household-level sampling weights. We extract these
 selected household variables and the households from the dataset and
 save them as *fileHH*. The choice of PRAM variables is further explained
 in Step 8a. :numref:`code97` illustrates how these steps are done in *R* (see
-also Section 7.6). 
+also the Section `Household structure <sdcMicro.html#Household structure>`__). 
 
 .. NOTE:: 
 	In our dataset, some of the categorical variables when imported from the STATA file were not imported as
@@ -766,7 +578,7 @@ contains all variables. Every household has the same number of entries
 as it has members (e.g., a household of three will be repeated three
 times in *fileHH*). Before analyzing the household-level variables, we
 select only one entry per household, as illustrated in :numref:`code98`. This
-is further explained in Section 7.6.
+is further explained in the Section `Household structure <sdcMicro.html#Household structure>`__.
 
 .. code-block:: R
    :linenos:
@@ -870,7 +682,9 @@ for many of the unique combinations and the origin of much of the risk.
 Having determined this, we can flag HHSIZE as a possible first variable
 to treat to obtain the required risk level. In practice, with a variable
 like HHSIZE, this will likely involve removing large households from the
-dataset to be released. As explained in Section 5.5, recoding and local
+dataset to be released. As explained in the Section
+`Anonymization of the quasi-identifier household size <anon_methods.html#Anonymization of the quasi-identifier household size>`__
+, recoding and local
 suppression are no valid options for the variable HHSIZE. The
 frequencies of household size in :numref:`tab97` show that there
 are few households with more than 13 household members. This makes these
@@ -889,8 +703,10 @@ neighbor scenario.
    fileHH[sdcHH@risk$individual[,2] < 5, selectedKeyVarsHH] # for 5-anonymity
 
 We also assess the disclosure risk of the categorical variables with the
-individual and global risk measures as described in Sections 4.5 and
-4.8. In *fileHH* every entry represents a household. Therefore, we use
+individual and global risk measures as described in the Sections
+`Individual risk <measure_risk.html#Individual risk>`__ and
+`Global risk <measure_risk.html#Global risk>`__. 
+In *fileHH* every entry represents a household. Therefore, we use
 the individual non-hierarchical risk here, where the individual refers
 in this case to a household. *fileHH* contains only households and has
 no hierarchical structure. In Step 6b, we evaluate the hierarchical risk
@@ -953,7 +769,8 @@ and as such will not be used simultaneously for matching.
 
 To measure the risk of the continuous variables, we use an interval
 measure, which measures the number of anonymized values that are too
-close to their original values. See Section 4.7.2 for more information
+close to their original values. See the Section `Interval measure <measure_risk.html#Interval measure>`__
+for more information
 on interval-based risk measures for continuous variables. This measure
 is an ex-post measure, meaning that the risk can be evaluated only after
 anonymization and measures whether the perturbation is sufficiently
@@ -1138,8 +955,9 @@ Therefore, we redo the local suppression, but this time we tell
 variables.
 
 In *sdcMicro* it is possible to tell the algorithm which variables are
-important and less important for making small changes (see also Section
-5.2.2). To prevent HHSIZE being suppressed, we set the importance of
+important and less important for making small changes (see also the Section
+`Local suppression <anon_methods.html#Local suppression>`__). 
+To prevent HHSIZE being suppressed, we set the importance of
 HHSIZE in the importance vectors to the highest (i.e., 1). :numref:`code916`
 shows how to apply local suppression and put importance on the variable
 HHSIZE. The variable REGION is the type of variable that should not have
@@ -1208,7 +1026,8 @@ anonymize these variables, we want to introduce a low level of
 uncertainty in them. Therefore, we decide to use invariant PRAM for the
 variables ROOF, TOILET, WATER, ELECTCON, FUELCOOK, OWNMOTORCYCLE, CAR,
 TV and LIVESTOCK, where we treat LIVESTOCK as a semi-continuous variable
-due to the low number of different values. Section 5.3.1 provides more
+due to the low number of different values. 
+The Section `PRAM (Post RAndomization Method) <anon_methods.html#PRAM (Post RAndomization Method)>`__ provides more
 information on the PRAM method and its implementation in *sdcMicro*.
 :numref:`code917` illustrates how to apply PRAM. We choose the parameter
 *pd*, the lower bound for the probability that a value is not changed,
@@ -1257,7 +1076,8 @@ point *sdcMicro* does not allow the retrieval of the transition matrix).
 
 PRAM has changed values within the variables according to the invariant
 transition matrices. Since we used the invariant PRAM method (see
-Section 5.3.1), the absolute univariate frequencies remain unchanged.
+the Section `PRAM (Post RAndomization Method) <anon_methods.html#PRAM (Post RAndomization Method)>`__), 
+the absolute univariate frequencies remain unchanged.
 This is not the case for the multivariate frequencies. In Step 10a we
 compare the changes in the multivariate frequencies for the PRAMmed
 variables.
@@ -1282,8 +1102,8 @@ least 7. This is shown by the tabulation of the variable LANDSIZEHA
 after manipulation in the last line of :numref:`code918`. In addition, all
 outliers have been removed by top coding the values. This has reduced
 the risk of spontaneous recognition as discussed in Step 6. How to
-recode values in *R* is introduced in Section 5.2.1 and, for this
-particular case, shown in :numref:`code918`.
+recode values in *R* is introduced in the Section `Recoding <anon_methods.html#Recoding>`__ 
+and, for this particular case, shown in :numref:`code918`.
 
 .. code-block:: R
    :linenos:
@@ -1326,13 +1146,14 @@ we decide to use noise addition. To take into account the higher risk of
 outliers, we add a higher level of noise to those.
 
 Adding noise can lead to a transformation of the shape of the
-distribution. Depending on the magnitude of the noise (see Section 5.3.3
+distribution. Depending on the magnitude of the noise (see the Section  
+`Noise addition <anon_methods.html#Noise addition>`__
 for the definition of the magnitude of noise), the values of income can
 also become negative. One way to solve this would be to cut off the
 values below zero and set them to zero. This would, however, destroy the
 properties conserved by noise addition (amongst others the value of the
-expected mean, see also Section 5.3.3) and we chose to keep the negative
-values.
+expected mean, see also the Section `Noise addition <anon_methods.html#Noise addition>`__) 
+and we chose to keep the negative values.
 
 As mentioned before, the aggregates of income and expenditures are the
 sums of the components. Adding noise to each of the components might
@@ -1342,7 +1163,7 @@ components in the data and apply noise addition to each component
 separately. This allows to apply a lower level of noise than when
 applying noise only to the aggregates. A noise level of 0.01 seems to be
 sufficient with extra noise of 0.05 added to the outliers. The outliers
-are defined by a robust Mahalanobis distance (see Section 5.3.3). After
+are defined by a robust Mahalanobis distance (<anon_methods.html#Noise addition>`__). After
 adding noise to the components, we recomputed the aggregates as the sum
 of the perturbed components. 
 
@@ -1423,8 +1244,9 @@ to the noise.
 
 These measures refer only to the categorical variables. To evaluate the
 risk of the continuous variables we could use an interval measure or
-closest neighbor algorithm. These risk measures are discussed in Section
-4.7. We chose to use an interval measure, since exact value matching is
+closest neighbor algorithm. These risk measures are discussed in the Section
+`Risk measures for continuous variables <measure_risk.html#Risk measures for continuous variables>`__. 
+We chose to use an interval measure, since exact value matching is
 not our largest concern based on the assumed scenarios and external data
 sources. Instead, datasets with similar values but not the exact same
 values could be used for matching. Here the main concern is that the
@@ -1435,7 +1257,8 @@ with an interval measure.
 expenditure variables, which are contained in the vector
 *compExp* [#foot72]_. The different values of the parameter
 *k* in the function dRisk() define the size of the interval around the
-original value, as explained in Section 4.7.2\ *.* The larger *k*, the
+original value, as explained in the Section `Interval measure <risk_measure.html#Interval measure>`__. 
+The larger *k*, the
 larger the intervals, the higher the probability that a perturbed value
 is in the interval around the original value and the higher the risk
 measure. The result is satisfactory with relatively small intervals (k =
@@ -1473,7 +1296,8 @@ variables, which has not greatly reduced the validity of the data.
 
 The univariate frequency distributions of the variables ROOF, TOILET,
 WATER, ELECTCON, FUELCOOK, OWNMOTORCYCLE, CAR, TV and LIVESTOCK did not,
-by definition of the invariant PRAM method (see Section 5.3.1), change
+by definition of the invariant PRAM method (see the Section 
+`PRAM (Post RAndomization Method) <anon_methods.html#PRAM (Post RAndomization Method)>`__), change
 to a large extent. The tabulations are presented in :numref:`tab99` (the
 values 1 – 9 and NA in the first row are the values of the variables and
 .m after the variable name refers to the values after anonymization).
@@ -1543,7 +1367,9 @@ coefficient and the confidence interval are based on the positive
 expenditure values. We observe very small changes in the Gini
 coefficient, that are statistically negligible. We use a visualization
 to illustrate the impact on utility of the anonymization. Visualizations
-are discussed in Section 6.4 and the specific *R* code for this case
+are discussed in the Section 
+`Assessing data utility with the help of data visualizations (in R) <utility.html#Assessing data utility with the help of data visualizations (in R)>`__ 
+and the specific *R* code for this case
 study is available in the *R* script. The change in the inequality
 measures is illustrated in :numref:`fig91`, which shows the Lorenz curves
 based on the positive expenditure values before and after anonymization.
@@ -1667,7 +1493,9 @@ for the individual-level variables.
 
 All key variables at the individual level are categorical. Therefore, we
 can use k-anonymity and the individual and global risk measures (see
-Sections 4.5 and 4.8). The hierarchical risk is now of interest, given
+the Sections `Individual risk <measure_risk.html#Individual risk>`__ 
+and `Global risk <measure_risk.html#Global risk>`__). 
+The hierarchical risk is now of interest, given
 the household structure in the dataset *fileCombined*, which includes
 both household- and individual-level variables. The number of
 individuals (absolute and relative) that violate k-anonymity at the
@@ -1740,8 +1568,8 @@ in months for children 0 – 1 years and age in years for individuals over
 1 year). This level of detail leads to a high level of re-identification
 risk, given external datasets with exact age as well as knowledge of the
 exact age of close relatives. We have to reduce the level of detail in
-the age variables by recoding the age values (see Section 5.2.1 on
-recoding). First, we recode the values from 15 to 65 in ten-year
+the age variables by recoding the age values (see the Section 
+`Recoding <anon_methods.html#Recoding>`__ ). First, we recode the values from 15 to 65 in ten-year
 intervals. Since some indicators related to education are computed from
 the survey dataset, our first approach is not to recode the age range 0
 – 15 years. For children under the age of 1 year, we reduce the level of
@@ -1790,7 +1618,7 @@ go back and recode age in the range 1 – 14 years.
 
 In :numref:`code924` we demonstrate how one might experiment with local
 suppression to find the best option. We use local suppression to achieve
-3-anonymity (see Section 5.2.2 on local suppression). On the first
+3-anonymity (see the Section `Local suppression <anon_methods.html#Local suppression>`__ . On the first
 attempt, we do not specify any importance vector; this leads to many
 suppressions in the variable AGEYRS (see :numref:`tab915` below, first row),
 however. This is undesirable from a utility point of view. Therefore, we
@@ -2003,8 +1831,9 @@ The final step is the release of the anonymized dataset together with
 the external report. :numref:`code926` shows how to collect the data from the
 *sdcMicro* object with the extractManipData() function. Before releasing
 the file, we add an individual ID to the file (line number in
-household). We export the anonymized dataset in as *STATA* file. Section
-7.2 presents functions for exporting files in other data formats.
+household). We export the anonymized dataset in as *STATA* file. The Section
+`Read functions in R <sdcMicro.html#Read functions in R>`__ 
+presents functions for exporting files in other data formats.
 
 .. code-block:: R
    :linenos:
@@ -2023,12 +1852,14 @@ household). We export the anonymized dataset in as *STATA* file. Section
 Case study 2 - PUF
 ------------------
 
-This case study is a continuation of case study 1 in Section 9.1. Case
+This case study is a continuation of case study 1 in the Section 
+`Case study 1- SUF`_ . Case
 study 1 produces a SUF file. In this case study we use this SUF file to
 produce a PUF file of the same dataset, which can be freely distributed.
 The structure of the SUF and PUF releases will be the same. However, the
 PUF will contain fewer variables and less (detailed) information than
-the SUF. We refer to Section 9.1 for a description of the dataset.
+the SUF. We refer to the Section `Case study 1- SUF`_
+for a description of the dataset.
 
 .. NOTE:: 
 	It is also possible to directly produce a PUF from a dataset
@@ -2067,7 +1898,8 @@ risk measures, lower accepted risk levels and different SDC methods.
 In order to guarantee consistency between the released PUF and SUF
 files, which is required to prevent intruders from using the datasets
 together (SUF users have also access to the PUF file), we have to use
-the anonymized SUF file to create the PUF file (see also Section 8.3).
+the anonymized SUF file to create the PUF file (see also the Section
+`Step 3: Type of release <process.html#Step 3: Type of release>`__).
 In this way all information in the PUF file is also contained in the
 SUF, and the PUF does not provide additional information to an intruder
 with access to the SUF. We load the required packages to read the data
@@ -2079,7 +1911,7 @@ measures (see Step 5). To evaluate the utility loss in the PUF, we have
 to compare the information in the anonymized PUF file with the
 information in the raw data. For an overview of the data characteristics
 and a description of the variables in both files, we refer to Step 2 of
-case study 1 in Section 9.1.
+`Case study 1- SUF`_ .
 
 .. code-block:: R
    :linenos:
@@ -2173,218 +2005,79 @@ type, country and the dataset itself.
    :widths: auto
    :align: center
 
-   =====  ==============  =============  =======  ============= ========
-    No.   Variable name    Description    Level    Measurement   Values  
-   =====  ==============  =============  =======  ============= ========
-    1      IDH             Household       HH      -             1-2,000   
-                           ID                                              
-    2      IDP             Individua       IND     -             1-13      
-                           l                                               
-                           ID                                              
-    3      REGION          Region          HH      categoric     1-6       
-                                                   al                      
-    4      URBRUR          Area of         HH      categoric     1, 2      
-                           residence               al                      
-    5      WGTHH           Individua       HH      weight        31.2-8495 
-                           l                                     .7        
-                           weighting                                       
-                           coefficie                                       
-                           nt                                              
-    6      WGTPOP          Populatio       IND     weight        45.8-9345 
-                           n                                     2.2       
-                           weighting                                       
-                           coefficie                                       
-                           nt                                              
-    7      HHSIZE          Household       HH      semi-cont     1-33      
-                           size                    inuous                  
-    8      GENDER          Gender          IND     categoric     0, 1      
-                                                   al                      
-    9      REL             Relations       IND     categoric     1-9       
-                           hip                     al                      
-                           to                                              
-                           household                                       
-                           head                                            
-    10     MARITAL         Marital         IND     categoric     1-6       
-                           status                  al                      
-    11     AGEYRS          Age in          IND     semi-cont     0-65      
-                           completed               inuous                  
-                           years                                           
-    12     RELIG           Religion        HH      categoric     1, 5-7, 9 
-                           of                      al                      
-                           household                                       
-                           head                                            
-    13     ATSCHOOL        Currently       IND     categoric     0, 1      
-                           enrolled                al                      
-                           in school                                       
-    14     EDUCY           Highest         IND     categoric     1-6       
-                           level of                al                      
-                           education                                       
-                           attended                                        
-    15     EDYRSCUR        Years of        IND     semi-cont     1-18      
-           AT              education               inuous                  
-                           for                                             
-                           currently                                       
-                           enrolled                                        
-    16     INDUSTRY        Industry        IND     categoric     1-10      
-                           classific               al                      
-                           ation                                           
-                           (1-digit)                                       
-    17     ROOF            Main            IND     categoric     1-5, 9    
-                           material                al                      
-                           used for                                        
-                           roof                                            
-    18     TOILET          Main            HH      categoric     1-4, 9    
-                           toilet                  al                      
-                           facility                                        
-    19     ELECTCON        Electrici       HH      categoric     0-3       
-                           ty                      al                      
-    20     FUELCOOK        Main            HH      categoric     1-5, 9    
-                           cooking                 al                      
-                           fuel                                            
-    21     WATER           Main            HH      categoric     1-9       
-                           source of               al                      
-                           water                                           
-    22     OWNAGLAN        Ownership       HH      categoric     1-3       
-                           of                      al                      
-                           agricultu                                       
-                           ral                                             
-                           land                                            
-    23     LANDSIZE        Land size       HH      continuou     0-40      
-           A               owned by                s                       
-                           household                                       
-                           (ha)                                            
-                           (agric                                          
-                           and non                                         
-                           agric)                                          
-    24     OWNMOTOR        Ownership       HH      categoric     0, 1      
-           YCLE            of                      al                      
-                           motorcycl                                       
-                           e                                               
-    25     CAR             Ownership       HH      categoric     0, 1      
-                           of car                  al                      
-    26     TV              Ownership       HH      categoric     0, 1      
-                           of                      al                      
-                           televisio                                       
-                           n                                               
-    27     LIVESTOC        Number of       HH      semi-cont     0-25      
-                           large-siz               inuous                  
-                           ed                                              
-                           livestock                                       
-                           owned                                           
-    28     INCRMT          Income –        HH      continuou     -         
-                           Remittanc               s                       
-                           es                                              
-    29     INCWAGE         Income -        HH      continuou     -         
-                           Wages and               s                       
-                           salaries                                        
-    30     INCFARMB        Income -        HH      continuou     -         
-           N               Gross                   s                       
-                           income                                          
-                           from                                            
-                           household                                       
-                           farm                                            
-                           businesse                                       
-                           s                                               
-    31     INCNFARM        Income          HH      continuou     -         
-           SN              -Gross                  s                       
-                           income                                          
-                           from                                            
-                           household                                       
-                           nonfarm                                         
-                           businesse                                       
-                           s                                               
-    32     INCRENT         Income -        HH      continuou     -         
-                           Rent                    s                       
-    33     INCFIN          Income -        HH      continuou     -         
-                           Financial               s                       
-    34     INCPENSN        Income -        HH      continuou     -         
-                           Pensions/               s                       
-                           social                                          
-                           assistanc                                       
-                           e                                               
-    35     INCOTHER        Income -        HH      continuou     -         
-                           Other                   s                       
-    36     INCTOTGR        Income -        HH      continuou     -         
-           SSHH            Total                   s                       
-    37     TFOODEXP        Total           HH      continuou     -         
-                           expenditu               s                       
-                           re                                              
-                           on food                                         
-    38     TALCHEXP        Total           HH      continuou     -         
-                           expenditu               s                       
-                           re                                              
-                           on                                              
-                           alcoholic                                       
-                           beverages                                       
-                           ,                                               
-                           tobacco                                         
-                           and                                             
-                           narcotics                                       
-    39     TCLTHEXP        Total           HH      continuou     -         
-                           expenditu               s                       
-                           re                                              
-                           on                                              
-                           clothing                                        
-    40     THOUSEXP        Total           HH      continuou     -         
-                           expenditu               s                       
-                           re                                              
-                           on                                              
-                           housing                                         
-    41     TFURNEXP        Total           HH      continuou     -         
-                           expenditu               s                       
-                           re                                              
-                           on                                              
-                           furnishin                                       
-                           g                                               
-    42     THLTHEXP        Total           HH      continuou     -         
-                           expenditu               s                       
-                           re                                              
-                           on health                                       
-    43     TTRANSEX        Total           HH      continuou     -         
-                           expenditu               s                       
-                           re                                              
-                           on                                              
-                           transport                                       
-    44     TCOMMEXP        Total           HH      continuou     -         
-                           expenditu               s                       
-                           re                                              
-                           on                                              
-                           communica                                       
-                           tion                                            
-    45     TRECEXP         Total           HH      continuou     -         
-                           expenditu               s                       
-                           re                                              
-                           on                                              
-                           recreatio                                       
-                           n                                               
-    46     TEDUEXP         Total           HH      continuou     -         
-                           expenditu               s                       
-                           re                                              
-                           on                                              
-                           education                                       
-    47     TRESHOTE        Total           HH      continuou     -         
-           P               expenditu               s                       
-                           re                                              
-                           on                                              
-                           restauran                                       
-                           ts                                              
-                           and                                             
-                           hotels                                          
-    48     TMISCEXP        Total           HH      continuou     -         
-                           expenditu               s                       
-                           re                                              
-                           on                                              
-                           miscellan                                       
-                           eous                                            
-                           spending                                        
-    49     TANHHEXP        Total           HH      continuou     -         
-                           annual                  s                       
-                           nominal                                         
-                           household                                       
-                           expenditu                                       
-                           res                                             
-   =====  ==============  =============  =======  ============= ========
- 
+   =====  =================  =====================================  =======  ==================  ========================================
+    No.    Variable name      Description                            Level    Measurement         Values  
+   =====  =================  =====================================  =======  ==================  ========================================
+    1      IDH                Household ID                           HH        .                   1-2,000   
+    2      IDP                Individual ID                          IND       .                   1-13                                                                  
+    3      REGION             Region                                 HH        categorical         1-6       
+    4      URBRUR             Area of residence                      HH        categorical         1, 2      
+    5      WGTHH              Individual weighting coefficient       HH        weight              31.2-8495.7 
+    6      WGTPOP             Population weighting coefficient       IND       weight              45.8-93452.2 
+    7      HHSIZE             Household size                         HH        semi-continuous     1-33      
+    8      GENDER             Gender                                 IND       categorical         0, 1      
+    9      REL                Relationship to household head         IND       categorical         1-9       
+    10     MARITAL            Marital status                         IND       categorical         1-6       
+    11     AGEYRS             Age in completed years                 IND       semi-continuous     0-65      
+    12     RELIG              Religion of household head             HH        categorical         1, 5-7, 9 
+    13     ATSCHOOL           Currently enrolled in school           IND       categorical         0, 1      
+    14     EDUCY              Highest                                IND       categorical         1-6       
+                              level of education attended                                                                       
+    15     EDYRSCUR           Years of                               IND       semi-continuous     1-18      
+           AT                 education for currently enrolled                                                                       
+    16     INDUSTRY           Industry                               IND       categorical         1-10      
+                              classification (1-digit)                                                                      
+    17     ROOF               Main                                   IND       categorical         1-5, 9    
+                              material used for roof                                                                           
+    18     TOILET             Main                                   HH        categorical         1-4, 9    
+                              toilet facility                                                                       
+    19     ELECTCON           Electricity                            HH        categorical         0-3       
+    20     FUELCOOK           Main                                   HH        categorical         1-5, 9    
+                              cooking fuel                                                                           
+    21     WATER              Main                                   HH        categorical         1-9       
+                              source of water                                                                          
+    22     OWNAGLAN           Ownership                              HH        categorical         1-3       
+                              of agricultural land                                                                           
+    23     LANDSIZE           Land size owned by household (ha)      HH        continuous          0-40      
+                              (agric and non agric)                                                                         
+    24     OWNMOTORYCLE       Ownership of motorcycle                HH        categorical         0, 1      
+    25     CAR                Ownership of car                       HH        categorical         0, 1      
+    26     TV                 Ownership                              HH        categorical         0, 1      
+                              of television                                                                              
+    27     LIVESTOC           Number of                              HH        semi-continuous     0-25      
+                              large-sized livestock owned                                                             
+    28     INCRMT             Income – Remittances                   HH        continuous                
+    29     INCWAGE            Income - Wages and salaries            HH        continuous                                                                                  
+    30     INCFARMBSN         Income - Gross income                  HH        continuous                 
+                              from household farm businesses                                                                           
+    31     INCNFARMBSN        Income - Gross income from             HH        continuous                 
+                              household nonfarm businesses                                                                   
+    32     INCRENT            Income - Rent                          HH        continuous                
+    33     INCFIN             Income - Financial                     HH        continuous                
+    34     INCPENSN           Income - Pensions/social assistance    HH        continuous                
+    35     INCOTHER           Income - Other                         HH        continuous                
+    36     INCTOTGROSHH       Income - Total                         HH        continuous                
+    37     FARMEMP                                                                                       
+    38     TFOODEXP           Total expenditure on food              HH        continuous  
+    39     TALCHEXP           Total expenditure on alcoholic         HH        continuous                                                                             
+                              beverages, tobacco and narcotics                                                                   
+    40     TCLTHEXP           Total expenditure on clothing          HH        continuous                                                                            
+    41     THOUSEXP           Total expenditure on housing           HH        continuous                                                                              
+    42     TFURNEXP           Total expenditure on furnishing        HH        continuous                                                                                
+    43     THLTHEXP           Total expenditure on health            HH        continuous                                                                           
+    43     TTRANSEXP          Total expenditure on transport         HH        continuous                                                                           
+    44     TCOMMEXP           Total expenditure on communication     HH        continuous                                                                                  
+    45     TRECEXP            Total expenditure on recreation        HH        continuous                                                                                       
+    46     TEDUEXP            Total expenditure on education         HH        continuous                                                                            
+    47     TRESHOTEXP         Total expenditure on restaurants       HH        continuous                                                                                      
+                              and hotels                                                                      
+    48     TMISCEXP           Total expenditure on                   HH        continuous                                                                                      
+                              miscellaneous spending                                                                    
+    49     TANHHEXP           Total annual nominal household         HH        continuous                                                                             
+                              expenditures                                                                     
+   =====  =================  =====================================  =======  ==================  ========================================
+   
+                      
 It is always important to ensure that the relationships between
 variables in the data are preserved during the anonymization process and
 to explore and take note of these relationships before beginning the
@@ -2412,7 +2105,7 @@ preserved in the anonymization process.
 We assume that the data are collected in a survey that uses simple
 sampling of households. The data contains two weight coefficients:
 “WGTHH” and “WGTPOP”. The relationship between the weights is
-:math:`WGTPOP\  = \ WGTHH\ *\ HHSIZE`. “WGTPOP” is the sampling weight
+:math:`WGTPOP = WGTHH * HHSIZE`. “WGTPOP” is the sampling weight
 for the households and “WGTHH” is the sampling weight for the
 individuals to be used for disclosure risk calculations. “WGTHH” is used
 for computing individual-level indicators (such as education) and
@@ -2425,7 +2118,8 @@ will use “WGTPOP” for the anonymization of the household variables and
 
 In this case study, we assume that the file will be released as a PUF,
 which will be freely available to anyone interested in the data (see
-Section 3.1 for the conditions and more information on the release of
+the Section `Conditions for PUFs <release_types.html#Conditions for PUFs `__ 
+for the conditions and more information on the release of
 PUFs). The PUF release is intended for users with lower information
 requirements (e.g., students) and researchers interested in the
 structure of the data and willing to do preliminary research. The PUF
@@ -2569,7 +2263,9 @@ SUF release, we protected large households by removing these from the
 dataset. Since some variables are measured on the household level and
 thus have identical values for each household member, the values of the
 household variables should be treated in the same way for each household
-member (see Section 5.5). Therefore, we first anonymize only the
+member (see the Section
+`Anonymization of the quasi-identifier household size <anon_methods.html#Anonymization of the quasi-identifier household size>`__
+). Therefore, we first anonymize only the
 household variables. After this, we merge them with the individual-level
 variables and then anonymize the individual-level and household-level
 variables jointly.
@@ -2580,7 +2276,8 @@ variables and Steps 6b through 10b for the combined dataset. In this
 way, we ensure that household-level variable values remain consistent
 across household members for each household and the household structure
 cannot be used to re-identify individuals. This is further explained in
-Sections 4.4 and 7.6.
+the Sections `Levels of risk <measure_risk.html#Levels of risk>`__ 
+and `Household structure <sdcMicro.html#Household structure>`__.
 
 Before continuing to Step 6a, we select the categorical key variables,
 continuous key variables and any variables selected for use in PRAM
@@ -2590,7 +2287,8 @@ The PRAM variables are variables select for the PRAM routine, which we
 discuss further in Step 8a. We extract these selected household
 variables from the SUF dataset and save them as “fileHH”. The choice of
 PRAM variables is further explained in Step 8a. :numref:`code929` illustrates
-how these steps are done in *R* (see also Section 7.6).
+how these steps are done in *R* (see also the Section 
+`Household structure <sdcMicro.html#Household structure>`__).
 
 .. code-block:: R
    :linenos:
@@ -2618,7 +2316,8 @@ Every household has the same number of entries as it has members (e.g.,
 a household of three will be repeated three times in “fileHH”). Before
 analyzing the household-level variables, we select only one entry per
 household, as illustrated in :numref:`code930`. This is further explained in
-Section 7.6. In the same way we extract “fileOrigHH” from “fileOrig”.
+the Section `Household structure <sdcMicro.html#Household structure>`__. 
+In the same way we extract “fileOrigHH” from “fileOrig”.
 “fileOrigHH” contains all variables from the raw data, but contains
 every household only once. We need “fileOrigHH” in Steps 8a and 10a for
 undoing some perturbative methods used in the SUF file and computing
@@ -2743,8 +2442,10 @@ large households for the SUF release.
    fileHH[sdcHH@risk$individual[,2] < 5, selectedKeyVarsHH] # for 5-anonymity
 
 We also assess the disclosure risk of the categorical variables with the
-individual and global risk measures as described in Sections 4.5 and
-4.8. In “fileHH” every entry represents a household. Therefore, we use
+individual and global risk measures as described in the Sections 4.5 
+`Individual risk <measure_risk.html#Individual risk>`__ 
+and `Global risk <measure_risk.html#Global risk>`__. 
+In “fileHH” every entry represents a household. Therefore, we use
 the individual non-hierarchical risk here, where the individual refers
 in this case to a household. “fileHH” is a subset of the complete
 dataset and contains only households and has, contrary to the complete
@@ -2881,8 +2582,9 @@ values of the variable “HHSIZE”, remove large households or split
 households.
 
 In *sdcMicro* it is possible to tell the algorithm which variables are
-important and less important for making small changes (see also Section
-5.2.2). To prevent values of the variable “HHSIZE” being suppressed, we
+important and less important for making small changes (see also the Section
+`Local suppression <anon_methods.html#Local suppression>`__). 
+To prevent values of the variable “HHSIZE” being suppressed, we
 set the importance of “HHSIZE” in the importance vectors to the highest
 (i.e., 1). We try two different importance vectors: the first where
 “REGION” is more important than “URBRUR” and the second with the
@@ -2976,7 +2678,8 @@ matching. Values can be easily observed or be known to neighbors,
 however, and therefore are important, together with other variables, for
 the nosy neighbor scenario. For the PUF release we would like to level
 of uncertainty by increasing the number of changes. Therefore, we redo
-PRAM with a different transition matrix. As discussed in Section 5.3.1,
+PRAM with a different transition matrix. As discussed in Section
+`PRAM (Post RAndomization Method) <anon_methods.html#PRAM (Post RAndomization Method)>`__,
 the invariant PRAM method has the property that the univariate
 distributions do not change. To maintain this property, we reapply PRAM
 to the raw data, rather than to the already PRAMmed variables in the SUF
@@ -2994,7 +2697,7 @@ per variables. Because PRAM is a probabilistic method, we set a seed for
 the random number generator before applying PRAM to ensure
 reproducibility of the results. 
 
-.. Note:: 
+.. NOTE:: 
 	In some cases the choice of the seed matters. The choice of seed changes the results.
 	
 The seed should not be released, since it allows for reconstructing the original values
@@ -3030,7 +2733,8 @@ transition matrix).
 
 PRAM has changed values within the variables according to the invariant
 transition matrices. Since we used the invariant PRAM method (see
-Section 5.3.1), the absolute univariate frequencies remain approximately
+the Section `PRAM (Post RAndomization Method) <anon_methods.html#PRAM (Post RAndomization Method)`__), 
+the absolute univariate frequencies remain approximately
 unchanged. This is not the case for the multivariate frequencies. In
 Step 10a we compare the multivariate frequencies before and after
 anonymization for the PRAMmed variables.
@@ -3054,7 +2758,8 @@ data and replace the values for total income and total expenditures with
 the mean of the respective decile. In this way the mean of both
 variables does not change. This approach can be interpreted as
 univariate microaggregation with very large groups (group size n/10)
-with the mean as replacement value (see Section 5.3.2).
+with the mean as replacement value (see Section 5.3.2 
+`Microaggregation <anon_methods.html#Microaggregation>`__).
 
 The information in the income and expenditure variables by component is
 too sensitive to release as PUF, and, summing those variables would
@@ -3116,8 +2821,9 @@ the correct household, due to the noise in these variables.
 
 These measures refer only to the categorical variables. To evaluate the
 risk of the continuous variables we could use an interval measure or
-closest neighbor algorithm. These risk measures are discussed in Section
-4.7. We chose to use an interval measure, since exact value matching is
+closest neighbor algorithm. These risk measures are discussed in the Section
+`Risk measures for continuous variables <measure_risk.html#Risk measures for continuous variables>`__. 
+We chose to use an interval measure, since exact value matching is
 not our largest concern based on the assumed scenarios and external data
 sources. Instead, datasets with similar values but not the exact same
 values could be used for matching. Here the main concern is that the
@@ -3128,7 +2834,8 @@ with an interval measure.
 variables “INCTOTGROSSHH” and “TANHHEXP” (total income and expenditure).
 The different values of the parameter :math:`k` in the function dRisk()
 define the size of the interval around the original value as a function
-of the standard deviation, as explained in Section 4.7.2\ *.* The larger
+of the standard deviation, as explained in the Section 
+`Interval measure <measure_risk.html#Interval measure>`__ . The larger
 :math:`k`, the larger the intervals, the higher the probability that a
 perturbed value is in the interval around the original value and the
 higher the risk measure. The results are satisfactory, especially when
@@ -3214,7 +2921,7 @@ the individual-level variables. We create the *sdcMicro* object for the
 anonymization of the individual variables in the same way as for the
 household variable in :numref:`code931`. Generally, at this stage, the
 household level and individual level variables should be combined and
-quasi-identifiers at both levels be used (see Section 4.4).
+quasi-identifiers at both levels be used (see the Section `Levels of risk <measur_risk.html#Levels of risk>`__).
 Unfortunately, in our dataset, this leads to long computation times.
 Therefore, we create two *sdcMicro* objects, one with all key variables
 (“sdcCombinedAll”) and one with only the individual level key variables
@@ -3635,7 +3342,8 @@ kept in the PUF file.
 *Using different options for local suppression*
 
 The long running time is mainly due to the local suppression algorithm.
-In Section 5.2.2 we discuss options to reduce the running time of the
+In the Section `Local suppression <anon_methods.html#Local suppression>`__ 
+we discuss options to reduce the running time of the
 local suppression in case of many key variables. The all-\ :math:`m`
 approach reduces the running time by first considering subsets of the
 complete set of key variables. This reduces the complexity of the
@@ -3728,8 +3436,8 @@ in case study 1.
 
 The final step is the release of the anonymized dataset together with
 the external report. :numref:`code946` shows how to export the anonymized
-dataset as *STATA* file. Section 7.2 presents functions for exporting
-files in other data formats.
+dataset as *STATA* file. The Section `Read functions in R <sdcMicro.html#Read functions in R>`__ 
+presents functions for exporting files in other data formats.
 
 .. code-block:: R
    :linenos:
@@ -3742,7 +3450,8 @@ files in other data formats.
 
 .. [#foot71]
    Other methods and guidance on treating datasets where household size
-   is a quasi-identifier are discussed in Section 5.5.
+   is a quasi-identifier are discussed in the Section
+   `Anonymization of the quasi-identifier household size <anon_methods.html#Anonymization of the quasi-identifier household size>`__.
 
 .. [#foot72]
    For illustrative purposes, we only show this evaluation for the
