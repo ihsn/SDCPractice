@@ -116,10 +116,12 @@ common development indicators. We used the experience from this
 large-scale experimentation to inform our discussion of the processes
 and methods in this guide.
 
-**Important:** At no point was any attempt made to re-identify, through
-matching or any other method, any respondents in the surveys we used in
-building our knowledge base. All risk assessments were based on
-frequencies and probabilities.
+.. admonition:: Important
+
+	At no point was any attempt made to re-identify, through
+	matching or any other method, any respondents in the surveys we used in
+	building our knowledge base. All risk assessments were based on
+	frequencies and probabilities.
 
 Using this guide
 ----------------
@@ -143,9 +145,7 @@ For the examples in this guide, we use the open source and free package
 for SDC called *sdcMicro* as well as the statistical software *R*.
 *sdcMicro* is an add-on package to the statistical software *R*. The
 package was developed and is maintained by Matthias Templ, Alexander
-Kowarik and Bernhard Meindl. `See and the GitHub of the developers. The
-GitHub repository can also be used to submit bugs found in the
-package. [#foot14]_ The statistical software *R* and the *sdcMicro*
+Kowarik and Bernhard Meindl. [#foot14]_ The statistical software *R* and the *sdcMicro*
 package, as well as any other packages needed for the SDC process, are
 freely available from the Comprehensive R Archive Network (CRAN) mirrors
 (http://cran.r-project.org/). The software is available for Linux,
@@ -219,7 +219,9 @@ This guide is divided into the following main sections:
    policies.
 
 .. [#foot14]
-   http://cran.r-project.org/web/packages/sdcMicro/index.html\ \ \ https://github.com/alexkowa/sdcMicro
+   See http://cran.r-project.org/web/packages/sdcMicro/index.html and the GitHub
+   https://github.com/sdcTools/sdcMicro of the developers. The
+   GitHub repository can also be used to submit bugs found in the package.
 
 .. [#foot15]
    μ-ARGUS is available at: http://neon.vb.cbs.nl/casc/mu.htm. The

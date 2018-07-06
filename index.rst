@@ -18,7 +18,6 @@ Statistical Disclosure Control for Microdata: A Practice Guide
    appendices
    acknowledgements
 
-     
 .. toctree::
    :maxdepth: 2
    :caption: Case studies

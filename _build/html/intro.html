@@ -271,10 +271,13 @@ have on the risk-utility trade-off for microdata produced to measure
 common development indicators. We used the experience from this
 large-scale experimentation to inform our discussion of the processes
 and methods in this guide.</p>
-<p><strong>Important:</strong> At no point was any attempt made to re-identify, through
+<div class="admonition-important admonition">
+<p class="first admonition-title">Important</p>
+<p class="last">At no point was any attempt made to re-identify, through
 matching or any other method, any respondents in the surveys we used in
 building our knowledge base. All risk assessments were based on
 frequencies and probabilities.</p>
+</div>
 </div>
 <div class="section" id="using-this-guide">
 <h2>1.2. Using this guide<a class="headerlink" href="#using-this-guide" title="Permalink to this headline">¶</a></h2>
@@ -295,9 +298,7 @@ program the methods in statistical software of their choice.</p>
 for SDC called <em>sdcMicro</em> as well as the statistical software <em>R</em>.
 <em>sdcMicro</em> is an add-on package to the statistical software <em>R</em>. The
 package was developed and is maintained by Matthias Templ, Alexander
-Kowarik and Bernhard Meindl. <a href="#id2"><span class="problematic" id="id3">`</span></a>See and the GitHub of the developers. The
-GitHub repository can also be used to submit bugs found in the
-package. <a class="footnote-reference" href="#foot14" id="id4">[2]</a> The statistical software <em>R</em> and the <em>sdcMicro</em>
+Kowarik and Bernhard Meindl. <a class="footnote-reference" href="#foot14" id="id2">[2]</a> The statistical software <em>R</em> and the <em>sdcMicro</em>
 package, as well as any other packages needed for the SDC process, are
 freely available from the Comprehensive R Archive Network (CRAN) mirrors
 (<a class="reference external" href="http://cran.r-project.org/">http://cran.r-project.org/</a>). The software is available for Linux,
@@ -311,17 +312,17 @@ we support.</p>
 implementing the SDC process. Our concern is more with providing
 practical insight into the application of the methods. We would,
 however, like to highlight one particular other software package that is
-commonly used by agencies: μ-ARGUS <a class="footnote-reference" href="#foot15" id="id5">[3]</a>. μ-ARGUS is
+commonly used by agencies: μ-ARGUS <a class="footnote-reference" href="#foot15" id="id3">[3]</a>. μ-ARGUS is
 developed by Statistics Netherlands. <em>sdcMicro</em> and μ-ARGUS are both
 widely used in statistics offices in the European Union and implement
 many of the same methods.</p>
 <p>The user needs some knowledge of <em>R</em> to use <em>sdcMicro</em>. It is beyond the
 scope of this guide to teach the use of <em>R</em>, but we do provide
 throughout the guide code examples on how to implement the necessary
-routines in <em>R</em>. <a class="footnote-reference" href="#foot16" id="id6">[4]</a> We also present a number of case
+routines in <em>R</em>. <a class="footnote-reference" href="#foot16" id="id4">[4]</a> We also present a number of case
 studies that include the code for the anonymization of a number of demo
 datasets using <em>R</em>. Through these case studies, we demonstrate a number
-of approaches to the anonymization process in <em>R</em>. <a class="footnote-reference" href="#foot17" id="id7">[5]</a></p>
+of approaches to the anonymization process in <em>R</em>. <a class="footnote-reference" href="#foot17" id="id5">[5]</a></p>
 </div>
 <div class="section" id="outline-of-this-guide">
 <h2>1.3. Outline of this guide<a class="headerlink" href="#outline-of-this-guide" title="Permalink to this headline">¶</a></h2>
@@ -367,20 +368,22 @@ policies.</td></tr>
 <table class="docutils footnote" frame="void" id="foot14" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id4">[2]</a></td><td><a class="reference external" href="http://cran.r-project.org/web/packages/sdcMicro/index.html">http://cran.r-project.org/web/packages/sdcMicro/index.html</a><a class="reference external" href="https://github.com/alexkowa/sdcMicro">https://github.com/alexkowa/sdcMicro</a></td></tr>
+<tr><td class="label"><a class="fn-backref" href="#id2">[2]</a></td><td>See <a class="reference external" href="http://cran.r-project.org/web/packages/sdcMicro/index.html">http://cran.r-project.org/web/packages/sdcMicro/index.html</a> and the GitHub
+<a class="reference external" href="https://github.com/sdcTools/sdcMicro">https://github.com/sdcTools/sdcMicro</a> of the developers. The
+GitHub repository can also be used to submit bugs found in the package.</td></tr>
 </tbody>
 </table>
 <table class="docutils footnote" frame="void" id="foot15" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id5">[3]</a></td><td>μ-ARGUS is available at: <a class="reference external" href="http://neon.vb.cbs.nl/casc/mu.htm">http://neon.vb.cbs.nl/casc/mu.htm</a>. The
+<tr><td class="label"><a class="fn-backref" href="#id3">[3]</a></td><td>μ-ARGUS is available at: <a class="reference external" href="http://neon.vb.cbs.nl/casc/mu.htm">http://neon.vb.cbs.nl/casc/mu.htm</a>. The
 software was recently ported to open source.</td></tr>
 </tbody>
 </table>
 <table class="docutils footnote" frame="void" id="foot16" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id6">[4]</a></td><td>There are many free resources for learning <em>R</em> available on the web.
+<tr><td class="label"><a class="fn-backref" href="#id4">[4]</a></td><td>There are many free resources for learning <em>R</em> available on the web.
 One place to start would be the CRAN <em>R</em> Project page:
 <a class="reference external" href="http://cran.r-project.org/other-docs.html">http://cran.r-project.org/other-docs.html</a></td></tr>
 </tbody>
@@ -388,7 +391,7 @@ One place to start would be the CRAN <em>R</em> Project page:
 <table class="docutils footnote" frame="void" id="foot17" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id7">[5]</a></td><td>The developers of <em>sdcMicro</em> have also developed a graphical user
+<tr><td class="label"><a class="fn-backref" href="#id5">[5]</a></td><td>The developers of <em>sdcMicro</em> have also developed a graphical user
 interface (GUI) for the package, which is contained in the <em>sdcMicro</em> package available from the CRAN mirrors. The GUI,
 however, does not implement the full functionality of the <em>sdcMicro</em>
 package and is not discussed in this guide. The GUI can be called after loading sdcMicro by typing sdcApp() at the prompt.</td></tr>

@@ -409,7 +409,8 @@ Appendix C: Internal and External Reports for Case Studies
 -----------------------------------------------------------------------------------
 
 This appendix provides example for internal and external reports on the
-anonymization process for the case studies in Section 9.1. The internal
+anonymization process for the case studies in the Section 
+`Case studies <case_studies.html>`__. The internal
 report consists of two parts: the first is on the anonymization of the
 household-level variables and the second is on the anonymization of the
 individual-level variables.

@@ -242,11 +242,10 @@ individual data values.</p>
 variables described in the following paragraphs (see <a class="reference internal" href="#fig24"><span class="std std-numref">Fig. 5.1</span></a>
 for an overview). The initial classification of variables into identifying and
 non-identifying variables depends on the way the variables can be used
-by intruders for re-identification (<a class="reference internal" href="#hdfg12">HDFG12</a>, <a href="#id21"><span class="problematic" id="id22">`TeMK14`_</span></a>):</p>
-<ul>
-<li><p class="first"><strong>Identifying variables:</strong> these contain information that can lead to
-the identification of respondents and can be further categorized as:</p>
+by intruders for re-identification (<a class="reference internal" href="#hdfg12">HDFG12</a>, <a class="reference internal" href="#temk14">TeMK14</a>):</p>
 <ul class="simple">
+<li><strong>Identifying variables:</strong> these contain information that can lead to
+the identification of respondents and can be further categorized as:<ul>
 <li><strong>Direct identifiers</strong> reveal directly and unambiguously the
 identity of the respondent. Examples are names, passport numbers,
 social identity numbers and addresses. Direct identifiers should
@@ -262,9 +261,9 @@ external information or data. Examples of quasi-identifiers are
 race, birth date, sex and ZIP/postal codes, which might be easily
 combined or linked to publically available external information
 and make identification possible. The combinations of values of
-several quasi-identifiers are called keys (see also <a class="reference internal" href="#levels-of-risk">Levels of Risk</a>).
+several quasi-identifiers are called keys (see also the section <a class="reference internal" href="#levels-of-risk">Levels of Risk</a>).
 The values of quasi-identifiers themselves often do not lead to
-identification (e.g. male/female), but a combination of several
+identification (e.g., male/female), but a combination of several
 values of quasi-identifier can render a record unique (e.g. male,
 14 years, married) and hence identifiable. It is not generally
 advisable to simply remove quasi-identifiers from the data to
@@ -276,14 +275,15 @@ anonymizing them while still maintaining the information in the
 dataset for release.</li>
 </ul>
 </li>
-<li><p class="first"><strong>Non-identifying</strong> variables are variables that cannot be used for
+<li><strong>Non-identifying</strong> variables are variables that cannot be used for
 re-identification of respondents. This could be because these
 variables are not contained in any other data files or other external
 sources and are not observable to an intruder. Non-identifying
 variables are nevertheless important in the SDC process, since they
 may contain confidential/sensitive information, which may prove
 damaging should disclosure occur as a result of identity disclosure
-based on identifying variables.</p>
+based on identifying variables.</li>
+</ul>
 <p>These classifications of variables depend partially on the
 availability of external datasets that might contain information
 that, when combined with the current data, could lead to disclosure.
@@ -294,9 +294,7 @@ process is to define a list of possible disclosure scenarios based on
 how the quasi-identifiers might be combined with each other and
 information in external datasets and then treating the data to
 prevent disclosure. We discuss disclosure scenarios in more detail in
-<a class="reference internal" href="#disclosure-scenarios">Disclosure scenarios</a>.</p>
-</li>
-</ul>
+the section <a class="reference internal" href="#disclosure-scenarios">Disclosure scenarios</a>.</p>
 <p>For the SDC process, it is also useful to further classify the
 quasi-identifiers into <strong>categorical</strong>, <strong>continuous</strong> and
 <strong>semi-continuous</strong> variables. This classification is important for
@@ -447,10 +445,10 @@ re-identification of the other household members in the same household,</li>
 <li>values of variables for other household members that are common for
 all household members can be used for re-identification of another
 individual of the same household. This is discussed in more detail in
-<a class="reference internal" href="#household-risk">Household Risk</a>.</li>
+the Section <a class="reference internal" href="#household-risk">Household Risk</a>.</li>
 </ol>
 </div></blockquote>
-<p>In the following pages, we first discuss risk measures used to evaluate
+<p>Next, we first discuss risk measures used to evaluate
 disclosure risk in the absence of a hierarchical structure. This
 includes risk measures that seek to aggregate the individual risk for
 all individuals in the microdata file; the objective is to quantify a
@@ -486,9 +484,9 @@ conservative risk measures may overstate the risk as they assume a
 worst-case scenario. Two assumptions should, however, be fulfilled for
 the risk measures to be valid and meaningful; the microdata should be a
 sample of a larger population (no census) and the sampling weights
-should be available. <a class="reference external" href="anon_methods.html#Specialcase:censusdata">Special case: census data</a>
-briefly discusses how to deal with
-census data.</p>
+should be available. The Section
+<a class="reference external" href="anon_methods.html#Specialcase:censusdata">Special case: census data</a>
+briefly discusses how to deal with census data.</p>
 </div>
 <div class="section" id="individual-risk">
 <h2>5.5. Individual risk<a class="headerlink" href="#individual-risk" title="Permalink to this headline">¶</a></h2>
@@ -512,12 +510,12 @@ data, we find seven unique combinations of values of quasi-identifiers
 (i.e., patterns or keys) of the four quasi-identifiers. Examples of keys
 are {‘urban’, ‘female’, ‘secondary incomplete’, ‘employed’} and
 {‘urban’, ‘female’, ‘primary incomplete’, ‘non-LF’}. Let <span class="math notranslate nohighlight">\(f_{k}\)</span>
-be the sample frequency of the <em>k</em><sup>th</sup> key, i.e., the number of
+be the sample frequency of the <span class="math notranslate nohighlight">\(k\)</span><sup>th</sup> key, i.e., the number of
 individuals in the sample with values of the quasi-identifiers that
-coincide with the <em>k</em><sup>th</sup> key. This would be 2 for the key
+coincide with the <span class="math notranslate nohighlight">\(k\)</span><sup>th</sup> key. This would be 2 for the key
 {urban, female, secondary incomplete, employed}, since this key is
-shared by individuals 1 and 2 and 1 for the key (‘urban’, ‘female’,
-‘primary incomplete’, ‘non-LF’), which is unique to individual 3. By
+shared by individuals 1 and 2 and 1 for the key {‘urban’, ‘female’,
+‘primary incomplete’, ‘non-LF’}, which is unique to individual 3. By
 definition, <span class="math notranslate nohighlight">\(f_{k}\)</span> is the same for each record sharing a
 particular key.</p>
 <p>The fewer the individuals with whom an individual shares his or her
@@ -542,8 +540,8 @@ frequency.</p>
 <th class="head">Education level</th>
 <th class="head">Labor status</th>
 <th class="head">Weight</th>
-<th class="head">f_k</th>
-<th class="head">F_k</th>
+<th class="head"><span class="math notranslate nohighlight">\(f_{k}\)</span></th>
+<th class="head"><span class="math notranslate nohighlight">\(F_{k}\)</span></th>
 <th class="head">risk</th>
 </tr>
 </thead>
@@ -666,7 +664,7 @@ function freq() displays the sample frequency for the keys constructed
 on a defined set of quasi-identifiers. <a class="reference internal" href="#code41"><span class="std std-numref">Listing 5.1</span></a> corresponds to the
 data in <a class="reference internal" href="#tab41"><span class="std std-numref">Table 5.1</span></a>.</p>
 <div class="literal-block-wrapper docutils container" id="code41">
-<div class="code-block-caption"><span class="caption-number">Listing 5.1 </span><span class="caption-text">Calculating <span class="math notranslate nohighlight">\(\mathbf{f}_{\mathbf{k}}\)</span> using <em>sdcMicro</em></span><a class="headerlink" href="#code41" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 5.1 </span><span class="caption-text">Calculating <span class="math notranslate nohighlight">\(f_{k}\)</span> using <em>sdcMicro</em></span><a class="headerlink" href="#code41" title="Permalink to this code">¶</a></div>
 <div class="highlight-R notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3</pre></div></td><td class="code"><div class="highlight"><pre><span></span> <span class="c1"># Frequency of the particular combination of key variables (keys) for each record in the sample</span>
@@ -687,12 +685,12 @@ individual <span class="math notranslate nohighlight">\(i\)</span></p>
 <div class="math notranslate nohighlight">
 \[F_{k} = \sum_{i|key\ of\ individual\ i\ corresponds\ to\ key\ k}^{}w_{i}\]</div>
 <p><span class="math notranslate nohighlight">\(F_{k}\)</span> is the sum of the sample weights of all records with the
-same key <em>k</em>. Hence, like <span class="math notranslate nohighlight">\(f\)</span> is, <span class="math notranslate nohighlight">\(F_{k}\)</span> is the same for
-each record with key <em>k</em>. The risk of correct re-identification is the
+same key <span class="math notranslate nohighlight">\(k\)</span>. Hence, like <span class="math notranslate nohighlight">\(f_{k}\)</span>, <span class="math notranslate nohighlight">\(F_{k}\)</span> is the same for
+each record with key <span class="math notranslate nohighlight">\(k\)</span>. The risk of correct re-identification is the
 probability that the key is matched to the correct individual in the
 population. Since every individual in the sample with key <span class="math notranslate nohighlight">\(k\)</span>
 corresponds to <span class="math notranslate nohighlight">\(F_{k}\)</span> individuals in the population, the
-probability of correct re-identification is <span class="math notranslate nohighlight">\(1/F_{k}.\ \)</span>This is
+probability of correct re-identification is <span class="math notranslate nohighlight">\(1/F_{k}\)</span>. This is
 the probability of re-identification in the worst-case scenario and can
 be interpreted as disclosure risk. Individuals with the same key have
 the same frequencies, i.e., the frequency of the key.</p>
@@ -700,13 +698,14 @@ the same frequencies, i.e., the frequency of the key.</p>
 population unique and the disclosure risk would be 1. Population uniques
 are an important factor to consider when evaluating risk, and deserve
 special attention. <a class="reference internal" href="#tab41"><span class="std std-numref">Table 5.1</span></a> also shows <span class="math notranslate nohighlight">\(F_{k}\)</span> for the example
-dataset. This is further discussed in the case studies in Chapter 9.</p>
+dataset. This is further discussed in the case studies the Section
+<a class="reference external" href="case_studies.html">Case Studies</a>.</p>
 <p>Besides <span class="math notranslate nohighlight">\(f_{k}\)</span>, the sample frequency of key
 <span class="math notranslate nohighlight">\(k\)</span> (i.e., the number of individuals in the sample with
 the combination of quasi-identifiers corresponding to the combination
 specified in key <span class="math notranslate nohighlight">\(k\)</span>) and <span class="math notranslate nohighlight">\(F_{k}\)</span>, the estimated population
 frequency of key <span class="math notranslate nohighlight">\(k\)</span>, can be displayed in <em>sdcMicro</em>. <a class="reference internal" href="#code42"><span class="std std-numref">Listing 5.2</span></a>
-illustrates how to return lists of length <em>n</em> of frequencies for all
+illustrates how to return lists of length <span class="math notranslate nohighlight">\(n\)</span> of frequencies for all
 individuals. The frequencies are displayed for each individual and not
 for each key.</p>
 <div class="literal-block-wrapper docutils container" id="code42">
@@ -743,7 +742,7 @@ variables and is referred to as individual risk. The values
 for the individuals or as the probability for a successful match with
 individuals chosen at random from an external data file with the same
 values of the key variables. This risk measure is based on certain
-assumptions` <a class="footnote-reference" href="#foot26" id="id6">[6]</a>, which are strict and may lead to a
+assumptions <a class="footnote-reference" href="#foot26" id="id6">[6]</a>, which are strict and may lead to a
 relatively conservative risk measure. In <em>sdcMicro</em>, the risk measure
 <span class="math notranslate nohighlight">\(r_{k}\)</span> is automatically computed when creating an <em>sdcMicro</em>
 object and saved in the “risk” slot <a class="footnote-reference" href="#foot27" id="id7">[7]</a>. <a class="reference internal" href="#code43"><span class="std std-numref">Listing 5.3</span></a>
@@ -762,18 +761,20 @@ example. The risk measures are also presented in <a class="reference internal" h
  9
 10
 11
-12</pre></div></td><td class="code"><div class="highlight"><pre><span></span>     sdcInitial<span class="o">@</span>risk<span class="o">$</span>individual risk fk Fk
+12
+13</pre></div></td><td class="code"><div class="highlight"><pre><span></span>     sdcInitial<span class="o">@</span>risk<span class="o">$</span>individual
 
-     <span class="p">[</span><span class="m">1</span><span class="p">,]</span> <span class="m">0.005424520</span> <span class="m">2</span> <span class="m">360</span>
-     <span class="p">[</span><span class="m">2</span><span class="p">,]</span> <span class="m">0.005424520</span> <span class="m">2</span> <span class="m">360</span>
-     <span class="p">[</span><span class="m">3</span><span class="p">,]</span> <span class="m">0.025096439</span> <span class="m">1</span> <span class="m">215</span>
-     <span class="p">[</span><span class="m">4</span><span class="p">,]</span> <span class="m">0.012563425</span> <span class="m">2</span> <span class="m">152</span>
-     <span class="p">[</span><span class="m">5</span><span class="p">,]</span> <span class="m">0.028247279</span> <span class="m">1</span> <span class="m">186</span>
-     <span class="p">[</span><span class="m">6</span><span class="p">,]</span> <span class="m">0.012563425</span> <span class="m">2</span> <span class="m">152</span>
-     <span class="p">[</span><span class="m">7</span><span class="p">,]</span> <span class="m">0.029010932</span> <span class="m">1</span> <span class="m">180</span>
-     <span class="p">[</span><span class="m">8</span><span class="p">,]</span> <span class="m">0.025096439</span> <span class="m">1</span> <span class="m">215</span>
-     <span class="p">[</span><span class="m">9</span><span class="p">,]</span> <span class="m">0.007403834</span> <span class="m">2</span> <span class="m">262</span>
-     <span class="p">[</span><span class="m">10</span><span class="p">,]</span> <span class="m">0.007403834</span> <span class="m">2</span> <span class="m">262</span>
+              risk           fk    Fk
+     <span class="p">[</span><span class="m">1</span><span class="p">,]</span>     <span class="m">0.005424520</span>    <span class="m">2</span>     <span class="m">360</span>
+     <span class="p">[</span><span class="m">2</span><span class="p">,]</span>     <span class="m">0.005424520</span>    <span class="m">2</span>     <span class="m">360</span>
+     <span class="p">[</span><span class="m">3</span><span class="p">,]</span>     <span class="m">0.025096439</span>    <span class="m">1</span>     <span class="m">215</span>
+     <span class="p">[</span><span class="m">4</span><span class="p">,]</span>     <span class="m">0.012563425</span>    <span class="m">2</span>     <span class="m">152</span>
+     <span class="p">[</span><span class="m">5</span><span class="p">,]</span>     <span class="m">0.028247279</span>    <span class="m">1</span>     <span class="m">186</span>
+     <span class="p">[</span><span class="m">6</span><span class="p">,]</span>     <span class="m">0.012563425</span>    <span class="m">2</span>     <span class="m">152</span>
+     <span class="p">[</span><span class="m">7</span><span class="p">,]</span>     <span class="m">0.029010932</span>    <span class="m">1</span>     <span class="m">180</span>
+     <span class="p">[</span><span class="m">8</span><span class="p">,]</span>     <span class="m">0.025096439</span>    <span class="m">1</span>     <span class="m">215</span>
+     <span class="p">[</span><span class="m">9</span><span class="p">,]</span>     <span class="m">0.007403834</span>    <span class="m">2</span>     <span class="m">262</span>
+     <span class="p">[</span><span class="m">10</span><span class="p">,]</span>    <span class="m">0.007403834</span>    <span class="m">2</span>     <span class="m">262</span>
 </pre></div>
 </td></tr></table></div>
 </div>
@@ -785,7 +786,7 @@ example this would be individuals 3, 5, 7 and 8 in <a class="reference internal"
 individuals with an external data file is high <strong>relative to the other
 individuals in the released data.</strong> In our example, the reason for the
 high risk is the fact that these individuals are sample uniques
-(<span class="math notranslate nohighlight">\(f_{k} = 1\)</span>). This risk is the worst-case scenario risk and does
+<span class="math notranslate nohighlight">\((f_{k} = 1)\)</span>. This risk is the worst-case scenario risk and does
 not imply that the person will be re-identified with certainty with this
 probability. For instance, if an individual included in the microdata is
 not included in the external data file, the probability for a correct
@@ -815,7 +816,7 @@ which is</p>
 <span class="math notranslate nohighlight">\(i\)</span><sup>th</sup> record. This is simply a count of the number of
 individuals with a sample frequency of their key lower than <span class="math notranslate nohighlight">\(k\)</span>.
 The count is higher for larger <span class="math notranslate nohighlight">\(k\)</span>, since if a record satisfies
-<span class="math notranslate nohighlight">\(k\)</span>-anonimity, it also satisfies (<span class="math notranslate nohighlight">\(k + 1\)</span>)-anonimity. The
+<span class="math notranslate nohighlight">\(k\)</span>-anonimity, it also satisfies <span class="math notranslate nohighlight">\((k + 1)\)</span>-anonimity. The
 risk measure <span class="math notranslate nohighlight">\(k\)</span>-anonymity does not consider the sample weights,
 but it is important to consider the sample weights when determining the
 required level of <span class="math notranslate nohighlight">\(k\)</span>-anonymity. If the sample weights are large,
@@ -834,7 +835,7 @@ relative number as percentage of the number of individuals in the sample
 are given. In the example, four observations violate 2-anonimity and all
 10 observations violate 3-anonymity.</p>
 <div class="literal-block-wrapper docutils container" id="code44">
-<div class="code-block-caption"><span class="caption-number">Listing 5.4 </span><span class="caption-text">Using the print() function to display observations violating k-anonymity</span><a class="headerlink" href="#code44" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 5.4 </span><span class="caption-text">Using the print() function to display observations violating <span class="math notranslate nohighlight">\(k\)</span>-anonymity</span><a class="headerlink" href="#code44" title="Permalink to this code">¶</a></div>
 <div class="highlight-R notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -869,7 +870,7 @@ satisfy depends on many factors and is discussed further in the Section
 on local suppression. In many institutions, typically required
 thresholds for <span class="math notranslate nohighlight">\(k\)</span>-anonymity are 3 and 5.</p>
 <div class="literal-block-wrapper docutils container" id="code45">
-<div class="code-block-caption"><span class="caption-number">Listing 5.5 </span><span class="caption-text">Computing k-anonymity violations for other values of k</span><a class="headerlink" href="#code45" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 5.5 </span><span class="caption-text">Computing <span class="math notranslate nohighlight">\(k\)</span>-anonymity violations for other values of k</span><a class="headerlink" href="#code45" title="Permalink to this code">¶</a></div>
 <div class="highlight-R notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span> <span class="kp">sum</span><span class="p">(</span>sdcInitial<span class="o">@</span>risk<span class="o">$</span>individual<span class="p">[,</span><span class="m">2</span><span class="p">]</span> <span class="o">&lt;</span> k<span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
@@ -897,7 +898,7 @@ and is based on the fact that the value NA could replace any value.</p>
 <th class="head">Gender</th>
 <th class="head">Education level</th>
 <th class="head">Labor status</th>
-<th class="head">f_k</th>
+<th class="head"><span class="math notranslate nohighlight">\(f_{k}\)</span></th>
 </tr>
 </thead>
 <tbody valign="top">
@@ -931,7 +932,7 @@ account. Often <span class="math notranslate nohighlight">\(k\)</span>-anonymity
 recoding and subsequently applying local suppression, and in some cases
 by microaggregation, before using other risk measures and disclosure
 methods to further reduce disclosure risk. These methods are discussed
-in Chapter 5.</p>
+in the Section <a class="reference external" href="anon_methods.html">Anonymization methods</a>.</p>
 </div>
 <div class="section" id="diversity">
 <h3>5.5.3. <span class="math notranslate nohighlight">\(l\)</span>-diversity<a class="headerlink" href="#diversity" title="Permalink to this headline">¶</a></h3>
@@ -966,9 +967,9 @@ dataset by matching an individual to one of these individuals.</p>
 <th class="head">Education level</th>
 <th class="head">Labor status</th>
 <th class="head">Health</th>
-<th class="head">f_k</th>
-<th class="head">F_k</th>
-<th class="head">l-diversity</th>
+<th class="head"><span class="math notranslate nohighlight">\(f_{k}\)</span></th>
+<th class="head"><span class="math notranslate nohighlight">\(F_{k}\)</span></th>
+<th class="head"><span class="math notranslate nohighlight">\(l\)</span>-diversity</th>
 </tr>
 </thead>
 <tbody valign="top">
@@ -1076,8 +1077,8 @@ dataset by matching an individual to one of these individuals.</p>
 </table>
 <p>The concept of (distinct) <span class="math notranslate nohighlight">\(l\)</span>-diversity addresses this shortcoming
 of <span class="math notranslate nohighlight">\(k\)</span>-anonymity (see <a class="reference internal" href="#mkgv07">MKGV07</a>). A dataset
-satisfies <span class="math notranslate nohighlight">\(l\)</span>-diversity if for every key <em>k</em> there are at least
-<em>l</em> different values for each of the sensitive variables. In the
+satisfies <span class="math notranslate nohighlight">\(l\)</span>-diversity if for every key <span class="math notranslate nohighlight">\(k\)</span> there are at least
+<span class="math notranslate nohighlight">\(l\)</span> different values for each of the sensitive variables. In the
 example, the first two individuals satisfy only 1-diversity, individuals
 4 and 6 satisfy 2-diversity. The required level of <span class="math notranslate nohighlight">\(l\)</span>-diversity
 depends on the number of possible values the sensitive variable can
@@ -1153,7 +1154,7 @@ special uniques, algorithms, called SUDA (Special Uniqueness Detection
 Algorithm), have been developed. SUDA algorithms are based on the
 concept of special uniqueness, which is introduced in the next
 subsection. Since this is a heuristic approach, its performance is only
-tested in actual datasets, which is done in Elliot et al. (2002) for UK
+tested in actual datasets, which is done in <a class="reference internal" href="#elmf02">ElMF02</a> for UK
 census data. These tests have shown that the performance of the
 algorithm leads to good risk estimates for these test datasets.</p>
 <div class="section" id="sample-unique-vs-special-unique">
@@ -1181,8 +1182,8 @@ variables.</p>
 <th class="head">Education level</th>
 <th class="head">Labor status</th>
 <th class="head">Weight</th>
-<th class="head">f_k</th>
-<th class="head">F_k</th>
+<th class="head"><span class="math notranslate nohighlight">\(f_{k}\)</span></th>
+<th class="head"><span class="math notranslate nohighlight">\(F_{k}\)</span></th>
 <th class="head">risk</th>
 </tr>
 </thead>
@@ -1301,16 +1302,16 @@ combination of them, {‘Secondary complete’, ‘Unemployed’} makes record 5
 unique. This variable subset is referred to as the Minimal Sample Unique
 (MSU) as any smaller subset of this set of variables is not unique (in
 this case {‘Secondary complete’} and {‘Unemployed’}). It is an MSU of
-size 2.[#foot33]_ This holds as well
+size 2. This holds as well
 for three other combinations in record 5, i.e., {‘Female’, ‘Unemployed’}
 and {‘Female’, ‘Secondary Complete’}, which are also MSUs of size 2 and
 {‘Rural’} of size 1. In total, record 5 has four
 MSUs <a class="footnote-reference" href="#foot31" id="id11">[11]</a>. To determine if a set is an MSU of size
 <span class="math notranslate nohighlight">\(k\)</span>, we check whether it fulfills the minimal requirement. It
-suffices to check whether all subsets of size <span class="math notranslate nohighlight">\(k\)</span>-1 of the MSU are
+suffices to check whether all subsets of size <span class="math notranslate nohighlight">\(k-1\)</span> of the MSU are
 unique. If any of these subsets are also unique in the sample, the set
 found may be a sample unique, but violates the minimal requirement and
-is hence not an MSU. The unique subset of size <span class="math notranslate nohighlight">\(k\)</span>-1 could be a
+is hence not an MSU. The unique subset of size <span class="math notranslate nohighlight">\(k-1\)</span> could be a
 MSU. In our example, to determine if the MSU {‘Secondary complete’,
 ‘Unemployed’} is a MSU, we checked as to whether its subsets {‘Secondary
 complete’} and {‘Unemployed’} were not unique in the sample. By
@@ -1348,7 +1349,7 @@ ranks the individuals according to their level of risk.</p>
 <p>For each MSU of size <span class="math notranslate nohighlight">\(k\)</span> contained in a given record, a score is
 computed by <span class="math notranslate nohighlight">\(\prod_{i = k}^{M}{(ATT - i)}\)</span>, where <span class="math notranslate nohighlight">\(M\)</span> is the
 user-specified maximum size of MSUs <a class="footnote-reference" href="#foot32" id="id12">[12]</a>, and
-<span class="math notranslate nohighlight">\(\text{ATT}\)</span> is the total number of attributes or variables in the
+<span class="math notranslate nohighlight">\(ATT\)</span> is the total number of attributes or variables in the
 dataset. By definition, the smaller the size <span class="math notranslate nohighlight">\(k\)</span> of the MSU, the
 larger the score for the MSU, which reflects greater risk (see <a class="reference internal" href="#emmg05">EMMG05</a>).
 The final SUDA score for each record is computed by adding
@@ -1356,15 +1357,14 @@ the scores for each MSU in the record. In this way, records with more
 MSUs are assigned a higher SUDA score, which also reflects the higher
 risk. The SUDA score ranks the individuals according to their level of
 risk. The higher the SUDA score, the riskier the sample unique.</p>
-<blockquote>
-<div>Calculating SUDA scores – a simplified example</div></blockquote>
+<p><em>Calculating SUDA scores – a simplified example</em></p>
 <p>To illustrate how SUDA scores are calculated, we compute the SUDA scores
 for the sample uniques in the data in <a class="reference internal" href="#tab45"><span class="std std-numref">Table 5.5</span></a>, which replicates the
 data from <a class="reference internal" href="#tab45"><span class="std std-numref">Table 5.5</span></a>. Record 5 contains four MSUs: {Rural} of size 1, and
 {‘Secondary Complete’, ‘Unemployed’}, {‘Female’, ‘Unemployed’} and
 {Female, Secondary Complete} of size 2. Suppose the maximum size of MSUs
 we search for in the data, <span class="math notranslate nohighlight">\(M\)</span>, is set at 3. Knowing that,
-<span class="math notranslate nohighlight">\(\text{ATT}\)</span>, the number of selected key variables in the dataset,
+<span class="math notranslate nohighlight">\(ATT\)</span>, the number of selected key variables in the dataset,
 is 4; the score assigned to {Rural} is computed by
 <span class="math notranslate nohighlight">\(\prod_{i = 1}^{3}{(4 - i)} = 3*2*1 = 6\)</span>; and the score assigned
 to {Secondary complete, Unemployed}, {Female, Unemployed} and {Female,
@@ -1385,7 +1385,7 @@ special uniques and are assigned the score 0.</p>
 <th class="head">Education level</th>
 <th class="head">Labor status</th>
 <th class="head">Weight</th>
-<th class="head">f_k</th>
+<th class="head"><span class="math notranslate nohighlight">\(f_{k}\)</span></th>
 <th class="head">SUDA score</th>
 <th class="head">DIS-SUDA</th>
 </tr>
@@ -1494,7 +1494,7 @@ special uniques and are assigned the score 0.</p>
 </tbody>
 </table>
 <p>To estimate record-level disclosure risks, SUDA scores can be used in
-combination with the Data Intrusion Simulation (DIS) metric (<a class="reference internal" href="#elma03">ElMa03</a>
+combination with the Data Intrusion Simulation (DIS) metric (<a class="reference internal" href="#elma03">ElMa03</a>)
 , a method for assessing disclosure risks for the entire
 dataset (i.e., file-level disclosure risks). Roughly speaking, the
 DIS-SUDA method distributes the file-level risk measure generated by the
@@ -1507,7 +1507,7 @@ released microdata and an external data source is also a correct match,
 and hence a successful disclosure. The DIS-SUDA measure can be computed
 in <em>sdcMicro</em>. Since the DIS score is a probability, its values are in
 the interval <span class="math notranslate nohighlight">\(\lbrack 0,\ 1\rbrack\)</span>. A full description of the
-DIS-SUDA method is provided by Elliot and Manning (2003).</p>
+DIS-SUDA method is provided by <a class="reference internal" href="#elma03">ElMa03</a>.</p>
 <p>Note that unlike the risk methods discussed earlier, the DIS-SUDA score
 does not fully account for the sampling weights. Risk measures based on
 the previous methods (i.e., negative binomial models) will in general
@@ -1563,20 +1563,16 @@ object. The syntax in <a class="reference internal" href="#code47"><span class="
 25
 26
 27
-28
-29
-30</pre></div></td><td class="code"><div class="highlight"><pre><span></span> <span class="c1"># Evaluating SUDA scores for the specified variables</span>
+28</pre></div></td><td class="code"><div class="highlight"><pre><span></span> <span class="c1"># Evaluating SUDA scores for the specified variables</span>
  sdcInitial <span class="o">&lt;-</span> suda2<span class="p">(</span>obj <span class="o">=</span> sdcInitial<span class="p">,</span> missing <span class="o">=</span> <span class="kc">NA</span><span class="p">)</span>
 
  <span class="c1"># The results are saved in the risk slot of the sdcMicro object</span>
  <span class="c1"># SUDA scores</span>
  sdcInitial<span class="o">@</span>risk<span class="o">$</span>suda2<span class="o">$</span>score
-
  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">0.00</span> <span class="m">0.00</span> <span class="m">1.75</span> <span class="m">0.00</span> <span class="m">3.25</span> <span class="m">0.00</span> <span class="m">1.75</span> <span class="m">2.75</span> <span class="m">0.00</span> <span class="m">0.00</span>
 
  <span class="c1"># DIS-SUDA scores</span>
  sdcInitial<span class="o">@</span>risk<span class="o">$</span>suda2<span class="o">$</span>disScore
-
  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">0.000000000</span> <span class="m">0.000000000</span> <span class="m">0.005120313</span> <span class="m">0.000000000</span> <span class="m">0.010702061</span>
  <span class="p">[</span><span class="m">6</span><span class="p">]</span> <span class="m">0.000000000</span> <span class="m">0.005120313</span> <span class="m">0.008775093</span> <span class="m">0.000000000</span> <span class="m">0.000000000</span>
 
@@ -1648,7 +1644,8 @@ individuals at risk within the raw data, but rather show the
 distance/difference between the dataset before and after anonymization
 and can therefore be interpreted as evaluation of the anonymization
 method. For that reason, they resemble the information loss measures
-discussed in Chapter 6. Finally, risk measures for continuous
+discussed in the Section <a class="reference external" href="utility.html">Measuring utility and information loss</a>.
+Finally, risk measures for continuous
 quasi-identifiers are also based on outlier detection. Outliers play an
 important role in the re-identification of these records.</p>
 <div class="section" id="record-linkage">
@@ -1671,7 +1668,7 @@ undesired results when measuring the multivariate distance between
 records based on several continuous variables. Since these methods are
 based on both the raw data and treated data, examples of their
 applications require the introduction of SDC methods and are therefore
-postponed to the case studies in Chapter 9.</p>
+postponed to the case studies in the Section <a class="reference external" href="case_studies.html">Case Studies</a>.</p>
 <p>Besides distance-based record linkage, another method for linking is
 probabilistic record linkage (see <a class="reference internal" href="#doto03">DoTo03</a>). The
 literature shows, however, that results from distance-based record
@@ -1731,7 +1728,7 @@ since they will stay the largest values even after perturbation. (The
 perturbation will have created uncertainty as to the exact value, but
 because the value started out so much further away from other
 observations, it may still be easy to link to the high-income individual
-or very large firm.). Examples would be the only doctor in a
+or very large firm.) Examples would be the only doctor in a
 geographical area with a high income or one single large firm in one
 industry type. Therefore, identifying outliers in continuous data is an
 important step when identifying individuals at high risk. In practice,
@@ -1749,7 +1746,7 @@ percentile.</p>
 2
 3
 4
-5</pre></div></td><td class="code"><div class="highlight"><pre><span></span> <span class="c1"># Compute the 90 % percentile for the variable income*</span>
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span> <span class="c1"># Compute the 90 % percentile for the variable income</span>
  perc90 <span class="o">&lt;-</span> quantile<span class="p">(</span><span class="kp">file</span><span class="p">[,</span><span class="s">&#39;income&#39;</span><span class="p">],</span> <span class="m">0.90</span><span class="p">,</span> na.rm <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span>
 
  <span class="c1"># Show the ID of observations with values for income larger than the 90 % percentile</span>
@@ -1764,14 +1761,14 @@ original values fall into the interval around the perturbed values, the
 perturbed values are considered unsafe since they are too close to the
 original values. There are different ways to construct such intervals,
 such as rank-based intervals and standard deviation-based intervals.
-Templ and Meindl (2008) propose a robust alternative for these
+<a class="reference internal" href="#teme08">TeMe08</a> propose a robust alternative for these
 intervals. They construct the intervals based on the squared Robust
 Mahalanobis Distance (RMD) of the individual values. The intervals are
 scaled by the RMD such that outliers obtain larger intervals and hence
 need to have a larger perturbation in order to be considered safe than
 values that are not outliers. This method is implemented in <em>sdcMicro</em>
 in the function dRiskRMD(), which is an extension of the dRisk()
-function. This method is illustrated in the case studies in Chapter 9.</p>
+function. This method is illustrated in the Section <a class="reference external" href="case_studies.html">Case Studies</a>.</p>
 </div>
 </div>
 <div class="section" id="global-risk">
@@ -1786,23 +1783,22 @@ high-risk records that are compensated by many low risk records.</p>
 <p>A straightforward way of aggregating the individual risk measures is
 taking the mean of all individuals in the sample, which is equal to
 summing over all keys in the sample if multiplied by the sample
-frequencies of these keys and dividing by the sample size n:</p>
+frequencies of these keys and dividing by the sample size <span class="math notranslate nohighlight">\(n\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[R_{1} = \frac{1}{n}\sum_{i}^{}r_{k} = \frac{1}{n}\sum_{k}^{}{f_{k}r}_{k}\]</div>
 <p><span class="math notranslate nohighlight">\(r_{k}\)</span> is the individual risk of key <span class="math notranslate nohighlight">\(k\)</span> that the
 <span class="math notranslate nohighlight">\(i\)</span><sup>th</sup> individual shares (see the Section
-<cite>Categorical key variables and frequency counts &lt;measure_risk.html#Categorical key variables and frequency counts&gt;). This measure
-is reported as global risk in *sdcMicro*, is stored in the “risk” slot
-and can be displayed as shown in :numref:`code411</cite>. It indicates that the
+<a class="reference internal" href="#categorical-key-variables-and-frequency-counts">Categorical key variables and frequency counts</a>).
+This measure
+is reported as global risk in <em>sdcMicro</em>, is stored in the “risk” slot
+and can be displayed as shown in <a class="reference internal" href="#code411"><span class="std std-numref">Listing 5.11</span></a>. It indicates that the
 average re-identification probability is 0.01582 or 0.1582 %.</p>
 <div class="literal-block-wrapper docutils container" id="code411">
 <div class="code-block-caption"><span class="caption-number">Listing 5.11 </span><span class="caption-text">Computation of the global risk measure</span><a class="headerlink" href="#code411" title="Permalink to this code">¶</a></div>
 <div class="highlight-R notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
-3
-4</pre></div></td><td class="code"><div class="highlight"><pre><span></span> <span class="c1"># Global risk (average re-identification probability)</span>
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span> <span class="c1"># Global risk (average re-identification probability)</span>
  sdcInitial<span class="o">@</span>risk<span class="o">$</span>global<span class="o">$</span>risk
-
  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">0.01582</span>
 </pre></div>
 </td></tr></table></div>
@@ -1827,11 +1823,9 @@ threshold, as shown in the next section.</p>
 <div class="code-block-caption"><span class="caption-number">Listing 5.12 </span><span class="caption-text">Computation of expected number of re-identifications</span><a class="headerlink" href="#code412" title="Permalink to this code">¶</a></div>
 <div class="highlight-R notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
-3
-4</pre></div></td><td class="code"><div class="highlight"><pre><span></span> <span class="c1"># Global risk (expected number of reidentifications)</span>
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span> <span class="c1"># Global risk (expected number of reidentifications)</span>
  sdcInitial<span class="o">@</span>risk<span class="o">$</span>global<span class="o">$</span>risk_ER
-
-     <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">0.1582</span>
+ <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">0.1582</span>
 </pre></div>
 </td></tr></table></div>
 </div>
@@ -1851,10 +1845,8 @@ a higher disclosure risk than 0.05.</p>
 <div class="literal-block-wrapper docutils container" id="code413">
 <div class="code-block-caption"><span class="caption-number">Listing 5.13 </span><span class="caption-text">Number of individuals with individual risk higher than the threshold 0.05</span><a class="headerlink" href="#code413" title="Permalink to this code">¶</a></div>
 <div class="highlight-R notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3</pre></div></td><td class="code"><div class="highlight"><pre><span></span> <span class="kp">sum</span><span class="p">(</span>sdcInitial<span class="o">@</span>risk<span class="o">$</span>individual<span class="p">[,</span><span class="m">1</span><span class="p">]</span> <span class="o">&gt;</span> <span class="m">0.05</span><span class="p">)</span>
-
-     <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">0</span>
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span> <span class="kp">sum</span><span class="p">(</span>sdcInitial<span class="o">@</span>risk<span class="o">$</span>individual<span class="p">[,</span><span class="m">1</span><span class="p">]</span> <span class="o">&gt;</span> <span class="m">0.05</span><span class="p">)</span>
+ <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">0</span>
 </pre></div>
 </td></tr></table></div>
 </div>
@@ -1870,17 +1862,17 @@ risk above a specified threshold. This is explained further in the Section
 <h2>5.9. Household risk<a class="headerlink" href="#household-risk" title="Permalink to this headline">¶</a></h2>
 <p>In many social surveys, the data have a hierarchical structure where an
 individual belongs to a higher-level entity (see the Section
-<a class="reference external" href="measure_risk.html#Levelsofrisk">Levels of risk</a>). Typical
+<a class="reference internal" href="#levels-of-risk">Levels of risk</a>). Typical
 examples are households in social surveys or pupils in schools.
 Re-identification of one household member can lead to re-identification
 of the other household members, too. It is therefore easy to see that if
 we take the household structure into account, the re-identification risk
 is the risk that at least one of the household members is re-identified.</p>
-<p><span class="math notranslate nohighlight">\(r^{h} = P(A_{1} \cup A_{2} \cup\)</span> …
-<span class="math notranslate nohighlight">\(\cup A_{J}) = 1 - \prod_{j = 1}^{J}{1 - P(A_{j})}\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[r^{h} = P(A_{1} \cup A_{2} \cup … \cup A_{J}) = 1 - \prod_{j = 1}^{J}{1 - P(A_{j})},\]</div>
 <p>where <span class="math notranslate nohighlight">\(A_{j}\)</span> is the event that the <span class="math notranslate nohighlight">\(j\)</span><sup>th</sup> member of
 the household is re-identified and <span class="math notranslate nohighlight">\(P\left( A_{j} \right) = r_{k}\)</span>
-is the individual disclosure risk of the <span class="math notranslate nohighlight">\(jt\)</span><sup>h</sup> member.
+is the individual disclosure risk of the <span class="math notranslate nohighlight">\(j\)</span><sup>th</sup> member.
 For example, if a household member has three members with individual
 disclosure risks based on their respective keys 0.02, 0.03 and 0.03,
 respectively, the household risk is</p>
@@ -1938,19 +1930,19 @@ Official Statistics</em> 9(2) : 313-331.</p>
 Muthuramakrishnan Venkitasubramaniam. 2007. “L-diversity: Privacy Beyond
 K-anonymity.” <em>ACM Trans. Knowl. Discov. Data</em> 1 (Article 3)
 (1556-4681). doi:10.1145/1217299.1217302.
-http://www.truststc.org/pubs/465/L%20Diversity%20Privacy.pdf. Accessed
-October 5, 2015.</p>
+https://ptolemy.berkeley.edu/projects/truststc/pubs/465/L%20Diversity%20Privacy.pdf. Accessed
+July 6, 2018.</p>
 <p class="last">Templ, Matthias, Bernhard Meindl, Alexander Kowarik, and Shuang Chen.
 2014. “Introduction to Statistical Disclosure Control (SDC).”
 <a class="reference external" href="http://www.ihsn.org/home/sites/default/files/resources/ihsn-working-paper-007-Oct27.pdf">http://www.ihsn.org/home/sites/default/files/resources/ihsn-working-paper-007-Oct27.pdf</a><em>.</em>
-August 1. Accessed November 13, 2014.</p>
+August 1. Accessed July 6, 2018.</p>
 </div>
 <table class="docutils footnote" frame="void" id="foot21" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
 <tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>Recoding a continuous variable is sometimes useful in cases where the
 data contains only a few continuous variables. We will see in the Section
-3 that many methods used for risk calculation depend on whether the
+<a class="reference internal" href="#individual-risk">Individual risk</a> that many methods used for risk calculation depend on whether the
 variables are categorical. We will also see that it is easier for the
 measurement of risk if the data contains only categorical or only
 continuous variables.</td></tr>
@@ -1995,25 +1987,21 @@ used in most examples in this section.</p>
 <div class="last highlight-R notranslate"><div class="highlight"><pre><span></span><span class="kn">library</span><span class="p">(</span>sdcMicro<span class="p">)</span>
 
 <span class="c1"># Set up dataset</span>
-
-data <span class="o">&lt;-</span> <span class="kp">as.data.frame</span><span class="p">(</span><span class="kp">cbind</span><span class="p">(</span><span class="kp">as.factor</span><span class="p">(</span><span class="kt">c</span><span class="p">(</span><span class="s">&#39;Urban&#39;</span><span class="p">,</span>
-<span class="s">&#39;Urban&#39;</span><span class="p">,</span> <span class="s">&#39;Urban&#39;</span><span class="p">,</span> <span class="s">&#39;Urban&#39;</span><span class="p">,</span> <span class="s">&#39;Rural&#39;</span><span class="p">,</span> <span class="s">&#39;Urban&#39;</span><span class="p">,</span> <span class="s">&#39;Urban&#39;</span><span class="p">,</span> <span class="s">&#39;Urban&#39;</span><span class="p">,</span>
-<span class="s">&#39;Urban&#39;</span><span class="p">,</span> <span class="s">&#39;Urban&#39;</span><span class="p">)),</span>
-<span class="kp">as.factor</span><span class="p">(</span><span class="kt">c</span><span class="p">(</span><span class="s">&#39;Female&#39;</span><span class="p">,</span> <span class="s">&#39;Female&#39;</span><span class="p">,</span> <span class="s">&#39;Female&#39;</span><span class="p">,</span> <span class="s">&#39;Male&#39;</span><span class="p">,</span>
-<span class="s">&#39;Female&#39;</span><span class="p">,</span> <span class="s">&#39;Male&#39;</span><span class="p">,</span> <span class="s">&#39;Female&#39;</span><span class="p">,</span> <span class="s">&#39;Male&#39;</span><span class="p">,</span> <span class="s">&#39;Female&#39;</span><span class="p">,</span> <span class="s">&#39;Female&#39;</span><span class="p">)),</span>
-<span class="kp">as.factor</span><span class="p">(</span><span class="kt">c</span><span class="p">(</span><span class="s">&#39;Sec in&#39;</span><span class="p">,</span> <span class="s">&#39;Sec in&#39;</span><span class="p">,</span> <span class="s">&#39;Prim in&#39;</span><span class="p">,</span> <span class="s">&#39;Sec com&#39;</span><span class="p">,</span> <span class="s">&#39;Sec com&#39;</span><span class="p">,</span> <span class="s">&#39;Sec com&#39;</span><span class="p">,</span> <span class="s">&#39;Prim com&#39;</span><span class="p">,</span> <span class="s">&#39;Post-sec&#39;</span><span class="p">,</span> <span class="s">&#39;Sec in&#39;</span><span class="p">,</span> <span class="s">&#39;Sec in&#39;</span><span class="p">)),</span>
-<span class="kp">as.factor</span><span class="p">(</span><span class="kt">c</span><span class="p">(</span><span class="s">&#39;Emp&#39;</span><span class="p">,</span> <span class="s">&#39;Emp&#39;</span><span class="p">,</span> <span class="s">&#39;Non-LF&#39;</span><span class="p">,</span> <span class="s">&#39;Emp&#39;</span><span class="p">,</span> <span class="s">&#39;Unemp&#39;</span><span class="p">,</span> <span class="s">&#39;Emp&#39;</span><span class="p">,</span> <span class="s">&#39;Non-LF&#39;</span><span class="p">,</span> <span class="s">&#39;Unemp&#39;</span><span class="p">,</span> <span class="s">&#39;Non-LF&#39;</span><span class="p">,</span><span class="s">&#39;Non-LF&#39;</span><span class="p">)),</span>
-<span class="kp">as.factor</span><span class="p">(</span><span class="kt">c</span><span class="p">(</span><span class="s">&#39;yes&#39;</span><span class="p">,</span> <span class="s">&#39;yes&#39;</span><span class="p">,</span> <span class="s">&#39;yes&#39;</span><span class="p">,</span> <span class="s">&#39;yes&#39;</span><span class="p">,</span> <span class="s">&#39;yes&#39;</span><span class="p">,</span> <span class="s">&#39;no&#39;</span><span class="p">,</span> <span class="s">&#39;no&#39;</span><span class="p">,</span> <span class="s">&#39;yes&#39;</span><span class="p">,</span> <span class="s">&#39;no&#39;</span><span class="p">,</span> <span class="s">&#39;yes&#39;</span><span class="p">)),</span>
-<span class="kt">c</span><span class="p">(</span><span class="m">180</span><span class="p">,</span> <span class="m">180</span><span class="p">,</span> <span class="m">215</span><span class="p">,</span> <span class="m">76</span><span class="p">,</span> <span class="m">186</span><span class="p">,</span> <span class="m">76</span><span class="p">,</span> <span class="m">180</span><span class="p">,</span> <span class="m">215</span><span class="p">,</span> <span class="m">186</span><span class="p">,</span> <span class="m">76</span><span class="p">)))</span>
+data <span class="o">&lt;-</span> <span class="kp">as.data.frame</span><span class="p">(</span><span class="kp">cbind</span><span class="p">(</span><span class="kp">as.factor</span><span class="p">(</span><span class="kt">c</span><span class="p">(</span><span class="s">&#39;Urban&#39;</span><span class="p">,</span> <span class="s">&#39;Urban&#39;</span><span class="p">,</span> <span class="s">&#39;Urban&#39;</span><span class="p">,</span> <span class="s">&#39;Urban&#39;</span><span class="p">,</span> <span class="s">&#39;Rural&#39;</span><span class="p">,</span> <span class="s">&#39;Urban&#39;</span><span class="p">,</span> <span class="s">&#39;Urban&#39;</span><span class="p">,</span> <span class="s">&#39;Urban&#39;</span><span class="p">,</span>
+                                     <span class="s">&#39;Urban&#39;</span><span class="p">,</span> <span class="s">&#39;Urban&#39;</span><span class="p">)),</span>
+                            <span class="kp">as.factor</span><span class="p">(</span><span class="kt">c</span><span class="p">(</span><span class="s">&#39;Female&#39;</span><span class="p">,</span> <span class="s">&#39;Female&#39;</span><span class="p">,</span> <span class="s">&#39;Female&#39;</span><span class="p">,</span> <span class="s">&#39;Male&#39;</span><span class="p">,</span>
+                                     <span class="s">&#39;Female&#39;</span><span class="p">,</span> <span class="s">&#39;Male&#39;</span><span class="p">,</span> <span class="s">&#39;Female&#39;</span><span class="p">,</span> <span class="s">&#39;Male&#39;</span><span class="p">,</span> <span class="s">&#39;Female&#39;</span><span class="p">,</span> <span class="s">&#39;Female&#39;</span><span class="p">)),</span>
+                            <span class="kp">as.factor</span><span class="p">(</span><span class="kt">c</span><span class="p">(</span><span class="s">&#39;Sec in&#39;</span><span class="p">,</span> <span class="s">&#39;Sec in&#39;</span><span class="p">,</span> <span class="s">&#39;Prim in&#39;</span><span class="p">,</span> <span class="s">&#39;Sec com&#39;</span><span class="p">,</span> <span class="s">&#39;Sec com&#39;</span><span class="p">,</span> <span class="s">&#39;Sec com&#39;</span><span class="p">,</span> <span class="s">&#39;Prim com&#39;</span><span class="p">,</span> <span class="s">&#39;Post-sec&#39;</span><span class="p">,</span> <span class="s">&#39;Sec in&#39;</span><span class="p">,</span> <span class="s">&#39;Sec in&#39;</span><span class="p">)),</span>
+                            <span class="kp">as.factor</span><span class="p">(</span><span class="kt">c</span><span class="p">(</span><span class="s">&#39;Emp&#39;</span><span class="p">,</span> <span class="s">&#39;Emp&#39;</span><span class="p">,</span> <span class="s">&#39;Non-LF&#39;</span><span class="p">,</span> <span class="s">&#39;Emp&#39;</span><span class="p">,</span> <span class="s">&#39;Unemp&#39;</span><span class="p">,</span> <span class="s">&#39;Emp&#39;</span><span class="p">,</span> <span class="s">&#39;Non-LF&#39;</span><span class="p">,</span> <span class="s">&#39;Unemp&#39;</span><span class="p">,</span> <span class="s">&#39;Non-LF&#39;</span><span class="p">,</span><span class="s">&#39;Non-LF&#39;</span><span class="p">)),</span>
+                            <span class="kp">as.factor</span><span class="p">(</span><span class="kt">c</span><span class="p">(</span><span class="s">&#39;yes&#39;</span><span class="p">,</span> <span class="s">&#39;yes&#39;</span><span class="p">,</span> <span class="s">&#39;yes&#39;</span><span class="p">,</span> <span class="s">&#39;yes&#39;</span><span class="p">,</span> <span class="s">&#39;yes&#39;</span><span class="p">,</span> <span class="s">&#39;no&#39;</span><span class="p">,</span> <span class="s">&#39;no&#39;</span><span class="p">,</span> <span class="s">&#39;yes&#39;</span><span class="p">,</span> <span class="s">&#39;no&#39;</span><span class="p">,</span> <span class="s">&#39;yes&#39;</span><span class="p">)),</span>
+                           <span class="kt">c</span><span class="p">(</span><span class="m">180</span><span class="p">,</span> <span class="m">180</span><span class="p">,</span> <span class="m">215</span><span class="p">,</span> <span class="m">76</span><span class="p">,</span> <span class="m">186</span><span class="p">,</span> <span class="m">76</span><span class="p">,</span> <span class="m">180</span><span class="p">,</span> <span class="m">215</span><span class="p">,</span> <span class="m">186</span><span class="p">,</span> <span class="m">76</span><span class="p">)</span>
+                           <span class="p">))</span>
 
 <span class="c1"># Specify variable names</span>
-
 <span class="kp">names</span><span class="p">(</span>data<span class="p">)</span> <span class="o">&lt;-</span> <span class="kt">c</span><span class="p">(</span><span class="s">&#39;Residence&#39;</span><span class="p">,</span> <span class="s">&#39;Gender&#39;</span><span class="p">,</span> <span class="s">&#39;Educ&#39;</span><span class="p">,</span> <span class="s">&#39;Lstat&#39;</span><span class="p">,</span> <span class="s">&#39;Health&#39;</span><span class="p">,</span> <span class="s">&#39;Weights&#39;</span><span class="p">)</span>
 
 <span class="c1"># Set up sdcMicro object with specified quasi-identifiers and weight variable</span>
-
-sdcInitial <span class="o">&lt;-</span> createSdcObj<span class="p">(</span>dat <span class="o">=</span> data<span class="p">,</span>
-keyVars <span class="o">=</span> <span class="kt">c</span><span class="p">(</span><span class="s">&#39;Residence&#39;</span><span class="p">,</span> <span class="s">&#39;Gender&#39;</span><span class="p">,</span> <span class="s">&#39;Educ&#39;</span><span class="p">,</span> <span class="s">&#39;Lstat&#39;</span><span class="p">),</span> weightVar <span class="o">=</span> <span class="s">&#39;Weights&#39;</span><span class="p">)</span>
+sdcInitial <span class="o">&lt;-</span> createSdcObj<span class="p">(</span>dat <span class="o">=</span> data<span class="p">,</span> keyVars <span class="o">=</span> <span class="kt">c</span><span class="p">(</span><span class="s">&#39;Residence&#39;</span><span class="p">,</span> <span class="s">&#39;Gender&#39;</span><span class="p">,</span> <span class="s">&#39;Educ&#39;</span><span class="p">,</span> <span class="s">&#39;Lstat&#39;</span><span class="p">),</span> weightVar <span class="o">=</span> <span class="s">&#39;Weights&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </td></tr>
@@ -2042,7 +2030,7 @@ assumptions assume a worst-case scenario.</td></tr>
 <table class="docutils footnote" frame="void" id="foot27" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id7">[7]</a></td><td>See the Section <cite>Objects of class sdcMicroObj &lt;sdcMicro.html#Objects of class sdcMicroObj</cite>
+<tr><td class="label"><a class="fn-backref" href="#id7">[7]</a></td><td>See the Section <a class="reference external" href="sdcMicro.html#ObjectsofclasssdcMicroObj">Objects of class sdcMicroObj</a>
 for more information on slots and the <em>sdcMicro</em>
 object structure.</td></tr>
 </tbody>
@@ -2051,8 +2039,10 @@ object structure.</td></tr>
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
 <tr><td class="label"><a class="fn-backref" href="#id8">[8]</a></td><td>In <em>sdcMicro</em> it is important to use the standard missing value code
-NA instead of other codes, such as 9999 or strings. In Chapter 6, we
-further discuss how to set other missing value codes to NA in <em>R</em>.
+NA instead of other codes, such as 9999 or strings. In
+the Section
+<a class="reference external" href="sdcMicro.html#Missingvalues">Missing values</a>,
+we further discuss how to set other missing value codes to NA in <em>R</em>.
 This is necessary to ensure that the methods in <em>sdcMicro</em> function
 properly. When missing values have codes other than NA, the missing
 value codes are interpreted as a distinct factor level in the case of
@@ -2065,7 +2055,7 @@ categorical variables.</td></tr>
 <tr><td class="label"><a class="fn-backref" href="#id9">[9]</a></td><td>Alternatively, the sensitive variables can be specified when
 creating the <em>sdcMicro</em> object using the function createSdcObj() in
 the <em>sensibleVar</em> argument. This is further explained in the Section
-<cite>Objects of class sdcMicroObj &lt;sdcMicro.html#Objects of class sdcMicroObj</cite> .
+<a class="reference external" href="sdcMicro.html#ObjectsofclasssdcMicroObj">Objects of class sdcMicroObj</a> .
 In that case, the argument <em>ldiv_index</em> does not have to be specified
 in the ldiversity() function. and the variables in the <em>sensibleVar</em>
 argument will automatically be used to compute <span class="math notranslate nohighlight">\(l\)</span>-diversity.</td></tr>
@@ -2183,6 +2173,22 @@ Data Mining and Knowledge Discovery , 16 (2), 165-196.</td></tr>
 <tr><td class="label">[MKGV07]</td><td>Machanavajjhala, A., Kifer, D., Gehrke, J., &amp; Venkitasubramaniam, M. (2007).
 <strong>L-diversity: Privacy Beyond K-anonymity.</strong>
 ACM Trans. Knowl. Discov. Data , 1 (Article 3) (1556-4681).</td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="teme08" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[TeMe08]</td><td>Templ, M. &amp; Meindl, B. (2008)
+<strong>Robust Statistics Meets SDC: New Disclosure Risk Measures for Continuous Microdata Masking.</strong>
+In Privacy in Statistical Databases, PSD 2008 (eds. Domingo-Ferrer J. and Saygin Y.), vol. 5262 of Lecture Notes in Computer Science, pp. 177-189. Berlin/Heidelberg: Springer.</td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="temk14" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[TeMK14]</td><td>Templ, M., Meindl, B., &amp; Kowarik, A. (2014, August).
+<strong>Tutorial for SDCMicroGUI.</strong>
+Retrieved from International Household Survey Network (IHSN): <a class="reference external" href="http://www.ihsn.org/home/software/disclosure-control-toolbox">http://www.ihsn.org/home/software/disclosure-control-toolbox</a></td></tr>
 </tbody>
 </table>
 <table class="docutils citation" frame="void" id="tmkc14" rules="none">
