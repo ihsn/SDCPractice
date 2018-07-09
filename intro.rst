@@ -184,7 +184,7 @@ This guide is divided into the following main sections:
       microdata.
 
 (iii) the Sections `Anonymization Methods <anon_methods.html>`__ , `Measuring Risk <measure_risk.html>`__ and `Measuring Utility and Information Loss <utility.html>`__ cover SDC methods, risk and utility measurement.
-      Here the goal is to provide knowledge that allows the reader to
+      The goal here is to provide knowledge that allows the reader to
       independently apply and execute the SDC process. This section is
       enriched with real examples as well as code snippets from the
       *sdcMicro* package. The interested reader can also find more
