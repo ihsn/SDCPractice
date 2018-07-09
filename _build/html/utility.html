@@ -194,10 +194,11 @@ to an acceptable level. Data utility in this context means the
 usefulness of the anonymized data for statistical analyses by end users
 as well as the validity of these analyses when performed on the
 anonymized data. Disclosure risk and its measurement are defined in
-Chapter 4 of this guide. In order to make a trade-off between minimizing
+the Section <a class="reference external" href="measure_risk.html">Measure Risk</a> of this guide.
+In order to make a trade-off between minimizing
 disclosure risk and maximizing utility of data for end users, it is
 necessary to measure the utility of the data after anonymization and
-compare it with the utility of the original data. This chapter describes
+compare it with the utility of the original data. This section describes
 measures that can be used to compare the data utility before and after
 anonymization, or alternatively quantify the information loss.
 Information loss is the inverse of data utility: the larger the data
@@ -236,14 +237,16 @@ These measures do not take into account the specific data use, but can
 be used as guiding measures for information loss and evaluating whether
 a dataset is still analytically valid after anonymization. The main idea
 for such measures is to compare records between the original and treated
-datasets and compare statistics computed from both datasets (Hundepool
-et al., 2012). Examples of such measures are the number of suppressions,
+datasets and compare statistics computed from both datasets (<a class="reference internal" href="#hdfg12">HDFG12</a>).
+Examples of such measures are the number of suppressions,
 number of changed values, changes in contingency tables and changes in
 mean and covariance matrices.</p>
 <p>Many of the SDC methods discussed earlier are parametric, in the sense
 that their outcome depends on parameters chosen by the user. Examples
-are the cluster size for microaggregation (see Section 5.3.2) or the
-importance vector in local suppression (see Section 5.2.2). Data utility
+are the cluster size for microaggregation (see the Section
+<a class="reference external" href="anon_methods.html#Microaggregation">Microaggregation</a>) or the
+importance vector in local suppression (see the Section
+<a class="reference external" href="anon_methods.html#Localsuppression">Local suppression</a>). Data utility
 and information loss measures are useful for choosing these parameters
 by comparing the impact of different parameters on the information loss.
 <a class="reference internal" href="#fig61"><span class="std std-numref">Fig. 7.1</span></a> illustrates this by showing the trade-off between the
@@ -350,7 +353,6 @@ namesKeyVars <span class="o">&lt;-</span> <span class="kp">names</span><span cla
 
 <span class="c1"># Matrix to store the number of missing values (NA) before and after anonymization</span>
 NAcount <span class="o">&lt;-</span> <span class="kt">matrix</span><span class="p">(</span><span class="kc">NA</span><span class="p">,</span> nrow <span class="o">=</span> <span class="m">2</span><span class="p">,</span> ncol <span class="o">=</span> <span class="kp">length</span><span class="p">(</span>namesKeyVars<span class="p">))</span>
-
 <span class="kp">colnames</span><span class="p">(</span>NAcount<span class="p">)</span> <span class="o">&lt;-</span> <span class="kt">c</span><span class="p">(</span><span class="kp">paste0</span><span class="p">(</span><span class="s">&#39;NA&#39;</span><span class="p">,</span> namesKeyVars<span class="p">))</span> <span class="c1"># column names</span>
 <span class="kp">rownames</span><span class="p">(</span>NAcount<span class="p">)</span> <span class="o">&lt;-</span> <span class="kt">c</span><span class="p">(</span><span class="s">&#39;initial&#39;</span><span class="p">,</span> <span class="s">&#39;treated&#39;</span><span class="p">)</span> <span class="c1"># row names</span>
 
@@ -360,7 +362,8 @@ NAcount <span class="o">&lt;-</span> <span class="kt">matrix</span><span class="
   NAcount<span class="p">[</span><span class="m">2</span><span class="p">,</span> i<span class="p">]</span> <span class="o">&lt;-</span> <span class="kp">sum</span><span class="p">(</span><span class="kp">is.na</span><span class="p">(</span>sdcInitial<span class="o">@</span>manipKeyVars<span class="p">[,</span>i<span class="p">]))</span>
 <span class="p">}</span>
 
-<span class="c1"># Show results NAcount</span>
+<span class="c1"># Show results</span>
+NAcount
 <span class="c1">## NAURBRUR NAREGION NARELIG NAMARITAL</span>
 <span class="c1">## initial 0 0 1000 51</span>
 <span class="c1">## treated 0 81 1000 51</span>
@@ -398,27 +401,33 @@ compute the number of records changed for the PRAMmed variables.</p>
 18
 19
 20
-21</pre></div></td><td class="code"><div class="highlight"><pre><span></span> <span class="c1"># Store the names of all pram variables in a vector</span>
- namesPramVars <span class="o">&lt;-</span> <span class="kp">names</span><span class="p">(</span>sdcInitial<span class="o">@</span>manipPramVars<span class="p">)</span>
- <span class="c1"># Dataframe to save the number of records changed</span>
- recChanged <span class="o">&lt;-</span> <span class="kp">rep</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="kp">length</span><span class="p">(</span>namesPramVars<span class="p">))</span>
- <span class="kp">names</span><span class="p">(</span>recChanged<span class="p">)</span> <span class="o">&lt;-</span> <span class="kt">c</span><span class="p">(</span><span class="kp">paste0</span><span class="p">(</span><span class="s">&#39;RC&#39;</span><span class="p">,</span> namesPramVars<span class="p">))</span>
- <span class="c1"># Count number of records changed</span>
- <span class="kr">for</span><span class="p">(</span>j <span class="kr">in</span> <span class="m">1</span><span class="o">:</span><span class="kp">length</span><span class="p">(</span>namesPramVars<span class="p">))</span> <span class="c1"># for all key variables</span>
- <span class="p">{</span>
-   comp <span class="o">&lt;-</span> sdcInitial<span class="o">@</span>origData<span class="p">[</span>namesPramVars<span class="p">[</span>j<span class="p">]]</span> <span class="o">!=</span> sdcInitial<span class="o">@</span>manipPramVars<span class="p">[</span>namesPramVars<span class="p">[</span>j<span class="p">]]</span>
-   temp1 <span class="o">&lt;-</span> <span class="kp">sum</span><span class="p">(</span>comp<span class="p">,</span> na.rm <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span> <span class="c1"># all changed variables without NAs</span>
-   temp2 <span class="o">&lt;-</span> <span class="kp">sum</span><span class="p">(</span><span class="kp">is.na</span><span class="p">(</span>comp<span class="p">))</span> <span class="c1"># if NA, changed, unless NA initially</span>
-   temp3 <span class="o">&lt;-</span> <span class="kp">sum</span><span class="p">(</span><span class="kp">is.na</span><span class="p">(</span>sdcInitial<span class="o">@</span>origData<span class="p">[</span>namesPramVars<span class="p">[</span>j<span class="p">]])</span>
-                <span class="o">+</span> <span class="kp">is.na</span><span class="p">(</span>sdcInitial<span class="o">@</span>manipPramVars<span class="p">[</span>namesPramVars<span class="p">[</span>j<span class="p">]])</span><span class="o">==</span><span class="m">2</span><span class="p">)</span>
-   <span class="c1"># both NA, no change, but counted in temp2</span>
-   recChanged<span class="p">[</span>j<span class="p">]</span> <span class="o">&lt;-</span> temp1 <span class="o">+</span> temp2 <span class="o">-</span> temp3
- <span class="p">}</span>
+21
+22
+23
+24</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># Store the names of all pram variables in a vector</span>
+namesPramVars <span class="o">&lt;-</span> <span class="kp">names</span><span class="p">(</span>sdcInitial<span class="o">@</span>manipPramVars<span class="p">)</span>
 
- <span class="c1"># Show results</span>
- recChanged
-     <span class="c1">##  RCWATER   RCROOF RCTOILET</span>
-     <span class="c1">##      125       86      180</span>
+<span class="c1"># Dataframe to save the number of records changed</span>
+recChanged <span class="o">&lt;-</span> <span class="kp">rep</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="kp">length</span><span class="p">(</span>namesPramVars<span class="p">))</span>
+<span class="kp">names</span><span class="p">(</span>recChanged<span class="p">)</span> <span class="o">&lt;-</span> <span class="kt">c</span><span class="p">(</span><span class="kp">paste0</span><span class="p">(</span><span class="s">&#39;RC&#39;</span><span class="p">,</span> namesPramVars<span class="p">))</span>
+
+<span class="c1"># Count number of records changed</span>
+<span class="kr">for</span><span class="p">(</span>j <span class="kr">in</span> <span class="m">1</span><span class="o">:</span><span class="kp">length</span><span class="p">(</span>namesPramVars<span class="p">))</span> <span class="c1"># for all key variables</span>
+<span class="p">{</span>
+  comp <span class="o">&lt;-</span> sdcInitial<span class="o">@</span>origData<span class="p">[</span>namesPramVars<span class="p">[</span>j<span class="p">]]</span> <span class="o">!=</span>
+                              sdcInitial<span class="o">@</span>manipPramVars<span class="p">[</span>namesPramVars<span class="p">[</span>j<span class="p">]]</span>
+  temp1 <span class="o">&lt;-</span> <span class="kp">sum</span><span class="p">(</span>comp<span class="p">,</span> na.rm <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span> <span class="c1"># all changed variables without NAs</span>
+  temp2 <span class="o">&lt;-</span> <span class="kp">sum</span><span class="p">(</span><span class="kp">is.na</span><span class="p">(</span>comp<span class="p">))</span>        <span class="c1"># if NA, changed, unless NA initially</span>
+  temp3 <span class="o">&lt;-</span> <span class="kp">sum</span><span class="p">(</span><span class="kp">is.na</span><span class="p">(</span>sdcInitial<span class="o">@</span>origData<span class="p">[</span>namesPramVars<span class="p">[</span>j<span class="p">]])</span>
+               <span class="o">+</span> <span class="kp">is.na</span><span class="p">(</span>sdcInitial<span class="o">@</span>manipPramVars<span class="p">[</span>namesPramVars<span class="p">[</span>j<span class="p">]])</span><span class="o">==</span><span class="m">2</span><span class="p">)</span>
+  <span class="c1"># both NA, no change, but counted in temp2</span>
+  recChanged<span class="p">[</span>j<span class="p">]</span> <span class="o">&lt;-</span> temp1 <span class="o">+</span> temp2 <span class="o">-</span> temp3
+<span class="p">}</span>
+
+<span class="c1"># Show results</span>
+recChanged
+<span class="c1">##  RCWATER   RCROOF RCTOILET</span>
+<span class="c1">##      125       86      180</span>
 </pre></div>
 </td></tr></table></div>
 </div>
@@ -478,12 +487,12 @@ anonymization.</p>
 </pre></div>
 </td></tr></table></div>
 </div>
-<p>Domingo-Ferrer and Torra (2001) propose a Contingency Table-Based
+<p><a class="reference internal" href="#doto01b">DoTo01b</a> propose a Contingency Table-Based
 Information Loss (CTBIL) measure, which quantifies the distance between
 the contingency tables in the original and treated data. Alternatively,
 visualizations of the contingency table with mosaic plots can be used to
 compare the impact of anonymization methods on the tabulations and
-contingency tables (see Section 6.4.3).</p>
+contingency tables (see the Section <a class="reference internal" href="#mosaic-plots">Mosaic plots</a>).</p>
 </div>
 </div>
 <div class="section" id="general-utility-measures-for-continuous-variables">
@@ -494,7 +503,7 @@ contingency tables (see Section 6.4.3).</p>
 anonymization. Examples of such statistics are the mean, variance, and
 covariance and correlation structure of the most important variables in
 the dataset. Other statistics characterizing the data include the
-principal components and the loadings. Domingo-Ferrer and Torra (2001)
+principal components and the loadings. <a class="reference internal" href="#doto01b">DoTo01b</a>
 give an overview of statistics that can be considered. In order to
 evaluate the information loss caused by the anonymization, one should
 compare the appropriate statistics for continuous variables computed
@@ -601,31 +610,30 @@ cor<span class="p">(</span>sdcInitial<span class="o">@</span>manipNumVars<span c
 </pre></div>
 </td></tr></table></div>
 </div>
-<p>Domingo-Ferrer and Torra (2001) propose several measures for the
+<p><a class="reference internal" href="#doto01b">DoTo01b</a> propose several measures for the
 discrepancy between the covariance and correlation matrices. These
 measures are based on the mean squared error, the mean absolute error or
-the mean variation of the individual cells. We refer to Domingo-Ferrer
-and Torra (2001) for a complete overview of these measures.</p>
+the mean variation of the individual cells. We refer to <a class="reference internal" href="#doto01b">DoTo01b</a> for a complete overview of these measures.</p>
 </div>
 <div class="section" id="il1s-information-loss-measure">
 <h4>7.1.2.2. IL1s information loss measure<a class="headerlink" href="#il1s-information-loss-measure" title="Permalink to this headline">¶</a></h4>
 <p>Alternatively, we can also compare the actual data and quantify the
 distance between the original dataset <span class="math notranslate nohighlight">\(X\)</span> and the treated dataset
 <span class="math notranslate nohighlight">\(Z\)</span>. Here <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Z\)</span> contain only continuous
-variables. Yancey, Winkler and Creecy (2002) introduce the distance
+variables. <a class="reference internal" href="#yawc02">YaWC02</a> introduce the distance
 measure IL1s, which is the sum of the absolute distances between the
 corresponding observations in the raw and anonymized datasets, which are
 standardized by the standard deviation of the variables in the original
 data. For the continuous variables in the dataset, the IL1s measure is
 defined as</p>
-<p><span class="math notranslate nohighlight">\(IL1s = \frac{1}{\text{pn}}\sum_{j = 1}^{p}{\sum_{i = 1}^{n}\frac{\left| x_{\text{ij}} - z_{\text{ij}} \right|}{\sqrt{2}S_{j}}}\)</span>
-,</p>
+<div class="math notranslate nohighlight">
+\[IL1s = \frac{1}{\text{pn}}\sum_{j = 1}^{p}{\sum_{i = 1}^{n}\frac{\left| x_{\text{ij}} - z_{\text{ij}} \right|}{\sqrt{2}S_{j}}},\]</div>
 <p>where <span class="math notranslate nohighlight">\(p\)</span> is the number of continuous variables; <span class="math notranslate nohighlight">\(n\)</span> is the
 number of records in the dataset; <span class="math notranslate nohighlight">\(x_{\text{ij}}\)</span> and
 <span class="math notranslate nohighlight">\(z_{\text{ij}}\)</span>, respectively, are the values before and after
 anonymization for variable <span class="math notranslate nohighlight">\(j\)</span> and individual <span class="math notranslate nohighlight">\(i\)</span>; and
 <span class="math notranslate nohighlight">\(S_{j}\)</span> is the standard deviation of variable <span class="math notranslate nohighlight">\(j\)</span> in the
-original data (Yancey, Winkler and Creecy, 2002).</p>
+original data (<a class="reference internal" href="#yawc02">YaWC02</a>).</p>
 <p>When using <em>sdcMicro</em>, the IL1s data utility measure can be computed for
 all numerical quasi-identifiers with the function dUtility(), which is
 illustrated in <a class="reference internal" href="#code67"><span class="std std-numref">Listing 7.7</span></a>. If required, the measure can also be
@@ -649,12 +657,12 @@ loss. The result is saved in the utility slot of the <em>sdcMicro</em> object.
 12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># Evaluating IL1s measure for all variables in the sdcMicro object sdcInitial</span>
 sdcInitial <span class="o">&lt;-</span> dUtility<span class="p">(</span>sdcInitial<span class="p">)</span>
 
-<span class="c1"># Calling the result of IL1s*</span>
+<span class="c1"># Calling the result of IL1s</span>
 sdcInitial<span class="o">@</span>utility<span class="o">$</span>il1
 <span class="c1">## [1] 0.2203791</span>
 
 <span class="c1"># IL1s for a subset of the numerical quasi-identifiers</span>
-subset <span class="o">&lt;-</span> <span class="o">**</span><span class="kt">c</span><span class="o">**</span>\ <span class="p">(</span><span class="s">&#39;INCRMT&#39;</span><span class="p">,</span> <span class="s">&#39;INCWAGE&#39;</span><span class="p">,</span> <span class="s">&#39;INCFARMBSN&#39;</span><span class="p">)</span>
+subset <span class="o">&lt;-</span> <span class="kt">c</span><span class="p">(</span><span class="s">&#39;INCRMT&#39;</span><span class="p">,</span> <span class="s">&#39;INCWAGE&#39;</span><span class="p">,</span> <span class="s">&#39;INCFARMBSN&#39;</span><span class="p">)</span>
 dUtility<span class="p">(</span>obj <span class="o">=</span> sdcInitial<span class="o">@</span>origData<span class="p">[,</span><span class="kp">subset</span><span class="p">],</span> xm <span class="o">=</span> sdcInitial<span class="o">@</span>manipNumVars<span class="p">[,</span><span class="kp">subset</span><span class="p">],</span>
 method <span class="o">=</span> <span class="s">&#39;IL1&#39;</span><span class="p">)</span>
 <span class="c1">## [1] 0.5641103</span>
@@ -666,7 +674,8 @@ value of the measure, the closer the values are to the original values
 and the higher the utility.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">This measure is related to risk measures based on distance and intervals (see Section 4.7).</p>
+<p class="last">This measure is related to risk measures based on distance and intervals (see
+the Section <a class="reference external" href="measure_risk.html#Riskmeasuresforcontinuousvariables">Risk measures for continuous variables</a>).</p>
 </div>
 <p>The greater the distance between the original and anonymized values, the
 lower the data utility. Greater distance, however, also reduces the risk
@@ -694,13 +703,13 @@ value, the greater the changes in the data and the information loss.</p>
 7
 8
 9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># Comparison of eigenvalues of continuous variables</span>
-dUtility<span class="p">(</span>obj <span class="o">=</span> sdcInitial<span class="o">@</span>origData<span class="p">[,</span>contVars<span class="p">],</span> xm <span class="o">=</span>
-sdcInitial<span class="o">@</span>manipNumVars<span class="p">[,</span>contVars<span class="p">],</span> method <span class="o">=</span> <span class="s">&#39;eigen&#39;</span><span class="p">)</span>
+dUtility<span class="p">(</span>obj <span class="o">=</span> sdcInitial<span class="o">@</span>origData<span class="p">[,</span>contVars<span class="p">],</span>
+         xm <span class="o">=</span> sdcInitial<span class="o">@</span>manipNumVars<span class="p">[,</span>contVars<span class="p">],</span> method <span class="o">=</span> <span class="s">&#39;eigen&#39;</span><span class="p">)</span>
 <span class="c1">## [1] 2.482948</span>
 
 <span class="c1"># Comparison of robust eigenvalues of continuous variables*</span>
-dUtility<span class="p">(</span>obj <span class="o">=</span> sdcInitial<span class="o">@</span>origData<span class="p">[,</span>contVars<span class="p">],</span> xm <span class="o">=</span>
-sdcInitial<span class="o">@</span>manipNumVars<span class="p">[,</span>contVars<span class="p">],</span> method <span class="o">=</span> <span class="s">&#39;robeigen&#39;</span><span class="p">)</span>
+dUtility<span class="p">(</span>obj <span class="o">=</span> sdcInitial<span class="o">@</span>origData<span class="p">[,</span>contVars<span class="p">],</span>
+         xm <span class="o">=</span> sdcInitial<span class="o">@</span>manipNumVars<span class="p">[,</span>contVars<span class="p">],</span> method <span class="o">=</span> <span class="s">&#39;robeigen&#39;</span><span class="p">)</span>
 <span class="c1">## [1] -4.297621e+14</span>
 </pre></div>
 </td></tr></table></div>
@@ -713,7 +722,7 @@ sdcInitial<span class="o">@</span>manipNumVars<span class="p">[,</span>contVars<
 <p>Not all needs and uses of a certain dataset can be inventoried.
 Nevertheless, some types of data have similar uses or important
 characteristics, which can be evaluated before and after anonymization.
-Examples of such “benchmarking indicators” (Templ et al., 2014) are
+Examples of such “benchmarking indicators” (<a class="reference internal" href="#tmkc14">TMKC14</a>) are
 different for each dataset. Examples include poverty measures for income
 datasets and school attendance ratios. Often ideas for selecting such
 indicators come from the reports data users publish based on previously
@@ -754,12 +763,16 @@ coefficient by using bootstrap.</p>
 4
 5
 6
-7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># Gini coefficient before anonymization</span>
-gini<span class="p">(</span>inc <span class="o">=</span> sdcInitial<span class="o">@</span>origData<span class="p">[</span>selInc<span class="p">,</span><span class="s">&#39;INC&#39;</span><span class="p">],</span> weights <span class="o">=</span>  curW<span class="p">[</span>selInc<span class="p">],</span> na.rm <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span><span class="o">$</span>value <span class="c1"># before</span>
+7
+8
+9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># Gini coefficient before anonymization</span>
+gini<span class="p">(</span>inc <span class="o">=</span> sdcInitial<span class="o">@</span>origData<span class="p">[</span>selInc<span class="p">,</span><span class="s">&#39;INC&#39;</span><span class="p">],</span>
+     weights <span class="o">=</span>  curW<span class="p">[</span>selInc<span class="p">],</span> na.rm <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span><span class="o">$</span>value <span class="c1"># before</span>
 <span class="c1">## [1] 34.05928</span>
 
 <span class="c1"># Gini coefficient after anonymization</span>
-gini<span class="p">(</span>inc <span class="o">=</span> sdcInitial<span class="o">@</span>manipNumVars<span class="p">[</span>selInc<span class="p">,</span><span class="s">&#39;INC&#39;</span><span class="p">],</span> weights <span class="o">=</span> curW<span class="p">[</span>selInc<span class="p">],</span> na.rm <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span><span class="o">$</span>value <span class="c1"># after</span>
+gini<span class="p">(</span>inc <span class="o">=</span> sdcInitial<span class="o">@</span>manipNumVars<span class="p">[</span>selInc<span class="p">,</span><span class="s">&#39;INC&#39;</span><span class="p">],</span>
+     weights <span class="o">=</span> curW<span class="p">[</span>selInc<span class="p">],</span> na.rm <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span><span class="o">$</span>value <span class="c1"># after</span>
 <span class="c1">## [1] 67.13218</span>
 </pre></div>
 </td></tr></table></div>
@@ -854,20 +867,26 @@ employees with a positive wage in the age groups 15 – 65 years.</p>
 57
 58
 59
-60</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># Mincer equation variables before anonymization</span>
+60
+61
+62
+63
+64
+65</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># Mincer equation variables before anonymization</span>
 Mlwage    <span class="o">&lt;-</span> <span class="kp">log</span><span class="p">(</span>sdcMincer<span class="o">@</span>origData<span class="o">$</span>wage<span class="p">)</span> <span class="c1"># log wage</span>
-Mempstat  <span class="o">&lt;-</span> sdcMincer<span class="o">@</span>origData<span class="o">$</span>empstat<span class="o">==</span><span class="s">&#39;Paid employee&#39;</span> <span class="c1"># TRUE if &#39;paid employee&#39;, else FALSE or NA</span>
+<span class="c1"># TRUE if &#39;paid employee&#39;, else FALSE or NA</span>
+Mempstat  <span class="o">&lt;-</span> sdcMincer<span class="o">@</span>origData<span class="o">$</span>empstat<span class="o">==</span><span class="s">&#39;Paid employee&#39;</span>
 Mage      <span class="o">&lt;-</span> sdcMincer<span class="o">@</span>origData<span class="o">$</span>age    <span class="c1"># age in years</span>
 Meducy    <span class="o">&lt;-</span> sdcMincer<span class="o">@</span>origData<span class="o">$</span>educy  <span class="c1"># education in years</span>
 Mexp      <span class="o">&lt;-</span> sdcMincer<span class="o">@</span>origData<span class="o">$</span>exp    <span class="c1"># experience in years</span>
 Mexp2     <span class="o">&lt;-</span> Mexp<span class="o">^</span><span class="m">2</span>                    <span class="c1"># squared experience</span>
 Mgender   <span class="o">&lt;-</span> sdcMincer<span class="o">@</span>origData<span class="o">$</span>gender <span class="c1"># gender dummy</span>
 Mwgt      <span class="o">&lt;-</span> sdcMincer<span class="o">@</span>origData<span class="o">$</span>wgt    <span class="c1"># weight variable for regression</span>
-MfileB    <span class="o">&lt;-</span> <span class="kp">as.data.frame</span><span class="p">(</span><span class="kp">cbind</span><span class="p">(</span>Mlwage<span class="p">,</span> Mempstat<span class="p">,</span> Mage<span class="p">,</span> Meducy<span class="p">,</span> Mexp<span class="p">,</span> Mexp2<span class="p">,</span> Mgender<span class="p">,</span> Mwgt<span class="p">))</span>
+MfileB    <span class="o">&lt;-</span> <span class="kp">as.data.frame</span><span class="p">(</span><span class="kp">cbind</span><span class="p">(</span>Mlwage<span class="p">,</span> Mempstat<span class="p">,</span> Mage<span class="p">,</span> Meducy<span class="p">,</span> Mexp<span class="p">,</span> Mexp2<span class="p">,</span>
+                                 Mgender<span class="p">,</span> Mwgt<span class="p">))</span>
 <span class="c1"># Mincer equation variables after anonymization</span>
 Mlwage    <span class="o">&lt;-</span> <span class="kp">log</span><span class="p">(</span>sdcMincer<span class="o">@</span>manipNumVars<span class="o">$</span>wage<span class="p">)</span> <span class="c1"># log wage</span>
 Mempstat  <span class="o">&lt;-</span> sdcMincer<span class="o">@</span>manipKeyVars<span class="o">$</span>empstat<span class="o">==</span><span class="s">&#39;Paid employee&#39;</span>
-
 <span class="c1"># TRUE if &#39;paid employee&#39;, else FALSE or NA</span>
 Mage      <span class="o">&lt;-</span> sdcMincer<span class="o">@</span>manipKeyVars<span class="o">$</span>age    <span class="c1"># age in years</span>
 Meducy    <span class="o">&lt;-</span> sdcMincer<span class="o">@</span>manipKeyVars<span class="o">$</span>educy  <span class="c1"># education in years</span>
@@ -875,7 +894,8 @@ Mexp      <span class="o">&lt;-</span> sdcMincer<span class="o">@</span>manipKey
 Mexp2     <span class="o">&lt;-</span> Mexp<span class="o">^</span><span class="m">2</span>                        <span class="c1"># squared experience</span>
 Mgender   <span class="o">&lt;-</span> sdcMincer<span class="o">@</span>manipKeyVars<span class="o">$</span>gender <span class="c1"># gender dummy</span>
 Mwgt      <span class="o">&lt;-</span> sdcMincer<span class="o">@</span>origData<span class="o">$</span>wgt        <span class="c1"># weight variable for regression</span>
-MfileA    <span class="o">&lt;-</span> <span class="kp">as.data.frame</span><span class="p">(</span><span class="kp">cbind</span><span class="p">(</span>Mlwage<span class="p">,</span> Mempstat<span class="p">,</span> Mage<span class="p">,</span> Meducy<span class="p">,</span> Mexp<span class="p">,</span> Mexp2<span class="p">,</span> Mgender<span class="p">,</span> Mwgt<span class="p">))</span>
+MfileA    <span class="o">&lt;-</span> <span class="kp">as.data.frame</span><span class="p">(</span><span class="kp">cbind</span><span class="p">(</span>Mlwage<span class="p">,</span> Mempstat<span class="p">,</span> Mage<span class="p">,</span> Meducy<span class="p">,</span> Mexp<span class="p">,</span> Mexp2<span class="p">,</span>
+                                 Mgender<span class="p">,</span> Mwgt<span class="p">))</span>
 
 <span class="c1"># Specify regression formula</span>
 Mformula <span class="o">&lt;-</span> <span class="s">&#39;Mlwage ~ Meducy + Mexp + Mexp2 + Mgender&#39;</span>
@@ -884,9 +904,12 @@ Mformula <span class="o">&lt;-</span> <span class="s">&#39;Mlwage ~ Meducy + Mex
 mincer1565B <span class="o">&lt;-</span> lm<span class="p">(</span>Mformula<span class="p">,</span> data <span class="o">=</span> <span class="kp">subset</span><span class="p">(</span>MfileB<span class="p">,</span>
 MfileB<span class="o">$</span>Mage <span class="o">&gt;=</span> <span class="m">15</span> <span class="o">&amp;</span> MfileB<span class="o">$</span>Mage <span class="o">&lt;=</span> <span class="m">65</span> <span class="o">&amp;</span> MfileB<span class="o">$</span>Mempstat<span class="o">==</span><span class="kc">TRUE</span> <span class="o">&amp;</span>
 MfileB<span class="o">$</span>Mlwage <span class="o">!=</span> <span class="o">-</span><span class="kc">Inf</span><span class="p">),</span> na.action <span class="o">=</span> na.exclude<span class="p">,</span> weights <span class="o">=</span> Mwgt<span class="p">)</span> <span class="c1"># before</span>
-mincer1565A <span class="o">&lt;-</span> lm<span class="p">(</span>Mformula<span class="p">,</span> data <span class="o">=</span> <span class="kp">subset</span><span class="p">(</span>MfileA<span class="p">,</span>
-                               MfileA<span class="o">$</span>Mage <span class="o">&gt;=</span> <span class="m">15</span> <span class="o">&amp;</span> MfileA<span class="o">$</span>Mage <span class="o">&lt;=</span> <span class="m">65</span> <span class="o">&amp;</span> MfileA<span class="o">$</span>Mempstat<span class="o">==</span><span class="kc">TRUE</span> <span class="o">&amp;</span>
-               MfileA<span class="o">$</span>Mlwage <span class="o">!=</span> <span class="o">-</span><span class="kc">Inf</span><span class="p">),</span> na.action <span class="o">=</span> na.exclude<span class="p">,</span> weights <span class="o">=</span> Mwgt<span class="p">)</span> <span class="c1"># after</span>
+mincer1565A <span class="o">&lt;-</span> lm<span class="p">(</span>Mformula<span class="p">,</span>
+                  data <span class="o">=</span> <span class="kp">subset</span><span class="p">(</span>MfileA<span class="p">,</span>
+                                                MfileA<span class="o">$</span>Mage <span class="o">&gt;=</span> <span class="m">15</span> <span class="o">&amp;</span> MfileA<span class="o">$</span>Mage <span class="o">&lt;=</span> <span class="m">65</span> <span class="o">&amp;</span>
+                                                MfileA<span class="o">$</span>Mempstat<span class="o">==</span><span class="kc">TRUE</span> <span class="o">&amp;</span>
+                                MfileA<span class="o">$</span>Mlwage <span class="o">!=</span> <span class="o">-</span><span class="kc">Inf</span><span class="p">),</span>
+                  na.action <span class="o">=</span> na.exclude<span class="p">,</span> weights <span class="o">=</span> Mwgt<span class="p">)</span> <span class="c1"># after</span>
 
 <span class="c1"># The objects mincer1565B and mincer1565A contain the results of the</span>
 regressions before and after anonymization
@@ -925,7 +948,7 @@ intervals for the gender coefficient in this trade-off for a sample
 income dataset and several SDC methods and parameters. The red dot and
 confidence bar (on the top) correspond to the estimates for the
 untreated data, whereas the other confidence bars correspond to the
-respective SC methods and different parameters. The anonymization
+respective SDC methods and different parameters. The anonymization
 reduces the number of expected re-identifications in the data (left
 axis) and the point estimates and confidence intervals vary greatly for
 the different SDC methods. We would choose a method, which reduces the
@@ -958,8 +981,9 @@ present the following visualizations:</p>
 anonymized data. When using an <em>sdcMicro</em> object for the anonymization
 process, the raw data are stored in the “origData” slot of the object
 and the anonymized variables are in the slots “manipKeyVars”,
-“manipPramVars”, “manipNumVars” and “manipStrataVar” slots. See Section
-7.5 for more information on <em>sdcMicro</em> objects, slots and how to access
+“manipPramVars”, “manipNumVars” and “manipStrataVar” slots. See the Section
+<a class="reference external" href="sdcMicro.html#ObjectsofclasssdcMicroObj">Objects of class sdcMicroObj</a>
+for more information on <em>sdcMicro</em> objects, slots and how to access
 slots.</p>
 <div class="section" id="histograms-and-density-plots">
 <h3>7.4.1. Histograms and density plots<a class="headerlink" href="#histograms-and-density-plots" title="Permalink to this headline">¶</a></h3>
@@ -998,19 +1022,29 @@ increased and the shape of the distribution has changed.</p>
 10
 11
 12
-13</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># Plot histograms</span>
+13
+14
+15
+16
+17
+18</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># Plot histograms</span>
 <span class="c1"># Plot histogram before anonymization</span>
-hist<span class="p">(</span>sdcInitial<span class="o">@</span>origData<span class="o">$</span>INC<span class="p">,</span> breaks <span class="o">=</span> <span class="p">(</span><span class="m">0</span><span class="o">:</span><span class="m">180</span><span class="p">)</span><span class="o">*</span><span class="m">1e2</span><span class="p">,</span> main <span class="o">=</span>  <span class="s">&quot;Histogram income - original data&quot;</span><span class="p">)</span>
+hist<span class="p">(</span>sdcInitial<span class="o">@</span>origData<span class="o">$</span>INC<span class="p">,</span> breaks <span class="o">=</span> <span class="p">(</span><span class="m">0</span><span class="o">:</span><span class="m">180</span><span class="p">)</span><span class="o">*</span><span class="m">1e2</span><span class="p">,</span>
+     main <span class="o">=</span>  <span class="s">&quot;Histogram income - original data&quot;</span><span class="p">)</span>
 
 <span class="c1"># Plot histogram after anonymization (noise addition)</span>
-hist<span class="p">(</span>sdcInitial<span class="o">@</span>manipNumVars<span class="o">$</span>INC<span class="p">,</span> breaks <span class="o">=</span> <span class="p">(</span><span class="m">-20</span><span class="o">:</span><span class="m">190</span><span class="p">)</span><span class="o">*</span><span class="m">1e2</span><span class="p">,</span> main <span class="o">=</span> <span class="s">&quot;Histogram income - anonymized data&quot;</span><span class="p">)</span>
+hist<span class="p">(</span>sdcInitial<span class="o">@</span>manipNumVars<span class="o">$</span>INC<span class="p">,</span> breaks <span class="o">=</span> <span class="p">(</span><span class="m">-20</span><span class="o">:</span><span class="m">190</span><span class="p">)</span><span class="o">*</span><span class="m">1e2</span><span class="p">,</span>
+     main <span class="o">=</span> <span class="s">&quot;Histogram income - anonymized data&quot;</span><span class="p">)</span>
 
 <span class="c1"># Plot densities</span>
 <span class="c1"># Plot original density curve</span>
-plot<span class="p">(</span>density<span class="p">(</span>sdcInitial<span class="o">@</span>origData<span class="o">$</span>INC<span class="p">),</span> xlim <span class="o">=</span> <span class="kt">c</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">8000</span><span class="p">),</span> ylim <span class="o">=</span> <span class="kt">c</span><span class="o">*</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">0.006</span><span class="p">),</span> main <span class="o">=</span> <span class="s">&quot;Density income&quot;</span><span class="p">,</span> xlab <span class="o">=</span> <span class="s">&quot;income&quot;</span><span class="p">)</span>
+plot<span class="p">(</span>density<span class="p">(</span>sdcInitial<span class="o">@</span>origData<span class="o">$</span>INC<span class="p">),</span> xlim <span class="o">=</span> <span class="kt">c</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">8000</span><span class="p">),</span> ylim <span class="o">=</span> <span class="kt">c</span><span class="o">*</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">0.006</span><span class="p">),</span>
+     main <span class="o">=</span> <span class="s">&quot;Density income&quot;</span><span class="p">,</span> xlab <span class="o">=</span> <span class="s">&quot;income&quot;</span><span class="p">)</span>
 par <span class="p">(</span>new <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span>
+
 <span class="c1"># Plot density curve after anonymization (noise addition)</span>
-plot<span class="p">(</span>density<span class="p">(</span>sdcInitial<span class="o">@</span>manipNumVars<span class="o">$</span>INC<span class="p">),</span> xlim <span class="o">=</span> <span class="kt">c</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">8000</span><span class="p">),</span> ylim <span class="o">=</span> <span class="kt">c</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">0.006</span><span class="p">),</span> main <span class="o">=</span> <span class="s">&quot;Density income&quot;</span><span class="p">,</span> xlab <span class="o">=</span> <span class="s">&quot;income&quot;</span><span class="p">)</span>
+plot<span class="p">(</span>density<span class="p">(</span>sdcInitial<span class="o">@</span>manipNumVars<span class="o">$</span>INC<span class="p">),</span> xlim <span class="o">=</span> <span class="kt">c</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">8000</span><span class="p">),</span> ylim <span class="o">=</span> <span class="kt">c</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">0.006</span><span class="p">),</span>
+     main <span class="o">=</span> <span class="s">&quot;Density income&quot;</span><span class="p">,</span> xlab <span class="o">=</span> <span class="s">&quot;income&quot;</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
 </div>
@@ -1035,8 +1069,10 @@ methods applied.</p>
 <div class="literal-block-wrapper docutils container" id="code612">
 <div class="code-block-caption"><span class="caption-number">Listing 7.12 </span><span class="caption-text">Creating boxplots for continuous variables</span><a class="headerlink" href="#code612" title="Permalink to this code">¶</a></div>
 <div class="highlight-R notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2</pre></div></td><td class="code"><div class="highlight"><pre><span></span>boxplot(sdcObj@origData$TOTFOOD, sdcObj@manipNumVars$TOTFOOD, xaxt = &#39;n&#39;, ylab = &quot;Expenditure&quot;)
-axis(1, at = c(1,2), labels = c(&#39;before, &#39;after&#39;))
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span>boxplot<span class="p">(</span>sdcObj<span class="o">@</span>origData<span class="o">$</span>TOTFOOD<span class="p">,</span> sdcObj<span class="o">@</span>manipNumVars<span class="o">$</span>TOTFOOD<span class="p">,</span>
+        xaxt <span class="o">=</span> <span class="s">&#39;n&#39;</span><span class="p">,</span> ylab <span class="o">=</span> <span class="s">&quot;Expenditure&quot;</span><span class="p">)</span>
+axis<span class="p">(</span><span class="m">1</span><span class="p">,</span> at <span class="o">=</span> <span class="kt">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">),</span> labels <span class="o">=</span> <span class="kt">c</span><span class="p">(</span><span class="s">&#39;before&#39;</span><span class="p">,</span> <span class="s">&#39;after&#39;</span><span class="p">))</span>
 </pre></div>
 </td></tr></table></div>
 </div>
@@ -1053,14 +1089,15 @@ several “scenarios” next to one another. A scenario here refers to the
 choice of anonymization methods and their parameters. With mosaic plots
 we can, for instance, quickly see the effect of different levels of
 <span class="math notranslate nohighlight">\(k\)</span>-anonymity or differences in the importance vectors in the
-local suppression algorithm (see Section 5.2.2).</p>
+local suppression algorithm (see the Section <a class="reference external" href="anon_methods.html#Localsuppression">Local suppression</a>).</p>
 <p>We illustrate the changes in tabulations with an example of the variable
 “WATER” before and after applying PRAM. We can use mosaic plots to
 quickly see the changes for each category. <a class="reference internal" href="#code613"><span class="std std-numref">Listing 7.13</span></a> shows the code
 in <em>R</em>. The function mosaicplot() is available in base <em>R</em>. To plot a
 tabulation, first the tabulation must be made with the table() function.
 To show the labels in the mosaicplot(), we change the class of the
-variables to ‘factor’ (see Section 7.4 on classes in <em>R</em>). Looking at
+variables to ‘factor’ (see the Section
+<a class="reference external" href="sdcMicro.html#ClassesinR">Classes in R</a>). Looking at
 the mosaic plot in <a class="reference internal" href="#fig66"><span class="std std-numref">Fig. 7.6</span></a> we see invariant PRAM has virtually no
 influence on the univariate distribution.</p>
 <div class="literal-block-wrapper docutils container" id="code613">
@@ -1078,16 +1115,24 @@ influence on the univariate distribution.</p>
 11
 12
 13
-14</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># Collecting data of variable WATER before and after anonymization,</span>
-assigning factor levels <span class="kr">for</span> labels <span class="kr">in</span> plot
-dataWater <span class="o">&lt;-</span> <span class="kp">t</span><span class="p">(</span><span class="kp">cbind</span><span class="p">(</span><span class="kp">table</span><span class="p">(</span><span class="kp">factor</span><span class="p">(</span>sdcHH<span class="o">@</span>origData<span class="o">$</span>WATER<span class="p">,</span> levels <span class="o">=</span> <span class="kt">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">3</span><span class="p">,</span> <span class="m">4</span><span class="p">,</span> <span class="m">5</span><span class="p">,</span> <span class="m">6</span><span class="p">,</span> <span class="m">7</span><span class="p">,</span> <span class="m">8</span><span class="p">,</span> <span class="m">9</span><span class="p">),</span>
-              labels <span class="o">=</span> <span class="kt">c</span><span class="p">(</span><span class="s">&quot;Pipe (own tap)&quot;</span><span class="p">,</span> <span class="s">&quot;Public standpipe&quot;</span><span class="p">,</span> <span class="s">&quot;Borehole&quot;</span><span class="p">,</span> <span class="s">&quot;Wells</span>
-<span class="s">              (protected)&quot;</span><span class="p">,</span> <span class="s">&quot;Wells (unprotected)&quot;</span><span class="p">,</span> <span class="s">&quot;Surface water&quot;</span><span class="p">,</span> <span class="s">&quot;Rain water&quot;</span><span class="p">,</span>
-              <span class="s">&quot;Vendor/truck&quot;</span><span class="p">,</span> <span class="s">&quot;Other&quot;</span><span class="p">))),</span> <span class="kp">table</span><span class="p">(</span><span class="kp">factor</span><span class="p">(</span>sdcHH<span class="o">@</span>manipPramVars<span class="o">$</span>WATER<span class="p">,</span>
-              levels <span class="o">=</span> <span class="kt">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">,</span> <span class="m">3</span><span class="p">,</span> <span class="m">4</span><span class="p">,</span> <span class="m">5</span><span class="p">,</span> <span class="m">6</span><span class="p">,</span> <span class="m">7</span><span class="p">,</span> <span class="m">8</span><span class="p">,</span> <span class="m">9</span><span class="p">),</span> labels <span class="o">=</span> <span class="kt">c</span><span class="p">(</span><span class="s">&quot;Pipe (own tap)&quot;</span><span class="p">,</span>
-              <span class="s">&quot;Public standpipe&quot;</span><span class="p">,</span> <span class="s">&quot;Borehole&quot;</span><span class="p">,</span> <span class="s">&quot;Wells (protected)&quot;</span><span class="p">,</span> <span class="s">&quot;Wells</span>
-<span class="s">              (unprotected)&quot;</span><span class="p">,</span> <span class="s">&quot;Surface water&quot;</span><span class="p">,</span> <span class="s">&quot;Rain water&quot;</span><span class="p">,</span> <span class="s">&quot;Vendor/truck&quot;</span><span class="p">,</span>
-              <span class="s">&quot;Other&quot;</span><span class="p">)))))</span>
+14
+15
+16
+17
+18</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># Collecting data of variable WATER before and after anonymization,</span>
+<span class="c1"># assigning factor levels for labels in plot</span>
+dataWater <span class="o">&lt;-</span> <span class="kp">t</span><span class="p">(</span><span class="kp">cbind</span><span class="p">(</span><span class="kp">table</span><span class="p">(</span><span class="kp">factor</span><span class="p">(</span>sdcHH<span class="o">@</span>origData<span class="o">$</span>WATER<span class="p">,</span>
+                                  levels <span class="o">=</span> <span class="kt">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">3</span><span class="p">,</span> <span class="m">4</span><span class="p">,</span> <span class="m">5</span><span class="p">,</span> <span class="m">6</span><span class="p">,</span> <span class="m">7</span><span class="p">,</span> <span class="m">8</span><span class="p">,</span> <span class="m">9</span><span class="p">),</span>
+                                  labels <span class="o">=</span> <span class="kt">c</span><span class="p">(</span><span class="s">&quot;Pipe (own tap)&quot;</span><span class="p">,</span> <span class="s">&quot;Public standpipe&quot;</span><span class="p">,</span>
+                                             <span class="s">&quot;Borehole&quot;</span><span class="p">,</span> <span class="s">&quot;Wells (protected)&quot;</span><span class="p">,</span>
+                                             <span class="s">&quot;Wells (unprotected)&quot;</span><span class="p">,</span> <span class="s">&quot;Surface water&quot;</span><span class="p">,</span>
+                                             <span class="s">&quot;Rain water&quot;</span><span class="p">,</span> <span class="s">&quot;Vendor/truck&quot;</span><span class="p">,</span> <span class="s">&quot;Other&quot;</span><span class="p">))),</span>
+                     <span class="kp">table</span><span class="p">(</span><span class="kp">factor</span><span class="p">(</span>sdcHH<span class="o">@</span>manipPramVars<span class="o">$</span>WATER<span class="p">,</span>
+                                  levels <span class="o">=</span> <span class="kt">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">,</span> <span class="m">3</span><span class="p">,</span> <span class="m">4</span><span class="p">,</span> <span class="m">5</span><span class="p">,</span> <span class="m">6</span><span class="p">,</span> <span class="m">7</span><span class="p">,</span> <span class="m">8</span><span class="p">,</span> <span class="m">9</span><span class="p">),</span>
+                                  labels <span class="o">=</span> <span class="kt">c</span><span class="p">(</span><span class="s">&quot;Pipe (own tap)&quot;</span><span class="p">,</span> <span class="s">&quot;Public standpipe&quot;</span><span class="p">,</span>
+                                             <span class="s">&quot;Borehole&quot;</span><span class="p">,</span> <span class="s">&quot;Wells (protected)&quot;</span><span class="p">,</span>
+                                             <span class="s">&quot;Wells (unprotected)&quot;</span><span class="p">,</span> <span class="s">&quot;Surface water&quot;</span><span class="p">,</span>
+                                             <span class="s">&quot;Rain water&quot;</span><span class="p">,</span> <span class="s">&quot;Vendor/truck&quot;</span><span class="p">,</span><span class="s">&quot;Other&quot;</span><span class="p">)))))</span>
 <span class="kp">rownames</span><span class="p">(</span>dataWater<span class="p">)</span> <span class="o">&lt;-</span> <span class="kt">c</span><span class="p">(</span><span class="s">&quot;before&quot;</span><span class="p">,</span> <span class="s">&quot;after&quot;</span><span class="p">)</span>
 
 <span class="c1"># Plotting mosaic plot</span>
@@ -1114,7 +1159,6 @@ used to select the best scenario. Looking at the mosaic plots in <a class="refer
 we see that scenarios 2, 5 and 6 give the smallest changes for the
 gender variable and scenarios 3 and 4 for the relationship status
 variable.</p>
-<p>Table 6.1: Description of anonymization methods by scenario</p>
 <span id="tab61"></span><table border="1" class="colwidths-auto docutils align-center" id="id9">
 <caption><span class="caption-number">Table 7.1 </span><span class="caption-text">Description of anonymization methods by scenario</span><a class="headerlink" href="#id9" title="Permalink to this table">¶</a></caption>
 <thead valign="bottom">
@@ -1177,7 +1221,9 @@ and occupation variables</td>
 <span id="fig67"></span><img alt="_images/image17.png" src="_images/image17.png" />
 <p class="caption"><span class="caption-number">Fig. 7.7 </span><span class="caption-text">Comparison of treated vs. untreated gender and relationship status variables with mosaic plots</span></p>
 </div>
-<p>As we discussed in Section 5.3.1, invariant PRAM preserves the
+<p>As we discussed in the Section
+<a href="#id13"><span class="problematic" id="id14">`PRAM (Post RAndomization Method) &lt;anon_methods.html# PRAM (Post RAndomization Method)`__</span></a>
+, invariant PRAM preserves the
 univariate distributions. Therefore, in this case it is more interesting
 to look at the multivariate mosaic plots. Mosaic plots are also a
 powerful tool to show changes in cross-tabulations/contingency tables.
@@ -1205,24 +1251,32 @@ two-way tables in this case.</p>
 16
 17
 18
-19</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># Before anonymization: contingency table and mosaic plot</span>
+19
+20
+21
+22
+23</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># Before anonymization: contingency table and mosaic plot</span>
 ROOFTOILETbefore <span class="o">&lt;-</span> <span class="kp">t</span><span class="p">(</span><span class="kp">table</span><span class="p">(</span><span class="kp">factor</span><span class="p">(</span>sdcHH<span class="o">@</span>origData<span class="o">$</span>ROOF<span class="p">,</span> levels <span class="o">=</span> <span class="kt">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">,</span> <span class="m">3</span><span class="p">,</span> <span class="m">4</span><span class="p">,</span> <span class="m">5</span><span class="p">,</span> <span class="m">9</span><span class="p">),</span>
-                          labels <span class="o">=</span> <span class="kt">c</span><span class="p">(</span><span class="s">&quot;Concrete/cement/ \n brick/stone&quot;</span><span class="p">,</span> <span class="s">&quot;Wood&quot;</span><span class="p">,</span>
-                          <span class="s">&quot;Bamboo/thatch&quot;</span><span class="p">,</span> <span class="s">&quot;Tiles/shingles&quot;</span><span class="p">,</span>
-                          <span class="s">&quot;Tin/metal sheets&quot;</span><span class="p">,</span> <span class="s">&quot;Other&quot;</span><span class="p">)),</span>
-                     <span class="kp">factor</span><span class="p">(</span>sdcHH<span class="o">@</span>origData<span class="o">$</span>TOILET<span class="p">,</span> levels <span class="o">=</span> <span class="kt">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">,</span> <span class="m">3</span><span class="p">,</span> <span class="m">4</span><span class="p">,</span> <span class="m">9</span><span class="p">),</span>
-                          labels <span class="o">=</span> <span class="kt">c</span><span class="p">(</span><span class="s">&quot;Flush \n toilet&quot;</span><span class="p">,</span> <span class="s">&quot;Improved \n pit \n latrine&quot;</span><span class="p">,</span>
-                                     <span class="s">&quot;Pit \n latrine&quot;</span><span class="p">,</span> <span class="s">&quot;No \n facility&quot;</span><span class="p">,</span> <span class="s">&quot;Other&quot;</span><span class="p">))))</span>
+                                   labels <span class="o">=</span> <span class="kt">c</span><span class="p">(</span><span class="s">&quot;Concrete/cement/ \n brick/stone&quot;</span><span class="p">,</span> <span class="s">&quot;Wood&quot;</span><span class="p">,</span>
+                                              <span class="s">&quot;Bamboo/thatch&quot;</span><span class="p">,</span> <span class="s">&quot;Tiles/shingles&quot;</span><span class="p">,</span>
+                                              <span class="s">&quot;Tin/metal sheets&quot;</span><span class="p">,</span> <span class="s">&quot;Other&quot;</span><span class="p">)),</span>
+                            <span class="kp">factor</span><span class="p">(</span>sdcHH<span class="o">@</span>origData<span class="o">$</span>TOILET<span class="p">,</span> levels <span class="o">=</span> <span class="kt">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">,</span> <span class="m">3</span><span class="p">,</span> <span class="m">4</span><span class="p">,</span> <span class="m">9</span><span class="p">),</span>
+                                   labels <span class="o">=</span> <span class="kt">c</span><span class="p">(</span><span class="s">&quot;Flush \n toilet&quot;</span><span class="p">,</span>
+                                              <span class="s">&quot;Improved \n pit \n latrine&quot;</span><span class="p">,</span>
+                                              <span class="s">&quot;Pit \n latrine&quot;</span><span class="p">,</span> <span class="s">&quot;No \n facility&quot;</span><span class="p">,</span>
+                                              <span class="s">&quot;Other&quot;</span><span class="p">))))</span>
 mosaicplot<span class="p">(</span>ROOFTOILETbefore<span class="p">,</span> main <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="p">,</span> las <span class="o">=</span> <span class="m">2</span><span class="p">,</span> color <span class="o">=</span> <span class="m">2</span><span class="o">:</span><span class="m">6</span><span class="p">)</span>
 
 <span class="c1"># After anonymization: contingency table and mosaic plot</span>
 ROOFTOILETafter <span class="o">&lt;-</span> <span class="kp">t</span><span class="p">(</span><span class="kp">table</span><span class="p">(</span><span class="kp">factor</span><span class="p">(</span>sdcHH<span class="o">@</span>manipPramVars<span class="o">$</span>ROOF<span class="p">,</span> levels <span class="o">=</span> <span class="kt">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">,</span> <span class="m">3</span><span class="p">,</span> <span class="m">4</span><span class="p">,</span> <span class="m">5</span><span class="p">,</span> <span class="m">9</span><span class="p">),</span>
-                          labels <span class="o">=</span> <span class="kt">c</span><span class="p">(</span><span class="s">&quot;Concrete/cement/ \n brick/stone&quot;</span><span class="p">,</span> <span class="s">&quot;Wood&quot;</span><span class="p">,</span>
-                          <span class="s">&quot;Bamboo/thatch&quot;</span><span class="p">,</span> <span class="s">&quot;Tiles/shingles&quot;</span><span class="p">,</span>
-                          <span class="s">&quot;Tin/metal sheets&quot;</span><span class="p">,</span> <span class="s">&quot;Other&quot;</span><span class="p">)),</span>
-                     <span class="kp">factor</span><span class="p">(</span>sdcHH<span class="o">@</span>manipPramVars<span class="o">$</span>TOILET<span class="p">,</span> levels <span class="o">=</span> <span class="kt">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">,</span> <span class="m">3</span><span class="p">,</span> <span class="m">4</span><span class="p">,</span> <span class="m">9</span><span class="p">),</span>
-                          labels <span class="o">=</span> <span class="kt">c</span><span class="p">(</span><span class="s">&quot;Flush \n toilet&quot;</span><span class="p">,</span> <span class="s">&quot;Improved \\n pit \n latrine&quot;</span><span class="p">,</span>
-                                     <span class="s">&quot;Pit \n latrine&quot;</span><span class="p">,</span> <span class="s">&quot;No \n facility&quot;</span><span class="p">,</span> <span class="s">&quot;Other&quot;</span><span class="p">))))</span>
+                                  labels <span class="o">=</span> <span class="kt">c</span><span class="p">(</span><span class="s">&quot;Concrete/cement/ \n brick/stone&quot;</span><span class="p">,</span> <span class="s">&quot;Wood&quot;</span><span class="p">,</span>
+                                             <span class="s">&quot;Bamboo/thatch&quot;</span><span class="p">,</span> <span class="s">&quot;Tiles/shingles&quot;</span><span class="p">,</span>
+                                             <span class="s">&quot;Tin/metal sheets&quot;</span><span class="p">,</span> <span class="s">&quot;Other&quot;</span><span class="p">)),</span>
+                           <span class="kp">factor</span><span class="p">(</span>sdcHH<span class="o">@</span>manipPramVars<span class="o">$</span>TOILET<span class="p">,</span> levels <span class="o">=</span> <span class="kt">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">,</span> <span class="m">3</span><span class="p">,</span> <span class="m">4</span><span class="p">,</span> <span class="m">9</span><span class="p">),</span>
+                                  labels <span class="o">=</span> <span class="kt">c</span><span class="p">(</span><span class="s">&quot;Flush \n toilet&quot;</span><span class="p">,</span>
+                                             <span class="s">&quot;Improved \\n pit \n latrine&quot;</span><span class="p">,</span>
+                                             <span class="s">&quot;Pit \n latrine&quot;</span><span class="p">,</span> <span class="s">&quot;No \n facility&quot;</span><span class="p">,</span>
+                                             <span class="s">&quot;Other&quot;</span><span class="p">))))</span>
 mosaicplot<span class="p">(</span>ROOFTOILETafter<span class="p">,</span> main <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="p">,</span> las <span class="o">=</span> <span class="m">2</span><span class="p">,</span> color <span class="o">=</span> <span class="m">2</span><span class="o">:</span><span class="m">6</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
@@ -1292,6 +1346,39 @@ several continuous quasi-identifiers relating to income and
 expenditure. To illustrate the utility loss, we also applied several
 SDC methods to this <em>sdcMicro</em> object, such as local suppression,
 PRAM and additive noise addition.</td></tr>
+</tbody>
+</table>
+<p class="rubric">References</p>
+<table class="docutils citation" frame="void" id="doto01b" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[DoTo01b]</td><td>Domingo-Ferrer, J., &amp; Torra, V. (2001).
+<strong>Disclosure Protection Methods and Information Loss for Microdata.</strong>
+In P. Doyle, J. Lane, J. Theeuwes, &amp; Z. L., Theory and Practical Applications for Statistical Agencies (pp. 91-110). Amsterdam.</td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="hdfg12" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[HDFG12]</td><td>Hundepool, A., Domingo-Ferrer, J., Franconi, L., Giessing, S., Nordholt, E. S., Spicer, K., et al. (2012).
+<strong>Statistical Disclosure Control.</strong>
+Chichester, UK: John Wiley &amp; Sons Ltd.</td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="tmkc14" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[TMKC14]</td><td>Templ, M., Meindl, B., Kowarik, A., &amp; Chen, S. (2014, August 1).
+<strong>Introduction to Statistical Disclosure Control (SDC).</strong>
+Retrieved July 9, 2018, from <a class="reference external" href="http://www.ihsn.org/home/software/disclosure-control-toolbox">http://www.ihsn.org/home/software/disclosure-control-toolbox</a>.</td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="yawc02" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[YaWC02]</td><td>Yancey, W. W., Winkler, W. E., &amp; Creecy, R. H. (2002).
+<strong>Disclosure Risk Assessment in Perturbative Microdata Protection.</strong>
+Research Report Series , Statistics 2002-01.</td></tr>
 </tbody>
 </table>
 </div>

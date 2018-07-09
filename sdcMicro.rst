@@ -865,7 +865,8 @@ parallelization. If you want to compare the results of different methods
 on large datasets that require long computation times, using parallel
 computing can be a solution. [#foot70]_
 
-Appendix D zooms in on seven selected datasets from a health survey that
+`Appendix D <appendices.html#Appendix D: Execution Times for Multiple Scenarios Tested using Selected Sample Data>`__
+zooms in on seven selected datasets from a health survey that
 were processed using the same parallelization program and anonymization
 methods. Note that the computation times in the appendix are only meant
 to create awareness for expected computation time, and may vary based on
@@ -877,7 +878,9 @@ processed on the server using the same number of processors (datasets 1,
 2 and 6), some variation also exists in the computation times. 
 
 .. NOTE:: 
-	Computation time in the table in Appendix D includes recalculating
+	Computation time in the table in 
+	`Appendix D <appendices.html#Appendix D: Execution Times for Multiple Scenarios Tested using Selected Sample Data>`__
+	includes recalculating
 	the risk after applying the anonymization methods, which is
 	automatically done in sdcMicro when using standard methods/functions.
 
@@ -894,8 +897,8 @@ anonymization of microdata:
 
 -  The class of a certain variable is not accepted by the function,
    e.g., a categorical variable of class numeric should be first recoded
-   to the required class (e.g., factor or data.frame). Section 7.4 shows
-   how to do this.
+   to the required class (e.g., factor or data.frame). In the Section
+   `Classes in R`_ is shown how to do this.
 
 -  After manually making changes to variables the risk did not change,
    since it is not updated automatically and has to be manually
@@ -932,8 +935,8 @@ anonymization of microdata:
    package *readstata13*.
 
 .. [#foot65]
-   This is regardless of the class of the variable in *R*. See Section
-   7.4 for more on classes in *R*.
+   This is regardless of the class of the variable in *R*. See the Section
+   `Classes in R`_ for more on classes in *R*.
 
 .. [#foot66]
    Class *sdcMicroObj* has S4 objects, which have slots or attributes
@@ -954,6 +957,7 @@ anonymization of microdata:
    The following website provides an overview of parallelization
    packages and solutions in *R*:
    http://cran.r-project.org/web/views/HighPerformanceComputing.html.
-   .. NOTE:: 
-   		Solutions are platform-dependent and therefore our solution
-   		is not further presented.
+   
+   .. NOTE::
+   	   Solutions are platform-dependent and therefore our solution
+   	   is not further presented.

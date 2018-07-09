@@ -1567,7 +1567,8 @@ the RAM is shared might, however, slightly reduce the gains of
 parallelization. If you want to compare the results of different methods
 on large datasets that require long computation times, using parallel
 computing can be a solution. <a class="footnote-reference" href="#foot70" id="id10">[11]</a></p>
-<p>Appendix D zooms in on seven selected datasets from a health survey that
+<p><a class="reference external" href="appendices.html#AppendixD:ExecutionTimesforMultipleScenariosTestedusingSelectedSampleData">Appendix D</a>
+zooms in on seven selected datasets from a health survey that
 were processed using the same parallelization program and anonymization
 methods. Note that the computation times in the appendix are only meant
 to create awareness for expected computation time, and may vary based on
@@ -1579,7 +1580,9 @@ processed on the server using the same number of processors (datasets 1,
 2 and 6), some variation also exists in the computation times.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">Computation time in the table in Appendix D includes recalculating
+<p class="last">Computation time in the table in
+<a class="reference external" href="appendices.html#AppendixD:ExecutionTimesforMultipleScenariosTestedusingSelectedSampleData">Appendix D</a>
+includes recalculating
 the risk after applying the anonymization methods, which is
 automatically done in sdcMicro when using standard methods/functions.</p>
 </div>
@@ -1595,8 +1598,8 @@ anonymization of microdata:</p>
 <ul class="simple">
 <li>The class of a certain variable is not accepted by the function,
 e.g., a categorical variable of class numeric should be first recoded
-to the required class (e.g., factor or data.frame). Section 7.4 shows
-how to do this.</li>
+to the required class (e.g., factor or data.frame). In the Section
+<a class="reference internal" href="#classes-in-r">Classes in R</a> is shown how to do this.</li>
 <li>After manually making changes to variables the risk did not change,
 since it is not updated automatically and has to be manually
 recomputed by using the function calcRisks().</li>
@@ -1649,8 +1652,8 @@ package <em>readstata13</em>.</td></tr>
 <table class="docutils footnote" frame="void" id="foot65" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id5">[6]</a></td><td>This is regardless of the class of the variable in <em>R</em>. See Section
-7.4 for more on classes in <em>R</em>.</td></tr>
+<tr><td class="label"><a class="fn-backref" href="#id5">[6]</a></td><td>This is regardless of the class of the variable in <em>R</em>. See the Section
+<a class="reference internal" href="#classes-in-r">Classes in R</a> for more on classes in <em>R</em>.</td></tr>
 </tbody>
 </table>
 <table class="docutils footnote" frame="void" id="foot66" rules="none">
@@ -1685,11 +1688,11 @@ translating to 64 cores total.</td></tr>
 <tbody valign="top">
 <tr><td class="label"><a class="fn-backref" href="#id10">[11]</a></td><td><p class="first">The following website provides an overview of parallelization
 packages and solutions in <em>R</em>:
-<a class="reference external" href="http://cran.r-project.org/web/views/HighPerformanceComputing.html">http://cran.r-project.org/web/views/HighPerformanceComputing.html</a>.
-.. NOTE:</p>
-<div class="last highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Solutions</span> <span class="n">are</span> <span class="n">platform</span><span class="o">-</span><span class="n">dependent</span> <span class="ow">and</span> <span class="n">therefore</span> <span class="n">our</span> <span class="n">solution</span>
-<span class="ow">is</span> <span class="ow">not</span> <span class="n">further</span> <span class="n">presented</span><span class="o">.</span>
-</pre></div>
+<a class="reference external" href="http://cran.r-project.org/web/views/HighPerformanceComputing.html">http://cran.r-project.org/web/views/HighPerformanceComputing.html</a>.</p>
+<div class="last admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Solutions are platform-dependent and therefore our solution
+is not further presented.</p>
 </div>
 </td></tr>
 </tbody>

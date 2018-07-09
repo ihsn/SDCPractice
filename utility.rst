@@ -7,10 +7,11 @@ to an acceptable level. Data utility in this context means the
 usefulness of the anonymized data for statistical analyses by end users
 as well as the validity of these analyses when performed on the
 anonymized data. Disclosure risk and its measurement are defined in
-Chapter 4 of this guide. In order to make a trade-off between minimizing
+the Section `Measure Risk <measure_risk.html>`__ of this guide. 
+In order to make a trade-off between minimizing
 disclosure risk and maximizing utility of data for end users, it is
 necessary to measure the utility of the data after anonymization and
-compare it with the utility of the original data. This chapter describes
+compare it with the utility of the original data. This section describes
 measures that can be used to compare the data utility before and after
 anonymization, or alternatively quantify the information loss.
 Information loss is the inverse of data utility: the larger the data
@@ -49,15 +50,17 @@ These measures do not take into account the specific data use, but can
 be used as guiding measures for information loss and evaluating whether
 a dataset is still analytically valid after anonymization. The main idea
 for such measures is to compare records between the original and treated
-datasets and compare statistics computed from both datasets (Hundepool
-et al., 2012). Examples of such measures are the number of suppressions,
+datasets and compare statistics computed from both datasets (`HDFG12`_). 
+Examples of such measures are the number of suppressions,
 number of changed values, changes in contingency tables and changes in
 mean and covariance matrices.
 
 Many of the SDC methods discussed earlier are parametric, in the sense
 that their outcome depends on parameters chosen by the user. Examples
-are the cluster size for microaggregation (see Section 5.3.2) or the
-importance vector in local suppression (see Section 5.2.2). Data utility
+are the cluster size for microaggregation (see the Section 
+`Microaggregation <anon_methods.html#Microaggregation>`__) or the
+importance vector in local suppression (see the Section 
+`Local suppression <anon_methods.html#Local suppression>`__). Data utility
 and information loss measures are useful for choosing these parameters
 by comparing the impact of different parameters on the information loss.
 :numref:`fig61` illustrates this by showing the trade-off between the
@@ -151,7 +154,6 @@ original data.
    
    # Matrix to store the number of missing values (NA) before and after anonymization 
    NAcount <- matrix(NA, nrow = 2, ncol = length(namesKeyVars)) 
-   
    colnames(NAcount) <- c(paste0('NA', namesKeyVars)) # column names 
    rownames(NAcount) <- c('initial', 'treated') # row names 
    
@@ -161,7 +163,8 @@ original data.
      NAcount[2, i] <- sum(is.na(sdcInitial@manipKeyVars[,i])) 
    } 
    
-   # Show results NAcount
+   # Show results 
+   NAcount
    ## NAURBRUR NAREGION NARELIG NAMARITAL 
    ## initial 0 0 1000 51 
    ## treated 0 81 1000 51
@@ -181,27 +184,30 @@ compute the number of records changed for the PRAMmed variables.
    :caption: Computing number of records changed per variable
    :name: code63
    
-    # Store the names of all pram variables in a vector
-    namesPramVars <- names(sdcInitial@manipPramVars)
-    # Dataframe to save the number of records changed
-    recChanged <- rep(0, length(namesPramVars))
-    names(recChanged) <- c(paste0('RC', namesPramVars))
-    # Count number of records changed
-    for(j in 1:length(namesPramVars)) # for all key variables
-    {
-      comp <- sdcInitial@origData[namesPramVars[j]] != sdcInitial@manipPramVars[namesPramVars[j]]
-      temp1 <- sum(comp, na.rm = TRUE) # all changed variables without NAs
-      temp2 <- sum(is.na(comp)) # if NA, changed, unless NA initially
-      temp3 <- sum(is.na(sdcInitial@origData[namesPramVars[j]])
-                   + is.na(sdcInitial@manipPramVars[namesPramVars[j]])==2)
-      # both NA, no change, but counted in temp2
-      recChanged[j] <- temp1 + temp2 - temp3
-    }
-    
-    # Show results
-    recChanged
-	##  RCWATER   RCROOF RCTOILET
-	##      125       86      180
+   # Store the names of all pram variables in a vector
+   namesPramVars <- names(sdcInitial@manipPramVars)
+   
+   # Dataframe to save the number of records changed
+   recChanged <- rep(0, length(namesPramVars))
+   names(recChanged) <- c(paste0('RC', namesPramVars))
+   
+   # Count number of records changed
+   for(j in 1:length(namesPramVars)) # for all key variables
+   {
+     comp <- sdcInitial@origData[namesPramVars[j]] != 
+                                 sdcInitial@manipPramVars[namesPramVars[j]]
+     temp1 <- sum(comp, na.rm = TRUE) # all changed variables without NAs
+     temp2 <- sum(is.na(comp))        # if NA, changed, unless NA initially
+     temp3 <- sum(is.na(sdcInitial@origData[namesPramVars[j]])
+                  + is.na(sdcInitial@manipPramVars[namesPramVars[j]])==2)
+     # both NA, no change, but counted in temp2
+     recChanged[j] <- temp1 + temp2 - temp3
+   }
+   
+   # Show results
+   recChanged
+   ##  RCWATER   RCROOF RCTOILET
+   ##      125       86      180
 
 Comparing contingency tables
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -242,12 +248,12 @@ anonymization.
     ##      5 105 130 
     ##      6  79 201 
 
-Domingo-Ferrer and Torra (2001) propose a Contingency Table-Based
+`DoTo01b`_ propose a Contingency Table-Based
 Information Loss (CTBIL) measure, which quantifies the distance between
 the contingency tables in the original and treated data. Alternatively,
 visualizations of the contingency table with mosaic plots can be used to
 compare the impact of anonymization methods on the tabulations and
-contingency tables (see Section 6.4.3).
+contingency tables (see the Section `Mosaic plots`_).
 
 General utility measures for continuous variables
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -259,7 +265,7 @@ The statistics characterizing the dataset should not change after the
 anonymization. Examples of such statistics are the mean, variance, and
 covariance and correlation structure of the most important variables in
 the dataset. Other statistics characterizing the data include the
-principal components and the loadings. Domingo-Ferrer and Torra (2001)
+principal components and the loadings. `DoTo01b`_
 give an overview of statistics that can be considered. In order to
 evaluate the information loss caused by the anonymization, one should
 compare the appropriate statistics for continuous variables computed
@@ -338,11 +344,10 @@ characteristics of the data are important for analysis.
    ## INCRMT  0.1546063 1.0000000 0.1361665
    ## INCWAGE 0.3715897 0.1361665 1.0000000
 
-Domingo-Ferrer and Torra (2001) propose several measures for the
+`DoTo01b`_ propose several measures for the
 discrepancy between the covariance and correlation matrices. These
 measures are based on the mean squared error, the mean absolute error or
-the mean variation of the individual cells. We refer to Domingo-Ferrer
-and Torra (2001) for a complete overview of these measures.
+the mean variation of the individual cells. We refer to `DoTo01b`_ for a complete overview of these measures.
 
 IL1s information loss measure 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -350,22 +355,21 @@ IL1s information loss measure
 Alternatively, we can also compare the actual data and quantify the
 distance between the original dataset :math:`X` and the treated dataset
 :math:`Z`. Here :math:`X` and :math:`Z` contain only continuous
-variables. Yancey, Winkler and Creecy (2002) introduce the distance
+variables. `YaWC02`_ introduce the distance
 measure IL1s, which is the sum of the absolute distances between the
 corresponding observations in the raw and anonymized datasets, which are
 standardized by the standard deviation of the variables in the original
 data. For the continuous variables in the dataset, the IL1s measure is
 defined as
 
-:math:`IL1s = \frac{1}{\text{pn}}\sum_{j = 1}^{p}{\sum_{i = 1}^{n}\frac{\left| x_{\text{ij}} - z_{\text{ij}} \right|}{\sqrt{2}S_{j}}}`
-,
+.. math:: IL1s = \frac{1}{\text{pn}}\sum_{j = 1}^{p}{\sum_{i = 1}^{n}\frac{\left| x_{\text{ij}} - z_{\text{ij}} \right|}{\sqrt{2}S_{j}}},
 
 where :math:`p` is the number of continuous variables; :math:`n` is the
 number of records in the dataset; :math:`x_{\text{ij}}` and
 :math:`z_{\text{ij}}`, respectively, are the values before and after
 anonymization for variable :math:`j` and individual :math:`i`; and
 :math:`S_{j}` is the standard deviation of variable :math:`j` in the
-original data (Yancey, Winkler and Creecy, 2002).
+original data (`YaWC02`_).
 
 When using *sdcMicro*, the IL1s data utility measure can be computed for
 all numerical quasi-identifiers with the function dUtility(), which is
@@ -383,12 +387,12 @@ loss. The result is saved in the utility slot of the *sdcMicro* object.
    # Evaluating IL1s measure for all variables in the sdcMicro object sdcInitial
    sdcInitial <- dUtility(sdcInitial)
    
-   # Calling the result of IL1s*
+   # Calling the result of IL1s
    sdcInitial@utility$il1
    ## [1] 0.2203791
    
    # IL1s for a subset of the numerical quasi-identifiers
-   subset <- **c**\ ('INCRMT', 'INCWAGE', 'INCFARMBSN')
+   subset <- c('INCRMT', 'INCWAGE', 'INCFARMBSN')
    dUtility(obj = sdcInitial@origData[,subset], xm = sdcInitial@manipNumVars[,subset], 
    method = 'IL1')
    ## [1] 0.5641103
@@ -398,7 +402,8 @@ value of the measure, the closer the values are to the original values
 and the higher the utility. 
 
 .. NOTE::
-	This measure is related to risk measures based on distance and intervals (see Section 4.7). 
+	This measure is related to risk measures based on distance and intervals (see 
+	the Section `Risk measures for continuous variables <measure_risk.html#Risk measures for continuous variables>`__). 
 
 The greater the distance between the original and anonymized values, the
 lower the data utility. Greater distance, however, also reduces the risk
@@ -423,13 +428,13 @@ value, the greater the changes in the data and the information loss.
    :name: code68
    
    # Comparison of eigenvalues of continuous variables
-   dUtility(obj = sdcInitial@origData[,contVars], xm =
-   sdcInitial@manipNumVars[,contVars], method = 'eigen')
+   dUtility(obj = sdcInitial@origData[,contVars], 
+            xm = sdcInitial@manipNumVars[,contVars], method = 'eigen')
    ## [1] 2.482948
 
    # Comparison of robust eigenvalues of continuous variables*
-   dUtility(obj = sdcInitial@origData[,contVars], xm =
-   sdcInitial@manipNumVars[,contVars], method = 'robeigen')
+   dUtility(obj = sdcInitial@origData[,contVars], 
+            xm = sdcInitial@manipNumVars[,contVars], method = 'robeigen')
    ## [1] -4.297621e+14
 
 Utility measures based on the end user’s needs
@@ -438,7 +443,7 @@ Utility measures based on the end user’s needs
 Not all needs and uses of a certain dataset can be inventoried.
 Nevertheless, some types of data have similar uses or important
 characteristics, which can be evaluated before and after anonymization.
-Examples of such “benchmarking indicators” (Templ et al., 2014) are
+Examples of such “benchmarking indicators” (`TMKC14`_) are
 different for each dataset. Examples include poverty measures for income
 datasets and school attendance ratios. Often ideas for selecting such
 indicators come from the reports data users publish based on previously
@@ -480,11 +485,13 @@ coefficient by using bootstrap.
    :name: code69
    
    # Gini coefficient before anonymization
-   gini(inc = sdcInitial@origData[selInc,'INC'], weights =  curW[selInc], na.rm = TRUE)$value # before
+   gini(inc = sdcInitial@origData[selInc,'INC'], 
+        weights =  curW[selInc], na.rm = TRUE)$value # before
    ## [1] 34.05928
    
    # Gini coefficient after anonymization
-   gini(inc = sdcInitial@manipNumVars[selInc,'INC'], weights = curW[selInc], na.rm = TRUE)$value # after
+   gini(inc = sdcInitial@manipNumVars[selInc,'INC'], 
+        weights = curW[selInc], na.rm = TRUE)$value # after
    ## [1] 67.13218
 
 Regression 
@@ -526,18 +533,19 @@ employees with a positive wage in the age groups 15 – 65 years.
    
    # Mincer equation variables before anonymization
    Mlwage    <- log(sdcMincer@origData$wage) # log wage
-   Mempstat  <- sdcMincer@origData$empstat=='Paid employee' # TRUE if 'paid employee', else FALSE or NA
+   # TRUE if 'paid employee', else FALSE or NA
+   Mempstat  <- sdcMincer@origData$empstat=='Paid employee' 
    Mage      <- sdcMincer@origData$age    # age in years
    Meducy    <- sdcMincer@origData$educy  # education in years
    Mexp      <- sdcMincer@origData$exp    # experience in years
    Mexp2     <- Mexp^2                    # squared experience
    Mgender   <- sdcMincer@origData$gender # gender dummy
    Mwgt      <- sdcMincer@origData$wgt    # weight variable for regression
-   MfileB    <- as.data.frame(cbind(Mlwage, Mempstat, Mage, Meducy, Mexp, Mexp2, Mgender, Mwgt))
+   MfileB    <- as.data.frame(cbind(Mlwage, Mempstat, Mage, Meducy, Mexp, Mexp2, 
+                                    Mgender, Mwgt))
    # Mincer equation variables after anonymization
    Mlwage    <- log(sdcMincer@manipNumVars$wage) # log wage
    Mempstat  <- sdcMincer@manipKeyVars$empstat=='Paid employee'
-   
    # TRUE if 'paid employee', else FALSE or NA
    Mage      <- sdcMincer@manipKeyVars$age    # age in years
    Meducy    <- sdcMincer@manipKeyVars$educy  # education in years
@@ -545,7 +553,8 @@ employees with a positive wage in the age groups 15 – 65 years.
    Mexp2     <- Mexp^2                        # squared experience
    Mgender   <- sdcMincer@manipKeyVars$gender # gender dummy
    Mwgt      <- sdcMincer@origData$wgt        # weight variable for regression
-   MfileA    <- as.data.frame(cbind(Mlwage, Mempstat, Mage, Meducy, Mexp, Mexp2, Mgender, Mwgt))
+   MfileA    <- as.data.frame(cbind(Mlwage, Mempstat, Mage, Meducy, Mexp, Mexp2, 
+                                    Mgender, Mwgt))
    
    # Specify regression formula
    Mformula <- 'Mlwage ~ Meducy + Mexp + Mexp2 + Mgender'
@@ -554,9 +563,12 @@ employees with a positive wage in the age groups 15 – 65 years.
    mincer1565B <- lm(Mformula, data = subset(MfileB,
    MfileB$Mage >= 15 & MfileB$Mage <= 65 & MfileB$Mempstat==TRUE &
    MfileB$Mlwage != -Inf), na.action = na.exclude, weights = Mwgt) # before
-   mincer1565A <- lm(Mformula, data = subset(MfileA,
-   				  MfileA$Mage >= 15 & MfileA$Mage <= 65 & MfileA$Mempstat==TRUE &
-                  MfileA$Mlwage != -Inf), na.action = na.exclude, weights = Mwgt) # after
+   mincer1565A <- lm(Mformula, 
+                     data = subset(MfileA,
+   				                   MfileA$Mage >= 15 & MfileA$Mage <= 65 & 
+   				                   MfileA$Mempstat==TRUE &
+                                   MfileA$Mlwage != -Inf), 
+                     na.action = na.exclude, weights = Mwgt) # after
    
    # The objects mincer1565B and mincer1565A contain the results of the
    regressions before and after anonymization
@@ -593,7 +605,7 @@ intervals for the gender coefficient in this trade-off for a sample
 income dataset and several SDC methods and parameters. The red dot and
 confidence bar (on the top) correspond to the estimates for the
 untreated data, whereas the other confidence bars correspond to the
-respective SC methods and different parameters. The anonymization
+respective SDC methods and different parameters. The anonymization
 reduces the number of expected re-identifications in the data (left
 axis) and the point estimates and confidence intervals vary greatly for
 the different SDC methods. We would choose a method, which reduces the
@@ -632,8 +644,9 @@ To make appropriate visualizations, we need to use the raw data and the
 anonymized data. When using an *sdcMicro* object for the anonymization
 process, the raw data are stored in the “origData” slot of the object
 and the anonymized variables are in the slots “manipKeyVars”,
-“manipPramVars”, “manipNumVars” and “manipStrataVar” slots. See Section
-7.5 for more information on *sdcMicro* objects, slots and how to access
+“manipPramVars”, “manipNumVars” and “manipStrataVar” slots. See the Section
+`Objects of class sdcMicroObj <sdcMicro.html#Objects of class sdcMicroObj>`__
+for more information on *sdcMicro* objects, slots and how to access
 slots.
 
 Histograms and density plots
@@ -668,17 +681,22 @@ increased and the shape of the distribution has changed.
 
    # Plot histograms 
    # Plot histogram before anonymization
-   hist(sdcInitial@origData$INC, breaks = (0:180)*1e2, main =  "Histogram income - original data")
+   hist(sdcInitial@origData$INC, breaks = (0:180)*1e2, 
+        main =  "Histogram income - original data")
 
    # Plot histogram after anonymization (noise addition)
-   hist(sdcInitial@manipNumVars$INC, breaks = (-20:190)*1e2, main = "Histogram income - anonymized data")
+   hist(sdcInitial@manipNumVars$INC, breaks = (-20:190)*1e2, 
+        main = "Histogram income - anonymized data")
 
    # Plot densities
    # Plot original density curve
-   plot(density(sdcInitial@origData$INC), xlim = c(0, 8000), ylim = c*(0, 0.006), main = "Density income", xlab = "income")
+   plot(density(sdcInitial@origData$INC), xlim = c(0, 8000), ylim = c*(0, 0.006), 
+        main = "Density income", xlab = "income")
    par (new = TRUE)
+   
    # Plot density curve after anonymization (noise addition)
-   plot(density(sdcInitial@manipNumVars$INC), xlim = c(0, 8000), ylim = c(0, 0.006), main = "Density income", xlab = "income")
+   plot(density(sdcInitial@manipNumVars$INC), xlim = c(0, 8000), ylim = c(0, 0.006), 
+        main = "Density income", xlab = "income")
 
 .. _fig63:
 
@@ -710,8 +728,9 @@ methods applied.
    :caption: Creating boxplots for continuous variables
    :name: code612
    
-   boxplot(sdcObj@origData$TOTFOOD, sdcObj@manipNumVars$TOTFOOD, xaxt = 'n', ylab = "Expenditure")
-   axis(1, at = c(1,2), labels = c('before, 'after'))
+   boxplot(sdcObj@origData$TOTFOOD, sdcObj@manipNumVars$TOTFOOD, 
+           xaxt = 'n', ylab = "Expenditure")
+   axis(1, at = c(1,2), labels = c('before', 'after'))
 
 .. _fig65:
 
@@ -729,7 +748,7 @@ several “scenarios” next to one another. A scenario here refers to the
 choice of anonymization methods and their parameters. With mosaic plots
 we can, for instance, quickly see the effect of different levels of
 :math:`k`-anonymity or differences in the importance vectors in the
-local suppression algorithm (see Section 5.2.2).
+local suppression algorithm (see the Section `Local suppression <anon_methods.html#Local suppression>`__).
 
 We illustrate the changes in tabulations with an example of the variable
 “WATER” before and after applying PRAM. We can use mosaic plots to
@@ -737,7 +756,8 @@ quickly see the changes for each category. :numref:`code613` shows the code
 in *R*. The function mosaicplot() is available in base *R*. To plot a
 tabulation, first the tabulation must be made with the table() function.
 To show the labels in the mosaicplot(), we change the class of the
-variables to ‘factor’ (see Section 7.4 on classes in *R*). Looking at
+variables to ‘factor’ (see the Section
+`Classes in R <sdcMicro.html#Classes in R>`__). Looking at
 the mosaic plot in :numref:`fig66` we see invariant PRAM has virtually no
 influence on the univariate distribution.
 
@@ -747,15 +767,19 @@ influence on the univariate distribution.
    :name: code613
    
    # Collecting data of variable WATER before and after anonymization,
-   assigning factor levels for labels in plot
-   dataWater <- t(cbind(table(factor(sdcHH@origData$WATER, levels = c(1, 2, 3, 4, 5, 6, 7, 8, 9),
-                 labels = c("Pipe (own tap)", "Public standpipe", "Borehole", "Wells
-                 (protected)", "Wells (unprotected)", "Surface water", "Rain water",
-                 "Vendor/truck", "Other"))), table(factor(sdcHH@manipPramVars$WATER,
-                 levels = c(1,2, 3, 4, 5, 6, 7, 8, 9), labels = c("Pipe (own tap)",
-                 "Public standpipe", "Borehole", "Wells (protected)", "Wells
-                 (unprotected)", "Surface water", "Rain water", "Vendor/truck",
-                 "Other")))))
+   # assigning factor levels for labels in plot
+   dataWater <- t(cbind(table(factor(sdcHH@origData$WATER, 
+                                     levels = c(1, 2, 3, 4, 5, 6, 7, 8, 9),
+                                     labels = c("Pipe (own tap)", "Public standpipe", 
+                                                "Borehole", "Wells (protected)", 
+                                                "Wells (unprotected)", "Surface water", 
+                                                "Rain water", "Vendor/truck", "Other"))), 
+                        table(factor(sdcHH@manipPramVars$WATER,
+                                     levels = c(1,2, 3, 4, 5, 6, 7, 8, 9), 
+                                     labels = c("Pipe (own tap)", "Public standpipe", 
+                                                "Borehole", "Wells (protected)", 
+                                                "Wells (unprotected)", "Surface water", 
+                                                "Rain water", "Vendor/truck","Other")))))
    rownames(dataWater) <- c("before", "after")
    
    # Plotting mosaic plot
@@ -783,8 +807,6 @@ used to select the best scenario. Looking at the mosaic plots in :numref:`fig67`
 we see that scenarios 2, 5 and 6 give the smallest changes for the
 gender variable and scenarios 3 and 4 for the relationship status
 variable.
-
-Table 6.1: Description of anonymization methods by scenario
 
 .. _tab61:
 
@@ -838,7 +860,9 @@ Table 6.1: Description of anonymization methods by scenario
    
    Comparison of treated vs. untreated gender and relationship status variables with mosaic plots
 
-As we discussed in Section 5.3.1, invariant PRAM preserves the
+As we discussed in the Section 
+`PRAM (Post RAndomization Method) <anon_methods.html# PRAM (Post RAndomization Method)`__
+, invariant PRAM preserves the
 univariate distributions. Therefore, in this case it is more interesting
 to look at the multivariate mosaic plots. Mosaic plots are also a
 powerful tool to show changes in cross-tabulations/contingency tables.
@@ -854,22 +878,26 @@ two-way tables in this case.
 
    # Before anonymization: contingency table and mosaic plot
    ROOFTOILETbefore <- t(table(factor(sdcHH@origData$ROOF, levels = c(1,2, 3, 4, 5, 9),
-                             labels = c("Concrete/cement/ \n brick/stone", "Wood",
-                             "Bamboo/thatch", "Tiles/shingles",
-                             "Tin/metal sheets", "Other")),
-                        factor(sdcHH@origData$TOILET, levels = c(1,2, 3, 4, 9),
-                             labels = c("Flush \n toilet", "Improved \n pit \n latrine",
-                                        "Pit \n latrine", "No \n facility", "Other"))))
+                                      labels = c("Concrete/cement/ \n brick/stone", "Wood",
+                                                 "Bamboo/thatch", "Tiles/shingles",
+                                                 "Tin/metal sheets", "Other")),
+                               factor(sdcHH@origData$TOILET, levels = c(1,2, 3, 4, 9),
+                                      labels = c("Flush \n toilet", 
+                                                 "Improved \n pit \n latrine",
+                                                 "Pit \n latrine", "No \n facility", 
+                                                 "Other"))))
    mosaicplot(ROOFTOILETbefore, main = "", las = 2, color = 2:6)
    
    # After anonymization: contingency table and mosaic plot
    ROOFTOILETafter <- t(table(factor(sdcHH@manipPramVars$ROOF, levels = c(1,2, 3, 4, 5, 9),
-                             labels = c("Concrete/cement/ \n brick/stone", "Wood",
-                             "Bamboo/thatch", "Tiles/shingles",
-                             "Tin/metal sheets", "Other")),
-                        factor(sdcHH@manipPramVars$TOILET, levels = c(1,2, 3, 4, 9),
-                             labels = c("Flush \n toilet", "Improved \\n pit \n latrine",
-                                        "Pit \n latrine", "No \n facility", "Other"))))
+                                     labels = c("Concrete/cement/ \n brick/stone", "Wood",
+                                                "Bamboo/thatch", "Tiles/shingles",
+                                                "Tin/metal sheets", "Other")),
+                              factor(sdcHH@manipPramVars$TOILET, levels = c(1,2, 3, 4, 9),
+                                     labels = c("Flush \n toilet", 
+                                                "Improved \\n pit \n latrine",
+                                                "Pit \n latrine", "No \n facility", 
+                                                "Other"))))
    mosaicplot(ROOFTOILETafter, main = "", las = 2, color = 2:6)
 
 .. _fig68:
@@ -942,3 +970,17 @@ the magnitude of changes.
    SDC methods to this *sdcMicro* object, such as local suppression,
    PRAM and additive noise addition.
 
+.. rubric:: References
+
+.. [DoTo01b] Domingo-Ferrer, J., & Torra, V. (2001). 
+	**Disclosure Protection Methods and Information Loss for Microdata.**
+	In P. Doyle, J. Lane, J. Theeuwes, & Z. L., Theory and Practical Applications for Statistical Agencies (pp. 91-110). Amsterdam.
+.. [HDFG12] Hundepool, A., Domingo-Ferrer, J., Franconi, L., Giessing, S., Nordholt, E. S., Spicer, K., et al. (2012). 
+	**Statistical Disclosure Control.**
+	Chichester, UK: John Wiley & Sons Ltd.
+.. [TMKC14] Templ, M., Meindl, B., Kowarik, A., & Chen, S. (2014, August 1). 
+	**Introduction to Statistical Disclosure Control (SDC).**
+	Retrieved July 9, 2018, from http://www.ihsn.org/home/software/disclosure-control-toolbox.
+.. [YaWC02] Yancey, W. W., Winkler, W. E., & Creecy, R. H. (2002). 
+	**Disclosure Risk Assessment in Perturbative Microdata Protection.**
+	Research Report Series , Statistics 2002-01.
