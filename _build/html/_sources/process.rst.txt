@@ -505,9 +505,8 @@ for a discussion of perturbative methods implemented in *sdcMicro*.
 
 Finally, the choice of SDC methods depends on the data used since the
 same methods produce different results on different datasets. Therefore,
-the comparison of results with respect to risk and utility (
-`Step 9: Re-measure risk`_ and `Step 10: Re-measure utility`_
-) is key to the choice made. Most methods are implemented in the
+the comparison of results with respect to risk and utility
+(Steps 9 and 10) is key to the choice made. Most methods are implemented in the
 *sdcMicro* package. Nevertheless, it is sometimes useful to use
 custom-made solutions. A few examples are presented in the Section
 `Anonymization Methods <anon_methods.html>`__.
