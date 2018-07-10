@@ -55,7 +55,7 @@ compiled our case study file was from surveys that contain many
 variables, but pay particular attention to labor force variables as well
 as household income and household expenditure variables. The variables
 in the demo dataset have already been pre-selected from the total set of
-variables available in the datasets. See Appendix A for the complete
+variables available in the datasets. See `Appendix A <appendices.html#Appendix A: Overview of Case Study Variables>`__ for the complete
 overview of all variables.
 
 This case study follows the steps of the SDC process outlined in Chapter
@@ -164,7 +164,7 @@ In :numref:`tab91` the variables in the dataset are listed along with concise
 descriptions of the variables, the level at which they are collected
 (individual (IND), household (HH)), the measurement type (continuous,
 semi-continuous, categorical) and value ranges. Note that the dataset
-contains a selection of 68 variables (cf. Appendix A) of a total of 112
+contains a selection of 68 variables (cf. `Appendix A <appendices.html#Appendix A: Overview of Case Study Variables>`__) of a total of 112
 variables in the survey dataset. The variables have been preselected
 based on their relevance for data users. This allows to reduce the total
 numbers of variables to consider in the anonymization process and makes
