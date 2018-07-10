@@ -215,7 +215,7 @@ available, as well as data made available only to the World Bank for
 official business. The surveys used included, amongst others, household,
 demographic, and health surveys. The variables from these surveys used
 for the experiments were selected based on their relevance for users
-(e.g. for indicators, MDGs), their sensitivity, and their classification
+(e.g., for indicators, MDGs), their sensitivity, and their classification
 with respect to the SDC process.</p>
 <p>The following case studies draw from knowledge gained from these
 experiments and try to incorporate the lessons learned. The case studies
@@ -254,8 +254,9 @@ compiled our case study file was from surveys that contain many
 variables, but pay particular attention to labor force variables as well
 as household income and household expenditure variables. The variables
 in the demo dataset have already been pre-selected from the total set of
-variables available in the datasets. See <a class="reference external" href="appendices.html#AppendixA:OverviewofCaseStudyVariables">Appendix A</a> for the complete
-overview of all variables.</p>
+variables available in the datasets. See
+<a class="reference external" href="appendices.html#AppendixA:OverviewofCaseStudyVariables">Appendix A</a>
+for the complete overview of all variables.</p>
 <p>This case study follows the steps of the SDC process outlined in the Section
 <a class="reference external" href="process.html">The SDC Process</a>.</p>
 <div class="section" id="step-1-need-for-disclosure-control">
@@ -277,7 +278,7 @@ as this is a hypothetical dataset.</p>
 <h3>Step 2: Data preparation and exploring data characteristics<a class="headerlink" href="#step-2-data-preparation-and-exploring-data-characteristics" title="Permalink to this headline">¶</a></h3>
 <p>The first step is to explore the data. To analyze the data in <em>R</em> we
 first have to read the data into <em>R</em>. In our case, the data is saved in
-a <em>STATA</em> file (.dta). To read <em>STATA</em> files, we need to load the <em>R</em>
+a <em>STATA</em> file (.dta file). To read <em>STATA</em> files, we need to load the <em>R</em>
 package <em>foreign</em> (see the Section
 <a class="reference external" href="sdcMicro.html#ReadfunctionsinR">Read functions in R</a>
 on importing other data formats in
@@ -1108,7 +1109,7 @@ identify persons (s)he knows. This is called the nosy-neighbor scenario.</p>
 <tr class="row-even"><td>INCTOTGROSSHH (total income)</td>
 <td>Household, continuous</td>
 </tr>
-<tr class="row-odd"><td>INC(income in category)</td>
+<tr class="row-odd"><td>INC (income in category)</td>
 <td>Household, continuous</td>
 </tr>
 <tr class="row-even"><td>GENDER (sex)</td>
@@ -1244,9 +1245,12 @@ proceeding.</p>
 23
 24
 25
-26</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">### Select variables (household level)</span>
+26
+27
+28</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">### Select variables (household level)</span>
 <span class="c1"># Key variables (household level)</span>
-selectedKeyVarsHH <span class="o">=</span> <span class="kt">c</span><span class="p">(</span><span class="s">&#39;URBRUR&#39;</span><span class="p">,</span> <span class="s">&#39;REGION&#39;</span><span class="p">,</span> <span class="s">&#39;HHSIZE&#39;</span><span class="p">,</span> <span class="s">&#39;OWNHOUSE&#39;</span><span class="p">,</span> <span class="s">&#39;OWNAGLAND&#39;</span><span class="p">,</span> <span class="s">&#39;RELIG&#39;</span><span class="p">)</span>
+selectedKeyVarsHH <span class="o">=</span> <span class="kt">c</span><span class="p">(</span><span class="s">&#39;URBRUR&#39;</span><span class="p">,</span> <span class="s">&#39;REGION&#39;</span><span class="p">,</span> <span class="s">&#39;HHSIZE&#39;</span><span class="p">,</span> <span class="s">&#39;OWNHOUSE&#39;</span><span class="p">,</span>
+                      <span class="s">&#39;OWNAGLAND&#39;</span><span class="p">,</span> <span class="s">&#39;RELIG&#39;</span><span class="p">)</span>
 
 <span class="c1"># Changing variables to class factor</span>
 <span class="kp">file</span><span class="o">$</span>URBRUR    <span class="o">&lt;-</span> <span class="kp">as.factor</span><span class="p">(</span><span class="kp">file</span><span class="o">$</span>URBRUR<span class="p">)</span>
@@ -1256,11 +1260,12 @@ selectedKeyVarsHH <span class="o">=</span> <span class="kt">c</span><span class=
 <span class="kp">file</span><span class="o">$</span>RELIG     <span class="o">&lt;-</span> <span class="kp">as.factor</span><span class="p">(</span><span class="kp">file</span><span class="o">$</span>RELIG<span class="p">)</span>
 
 <span class="c1"># Numerical variables</span>
-numVarsHH <span class="o">=</span> <span class="kt">c</span><span class="p">(</span><span class="s">&#39;LANDSIZEHA&#39;</span><span class="p">,</span>    <span class="s">&#39;TANHHEXP&#39;</span><span class="p">,</span> <span class="s">&#39;TFOODEXP&#39;</span><span class="p">,</span> <span class="s">&#39;TALCHEXP&#39;</span><span class="p">,</span>
-              <span class="s">&#39;TCLTHEXP&#39;</span><span class="p">,</span>      <span class="s">&#39;THOUSEXP&#39;</span><span class="p">,</span> <span class="s">&#39;TFURNEXP&#39;</span><span class="p">,</span> <span class="s">&#39;THLTHEXP&#39;</span><span class="p">,</span>   <span class="s">&#39;TTRANSEXP&#39;</span><span class="p">,</span>
-              <span class="s">&#39;TCOMMEXP&#39;</span><span class="p">,</span>      <span class="s">&#39;TRECEXP&#39;</span><span class="p">,</span>  <span class="s">&#39;TEDUEXP&#39;</span><span class="p">,</span>  <span class="s">&#39;TRESHOTEXP&#39;</span><span class="p">,</span> <span class="s">&#39;TMISCEXP&#39;</span><span class="p">,</span>
-              <span class="s">&#39;INCTOTGROSSHH&#39;</span><span class="p">,</span> <span class="s">&#39;INCRMT&#39;</span><span class="p">,</span>   <span class="s">&#39;INCWAGE&#39;</span><span class="p">,</span>  <span class="s">&#39;INCFARMBSN&#39;</span><span class="p">,</span> <span class="s">&#39;INCNFARMBSN&#39;</span><span class="p">,</span>
-              <span class="s">&#39;INCRENT&#39;</span><span class="p">,</span>       <span class="s">&#39;INCFIN&#39;</span><span class="p">,</span>   <span class="s">&#39;INCPENSN&#39;</span><span class="p">,</span> <span class="s">&#39;INCOTHER&#39;</span><span class="p">)</span>
+numVarsHH <span class="o">=</span> <span class="kt">c</span><span class="p">(</span><span class="s">&#39;LANDSIZEHA&#39;</span><span class="p">,</span> <span class="s">&#39;TANHHEXP&#39;</span><span class="p">,</span>   <span class="s">&#39;TFOODEXP&#39;</span><span class="p">,</span>      <span class="s">&#39;TALCHEXP&#39;</span><span class="p">,</span>
+              <span class="s">&#39;TCLTHEXP&#39;</span><span class="p">,</span>   <span class="s">&#39;THOUSEXP&#39;</span><span class="p">,</span>   <span class="s">&#39;TFURNEXP&#39;</span><span class="p">,</span>      <span class="s">&#39;THLTHEXP&#39;</span><span class="p">,</span>
+              <span class="s">&#39;TTRANSEXP&#39;</span><span class="p">,</span>  <span class="s">&#39;TCOMMEXP&#39;</span><span class="p">,</span>   <span class="s">&#39;TRECEXP&#39;</span><span class="p">,</span>       <span class="s">&#39;TEDUEXP&#39;</span><span class="p">,</span>
+              <span class="s">&#39;TRESHOTEXP&#39;</span><span class="p">,</span> <span class="s">&#39;TMISCEXP&#39;</span><span class="p">,</span>   <span class="s">&#39;INCTOTGROSSHH&#39;</span><span class="p">,</span> <span class="s">&#39;INCRMT&#39;</span><span class="p">,</span>
+              <span class="s">&#39;INCWAGE&#39;</span><span class="p">,</span>    <span class="s">&#39;INCFARMBSN&#39;</span><span class="p">,</span> <span class="s">&#39;INCNFARMBSN&#39;</span><span class="p">,</span>   <span class="s">&#39;INCRENT&#39;</span><span class="p">,</span>
+              <span class="s">&#39;INCFIN&#39;</span><span class="p">,</span>     <span class="s">&#39;INCPENSN&#39;</span><span class="p">,</span>   <span class="s">&#39;INCOTHER&#39;</span><span class="p">)</span>
 <span class="c1"># PRAM variables</span>
 pramVarsHH <span class="o">=</span> <span class="kt">c</span><span class="p">(</span><span class="s">&#39;ROOF&#39;</span><span class="p">,</span> <span class="s">&#39;TOILET&#39;</span><span class="p">,</span> <span class="s">&#39;WATER&#39;</span><span class="p">,</span> <span class="s">&#39;ELECTCON&#39;</span><span class="p">,</span>
                <span class="s">&#39;FUELCOOK&#39;</span><span class="p">,</span> <span class="s">&#39;OWNMOTORCYCLE&#39;</span><span class="p">,</span> <span class="s">&#39;CAR&#39;</span><span class="p">,</span> <span class="s">&#39;TV&#39;</span><span class="p">,</span> <span class="s">&#39;LIVESTOCK&#39;</span><span class="p">)</span>
@@ -1288,10 +1293,12 @@ is further explained in the Section <a class="reference external" href="sdcMicro
 5
 6
 7
-8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># Create subset of file with households and HH variables</span>
+8
+9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># Create subset of file with households and HH variables</span>
 fileHH <span class="o">&lt;-</span> <span class="kp">file</span><span class="p">[,</span>HHVars<span class="p">]</span>
 
-<span class="c1"># Remove duplicated rows based on IDH, select uniques, one row per household in fileHH</span>
+<span class="c1"># Remove duplicated rows based on IDH, select uniques,</span>
+<span class="c1"># one row per household in fileHH</span>
 fileHH <span class="o">&lt;-</span> fileHH<span class="p">[</span><span class="kp">which</span><span class="p">(</span><span class="o">!</span><span class="kp">duplicated</span><span class="p">(</span>fileHH<span class="o">$</span>IDH<span class="p">)),]</span>
 
 <span class="kp">dim</span><span class="p">(</span>fileHH<span class="p">)</span>
@@ -1359,7 +1366,7 @@ frequencies smaller than the k-anonymity threshold, as shown in <a class="refere
 </tbody>
 </table>
 <div class="literal-block-wrapper docutils container" id="code910">
-<div class="code-block-caption"><span class="caption-number">Listing 10 </span><span class="caption-text">Showing number of households violating k-anonymity for levels 2,3 and 5</span><a class="headerlink" href="#code910" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 10 </span><span class="caption-text">Showing number of households violating k-anonymity for levels 2, 3 and 5</span><a class="headerlink" href="#code910" title="Permalink to this code">¶</a></div>
 <div class="highlight-R notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -1407,10 +1414,10 @@ kAnon5 <span class="o">/</span> numHH
 </td></tr></table></div>
 </div>
 <p>It is often useful to view the values for the household(s) that violate
-k-anonymity. This might help clarify which variables cause the
+<span class="math notranslate nohighlight">\(k\)</span>-anonymity. This might help clarify which variables cause the
 uniqueness of these households; this can then be used later when
 choosing appropriate SDC methods. <a class="reference internal" href="#code911"><span class="std std-numref">Listing 11</span></a> shows how to assess the
-values of the households violating 3 and 5-anonymity. It seems that
+values of the households violating 3- and 5-anonymity. It seems that
 among the categorical key variables, the variable HHSIZE is responsible
 for many of the unique combinations and the origin of much of the risk.
 Having determined this, we can flag HHSIZE as a possible first variable
@@ -1426,7 +1433,7 @@ households easily identifiable based on the number of household members
 and at high risk of re-identification, also in the context of the nosy
 neighbor scenario.</p>
 <div class="literal-block-wrapper docutils container" id="code911">
-<div class="code-block-caption"><span class="caption-number">Listing 11 </span><span class="caption-text">Showing households that violate k-anonymity</span><a class="headerlink" href="#code911" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 11 </span><span class="caption-text">Showing households that violate <span class="math notranslate nohighlight">\(k\)</span>-anonymity</span><a class="headerlink" href="#code911" title="Permalink to this code">¶</a></div>
 <div class="highlight-R notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># Show values of key variable of records that violate k-anonymity</span>
@@ -2075,7 +2082,8 @@ components in the data and apply noise addition to each component
 separately. This allows to apply a lower level of noise than when
 applying noise only to the aggregates. A noise level of 0.01 seems to be
 sufficient with extra noise of 0.05 added to the outliers. The outliers
-are defined by a robust Mahalanobis distance (&lt;anon_methods.html#Noise addition&gt;`__). After
+are defined by a robust Mahalanobis distance
+(see the Section <a class="reference external" href="anon_methods.html#Noiseaddition">Noise addition</a>). After
 adding noise to the components, we recomputed the aggregates as the sum
 of the perturbed components.</p>
 <div class="admonition note">
@@ -2264,37 +2272,21 @@ the multivariate frequencies of the WATER with the variable URBRUR in
 variable URBRUR could be of interest for users, but these are not
 preserved. Since we applied PRAM within the regions, the multivariate
 frequencies of the PRAMmed variables with REGION are preserved.</p>
-<span id="tab99"></span><table border="1" class="docutils" id="id23">
-<caption><span class="caption-number">Table 9 </span><span class="caption-text">Univariate frequencies of the PRAMmed variable before and after anonymization
- :widths: auto
- :align: center</span><a class="headerlink" href="#id23" title="Permalink to this table">¶</a></caption>
-<colgroup>
-<col width="18%" />
-<col width="7%" />
-<col width="7%" />
-<col width="7%" />
-<col width="7%" />
-<col width="7%" />
-<col width="7%" />
-<col width="7%" />
-<col width="7%" />
-<col width="7%" />
-<col width="7%" />
-<col width="8%" />
-</colgroup>
+<span id="tab99"></span><table border="1" class="colwidths-auto docutils align-center" id="id23">
+<caption><span class="caption-number">Table 9 </span><span class="caption-text">Univariate frequencies of the PRAMmed variable before and after anonymization</span><a class="headerlink" href="#id23" title="Permalink to this table">¶</a></caption>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">&#160;</th>
-<th class="head">&#160;</th>
-<th class="head">&#160;</th>
-<th class="head">&#160;</th>
-<th class="head">&#160;</th>
-<th class="head">&#160;</th>
-<th class="head">&#160;</th>
-<th class="head">&#160;</th>
-<th class="head">&#160;</th>
-<th class="head">&#160;</th>
-<th class="head">&#160;</th>
-<th class="head">&#160;</th>
+<tr class="row-odd"><th class="head">.</th>
+<th class="head">0</th>
+<th class="head">1</th>
+<th class="head">2</th>
+<th class="head">3</th>
+<th class="head">4</th>
+<th class="head">5</th>
+<th class="head">6</th>
+<th class="head">7</th>
+<th class="head">8</th>
+<th class="head">9</th>
+<th class="head">NA</th>
 </tr>
 </thead>
 <tbody valign="top">
@@ -2511,16 +2503,16 @@ frequencies of the PRAMmed variables with REGION are preserved.</p>
 <span id="tab910"></span><table border="1" class="colwidths-auto docutils align-center" id="id24">
 <caption><span class="caption-number">Table 10 </span><span class="caption-text">Multivariate frequencies of the variables WATER with RURURB before and after anonymization</span><a class="headerlink" href="#id24" title="Permalink to this table">¶</a></caption>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">&#160;</th>
-<th class="head">&#160;</th>
-<th class="head">&#160;</th>
-<th class="head">&#160;</th>
-<th class="head">&#160;</th>
-<th class="head">&#160;</th>
-<th class="head">&#160;</th>
-<th class="head">&#160;</th>
-<th class="head">&#160;</th>
-<th class="head">&#160;</th>
+<tr class="row-odd"><th class="head">.</th>
+<th class="head">1</th>
+<th class="head">2</th>
+<th class="head">3</th>
+<th class="head">4</th>
+<th class="head">5</th>
+<th class="head">6</th>
+<th class="head">7</th>
+<th class="head">8</th>
+<th class="head">9</th>
 </tr>
 </thead>
 <tbody valign="top">
@@ -2590,9 +2582,9 @@ based on the positive expenditure values before and after anonymization.</p>
 <span id="tab911"></span><table border="1" class="colwidths-auto docutils align-center" id="id25">
 <caption><span class="caption-number">Table 11 </span><span class="caption-text">GINI point estimates and bootstrapped confidence intervals for sum of expenditure components</span><a class="headerlink" href="#id25" title="Permalink to this table">¶</a></caption>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">&#160;</th>
-<th class="head">&#160;</th>
-<th class="head">&#160;</th>
+<tr class="row-odd"><th class="head">.</th>
+<th class="head">before</th>
+<th class="head">after</th>
 </tr>
 </thead>
 <tbody valign="top">
@@ -2621,9 +2613,9 @@ distortions to the MME and slightly larger changes to the MMI.</p>
 <span id="tab912"></span><table border="1" class="colwidths-auto docutils align-center" id="id27">
 <caption><span class="caption-number">Table 12 </span><span class="caption-text">Mean monthly expenditure and mean monthly income per capita by rural/urban</span><a class="headerlink" href="#id27" title="Permalink to this table">¶</a></caption>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">&#160;</th>
-<th class="head">&#160;</th>
-<th class="head">&#160;</th>
+<tr class="row-odd"><th class="head">.</th>
+<th class="head">before</th>
+<th class="head">after</th>
 </tr>
 </thead>
 <tbody valign="top">
@@ -2713,7 +2705,9 @@ variables before and after anonymization.</p>
 <p>Anonymization for the creation of a SUF will inevitably lead to some
 degree of utility loss. It is important to describe this loss in the
 external report, so that users are aware of the changes in the data.
-This is described in Step 11 and presented in Appendix A. Appendix A
+This is described in Step 11 and presented in
+<a class="reference external" href="appendices.html#AppendixC:InternalandExternalReportsforCaseStudies">Appendix C</a>.
+<a class="reference external" href="appendices.html#AppendixC:InternalandExternalReportsforCaseStudies">Appendix C</a>
 also shows summary statistics and tabulations of the household level
 variables before and after anonymization.</p>
 <p><strong>Merging the household- and individual-level variables</strong></p>
@@ -2835,8 +2829,8 @@ Therefore, we are more interested in the individual and global hierarchical risk
 <a class="reference internal" href="#code922"><span class="std std-numref">Listing 22</span></a>. The global risk is 0.24%, which corresponds to 24 expected
 re-identifications. Accounting for the hierarchical structure, this
 rises to 1.26%, or 127 expected re-identifications. The global risk
-measures are low compared to the number of k-anonymity violators due to
-the low sampling weights. The high number of k-anonymity violators is
+measures are low compared to the number of <span class="math notranslate nohighlight">\(k\)</span>-anonymity violators due to
+the low sampling weights. The high number of <span class="math notranslate nohighlight">\(k\)</span>-anonymity violators is
 mainly due to the very detailed age variable. The risk measures are
 based only on the individual level variables, since we assume that the
 individual and household level variables are be used simultaneously by
@@ -2893,7 +2887,7 @@ detail and recode these to 0 years. These recodes are shown in <a class="referen
 We also top-code age at the age of 65 years. This protects
 individuals with high (rare) age values.</p>
 <div class="literal-block-wrapper docutils container" id="code923">
-<div class="code-block-caption"><span class="caption-number">Listing 23 </span><span class="caption-text">Recoding age in 10-year intervals in the range 15 – 65 anD top code age over 65 years</span><a class="headerlink" href="#code923" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 23 </span><span class="caption-text">Recoding age in 10-year intervals in the range 15 – 65 and top code age over 65 years</span><a class="headerlink" href="#code923" title="Permalink to this code">¶</a></div>
 <div class="highlight-R notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -3167,7 +3161,9 @@ measures are sensitive to changes in the variables gender (GENDER), age
 (AGEYRS) and education (EDUCY and EDYRSATCURR), and therefore give a
 good overview of the impact of the anonymization. As shown in <a class="reference internal" href="#tab917"><span class="std std-numref">Table 17</span></a>
 the anonymization did not change the results. The results of the
-tabulations in Appendix A confirm these results.</p>
+tabulations in
+<a class="reference external" href="appendices.html#AppendixC:InternalandExternalReportsforCaseStudies">Appendix C</a>
+confirm these results.</p>
 <span id="tab917"></span><table border="1" class="colwidths-auto docutils align-center" id="id32">
 <caption><span class="caption-number">Table 17 </span><span class="caption-text">Net enrollment in primary and secondary education by gender</span><a class="headerlink" href="#id32" title="Permalink to this table">¶</a></caption>
 <thead valign="bottom">
@@ -3241,7 +3237,8 @@ methods (PRAM). This is described in the previous steps.</p>
 information and it is very important for the users to be aware of these
 changes and release them in a report that accompanies the data.</p>
 </div>
-<p>Appendix A provides examples of an internal and external report of the
+<p><a class="reference external" href="appendices.html#AppendixC:InternalandExternalReportsforCaseStudies">Appendix C</a>
+provides examples of an internal and external report of the
 anonymization process of this dataset. Depending on the users and
 readers of the reports, the content may differ. The code to this case
 study shows how to obtain the information for the reports. Some measures
@@ -3326,8 +3323,8 @@ anonymization process.</p>
 <p class="last">The choices of methods and parameters in this case study are based on this particular dataset and the results and
 choices might be different for other datasets.</p>
 </div>
-<p>This case study follows the steps of the SDC process outlined in Chapter
-8.</p>
+<p>This case study follows the steps of the SDC process outlined in
+<a class="reference external" href="process.html">The SDC Process</a>.</p>
 <div class="section" id="id4">
 <h3>Step 1: Need for disclosure control<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
 <p>The same reasoning as in case study 1 applies: the SUF dataset produced
@@ -5483,9 +5480,9 @@ the variable “AGEYRS”.</p>
 12
 13</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># Local suppression without importance vector</span>
 sdcCombined <span class="o">&lt;-</span> localSuppression<span class="p">(</span>sdcCombined<span class="p">,</span> k <span class="o">=</span> <span class="m">5</span><span class="p">,</span> importance <span class="o">=</span> <span class="kc">NULL</span><span class="p">)</span>
+
 <span class="c1"># Number of suppressions per variable</span>
 <span class="kp">print</span><span class="p">(</span>sdcCombined<span class="p">,</span> <span class="s">&quot;ls&quot;</span><span class="p">)</span>
-
 <span class="c1">## Local Suppression:</span>
 <span class="c1">##     KeyVar | Suppressions (#) | Suppressions (%)</span>
 <span class="c1">##     GENDER |                0 |            0.000</span>
@@ -5530,18 +5527,28 @@ object “sdcCombined” as shown in <a class="reference internal" href="#code94
 12
 13
 14
-15</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># Randomize order of households dataAnon and recode IDH to random</span>
+15
+16
+17
+18
+19
+20</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># Randomize order of households dataAnon and recode IDH to random</span>
 number <span class="p">(</span>sort file by region<span class="p">)</span>
 <span class="kp">set.seed</span><span class="p">(</span><span class="m">97254</span><span class="p">)</span>
 <span class="c1"># Sort by region</span>
 dataAnon <span class="o">&lt;-</span> dataAnon<span class="p">[</span><span class="kp">order</span><span class="p">(</span>dataAnon<span class="o">$</span>REGION<span class="p">),]</span>
 
 <span class="c1"># Number of households per region</span>
-hhperregion <span class="o">&lt;-</span> <span class="kp">table</span><span class="p">(</span>dataAnon<span class="p">[</span><span class="kp">match</span><span class="p">(</span><span class="kp">unique</span><span class="p">(</span>dataAnon<span class="o">$</span>IDH<span class="p">),</span> dataAnon<span class="o">$</span>IDH<span class="p">),</span> <span class="s">&quot;REGION&quot;</span><span class="p">],</span> useNA <span class="o">=</span> <span class="s">&quot;ifany&quot;</span><span class="p">)</span>
-<span class="c1"># Randomized IDH (household ID)</span>
-randomHHid <span class="o">&lt;-</span> <span class="kt">c</span><span class="p">(</span><span class="kp">sample</span><span class="p">(</span><span class="m">1</span><span class="o">:</span>hhperregion<span class="p">[</span><span class="m">1</span><span class="p">],</span> hhperregion<span class="p">[</span><span class="m">1</span><span class="p">]),</span> <span class="kp">unlist</span><span class="p">(</span><span class="kp">lapply</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="p">(</span><span class="kp">length</span><span class="p">(</span>hhperregion<span class="p">)</span><span class="m">-1</span><span class="p">),</span> <span class="kr">function</span><span class="p">(</span>i<span class="p">){</span><span class="kp">sample</span><span class="p">((</span><span class="kp">sum</span><span class="p">(</span>hhperregion<span class="p">[</span><span class="m">1</span><span class="o">:</span>i<span class="p">])</span> <span class="o">+</span> <span class="m">1</span><span class="p">)</span><span class="o">:</span> <span class="kp">sum</span><span class="p">(</span>hhperregion<span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="p">(</span>i<span class="m">+1</span><span class="p">)]),</span> hhperregion<span class="p">[(</span>i<span class="m">+1</span><span class="p">)])})))</span>
+hhperregion <span class="o">&lt;-</span> <span class="kp">table</span><span class="p">(</span>dataAnon<span class="p">[</span><span class="kp">match</span><span class="p">(</span><span class="kp">unique</span><span class="p">(</span>dataAnon<span class="o">$</span>IDH<span class="p">),</span> dataAnon<span class="o">$</span>IDH<span class="p">),</span> <span class="s">&quot;REGION&quot;</span><span class="p">],</span>
+                     useNA <span class="o">=</span> <span class="s">&quot;ifany&quot;</span><span class="p">)</span>
 
-dataAnon<span class="o">$</span>IDH <span class="o">&lt;-</span> <span class="kp">rep</span><span class="p">(</span>randomHHid<span class="p">,</span> <span class="kp">table</span><span class="p">(</span>dataAnon<span class="o">$</span>IDH<span class="p">)[</span><span class="kp">match</span><span class="p">(</span><span class="kp">unique</span><span class="p">(</span>dataAnon<span class="o">$</span>IDH<span class="p">),</span>  <span class="kp">as.numeric</span><span class="p">(</span><span class="kp">names</span><span class="p">(</span><span class="kp">table</span><span class="p">(</span>dataAnon<span class="o">$</span>IDH<span class="p">))))])</span>
+<span class="c1"># Randomized IDH (household ID)</span>
+randomHHid <span class="o">&lt;-</span> <span class="kt">c</span><span class="p">(</span><span class="kp">sample</span><span class="p">(</span><span class="m">1</span><span class="o">:</span>hhperregion<span class="p">[</span><span class="m">1</span><span class="p">],</span> hhperregion<span class="p">[</span><span class="m">1</span><span class="p">]),</span>
+                <span class="kp">unlist</span><span class="p">(</span><span class="kp">lapply</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="p">(</span><span class="kp">length</span><span class="p">(</span>hhperregion<span class="p">)</span><span class="m">-1</span><span class="p">),</span>
+                              <span class="kr">function</span><span class="p">(</span>i<span class="p">){</span><span class="kp">sample</span><span class="p">((</span><span class="kp">sum</span><span class="p">(</span>hhperregion<span class="p">[</span><span class="m">1</span><span class="o">:</span>i<span class="p">])</span> <span class="o">+</span> <span class="m">1</span><span class="p">)</span><span class="o">:</span> <span class="kp">sum</span><span class="p">(</span>hhperregion<span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="p">(</span>i<span class="m">+1</span><span class="p">)]),</span> hhperregion<span class="p">[(</span>i<span class="m">+1</span><span class="p">)])})))</span>
+
+dataAnon<span class="o">$</span>IDH <span class="o">&lt;-</span> <span class="kp">rep</span><span class="p">(</span>randomHHid<span class="p">,</span> <span class="kp">table</span><span class="p">(</span>dataAnon<span class="o">$</span>IDH<span class="p">)[</span><span class="kp">match</span><span class="p">(</span><span class="kp">unique</span><span class="p">(</span>dataAnon<span class="o">$</span>IDH<span class="p">),</span>
+                                      <span class="kp">as.numeric</span><span class="p">(</span><span class="kp">names</span><span class="p">(</span><span class="kp">table</span><span class="p">(</span>dataAnon<span class="o">$</span>IDH<span class="p">))))])</span>
 
 <span class="c1"># Sort by IDH (and region)</span>
 dataAnon <span class="o">&lt;-</span> dataAnon<span class="p">[</span><span class="kp">order</span><span class="p">(</span>dataAnon<span class="o">$</span>IDH<span class="p">),]</span>

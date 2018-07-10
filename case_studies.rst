@@ -12,7 +12,7 @@ available, as well as data made available only to the World Bank for
 official business. The surveys used included, amongst others, household,
 demographic, and health surveys. The variables from these surveys used
 for the experiments were selected based on their relevance for users
-(e.g. for indicators, MDGs), their sensitivity, and their classification
+(e.g., for indicators, MDGs), their sensitivity, and their classification
 with respect to the SDC process.
 
 The following case studies draw from knowledge gained from these
@@ -55,8 +55,9 @@ compiled our case study file was from surveys that contain many
 variables, but pay particular attention to labor force variables as well
 as household income and household expenditure variables. The variables
 in the demo dataset have already been pre-selected from the total set of
-variables available in the datasets. See `Appendix A <appendices.html#Appendix A: Overview of Case Study Variables>`__ for the complete
-overview of all variables.
+variables available in the datasets. See 
+`Appendix A <appendices.html#Appendix A: Overview of Case Study Variables>`__ 
+for the complete overview of all variables.
 
 This case study follows the steps of the SDC process outlined in the Section
 `The SDC Process <process.html>`__.
@@ -83,7 +84,7 @@ Step 2: Data preparation and exploring data characteristics
 
 The first step is to explore the data. To analyze the data in *R* we
 first have to read the data into *R*. In our case, the data is saved in
-a *STATA* file (.dta). To read *STATA* files, we need to load the *R*
+a *STATA* file (.dta file). To read *STATA* files, we need to load the *R*
 package *foreign* (see the Section 
 `Read functions in R <sdcMicro.html#Read functions in R>`__ 
 on importing other data formats in
@@ -464,7 +465,7 @@ identify persons (s)he knows. This is called the nosy-neighbor scenario.
     TANHHEXP (total expenditures)                              Household, continuous        
     TEXP (expenditures in category)                            Household, continuous        
     INCTOTGROSSHH (total income)                               Household, continuous        
-    INC(income in category)                                    Household, continuous        
+    INC (income in category)                                   Household, continuous        
     GENDER (sex)                                               Individual, categorical      
     REL (relationship to household head)                       Individual, categorical      
     MARITAL (marital status)                                   Individual, categorical      
@@ -559,7 +560,8 @@ Conversion of these variables to factors is also shown in :numref:`code97`.
    
    ### Select variables (household level)
    # Key variables (household level)
-   selectedKeyVarsHH = c('URBRUR', 'REGION', 'HHSIZE', 'OWNHOUSE', 'OWNAGLAND', 'RELIG')
+   selectedKeyVarsHH = c('URBRUR', 'REGION', 'HHSIZE', 'OWNHOUSE', 
+                         'OWNAGLAND', 'RELIG')
 
    # Changing variables to class factor
    file$URBRUR    <- as.factor(file$URBRUR)
@@ -569,11 +571,12 @@ Conversion of these variables to factors is also shown in :numref:`code97`.
    file$RELIG     <- as.factor(file$RELIG)
 
    # Numerical variables
-   numVarsHH = c('LANDSIZEHA',    'TANHHEXP', 'TFOODEXP', 'TALCHEXP',
-                 'TCLTHEXP',      'THOUSEXP', 'TFURNEXP', 'THLTHEXP',   'TTRANSEXP',
-                 'TCOMMEXP',      'TRECEXP',  'TEDUEXP',  'TRESHOTEXP', 'TMISCEXP',
-                 'INCTOTGROSSHH', 'INCRMT',   'INCWAGE',  'INCFARMBSN', 'INCNFARMBSN',
-                 'INCRENT',       'INCFIN',   'INCPENSN', 'INCOTHER')
+   numVarsHH = c('LANDSIZEHA', 'TANHHEXP',   'TFOODEXP',      'TALCHEXP',
+                 'TCLTHEXP',   'THOUSEXP',   'TFURNEXP',      'THLTHEXP',   
+                 'TTRANSEXP',  'TCOMMEXP',   'TRECEXP',       'TEDUEXP',  
+                 'TRESHOTEXP', 'TMISCEXP',   'INCTOTGROSSHH', 'INCRMT',   
+                 'INCWAGE',    'INCFARMBSN', 'INCNFARMBSN',   'INCRENT',       
+                 'INCFIN',     'INCPENSN',   'INCOTHER')
    # PRAM variables
    pramVarsHH = c('ROOF', 'TOILET', 'WATER', 'ELECTCON',
                   'FUELCOOK', 'OWNMOTORCYCLE', 'CAR', 'TV', 'LIVESTOCK')
@@ -599,7 +602,8 @@ is further explained in the Section `Household structure <sdcMicro.html#Househol
    # Create subset of file with households and HH variables
    fileHH <- file[,HHVars]
    
-   # Remove duplicated rows based on IDH, select uniques, one row per household in fileHH
+   # Remove duplicated rows based on IDH, select uniques, 
+   # one row per household in fileHH
    fileHH <- fileHH[which(!duplicated(fileHH$IDH)),]
 
    dim(fileHH)
@@ -657,7 +661,7 @@ frequencies smaller than the k-anonymity threshold, as shown in :numref:`code910
 
 .. code-block:: R
    :linenos:
-   :caption: Showing number of households violating k-anonymity for levels 2,3 and 5
+   :caption: Showing number of households violating k-anonymity for levels 2, 3 and 5
    :name: code910
    
    # Number of observations violating k-anonymity (thresholds 2 and 3)
@@ -684,10 +688,10 @@ frequencies smaller than the k-anonymity threshold, as shown in :numref:`code910
    ## [1] 0.2445
 
 It is often useful to view the values for the household(s) that violate
-k-anonymity. This might help clarify which variables cause the
+:math:`k`-anonymity. This might help clarify which variables cause the
 uniqueness of these households; this can then be used later when
 choosing appropriate SDC methods. :numref:`code911` shows how to assess the
-values of the households violating 3 and 5-anonymity. It seems that
+values of the households violating 3- and 5-anonymity. It seems that
 among the categorical key variables, the variable HHSIZE is responsible
 for many of the unique combinations and the origin of much of the risk.
 Having determined this, we can flag HHSIZE as a possible first variable
@@ -705,7 +709,7 @@ neighbor scenario.
 
 .. code-block:: R
    :linenos:
-   :caption: Showing households that violate k-anonymity
+   :caption: Showing households that violate :math:`k`-anonymity
    :name: code911
    
    # Show values of key variable of records that violate k-anonymity
@@ -1183,7 +1187,8 @@ components in the data and apply noise addition to each component
 separately. This allows to apply a lower level of noise than when
 applying noise only to the aggregates. A noise level of 0.01 seems to be
 sufficient with extra noise of 0.05 added to the outliers. The outliers
-are defined by a robust Mahalanobis distance (<anon_methods.html#Noise addition>`__). After
+are defined by a robust Mahalanobis distance 
+(see the Section `Noise addition <anon_methods.html#Noise addition>`__). After
 adding noise to the components, we recomputed the aggregates as the sum
 of the perturbed components. 
 
@@ -1341,26 +1346,26 @@ frequencies of the PRAMmed variables with REGION are preserved.
    :widths: auto
    :align: center
    
-  =================  =======  =======  =======  =======  =======  =======  =======  =======  =======  =======  ========
-                        0        1        2        3        4        5        6        7        8        9        NA   
-  =================  =======  =======  =======  =======  =======  =======  =======  =======  =======  =======  ========
-   ROOF                        27       1        914      307      711                                 10       1      
-   ROOF.m                      25       1        907      319      712                                 6        1      
-   TOILET                      76       594      817      481                                          3               
-   TOILET.m                    71       597      816      483                                          4               
-   WATER                       128      323      304      383      562      197      18       21       35              
-   WATER.m                     134      319      308      378      573      188      16       21       34              
-   ELECTCON           768      216      8        2                                                              977    
-   ELECTCON.m         761      218      8        3                                                              981    
-   FUELCOOK                    1289     21       376      55       36                                  139      55     
-   FUELCOOK.m                  1284     22       383      50       39                                  143      50     
-   OWNMOTORCYCLE      1883     86                                                                               2      
-   OWNMOTORCYCLE.m    1882     86                                                                               2      
-   CAR                963      31                                                                               977    
-   CAR.m              966      25                                                                                      
-   TV                 1216     264                                                                              491    
-   TV.m               1203     272                                                                              496    
-  =================  =======  =======  =======  =======  =======  =======  =======  =======  =======  =======  ========
+   =================  =======  =======  =======  =======  =======  =======  =======  =======  =======  =======  ========
+     .                   0        1        2        3        4        5        6        7        8        9        NA   
+   =================  =======  =======  =======  =======  =======  =======  =======  =======  =======  =======  ========
+    ROOF                        27       1        914      307      711                                 10       1      
+    ROOF.m                      25       1        907      319      712                                 6        1      
+    TOILET                      76       594      817      481                                          3               
+    TOILET.m                    71       597      816      483                                          4               
+    WATER                       128      323      304      383      562      197      18       21       35              
+    WATER.m                     134      319      308      378      573      188      16       21       34              
+    ELECTCON           768      216      8        2                                                              977    
+    ELECTCON.m         761      218      8        3                                                              981    
+    FUELCOOK                    1289     21       376      55       36                                  139      55     
+    FUELCOOK.m                  1284     22       383      50       39                                  143      50     
+    OWNMOTORCYCLE      1883     86                                                                               2      
+    OWNMOTORCYCLE.m    1882     86                                                                               2      
+    CAR                963      31                                                                               977    
+    CAR.m              966      25                                                                                      
+    TV                 1216     264                                                                              491    
+    TV.m               1203     272                                                                              496    
+   =================  =======  =======  =======  =======  =======  =======  =======  =======  =======  =======  ========
 
 .. _tab910:
 
@@ -1369,7 +1374,7 @@ frequencies of the PRAMmed variables with REGION are preserved.
    :align: center
 
    =============  =======  =======  =======  =======  =======  =======  =======  =======  =======
-                     1        2        3        4        5        6        7        8        9   
+       .             1        2        3        4        5        6        7        8        9   
    =============  =======  =======  =======  =======  =======  =======  =======  =======  =======
     WATER/URB      11       49       270      306      432      183      12       15       21    
     WATER/RUR      114      274      32       76       130      14       6        6        14    
@@ -1403,7 +1408,7 @@ based on the positive expenditure values before and after anonymization.
    :align: center
    
    ===================   ============   =========== 
-                            before         after    
+         .                  before         after    
    ===================   ============   =========== 
     Point estimate        0.510          0.508      
     Left bound of CI      0.476          0.476      
@@ -1429,7 +1434,7 @@ distortions to the MME and slightly larger changes to the MMI.
    :align: center
    
    ===========  ============  ===========
-                   before        after   
+       .           before        after   
    ===========  ============  ===========
     MME rural    400.5         398.5     
     MME urban    457.3         459.9     
@@ -1461,7 +1466,9 @@ variables before and after anonymization.
 Anonymization for the creation of a SUF will inevitably lead to some
 degree of utility loss. It is important to describe this loss in the
 external report, so that users are aware of the changes in the data.
-This is described in Step 11 and presented in Appendix A. Appendix A
+This is described in Step 11 and presented in 
+`Appendix C <appendices.html#Appendix C: Internal and External Reports for Case Studies>`__.
+`Appendix C <appendices.html#Appendix C: Internal and External Reports for Case Studies>`__
 also shows summary statistics and tabulations of the household level
 variables before and after anonymization.
 
@@ -1548,8 +1555,8 @@ The global risk measures can be found using *R* as illustrated in
 :numref:`code922`. The global risk is 0.24%, which corresponds to 24 expected
 re-identifications. Accounting for the hierarchical structure, this
 rises to 1.26%, or 127 expected re-identifications. The global risk
-measures are low compared to the number of k-anonymity violators due to
-the low sampling weights. The high number of k-anonymity violators is
+measures are low compared to the number of :math:`k`-anonymity violators due to
+the low sampling weights. The high number of :math:`k`-anonymity violators is
 mainly due to the very detailed age variable. The risk measures are
 based only on the individual level variables, since we assume that the
 individual and household level variables are be used simultaneously by
@@ -1605,7 +1612,7 @@ individuals with high (rare) age values.
 
 .. code-block:: R
    :linenos:
-   :caption: Recoding age in 10-year intervals in the range 15 – 65 anD top code age over 65 years
+   :caption: Recoding age in 10-year intervals in the range 15 – 65 and top code age over 65 years
    :name: code923
    
    # Recoding age and top coding age (top code 65), below that 10 year age
@@ -1775,7 +1782,9 @@ measures are sensitive to changes in the variables gender (GENDER), age
 (AGEYRS) and education (EDUCY and EDYRSATCURR), and therefore give a
 good overview of the impact of the anonymization. As shown in :numref:`tab917`
 the anonymization did not change the results. The results of the
-tabulations in Appendix A confirm these results.
+tabulations in 
+`Appendix C <appendices.html#Appendix C: Internal and External Reports for Case Studies>`__
+confirm these results.
 
 .. _tab917:
 
@@ -1831,7 +1840,8 @@ methods (PRAM). This is described in the previous steps.
 	information and it is very important for the users to be aware of these
 	changes and release them in a report that accompanies the data.
 	
-Appendix A provides examples of an internal and external report of the
+`Appendix C <appendices.html#Appendix C: Internal and External Reports for Case Studies>`__
+provides examples of an internal and external report of the
 anonymization process of this dataset. Depending on the users and
 readers of the reports, the content may differ. The code to this case
 study shows how to obtain the information for the reports. Some measures
@@ -1906,8 +1916,8 @@ anonymization process.
 	The choices of methods and parameters in this case study are based on this particular dataset and the results and
 	choices might be different for other datasets.
 
-This case study follows the steps of the SDC process outlined in Chapter
-8.
+This case study follows the steps of the SDC process outlined in 
+`The SDC Process <process.html>`__.
 
 Step 1: Need for disclosure control
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
