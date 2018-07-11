@@ -200,8 +200,139 @@ Appendix A: Overview of Case Study Variables
 Appendix B: Example of Blanket Agreement for SUF
 ------------------------------------------------------------
 
-.. figure:: media/blanketagreement.pdf
-   :align: center
+**Agreement between [providing agency] and [receiving agency] regarding
+the deposit and use of microdata**
+
+**A. This agreement relates to the following microdatasets:**
+
+1. \______________________________________________________\_
+
+2. \______________________________________________________\_
+
+3. \______________________________________________________\_
+
+4. \______________________________________________________\_
+
+5. \______________________________________________________\_
+
+B. Terms of the agreement:
+
+As the owner of the copyright in the materials listed in section A, or
+as duly authorized by the owner of the copyright in the materials, the
+representative of [providing agency] grants the [receiving agency]
+permission for the datasets listed in section A to be used by [receiving
+agency] employees, subject to the following conditions:
+
+1.  Microdata (including subsets of the datasets) and copyrighted
+    materials provided by the [providing agency] will not be
+    redistributed or sold to other individuals, institutions or
+    organisations without the [providing agency]ΓÇÖs written agreement.
+    Non-copyrighted materials which do not contain microdata (such as
+    survey questionnaires, manuals, codebooks, or data dictionaries) may
+    be distributed without further authorization. The ownership of all
+    materials provided by the [providing agency] remains with the
+    [providing agency].
+
+2.  Data will be used for statistical and scientific research purposes
+    only. They will be employed solely for reporting aggregated
+    information, including modeling, and not for investigating specific
+    individuals or organisations.
+
+3.  No attempt will be made to re-identify respondents, and there will
+    be no use of the identity of any person or establishment discovered
+    inadvertently. Any such discovery will be reported immediately to
+    the [providing agency].
+
+4.  No attempt will be made to produce links between datasets provided
+    by the [providing agency] or between [providing agency] data and
+    other datasets that could identify individuals or organisations.
+
+5.  Any books, articles, conference papers, theses, dissertations,
+    reports or other publications employing data obtained from the
+    [providing agency] will cite the source, in line with the citation
+    requirement provided with the dataset.
+
+6.  An electronic copy of all publications based on the requested data
+    will be sent to the [providing agency].
+
+7.  The [providing agency] and the relevant funding agencies bear no
+    responsibility the dataΓÇÖs use or for interpretation or inferences
+    based upon it.
+
+8.  An electronic copy of all publications based on the requested data
+    will be sent to the [providing agency].
+
+9.  Data will be stored in a secure environment, with adequate access
+    restrictions. The [providing agency] may at any time request
+    information on the storage and dissemination facilities in place.
+
+10. The [recipient agency] will provide an annual report on uses and
+    users of the listed microdatasets to the [providing agency], with
+    information on the number of researchers having accessed each
+    dataset, and on the output of this research.
+
+11. This access is granted for a period of [provide information on this
+    period, or state that the agreement is open ended].
+
+C. Communications:
+
+The [receiving organisation] will appoint a contact person who
+
+will act as unique focal person for this agreement. Should the focal
+person be replaced, the [recipient agency] will immediately communicate
+the name and coordinates of the new contact person to the [providing
+agency]. Communications for administrative and procedural purposes may
+be made by email, fax or letter as follows:
+
+Communications made by [providing agency] to [recipient agency] will be
+directed to:
+
+Name of contact person:
+
+Title of contact person:
+
+Address of the recipient agency:
+
+Email:
+
+Tel:
+
+Fax:
+
+Communications made by [recipient agency] to [depositor agency]
+
+will be directed to:
+
+Name of contact person:
+
+Title of contact person:
+
+Address of the recipient agency:
+
+Email:
+
+Tel:
+
+Fax:
+
+**D. Signatories**
+
+The following signatories have read and agree with the Agreement as
+presented above:
+
+**Representative of the [providing agency]**
+
+Name \___________________________________________________\_
+
+Signature \______________________________\_ Date \_____________\_
+
+**Representative of the [recipient agency]**
+
+Name \___________________________________________________\_
+
+Signature \______________________________\_ Date \_____________\_
+
+
 
 Source: `DuBo10`_
 
