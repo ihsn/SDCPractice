@@ -7,9 +7,9 @@ noted, however, that jumping between steps and returning to previous
 steps is often required during the actual SDC process, as it is not
 necessarily a linear step-by-step process. This guidance brings together
 the different parts of the SDC process as discussed in the previous
-chapters and links to these chapters. The case studies in the next
-chapter follow these steps. This presentation is adapted from  `HDFG12`_. 
-:numref:`Fig81` at the end of this chapter presents the entire
+sections and links to these sections. The case studies in the next
+section follow these steps. This presentation is adapted from  `HDFG12`_. 
+:numref:`Fig81` at the end of this section presents the entire
 process in a schematic way.
 
 Step 1: Need for confidentiality protection
@@ -168,7 +168,7 @@ sample. For a full census, it is common practice to publish only a
 sample, as the risk of disclosure for a full sample is too high, given
 that we know that everyone in the country or institution is in the data
 (see also the Section 
-`Special case: census data <anon_methods.html#Special case: census data` 5.6). 
+`Special case: census data <anon_methods.html#Special case: census data`__). 
 Strata and sample weights can disclose
 information about the area or group to which an individual belongs
 (e.g., the weights can be linked with the geographical area or specific
@@ -189,7 +189,9 @@ which specify the type of data that should be disseminated as well as
 the fashion.
 
 Generally, there exist three types of data release methods for different
-target groups (Chapter 3 provides more information on different release
+target groups (the Section
+`Release types <release_types.html>`__ 
+provides more information on different release
 types):
 
 -  PUF: The data is directly available to anyone interested, e.g., on
@@ -294,12 +296,13 @@ way for re-identification. For example, a user in a research data center
 cannot match with large external datasets as (s)he is not permitted to
 take these into the data center. A user of a SUF is bound by an
 agreement specifying the use of the data and consequences if the
-agreement is breached (see Chapter 3). Furthermore, it should be
+agreement is breached (see the Section `Release types <release_types.html>`__
+). Furthermore, it should be
 evaluated whether, in case of a sample, possible intruders have
 knowledge as to which individuals are in the sample. This can be the
 case if it is known which schools were visited by the survey team, for
 example. A few examples of disclosure scenarios are (see the Section 
-`Disclosure scenarios < measure_risk.html#Disclosure scenarios` for
+`Disclosure scenarios <measure_risk.html#Disclosure scenarios>`__ for
 more information):
 
 -  Matching: The intruder uses auxiliary data, e.g., data on region,
@@ -308,7 +311,8 @@ more information):
    and are unique are successfully identified. This principle is used as
    an assumption in several disclosure risk measures, such as
    :math:`k`-anonymity, individual and global risk, as described in
-   Chapter 4. This scenario can apply to both PUFs and SUFs.
+   the Section `Measuring Risk <measure_risk.html>`__. 
+   This scenario can apply to both PUFs and SUFs.
 
 -  Spontaneous recognition: This scenario should be considered for SUF
    files, but is especially important for data available in research
@@ -370,7 +374,9 @@ statistics can be generated from the published data. If this is the
 case, a choice should be made on which indicators and statistics to
 focus, and inform the users as to which ones have been selected and why.
 
-As discussed in Chapter 6, it is necessary to compute general utility
+As discussed in the Section
+`Measuring Utility and Information Loss <utility.html>`__, 
+it is necessary to compute general utility
 measures that compare the raw and anonymized data, taking into
 consideration the end user’s need for their analysis. In some cases the
 utility measures can give contradicting results, for example, a certain
@@ -382,7 +388,7 @@ certain metrics over others means that certain metrics are no longer
 valid. This may be necessary, as it is not possible to release multiple
 files for different users. This problem occurs especially in
 multi-purpose studies. For more details on utility measures, refer to
-Chapter 6.
+the Section `Measuring Utility and Information Loss <utility.html>`__.
 
 .. admonition:: Note on Steps 6 to 10
 
@@ -399,8 +405,8 @@ Chapter 6.
 	members but not for the remaining three, this would lead to unintended
 	disclosure; with the household ID the variable region would be easy to
 	reconstruct for the two suppressed values. The Sections
-	`Household risk <measure_risk.html#Household risk` and 
-	`Household structure <sdcMicro.html#Household structure` provide
+	`Household risk <measure_risk.html#Household risk>`__ and 
+	`Household structure <sdcMicro.html#Household structure>`__ provide
 	more details on how to deal with data with household structure in *R*
 	and *sdcMicro*.
 
@@ -413,25 +419,28 @@ the case of census data, it is possible to directly calculate the risk
 measures when assuming that the dataset covers the entire population. If
 working with a sample, or a sample of the census (which is the more
 common case when releasing sample data), we can use the models discussed
-in Chapter 4 to estimate the risk in the population. The main inputs for
+in the Section `Measuring Risk <measure_risk.html>`__ 
+to estimate the risk in the population. The main inputs for
 the risk measurement are the set of quasi-identifiers determined from
 the disclosure scenarios in Step 4 and the thresholds for risk
 calculations (e.g., the level of :math:`k`-anonymity or the threshold
 for which an individual is considered at risk). If the data has a
 hierarchical structure (e.g., a household structure), the risk should be
 measured taking into account this structure as described the Section
-`Household risk <measure_risk.html#Household risk`.
+`Household risk <measure_risk.html#Household risk>`__.
 
-The different risk measures described in Chapter 4 each have advantages
-and disadvantages. Generally,\ :math:`\text{\ k}`-anonymity, individual
+The different risk measures described in the Section
+`Measuring Risk <measure_risk.html>`__ each have advantages
+and disadvantages. Generally, :math:`k`-anonymity, individual
 risk and global risk are used to produce an idea of the disclosure risk.
 These values can initially be very high but can often very easily be
-reduced after some simple but appropriate recoding (see Step 8). The
+reduced after some simple but appropriate recoding (see 
+`Step 8: Choice and application of SDC methods`_). The
 thresholds shall be determined according to the release type. Always
 remember, though, that when using a sample, the risk measures based on
 the models presented in the literature offer a worst-case risk scenario
 and might therefore be an exaggeration of the real risks for some cases
-(see the Section `Individual risk <measure_risk.html#Individual risk` 4.5).
+(see the Section `Individual risk <measure_risk.html#Individual risk>`__).
 
 Step 7: Assessing utility measures
 ----------------------------------
@@ -466,7 +475,7 @@ overview for choosing the appropriate methods. Methods should be chosen
 according to the type of variable – continuous or categorical – the
 requirements by the users and the type of release. The anonymization of
 datasets with both continuous and categorical variables is discussed in
-the Section `Classification of variables <measure_risk.html#Classification of variables`.
+the Section `Classification of variables <measure_risk.html#Classification of variables>`__.
 
 In general for anonymization of categorical variables, it is useful to
 restrict the number of suppressions by first applying global recoding
@@ -475,7 +484,8 @@ number of suppressions to achieve the required level of risk is
 sufficiently low, the few individuals at risk can be treated by
 suppression. These are generally outliers. It should be noted that
 possibly not all variables can be released and some must be removed from
-the dataset (see Step 2). Recoding and minimal use of suppression
+the dataset (see `Step 2: Data preparation and exploring data characteristics`_ 
+). Recoding and minimal use of suppression
 ensures that already published figures from the raw data can be
 reproduced sufficiently well from the anonymized data. If suppression is
 applied without sufficient recoding, the number of suppressions can be
@@ -488,16 +498,18 @@ result, especially in cases where the number of select quasi-identifiers
 is high, an alternative is using perturbative methods. These can be used
 without prior recoding of variables. These methods, however, preserve
 data structure only partially. The preferred method depends on the
-requirements of the users. We refer to Chapter 5 and especially the Section
-`Perturbative methods <anon_methods.html# Perturbative methods`
+requirements of the users. We refer to the Section 
+`Anonymization Methods <anon_methods.html>`__ and especially the Section
+`Perturbative methods <anon_methods.html# Perturbative methods>`__
 for a discussion of perturbative methods implemented in *sdcMicro*.
 
 Finally, the choice of SDC methods depends on the data used since the
 same methods produce different results on different datasets. Therefore,
-the comparison of results with respect to risk and utility (Steps 9 and
-10) is key to the choice made. Most methods are implemented in the
+the comparison of results with respect to risk and utility
+(Steps 9 and 10) is key to the choice made. Most methods are implemented in the
 *sdcMicro* package. Nevertheless, it is sometimes useful to use
-custom-made solutions. A few examples are presented in Chapter 5.
+custom-made solutions. A few examples are presented in the Section
+`Anonymization Methods <anon_methods.html>`__.
 
 Step 9: Re-measure risk
 -----------------------
@@ -511,7 +523,7 @@ should be repeated with different methods and/or parameters.
 
 .. NOTE::
 	Risk measures based on frequency counts
-	(:math:`\mathbf{k}`\ -anonymity, individual risk, global risk and
+	(:math:`k`-anonymity, individual risk, global risk and
 	household risk) cannot be used after applying perturbative methods since
 	their risk estimates are not valid.
 	
@@ -528,7 +540,8 @@ construct confidence intervals around the point estimates and compare
 these confidence intervals. The importance of the absolute value of a
 deviation can only be interpreted knowing the variance of the estimate.
 Besides these specific utility measures, general utility measures, as
-discussed in the Section `Measuring Utility and Information Loss <utility.html#Measuring Utility and Information Loss` 
+discussed in the Section 
+`Measuring Utility and Information Loss <utility.html>`__ 
 , should be evaluated. This is especially
 important if perturbative methods have been applied. If the data does
 not meet the user requirements and deviations are too large, repeat

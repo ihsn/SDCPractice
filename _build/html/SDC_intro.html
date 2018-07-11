@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>3. Statistical Disclosure Control (SDC): An Introduction &mdash; Readthedocs  documentation</title>
+  <title>Statistical Disclosure Control (SDC): An Introduction &mdash; SDC Practice Guide  documentation</title>
   
 
   
@@ -29,8 +29,8 @@
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="4. Release Types" href="release_types.html" />
-    <link rel="prev" title="2. Glossary and list of acronyms" href="glossary_acr.html" /> 
+    <link rel="next" title="Release Types" href="release_types.html" />
+    <link rel="prev" title="Glossary and list of acronyms" href="glossary_acr.html" /> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -49,7 +49,7 @@
           
 
           
-            <a href="index.html" class="icon icon-home"> Readthedocs
+            <a href="index.html" class="icon icon-home"> SDC Practice Guide
           
 
           
@@ -81,21 +81,21 @@
             
               <p class="caption"><span class="caption-text">Table of Content</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="intro.html">1. Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="glossary_acr.html">2. Glossary and list of acronyms</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">3. Statistical Disclosure Control (SDC): An Introduction</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#need-for-sdc">3.1. Need for SDC</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#the-risk-utility-trade-off-in-the-sdc-process">3.2. The risk-utility trade-off in the SDC process</a></li>
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="glossary_acr.html">Glossary and list of acronyms</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Statistical Disclosure Control (SDC): An Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#need-for-sdc">Need for SDC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#the-risk-utility-trade-off-in-the-sdc-process">The risk-utility trade-off in the SDC process</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="release_types.html">4. Release Types</a></li>
-<li class="toctree-l1"><a class="reference internal" href="measure_risk.html">5. Measuring Risk</a></li>
-<li class="toctree-l1"><a class="reference internal" href="anon_methods.html">6. Anonymization Methods</a></li>
-<li class="toctree-l1"><a class="reference internal" href="utility.html">7. Measuring Utility and Information Loss</a></li>
-<li class="toctree-l1"><a class="reference internal" href="sdcMicro.html">8. SDC with <em>sdcMicro</em> in <em>R</em>: Setting Up Your Data and more</a></li>
-<li class="toctree-l1"><a class="reference internal" href="process.html">9. The SDC Process</a></li>
-<li class="toctree-l1"><a class="reference internal" href="appendices.html">10. Appendices</a></li>
-<li class="toctree-l1"><a class="reference internal" href="acknowledgements.html">11. Acknowledgements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="release_types.html">Release Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="measure_risk.html">Measuring Risk</a></li>
+<li class="toctree-l1"><a class="reference internal" href="anon_methods.html">Anonymization Methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="utility.html">Measuring Utility and Information Loss</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sdcMicro.html">SDC with <em>sdcMicro</em> in <em>R</em>: Setting Up Your Data and more</a></li>
+<li class="toctree-l1"><a class="reference internal" href="process.html">The SDC Process</a></li>
+<li class="toctree-l1"><a class="reference internal" href="appendices.html">Appendices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acknowledgements.html">Acknowledgements</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Case studies</span></p>
 <ul>
@@ -114,7 +114,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">Readthedocs</a>
+          <a href="index.html">SDC Practice Guide</a>
         
       </nav>
 
@@ -145,7 +145,7 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>3. Statistical Disclosure Control (SDC): An Introduction</li>
+      <li>Statistical Disclosure Control (SDC): An Introduction</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -165,9 +165,9 @@
            <div itemprop="articleBody">
             
   <div class="section" id="statistical-disclosure-control-sdc-an-introduction">
-<h1>3. Statistical Disclosure Control (SDC): An Introduction<a class="headerlink" href="#statistical-disclosure-control-sdc-an-introduction" title="Permalink to this headline">¶</a></h1>
+<h1>Statistical Disclosure Control (SDC): An Introduction<a class="headerlink" href="#statistical-disclosure-control-sdc-an-introduction" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="need-for-sdc">
-<h2>3.1. Need for SDC<a class="headerlink" href="#need-for-sdc" title="Permalink to this headline">¶</a></h2>
+<h2>Need for SDC<a class="headerlink" href="#need-for-sdc" title="Permalink to this headline">¶</a></h2>
 <p>A large part of the data collected by statistical agencies cannot be
 published directly due to privacy and confidentiality concerns. These
 concerns are both of legal and ethical nature. SDC seeks to treat and
@@ -208,26 +208,23 @@ interests of all stakeholders in the public research enterprise. Access
 to, and use of, certain research data will necessarily be limited by
 various types of legal requirements, which may include restrictions for
 reasons of:</p>
-<ul>
-<li><p class="first">National security: data pertaining to intelligence, military
+<ul class="simple">
+<li>National security: data pertaining to intelligence, military
 activities, or political decision making may be classified and
-therefore subject to restricted access.</p>
-</li>
-<li><p class="first">Privacy and confidentiality: data on human subjects and other
+therefore subject to restricted access.</li>
+<li>Privacy and confidentiality: data on human subjects and other
 personal data are subject to restricted access under national laws
 and policies to protect confidentiality and privacy. However,
 anonymization or confidentiality procedures that ensure a
 satisfactory level of confidentiality should be considered by
 custodians of such data to preserve as much data utility as possible
-for researchers.</p>
-</li>
-<li><p class="first">Trade secrets and intellectual property rights: data on, or from,
+for researchers.</li>
+<li>Trade secrets and intellectual property rights: data on, or from,
 businesses or other parties that contain confidential information may
-not be accessible for research. (…)” (<a class="reference internal" href="#dubo10">DuBo10</a>).</p>
+not be accessible for research. (…)” (<a class="reference internal" href="#dubo10">DuBo10</a>).</li>
+</ul>
 <p>Box 1, extracted from <a class="reference internal" href="#dubo10">DuBo10</a>, provides several
 examples of statistical legislation on microdata release.</p>
-</li>
-</ul>
 <div class="admonition-info-box-examples-of-statistical-legislation-on-microdata-release admonition">
 <p class="first admonition-title">Info-box - Examples of statistical legislation on microdata release</p>
 <ol class="arabic simple">
@@ -238,9 +235,9 @@ examples of statistical legislation on microdata release.</p>
 <li>In Canada the Statistics Act states that “no person who has been sworn under section 6 shall disclose or knowingly cause to be disclosed, by any means, any information obtained under this Act in such a manner that it is possible from the disclosure to relate the particulars obtained from any individual return to any identifiable individual person, business or organization.”</li>
 </ol>
 <p>Source: <a class="reference external" href="http://laws-lois.justice.gc.ca/eng/acts/S-19/page-2.html">http://laws-lois.justice.gc.ca/eng/acts/S-19/page-2.html</a></p>
+<p>Statistics Canada does release microdata files. Its microdata release policy states that Statistics Canada will authorise the release of microdata files for public use when:</p>
 <blockquote>
-<div><p>Statistics Canada does release microdata files. Its microdata release policy states that Statistics Canada will authorise the release of microdata files for public use when:</p>
-<ol class="loweralpha simple">
+<div><ol class="loweralpha simple">
 <li>the release substantially enhances the analytical value of the data collected; and</li>
 <li>the Agency is satisfied all reasonable steps have been taken to prevent the identification of particular survey units.</li>
 </ol>
@@ -264,13 +261,13 @@ data producers are not protecting their privacy, they might not be
 willing to participate in future surveys. “[…] one incident,
 particularly if it receives strong media attention, could have a
 significant impact on respondent cooperation and therefore on the
-quality of official statistics” (ibid.). At the same time, if data users
+quality of official statistics” (<a class="reference internal" href="#dubo10">DuBo10</a>). At the same time, if data users
 are unable to gain enough utility from the data due to excessive or
 inappropriate SDC protection, or are unable to access the data, then the
 large investment in producing the data will be lost.</p>
 </div>
 <div class="section" id="the-risk-utility-trade-off-in-the-sdc-process">
-<h2>3.2. The risk-utility trade-off in the SDC process<a class="headerlink" href="#the-risk-utility-trade-off-in-the-sdc-process" title="Permalink to this headline">¶</a></h2>
+<h2>The risk-utility trade-off in the SDC process<a class="headerlink" href="#the-risk-utility-trade-off-in-the-sdc-process" title="Permalink to this headline">¶</a></h2>
 <p>SDC is characterized by the trade-off between risk of disclosure and
 utility of the data for end users. The risk–utility scale extends
 between two extremes; (i) no data is released (zero risk of disclosure)
@@ -279,7 +276,7 @@ without any treatment, and thus with maximum risk of disclosure, but
 also maximum utility to the user (i.e., no information loss). The goal
 of a well-implemented SDC process is to find the optimal point where
 utility for end users is maximized at an acceptable level of risk.
-<a class="reference internal" href="#fig21"><span class="std std-numref">Fig. 3.1</span></a> illustrates this trade-off. The triangle corresponds to the
+<a class="reference internal" href="#fig21"><span class="std std-numref">Fig. 1</span></a> illustrates this trade-off. The triangle corresponds to the
 raw data. The raw data have no information loss, but generally have a
 disclosure risk higher than the acceptable level. The other extreme is
 the square, which corresponds to no data release. In that case there is
@@ -291,7 +288,7 @@ and applies these in a way that reduces the risk sufficiently, while
 minimizing the information loss.</p>
 <div class="figure align-center" id="id2">
 <span id="fig21"></span><img alt="_images/image1.png" src="_images/image1.png" />
-<p class="caption"><span class="caption-number">Fig. 3.1 </span><span class="caption-text">Risk-utility trade-off</span></p>
+<p class="caption"><span class="caption-number">Fig. 1 </span><span class="caption-text">Risk-utility trade-off</span></p>
 </div>
 <p>SDC cannot achieve total risk elimination, but can reduce the risk to an
 acceptable level. Any application of SDC methods will suppress or alter
@@ -315,7 +312,7 @@ discussed in subsequent chapters of this guide.</p>
 <p>Again, it must be stressed that the level of SDC and methods applied
 depend to a large extent on the entire data release framework. For
 example, a key consideration is to whom and under what conditions the
-data are to be released (see also Chapter 3). If data are to be released
+data are to be released (see also the Section <a class="reference external" href="release_types.html">Release types</a>). If data are to be released
 as public use data, then the level of SDC applied will necessarily need
 to be higher than in the cases where data are released under license
 conditions to trusted users after careful vetting. With careful
@@ -325,7 +322,7 @@ versions. We discuss how this might be achieved later in the guide.</p>
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
 <tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>There is another strand of literature on the anonymization of tabular
-data, see e.g., Hundepool et al. (2012).</td></tr>
+data, see e.g., <a class="reference internal" href="#hdfg12">HDFG12</a>.</td></tr>
 </tbody>
 </table>
 <p class="rubric">References</p>
@@ -335,6 +332,14 @@ data, see e.g., Hundepool et al. (2012).</td></tr>
 <tr><td class="label">[DuBo10]</td><td>Dupriez, O., &amp; Boyko, E. (2010).
 <strong>Dissemination of Microdata Files; Principles, Procedures and Practices.</strong>
 International Household Survey Network (IHSN).</td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="hdfg12" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[HDFG12]</td><td>Hundepool, A., Domingo-Ferrer, J., Franconi, L., Giessing, S., Nordholt, E. S., Spicer, K., et al. (2012).
+<strong>Statistical Disclosure Control.</strong>
+Chichester, UK: John Wiley &amp; Sons Ltd.</td></tr>
 </tbody>
 </table>
 </div>
@@ -348,10 +353,10 @@ International Household Survey Network (IHSN).</td></tr>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="release_types.html" class="btn btn-neutral float-right" title="4. Release Types" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="release_types.html" class="btn btn-neutral float-right" title="Release Types" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="glossary_acr.html" class="btn btn-neutral" title="2. Glossary and list of acronyms" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="glossary_acr.html" class="btn btn-neutral" title="Glossary and list of acronyms" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -360,7 +365,7 @@ International Household Survey Network (IHSN).</td></tr>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2018, Matthew Welch.
+        &copy; Copyright 2018, Thijs Benschop, Cathrine Machingauta, Matthew Welch.
 
     </p>
   </div>
