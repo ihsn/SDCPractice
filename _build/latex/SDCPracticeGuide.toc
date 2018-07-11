@@ -1,0 +1,152 @@
+\select@language {english}
+\contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}
+\contentsline {section}{\numberline {1.1}Building a knowledge base}{2}{section.1.1}
+\contentsline {section}{\numberline {1.2}Using this guide}{2}{section.1.2}
+\contentsline {section}{\numberline {1.3}Outline of this guide}{3}{section.1.3}
+\contentsline {chapter}{\numberline {2}Glossary and list of acronyms}{5}{chapter.2}
+\contentsline {section}{\numberline {2.1}List of Acronyms}{5}{section.2.1}
+\contentsline {section}{\numberline {2.2}Glossary}{6}{section.2.2}
+\contentsline {chapter}{\numberline {3}Statistical Disclosure Control (SDC): An Introduction}{11}{chapter.3}
+\contentsline {section}{\numberline {3.1}Need for SDC}{11}{section.3.1}
+\contentsline {section}{\numberline {3.2}The risk-utility trade-off in the SDC process}{12}{section.3.2}
+\contentsline {paragraph}{References}{14}{paragraph*.3}
+\contentsline {chapter}{\numberline {4}Release Types}{15}{chapter.4}
+\contentsline {section}{\numberline {4.1}Conditions for PUFs}{16}{section.4.1}
+\contentsline {section}{\numberline {4.2}Conditions for SUFs}{17}{section.4.2}
+\contentsline {section}{\numberline {4.3}Conditions for microdata available in a controlled research data center}{18}{section.4.3}
+\contentsline {paragraph}{References}{18}{paragraph*.4}
+\contentsline {chapter}{\numberline {5}Measuring Risk}{19}{chapter.5}
+\contentsline {section}{\numberline {5.1}Types of disclosure}{19}{section.5.1}
+\contentsline {section}{\numberline {5.2}Classification of variables}{19}{section.5.2}
+\contentsline {section}{\numberline {5.3}Disclosure scenarios}{21}{section.5.3}
+\contentsline {section}{\numberline {5.4}Levels of risk}{22}{section.5.4}
+\contentsline {section}{\numberline {5.5}Individual risk}{23}{section.5.5}
+\contentsline {subsection}{\numberline {5.5.1}Categorical key variables and frequency counts}{23}{subsection.5.5.1}
+\contentsline {subsection}{\numberline {5.5.2}\(k\)-anonymity}{27}{subsection.5.5.2}
+\contentsline {subsection}{\numberline {5.5.3}\(l\)-diversity}{28}{subsection.5.5.3}
+\contentsline {section}{\numberline {5.6}Special Uniques Detection Algorithm (SUDA)}{30}{section.5.6}
+\contentsline {subsection}{\numberline {5.6.1}Sample unique vs. special unique}{30}{subsection.5.6.1}
+\contentsline {subsection}{\numberline {5.6.2}Calculating SUDA scores}{31}{subsection.5.6.2}
+\contentsline {subsection}{\numberline {5.6.3}Application of SUDA, DIS-SUDA using \sphinxstyleemphasis {sdcMicro}}{32}{subsection.5.6.3}
+\contentsline {section}{\numberline {5.7}Risk measures for continuous variables}{33}{section.5.7}
+\contentsline {subsection}{\numberline {5.7.1}Record linkage}{35}{subsection.5.7.1}
+\contentsline {subsection}{\numberline {5.7.2}Interval measure}{35}{subsection.5.7.2}
+\contentsline {subsection}{\numberline {5.7.3}Outlier detection}{36}{subsection.5.7.3}
+\contentsline {section}{\numberline {5.8}Global risk}{36}{section.5.8}
+\contentsline {subsection}{\numberline {5.8.1}Mean of individual risk measures}{36}{subsection.5.8.1}
+\contentsline {subsection}{\numberline {5.8.2}Count of individuals with risks larger than a certain threshold}{37}{subsection.5.8.2}
+\contentsline {section}{\numberline {5.9}Household risk}{37}{section.5.9}
+\contentsline {paragraph}{References}{39}{paragraph*.5}
+\contentsline {chapter}{\numberline {6}Anonymization Methods}{41}{chapter.6}
+\contentsline {section}{\numberline {6.1}Classification of SDC methods}{41}{section.6.1}
+\contentsline {section}{\numberline {6.2}Non-perturbative methods}{42}{section.6.2}
+\contentsline {subsection}{\numberline {6.2.1}Recoding}{42}{subsection.6.2.1}
+\contentsline {subsubsection}{Global recoding}{42}{subsubsection*.6}
+\contentsline {paragraph}{Recoding a categorical variable using the sdcMicro function groupVars()}{44}{paragraph*.7}
+\contentsline {paragraph}{Recoding a continuous variable using the sdcMicro function: globalRecode()}{45}{paragraph*.8}
+\contentsline {subsubsection}{Top and bottom coding}{48}{subsubsection*.9}
+\contentsline {subsubsection}{Rounding}{49}{subsubsection*.10}
+\contentsline {subsection}{\numberline {6.2.2}Local suppression}{50}{subsection.6.2.2}
+\contentsline {section}{\numberline {6.3}Perturbative methods}{56}{section.6.3}
+\contentsline {subsection}{\numberline {6.3.1}PRAM (Post RAndomization Method)}{57}{subsection.6.3.1}
+\contentsline {subsection}{\numberline {6.3.2}Microaggregation}{61}{subsection.6.3.2}
+\contentsline {subsection}{\numberline {6.3.3}Noise addition}{64}{subsection.6.3.3}
+\contentsline {subsection}{\numberline {6.3.4}Rank swapping}{69}{subsection.6.3.4}
+\contentsline {subsection}{\numberline {6.3.5}Shuffling}{70}{subsection.6.3.5}
+\contentsline {subsection}{\numberline {6.3.6}Comparison of PRAM, rank swapping and shuffling}{71}{subsection.6.3.6}
+\contentsline {section}{\numberline {6.4}Anonymization of geospatial variables}{71}{section.6.4}
+\contentsline {section}{\numberline {6.5}Anonymization of the quasi-identifier household size}{72}{section.6.5}
+\contentsline {section}{\numberline {6.6}Special case: census data}{72}{section.6.6}
+\contentsline {paragraph}{References}{72}{paragraph*.11}
+\contentsline {chapter}{\numberline {7}Measuring Utility and Information Loss}{73}{chapter.7}
+\contentsline {section}{\numberline {7.1}General utility measures for continuous and categorical variables}{74}{section.7.1}
+\contentsline {subsection}{\numberline {7.1.1}General utility measures for categorical variables}{74}{subsection.7.1.1}
+\contentsline {subsubsection}{Number of missing values}{74}{subsubsection*.12}
+\contentsline {subsubsection}{Number of records changed}{75}{subsubsection*.13}
+\contentsline {subsubsection}{Comparing contingency tables}{76}{subsubsection*.14}
+\contentsline {subsection}{\numberline {7.1.2}General utility measures for continuous variables}{77}{subsection.7.1.2}
+\contentsline {subsubsection}{Statistics: mean, covariance, correlation}{77}{subsubsection*.15}
+\contentsline {subsubsection}{IL1s information loss measure}{78}{subsubsection*.16}
+\contentsline {subsubsection}{Eigenvalues}{79}{subsubsection*.17}
+\contentsline {section}{\numberline {7.2}Utility measures based on the end user\IeC {\textquoteright }s needs}{79}{section.7.2}
+\contentsline {section}{\numberline {7.3}Regression}{80}{section.7.3}
+\contentsline {section}{\numberline {7.4}Assessing data utility with the help of data visualizations (in \sphinxstyleemphasis {R})}{83}{section.7.4}
+\contentsline {subsection}{\numberline {7.4.1}Histograms and density plots}{83}{subsection.7.4.1}
+\contentsline {subsection}{\numberline {7.4.2}Box plots}{84}{subsection.7.4.2}
+\contentsline {subsection}{\numberline {7.4.3}Mosaic plots}{84}{subsection.7.4.3}
+\contentsline {section}{\numberline {7.5}Choice of utility measure}{88}{section.7.5}
+\contentsline {paragraph}{References}{89}{paragraph*.18}
+\contentsline {chapter}{\numberline {8}SDC with \sphinxstyleemphasis {sdcMicro} in \sphinxstyleemphasis {R}: Setting Up Your Data and more}{91}{chapter.8}
+\contentsline {section}{\numberline {8.1}Installing \sphinxstyleemphasis {R}, \sphinxstyleemphasis {sdcMicro} and other packages}{91}{section.8.1}
+\contentsline {section}{\numberline {8.2}Read functions in \sphinxstyleemphasis {R}}{92}{section.8.2}
+\contentsline {section}{\numberline {8.3}Missing values}{93}{section.8.3}
+\contentsline {section}{\numberline {8.4}Classes in R}{93}{section.8.4}
+\contentsline {section}{\numberline {8.5}Objects of class \sphinxstyleemphasis {sdcMicroObj}}{94}{section.8.5}
+\contentsline {section}{\numberline {8.6}Household structure}{98}{section.8.6}
+\contentsline {section}{\numberline {8.7}Randomizing order and numbering of individuals or households}{100}{section.8.7}
+\contentsline {section}{\numberline {8.8}Computation time}{102}{section.8.8}
+\contentsline {section}{\numberline {8.9}Common errors}{104}{section.8.9}
+\contentsline {chapter}{\numberline {9}The SDC Process}{105}{chapter.9}
+\contentsline {section}{\numberline {9.1}Step 1: Need for confidentiality protection}{105}{section.9.1}
+\contentsline {section}{\numberline {9.2}Step 2: Data preparation and exploring data characteristics}{105}{section.9.2}
+\contentsline {section}{\numberline {9.3}Step 3: Type of release}{107}{section.9.3}
+\contentsline {section}{\numberline {9.4}Step 4: Intruder scenarios and choice of key variables}{108}{section.9.4}
+\contentsline {section}{\numberline {9.5}Step 5: Data key uses and selection of utility measures}{109}{section.9.5}
+\contentsline {section}{\numberline {9.6}Step 6: Assessing disclosure risk}{110}{section.9.6}
+\contentsline {section}{\numberline {9.7}Step 7: Assessing utility measures}{110}{section.9.7}
+\contentsline {section}{\numberline {9.8}Step 8: Choice and application of SDC methods}{110}{section.9.8}
+\contentsline {section}{\numberline {9.9}Step 9: Re-measure risk}{111}{section.9.9}
+\contentsline {section}{\numberline {9.10}Step 10: Re-measure utility}{111}{section.9.10}
+\contentsline {section}{\numberline {9.11}Step 11: Audit and Reporting}{112}{section.9.11}
+\contentsline {section}{\numberline {9.12}Step 12: Data release}{112}{section.9.12}
+\contentsline {paragraph}{References}{112}{paragraph*.19}
+\contentsline {chapter}{\numberline {10}Appendices}{115}{chapter.10}
+\contentsline {section}{\numberline {10.1}Appendix A: Overview of Case Study Variables}{115}{section.10.1}
+\contentsline {section}{\numberline {10.2}Appendix B: Example of Blanket Agreement for SUF}{116}{section.10.2}
+\contentsline {section}{\numberline {10.3}Appendix C: Internal and External Reports for Case Studies}{116}{section.10.3}
+\contentsline {subsection}{\numberline {10.3.1}Case study 1 - Internal report}{118}{subsection.10.3.1}
+\contentsline {subsection}{\numberline {10.3.2}Case study 1 - External report}{119}{subsection.10.3.2}
+\contentsline {subsection}{\numberline {10.3.3}Case study 2 - Internal report}{120}{subsection.10.3.3}
+\contentsline {subsection}{\numberline {10.3.4}Case study 2 - External report}{120}{subsection.10.3.4}
+\contentsline {section}{\numberline {10.4}Appendix D: Execution Times for Multiple Scenarios Tested using Selected Sample Data}{121}{section.10.4}
+\contentsline {paragraph}{References}{121}{paragraph*.20}
+\contentsline {chapter}{\numberline {11}Acknowledgements}{125}{chapter.11}
+\contentsline {chapter}{\numberline {12}Case Studies (Illustrating the SDC Process)}{127}{chapter.12}
+\contentsline {section}{\numberline {12.1}Case study 1- SUF}{127}{section.12.1}
+\contentsline {subsection}{\numberline {12.1.1}Step 1: Need for disclosure control}{128}{subsection.12.1.1}
+\contentsline {subsection}{\numberline {12.1.2}Step 2: Data preparation and exploring data characteristics}{128}{subsection.12.1.2}
+\contentsline {subsection}{\numberline {12.1.3}Step 3: Type of release}{132}{subsection.12.1.3}
+\contentsline {subsection}{\numberline {12.1.4}Step 4: Intruder scenarios and choice of key variables}{132}{subsection.12.1.4}
+\contentsline {subsection}{\numberline {12.1.5}Step 5: Data key uses and selection of utility measures}{133}{subsection.12.1.5}
+\contentsline {subsection}{\numberline {12.1.6}Hierarchical (household) structure}{134}{subsection.12.1.6}
+\contentsline {subsection}{\numberline {12.1.7}Step 6a: Assessing disclosure risk (household level)}{135}{subsection.12.1.7}
+\contentsline {subsection}{\numberline {12.1.8}Step 7a: Assessing utility measures (household level)}{138}{subsection.12.1.8}
+\contentsline {subsection}{\numberline {12.1.9}Step 8a: Choice and application of SDC methods (household variables)}{138}{subsection.12.1.9}
+\contentsline {subsection}{\numberline {12.1.10}Step 9a: Re-measure risk}{143}{subsection.12.1.10}
+\contentsline {subsection}{\numberline {12.1.11}Step 10a: Re-measure utility}{144}{subsection.12.1.11}
+\contentsline {subsection}{\numberline {12.1.12}Step 6b: Assessing disclosure risk (individual level)}{147}{subsection.12.1.12}
+\contentsline {subsection}{\numberline {12.1.13}Step 7b: Assessing utility (individual level)}{148}{subsection.12.1.13}
+\contentsline {subsection}{\numberline {12.1.14}Step 8b: Choice and application of SDC methods (individual level)}{148}{subsection.12.1.14}
+\contentsline {subsection}{\numberline {12.1.15}Step 9b: Re-measure risk (individual level)}{151}{subsection.12.1.15}
+\contentsline {subsection}{\numberline {12.1.16}Step 10b: Re-measure utility (individual level)}{151}{subsection.12.1.16}
+\contentsline {subsection}{\numberline {12.1.17}Step 11: Audit and reporting}{151}{subsection.12.1.17}
+\contentsline {subsection}{\numberline {12.1.18}Step 12: Data release}{152}{subsection.12.1.18}
+\contentsline {section}{\numberline {12.2}Case study 2 - PUF}{152}{section.12.2}
+\contentsline {subsection}{\numberline {12.2.1}Step 1: Need for disclosure control}{153}{subsection.12.2.1}
+\contentsline {subsection}{\numberline {12.2.2}Step 2: Data preparation and exploring data characteristics}{153}{subsection.12.2.2}
+\contentsline {subsection}{\numberline {12.2.3}Step 3: Type of release}{156}{subsection.12.2.3}
+\contentsline {subsection}{\numberline {12.2.4}Step 4: Intruder scenarios and choice of key variables}{156}{subsection.12.2.4}
+\contentsline {subsection}{\numberline {12.2.5}Step 5: Data key uses and selection of utility measures}{157}{subsection.12.2.5}
+\contentsline {subsection}{\numberline {12.2.6}Step 6a: Assessing disclosure risk (household level)}{159}{subsection.12.2.6}
+\contentsline {subsection}{\numberline {12.2.7}Step 7a: Assessing utility measures (household level)}{161}{subsection.12.2.7}
+\contentsline {subsection}{\numberline {12.2.8}Step 8a: Choice and application of SDC methods (household level)}{161}{subsection.12.2.8}
+\contentsline {subsection}{\numberline {12.2.9}Step 9a: Re-measure risk (household level)}{165}{subsection.12.2.9}
+\contentsline {subsection}{\numberline {12.2.10}Step 10a Re-measure utility (household level)}{166}{subsection.12.2.10}
+\contentsline {subsection}{\numberline {12.2.11}Step 6b: Assessing disclosure risk (individual level)}{168}{subsection.12.2.11}
+\contentsline {subsection}{\numberline {12.2.12}Step 7b: Assessing utility measures (individual level)}{169}{subsection.12.2.12}
+\contentsline {subsection}{\numberline {12.2.13}Step 8b: Choice and application of SDC methods (individual level)}{169}{subsection.12.2.13}
+\contentsline {subsection}{\numberline {12.2.14}Step 9b: Re-measure risk}{174}{subsection.12.2.14}
+\contentsline {subsection}{\numberline {12.2.15}Step 10b: Re-measure utility}{174}{subsection.12.2.15}
+\contentsline {subsection}{\numberline {12.2.16}Step 11: Audit and reporting}{174}{subsection.12.2.16}
+\contentsline {subsection}{\numberline {12.2.17}Step 12: Data release}{175}{subsection.12.2.17}
+\contentsline {chapter}{Bibliography}{177}{chapter*.21}

@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>7. Measuring Utility and Information Loss &mdash; Readthedocs  documentation</title>
+  <title>Measuring Utility and Information Loss &mdash; SDC Practice Guide  documentation</title>
   
 
   
@@ -29,8 +29,8 @@
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="8. SDC with sdcMicro in R: Setting Up Your Data and more" href="sdcMicro.html" />
-    <link rel="prev" title="6. Anonymization Methods" href="anon_methods.html" /> 
+    <link rel="next" title="SDC with sdcMicro in R: Setting Up Your Data and more" href="sdcMicro.html" />
+    <link rel="prev" title="Anonymization Methods" href="anon_methods.html" /> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -49,7 +49,7 @@
           
 
           
-            <a href="index.html" class="icon icon-home"> Readthedocs
+            <a href="index.html" class="icon icon-home"> SDC Practice Guide
           
 
           
@@ -81,43 +81,43 @@
             
               <p class="caption"><span class="caption-text">Table of Content</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="intro.html">1. Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="glossary_acr.html">2. Glossary and list of acronyms</a></li>
-<li class="toctree-l1"><a class="reference internal" href="SDC_intro.html">3. Statistical Disclosure Control (SDC): An Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="release_types.html">4. Release Types</a></li>
-<li class="toctree-l1"><a class="reference internal" href="measure_risk.html">5. Measuring Risk</a></li>
-<li class="toctree-l1"><a class="reference internal" href="anon_methods.html">6. Anonymization Methods</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">7. Measuring Utility and Information Loss</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#general-utility-measures-for-continuous-and-categorical-variables">7.1. General utility measures for continuous and categorical variables</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#general-utility-measures-for-categorical-variables">7.1.1. General utility measures for categorical variables</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#number-of-missing-values">7.1.1.1. Number of missing values</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#number-of-records-changed">7.1.1.2. Number of records changed</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#comparing-contingency-tables">7.1.1.3. Comparing contingency tables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="glossary_acr.html">Glossary and list of acronyms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SDC_intro.html">Statistical Disclosure Control (SDC): An Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="release_types.html">Release Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="measure_risk.html">Measuring Risk</a></li>
+<li class="toctree-l1"><a class="reference internal" href="anon_methods.html">Anonymization Methods</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Measuring Utility and Information Loss</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#general-utility-measures-for-continuous-and-categorical-variables">General utility measures for continuous and categorical variables</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#general-utility-measures-for-categorical-variables">General utility measures for categorical variables</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#number-of-missing-values">Number of missing values</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#number-of-records-changed">Number of records changed</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#comparing-contingency-tables">Comparing contingency tables</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#general-utility-measures-for-continuous-variables">7.1.2. General utility measures for continuous variables</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#statistics-mean-covariance-correlation">7.1.2.1. Statistics: mean, covariance, correlation</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#il1s-information-loss-measure">7.1.2.2. IL1s information loss measure</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#eigenvalues">7.1.2.3. Eigenvalues</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#general-utility-measures-for-continuous-variables">General utility measures for continuous variables</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#statistics-mean-covariance-correlation">Statistics: mean, covariance, correlation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#il1s-information-loss-measure">IL1s information loss measure</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#eigenvalues">Eigenvalues</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#utility-measures-based-on-the-end-users-needs">7.2. Utility measures based on the end user’s needs</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#regression">7.3. Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#assessing-data-utility-with-the-help-of-data-visualizations-in-r">7.4. Assessing data utility with the help of data visualizations (in <em>R</em>)</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#histograms-and-density-plots">7.4.1. Histograms and density plots</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#box-plots">7.4.2. Box plots</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#mosaic-plots">7.4.3. Mosaic plots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#utility-measures-based-on-the-end-users-needs">Utility measures based on the end user’s needs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#regression">Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#assessing-data-utility-with-the-help-of-data-visualizations-in-r">Assessing data utility with the help of data visualizations (in <em>R</em>)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#histograms-and-density-plots">Histograms and density plots</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#box-plots">Box plots</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mosaic-plots">Mosaic plots</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#choice-of-utility-measure">7.5. Choice of utility measure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#choice-of-utility-measure">Choice of utility measure</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="sdcMicro.html">8. SDC with <em>sdcMicro</em> in <em>R</em>: Setting Up Your Data and more</a></li>
-<li class="toctree-l1"><a class="reference internal" href="process.html">9. The SDC Process</a></li>
-<li class="toctree-l1"><a class="reference internal" href="appendices.html">10. Appendices</a></li>
-<li class="toctree-l1"><a class="reference internal" href="acknowledgements.html">11. Acknowledgements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sdcMicro.html">SDC with <em>sdcMicro</em> in <em>R</em>: Setting Up Your Data and more</a></li>
+<li class="toctree-l1"><a class="reference internal" href="process.html">The SDC Process</a></li>
+<li class="toctree-l1"><a class="reference internal" href="appendices.html">Appendices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acknowledgements.html">Acknowledgements</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Case studies</span></p>
 <ul>
@@ -136,7 +136,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">Readthedocs</a>
+          <a href="index.html">SDC Practice Guide</a>
         
       </nav>
 
@@ -167,7 +167,7 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>7. Measuring Utility and Information Loss</li>
+      <li>Measuring Utility and Information Loss</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -187,7 +187,7 @@
            <div itemprop="articleBody">
             
   <div class="section" id="measuring-utility-and-information-loss">
-<h1>7. Measuring Utility and Information Loss<a class="headerlink" href="#measuring-utility-and-information-loss" title="Permalink to this headline">¶</a></h1>
+<h1>Measuring Utility and Information Loss<a class="headerlink" href="#measuring-utility-and-information-loss" title="Permalink to this headline">¶</a></h1>
 <p>SDC is a trade-off between risk of disclosure and loss of data utility
 and seeks to minimize the latter, while reducing the risk of disclosure
 to an acceptable level. Data utility in this context means the
@@ -249,7 +249,7 @@ importance vector in local suppression (see the Section
 <a class="reference external" href="anon_methods.html#Localsuppression">Local suppression</a>). Data utility
 and information loss measures are useful for choosing these parameters
 by comparing the impact of different parameters on the information loss.
-<a class="reference internal" href="#fig61"><span class="std std-numref">Fig. 7.1</span></a> illustrates this by showing the trade-off between the
+<a class="reference internal" href="#fig61"><span class="std std-numref">Fig. 12</span></a> illustrates this by showing the trade-off between the
 disclosure risk and data utility of a hypothetical dataset. The triangle
 represents the original data with full utility and a certain level of
 disclosure risk, which is too high for disclosure. The square represents
@@ -261,7 +261,7 @@ method corresponding to the point, which maximizes the utility, while
 keeping disclosure risk at an acceptable level.</p>
 <div class="figure align-center" id="id3">
 <span id="fig61"></span><img alt="_images/image11.png" src="_images/image11.png" />
-<p class="caption"><span class="caption-number">Fig. 7.1 </span><span class="caption-text">The trade-off between risk and utility in a hypothetical dataset</span></p>
+<p class="caption"><span class="caption-number">Fig. 12 </span><span class="caption-text">The trade-off between risk and utility in a hypothetical dataset</span></p>
 </div>
 <p>In the following sections, we first propose general utility measures
 independent of data use, and later present an example of a specific
@@ -270,7 +270,7 @@ uses. Finally, we show how to visualize changes in the data caused by
 anonymization and discuss the selection of utility measures for a
 particular dataset.</p>
 <div class="section" id="general-utility-measures-for-continuous-and-categorical-variables">
-<h2>7.1. General utility measures for continuous and categorical variables<a class="headerlink" href="#general-utility-measures-for-continuous-and-categorical-variables" title="Permalink to this headline">¶</a></h2>
+<h2>General utility measures for continuous and categorical variables<a class="headerlink" href="#general-utility-measures-for-continuous-and-categorical-variables" title="Permalink to this headline">¶</a></h2>
 <p>General or generic measures of information loss can be divided into
 those comparing the actual values of the raw and anonymized data, and
 those comparing statistics from both datasets. All measures are a
@@ -278,20 +278,20 @@ posteriori, since they measure utility after anonymization and require
 both the data before and after the anonymization process. General
 utility measures are different for categorical and continuous variables.</p>
 <div class="section" id="general-utility-measures-for-categorical-variables">
-<h3>7.1.1. General utility measures for categorical variables<a class="headerlink" href="#general-utility-measures-for-categorical-variables" title="Permalink to this headline">¶</a></h3>
+<h3>General utility measures for categorical variables<a class="headerlink" href="#general-utility-measures-for-categorical-variables" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="number-of-missing-values">
-<h4>7.1.1.1. Number of missing values<a class="headerlink" href="#number-of-missing-values" title="Permalink to this headline">¶</a></h4>
+<h4>Number of missing values<a class="headerlink" href="#number-of-missing-values" title="Permalink to this headline">¶</a></h4>
 <p>An informative measure is to compare the number of missing values in the
 data. Missing values are often introduced after suppression and more
 suppressions indicate a higher degree of information loss. After using
 the local suppression function on an <em>sdcMicro</em> object, the number of
 suppressions for each categorical key variable can be retrieved with the
-print() function, which is illustrated in <a class="reference internal" href="#code61"><span class="std std-numref">Listing 7.1</span></a> <a class="footnote-reference" href="#foot59" id="id2">[2]</a>.
+print() function, which is illustrated in <a class="reference internal" href="#code61"><span class="std std-numref">Listing 39</span></a> <a class="footnote-reference" href="#foot59" id="id2">[2]</a>.
 The argument ‘ls’ in the print() function
 stands for local suppression. The output shows both the absolute and
 relative number of suppressions.</p>
 <div class="literal-block-wrapper docutils container" id="code61">
-<div class="code-block-caption"><span class="caption-number">Listing 7.1 </span><span class="caption-text">Using the print() function to retrieve the total number of suppressions for each categorical key variable</span><a class="headerlink" href="#code61" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 39 </span><span class="caption-text">Using the print() function to retrieve the total number of suppressions for each categorical key variable</span><a class="headerlink" href="#code61" title="Permalink to this code">¶</a></div>
 <div class="highlight-R notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -319,7 +319,7 @@ relative number of suppressions.</p>
 <p>More generally, it is possible to count and compare the number of
 missing values in the original data and the treated data. This can be
 useful to see the proportional increase in the number of missing values.
-Missing values can also have other sources, such as nonresponse. <a class="reference internal" href="#code62"><span class="std std-numref">Listing 7.2</span></a>
+Missing values can also have other sources, such as nonresponse. <a class="reference internal" href="#code62"><span class="std std-numref">Listing 40</span></a>
 shows how to display the number of missing values for each of the
 categorical key variables in an <em>sdcMicro</em> object. Here it is assumed
 that all missing values are coded ‘NA’. If the missing values are not
@@ -329,7 +329,7 @@ missing values introduced by local suppression in the previous example,
 but also shows that the variable “RELIG” has 1,000 missing values in the
 original data.</p>
 <div class="literal-block-wrapper docutils container" id="code62">
-<div class="code-block-caption"><span class="caption-number">Listing 7.2 </span><span class="caption-text">Displaying the number of missing values for each categorical key variable in an <em>sdcMicro</em> object</span><a class="headerlink" href="#code62" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 40 </span><span class="caption-text">Displaying the number of missing values for each categorical key variable in an <em>sdcMicro</em> object</span><a class="headerlink" href="#code62" title="Permalink to this code">¶</a></div>
 <div class="highlight-R notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -372,15 +372,15 @@ NAcount
 </div>
 </div>
 <div class="section" id="number-of-records-changed">
-<h4>7.1.1.2. Number of records changed<a class="headerlink" href="#number-of-records-changed" title="Permalink to this headline">¶</a></h4>
+<h4>Number of records changed<a class="headerlink" href="#number-of-records-changed" title="Permalink to this headline">¶</a></h4>
 <p>Another useful statistic is the number of records changed per variable.
 These can be counted in a similar way as the missing values and include
 suppressions (i.e., changes to missing/’NA’ in <em>R</em>). The number of
 records changed gives a good indication of the impact of the
-anonymization methods on the data. <a class="reference internal" href="#code63"><span class="std std-numref">Listing 7.3</span></a> illustrates how to
+anonymization methods on the data. <a class="reference internal" href="#code63"><span class="std std-numref">Listing 41</span></a> illustrates how to
 compute the number of records changed for the PRAMmed variables.</p>
 <div class="literal-block-wrapper docutils container" id="code63">
-<div class="code-block-caption"><span class="caption-number">Listing 7.3 </span><span class="caption-text">Computing number of records changed per variable</span><a class="headerlink" href="#code63" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 41 </span><span class="caption-text">Computing number of records changed per variable</span><a class="headerlink" href="#code63" title="Permalink to this code">¶</a></div>
 <div class="highlight-R notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -433,18 +433,18 @@ recChanged
 </div>
 </div>
 <div class="section" id="comparing-contingency-tables">
-<h4>7.1.1.3. Comparing contingency tables<a class="headerlink" href="#comparing-contingency-tables" title="Permalink to this headline">¶</a></h4>
+<h4>Comparing contingency tables<a class="headerlink" href="#comparing-contingency-tables" title="Permalink to this headline">¶</a></h4>
 <p>A useful way to measure information loss in categorical variables is to
 compare univariate tabulations and, more interestingly, contingency
 tables (also cross tabulations or two-way tables) between pairs of
 variables. To maintain the analytical validity of a dataset, the
 contingency tables should stay approximately the same. The function
-table() produces contingency tables of one or more variables. <a class="reference internal" href="#code64"><span class="std std-numref">Listing 7.4</span></a>
+table() produces contingency tables of one or more variables. <a class="reference internal" href="#code64"><span class="std std-numref">Listing 42</span></a>
 creates a contingency table of the variables “REGION” and “URBRUR”.
 We observe small differences between the tables before and after
 anonymization.</p>
 <div class="literal-block-wrapper docutils container" id="code64">
-<div class="code-block-caption"><span class="caption-number">Listing 7.4 </span><span class="caption-text">Comparing contingency tables of categorical variables</span><a class="headerlink" href="#code64" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 42 </span><span class="caption-text">Comparing contingency tables of categorical variables</span><a class="headerlink" href="#code64" title="Permalink to this code">¶</a></div>
 <div class="highlight-R notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -496,9 +496,9 @@ contingency tables (see the Section <a class="reference internal" href="#mosaic-
 </div>
 </div>
 <div class="section" id="general-utility-measures-for-continuous-variables">
-<h3>7.1.2. General utility measures for continuous variables<a class="headerlink" href="#general-utility-measures-for-continuous-variables" title="Permalink to this headline">¶</a></h3>
+<h3>General utility measures for continuous variables<a class="headerlink" href="#general-utility-measures-for-continuous-variables" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="statistics-mean-covariance-correlation">
-<h4>7.1.2.1. Statistics: mean, covariance, correlation<a class="headerlink" href="#statistics-mean-covariance-correlation" title="Permalink to this headline">¶</a></h4>
+<h4>Statistics: mean, covariance, correlation<a class="headerlink" href="#statistics-mean-covariance-correlation" title="Permalink to this headline">¶</a></h4>
 <p>The statistics characterizing the dataset should not change after the
 anonymization. Examples of such statistics are the mean, variance, and
 covariance and correlation structure of the most important variables in
@@ -518,13 +518,13 @@ Following are a few examples in <em>R</em>.</p>
 <p>To compute the mean of each numerical variable we use the function
 colMeans(). To ignore missing values, it is necessary to use the option
 na.rm = TRUE. “numVars” is a vector with the names of the numerical
-variables. <a class="reference internal" href="#code65"><span class="std std-numref">Listing 7.5</span></a> shows how to compute the means for all numeric
+variables. <a class="reference internal" href="#code65"><span class="std std-numref">Listing 43</span></a> shows how to compute the means for all numeric
 variables. The untreated data is extracted from the ‘origData’ slot of
 the <em>sdcMicro</em> object and the anonymized data from the ‘manipNumVars’
 slot, which contains the manipulated numeric variables. We observe small
 changes in each of the three variables.</p>
 <div class="literal-block-wrapper docutils container" id="code65">
-<div class="code-block-caption"><span class="caption-number">Listing 7.5 </span><span class="caption-text">Comparing the means of continuous variables</span><a class="headerlink" href="#code65" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 43 </span><span class="caption-text">Comparing the means of continuous variables</span><a class="headerlink" href="#code65" title="Permalink to this code">¶</a></div>
 <div class="highlight-R notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -547,7 +547,7 @@ changes in each of the three variables.</p>
 </div>
 <p>In the same way, one can compute the covariance and correlation matrices
 of the numerical variables in the <em>sdcMicro</em> object from the untreated
-and anonymized data. This is shown in <a class="reference internal" href="#code66"><span class="std std-numref">Listing 7.6</span></a>. We observe that the
+and anonymized data. This is shown in <a class="reference internal" href="#code66"><span class="std std-numref">Listing 44</span></a>. We observe that the
 variance of each variable (the diagonal elements in the covariance
 matrix) have increased by the anonymization. These functions also allow
 computing confidence intervals in the case of samples. The means and
@@ -555,7 +555,7 @@ covariances of subsets in the data also should not differ. An example is
 the mean of income by gender, by age group or by region. These
 characteristics of the data are important for analysis.</p>
 <div class="literal-block-wrapper docutils container" id="code66">
-<div class="code-block-caption"><span class="caption-number">Listing 7.6 </span><span class="caption-text">Comparing covariance structure and correlation matrices of numeric variables</span><a class="headerlink" href="#code66" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 44 </span><span class="caption-text">Comparing covariance structure and correlation matrices of numeric variables</span><a class="headerlink" href="#code66" title="Permalink to this code">¶</a></div>
 <div class="highlight-R notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -616,7 +616,7 @@ measures are based on the mean squared error, the mean absolute error or
 the mean variation of the individual cells. We refer to <a class="reference internal" href="#doto01b">DoTo01b</a> for a complete overview of these measures.</p>
 </div>
 <div class="section" id="il1s-information-loss-measure">
-<h4>7.1.2.2. IL1s information loss measure<a class="headerlink" href="#il1s-information-loss-measure" title="Permalink to this headline">¶</a></h4>
+<h4>IL1s information loss measure<a class="headerlink" href="#il1s-information-loss-measure" title="Permalink to this headline">¶</a></h4>
 <p>Alternatively, we can also compare the actual data and quantify the
 distance between the original dataset <span class="math notranslate nohighlight">\(X\)</span> and the treated dataset
 <span class="math notranslate nohighlight">\(Z\)</span>. Here <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Z\)</span> contain only continuous
@@ -636,13 +636,13 @@ anonymization for variable <span class="math notranslate nohighlight">\(j\)</spa
 original data (<a class="reference internal" href="#yawc02">YaWC02</a>).</p>
 <p>When using <em>sdcMicro</em>, the IL1s data utility measure can be computed for
 all numerical quasi-identifiers with the function dUtility(), which is
-illustrated in <a class="reference internal" href="#code67"><span class="std std-numref">Listing 7.7</span></a>. If required, the measure can also be
+illustrated in <a class="reference internal" href="#code67"><span class="std std-numref">Listing 45</span></a>. If required, the measure can also be
 computed on subsets of the complete set of numerical quasi-identifiers.
 The function is called dUtility(), but returns a measure of information
 loss. The result is saved in the utility slot of the <em>sdcMicro</em> object.
-<a class="reference internal" href="#code67"><span class="std std-numref">Listing 7.7</span></a> also illustrates how to call the result.</p>
+<a class="reference internal" href="#code67"><span class="std std-numref">Listing 45</span></a> also illustrates how to call the result.</p>
 <div class="literal-block-wrapper docutils container" id="code67">
-<div class="code-block-caption"><span class="caption-number">Listing 7.7 </span><span class="caption-text">Using dUtility() to compute IL1s data utility measure in <em>sdcMicro</em></span><a class="headerlink" href="#code67" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 45 </span><span class="caption-text">Using dUtility() to compute IL1s data utility measure in <em>sdcMicro</em></span><a class="headerlink" href="#code67" title="Permalink to this code">¶</a></div>
 <div class="highlight-R notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -682,9 +682,9 @@ lower the data utility. Greater distance, however, also reduces the risk
 of re-identification.</p>
 </div>
 <div class="section" id="eigenvalues">
-<h4>7.1.2.3. Eigenvalues<a class="headerlink" href="#eigenvalues" title="Permalink to this headline">¶</a></h4>
+<h4>Eigenvalues<a class="headerlink" href="#eigenvalues" title="Permalink to this headline">¶</a></h4>
 <p>Another way to evaluate the information loss is to compare the robust
-eigenvalues of the data before and after anonymization. <a class="reference internal" href="#code68"><span class="std std-numref">Listing 7.8</span></a>
+eigenvalues of the data before and after anonymization. <a class="reference internal" href="#code68"><span class="std std-numref">Listing 46</span></a>
 illustrates how to use this approach with <em>sdcMicro</em>. Here “contVars” is
 a vector with the names of the continuous variables in which we are
 interested. “obj” is the argument that specifies the untreated data and
@@ -693,7 +693,7 @@ output is the difference in eigenvalues. Therefore, the minimum value is
 0. Again, the main use is to compare different methods. The greater the
 value, the greater the changes in the data and the information loss.</p>
 <div class="literal-block-wrapper docutils container" id="code68">
-<div class="code-block-caption"><span class="caption-number">Listing 7.8 </span><span class="caption-text">Using dUtility() to compute eigenvalues in <em>sdcMicro</em></span><a class="headerlink" href="#code68" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 46 </span><span class="caption-text">Using dUtility() to compute eigenvalues in <em>sdcMicro</em></span><a class="headerlink" href="#code68" title="Permalink to this code">¶</a></div>
 <div class="highlight-R notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -718,7 +718,7 @@ dUtility<span class="p">(</span>obj <span class="o">=</span> sdcInitial<span cla
 </div>
 </div>
 <div class="section" id="utility-measures-based-on-the-end-users-needs">
-<h2>7.2. Utility measures based on the end user’s needs<a class="headerlink" href="#utility-measures-based-on-the-end-users-needs" title="Permalink to this headline">¶</a></h2>
+<h2>Utility measures based on the end user’s needs<a class="headerlink" href="#utility-measures-based-on-the-end-users-needs" title="Permalink to this headline">¶</a></h2>
 <p>Not all needs and uses of a certain dataset can be inventoried.
 Nevertheless, some types of data have similar uses or important
 characteristics, which can be evaluated before and after anonymization.
@@ -749,14 +749,14 @@ packages have functions to compute the GINI coefficient. We chose the
 between the 45-degree line and the Lorenz curve. To use the gini()
 function, we first have to install and load the <em>laeken</em> library. To
 calculate the GINI coefficient for the variable income, we use the
-sample weights in the data. This is shown in <a class="reference internal" href="#code69"><span class="std std-numref">Listing 7.9</span></a>. The GINI
+sample weights in the data. This is shown in <a class="reference internal" href="#code69"><span class="std std-numref">Listing 47</span></a>. The GINI
 coefficient of sample data is a random variable. Therefore, it is useful
 to construct a confidence interval around the coefficient to evaluate
 the significance of any change in the coefficient after anonymization.
 The gini() function computes a 1-alpha confidence interval for the GINI
 coefficient by using bootstrap.</p>
 <div class="literal-block-wrapper docutils container" id="code69">
-<div class="code-block-caption"><span class="caption-number">Listing 7.9 </span><span class="caption-text">Computing the GINI coefficient from the income variable to determine income inequality</span><a class="headerlink" href="#code69" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 47 </span><span class="caption-text">Computing the GINI coefficient from the income variable to determine income inequality</span><a class="headerlink" href="#code69" title="Permalink to this code">¶</a></div>
 <div class="highlight-R notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -779,7 +779,7 @@ gini<span class="p">(</span>inc <span class="o">=</span> sdcInitial<span class="
 </div>
 </div>
 <div class="section" id="regression">
-<h2>7.3. Regression<a class="headerlink" href="#regression" title="Permalink to this headline">¶</a></h2>
+<h2>Regression<a class="headerlink" href="#regression" title="Permalink to this headline">¶</a></h2>
 <p>Besides comparing covariance and correlation matrices, regressions are a
 useful tool to evaluate whether the structure in the data is maintained
 after anonymization. By comparing regressions parameters, it is also
@@ -802,12 +802,12 @@ other factors influencing wage.</p>
 <p>The parameter of interest here is <span class="math notranslate nohighlight">\(\beta_{1}\)</span>, the effect of
 gender on the log wage. X is a matrix with several other factors
 influencing wage and <span class="math notranslate nohighlight">\(\beta\)</span> the coefficients of these factors.
-<a class="reference internal" href="#code610"><span class="std std-numref">Listing 7.10</span></a> illustrates how to run a Mincer regression in <em>R</em> using the
+<a class="reference internal" href="#code610"><span class="std std-numref">Listing 48</span></a> illustrates how to run a Mincer regression in <em>R</em> using the
 function lm() and evaluate the coefficients and confidence intervals
 around the coefficients. We run the regression as specified for paid
 employees with a positive wage in the age groups 15 – 65 years.</p>
 <div class="literal-block-wrapper docutils container" id="code610">
-<div class="code-block-caption"><span class="caption-number">Listing 7.10 </span><span class="caption-text">Estimating the Mincer equation (regression) to evaluate data utility before and after anonymization</span><a class="headerlink" href="#code610" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 48 </span><span class="caption-text">Estimating the Mincer equation (regression) to evaluate data utility before and after anonymization</span><a class="headerlink" href="#code610" title="Permalink to this code">¶</a></div>
 <div class="highlight-R notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -943,7 +943,7 @@ confint<span class="p">(</span>obj <span class="o">=</span> mincer1565A<span cla
 <p>If the new estimates fall within the original confidence interval and
 the new and original confidence intervals are greatly overlapping, the
 data can be considered valid for this type of regression after
-anonymization. <a class="reference internal" href="#fig62"><span class="std std-numref">Fig. 7.2</span></a> shows the point estimates and confidence
+anonymization. <a class="reference internal" href="#fig62"><span class="std std-numref">Fig. 13</span></a> shows the point estimates and confidence
 intervals for the gender coefficient in this trade-off for a sample
 income dataset and several SDC methods and parameters. The red dot and
 confidence bar (on the top) correspond to the estimates for the
@@ -957,11 +957,11 @@ coefficient and having a great overlap of the confidence interval with
 the confidence interval estimated from the original data.</p>
 <div class="figure align-center" id="id4">
 <span id="fig62"></span><img alt="_images/image12.png" src="_images/image12.png" />
-<p class="caption"><span class="caption-number">Fig. 7.2 </span><span class="caption-text">Effect of anonymization on the point estimates and confidence interval of the gender coefficient in the Mincer equation</span></p>
+<p class="caption"><span class="caption-number">Fig. 13 </span><span class="caption-text">Effect of anonymization on the point estimates and confidence interval of the gender coefficient in the Mincer equation</span></p>
 </div>
 </div>
 <div class="section" id="assessing-data-utility-with-the-help-of-data-visualizations-in-r">
-<h2>7.4. Assessing data utility with the help of data visualizations (in <em>R</em>)<a class="headerlink" href="#assessing-data-utility-with-the-help-of-data-visualizations-in-r" title="Permalink to this headline">¶</a></h2>
+<h2>Assessing data utility with the help of data visualizations (in <em>R</em>)<a class="headerlink" href="#assessing-data-utility-with-the-help-of-data-visualizations-in-r" title="Permalink to this headline">¶</a></h2>
 <p>The use of graphs and other visualization techniques is a good way to
 assess at a glance how much the data have changed after anonymization,
 and can aid the selection of appropriate anonymization techniques for
@@ -986,7 +986,7 @@ and the anonymized variables are in the slots “manipKeyVars”,
 for more information on <em>sdcMicro</em> objects, slots and how to access
 slots.</p>
 <div class="section" id="histograms-and-density-plots">
-<h3>7.4.1. Histograms and density plots<a class="headerlink" href="#histograms-and-density-plots" title="Permalink to this headline">¶</a></h3>
+<h3>Histograms and density plots<a class="headerlink" href="#histograms-and-density-plots" title="Permalink to this headline">¶</a></h3>
 <p>Histograms and density plots are useful for quick comparisons of
 variable distribution before and after anonymization. The advantage of
 histograms is that the results are exact. Visualization depends on the
@@ -997,11 +997,11 @@ the kernel that is chosen and whether the data fits the kernel well.
 Nevertheless, density plots are a good tool to illustrate the change of
 values and value ranges of continuous variables.</p>
 <p>Histograms can be plotted with function hist() and kernel densities with
-the functions plot() and density() in <em>R</em>. <a class="reference internal" href="#code611"><span class="std std-numref">Listing 7.11</span></a> provides
+the functions plot() and density() in <em>R</em>. <a class="reference internal" href="#code611"><span class="std std-numref">Listing 49</span></a> provides
 examples of how to use these functions to illustrate the changes in the
 variable ”INC”, an income variable. The function hist() needs as
 argument the break points for the histogram. The results are shown in
-<a class="reference internal" href="#fig63"><span class="std std-numref">Fig. 7.3</span></a> and <a class="reference internal" href="#fig64"><span class="std std-numref">Fig. 7.4</span></a>. The histograms and density plots give a clear
+<a class="reference internal" href="#fig63"><span class="std std-numref">Fig. 14</span></a> and <a class="reference internal" href="#fig64"><span class="std std-numref">Fig. 15</span></a>. The histograms and density plots give a clear
 indication how the values have changed: the variability of the data has
 increased and the shape of the distribution has changed.</p>
 <div class="admonition note">
@@ -1009,7 +1009,7 @@ increased and the shape of the distribution has changed.</p>
 <p class="last">The vertical axes of the histograms have different scales.</p>
 </div>
 <div class="literal-block-wrapper docutils container" id="code611">
-<div class="code-block-caption"><span class="caption-number">Listing 7.11 </span><span class="caption-text">Plotting histograms and kernel densities</span><a class="headerlink" href="#code611" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 49 </span><span class="caption-text">Plotting histograms and kernel densities</span><a class="headerlink" href="#code611" title="Permalink to this code">¶</a></div>
 <div class="highlight-R notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -1050,24 +1050,24 @@ plot<span class="p">(</span>density<span class="p">(</span>sdcInitial<span class
 </div>
 <div class="figure align-center" id="id5">
 <span id="fig63"></span><img alt="_images/image13.png" src="_images/image13.png" />
-<p class="caption"><span class="caption-number">Fig. 7.3 </span><span class="caption-text">Histograms of income before and after anonymization</span></p>
+<p class="caption"><span class="caption-number">Fig. 14 </span><span class="caption-text">Histograms of income before and after anonymization</span></p>
 </div>
 <div class="figure align-center" id="id6">
 <span id="fig64"></span><img alt="_images/image14.png" src="_images/image14.png" />
-<p class="caption"><span class="caption-number">Fig. 7.4 </span><span class="caption-text">Density plots of income before and after anonymization</span></p>
+<p class="caption"><span class="caption-number">Fig. 15 </span><span class="caption-text">Density plots of income before and after anonymization</span></p>
 </div>
 </div>
 <div class="section" id="box-plots">
-<h3>7.4.2. Box plots<a class="headerlink" href="#box-plots" title="Permalink to this headline">¶</a></h3>
+<h3>Box plots<a class="headerlink" href="#box-plots" title="Permalink to this headline">¶</a></h3>
 <p>Box plots give a quick overview of the changes in the spread and
-outliers of continuous variables before and after anonymization. <a class="reference internal" href="#code612"><span class="std std-numref">Listing 7.12</span></a>
+outliers of continuous variables before and after anonymization. <a class="reference internal" href="#code612"><span class="std std-numref">Listing 50</span></a>
 shows how to generate box plots in <em>R</em> with the function boxplot().
-The result in <a class="reference internal" href="#fig65"><span class="std std-numref">Fig. 7.5</span></a> shows an example for an expenditure variable
+The result in <a class="reference internal" href="#fig65"><span class="std std-numref">Fig. 16</span></a> shows an example for an expenditure variable
 after adding noise. The box plot shows clearly that the variability in
 the expenditure variable increased as a result of the anonymization
 methods applied.</p>
 <div class="literal-block-wrapper docutils container" id="code612">
-<div class="code-block-caption"><span class="caption-number">Listing 7.12 </span><span class="caption-text">Creating boxplots for continuous variables</span><a class="headerlink" href="#code612" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 50 </span><span class="caption-text">Creating boxplots for continuous variables</span><a class="headerlink" href="#code612" title="Permalink to this code">¶</a></div>
 <div class="highlight-R notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3</pre></div></td><td class="code"><div class="highlight"><pre><span></span>boxplot<span class="p">(</span>sdcObj<span class="o">@</span>origData<span class="o">$</span>TOTFOOD<span class="p">,</span> sdcObj<span class="o">@</span>manipNumVars<span class="o">$</span>TOTFOOD<span class="p">,</span>
@@ -1078,11 +1078,11 @@ axis<span class="p">(</span><span class="m">1</span><span class="p">,</span> at 
 </div>
 <div class="figure align-center" id="id7">
 <span id="fig65"></span><img alt="_images/image15.png" src="_images/image15.png" />
-<p class="caption"><span class="caption-number">Fig. 7.5 </span><span class="caption-text">Example of box plots of an expenditure variable before and after anonymization</span></p>
+<p class="caption"><span class="caption-number">Fig. 16 </span><span class="caption-text">Example of box plots of an expenditure variable before and after anonymization</span></p>
 </div>
 </div>
 <div class="section" id="mosaic-plots">
-<h3>7.4.3. Mosaic plots<a class="headerlink" href="#mosaic-plots" title="Permalink to this headline">¶</a></h3>
+<h3>Mosaic plots<a class="headerlink" href="#mosaic-plots" title="Permalink to this headline">¶</a></h3>
 <p>Univariate and multivariate mosaic plots are useful for showing changes
 in the tabulations of categorical variables, especially when comparing
 several “scenarios” next to one another. A scenario here refers to the
@@ -1092,16 +1092,16 @@ we can, for instance, quickly see the effect of different levels of
 local suppression algorithm (see the Section <a class="reference external" href="anon_methods.html#Localsuppression">Local suppression</a>).</p>
 <p>We illustrate the changes in tabulations with an example of the variable
 “WATER” before and after applying PRAM. We can use mosaic plots to
-quickly see the changes for each category. <a class="reference internal" href="#code613"><span class="std std-numref">Listing 7.13</span></a> shows the code
+quickly see the changes for each category. <a class="reference internal" href="#code613"><span class="std std-numref">Listing 51</span></a> shows the code
 in <em>R</em>. The function mosaicplot() is available in base <em>R</em>. To plot a
 tabulation, first the tabulation must be made with the table() function.
 To show the labels in the mosaicplot(), we change the class of the
 variables to ‘factor’ (see the Section
 <a class="reference external" href="sdcMicro.html#ClassesinR">Classes in R</a>). Looking at
-the mosaic plot in <a class="reference internal" href="#fig66"><span class="std std-numref">Fig. 7.6</span></a> we see invariant PRAM has virtually no
+the mosaic plot in <a class="reference internal" href="#fig66"><span class="std std-numref">Fig. 17</span></a> we see invariant PRAM has virtually no
 influence on the univariate distribution.</p>
 <div class="literal-block-wrapper docutils container" id="code613">
-<div class="code-block-caption"><span class="caption-number">Listing 7.13 </span><span class="caption-text">Creating univariate mosaic plots</span><a class="headerlink" href="#code613" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 51 </span><span class="caption-text">Creating univariate mosaic plots</span><a class="headerlink" href="#code613" title="Permalink to this code">¶</a></div>
 <div class="highlight-R notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -1142,11 +1142,11 @@ mosaicplot<span class="p">(</span>dataWater<span class="p">,</span> main <span c
 </div>
 <div class="figure align-center" id="id8">
 <span id="fig66"></span><img alt="_images/image16.png" src="_images/image16.png" />
-<p class="caption"><span class="caption-number">Fig. 7.6 </span><span class="caption-text">Mosaic plot to illustrate the changes in the WATER variable</span></p>
+<p class="caption"><span class="caption-number">Fig. 17 </span><span class="caption-text">Mosaic plot to illustrate the changes in the WATER variable</span></p>
 </div>
 <p>We use the variables “gender” and “relationship status” to illustrate
 the use of mosaic plots for the illustration of changes in univariate
-tabulations introduced by several sets of anonymization methods. <a class="reference internal" href="#tab61"><span class="std std-numref">Table 7.1</span></a>
+tabulations introduced by several sets of anonymization methods. <a class="reference internal" href="#tab61"><span class="std std-numref">Table 20</span></a>
 provides the methods applied in each scenario. Scenario 0, the base
 scenario, shows the original categories of the gender and relationship
 status variables, while scenarios 1 to 6 show shifts in the categories
@@ -1155,12 +1155,12 @@ description of the anonymization methods used in each scenario. In total
 we visualize the impact of six different sets of anonymization methods.
 We can use mosaic plots to quickly see which set of methods has what
 impact on the gender and relationship status variables, which can be
-used to select the best scenario. Looking at the mosaic plots in <a class="reference internal" href="#fig67"><span class="std std-numref">Fig. 7.7</span></a> ,
+used to select the best scenario. Looking at the mosaic plots in <a class="reference internal" href="#fig67"><span class="std std-numref">Fig. 18</span></a> ,
 we see that scenarios 2, 5 and 6 give the smallest changes for the
 gender variable and scenarios 3 and 4 for the relationship status
 variable.</p>
 <span id="tab61"></span><table border="1" class="colwidths-auto docutils align-center" id="id9">
-<caption><span class="caption-number">Table 7.1 </span><span class="caption-text">Description of anonymization methods by scenario</span><a class="headerlink" href="#id9" title="Permalink to this table">¶</a></caption>
+<caption><span class="caption-number">Table 20 </span><span class="caption-text">Description of anonymization methods by scenario</span><a class="headerlink" href="#id9" title="Permalink to this table">¶</a></caption>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">Scenario</th>
 <th class="head">Description of anonymization
@@ -1219,7 +1219,7 @@ and occupation variables</td>
 </table>
 <div class="figure align-center" id="id10">
 <span id="fig67"></span><img alt="_images/image17.png" src="_images/image17.png" />
-<p class="caption"><span class="caption-number">Fig. 7.7 </span><span class="caption-text">Comparison of treated vs. untreated gender and relationship status variables with mosaic plots</span></p>
+<p class="caption"><span class="caption-number">Fig. 18 </span><span class="caption-text">Comparison of treated vs. untreated gender and relationship status variables with mosaic plots</span></p>
 </div>
 <p>As we discussed in the Section
 <a href="#id13"><span class="problematic" id="id14">`PRAM (Post RAndomization Method) &lt;anon_methods.html# PRAM (Post RAndomization Method)`__</span></a>
@@ -1227,12 +1227,12 @@ and occupation variables</td>
 univariate distributions. Therefore, in this case it is more interesting
 to look at the multivariate mosaic plots. Mosaic plots are also a
 powerful tool to show changes in cross-tabulations/contingency tables.
-<a class="reference internal" href="#code614"><span class="std std-numref">Listing 7.14</span></a> shows how to generate mosaic plots for two variables. To
-compare the changes, we need to compare two different plots. <a class="reference internal" href="#fig68"><span class="std std-numref">Fig. 7.8</span></a>
-and <a class="reference internal" href="#fig69"><span class="std std-numref">Fig. 7.9</span></a> illustrate that (invariant) PRAM does not preserve the
+<a class="reference internal" href="#code614"><span class="std std-numref">Listing 52</span></a> shows how to generate mosaic plots for two variables. To
+compare the changes, we need to compare two different plots. <a class="reference internal" href="#fig68"><span class="std std-numref">Fig. 19</span></a>
+and <a class="reference internal" href="#fig69"><span class="std std-numref">Fig. 20</span></a> illustrate that (invariant) PRAM does not preserve the
 two-way tables in this case.</p>
 <div class="literal-block-wrapper docutils container" id="code614">
-<div class="code-block-caption"><span class="caption-number">Listing 7.14 </span><span class="caption-text">Creating multivariate mosaic plots</span><a class="headerlink" href="#code614" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 52 </span><span class="caption-text">Creating multivariate mosaic plots</span><a class="headerlink" href="#code614" title="Permalink to this code">¶</a></div>
 <div class="highlight-R notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -1283,16 +1283,16 @@ mosaicplot<span class="p">(</span>ROOFTOILETafter<span class="p">,</span> main <
 </div>
 <div class="figure align-center" id="id11">
 <span id="fig68"></span><img alt="_images/image18.png" src="_images/image18.png" />
-<p class="caption"><span class="caption-number">Fig. 7.8 </span><span class="caption-text">Mosaic plot of the variables ROOF and TOILET before anonymization</span></p>
+<p class="caption"><span class="caption-number">Fig. 19 </span><span class="caption-text">Mosaic plot of the variables ROOF and TOILET before anonymization</span></p>
 </div>
 <div class="figure align-center" id="id12">
 <span id="fig69"></span><img alt="_images/image19.png" src="_images/image19.png" />
-<p class="caption"><span class="caption-number">Fig. 7.9 </span><span class="caption-text">Mosaic plot of the variables ROOF and TOILET after anonymization</span></p>
+<p class="caption"><span class="caption-number">Fig. 20 </span><span class="caption-text">Mosaic plot of the variables ROOF and TOILET after anonymization</span></p>
 </div>
 </div>
 </div>
 <div class="section" id="choice-of-utility-measure">
-<h2>7.5. Choice of utility measure<a class="headerlink" href="#choice-of-utility-measure" title="Permalink to this headline">¶</a></h2>
+<h2>Choice of utility measure<a class="headerlink" href="#choice-of-utility-measure" title="Permalink to this headline">¶</a></h2>
 <p>Besides the users’ requirements on the data, the utility measures should
 be chosen in accordance with the variable types and anonymization
 methods employed. The employed utility measures can be a combination of
@@ -1392,10 +1392,10 @@ Research Report Series , Statistics 2002-01.</td></tr>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="sdcMicro.html" class="btn btn-neutral float-right" title="8. SDC with sdcMicro in R: Setting Up Your Data and more" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="sdcMicro.html" class="btn btn-neutral float-right" title="SDC with sdcMicro in R: Setting Up Your Data and more" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="anon_methods.html" class="btn btn-neutral" title="6. Anonymization Methods" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="anon_methods.html" class="btn btn-neutral" title="Anonymization Methods" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -1404,7 +1404,7 @@ Research Report Series , Statistics 2002-01.</td></tr>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2018, Matthew Welch.
+        &copy; Copyright 2018, Thijs Benschop, Cathrine Machingauta, Matthew Welch.
 
     </p>
   </div>

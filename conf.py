@@ -19,9 +19,9 @@
 
 # -- Project information -----------------------------------------------------
 
-project = 'Readthedocs'
-copyright = '2018, Matthew Welch'
-author = 'Matthew Welch'
+project = 'SDC Practice Guide'
+copyright = '2018, Thijs Benschop, Cathrine Machingauta, Matthew Welch'
+author = 'Thijs Benschop, Cathrine Machingauta, Matthew Welch'
 
 # The short X.Y version
 version = ''
@@ -137,8 +137,8 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, 'Readthedocs.tex', 'Readthedocs Documentation',
-     'Matthew Welch', 'manual'),
+    (master_doc, 'SDCPracticeGuide.tex', 'Statistical Disclosure Control: A Practice Guide',
+     'Thijs Benschop, Cathrine Machingauta, Matthew Welch', 'manual'),
 ]
 
 
@@ -147,7 +147,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    (master_doc, 'readthedocs', 'Readthedocs Documentation',
+    (master_doc, 'SDCPracticeGuide', 'Statistical Disclosure Control: A Practice Guide',
      [author], 1)
 ]
 
@@ -158,7 +158,7 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-    (master_doc, 'Readthedocs', 'Readthedocs Documentation',
+    (master_doc, 'SDCPracticeGuide', 'Statistical Disclosure Control: A Practice Guide',
      author, 'Readthedocs', 'One line description of project.',
      'Miscellaneous'),
 ]

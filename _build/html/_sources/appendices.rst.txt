@@ -239,7 +239,7 @@ Selected (key) variables:
    :align: center
 
    =================  ============  ============  =============  ==============  ===========
-	Household level
+    Household level
    =================  ============  ============  =============  ==============  ===========
     categorical        URBRUR        REGION        HHSIZE         OWNAGLAND       RELIG      
     continuous         LANDSIZEHA    TANHHEXP      TFOODEXP       TALCHEXP        TCLTHEXP      

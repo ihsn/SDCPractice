@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>8. SDC with sdcMicro in R: Setting Up Your Data and more &mdash; Readthedocs  documentation</title>
+  <title>SDC with sdcMicro in R: Setting Up Your Data and more &mdash; SDC Practice Guide  documentation</title>
   
 
   
@@ -29,8 +29,8 @@
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="9. The SDC Process" href="process.html" />
-    <link rel="prev" title="7. Measuring Utility and Information Loss" href="utility.html" /> 
+    <link rel="next" title="The SDC Process" href="process.html" />
+    <link rel="prev" title="Measuring Utility and Information Loss" href="utility.html" /> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -49,7 +49,7 @@
           
 
           
-            <a href="index.html" class="icon icon-home"> Readthedocs
+            <a href="index.html" class="icon icon-home"> SDC Practice Guide
           
 
           
@@ -81,28 +81,28 @@
             
               <p class="caption"><span class="caption-text">Table of Content</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="intro.html">1. Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="glossary_acr.html">2. Glossary and list of acronyms</a></li>
-<li class="toctree-l1"><a class="reference internal" href="SDC_intro.html">3. Statistical Disclosure Control (SDC): An Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="release_types.html">4. Release Types</a></li>
-<li class="toctree-l1"><a class="reference internal" href="measure_risk.html">5. Measuring Risk</a></li>
-<li class="toctree-l1"><a class="reference internal" href="anon_methods.html">6. Anonymization Methods</a></li>
-<li class="toctree-l1"><a class="reference internal" href="utility.html">7. Measuring Utility and Information Loss</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">8. SDC with <em>sdcMicro</em> in <em>R</em>: Setting Up Your Data and more</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#installing-r-sdcmicro-and-other-packages">8.1. Installing <em>R</em>, <em>sdcMicro</em> and other packages</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#read-functions-in-r">8.2. Read functions in <em>R</em></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#missing-values">8.3. Missing values</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#classes-in-r">8.4. Classes in R</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#objects-of-class-sdcmicroobj">8.5. Objects of class <em>sdcMicroObj</em></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#household-structure">8.6. Household structure</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#randomizing-order-and-numbering-of-individuals-or-households">8.7. Randomizing order and numbering of individuals or households</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#computation-time">8.8. Computation time</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#common-errors">8.9. Common errors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="glossary_acr.html">Glossary and list of acronyms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SDC_intro.html">Statistical Disclosure Control (SDC): An Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="release_types.html">Release Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="measure_risk.html">Measuring Risk</a></li>
+<li class="toctree-l1"><a class="reference internal" href="anon_methods.html">Anonymization Methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="utility.html">Measuring Utility and Information Loss</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">SDC with <em>sdcMicro</em> in <em>R</em>: Setting Up Your Data and more</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#installing-r-sdcmicro-and-other-packages">Installing <em>R</em>, <em>sdcMicro</em> and other packages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#read-functions-in-r">Read functions in <em>R</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#missing-values">Missing values</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#classes-in-r">Classes in R</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#objects-of-class-sdcmicroobj">Objects of class <em>sdcMicroObj</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#household-structure">Household structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#randomizing-order-and-numbering-of-individuals-or-households">Randomizing order and numbering of individuals or households</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#computation-time">Computation time</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#common-errors">Common errors</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="process.html">9. The SDC Process</a></li>
-<li class="toctree-l1"><a class="reference internal" href="appendices.html">10. Appendices</a></li>
-<li class="toctree-l1"><a class="reference internal" href="acknowledgements.html">11. Acknowledgements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="process.html">The SDC Process</a></li>
+<li class="toctree-l1"><a class="reference internal" href="appendices.html">Appendices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acknowledgements.html">Acknowledgements</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Case studies</span></p>
 <ul>
@@ -121,7 +121,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">Readthedocs</a>
+          <a href="index.html">SDC Practice Guide</a>
         
       </nav>
 
@@ -152,7 +152,7 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>8. SDC with <em>sdcMicro</em> in <em>R</em>: Setting Up Your Data and more</li>
+      <li>SDC with <em>sdcMicro</em> in <em>R</em>: Setting Up Your Data and more</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -172,9 +172,9 @@
            <div itemprop="articleBody">
             
   <div class="section" id="sdc-with-sdcmicro-in-r-setting-up-your-data-and-more">
-<h1>8. SDC with <em>sdcMicro</em> in <em>R</em>: Setting Up Your Data and more<a class="headerlink" href="#sdc-with-sdcmicro-in-r-setting-up-your-data-and-more" title="Permalink to this headline">¶</a></h1>
+<h1>SDC with <em>sdcMicro</em> in <em>R</em>: Setting Up Your Data and more<a class="headerlink" href="#sdc-with-sdcmicro-in-r-setting-up-your-data-and-more" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="installing-r-sdcmicro-and-other-packages">
-<h2>8.1. Installing <em>R</em>, <em>sdcMicro</em> and other packages<a class="headerlink" href="#installing-r-sdcmicro-and-other-packages" title="Permalink to this headline">¶</a></h2>
+<h2>Installing <em>R</em>, <em>sdcMicro</em> and other packages<a class="headerlink" href="#installing-r-sdcmicro-and-other-packages" title="Permalink to this headline">¶</a></h2>
 <p>This guide is based on the software package <em>sdcMicro</em>, which is an
 add-on package for the statistical software <em>R</em>. Both <em>R</em> and
 <em>sdcMicro</em>, as well as other <em>R</em> packages, are freely available from the
@@ -197,9 +197,9 @@ with the update.packages() command or using the menu options in <em>R</em> or
 <p>When starting <em>R</em> or <em>RStudio</em>, it is necessary to specify each time
 which packages are being used by loading those. This loading of packages
 can be done either with the library() or the require() function. Both
-options are illustrated in <a class="reference internal" href="#code71"><span class="std std-numref">Listing 8.1</span></a>.</p>
+options are illustrated in <a class="reference internal" href="#code71"><span class="std std-numref">Listing 53</span></a>.</p>
 <div class="literal-block-wrapper docutils container" id="code71">
-<div class="code-block-caption"><span class="caption-number">Listing 8.1 </span><span class="caption-text">Loading required packages</span><a class="headerlink" href="#code71" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 53 </span><span class="caption-text">Loading required packages</span><a class="headerlink" href="#code71" title="Permalink to this code">¶</a></div>
 <div class="highlight-R notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">library</span><span class="p">(</span>sdcMicro<span class="p">)</span> <span class="c1"># loading the sdcMicro package</span>
 <span class="kn">require</span><span class="p">(</span>sdcMicro<span class="p">)</span> <span class="c1"># loading the sdcMicro package</span>
@@ -211,12 +211,12 @@ documentation of a specific function is to use the built-in help, which
 generally gives an overview of the parameters of the functions as well
 as some examples. The help of a specific function can be called by a
 question mark followed by the function name without any arguments.
-<a class="reference internal" href="#code72"><span class="std std-numref">Listing 8.2</span></a> shows how to call the help file for the microaggregation()
+<a class="reference internal" href="#code72"><span class="std std-numref">Listing 54</span></a> shows how to call the help file for the microaggregation()
 function of the <em>sdcMicro</em> package. <a class="footnote-reference" href="#foot60" id="id1">[1]</a> The download
 page of the each package on the CRAN website also provides a reference
 manual with a complete overview of the functions in the package.</p>
 <div class="literal-block-wrapper docutils container" id="code72">
-<div class="code-block-caption"><span class="caption-number">Listing 8.2 </span><span class="caption-text">Displaying help for functions</span><a class="headerlink" href="#code72" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 54 </span><span class="caption-text">Displaying help for functions</span><a class="headerlink" href="#code72" title="Permalink to this code">¶</a></div>
 <div class="highlight-R notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="o">?</span>microaggregation <span class="c1"># help for microaggregation function</span>
 </pre></div>
 </td></tr></table></div>
@@ -226,18 +226,18 @@ remarks or suggestions can be posted for the developers of <em>sdcMicro</em> on
 their <a class="reference external" href="https://github.com/sdcTools/sdcMicro/issues">GitHub</a>.</p>
 </div>
 <div class="section" id="read-functions-in-r">
-<h2>8.2. Read functions in <em>R</em><a class="headerlink" href="#read-functions-in-r" title="Permalink to this headline">¶</a></h2>
+<h2>Read functions in <em>R</em><a class="headerlink" href="#read-functions-in-r" title="Permalink to this headline">¶</a></h2>
 <p>The first step in the SDC process when using <em>sdcMicro</em> is to read the
 data into <em>R</em> and create a dataframe. <a class="footnote-reference" href="#foot61" id="id2">[2]</a> <em>R</em> is
 compatible with most statistical data formats and provides read
 functions for most types of data. For those read functions, it is
 sometimes necessary to install additional packages and their
 dependencies in <em>R</em>. An overview of data formats, functions and the
-packages containing these functions is provided in <a class="reference internal" href="#tab71"><span class="std std-numref">Table 8.1</span></a>. These
+packages containing these functions is provided in <a class="reference internal" href="#tab71"><span class="std std-numref">Table 21</span></a>. These
 functions are also available as write (e.g., write_dta()) to save the
 anonymized data in the required format. <a class="footnote-reference" href="#foot62" id="id3">[3]</a></p>
 <span id="tab71"></span><table border="1" class="colwidths-auto docutils align-center" id="id10">
-<caption><span class="caption-number">Table 8.1 </span><span class="caption-text">Packages and functions for reading data in <em>R</em></span><a class="headerlink" href="#id10" title="Permalink to this table">¶</a></caption>
+<caption><span class="caption-number">Table 21 </span><span class="caption-text">Packages and functions for reading data in <em>R</em></span><a class="headerlink" href="#id10" title="Permalink to this table">¶</a></caption>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">Type/software</th>
 <th class="head">Extension</th>
@@ -274,11 +274,11 @@ anonymized data in the required format. <a class="footnote-reference" href="#foo
 </tbody>
 </table>
 <p>Most of these functions have options that specify how to handle missing
-values and variables with factor levels and value labels. <a class="reference internal" href="#code73"><span class="std std-numref">Listing 8.3</span></a>,
-<a class="reference internal" href="#code74"><span class="std std-numref">Listing 8.4</span></a> and <a class="reference internal" href="#code75"><span class="std std-numref">Listing 8.5</span></a> provide example code for reading in a
+values and variables with factor levels and value labels. <a class="reference internal" href="#code73"><span class="std std-numref">Listing 55</span></a>,
+<a class="reference internal" href="#code74"><span class="std std-numref">Listing 56</span></a> and <a class="reference internal" href="#code75"><span class="std std-numref">Listing 57</span></a> provide example code for reading in a
 <em>STATA</em> (.dta) file, an <em>Excel</em> (.csv) file and a <em>SPSS</em> (.sav) file.</p>
 <div class="literal-block-wrapper docutils container" id="code73">
-<div class="code-block-caption"><span class="caption-number">Listing 8.3 </span><span class="caption-text">Reading in a <em>STATA</em> file</span><a class="headerlink" href="#code73" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 55 </span><span class="caption-text">Reading in a <em>STATA</em> file</span><a class="headerlink" href="#code73" title="Permalink to this code">¶</a></div>
 <div class="highlight-R notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -292,7 +292,7 @@ file <span class="o">&lt;-</span> read_dta<span class="p">(</span>fname<span cla
 </td></tr></table></div>
 </div>
 <div class="literal-block-wrapper docutils container" id="code74">
-<div class="code-block-caption"><span class="caption-number">Listing 8.4 </span><span class="caption-text">Reading in a <em>Excel</em> file</span><a class="headerlink" href="#code74" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 56 </span><span class="caption-text">Reading in a <em>Excel</em> file</span><a class="headerlink" href="#code74" title="Permalink to this code">¶</a></div>
 <div class="highlight-R notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -308,7 +308,7 @@ file <span class="o">&lt;-</span> read.csv<span class="p">(</span>fname<span cla
 </td></tr></table></div>
 </div>
 <div class="literal-block-wrapper docutils container" id="code75">
-<div class="code-block-caption"><span class="caption-number">Listing 8.5 </span><span class="caption-text">Reading in a <em>SPSS</em> file</span><a class="headerlink" href="#code75" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 57 </span><span class="caption-text">Reading in a <em>SPSS</em> file</span><a class="headerlink" href="#code75" title="Permalink to this code">¶</a></div>
 <div class="highlight-R notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -327,7 +327,7 @@ Some SDC methods require long computation times for large datasets (see the Sect
 on <a class="reference internal" href="#computation-time">Computation time</a>).</p>
 </div>
 <div class="section" id="missing-values">
-<h2>8.3. Missing values<a class="headerlink" href="#missing-values" title="Permalink to this headline">¶</a></h2>
+<h2>Missing values<a class="headerlink" href="#missing-values" title="Permalink to this headline">¶</a></h2>
 <p>The standard way missing values are represented in <em>R</em> is by the symbol
 ‘NA’, which is different to impossible values, such as division by zero
 or the log of a negative number, which are represented by the symbol
@@ -348,10 +348,10 @@ value codes. When preparing data, it is important to recode any missing
 values that are not coded as ‘NA’ to ‘NA’ in <em>R</em> before starting the
 anonymization process to ensure the correct measurement of risk (e.g.,
 <span class="math notranslate nohighlight">\(k\)</span>-anonymity), as well as to ensure that many of the methods are
-correctly applied to the data. <a class="reference internal" href="#code76"><span class="std std-numref">Listing 8.6</span></a> shows how to recode the value
+correctly applied to the data. <a class="reference internal" href="#code76"><span class="std std-numref">Listing 58</span></a> shows how to recode the value
 ‘99’ to ‘NA’ for the variable “toilet”.</p>
 <div class="literal-block-wrapper docutils container" id="code76">
-<div class="code-block-caption"><span class="caption-number">Listing 8.6 </span><span class="caption-text">Recoding missing values to NA</span><a class="headerlink" href="#code76" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 58 </span><span class="caption-text">Recoding missing values to NA</span><a class="headerlink" href="#code76" title="Permalink to this code">¶</a></div>
 <div class="highlight-R notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kp">file</span><span class="p">[</span><span class="kp">file</span><span class="p">[,</span><span class="s">&#39;toilet&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="m">99</span><span class="p">,</span><span class="s">&#39;toilet&#39;</span><span class="p">]</span> <span class="o">&lt;-</span> <span class="kc">NA</span>
 <span class="c1"># Recode missing value code 99 to NA for variable toilet</span>
@@ -360,7 +360,7 @@ correctly applied to the data. <a class="reference internal" href="#code76"><spa
 </div>
 </div>
 <div class="section" id="classes-in-r">
-<h2>8.4. Classes in R<a class="headerlink" href="#classes-in-r" title="Permalink to this headline">¶</a></h2>
+<h2>Classes in R<a class="headerlink" href="#classes-in-r" title="Permalink to this headline">¶</a></h2>
 <p>All objects in <em>R</em> are of a specific class, such as integer, character,
 matrix, factor or dataframe. The class of an object is an attribute from
 which the object inherits. To find out the class of an object, one can
@@ -373,13 +373,13 @@ The functionality of the functions in the <em>sdcMicro</em> package differs for
 dataframes and <em>sdcMicro</em> objects. It is easy to change the class
 attribute of an object with functions that start with “as.”, followed by
 the name of the class (e.g., as.factor(), as.matrix(), as.data.frame()).
-<a class="reference internal" href="#code77"><span class="std std-numref">Listing 8.7</span></a> shows how to check the class of an object and change the
+<a class="reference internal" href="#code77"><span class="std std-numref">Listing 59</span></a> shows how to check the class of an object and change the
 class to “data.frame”. Before changing the class attribute of the object
 “file”, it was in the class “matrix”. An important class defined and
 used in the <em>sdcMicro</em> package is the class named <em>sdcMicroObj</em>. This
 class is described in the next section.</p>
 <div class="literal-block-wrapper docutils container" id="code77">
-<div class="code-block-caption"><span class="caption-number">Listing 8.7 </span><span class="caption-text">Changing the class of an object in <em>R</em></span><a class="headerlink" href="#code77" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 59 </span><span class="caption-text">Changing the class of an object in <em>R</em></span><a class="headerlink" href="#code77" title="Permalink to this code">¶</a></div>
 <div class="highlight-R notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -402,11 +402,11 @@ file <span class="o">&lt;-</span> <span class="kp">as.data.frame</span><span cla
 </div>
 </div>
 <div class="section" id="objects-of-class-sdcmicroobj">
-<h2>8.5. Objects of class <em>sdcMicroObj</em><a class="headerlink" href="#objects-of-class-sdcmicroobj" title="Permalink to this headline">¶</a></h2>
+<h2>Objects of class <em>sdcMicroObj</em><a class="headerlink" href="#objects-of-class-sdcmicroobj" title="Permalink to this headline">¶</a></h2>
 <p>The <em>sdcMicro</em> package is built around objects <a class="footnote-reference" href="#foot66" id="id5">[5]</a> of
 class <em>sdcMicroObj</em>, a class especially defined for the <em>sdcMicro</em>
 package. Each member of this class has a certain structure with slots
-that contain information regarding the anonymization process (see <a class="reference internal" href="#tab72"><span class="std std-numref">Table 8.2</span></a>
+that contain information regarding the anonymization process (see <a class="reference internal" href="#tab72"><span class="std std-numref">Table 22</span></a>
 for a description of all slots). Before evaluating risk
 and utility and applying SDC methods, creating an object of class
 <em>sdcMicro</em> is recommended. All examples in this guide are based on these
@@ -424,7 +424,7 @@ the start of the anonymization process.</p>
 selected. In addition, one must ensure there are no problems with the
 data, such as variables containing only missing values.</p>
 </div>
-<p>In <a class="reference internal" href="#code78"><span class="std std-numref">Listing 8.8</span></a>, we show all arguments of the function createSdcObj(),
+<p>In <a class="reference internal" href="#code78"><span class="std std-numref">Listing 60</span></a>, we show all arguments of the function createSdcObj(),
 and first define vectors with the names of the different variables. This
 practice gives a better overview and later allows for quick changes in
 the variable choices if required. We choose the categorical
@@ -457,7 +457,7 @@ variables. <a class="footnote-reference" href="#foot67" id="id6">[6]</a> After s
 create the <em>sdcMicro</em> object. To obtain a summary of the object, it is
 sufficient to write the name of the object.</p>
 <div class="literal-block-wrapper docutils container" id="code78">
-<div class="code-block-caption"><span class="caption-number">Listing 8.8 </span><span class="caption-text">Selecting variables and creating an object of class <em>sdcMicroObj</em> for the SDC process in <em>R</em></span><a class="headerlink" href="#code78" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 60 </span><span class="caption-text">Selecting variables and creating an object of class <em>sdcMicroObj</em> for the SDC process in <em>R</em></span><a class="headerlink" href="#code78" title="Permalink to this code">¶</a></div>
 <div class="highlight-R notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -632,16 +632,16 @@ sdcInitial
 </pre></div>
 </td></tr></table></div>
 </div>
-<p><a class="reference internal" href="#tab72"><span class="std std-numref">Table 8.2</span></a> presents the names of the slots and their respective contents.
+<p><a class="reference internal" href="#tab72"><span class="std std-numref">Table 22</span></a> presents the names of the slots and their respective contents.
 The slot names can be listed using the function slotNames(), which is
-illustrated in <a class="reference internal" href="#code79"><span class="std std-numref">Listing 8.9</span></a>. Not all slots are used in all cases. Some
+illustrated in <a class="reference internal" href="#code79"><span class="std std-numref">Listing 61</span></a>. Not all slots are used in all cases. Some
 slots are filled only after applying certain methods, e.g., evaluating a
 specific risk measure. Certain slots of the objects can be accessed by
 accessor functions (e.g., extractManipData for extracting the anonymized
 data) or print functions (e.g., print()) with the appropriate arguments.
 The content of a slot can also be accessed directly with the ‘&#64;’
 operator and the slot name. This is illustrated for the risk slot in
-<a class="reference internal" href="#code79"><span class="std std-numref">Listing 8.9</span></a>. This functionality can be practical to save intermediate
+<a class="reference internal" href="#code79"><span class="std std-numref">Listing 61</span></a>. This functionality can be practical to save intermediate
 results and compare the outcomes of different methods. Also, for manual
 changes to the data during the SDC process, such as changing missing
 value codes or manual recoding, the direct accession of the data in the
@@ -651,7 +651,7 @@ names can be shown with the names() function and they can be accessed
 with the ‘$’ operator. This is shown for the element with the individual
 risk in the risk slot.</p>
 <div class="literal-block-wrapper docutils container" id="code79">
-<div class="code-block-caption"><span class="caption-number">Listing 8.9 </span><span class="caption-text">Displaying slot names and accessing slots of an S4 object</span><a class="headerlink" href="#code79" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 61 </span><span class="caption-text">Displaying slot names and accessing slots of an S4 object</span><a class="headerlink" href="#code79" title="Permalink to this code">¶</a></div>
 <div class="highlight-R notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -699,7 +699,7 @@ get.sdcMicroObj<span class="p">(</span>sdcInitial<span class="p">,</span> <span 
 </td></tr></table></div>
 </div>
 <span id="tab72"></span><table border="1" class="colwidths-auto docutils align-center" id="id11">
-<caption><span class="caption-number">Table 8.2 </span><span class="caption-text">Slot names and slot description of <em>sdcMicro</em> object</span><a class="headerlink" href="#id11" title="Permalink to this table">¶</a></caption>
+<caption><span class="caption-number">Table 22 </span><span class="caption-text">Slot names and slot description of <em>sdcMicro</em> object</span><a class="headerlink" href="#id11" title="Permalink to this table">¶</a></caption>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">Slotname</th>
 <th class="head">Content</th>
@@ -817,9 +817,9 @@ useful for comparing several methods and selecting the best option.</li>
 </ul>
 <p>In both cases, the result of any function has to be re-assigned to an
 object with the ‘&lt;-‘ operator. Both methods are illustrated in
-<a class="reference internal" href="#code710"><span class="std std-numref">Listing 8.10</span></a>.</p>
+<a class="reference internal" href="#code710"><span class="std std-numref">Listing 62</span></a>.</p>
 <div class="literal-block-wrapper docutils container" id="code710">
-<div class="code-block-caption"><span class="caption-number">Listing 8.10 </span><span class="caption-text">Saving results of applying SDC methods</span><a class="headerlink" href="#code710" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 62 </span><span class="caption-text">Saving results of applying SDC methods</span><a class="headerlink" href="#code710" title="Permalink to this code">¶</a></div>
 <div class="highlight-R notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -842,9 +842,9 @@ after undoing that step.</p>
 go only one step back, not several.</p>
 </div>
 <p>The result must also be reassigned
-to the same object. This is illustrated in <a class="reference internal" href="#code711"><span class="std std-numref">Listing 8.11</span></a>.</p>
+to the same object. This is illustrated in <a class="reference internal" href="#code711"><span class="std std-numref">Listing 63</span></a>.</p>
 <div class="literal-block-wrapper docutils container" id="code711">
-<div class="code-block-caption"><span class="caption-number">Listing 8.11 </span><span class="caption-text">Undo last step in SDC process</span><a class="headerlink" href="#code711" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 63 </span><span class="caption-text">Undo last step in SDC process</span><a class="headerlink" href="#code711" title="Permalink to this code">¶</a></div>
 <div class="highlight-R notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># Undo last step in SDC process</span>
 sdcInitial <span class="o">&lt;-</span> undolast<span class="p">(</span>sdcInitial<span class="p">)</span>
@@ -853,7 +853,7 @@ sdcInitial <span class="o">&lt;-</span> undolast<span class="p">(</span>sdcIniti
 </div>
 </div>
 <div class="section" id="household-structure">
-<h2>8.6. Household structure<a class="headerlink" href="#household-structure" title="Permalink to this headline">¶</a></h2>
+<h2>Household structure<a class="headerlink" href="#household-structure" title="Permalink to this headline">¶</a></h2>
 <p>If the data has a hierarchical structure and some variables are measured
 on the higher hierarchical level and others on the lower level, the SDC
 process should be adapted accordingly (see also the Sections
@@ -876,7 +876,7 @@ and anonymized jointly. In this section, we explain how to extract
 household variables from a file and merge them with the individual
 levels variables after treatment in <em>R</em>. We illustrate this process with
 an example of household and individual-level variables.</p>
-<p>These steps are illustrated in <a class="reference internal" href="#code712"><span class="std std-numref">Listing 8.12</span></a>. We require both an
+<p>These steps are illustrated in <a class="reference internal" href="#code712"><span class="std std-numref">Listing 64</span></a>. We require both an
 individual ID and a household ID in the dataset; if they are lacking,
 they must be generated. The individual ID has to be unique for every
 individual in the dataset and the household ID has to be unique across
@@ -891,7 +891,7 @@ record per household. This argument of the unique function is the
 household ID, which is the same for all household members, but unique
 across households.</p>
 <div class="literal-block-wrapper docutils container" id="code712">
-<div class="code-block-caption"><span class="caption-number">Listing 8.12 </span><span class="caption-text">Create a household level file with unique records (remove duplicates)</span><a class="headerlink" href="#code712" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 64 </span><span class="caption-text">Create a household level file with unique records (remove duplicates)</span><a class="headerlink" href="#code712" title="Permalink to this code">¶</a></div>
 <div class="highlight-R notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -923,9 +923,9 @@ we merge the data using the merge function. The ‘by’ argument in the
 merge function specifies the variable used for merging – in this case
 the household ID, which has the same variable name in both datasets. All
 other variables should have different names in both datasets. These
-steps are illustrated in <a class="reference internal" href="#code713"><span class="std std-numref">Listing 8.13</span></a>.</p>
+steps are illustrated in <a class="reference internal" href="#code713"><span class="std std-numref">Listing 65</span></a>.</p>
 <div class="literal-block-wrapper docutils container" id="code713">
-<div class="code-block-caption"><span class="caption-number">Listing 8.13 </span><span class="caption-text">Merging anonymized household-level variables with individual-level variables</span><a class="headerlink" href="#code713" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 65 </span><span class="caption-text">Merging anonymized household-level variables with individual-level variables</span><a class="headerlink" href="#code713" title="Permalink to this code">¶</a></div>
 <div class="highlight-R notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -953,12 +953,12 @@ the size of a household can also be a
 quasi-identifier, even if the household size is not included in the
 dataset as variable. For the purpose of evaluating the disclosure risk,
 it might be necessary to create such a variable by a headcount of the
-members of each household. <a class="reference internal" href="#code714"><span class="std std-numref">Listing 8.14</span></a> shows how to generate a variable
+members of each household. <a class="reference internal" href="#code714"><span class="std std-numref">Listing 66</span></a> shows how to generate a variable
 household size with values for each individual based on the household ID
 (HID). Two cases are shown: 1) the file sorted by household ID and 2)
 the file not sorted.</p>
 <div class="literal-block-wrapper docutils container" id="code714">
-<div class="code-block-caption"><span class="caption-number">Listing 8.14 </span><span class="caption-text">Generating the variable household size</span><a class="headerlink" href="#code714" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 66 </span><span class="caption-text">Generating the variable household size</span><a class="headerlink" href="#code714" title="Permalink to this code">¶</a></div>
 <div class="highlight-R notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -986,10 +986,10 @@ the next few are children. Therefore, the line number within the
 household could correlate well with a variable that contains information
 on the relation to the household head. One way to avoid this unintended
 release of information is to change the order of the individuals within
-each household at random. <a class="reference internal" href="#code715"><span class="std std-numref">Listing 8.15</span></a> illustrates a way to do this in
+each household at random. <a class="reference internal" href="#code715"><span class="std std-numref">Listing 67</span></a> illustrates a way to do this in
 <em>R</em>.</p>
 <div class="literal-block-wrapper docutils container" id="code715">
-<div class="code-block-caption"><span class="caption-number">Listing 8.15 </span><span class="caption-text">Changing the order of individuals within households</span><a class="headerlink" href="#code715" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 67 </span><span class="caption-text">Changing the order of individuals within households</span><a class="headerlink" href="#code715" title="Permalink to this code">¶</a></div>
 <div class="highlight-R notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -1016,7 +1016,7 @@ dataAnon <span class="o">&lt;-</span> dataAnon<span class="p">[</span><span clas
 </div>
 </div>
 <div class="section" id="randomizing-order-and-numbering-of-individuals-or-households">
-<h2>8.7. Randomizing order and numbering of individuals or households<a class="headerlink" href="#randomizing-order-and-numbering-of-individuals-or-households" title="Permalink to this headline">¶</a></h2>
+<h2>Randomizing order and numbering of individuals or households<a class="headerlink" href="#randomizing-order-and-numbering-of-individuals-or-households" title="Permalink to this headline">¶</a></h2>
 <p>Often the order and numbering of individuals, households, and also
 geographical units contains information that could be used by an
 intruder to re-identify records. For example, households with IDs that
@@ -1038,8 +1038,8 @@ derived (for instance, in cases where the geographical unit is included
 in the randomized ID). Therefore, if the variable used for the subsets
 has suppressed values, randomization should be done at the dataset level
 and not at the subset level.</p>
-<p><a class="reference internal" href="#tab73"><span class="std std-numref">Table 8.3</span></a> illustrates the need and process of randomizing the order of
-records in a dataset. The first three columns in <a class="reference internal" href="#tab73"><span class="std std-numref">Table 8.3</span></a> show the
+<p><a class="reference internal" href="#tab73"><span class="std std-numref">Table 23</span></a> illustrates the need and process of randomizing the order of
+records in a dataset. The first three columns in <a class="reference internal" href="#tab73"><span class="std std-numref">Table 23</span></a> show the
 original dataset. Some suppressions were made in the variable
 “district”, as shown in columns 4 to 6 (‘NA’ values). This dataset also
 already shows the randomized household IDs. The order of the records in
@@ -1053,7 +1053,7 @@ neighboring records. Note that in this example the randomization was
 carried out within the regions and the region number is included in the
 household ID (first digit).</p>
 <span id="tab73"></span><table border="1" class="colwidths-auto docutils align-center" id="id12">
-<caption><span class="caption-number">Table 8.3 </span><span class="caption-text">Illustration of randomizing order of records in a dataset</span><a class="headerlink" href="#id12" title="Permalink to this table">¶</a></caption>
+<caption><span class="caption-number">Table 23 </span><span class="caption-text">Illustration of randomizing order of records in a dataset</span><a class="headerlink" href="#id12" title="Permalink to this table">¶</a></caption>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head" colspan="3">Original dataset</th>
 <th class="head" colspan="3">Dataset with randomized
@@ -1306,7 +1306,7 @@ household ID</th>
 process with <em>sdcMicro</em> and directly on the dataset (data.frame in <em>R</em>).
 To randomize the order, we need an ID, such as an individual ID,
 household ID or geographical ID. If the dataset does not contain such
-ID, this should be created first. <a class="reference internal" href="#code716"><span class="std std-numref">Listing 8.16</span></a> shows how to randomize
+ID, this should be created first. <a class="reference internal" href="#code716"><span class="std std-numref">Listing 68</span></a> shows how to randomize
 households. “HID” is the household ID and “regionid” is the region ID.
 First the variable “HID” is replaced by a randomized variable
 “HIDrandom”. Then the file is sorted by region and the randomized ID and
@@ -1314,7 +1314,7 @@ the actual order of the records in the dataset is changed. To make the
 randomization reproducible, it is advisable to set a seed for the random
 number generator.</p>
 <div class="literal-block-wrapper docutils container" id="code716">
-<div class="code-block-caption"><span class="caption-number">Listing 8.16 </span><span class="caption-text">Randomize order of households</span><a class="headerlink" href="#code716" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 68 </span><span class="caption-text">Randomize order of households</span><a class="headerlink" href="#code716" title="Permalink to this code">¶</a></div>
 <div class="highlight-R notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -1341,7 +1341,7 @@ file <span class="o">&lt;-</span> file1<span class="p">[</span><span class="kp">
 </div>
 </div>
 <div class="section" id="computation-time">
-<h2>8.8. Computation time<a class="headerlink" href="#computation-time" title="Permalink to this headline">¶</a></h2>
+<h2>Computation time<a class="headerlink" href="#computation-time" title="Permalink to this headline">¶</a></h2>
 <p>Some SDC methods can take a very long time to evaluate in terms of
 computation. For instance, local suppression with the function
 localSuppression() of the <em>sdcMicro</em> package in <em>R</em> can take days to
@@ -1352,10 +1352,10 @@ data size, i.e., number of observations, number of variables and the
 number of categories or factor levels of each categorical variable; data
 complexity (e.g., the number of different combinations of values of key
 variables in the data); as well as the computer/server specifications.</p>
-<p><a class="reference internal" href="#tab74"><span class="std std-numref">Table 8.4</span></a> gives some indication of computation times for different
+<p><a class="reference internal" href="#tab74"><span class="std std-numref">Table 24</span></a> gives some indication of computation times for different
 methods on datasets of different size and complexity based on findings
 from our experiments. The selected quasi-identifiers and categories for
-those variables in <a class="reference internal" href="#tab74"><span class="std std-numref">Table 8.4</span></a> are the same in both datasets being
+those variables in <a class="reference internal" href="#tab74"><span class="std std-numref">Table 24</span></a> are the same in both datasets being
 compared. Because it is impossible to predict the exact computation
 time, this table should be used to illustrate how long computations may
 take. These methods have been executed on a powerful server. Given long
@@ -1365,7 +1365,7 @@ and then choose the appropriate SDC methods. <em>R</em> provides functions to
 select subsets from a dataset. After setting up the code, it can then be
 run on the entire dataset on a powerful computer or server.</p>
 <span id="tab74"></span><table border="1" class="colwidths-auto docutils align-center" id="id13">
-<caption><span class="caption-number">Table 8.4 </span><span class="caption-text">Computation times of different methods on datasets of different sizes</span><a class="headerlink" href="#id13" title="Permalink to this table">¶</a></caption>
+<caption><span class="caption-number">Table 24 </span><span class="caption-text">Computation times of different methods on datasets of different sizes</span><a class="headerlink" href="#id13" title="Permalink to this table">¶</a></caption>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head" colspan="2">Dataset with 5,000 observations</th>
 <th class="head" colspan="2">Dataset with 45,000 obervations</th>
@@ -1403,7 +1403,7 @@ number of combinations, which influences the computation time to
 compute, for example, the frequencies of each key in the dataset. If
 there are many categories but not so many combinations (e.g., when the
 variables correlate), the computation time will be shorter.</p>
-<p><a class="reference internal" href="#tab75"><span class="std std-numref">Table 8.5</span></a> shows the number of categories for seven datasets with the
+<p><a class="reference internal" href="#tab75"><span class="std std-numref">Table 25</span></a> shows the number of categories for seven datasets with the
 same variables but of different complexities that were all processed
 using the same script on 16 processors, in order of execution time. The
 table also shows an approximation of the number of unique combinations
@@ -1417,7 +1417,7 @@ can vary greatly; the longest running time is about 10 times longer than
 the shortest. Computer specifications also influence the computation
 time. This includes the processor, RAM and storage media.</p>
 <span id="tab75"></span><table border="1" class="colwidths-auto docutils align-center" id="id14">
-<caption><span class="caption-number">Table 8.5 </span><span class="caption-text">Number of categories (complexity), record uniqueness and computation times</span><a class="headerlink" href="#id14" title="Permalink to this table">¶</a></caption>
+<caption><span class="caption-number">Table 25 </span><span class="caption-text">Number of categories (complexity), record uniqueness and computation times</span><a class="headerlink" href="#id14" title="Permalink to this table">¶</a></caption>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">Sample size</th>
 <th class="head" colspan="6">Number of categories
@@ -1570,7 +1570,7 @@ intensive but can still take a long time if the dataset is large and
 risk measures have to be recalculated.</p>
 </div>
 <div class="section" id="common-errors">
-<h2>8.9. Common errors<a class="headerlink" href="#common-errors" title="Permalink to this headline">¶</a></h2>
+<h2>Common errors<a class="headerlink" href="#common-errors" title="Permalink to this headline">¶</a></h2>
 <p>In this section, we present a few common errors and their causes, which
 might be encountered when using the <em>sdcMicro</em> package in <em>R</em> for
 anonymization of microdata:</p>
@@ -1665,10 +1665,10 @@ is not further presented.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="process.html" class="btn btn-neutral float-right" title="9. The SDC Process" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="process.html" class="btn btn-neutral float-right" title="The SDC Process" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="utility.html" class="btn btn-neutral" title="7. Measuring Utility and Information Loss" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="utility.html" class="btn btn-neutral" title="Measuring Utility and Information Loss" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -1677,7 +1677,7 @@ is not further presented.</p>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2018, Matthew Welch.
+        &copy; Copyright 2018, Thijs Benschop, Cathrine Machingauta, Matthew Welch.
 
     </p>
   </div>
