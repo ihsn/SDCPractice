@@ -207,6 +207,7 @@ Source: `DuBo10`_
 
 Appendix C: Internal and External Reports for Case Studies
 -----------------------------------------------------------------------------------
+..
 
 This appendix provides examples of internal and external reports for the
 anonymization process for the case studies in the Section 
@@ -375,7 +376,7 @@ Case study 2 - External report
    *Perturbing values*
    
    Uncertainty was introduced in the variables ROOF, TOILET, WATER, ELECTCON, FUELCOOK, OWNMOTORCYCLE, CAR, TV and LIVESTOCK by using the PRAM method. This method changes a certain percentage of values of variables within each variable. Here invariant PRAM was used, which guarantees that the univariate tabulations stay unchanged. Multivariate tabulations may be changed. Unfortunately, the transition matrix cannot be published.
-
+..
 
 Appendix D: Execution Times for Multiple Scenarios Tested using Selected Sample Data
 -------------------------------------------------------------------------------------
