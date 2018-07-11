@@ -226,7 +226,7 @@ agency] employees, subject to the following conditions:
 1.  Microdata (including subsets of the datasets) and copyrighted
     materials provided by the [providing agency] will not be
     redistributed or sold to other individuals, institutions or
-    organisations without the [providing agency]ΓÇÖs written agreement.
+    organisations without the [providing agency]'s written agreement.
     Non-copyrighted materials which do not contain microdata (such as
     survey questionnaires, manuals, codebooks, or data dictionaries) may
     be distributed without further authorization. The ownership of all
@@ -256,7 +256,7 @@ agency] employees, subject to the following conditions:
     will be sent to the [providing agency].
 
 7.  The [providing agency] and the relevant funding agencies bear no
-    responsibility the dataΓÇÖs use or for interpretation or inferences
+    responsibility the data's use or for interpretation or inferences
     based upon it.
 
 8.  An electronic copy of all publications based on the requested data
@@ -337,7 +337,7 @@ Signature \______________________________\_ Date \_____________\_
 Source: `DuBo10`_
 
 Appendix C: Internal and External Reports for Case Studies
-==========================================================
+------------------------------------------------------------
 
 This appendix provides example of internal and external reports on the
 anonymization process for the case studies in Section 9.1. The internal
@@ -435,7 +435,7 @@ observations)
 10 combinations of categories with highest risk:
 
 +----+------------+------------+------------+---------------+-----------+--------+--------+
-|    | **URBRUR** | **REGION** | **HHSIZE** | **OWNAGLAND** | **RELIG** | **fk** | **Fk** |
+|    |   URBRUR   |   REGION   |   HHSIZE   |   OWNAGLAND   |   RELIG   |   fk   |   Fk   |
 +====+============+============+============+===============+===========+========+========+
 | 1  | 2          | 6          | 2          | 3             | 7         | 1      | 372.37 |
 +----+------------+------------+------------+---------------+-----------+--------+--------+
@@ -544,8 +544,8 @@ Local suppressions
 Number of local suppressions:
 
 +-----------+-----------+-----------+-----------+-----------+-----------+
-|           | **URBRUR* | **REGION* | **HHSIZE* | **OWNAGLA | **RELIG** |
-|           | *         | *         | *         | ND**      |           |
+|           | **URBRUR* | **REGION* | **HHSIZE* | OWNAGLAND |   RELIG   |
+|           |           |           |           |           |           |
 +===========+===========+===========+===========+===========+===========+
 | absolute  | 6         | 1         | 1         | 48        | 16        |
 +-----------+-----------+-----------+-----------+-----------+-----------+
@@ -767,13 +767,13 @@ Expected Percentage of Reidentifications (hierarchical risk): 0.1% (~
 10 combinations of categories with highest risk:
 
 +-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+
-|     |     |     |     |     |     |     |     |     | **f | **F |
-|     | **G | **R | **M | **A | **E | **E | **A | **I | k** | k** |
-|     | EDN | EL* | ARI | GEY | DUC | DYR | TSC | NDU |     |     |
-|     | ER* | *   | TAL | RS* | Y** | SAT | HOO | STR |     |     |
-|     | *   |     | **  | *   |     | CUR | L** | Y1* |     |     |
-|     |     |     |     |     |     | RAT |     | *   |     |     |
-|     |     |     |     |     |     | **  |     |     |     |     |
+|     |     |     |     |     |     |     |     |     | fk  | Fk  |
+|     |   G | REL | M   |   A |   E |   E |   A |   I |     |     |
+|     | EDN |     | ARI | GEY | DUC | DYR | TSC | NDU |     |     |
+|     | ER  |     | TAL | RS  | Y   | SAT | HOO | STR |     |     |
+|     |     |     |     |     |     | CUR | L   | Y1  |     |     |
+|     |     |     |     |     |     | RAT |     |     |     |     |
+|     |     |     |     |     |     |     |     |     |     |     |
 +=====+=====+=====+=====+=====+=====+=====+=====+=====+=====+=====+
 | 1   | **1 | 1   | 3   | 38  | 6   | NA  | 0   | 9   | 1   | 73. |
 |     | **  |     |     |     |     |     |     |     |     | 31  |
@@ -967,7 +967,7 @@ Local suppressions
 Number of local suppressions:
 
 +-----------------------+------------+---------+-------------+------------+-----------+
-|                       | **GENDER** | **REL** | **MARITAL** | **AGEYRS** | **EDUCY** |
+|                       |   GENDER   |   REL   |   MARITAL   |   AGEYRS   |   EDUCY   |
 +=======================+============+=========+=============+============+===========+
 | absolute              | 0          | 323     | 0           | 0          | 0         |
 +-----------------------+------------+---------+-------------+------------+-----------+
@@ -975,7 +975,7 @@ Number of local suppressions:
 +-----------------------+------------+---------+-------------+------------+-----------+
 
 +-----------------------+-----------------+--------------+---------------+--+--+
-|                       | **EDYRSATCURR** | **ATSCHOOL** | **INDUSTRY1** |  |  |
+|                       |   EDYRSATCURR   |   ATSCHOOL   |   INDUSTRY1   |  |  |
 +=======================+=================+==============+===============+==+==+
 | absolute              | 0               | 0            | 0             |  |  |
 +-----------------------+-----------------+--------------+---------------+--+--+
@@ -1130,7 +1130,7 @@ PUF file: 0.0000642% (~ 0.13 observations), unmodified data:
 11 combinations of categories with highest risk in PUF file:
 
 +----+------------+------------+------------+--------+----------+
-|    | **URBRUR** | **REGION** | **HHSIZE** | **fk** | **Fk**   |
+|    |   URBRUR   |   REGION   |   HHSIZE   |   fk   |   Fk     |
 +====+============+============+============+========+==========+
 | 1  | 2          | 4          | 1          | 7      | 1152.084 |
 +----+------------+------------+------------+--------+----------+
@@ -1215,7 +1215,7 @@ Local suppressions
 Number of local suppressions:
 
 +-----------------------+------------+------------+------------+
-|                       | **URBRUR** | **REGION** | **HHSIZE** |
+|                       |   URBRUR   |   REGION   |   HHSIZE   |
 +=======================+============+============+============+
 | absolute              | 61         | 125        | 0          |
 +-----------------------+------------+------------+------------+
@@ -1309,10 +1309,10 @@ Expected Percentage of Re-identifications (hierarchical risk): 0.02%
 10 combinations of categories with highest risk:
 
 +-------+-------+-------+-------+-------+-------+-------+-------+-------+
-|       |    ** |    ** |    ** |    ** |    ** |    ** | **fk* | **Fk* |
-|       | GEDNE | REL** | MARIT | AGEYR | EDUCY | INDUS | *     | *     |
-|       | R**   |       | AL**  | S**   | **    | TRY1* |       |       |
-|       |       |       |       |       |       | *     |       |       |
+|       |       |       |       |       |       |       |   fk  |   Fk  |
+|       |GEDNER | REL   | MARIT | AGEYR | EDUCY | INDUS |       |       |
+|       |       |       | AL    | S     |       | TRY1  |       |       |
+|       |       |       |       |       |       |       |       |       |
 +=======+=======+=======+=======+=======+=======+=======+=======+=======+
 | 1     | 1     | 1     | 2     | 50    | 1     | 7     | 2     | 324.9 |
 |       |       |       |       |       |       |       |       | 275   |
@@ -1465,19 +1465,19 @@ Local suppressions
 
 Number of local suppressions:
 
-+---------+---------+---------+---------+---------+---------+---------+
-|         | **GENDE | **REL** | **MARIT | **AGEYR | **EDUCY | **INDUS |
-|         | R**     |         | AL**    | S**     | **      | TRY1**  |
-+=========+=========+=========+=========+=========+=========+=========+
-| absolut | 0       | 0       | 0       | 91      | 0       | 0       |
-| e       |         |         |         |         |         |         |
-+---------+---------+---------+---------+---------+---------+---------+
-| relativ | 0.00%   | 0.00%   | 0.00%   | 0.90%   | 0.00%   | 0.00%   |
-| e       |         |         |         |         |         |         |
-| (in     |         |         |         |         |         |         |
-| percent |         |         |         |         |         |         |
-| )       |         |         |         |         |         |         |
-+---------+---------+---------+---------+---------+---------+---------+
++---------+---------+---------+---------+---------+---------+----------+
+|         | GENDER  |   REL   | MARITAL | AGEYRS  |   EDUCY |INDUSTRY1 |
+|         |         |         |         |         |         |          |
++=========+=========+=========+=========+=========+=========+==========+
+| absolut | 0       | 0       | 0       | 91      | 0       | 0        |
+| e       |         |         |         |         |         |          |
++---------+---------+---------+---------+---------+---------+----------+
+| relativ | 0.00%   | 0.00%   | 0.00%   | 0.90%   | 0.00%   | 0.00%    |
+| e       |         |         |         |         |         |          |
+| (in     |         |         |         |         |         |          |
+| percent |         |         |         |         |         |          |
+| )       |         |         |         |         |         |          |
++---------+---------+---------+---------+---------+---------+----------+
 
 **Case study 2- External report**
 ---------------------------------
