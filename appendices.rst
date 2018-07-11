@@ -207,7 +207,7 @@ Source: `DuBo10`_
 
 Appendix C: Internal and External Reports for Case Studies
 -----------------------------------------------------------------------------------
-..
+
 
 This appendix provides examples of internal and external reports for the
 anonymization process for the case studies in the Section 
@@ -218,6 +218,10 @@ individual-level variables.
 
 Case study 1 - Internal report
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ to do
+
+.. ..
+
 
    **SDC report (adapted from the report function in sdcMicro)**
    
