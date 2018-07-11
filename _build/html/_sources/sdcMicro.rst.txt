@@ -34,9 +34,8 @@ options are illustrated in :numref:`code71`.
    :caption: Loading required packages
    :name: code71
 
-	library(sdcMicro) # loading the sdcMicro package
-
-	require(sdcMicro) # loading the sdcMicro package
+   library(sdcMicro) # loading the sdcMicro package
+   require(sdcMicro) # loading the sdcMicro package
 
 All packages and functions are documented. The easiest way to access the
 documentation of a specific function is to use the built-in help, which
@@ -52,12 +51,12 @@ manual with a complete overview of the functions in the package.
    :linenos:
    :caption: Displaying help for functions
    :name: code72
-   
-	?microaggregation # help for microaggregation function
+ 
+   ?microaggregation # help for microaggregation function
 
 When issues or bugs in the *sdcMicro* package are encountered, comments,
 remarks or suggestions can be posted for the developers of *sdcMicro* on
-their GitHub: https://github.com/alexkowa/sdcMicro/issues
+their `GitHub <https://github.com/sdcTools/sdcMicro/issues>`__.
 
 Read functions in *R*
 ---------------------
@@ -69,7 +68,7 @@ functions for most types of data. For those read functions, it is
 sometimes necessary to install additional packages and their
 dependencies in *R*. An overview of data formats, functions and the
 packages containing these functions is provided in :numref:`tab71`. These
-functions are also available as write (e.g., write.dta()) to save the
+functions are also available as write (e.g., write_dta()) to save the
 anonymized data in the required format. [#foot62]_
 
 .. _tab71:
@@ -81,13 +80,11 @@ anonymized data in the required format. [#foot62]_
    ===========================  ===============  ======================  =============
     Type/software               Extension          Package                Function    
    ===========================  ===============  ======================  =============
-    SPSS                         .sav             foreign                 read.spss() 
-    STATA (v. 5-12)              .dta             foreign                 read.dta()  
-    STATA (v. 13) [#foot64]_     .dta             readstata13             read.dta13()
-    SAS                          .xpt             foreign                 read.xport()
-    EXCEL                        .csv             utils (base package)    read.csv()  
-    EXCEL                        .xls             xlsReadWrite            read.xls()  
-    EXCEL                        .xlsx            xlsx                    read.xlsx() 
+    SPSS                         .sav             haven                   read_sav() 
+    STATA (v. 5-14)              .dta             haven                   read_dta()  
+    SAS                          .sas7bdat        haven                   read_sas()
+    Excel                        .csv             utils (base package)    read.csv()  
+    Excel                        .xls/.xlsx       readxl                  readxl()  
    ===========================  ===============  ======================  =============
 
 Most of these functions have options that specify how to handle missing
@@ -100,37 +97,38 @@ values and variables with factor levels and value labels. :numref:`code73`,
    :caption: Reading in a *STATA* file
    :name: code73
    
-	setwd("/Users/World Bank") # working directory with data file 
-	fname = "data.dta" # name of data file 
-	library(foreign) # loads required package for read/write function for STATA files 
-	file <- read.dta(fname, convert.factors = F) 
-	# reads the data into the data frame called file, factor levels read as numeric codes
+   setwd("/Users/World Bank") # working directory with data file 
+   fname = "data.dta" # name of data file 
+   library(haven) # loads required package for read/write function for STATA files 
+   file <- read_dta(fname) 
+   # reads the data into the data frame tbl called file 
 
 .. code-block:: R
    :linenos:
    :caption: Reading in a *Excel* file
    :name: code74
 
-	setwd("/Users/World Bank") # working directory with data file 
-	fname = "data.csv" # name of data file 
-	file <- read.csv(fname, header = TRUE, sep = ",", dec = ".")
-	# reads the data into the data frame called file, the first line contains the variable names, 
-	# fields are separated with commas, decimal points are indicated with ‘.’
+   setwd("/Users/World Bank") # working directory with data file 
+   fname = "data.csv" # name of data file 
+   file <- read.csv(fname, header = TRUE, sep = ",", dec = ".")
+   # reads the data into the data frame called file, 
+   # the first line contains the variable names, 
+   # fields are separated with commas, decimal points are indicated with ‘.’
 
 .. code-block:: R
    :linenos:
    :caption: Reading in a *SPSS* file
    :name: code75
    
-	setwd("/Users/World Bank") # working directory with data file 
-	fname = "data.sav" # name of data file 
-	library(foreign) # loads required package for read/write function for SPSS files 
-	file <- read.spss(fname, use.value.labels = FALSE) 
-	# reads the data into the data frame called file, factor levels are read as numeric codes
+   setwd("/Users/World Bank") # working directory with data file 
+   fname = "data.sav" # name of data file 
+   library(haven) # loads required package for read/write function for SPSS files 
+   file <- read_sav(fname) 
+   # reads the data into the data frame called file
 
 The maximum data size in *R* is technically restricted. The maximum size
 depends on the *R* build (32-bit or 64-bit) and the operating system.
-Some SDC methods require long computation times for large datasets (see the section 
+Some SDC methods require long computation times for large datasets (see the Section 
 on `Computation time`_).
 
 
@@ -166,8 +164,8 @@ correctly applied to the data. :numref:`code76` shows how to recode the value
    :caption: Recoding missing values to NA
    :name: code76
    
-	file[file[,'toilet'] == 99,'toilet'] <- NA 
-	# Recode missing value code 99 to NA for variable toilet
+   file[file[,'toilet'] == 99,'toilet'] <- NA 
+   # Recode missing value code 99 to NA for variable toilet
 
 Classes in R
 ------------
@@ -195,15 +193,15 @@ class is described in the next section.
    :caption: Changing the class of an object in *R*
    :name: code77
    
-	# Finding out the class of the object ‘file’ 
-	class(file) 
-	"matrix" 
-	
-	# Changing the class to data frame 
-	file <- as.data.frame(file) 
-	
-	# Checking the result class(file) 
-	"data.frame"
+   # Finding out the class of the object ‘file’ 
+   class(file) 
+   "matrix" 
+   
+   # Changing the class to data frame 
+   file <- as.data.frame(file) 
+   
+   # Checking the result class(file) 
+   "data.frame"
 
 Objects of class *sdcMicroObj*
 ------------------------------
@@ -236,12 +234,15 @@ practice gives a better overview and later allows for quick changes in
 the variable choices if required. We choose the categorical
 quasi-identifiers (keyVars); the variables linked to the categorical
 quasi-identifiers that need the same suppression pattern (ghostVars, see the 
-`Ghostvars`_ section); the numerical quasi-identifiers (numVars); the variables
+Section `Local suppression <anon_methods.html#Local suppression>`__); 
+the numerical quasi-identifiers (numVars); the variables
 selected for applying PRAM (pramVars); a variable with sampling weights
-(weightVar); the clustering ID (hhId, e.g., a household ID, see Section
-4.9); a variable specifying the strata (strataVar) and the sensitive
+(weightVar); the clustering ID (hhId, e.g., a household ID, see the Section
+`Household risk <measure_risk.html#Household risk>`__); 
+a variable specifying the strata (strataVar) and the sensitive
 variables specified for the computation of :math:`l`-diversity
-(sensibleVar , see Section 4.5.3). 
+(sensibleVar , see the Section 
+`l-diversity <measure_risk.html#l-diversity>`__). 
 
 .. NOTE:: 
 	Most SDC methods in the 
@@ -265,93 +266,93 @@ sufficient to write the name of the object.
    :caption: Selecting variables and creating an object of class *sdcMicroObj* for the SDC process in *R*
    :name: code78
    
-	# Select variables for creating sdcMicro object 
-	# All variable names should correspond to the names in the data file 
-	# selected categorical key variables 
-	selectedKeyVars = c('region', 'age', 'gender', 'marital', 'empstat') 
-	
-	# selected linked variables (ghost variables) 
-	selectedGhostVars = c('urbrur') 
-	
-	# selected categorical numerical variables 
-	selectedNumVar = c('wage', 'savings') 
-	
-	# weight variable 
-	selectedWeightVar = c('wgt') 
-	
-	# selected pram variables 
-	selectedPramVars = c('roof', 'wall') 
-	
-	# household id variable (cluster) 
-	selectedHouseholdID = c('idh') 
-	
-	# stratification variable 
-	selectedStrataVar = c('strata') 
-	
-	# sensitive variables for l-diversity computation 
-	selectedSensibleVar = c('health') 
-	
-	# creating the sdcMicro object with the assigned variables 
-	sdcInitial <- createSdcObj(dat         = file, 
-							   keyVars     = selectedKeyVars,
-						       ghostVars   = selectedGhostVars,
-						       numVar      = selectedNumVar,
-						       weightVar   = selectedWeightVar,
-						       pramVars    = selectedPramVars,
-						       hhId        = selectedHouseholdID,
-	                           strataVar   = selectedStrataVar, 
-	                           sensibleVar = selectedSensibleVar) 
-	
-	# Summary of object 
-	sdcInitial 
-	
-	## Data set with 4580 rows and 14 columns. 
-	## --> Categorical key variables: region, age, gender, marital, empstat 
-	## --> Numerical key variables: wage, savings 
-	## --> Weight variable: wgt 
-	## --------------------------------------------------------------------------- 
-	## 
-	## Information on categorical Key-Variables: 
-	## 
-	## Reported is the number, mean size and size of the smallest category for recoded variables. 
-	## In parenthesis, the same statistics are shown for the unmodified data. 
-	## Note: NA (missings) are counted as seperate categories! 
-	## 
-	## Key Variable Number of categories Mean size 
-	## region 2 (2) 2290.000 (2290.000) 
-	## age 5 (5) 916.000 (916.000) 
-	## gender 3 (3) 1526.667 (1526.667) 
-	## marital 8 (8) 572.500 (572.500) 
-	## empstat 3 (3) 1526.667 (1526.667) 
-	## 
-	## Size of smallest 
-	## 646 (646) 
-	## 16 (16) 
-	## 50 (50) 
-	## 26 (26) 
-	## 107 (107) 
-	## --------------------------------------------------------------------------- 
-	## 
-	## Infos on 2/3-Anonymity: 
-	## 
-	## Number of observations violating 
-	## - 2-anonymity: 157 
-	## - 3-anonymity: 281 
-	## 
-	## Percentage of observations violating 
-	## - 2-anonymity: 3.428 % 
-	## - 3-anonymity: 6.135 % 
-	## --------------------------------------------------------------------------- 
-	## 
-	## Numerical key variables: wage, savings 
-	## 
-	## Disclosure risk is currently between [0.00%; 100.00] 
-	## 
-	## Current Information Loss: 
-	## IL1: 0.00 
-	## Difference of Eigenvalues: 0.000% 
-	## ---------------------------------------------------------------------------
-
+   # Select variables for creating sdcMicro object 
+   # All variable names should correspond to the names in the data file 
+   # selected categorical key variables 
+   selectedKeyVars = c('region', 'age', 'gender', 'marital', 'empstat') 
+   
+   # selected linked variables (ghost variables) 
+   selectedGhostVars = c('urbrur') 
+   
+   # selected categorical numerical variables 
+   selectedNumVar = c('wage', 'savings') 
+   
+   # weight variable 
+   selectedWeightVar = c('wgt') 
+   
+   # selected pram variables 
+   selectedPramVars = c('roof', 'wall') 
+   
+   # household id variable (cluster) 
+   selectedHouseholdID = c('idh') 
+   
+   # stratification variable 
+   selectedStrataVar = c('strata') 
+   
+   # sensitive variables for l-diversity computation 
+   selectedSensibleVar = c('health') 
+   
+   # creating the sdcMicro object with the assigned variables 
+   sdcInitial <- createSdcObj(dat         = file, 
+   						   keyVars     = selectedKeyVars,
+   					       ghostVars   = selectedGhostVars,
+   					       numVar      = selectedNumVar,
+   					       weightVar   = selectedWeightVar,
+   					       pramVars    = selectedPramVars,
+   					       hhId        = selectedHouseholdID,
+                              strataVar   = selectedStrataVar, 
+                              sensibleVar = selectedSensibleVar) 
+   
+   # Summary of object 
+   sdcInitial 
+   
+   ## Data set with 4580 rows and 14 columns. 
+   ## --> Categorical key variables: region, age, gender, marital, empstat 
+   ## --> Numerical key variables: wage, savings 
+   ## --> Weight variable: wgt 
+   ## --------------------------------------------------------------------------- 
+   ## 
+   ## Information on categorical Key-Variables: 
+   ## 
+   ## Reported is the number, mean size and size of the smallest category for recoded variables. 
+   ## In parenthesis, the same statistics are shown for the unmodified data. 
+   ## Note: NA (missings) are counted as seperate categories! 
+   ## 
+   ## Key Variable Number of categories Mean size 
+   ## region 2 (2) 2290.000 (2290.000) 
+   ## age 5 (5) 916.000 (916.000) 
+   ## gender 3 (3) 1526.667 (1526.667) 
+   ## marital 8 (8) 572.500 (572.500) 
+   ## empstat 3 (3) 1526.667 (1526.667) 
+   ## 
+   ## Size of smallest 
+   ## 646 (646) 
+   ## 16 (16) 
+   ## 50 (50) 
+   ## 26 (26) 
+   ## 107 (107) 
+   ## --------------------------------------------------------------------------- 
+   ## 
+   ## Infos on 2/3-Anonymity: 
+   ## 
+   ## Number of observations violating 
+   ## - 2-anonymity: 157 
+   ## - 3-anonymity: 281 
+   ## 
+   ## Percentage of observations violating 
+   ## - 2-anonymity: 3.428 % 
+   ## - 3-anonymity: 6.135 % 
+   ## --------------------------------------------------------------------------- 
+   ## 
+   ## Numerical key variables: wage, savings 
+   ## 
+   ## Disclosure risk is currently between [0.00%; 100.00] 
+   ## 
+   ## Current Information Loss: 
+   ## IL1: 0.00 
+   ## Difference of Eigenvalues: 0.000% 
+   ## ---------------------------------------------------------------------------
+  
 :numref:`tab72` presents the names of the slots and their respective contents.
 The slot names can be listed using the function slotNames(), which is
 illustrated in :numref:`code79`. Not all slots are used in all cases. Some
@@ -376,31 +377,28 @@ risk in the risk slot.
    :caption: Displaying slot names and accessing slots of an S4 object
    :name: code79
 
-	# List names of all slots of sdcMicro object
-	slotNames(sdcInitial)
-
-	##  [1] "origData"          "keyVars"           "pramVars"
-	##  [4] "numVars"           "ghostVars"         "weightVar"
-	##  [7] "hhId"              "strataVar"         "sensibleVar"
-	## [10] "manipKeyVars"      "manipPramVars"     "manipNumVars"
-	## [13] "manipGhostVars"    "manipStrataVar"    "originalRisk"
-	## [16] "risk"              "utility"           "pram"
-	## [19] "localSuppression"  "options"           "additionalResults"
-	## [22] "set"               "prev"              "deletedVars"
-
-	# Accessing the risk slot
-	sdcInitial@risk
-
-	# List names within the risk slot
-	names(sdcInitial@risk)
-
-	## [1] "global"  "individual"  "numeric"
-
-	# Two ways to access the individual risk within the risk slot
-
-	sdcInitial@risk$individual
-
-	get.sdcMicroObj(sdcInitial, "risk")$individual
+   # List names of all slots of sdcMicro object
+   slotNames(sdcInitial)
+   
+   ##  [1] "origData"          "keyVars"           "pramVars"
+   ##  [4] "numVars"           "ghostVars"         "weightVar"
+   ##  [7] "hhId"              "strataVar"         "sensibleVar"
+   ## [10] "manipKeyVars"      "manipPramVars"     "manipNumVars"
+   ## [13] "manipGhostVars"    "manipStrataVar"    "originalRisk"
+   ## [16] "risk"              "utility"           "pram"
+   ## [19] "localSuppression"  "options"           "additionalResults"
+   ## [22] "set"               "prev"              "deletedVars"
+   
+   # Accessing the risk slot
+   sdcInitial@risk
+   
+   # List names within the risk slot
+   names(sdcInitial@risk)
+   ## [1] "global"  "individual"  "numeric"
+   
+   # Two ways to access the individual risk within the risk slot
+   sdcInitial@risk$individual
+   get.sdcMicroObj(sdcInitial, "risk")$individual
 
 .. _tab72:
 
@@ -473,21 +471,20 @@ There are two options to save the results after applying SDC methods:
    altered and can be used for comparing results. This is especially
    useful for comparing several methods and selecting the best option.
 
-   In both cases, the result of any function has to be re-assigned to an
-   object with the ‘<-‘ operator. Both methods are illustrated in
-   :numref:`code710`.
+In both cases, the result of any function has to be re-assigned to an
+object with the ‘<-‘ operator. Both methods are illustrated in
+:numref:`code710`.
 
 .. code-block:: R
    :linenos:
    :caption: Saving results of applying SDC methods
    :name: code710
    
-	# Applying local suppression and reassigning the results to the same sdcMicro object
-	sdcInitial <- localSuppression(sdcInitial)
-
-	# Applying local suppression and assigning the results to a new
-	sdcMicro object
-	sdc1 <- localSuppression(sdcInitial)
+   # Applying local suppression and reassigning the results to the same sdcMicro object
+   sdcInitial <- localSuppression(sdcInitial)
+   
+   # Applying local suppression and assigning the results to a new sdcMicro object
+   sdc1 <- localSuppression(sdcInitial)
 
 If the results are reassigned to the same *sdcMicro* object, it is
 possible to undo the last step in the SDC process. This is useful when
@@ -506,15 +503,17 @@ to the same object. This is illustrated in :numref:`code711`.
    :caption: Undo last step in SDC process
    :name: code711
    
-	# Undo last step in SDC process
-	sdcInitial <- undolast(sdcInitial)
+   # Undo last step in SDC process
+   sdcInitial <- undolast(sdcInitial)
 
 Household structure
 -------------------
 
 If the data has a hierarchical structure and some variables are measured
 on the higher hierarchical level and others on the lower level, the SDC
-process should be adapted accordingly (see also Sections 4.9 and 5.5). A
+process should be adapted accordingly (see also the Sections 
+`Household risk <measure_risk.html#Household risk>`__ and 
+`Anonymization of the quasi-identifier household size <anon_methods.html#Anonymization of the quasi-identifier household size>`__). A
 common example in social survey data is datasets with a household
 structure. Variables that are measured on the household level are, for
 example, household income, type of house and region. Variables measured
@@ -554,16 +553,15 @@ across households.
    :caption: Create a household level file with unique records (remove duplicates)
    :name: code712
    
-	# Create subset of file with only variables measured at household level
-
-	HHVars <- c('region', 'hhincome')
-	fileHH <- file[,HHVars]
-	# Remove duplicated rows based on the household ID / only every
-	household once in fileHH*
-	fileHH <- unique(fileHH, by = c('HID'))
-
-	# Dimensions of fileHH (number of households)
-	dim(fileHH)
+   # Create subset of file with only variables measured at household level
+   HHVars <- c('region', 'hhincome')
+   fileHH <- file[,HHVars]
+   
+   # Remove duplicated rows based on the household ID / only every household once in fileHH
+   fileHH <- unique(fileHH, by = c('HID'))
+   
+   # Dimensions of fileHH (number of households)
+   dim(fileHH)
 
 After anonymizing the household variables based on the dataframe
 “fileHH”, we recombine the anonymized household variables with the
@@ -583,19 +581,22 @@ steps are illustrated in :numref:`code713`.
    :caption: Merging anonymized household-level variables with individual-level variables
    :name: code713
    
-	# Extract manipulated household level variables from the SDC object*
-	HHmanip <- extractManipData(sdcHH)
-	# Create subset of file with only variables measured at individual level
-	fileIND <- file[,INDVars]
-
-	# Merge the file by using the household ID*
-	fileCombined <- merge(HHmanip, fileIND, by = c('HID'))
+   # Extract manipulated household level variables from the SDC object
+   HHmanip <- extractManipData(sdcHH)
+   
+   # Create subset of file with only variables measured at individual level
+   fileIND <- file[,INDVars]
+   
+   # Merge the file by using the household ID
+   fileCombined <- merge(HHmanip, fileIND, by = c('HID'))
 
 The file *fileCombined* is used for the SDC process with the entire
 dataset. How to deal with data with household structure is illustrated
-in the case studies in Chapter 9.
+in the case studies in the Section `Case studies <case_studies.html>`__.
 
-As discussed in Section 5.5, the size of a household can also be a
+As discussed in the Section
+`Anonymization of the quasi-identifier household size <anon_methods.html#Anonymization of the quasi-identifier household size>`__),
+the size of a household can also be a
 quasi-identifier, even if the household size is not included in the
 dataset as variable. For the purpose of evaluating the disclosure risk,
 it might be necessary to create such a variable by a headcount of the
@@ -609,15 +610,12 @@ the file not sorted.
    :caption: Generating the variable household size
    :name: code714
    
-	# Sorted by HID
-
-	file$hhsize <- rep(unname(table(file$HID)),
-	unname(table(file$HID)))
-
-
-	# Unsorted
-	file$hhsize <- rep(diff(c(1, 1 + which(diff(file$HID) != 0), length(b)+1)),
-	diff(c(1, 1 + which(diff(file$HID) != 0), length(file$HID) + 1)))
+   # Sorted by HID
+   file$hhsize <- rep(unname(table(file$HID)), unname(table(file$HID)))
+   
+   # Unsorted
+   file$hhsize <- rep(diff(c(1, 1 + which(diff(file$HID) != 0), length(file$HID) + 1)),
+                      diff(c(1, 1 + which(diff(file$HID) != 0), length(file$HID) + 1)))
 
 .. NOTE:: 
 	In some cases, the order of the individuals within the
@@ -639,16 +637,17 @@ each household at random. :numref:`code715` illustrates a way to do this in
    :caption: Changing the order of individuals within households
    :name: code715
    
-	# List of household sizes by household
-	hhsize <- diff(c(1, 1 + which(diff(file$HID) != 0), length(file$HID) + 1))
-
-	# Line numbers randomly assigned within each household
-	set.seed(123)
-	dataAnon$INDID <- unlist(lapply(hhsize,
-  	function(n){sample(1:n, n, replace = FALSE, prob = rep(1/n, n))}))
-
-	# Order the file by HID and randomized INDID (line number)
-	dataAnon <- dataAnon[order(dataAnon$HID, dataAnon$INDID),]
+   # List of household sizes by household
+   hhsize <- diff(c(1, 1 + which(diff(file$HID) != 0), length(file$HID) + 1))
+   
+   # Line numbers randomly assigned within each household
+   set.seed(123)
+   dataAnon$INDID <- unlist(lapply(hhsize,
+                                   function(n){sample(1:n, n, replace = FALSE, 
+                                                      prob = rep(1/n, n))}))
+   
+   # Order the file by HID and randomized INDID (line number)
+   dataAnon <- dataAnon[order(dataAnon$HID, dataAnon$INDID),]
 
 Randomizing order and numbering of individuals or households
 ------------------------------------------------------------
@@ -697,8 +696,8 @@ household ID (first digit).
    :align: center
    
    ==============  ========  ==========  ==============  ========  ==========  ================  ========  ==========
-    | Original dataset                   | Dataset with randomized             | Dataset for release ordered by the
-                                         | household ID                        | new randomized household ID 
+    Original dataset                      Dataset with randomized               | Dataset for release ordered by the
+                                          household ID                          | new randomized household ID 
    ------------------------------------  ------------------------------------  --------------------------------------
    | Household     | Region  | District  | Randomized    | Region  | District   | Randomized     | Region  | District 
    | ID            |         |           | household ID  |         |            | household ID   |         |
@@ -738,16 +737,17 @@ number generator.
    :caption: Randomize order of households
    :name: code716
    
-	n <- length(file$HID) # number of households
-
-	set.seed(123) # set seed
-	file$HIDrandom <- sample(1:n, n, replace = FALSE, prob =
-	rep(1/n, n)) # generate random HID
-
-	file <- file1[order(file$regionid, file$HIDrandom),] 
-	# sort file by regionid and random HID
-
-	file$HIDrandom <- 1:n # renumber the households in randomized order to 1-n
+   n <- length(file$HID) # number of households
+   
+   set.seed(123) # set seed
+   # generate random HID
+   file$HIDrandom <- sample(1:n, n, replace = FALSE, prob = rep(1/n, n)) 
+   
+   # sort file by regionid and random HID
+   file <- file1[order(file$regionid, file$HIDrandom),]
+    
+   # renumber the households in randomized order to 1-n
+   file$HIDrandom <- 1:n 
 
 Computation time 
 -----------------
@@ -766,7 +766,7 @@ variables in the data); as well as the computer/server specifications.
 :numref:`tab74` gives some indication of computation times for different
 methods on datasets of different size and complexity based on findings
 from our experiments. The selected quasi-identifiers and categories for
-those variables in :numref:`tab73` are the same in both datasets being
+those variables in :numref:`tab74` are the same in both datasets being
 compared. Because it is impossible to predict the exact computation
 time, this table should be used to illustrate how long computations may
 take. These methods have been executed on a powerful server. Given long
@@ -865,7 +865,8 @@ parallelization. If you want to compare the results of different methods
 on large datasets that require long computation times, using parallel
 computing can be a solution. [#foot70]_
 
-Appendix D zooms in on seven selected datasets from a health survey that
+`Appendix D <appendices.html#Appendix D: Execution Times for Multiple Scenarios Tested using Selected Sample Data>`__
+zooms in on seven selected datasets from a health survey that
 were processed using the same parallelization program and anonymization
 methods. Note that the computation times in the appendix are only meant
 to create awareness for expected computation time, and may vary based on
@@ -877,7 +878,9 @@ processed on the server using the same number of processors (datasets 1,
 2 and 6), some variation also exists in the computation times. 
 
 .. NOTE:: 
-	Computation time in the table in Appendix D includes recalculating
+	Computation time in the table in 
+	`Appendix D <appendices.html#Appendix D: Execution Times for Multiple Scenarios Tested using Selected Sample Data>`__
+	includes recalculating
 	the risk after applying the anonymization methods, which is
 	automatically done in sdcMicro when using standard methods/functions.
 
@@ -894,8 +897,8 @@ anonymization of microdata:
 
 -  The class of a certain variable is not accepted by the function,
    e.g., a categorical variable of class numeric should be first recoded
-   to the required class (e.g., factor or data.frame). Section 7.4 shows
-   how to do this.
+   to the required class (e.g., factor or data.frame). In the Section
+   `Classes in R`_ is shown how to do this.
 
 -  After manually making changes to variables the risk did not change,
    since it is not updated automatically and has to be manually
@@ -915,25 +918,9 @@ anonymization of microdata:
    software package. We refer to the help files of the read and write
    functions for more information.
 
-.. [#foot63]
-   The function read.dta() in the package *foreign* does not support
-   the *STATA* file format from *STATA* 13 and *STATA* 14. Two solutions
-   are to use the ‘saveold’ command in *STATA* 13 or 14 that saves the
-   file in the old format that can be read by the function read.dta().
-   Alternatively, one could use the function read.dta13() from the
-   package *readstata13*.
-
-.. [#foot64]
-   The function read.dta() in the package *foreign* does not support
-   the *STATA* file format from *STATA* 13 and *STATA* 14. Two solutions
-   are to use the ‘saveold’ command in *STATA* 13 or 14 that saves the
-   file in the old format that can be read by the function read.dta().
-   Alternatively, one could use the function read.dta13() from the
-   package *readstata13*.
-
 .. [#foot65]
-   This is regardless of the class of the variable in *R*. See Section
-   7.4 for more on classes in *R*.
+   This is regardless of the class of the variable in *R*. See the Section
+   `Classes in R`_ for more on classes in *R*.
 
 .. [#foot66]
    Class *sdcMicroObj* has S4 objects, which have slots or attributes
@@ -954,6 +941,7 @@ anonymization of microdata:
    The following website provides an overview of parallelization
    packages and solutions in *R*:
    http://cran.r-project.org/web/views/HighPerformanceComputing.html.
-   .. NOTE:: 
-   		Solutions are platform-dependent and therefore our solution
-   		is not further presented.
+   
+   .. NOTE::
+   	   Solutions are platform-dependent and therefore our solution
+   	   is not further presented.

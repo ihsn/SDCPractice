@@ -1,7 +1,7 @@
 Anonymization Methods
 =====================
 
-This chapter describes the SDC methods most commonly used. All methods
+This Section describes the SDC methods most commonly used. All methods
 are implementable in *R* by using the *sdcMicro* package. We discuss for
 every method for what type of data the method is suitable, both in terms
 of data characteristics and type of data. Furthermore, options such as
@@ -9,15 +9,16 @@ specific parameters for each method are discussed as well as their
 impacts. [#foot34]_ These findings are meant as guidance but
 should be used with caution, since every dataset has different
 characteristics and our findings may not always address your particular
-dataset. The last three sections of this chapter are on the
+dataset. The last three sections are on the
 anonymization of variables and datasets with particular characteristics
 that deserve special attention. The Section 
-`Anonymization of geospatial variables <anon_methods.html#Anonymization of geospatial variables>`_
+`Anonymization of geospatial variables`_
 deals with for anonymizing
 geographical data, such as GPS coordinates, the Section 
-`Anonymization of the quasi-identifier household size <anon_methods.html#Anonymization of the quasi-identifier household size>`_ discusses the
+`Anonymization of the quasi-identifier household size`_ discusses the
 anonymization of data with a hierarchical structure (household
-structure) and the Section `Special case: census data <anon_methods.html#Special case: census data>`_ describes the peculiarities of dealing with
+structure) and the Section 
+`Special case: census data`_ describes the peculiarities of dealing with
 and releasing census microdata.
 
 To determine which anonymization methods are suitable for specific
@@ -38,8 +39,8 @@ SDC methods can be classified as **non-perturbative** and
    perturb (i.e., alter) values to limit disclosure risk by creating
    uncertainty around the true values.
 
-   Both non-perturbative and perturbative methods can be used for
-   categorical and continuous variables.
+Both non-perturbative and perturbative methods can be used for
+categorical and continuous variables.
 
 We also distinguish between **probabilistic** and **deterministic** SDC
 methods.
@@ -66,7 +67,7 @@ package, we discuss only SDC methods that are implemented in the
 *sdcMicro* package or can be easily implemented in *R*. These are the
 most commonly applied methods from the literature and used in most
 agencies experienced in using these methods. :numref:`tab51` gives an overview
-of the SDC methods discussed in this chapter, their classification,
+of the SDC methods discussed in this guide, their classification,
 types of data to which they are applicable and their function names in
 the *sdcMicro* package.
 
@@ -205,7 +206,7 @@ as well as defining which values are grouped together in new categories.
 
 We illustrate this with three examples:
 
--  Age variable: The categories of age should be chosen so that they
+-  *Age variable*: The categories of age should be chosen so that they
    still allow data users to make calculations relevant for the subject
    being studied. For example, if indicators need to be calculated for
    children of school going ages 6 – 11 and 12 – 17, and age needs to be
@@ -223,7 +224,7 @@ We illustrate this with three examples:
    part of the distribution, as this might increase the information loss
    due to the other methods, since the grouping does not protect the
    ungrouped variables. Partial recoding followed by suppression methods
-   such as local suppression may, for instance, leads to a higher number
+   such as local suppression may, for instance, lead to a higher number
    of suppressions than desired or necessary in case the recoding is
    done for the entire value range (see the next section on local
    suppression). In the example above, the number of suppressions of
@@ -232,7 +233,8 @@ We illustrate this with three examples:
    range of values that are not recoded can lead to higher utility loss
    for these groups.
 
--  Geographic variables: If the original data specify administrative
+
+-  *Geographic variables*: If the original data specify administrative
    level information in detail, e.g., down to municipality level, then
    potentially those lower levels could be recoded or aggregated into
    higher administrative levels, e.g., province, to reduce risk. In
@@ -249,7 +251,8 @@ We illustrate this with three examples:
    need information at a more detailed level, other methods such as
    perturbative methods might provide a better solution than recoding.
 
--  Toilet facility: An example of a situation where a high level of
+
+-  *Toilet facility*: An example of a situation where a high level of
    detail might not be necessary and recoding may do very little harm to
    utility is the case of a detailed household toilet facility variable
    that lists responses for 20 types of toilets. Researchers may only
@@ -304,21 +307,24 @@ on how to change the class of a variable.
    :caption:  Using the sdcMicro function groupVars() to recode a categorical variable
    :name: code51
 
-    # Frequencies of sizeRes before recoding
-    table(sdcInitial@manipKeyVars$sizeRes)
-    ## capital, large city          small city             town       countryside
-    ##                 686                 310              146              1358
+   # Frequencies of sizeRes before recoding
+   table(sdcInitial@manipKeyVars$sizeRes)
+   ## capital, large city          small city             town       countryside
+   ##                 686                 310              146              1358
 
-    # Recode urban
-    sdcInitial  <-  groupVars(obj = sdcInitial, var = c("sizeRes"), before = c("capital, large city", "small city", "town"), after = c("urban", "urban", "urban"))
+   # Recode urban
+   sdcInitial  <-  groupVars(obj = sdcInitial, var = c("sizeRes"), 
+                             before = c("capital, large city", "small city", "town"), 
+                             after = c("urban", "urban", "urban"))
 
-    # Recode rural
-    sdcInitial  <-  groupVars(obj = sdcInitial, var = c("sizeRes"), before = c("countryside"), after = c("rural"))
+   # Recode rural
+   sdcInitial  <-  groupVars(obj = sdcInitial, var = c("sizeRes"), 
+                             before = c("countryside"), after = c("rural"))
 
-    # Frequencies of sizeRes before recoding
-    table(sdcInitial@manipKeyVars$sizeRes)
-    ## urban rural
-    ##  1142  1358
+   # Frequencies of sizeRes before recoding
+   table(sdcInitial@manipKeyVars$sizeRes)
+   ## urban rural
+   ##  1142  1358
 
 :numref:`fig51` illustrates the effect of recoding the variable “sizeRes” and
 show respectively the frequency counts before and after recoding. We see
@@ -354,12 +360,13 @@ Therefore, the intervals should cover the entire value range of the variable.
    :caption: Using the *sdcMicro* function globalRecode() to recode a continuous variable (age)
    :name: code52
    
-    sdcInitial <- globalRecode(sdcInitial, column = c('age'), breaks = 10 * c(0:10))
+   sdcInitial <- globalRecode(sdcInitial, column = c('age'), 
+                              breaks = 10 * c(0:10))
 
-    # Frequencies of age after recoding
-    table(sdcInitial@manipKeyVars$age)
-    ##   (0,10]  (10,20]  (20,30]  (30,40]  (40,50]  (50,60]  (60,70]  (70,80]  (80,90]  (90,100]
-    ##      462      483      344      368      294      214      172       94   	 26         3
+   # Frequencies of age after recoding
+   table(sdcInitial@manipKeyVars$age)
+   ##   (0,10]  (10,20]  (20,30]  (30,40]  (40,50]  (50,60]  (60,70]  (70,80]  (80,90]  (90,100]
+   ##      462      483      344      368      294      214      172       94       26         3
 
 
 :numref:`fig52` shows the effect of recoding the variable “age”.
@@ -387,13 +394,13 @@ and employment. :numref:`fig53` shows the effect of recoding the variable
    :caption: Using globalRecode() to create intervals of unequal width
    :name: code53
  
-    sdcInitial <- globalRecode(sdcInitial, column = c('age'), breaks = c(0, 5, 11, 17, 21, 25, 49, 65, 100))
+   sdcInitial <- globalRecode(sdcInitial, column = c('age'), 
+                              breaks = c(0, 5, 11, 17, 21, 25, 49, 65, 100))
 
-    # Frequencies of age after recoding
-    table(sdcInitial@manipKeyVars$age)
-    ##    (0,5]   (5,11]  (11,17]  (17,21]  (21,25]  (25,49]  (49,65] (65,100]
-    ##      192      317      332      134      142      808      350      185
-
+   # Frequencies of age after recoding
+   table(sdcInitial@manipKeyVars$age)
+   ##    (0,5]   (5,11]  (11,17]  (17,21]  (21,25]  (25,49]  (49,65] (65,100]
+   ##      192      317      332      134      142      808      350      185
 
 .. _fig53:
 
@@ -406,7 +413,7 @@ Caution about using the globalRecode() function in *sdcMicro*: In the
 current implementation of *sdcMicro*, the intervals are defined as
 **left-open**. In mathematical terms, this means that, in our example,
 age 0 is excluded from the specified intervals. In interval notation,
-this is denoted as (0, 5] (as in x-axis labels in :numref:`fig52` and 
+this is denoted as (0, 5] (as in :math:`x`-axis labels in :numref:`fig52` and 
 :numref:`fig53` for the recoded variable). The interval (0, 5] is
 interpreted as from 0 to 5 and does not include 0, but does include 5.
 *R* recodes values that are not contained in any of the intervals as
@@ -436,7 +443,9 @@ global recoding:
    :caption: Constructing right-open intervals for semi-continuous variables using built-in *sdcMicro* function globalRecode()
    :name: code54
 
-      sdcInitial <- globalRecode(sdcInitial, column = c('age'), breaks = c(-0.1, 14.9, 64.9, 99.9), labels = c('[0,15)', '[15,65)', '[65,100)'))
+   sdcInitial <- globalRecode(sdcInitial, column = c('age'), 
+                              breaks = c(-0.1, 14.9, 64.9, 99.9), 
+                              labels = c('[0,15)', '[15,65)', '[65,100)'))
 
 -  It is also possible to use *R* code to manually recode the variables
    without using *sdcMicro* functions. When using the built-in
@@ -453,24 +462,24 @@ global recoding:
    :caption: Constructing intervals for semi-continuous and continuous variables using manual recoding in *R*
    :name: code55
 
-      # Group age 0-14
-    sdcInitial@manipKeyVars$age[sdcInitial@manipKeyVars$age >= 0 &
-    sdcInitial@manipKeyVars$age < 15] <- 0
-
-    # Group age 15-64
-    sdcInitial@manipKeyVars$age[sdcInitial@manipKeyVars$age >= 15 &
-    sdcInitial@manipKeyVars$age < 65] <- 1
-
-    # Group age 65-100
-    sdcInitial@manipKeyVars$age[sdcInitial@manipKeyVars$age >= 65 &
-    sdcInitial@manipKeyVars$age <= 100] <- 2
-
-    # Add labels for the new values
-    sdcInitial@manipKeyVars$age <-ordered(sdcInitial@manipKeyVars$age,
-    levels = c(0,1,2), labels = c("0-14", "15-64", "65-100"))
-
-    # Recalculate risk after manual manipulation
-    sdcInitial <- calcRisks(sdcInitial)
+   # Group age 0-14
+   sdcInitial@manipKeyVars$age[sdcInitial@manipKeyVars$age >= 0 &
+   sdcInitial@manipKeyVars$age < 15] <- 0
+ 
+   # Group age 15-64
+   sdcInitial@manipKeyVars$age[sdcInitial@manipKeyVars$age >= 15 &
+   sdcInitial@manipKeyVars$age < 65] <- 1
+ 
+   # Group age 65-100
+   sdcInitial@manipKeyVars$age[sdcInitial@manipKeyVars$age >= 65 &
+   sdcInitial@manipKeyVars$age <= 100] <- 2
+ 
+   # Add labels for the new values
+   sdcInitial@manipKeyVars$age <-ordered(sdcInitial@manipKeyVars$age,
+   levels = c(0,1,2), labels = c("0-14", "15-64", "65-100"))
+ 
+   # Recalculate risk after manual manipulation
+   sdcInitial <- calcRisks(sdcInitial)
 
 
 Top and bottom coding
@@ -507,7 +516,7 @@ grouped requires:
    to 64, then top and bottom coding should not interfere with the
    categories 15 to 64. Otherwise the analyst would find it impossible
    to create the desired measures for which the data were intended. In
-   the example, we consider this and code all age larger than 64.
+   the example, we consider this and code all age higher than 64.
 
 .. _fig54:
 
@@ -530,11 +539,13 @@ in the previous subsection.
    :caption: Top coding and bottom coding in *sdcMicro* using topBotCoding() function
    :name: code56
 
-    # Top coding at age 65
-    sdcInitial <- topBotCoding(obj = sdcInitial, value = 65, replacement = 65, kind = 'top', column = 'age')
+   # Top coding at age 65
+   sdcInitial <- topBotCoding(obj = sdcInitial, value = 65, replacement = 65, 
+                              kind = 'top', column = 'age')
 
-    # Bottom coding at age 5
-    sdcInitial <- topBotCoding(obj = sdcInitial, value = 5, replacement = 5, kind = 'bottom', column = 'age')
+   # Bottom coding at age 5
+   sdcInitial <- topBotCoding(obj = sdcInitial, value = 5, replacement = 5, 
+                              kind = 'bottom', column = 'age')
 
 
 Rounding
@@ -564,7 +575,7 @@ suppressions.
 	Templ, Matthias, Bernhard Meindl, Alexander Kowarik, and Shuang Chen.
 	2014. Statistical Disclosure Control (SDCMicro).
 	http://www.ihsn.org/home/software/disclosure-control-toolbox. (accessed
-	November 13, 2014).
+	June 9, 2018).
 	
 	De Waal, A.G., and Willenborg, L.C.R.J. 1999. *Information loss through
 	global recoding and local suppression*. Netherlands Official Statistics,
@@ -577,13 +588,13 @@ It is common in surveys to encounter values for certain variables or
 combinations of quasi-identifiers (keys) that are shared by very few
 individuals. When this occurs, the risk of re-identification for those
 respondents is higher than the rest of the respondents (see
-the section on `k-anonymity <measure_risk.html#k-anonimity>`__). 
+the Section `k-anonymity <measure_risk.html#k-anonimity>`__). 
 Often local suppression is used
 after reducing the number of keys in the data by recoding the
 appropriate variables. Recoding reduces the number of necessary
 suppressions as well as the computation time needed for suppression.
 Suppression of values means that values of a variable are replaced by a
-missing value (NA in *R*). The the Section on `k-anonymity <measure_risk.html#k-anonimity>`__
+missing value (NA in *R*). The the Section `k-anonymity <measure_risk.html#k-anonimity>`__
 discusses how missing values influence frequency counts and
 :math:`k`-anonymity. It is important to note that not all values for all
 individuals of a certain variable are suppressed, which would be the
@@ -725,7 +736,8 @@ utility for the data users [#foot40]_.
     # Undoing the supressions
     sdcInitial <- undolast(sdcInitial)
 
-    # Local suppression with importance vector to avoid suppressions in the first (gender) and fourth (age) variables
+    # Local suppression with importance vector to avoid suppressions 
+    # in the first (gender) and fourth (age) variables
     sdcInitial <- localSuppression(sdcInitial, importance = c(5, 1, 1, 5, 5), k = 5)
     print(sdcInitial, 'ls')
     ##     KeyVar | Suppressions (#) | Suppressions (%)
@@ -762,7 +774,7 @@ number of suppressions on age greatly reduces the information loss.
 Since specific age groups have a large influence on the computation of
 these indicators (the rare cases are in the extremes and will be
 suppressed), high suppression rates on age distort the indicators. It is
-generally useful to compare utility measures (see the Chapter on 
+generally useful to compare utility measures (see the Section 
 `Measuring Utility and Information Loss <utility.html>`__ ) to specify
 the importance vector, since the effects can be unpredictable.
 
@@ -778,7 +790,7 @@ factors, which are amongst others: 1) the legal requirements for a safe
 data file; 2) other methods that will be applied to the data; 3) the
 number of suppressions and related information loss resulting from
 higher thresholds; 4) the type of variable; 5) the sample weights and
-sample size; and 6) the release type (see the Section on `Release Types <SDC_intro.html#Release Types>`__ ). 
+sample size; and 6) the release type (see the Section `Release Types <SDC_intro.html#Release Types>`__ ). 
 Commonly applied levels for the :math:`k`-anonymity threshold are 3 and 5.
 
 :numref:`tab55` illustrates the influence of the importance vector and
@@ -799,7 +811,7 @@ number of suppressions and a longer computation time.
 
 .. _tab55:
 
-.. table:: How importance vectors and k-anonymity thresholds affect running time and total number of suppressions
+.. table:: How importance vectors and :math:`k`-anonymity thresholds affect running time and total number of suppressions
    :widths: auto
    :align: center
 
@@ -836,13 +848,13 @@ recoding, the local suppression algorithm takes a long time to compute
 the required suppressions. A solution in such cases can be the so-called
 ‘all-\ :math:`m` approach’ (see `Wolf15`_). The all-\ :math:`m`
 approach consists of applying the local suppression algorithm as
-described above to all possible subsets of size *m* of the total set of
+described above to all possible subsets of size :math:`m` of the total set of
 quasi-identifiers. The advantage of this approach is that the partial
 problems are easier to solve and computation time will be slower.
 Caution should be applied since this method does not necessarily lead to
 :math:`k`-anonymity in the complete set of quasi-identifiers. There are
 two possibilities to reach the same level of protection: 1) to choose a
-higher threshold for *k* or 2) to re-apply the local suppression
+higher threshold for :math:`k` or 2) to re-apply the local suppression
 algorithm on the complete set of quasi-identifiers after using the
 all-\ :math:`m` approach to achieve the required threshold. In the
 second case, the all-\ :math:`m` approach leads to a shorter computation
@@ -856,7 +868,7 @@ Therefore, it is important to evaluate the risk measures carefully after using t
 all-\ :math:`m` approach.
 
 In *sdcMicro* the all-\ :math:`m` approach is implemented in the ‘combs’
-argument in the localSuppression() function. The value for *m* is
+argument in the localSuppression() function. The value for :math:`m` is
 specified in the ‘combs’ argument and can also take on several values.
 The subsets of different sizes are then used sequentially in the local
 suppression algorithm. For example if ‘combs’ is set to c(3,9), first
@@ -864,7 +876,7 @@ all subsets of size 3 are considered and subsequently all subsets of
 size 9. Setting the last value in the combs argument to the total number
 of key variables guarantees the achievement of :math:`k`-anonymity for
 the complete dataset. It is also possible to specify different values
-for *k* for each subset size in the ‘k’ argument. If we would want to
+for :math:`k` for each subset size in the ‘k’ argument. If we would want to
 achieve 5-anonimity on the subsets of size 3 and subsequently
 3-anonimity on the subsets of size 9, we would set the ‘k’ argument to
 c(5,3). :numref:`code58` illustrates the use of the all-\ :math:`m` approach
@@ -872,12 +884,14 @@ in *sdcMicro*.
 
 .. code-block:: R
    :linenos:
-   :caption:  The all-\ :math:`\mathbf{m}` approach in sdcMicro
+   :caption:  The all-\ :math:`m` approach in sdcMicro
    :name: code58
    
-    # Apply k-anonymity with threshold 5 to all subsets of two key variables and subsequently to the complete dataset
+    # Apply k-anonymity with threshold 5 to all subsets of two key variables and 
+    # subsequently to the complete dataset
     sdcInitial <- localSuppression(sdcInitial, k = 5, combs = c(2, 5))
-    # Apply k-anonymity with threshold 5 to all subsets of three key variables and subsequently with threshold 2 to the complete dataset
+    # Apply k-anonymity with threshold 5 to all subsets of three key variables and 
+    # subsequently with threshold 2 to the complete dataset
     sdcInitial <- localSuppression(sdcInitial, k = c(3, 5), combs = c(5, 2))
 
 
@@ -892,19 +906,20 @@ the different combinations do not always lead to the required level of
 quasi-identifiers) that violate 3-anonimity after local suppression. Due
 to the smaller sample size, the gains in running time are not yet
 apparent in this example, since the rerunning algorithm several times
-takes up time. A larger dataset would benefit more from the all-\ *m*
+takes up time. A larger dataset would benefit more from the all-\ :math:`m`
 approach, as the algorithm would take longer in the first place.
 
 .. _tab56:
 
-.. table:: Effect of the all-m approach on k-anonymity
+.. table:: Effect of the all-:math:`m` approach on k-anonymity
    :widths: auto
    :align: center
    
    =========  ===============  ========  ========  ========  ================  ==============
    Arguments                    Number of violators for       Total number      Running time
                                 different levels of           of suppressions   (seconds)
-                                k-anonimity on complete set  
+                                :math:`k`-anonimity on 
+                                complete set  
    --------------------------  ----------------------------  ----------------  --------------
     k          combs            k = 2     k = 3     k = 5
    =========  ===============  ========  ========  ========  ================  ==============
@@ -949,7 +964,8 @@ corresponding to the suppressions in the region variable. All values of
    :name: code59
 
     # Suppress values of rururb in file if region is suppressed
-    file[is.na(sdcInitial@manipKeyVars$region) & !is.na(sdcInitial@origData$region),'sizRes'] <- NA
+    file[is.na(sdcInitial@manipKeyVars$region) & 
+         !is.na(sdcInitial@origData$region),'sizRes'] <- NA
 
 
 Alternatively, the linked variables can be specified when creating the
@@ -966,13 +982,15 @@ the linkage between “region” and “rururb” with ghost variables.
     # Ghost (linked) variables are specified as a list of linkages
     ghostVars <- list()
 
-    # Each linkage is a list, with the first element the key variable and the second element the linked variable(s)
+    # Each linkage is a list, with the first element the key variable and 
+    # the second element the linked variable(s)
     ghostVars[[1]] <- list()
     ghostVars[[1]][[1]] <- "region"
     ghostVars[[1]][[2]] <- c("sizeRes")
 
     ## Create the sdcMicroObj
-    sdcInitial <- createSdcObj(file, keyVars = keyVars, numVars = numVars, weightVar = weight, ghostVars = ghostVars)
+    sdcInitial <- createSdcObj(file, keyVars = keyVars, numVars = numVars, 
+                               weightVar = weight, ghostVars = ghostVars)
 
     # The manipulated ghost variables are in the slot manipGhostVars
     sdcInitial@manipGhostVars
@@ -1021,12 +1039,12 @@ Perturbative methods do not suppress values in the dataset, but perturb
 the true values. An intruder is uncertain whether a match between the
 microdata and an external file is correct or not. Most perturbative
 methods are based on the principle of matrix masking, i.e., the altered
-dataset Z is computed as
+dataset :math:`Z` is computed as
 
-.. math:: Z = \text{AXB} + C
+.. math:: Z = AXB + C
 
-where X is the original data, A is a matrix used to transform the
-records, B is a matrix to transform the variables and C is a matrix with
+where :math:`X` is the original data, :math:`A` is a matrix used to transform the
+records, :math:`B` is a matrix to transform the variables and :math:`C` is a matrix with
 additive noise.
 
 .. NOTE:: 
@@ -1035,7 +1053,7 @@ additive noise.
 
 This can be seen in :numref:`tab57`
 , which displays the same data before and after swapping some values.
-The swapped values are in grey. Both before and after perturbing the
+The swapped values are in italics. Both before and after perturbing the
 data, all observations violate :math:`k`-anonymity at the level 3 (i.e.,
 each key does not appear more than twice in the dataset). Nevertheless,
 the risk of **correct** re-identification of the records is reduced and
@@ -1055,18 +1073,18 @@ disclosed from other variables for that record is correct.
    :widths: auto
    :align: center
    
-   ==========  ========  ========  ==========  ========  ========  ===========
+   ==========  ========  ========  ==========  ==========  ========  =============
     Variable    Original data                   After perturbing the data
-   ----------  ------------------------------  -------------------------------
-    ID          Gender    Region    Education   Gender    Region    Education
-   ==========  ========  ========  ==========  ========  ========  ===========
-     1          female     rural     higher     female     rural     higher  
-     2          female     rural     higher     female     rural     lower   
-     3          male       rural     lower      male       rural     lower   
-     4          male       rural     lower      female     rural     lower   
-     5          female     urban     lower      male       urban     higher  
-     6          female     urban     lower      female     urban     lower   
-   ==========  ========  ========  ==========  ========  ========  ===========
+   ----------  ------------------------------  -----------------------------------
+    ID          Gender    Region    Education   Gender      Region    Education
+   ==========  ========  ========  ==========  ==========  ========  =============
+     1          female     rural     higher     female       rural     higher  
+     2          female     rural     higher     female       rural     *lower*   
+     3          male       rural     lower      male         rural     lower   
+     4          male       rural     lower      *female*     rural     lower   
+     5          female     urban     lower      *male*       urban     *higher*  
+     6          female     urban     lower      female       urban     lower   
+   ==========  ========  ========  ==========  ==========  ========  =============
 
 One advantage of perturbative methods is that the information loss is
 reduced, since no values will be suppressed, depending on the level of
@@ -1080,7 +1098,7 @@ An alternative to perturbative methods is the generation of synthetic
 data files with the same characteristics as the original data files.
 Synthetic data files are not discussed in these guidelines. For more
 information and an overview of the use of synthetic data as SDC method,
-we refer to Drechsler (2011) and the Section 3.8 in `HDFG12`_.
+we refer to `Drec11`_ and Section 3.8 in `HDFG12`_.
 We discuss here five perturbative methods: Post Randomization Method
 (PRAM), microaggregation, noise addition, shuffling and rank swapping.
 
@@ -1163,7 +1181,7 @@ analysis of the data for the distortions introduced by PRAM.
 One way to guarantee consistency between the tabulations before and
 after PRAM is to choose the transition matrix so that, in expectation,
 the tabulations before and after applying PRAM are the same for all
-variables.[#foot43]_ This method is called invariant PRAM
+variables. [#foot43]_ This method is called invariant PRAM
 and is implemented in *sdcMicro* in the function pram(). The method
 pram() determines the transition matrix that satisfies the requirements
 for invariant PRAM. 
@@ -1185,23 +1203,22 @@ The number of changed records per variable is also shown.
    :caption: Producing reproducible PRAM results by using set.seed()
    :name: code512
 
-    # Set seed for random number generator
-    set.seed(123)
+   # Set seed for random number generator
+   set.seed(123)
 
-    # Apply PRAM to all selected variables
-    sdcInitial <- pram(obj = sdcInitial)
-    ## Number of changed observations:
-    ## - - - - - - - - - - -
-    ## ROOF != ROOF_pram : 75 (3.75%)
-    ## TOILET != TOILET_pram : 200 (10%)
-    ## WATER != WATER_pram : 111 (5.55%)
-    ## ELECTCON != ELECTCON_pram : 99 (4.95%)
-    ## FUELCOOK != FUELCOOK_pram : 152 (7.6%)
-    ## OWNMOTORCYCLE != OWNMOTORCYCLE_pram : 42 (2.1%)
-    ## CAR != CAR_pram : 168 (8.4%)
-    ## TV != TV_pram : 170 (8.5%)
-    ## LIVESTOCK != LIVESTOCK_pram : 52 (2.6%)
-
+   # Apply PRAM to all selected variables
+   sdcInitial <- pram(obj = sdcInitial)
+   ## Number of changed observations:
+   ## - - - - - - - - - - -
+   ## ROOF != ROOF_pram : 75 (3.75%)
+   ## TOILET != TOILET_pram : 200 (10%)
+   ## WATER != WATER_pram : 111 (5.55%)
+   ## ELECTCON != ELECTCON_pram : 99 (4.95%)
+   ## FUELCOOK != FUELCOOK_pram : 152 (7.6%)
+   ## OWNMOTORCYCLE != OWNMOTORCYCLE_pram : 42 (2.1%)
+   ## CAR != CAR_pram : 168 (8.4%)
+   ## TV != TV_pram : 170 (8.5%)
+   ## LIVESTOCK != LIVESTOCK_pram : 52 (2.6%)
 
 :numref:`tab59` shows the tabulation of the variable after applying invariant
 PRAM. We can see that the deviations from the initial tabulations, which
@@ -1274,13 +1291,14 @@ in the function createSdcObj().
    :caption: Selecting the variable “toilet” to apply PRAM
    :name: code513
 
-    # Set seed for random number generator
-    set.seed(123)
-    # Apply PRAM only to the variable TOILET
-    sdcInitial <- pram(obj = sdcInitial, variables = c ("TOILET"))
-    ## Number of changed observations:
-    ## - - - - - - - - - - -
-    ## TOILET != TOILET_pram : 115 (5.75%)
+   # Set seed for random number generator
+   set.seed(123)
+   
+   # Apply PRAM only to the variable TOILET
+   sdcInitial <- pram(obj = sdcInitial, variables = c ("TOILET"))
+   ## Number of changed observations:
+   ## - - - - - - - - - - -
+   ## TOILET != TOILET_pram : 115 (5.75%)
 
 
 The results for PRAM differ if applied simultaneously to several
@@ -1308,10 +1326,11 @@ the categories).
    :caption: Specifying minimum values for diagonal entries in PRAM transition matrix
    :name: code514
 
-    sdcInitial <- pram(obj = sdcInitial, variables = c("TOILET"), pd = c(0.9, 0.5, 0.5, 0.5))
-    ## Number of changed observations:
-    ## - - - - - - - - - - -
-    ## TOILET != TOILET_pram : 496 (24.8%)
+   sdcInitial <- pram(obj = sdcInitial, variables = c("TOILET"), 
+                      pd = c(0.9, 0.5, 0.5, 0.5))
+   ## Number of changed observations:
+   ## - - - - - - - - - - -
+   ## TOILET != TOILET_pram : 496 (24.8%)
 
 
 In the invariant PRAM method, we can also specify the amount of
@@ -1333,7 +1352,7 @@ the non-perturbed values. Therefore, publishing the transition matrix
 but not the random seed is recommended.
 
 A disadvantage of using PRAM is that very unlikely combinations can be
-generated, such as a 63-year- old who goes to school. Therefore, the
+generated, such as a 63-year-old who goes to school. Therefore, the
 PRAMmed variables need to be audited to prevent such combinations from
 happening in the released data file. In principal, the transition matrix
 can be designed in such a way that certain transitions are not possible
@@ -1357,11 +1376,12 @@ gender, age groups, education level.
    :caption: Minimizing unlikely combinations by applying PRAM within strata
    :name: code515
 
-    # Applying PRAM within the strata generated by the variable region
-    sdcInitial <- pram(obj = sdcInitial, variables = c("TOILET"), strata_variables = c("REGION"))
-    ## Number of changed observations:
-    ## - - - - - - - - - - -
-    ## TOILET != TOILET_pram : 179 (8.95%)
+   # Applying PRAM within the strata generated by the variable region
+   sdcInitial <- pram(obj = sdcInitial, variables = c("TOILET"), 
+                      strata_variables = c("REGION"))
+   ## Number of changed observations:
+   ## - - - - - - - - - - -
+   ## TOILET != TOILET_pram : 179 (8.95%)
 
 
 .. admonition:: Recommended Reading Material on PRAM
@@ -1390,7 +1410,7 @@ Microaggregation
 ~~~~~~~~~~~~~~~~
 
 Microaggregation is most suitable for continuous variables, but can be
-extended in some cases to categorical variables. [#foot47]__
+extended in some cases to categorical variables. [#foot47]_
 It is most useful where confidentiality rules have been predetermined
 (e.g., a certain threshold for :math:`k`-anonymity has been set) that
 permit the release of data only if combinations of variables are shared
@@ -1413,7 +1433,7 @@ formation of homogeneous groups is straightforward: groups are formed by
 first ordering the values of the variable and then creating :math:`g`
 groups of size :math:`n_{i}` for all groups :math:`i` in
 :math:`1,\ \ldots,\ g`. This maximizes the within-group homogeneity,
-which is measured by the within-groups sum of squares (SSE)
+which is measured by the within-groups sum of squares (:math:`SSE`)
 
 .. math:: SSE = \sum_{i = 1}^{g}{\sum_{j = 1}^{n_{i}}{\left( x_{ij} - {\overline{x}}_{i} \right)^{T}\left( x_{ij} - {\overline{x}}_{i} \right)}}
 
@@ -1443,12 +1463,12 @@ low income (e.g., 832 and 966) and four individuals have a high income
    :caption: Applying univariate microaggregation with *sdcMicro* function microaggregation()
    :name: code516
 
-    sdcInitial <- **microaggregation**\ (obj = sdcInitial, variables =
-    'INC', aggr = 3, method = mafast, measure = "mean")
+   sdcInitial <- microaggregation(obj = sdcInitial, variables = 'INC', 
+                                  aggr = 3, method = mafast, measure = "mean")
 
 By default, the microaggregation function replaces values with the group
 mean. An alternative, more robust approach is to replace group values
-with the median. This can be specified in the argument *measure* of the
+with the median. This can be specified in the argument 'measure' of the
 function microaggregation(). In cases where the median is chosen, one
 individual in every group keeps the same value if groups have odd sizes.
 In cases where there is a high degree of heterogeneity within the groups
@@ -1473,7 +1493,7 @@ median is used to calculate the replacement value for the group.
 
 .. _tab511:
 
-.. table:: Cross-tabulation of variable “region” and variable “gender” before and after invariant PRAM
+.. table:: Illustrating the effect of choosing mean vs. median for microaggregation where outliers are concerned
    :widths: auto
    :align: center
    
@@ -1495,7 +1515,7 @@ minimal information loss, since the changes in the variables are
 limited. The literature shows, however, that disclosure risk can be very
 high if univariate microaggregation is applied to several variables
 separately and no additional anonymization techniques are applied
-(Domingo-Ferrer et al., 2002). To overcome this shortcoming, an
+(`DMOT02`_). To overcome this shortcoming, an
 alternative to univariate microaggregation is multivariate
 microaggregation.
 
@@ -1534,22 +1554,22 @@ is a trade-off between speed of the algorithm and within-group
 homogeneity, which is directly related to information loss. For large
 datasets, this is especially challenging. We discuss the Maximum
 Distance to Average Vector (MDAV) algorithm here in more detail. The
-MDAV algorithm was first introduced by Domingo-Ferrer and Torra (2005)
+MDAV algorithm was first introduced by `DoTo05`_
 and represents a good choice with respect to the trade-off between
 computation time and the group homogeneity, computed by the within-group
-SSE. The MDAV algorithm is implemented in *sdcMicro*.
+:math:`SSE`. The MDAV algorithm is implemented in *sdcMicro*.
 
 The algorithm computes an average record or centroid C, which contains
 the average values of all included variables. We select an individual A
 with the largest squared Euclidean distance from C, and build a group of
 :math:`k` records around A. The group of :math:`k` records is made up of
-A and the :math:`k`-1 records closest to A measured by the Euclidean
+A and the :math:`k-1` records closest to A measured by the Euclidean
 distance. Next, we select another individual B, with the largest squared
 Euclidean distance from individual A. With the remaining records, we
 build a group of :math:`k` records around B. In the same manner, we
 select an individual D with the largest distance from B and, with the
 remaining records, build a new group of :math:`k` records around D. The
-process is repeated until we have fewer than 2\ :math:`k` records
+process is repeated until we have fewer than :math:`2*k` records
 remaining. The MDAV algorithm creates groups of equal size with the
 exception of maybe one last group of remainders. The microaggregated
 dataset is then computed by replacing each record in the original
@@ -1564,7 +1584,9 @@ to choose the MDAV algorithm in *sdcMicro*.
    :caption: Multivariate microaggregation with the Maximum Distance to Average Vector (MDAV) algorithm in *sdcMicro*
    :name: code517
 
-      sdcInitial <- microaggregation(obj = sdcInitial, variables = c("INC", "EXP", "WEALTH"), method = "mdav")
+   sdcInitial <- microaggregation(obj = sdcInitial, 
+                                  variables = c("INC", "EXP", "WEALTH"), 
+                                  method = "mdav")
 
 It is also possible to group variables only within strata. This reduces
 the computation time and adds an extra layer of protection to the data,
@@ -1577,7 +1599,9 @@ shown in :numref:`code518`.
    :caption: Specifying strata variables for microaggregation
    :name: code518
 
-    sdcInitial <- microaggregation(obj = sdcInitial, variables = c("INC", "EXP", "WEALTH"), method = "mdav", strata_variables = c("strata"))
+   sdcInitial <- microaggregation(obj = sdcInitial,
+                                  variables = c("INC", "EXP", "WEALTH"), 
+                                  method = "mdav", strata_variables = c("strata"))
 
 Besides the method MDAV, there are few other grouping methods
 implemented in *sdcMicro* (`TeMK14`_). :numref:`tab513`
@@ -1590,7 +1614,7 @@ this projection. The performance of this method depends on the share of
 the total variance in the data that is explained by the first PC. The
 ‘rmd’ method is computationally more intensive due to the computation of
 Mahalanobis distances, but provides better results with respect to group
-homogeneity. It is recommended for smaller datasets (ibid.).
+homogeneity. It is recommended for smaller datasets (`TeMK14`_).
 
 .. _tab513:
 
@@ -1643,14 +1667,14 @@ variables are preserved.
 	Templ, Matthias, Bernhard Meindl, Alexander Kowarik, and Shuang Chen.
 	2014, August. "International Household Survey Network (IHSN)."
 	http://www.ihsn.org/home/software/disclosure-control-toolbox. (accessed
-	November 13, 2014).
+	July 9, 2018).
 
 Noise addition
 ~~~~~~~~~~~~~~
 
 Noise addition, or noise masking, means adding or subtracting (small)
 values to the original values of a variable, and is most suited to
-protect continuous variables (see Brand (2002) for an overview). Noise
+protect continuous variables (see `Bran02`_ for an overview). Noise
 addition can prevent exact matching of continuous variables. The
 advantages of noise addition are that the noise is typically continuous
 with mean zero, and exact matching with external files will not be
@@ -1673,7 +1697,7 @@ After noise addition, these outliers can generally still be detected as
 outliers and hence easily be identified. An example is a single very
 high income in a certain region. After perturbing this income value, the
 value will still be recognized as the highest income in that region and
-can thus be used for re-identification. This is illustrated in :numref:`fig56`,\
+can thus be used for re-identification. This is illustrated in :numref:`fig56`,
 where 10 original observations (open circles) and the anonymized
 observations (red triangles) are plotted. The tenth observation is an
 outlier. The values of the first nine observations are sufficiently
@@ -1699,11 +1723,11 @@ noise addition is uncorrelated additive normally distributed noise,
 where :math:`x_{j}`, the original values of variable
 :math:`j`\ are replaced by
 
-:math:`z_{j} = x_{j} + \varepsilon_{j}`,
+.. math:: z_{j} = x_{j} + \varepsilon_{j},
 
 where
 :math:`\varepsilon_{j}\ \sim\ N(0,\ \ \sigma_{\varepsilon_{j}}^{2})\ `\ and
-:math:`\sigma_{\varepsilon_{j}} = \alpha \bullet \sigma_{j}` with
+:math:`\sigma_{\varepsilon_{j}} = \alpha * \sigma_{j}` with
 :math:`\sigma_{j}` the standard deviation of the original data. In this
 way, the mean and the covariances are preserved, but not the variances
 and correlation coefficient. If the level of noise added,
@@ -1738,7 +1762,11 @@ variables.
    :caption: Uncorrelated noise addition
    :name: code519
 
-    sdcInitial <- addNoise(obj = sdcInitial, variables = c('TOTFOOD', 'TOTHLTH', 'TOTALCH', 	'TOTCLTH', 'TOTHOUS', 'TOTFURN', 'TOTTRSP', 'TOTCMNQ', 'TOTRCRE', 'TOTEDUC', 'TOTHOTL',	'TOTMISC'), noise = 0.5, method = "additive")
+   sdcInitial <- addNoise(obj = sdcInitial, 
+                          variables = c('TOTFOOD', 'TOTHLTH', 'TOTALCH', 'TOTCLTH', 
+                                        'TOTHOUS', 'TOTFURN', 'TOTTRSP', 'TOTCMNQ', 
+                                        'TOTRCRE', 'TOTEDUC', 'TOTHOTL', 'TOTMISC'), 
+                          noise = 0.5, method = "additive")
 
 :numref:`fig57` shows the frequency distribution of a numeric continuous
 variable and the distribution before and after noise addition with
@@ -1764,7 +1792,7 @@ noise) and after adding several levels of noise (:math:`\alpha` from 0.1
 to 1.5 with 0.1 increments). In the figure, the minimum value, the
 20\ :sup:`th`, 30\ :sup:`th`, 40\ :sup:`th` percentiles, the median, the
 60\ :sup:`th`, 70\ :sup:`th`, 80\ :sup:`th` and 90\ :sup:`th`
-percentiles and the maximum value are plotted. The median (50:sup:`th`
+percentiles and the maximum value are plotted. The median (50\ :sup:`th`
 percentile) is indicated with the red “+” symbol. From :numref:`fig57` and
 :numref:`fig58`, it is apparent that the range of values expands after noise
 addition, and the median stays roughly at the same level, as does the
@@ -1793,7 +1821,7 @@ noise masking is not implemented in *sdcMicro*, but can be relatively
 easily implemented in base *R* by generating a vector of random numbers
 and multiplying the data with this vector. For more information on
 multiplicative noise masking and the properties of the data after
-masking, we refer to Kim and Winkler (2003).
+masking, we refer to `KiWi03`_.
 
 .. _fig58:
 
@@ -1824,14 +1852,19 @@ instance, a Jarque-Bera or Shapiro-Wilk test [#foot53]_.
    :caption: Correlated noise addition
    :name: code520
 
-    sdcInitial <- addNoise(obj = sdcInitial, variables = c('TOTFOOD', 'TOTHLTH', 'TOTALCH', 'TOTCLTH', 'TOTHOUS', 'TOTFURN', 'TOTTRSP', 'TOTCMNQ', 'TOTRCRE', 'TOTEDUC', 'TOTHOTL', 'TOTMISC'), noise = 0.5, method = "correlated2")
+   sdcInitial <- addNoise(obj = sdcInitial, 
+                          variables = c('TOTFOOD', 'TOTHLTH', 'TOTALCH', 
+                                        'TOTCLTH', 'TOTHOUS', 'TOTFURN', 
+                                        'TOTTRSP', 'TOTCMNQ', 'TOTRCRE', 
+                                        'TOTEDUC', 'TOTHOTL', 'TOTMISC'), 
+                          noise = 0.5, method = "correlated2")
 
 In many cases, only the outliers have to be protected, or have to be
 protected more. The method ‘outdect’ adds noise only to the outliers,
 which is illustrated in :numref:`code521`. The outliers are identified with
 univariate and robust multivariate procedures based on a robust
-Mahalanobis distance calculated by the MCD estimator (Templ et al.,
-2014). Nevertheless, noise addition is not the most suitable method for
+Mahalanobis distance calculated by the MCD estimator (`TMKC14`_). 
+Nevertheless, noise addition is not the most suitable method for
 outlier protection.
 
 .. code-block:: R
@@ -1839,7 +1872,12 @@ outlier protection.
    :caption: Noise addition for outliers using the ‘outdect’ method
    :name: code521
 
-    sdcInitial <- addNoise(obj = sdcInitial, variables = c('TOTFOOD', 'TOTHLTH', 'TOTALCH', 'TOTCLTH', 'TOTHOUS', 'TOTFURN', 'TOTTRSP', 'TOTCMNQ', 'TOTRCRE', 'TOTEDUC', 'TOTHOTL', 'TOTMISC'), noise = 0.5, method = "outdect")
+   sdcInitial <- addNoise(obj = sdcInitial, 
+                          variables = c('TOTFOOD', 'TOTHLTH', 'TOTALCH', 
+                                        'TOTCLTH', 'TOTHOUS', 'TOTFURN', 
+                                        'TOTTRSP', 'TOTCMNQ', 'TOTRCRE', 
+                                        'TOTEDUC', 'TOTHOTL', 'TOTMISC'), 
+                          noise = 0.5, method = "outdect")
 
 If noise addition is applied to variables that are a ratio of an
 aggregate, this structure can be destroyed by noise addition. Examples
@@ -1862,9 +1900,13 @@ expenditure category.
    :name: code522
 
     # Add noise to totals (income / expenditures)
-    sdcInital <- addNoise(noise = 0.5, obj = sdcInitial, variables=c("EXP", "INC"), method="additive")
+    sdcInital <- addNoise(noise = 0.5, obj = sdcInitial, variables=c("EXP", "INC"), 
+                          method="additive")
+                          
     # Multiply anonymized totals with ratios to obtain anonymized components
-    compExp <-  c("TOTFOOD",  "TOTALCH",  "TOTCLTH",  "TOTHOUS",  "TOTFURN",  "TOTHLTH",  				"TOTTRSP",  "TOTCMNQ", "TOTRCRE",  "TOTEDUC",  "TOTHOTL",  "TOTMISC")
+    compExp <-  c("TOTFOOD",  "TOTALCH",  "TOTCLTH",  "TOTHOUS",  "TOTFURN",  
+                  "TOTHLTH",  "TOTTRSP",  "TOTCMNQ", "TOTRCRE",  "TOTEDUC",  
+                  "TOTHOTL",  "TOTMISC")
 
     sdcInital@manipNumVars[,compExp] <- sdcInital@manipNumVars[,"HHEXP_N"] *
      				sdcInital@origData[,compExp]/ sdcInital@origData[,"HHEXP_N"]
@@ -1924,8 +1966,8 @@ plausible. Rank swapping is implemented in the function rankSwap() in
 in the argument ‘variables’. By default, values below the 5\ :sup:`th`
 percentile and above the 95\ :sup:`th` percentile are top and bottom
 coded and replaced by their average value (see the Section 
-`Top and bottom coding <anon_methods.html#Top and bottom coding>`__ on top
-and bottom coding). By specifying the options ‘TopPercent’ and
+`Top and bottom coding <anon_methods.html#Top and bottom coding>`__
+). By specifying the options ‘TopPercent’ and
 ‘BottomPercent’ we can choose these percentiles. The argument ‘P’
 defines the size of the neighborhood as percentage of the sample size.
 If the value ‘p’ is 0.05, the neighborhood will be of size 0.05 \*
@@ -1959,7 +2001,7 @@ rankSwap(), these values should be recoded NA. This is shown in the
 
 
 Rank swapping has been found to yield good results with respect to the
-trade-off between information loss and data protection (DoTo01a). 
+trade-off between information loss and data protection (`DoTo01a`_). 
 Rank swapping is not useful for variables with few
 different values or many missing values, since the swapping in that case
 will not result in altered values. Also, if the intruder knows to whom
@@ -1989,7 +2031,7 @@ the lowest and/or highest values.
 Shuffling
 ~~~~~~~~~
 
-Shuffling as introduced by Muralidhar and Sarathy (2006) is similar to
+Shuffling as introduced by `MuSa06`_ is similar to
 swapping, but uses an underlying regression model for the variables to
 determine which variables are swapped. Shuffling can be used for
 continuous variables and is a deterministic method. Shuffling maintains
@@ -1997,7 +2039,7 @@ the marginal distributions in the shuffled data. Shuffling, however,
 requires a complete ranking of the data, which can be computationally
 very intensive for large datasets with several variables.
 
-The method is explained in detail in Muralidhar and Sarathy (2006). The
+The method is explained in detail in `MuSa06`_. The
 idea is to rank the individuals based on their original variables. Then
 fit a regression model with the variables to be protected as regressands
 and a set of variables that predict this variable well (i.e., are
@@ -2049,10 +2091,15 @@ predicted by total household expenditures and household size.
    :name: code524
 
     # Evaluate R-squared (goodness-of-fit) of the regression model
-    summary(lm(file, form = TOTFOOD  + TOTALCH + TOTCLTH + TOTHOUS + TOTFURN + TOTHLTH  + TOTTRSP + TOTCMNQ + TOTRCRE + TOTEDUC + TOTHOTL + TOTMISC ~ EXP + HHSIZE))
+    summary(lm(file, form = TOTFOOD  + TOTALCH + TOTCLTH + TOTHOUS + 
+                            TOTFURN + TOTHLTH  + TOTTRSP + TOTCMNQ + 
+                            TOTRCRE + TOTEDUC + TOTHOTL + TOTMISC ~ EXP + HHSIZE))
 
     # Shuffling using the specified regression equation
-    sdcInitial <- shuffle(sdcInitial, method='ds', form = TOTFOOD  + TOTALCH + TOTCLTH + TOTHOUS + TOTFURN + TOTHLTH  + TOTTRSP + TOTCMNQ + TOTRCRE + TOTEDUC + TOTHOTL + TOTMISC ~ EXP + HHSIZE)
+    sdcInitial <- shuffle(sdcInitial, method='ds', 
+                          form = TOTFOOD  + TOTALCH + TOTCLTH + TOTHOUS + 
+                                 TOTFURN + TOTHLTH  + TOTTRSP + TOTCMNQ + 
+                                 TOTRCRE + TOTEDUC + TOTHOTL + TOTMISC ~ EXP + HHSIZE)
 
 
 .. admonition:: Recommended Reading Material on Shuffling
@@ -2092,7 +2139,7 @@ are manifold: 1) researchers can create their own geographical areas,
 such as the service area of a hospital; 2) it enables researchers to
 measure the proximity to facilities, such as schools; 3) researchers can
 use the data to extract geographical patterns; and 4) it enables linking
-of data from different sources (see e.g., Burgert et al., 2015).
+of data from different sources (see e.g., `BCRZ13`_).
 However, geospatial data, due to the precise reference to a location,
 also pose a challenge to the privacy of the respondents.
 
@@ -2313,17 +2360,38 @@ few examples are:
 .. [BCRZ13] Burgert, C. R., Colston, J., Roy, T., & Zachary, B. (2013). 
 	**Geographic Displacement Procedure and Georeferenced Data Release Policy for the Demographic and Health Surveys.**
 	DHS Spatial Analysis Report No. 7.
+.. [Bran02] Brand, R. (2002). 
+	**Microdata Protection through Noise Addition.**
+	In J. Domingo-Ferrer (Ed.), Inference Control in Statistical Databases - From Theory to Practice (Vol. Lecture Notes in Computer Science Series Volume 2316, pp. 97-116). Berlin Heidelberg, Germany: Springer.
+.. [DMOT02] Domingo-Ferrer, J., Mateo-Sanz, J.M., Oganian, A. & Torres, A.
+   **On the Security of Microaggregation with Individual Ranking: Analytics Attacks.**
+   International Journal of Uncertainty, Fuzziness and Knowledge-Based Systems 10(5), pp. 477-492.
 .. [DoTo01a] Domingo-Ferrer, J., & Torra, V. (2001). 
 	**A Quantitative Comparison of Disclosure Control Methods for Microdata.**
 	In P. Doyle, J. Lane, J. Theeuwes, & L. Zayatz (Eds.), Confidentiality, Disclosure and Data Access: Theory and Practical Applications for Statistical Agencies (pp. 111-133). Amsterdam, North-Holland: Elsevier Science.
+.. [DoTo05] Domingo-Ferrer, J., & Torra, V. (2005).
+   **Ordinal, Continuous and Heterogeneous :math:`k`-anonimity through Microaggregation**
+   Data Mining and Knowledge Discovery 11(2), pp. 195-212.
+.. [Drec11] Drechsler, J. (2011).
+    **Synthetic Datasets for Statistical Disclosure Control.**
+    Heidelberg/Berlin: Springer.
 .. [HDFG12] Hundepool, A., Domingo-Ferrer, J., Franconi, L., Giessing, S., Nordholt, E. S., Spicer, K., et al. (2012). 
 	**Statistical Disclosure Control.**
 	Chichester, UK: John Wiley & Sons Ltd.
 .. [HuDr15] Hu, J., & Drechsler, J. (2015). 
 	**Generating synthetic geocoding infromation for public release.**
 	NTTS - Conferences on New Techniques and Technologies for Statistics. Brussels.
+.. [KiWi03] Kim, J. J., & Winkler, W. W. (2003, April 17). 
+	**Multiplicative Noise for Masking Continuous Data.**
+	Research Report Series.
+.. [MuSa06] Muralidhar, K., & Sarathy, R. (2006). 
+	**Data Shuffling- A New Masking Approach for Numerical Data.**
+	Management Science , 658-670.
 .. [TeMK14] Templ, M., Meindl, B., & Kowarik, A. (2014, August). 
 	**Tutorial for SDCMicroGUI.**
 	Retrieved from International Household Survey Network (IHSN): http://www.ihsn.org/home/software/disclosure-control-toolbox
+.. [TMKC14] Templ, M., Meindl, B., Kowarik, A., & Chen, S. (2014, August 1). 
+	**Introduction to Statistical Disclosure Control (SDC).**
+	Retrieved July 9, 2018, from http://www.ihsn.org/home/software/disclosure-control-toolbox.
 .. [Wolf15] de Wolf, P.-P. (2015). 
 	**Public Use Files of EU-SILC and EU-LFS data.**

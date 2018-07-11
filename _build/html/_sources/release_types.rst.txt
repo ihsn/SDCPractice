@@ -30,7 +30,8 @@ data release methods are practiced and apply to different target groups.
    or variables from microdata files, alternative SDC methods can
    minimise the risk of disclosure while maximizing information content.
    Such methods include top-and-bottom coding, local suppression or
-   using data perturbation techniques [(see Chapter 5 for an overview of
+   using data perturbation techniques [(see the Section
+   `Anonymization methods <anon_methods.html>`__ for an overview of
    anonymization methods)]. PUFs are typically generated from census
    data files using a sub-set [or sample] of records rather than the
    entire file and [from sample surveys, such as] household surveys.”
@@ -97,11 +98,11 @@ remote access. Obviously, the required level of protection depends on
 the type of release; a PUF file must be protected to a much larger
 extent than a SUF file, which in turn has to be protected more than a
 file which is only available in an on-site facility. 
-The Section `Step 3: Type of release <process.html#Step 3: Type of release` gives
+The Section `Step 3: Type of release <process.html#Step 3: Type of release>`__ gives
 more guidance on the choice of the release type and its implications for
 the anonymization process. The same microdata set can be released in
 different ways for different users, e.g., as SUF and teaching file.
-The Section `Step 3: Type of release <process.html#Step 3: Type of release` discusses the particular issues of multiple releases of one
+The Section `Step 3: Type of release <process.html#Step 3: Type of release>`__ discusses the particular issues of multiple releases of one
 dataset.
 
 The first step for any agency that wants to release data would be
@@ -125,7 +126,7 @@ legally binding, they serve to sensitise the user. Prohibitions such as
 attempts to link the data to other sources can be part of the ‘use
 statement’ to which the user must agree, on-line, before the data can be
 downloaded. […] Dissemination of microdata files necessarily involves
-the application of rules or principles. [Box 2] below [taken from
+the application of rules or principles. [The info-box] below [taken from
 `DuBo10`_] shows basic principles normally applying to
 PUFs.” (`DuBo10`_).
 
@@ -160,8 +161,8 @@ representatives to sign the licence” (`DuBo10`_).
 “If data are provided for an individual research project, the research
 team must be identified. This is covered by requiring interested users
 to complete a formal request to access the data (a model of such a
-request form is provided in Appendix 1 [in Dupriez and Boyko (2010)]).
-The conditions to obtain the data (see example in Box 3) will specify
+request form is provided in Appendix 1 [in `DuBo10`_]).
+The conditions to obtain the data (see example in the info-box below) will specify
 that the files will not be shared outside the organisation and that data
 will be stored securely. To the possible extent, the intended use of the
 data – including a list of expected outputs and the organisation’s
@@ -172,7 +173,7 @@ international organization” (`DuBo10`_).
 
 .. admonition:: Info-box - Conditions for accessing and using SUFs
 
-	Note: Items 1 to 8 below are similar to the conditions for use of public use files in Box 2. Items 9 and 10 would have to be adapted in the case of a blanket agreement.
+	Note: Items 1 to 8 below are similar to the conditions for use of public use files in the info-box above. Items 9 and 10 would have to be adapted in the case of a blanket agreement.
 	
 	1. Data and other material provided by the NSO will not be redistributed or sold to other individuals, institutions or organisations without the NSO’s written agreement.
 	2. Data will be used for statistical and scientific research purposes only. They will be employed solely for reporting aggregated information, including modelling, and not for investigating specific individuals or organisations.
@@ -198,8 +199,9 @@ responsibility for this. Each additional user must be made aware of the
 terms and conditions that apply to data files: this can be achieved by
 having to sign an affidavit. Where such an agreement exists, with
 security in place, it is not necessary for users to destroy the data
-after use” (`DuBo10`_). Appendix B provides an example of
-the formulation of such an agreement.
+after use” (`DuBo10`_). 
+`Appendix B <appendices.html#Appendix B: Example of Blanket Agreement for SUF>`__
+provides an example of the formulation of such an agreement.
 
 Conditions for microdata available in a controlled research data center
 -----------------------------------------------------------------------
@@ -216,8 +218,8 @@ files but without the risk of releasing confidential data. In a typical
 the computers must not be able to communicate outside the [research data
 centre]; and the results obtained by the researchers must be screened
 for confidentiality by an NSO analyst before taken outside. A model of a
-data enclave access policy is provided in Appendix 2 [in Dupriez and
-Boyko (2010)], and a model of a data enclave access request form is in
+data enclave access policy is provided in Appendix 2 [in `DuBo10`_], 
+and a model of a data enclave access request form is in
 Appendix 3 [in `DuBo10`_]” (`DuBo10`_).
 
 Research data centers “have the advantage of providing access to
@@ -236,11 +238,12 @@ headquarters.” (`DuBo10`_)
 	Network (IHSN).
 	
 .. [#foot19]
-   See Section 5 in Dupriez and Boyko (2010) as to who the users of
+   See Section 5 in `DuBo10`_ as to who the users of
    microdata are and to whom microdata should be made available.
 
 .. [#foot20]
-   Appendix B provides an example of a blanket agreement.
+   `Appendix B <appendices.html#Appendix B: Example of Blanket Agreement for SUF>`__ 
+   provides an example of a blanket agreement.
 
 .. rubric:: References
 

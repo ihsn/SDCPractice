@@ -4,7 +4,6 @@ Statistical Disclosure Control for Microdata: A Practice Guide
 .. toctree::
    :maxdepth: 2
    :caption: Table of Content
-   :numbered:
    
    intro
    glossary_acr
@@ -18,7 +17,6 @@ Statistical Disclosure Control for Microdata: A Practice Guide
    appendices
    acknowledgements
 
-     
 .. toctree::
    :maxdepth: 2
    :caption: Case studies

@@ -64,8 +64,8 @@ reasons of:
    businesses or other parties that contain confidential information may
    not be accessible for research. (...)” (`DuBo10`_).
 
-   Box 1, extracted from `DuBo10`_, provides several
-   examples of statistical legislation on microdata release.
+Box 1, extracted from `DuBo10`_, provides several
+examples of statistical legislation on microdata release.
 
 .. admonition:: Info-box - Examples of statistical legislation on microdata release
 
@@ -76,8 +76,8 @@ reasons of:
 	2. In Canada the Statistics Act states that “no person who has been sworn under section 6 shall disclose or knowingly cause to be disclosed, by any means, any information obtained under this Act in such a manner that it is possible from the disclosure to relate the particulars obtained from any individual return to any identifiable individual person, business or organization.”
 	
 	Source: http://laws-lois.justice.gc.ca/eng/acts/S-19/page-2.html
-	
-		Statistics Canada does release microdata files. Its microdata release policy states that Statistics Canada will authorise the release of microdata files for public use when:
+
+	Statistics Canada does release microdata files. Its microdata release policy states that Statistics Canada will authorise the release of microdata files for public use when:
 	
 		(a) the release substantially enhances the analytical value of the data collected; and
 	
@@ -98,7 +98,7 @@ data producers are not protecting their privacy, they might not be
 willing to participate in future surveys. “[…] one incident,
 particularly if it receives strong media attention, could have a
 significant impact on respondent cooperation and therefore on the
-quality of official statistics” (ibid.). At the same time, if data users
+quality of official statistics” (`DuBo10`_). At the same time, if data users
 are unable to gain enough utility from the data due to excessive or
 inappropriate SDC protection, or are unable to access the data, then the
 large investment in producing the data will be lost.
@@ -156,7 +156,7 @@ discussed in subsequent chapters of this guide.
 Again, it must be stressed that the level of SDC and methods applied
 depend to a large extent on the entire data release framework. For
 example, a key consideration is to whom and under what conditions the
-data are to be released (see also Chapter 3). If data are to be released
+data are to be released (see also the Section `Release types <release_types.html>`__). If data are to be released
 as public use data, then the level of SDC applied will necessarily need
 to be higher than in the cases where data are released under license
 conditions to trusted users after careful vetting. With careful
@@ -166,11 +166,13 @@ versions. We discuss how this might be achieved later in the guide.
 
 .. [#foot18]
    There is another strand of literature on the anonymization of tabular
-   data, see e.g., Hundepool et al. (2012).
+   data, see e.g., `HDFG12`_.
 
 .. rubric:: References
 
 .. [DuBo10] Dupriez, O., & Boyko, E. (2010). 
 	**Dissemination of Microdata Files; Principles, Procedures and Practices.**
 	International Household Survey Network (IHSN).
-	
+.. [HDFG12] Hundepool, A., Domingo-Ferrer, J., Franconi, L., Giessing, S., Nordholt, E. S., Spicer, K., et al. (2012). 
+	**Statistical Disclosure Control.**
+	Chichester, UK: John Wiley & Sons Ltd.

@@ -12,7 +12,7 @@ available, as well as data made available only to the World Bank for
 official business. The surveys used included, amongst others, household,
 demographic, and health surveys. The variables from these surveys used
 for the experiments were selected based on their relevance for users
-(e.g. for indicators, MDGs), their sensitivity, and their classification
+(e.g., for indicators, MDGs), their sensitivity, and their classification
 with respect to the SDC process.
 
 The following case studies draw from knowledge gained from these
@@ -55,13 +55,15 @@ compiled our case study file was from surveys that contain many
 variables, but pay particular attention to labor force variables as well
 as household income and household expenditure variables. The variables
 in the demo dataset have already been pre-selected from the total set of
-variables available in the datasets. See Appendix A for the complete
-overview of all variables.
+variables available in the datasets. See 
+`Appendix A <appendices.html#Appendix A: Overview of Case Study Variables>`__ 
+for the complete overview of all variables.
 
-This case study follows the steps of the SDC process outlined in Chapter
-8.
+This case study follows the steps of the SDC process outlined in the Section
+`The SDC Process <process.html>`__.
 
-**Step 1: Need for disclosure control**
+Step 1: Need for disclosure control
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The statistical units in this dataset are individuals and households.
 The household structure provides a hierarchical structure in the data,
@@ -77,11 +79,12 @@ disclosure control is needed before release of the microdata. This is
 the case regardless of the legal framework, which is not specified here,
 as this is a hypothetical dataset.
 
-**Step 2: Data preparation and exploring data characteristics**
+Step 2: Data preparation and exploring data characteristics
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The first step is to explore the data. To analyze the data in *R* we
 first have to read the data into *R*. In our case, the data is saved in
-a *STATA* file (.dta). To read *STATA* files, we need to load the *R*
+a *STATA* file (.dta file). To read *STATA* files, we need to load the *R*
 package *foreign* (see the Section 
 `Read functions in R <sdcMicro.html#Read functions in R>`__ 
 on importing other data formats in
@@ -100,8 +103,8 @@ them. The *R* code for this case study demonstrates how to do this.
    library(sdcMicro)  # sdcMicro package with functions for the SDC process
    library(laeken)    # for GINI
    library(reldist)   # for GINI
-   library(bootstrap) # for bootstrapping*
-   library(ineq)      # for Lorenz curves*
+   library(bootstrap) # for bootstrapping
+   library(ineq)      # for Lorenz curves
 
 After setting the working directory to the directory where the *STATA*
 file is stored, we load the data into the object called *file*. All
@@ -112,11 +115,13 @@ output, unless otherwise specified, is saved in the working directory.
    :caption: Loading the data
    :name: code92
 
-   setwd("C:/WorldBank/CaseStudy/") # Set working directory
+   #  Set working directory
+   setwd("C:/WorldBank/CaseStudy/")
 
    # Specify file name
    fname <- " case_1_data.dta"
-   # Read-in file*
+   
+   # Read-in file
    file <- read.dta(fname, convert.factors = F) # factors as numeric code
 
 We check the number of variables, number of observations and variable
@@ -164,7 +169,7 @@ In :numref:`tab91` the variables in the dataset are listed along with concise
 descriptions of the variables, the level at which they are collected
 (individual (IND), household (HH)), the measurement type (continuous,
 semi-continuous, categorical) and value ranges. Note that the dataset
-contains a selection of 68 variables (cf. Appendix A) of a total of 112
+contains a selection of 68 variables (cf. `Appendix A <appendices.html#Appendix A: Overview of Case Study Variables>`__) of a total of 112
 variables in the survey dataset. The variables have been preselected
 based on their relevance for data users. This allows to reduce the total
 numbers of variables to consider in the anonymization process and makes
@@ -190,11 +195,14 @@ location coordinates, etc.
    :caption: Tabulation of the variable ‘gender’ and summary statistics for the variable ‘total annual expenditures’ in *R*
    :name: code94
    
-   table(file$GENDER, useNA = "ifany") # tabulation of variable GENDER (sex, categorical)
+   # tabulation of variable GENDER (sex, categorical)
+   table(file$GENDER, useNA = "ifany") 
    ##    0    1
    ## 5448 5126
 
-   summary(file$TANHHEXP) # summary statistics for variable TANHHEXP (total annual household expenditures, continuous)
+   # summary statistics for variable TANHHEXP (total annual household expenditures, 
+   # continuous)
+   summary(file$TANHHEXP) 
    ##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.
    ##     498   15550   17290   28560   29720  353200
 
@@ -372,7 +380,8 @@ the data. We will use WGTPOP for the anonymization of the household
 variables and WGTHH for the anonymization of the individual-level
 variables.
 
-**Step 3: Type of release**
+Step 3: Type of release
+~~~~~~~~~~~~~~~~~~~~~~~
 
 In this case study, we assume that data will be released as a SUF, which
 will be only available under license to accredited researchers with
@@ -385,7 +394,8 @@ releasing a PUF. Since we do not have an overview of the requirements of
 all users, we restrict the utility measures to a selected number of data
 uses (see Step 5).
 
-**Step 4: Intruder scenarios and choice of key variables**
+Step 4: Intruder scenarios and choice of key variables
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Next, we analyze possible intruder scenarios and select
 quasi-identifiers or key variables based on these scenarios. Since the
@@ -455,7 +465,7 @@ identify persons (s)he knows. This is called the nosy-neighbor scenario.
     TANHHEXP (total expenditures)                              Household, continuous        
     TEXP (expenditures in category)                            Household, continuous        
     INCTOTGROSSHH (total income)                               Household, continuous        
-    INC(income in category)                                    Household, continuous        
+    INC (income in category)                                   Household, continuous        
     GENDER (sex)                                               Individual, categorical      
     REL (relationship to household head)                       Individual, categorical      
     MARITAL (marital status)                                   Individual, categorical      
@@ -467,7 +477,8 @@ identify persons (s)he knows. This is called the nosy-neighbor scenario.
    =========================================================  =============================
 
 
-**Step 5: Data key uses and selection of utility measures**
+Step 5: Data key uses and selection of utility measures
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 In this case study, our aim is to create a SUF that provides sufficient
 information for accredited researchers. We know that the primary use of
@@ -486,15 +497,15 @@ anonymization.
    :widths: auto
    :align: center
       
-   ======================================================================
-    Gini point estimates and confidence intervals for total expenditures
+   ======================================================================  ===
+    Gini point estimates and confidence intervals for total expenditures    .
     Lorenz curves for total expenditures  
     Mean monthly per capita total expenditures by area of residence 
     Average share of components for expenditures 
     Mean monthly per capita total income by area of residence
     Average share of components for income  
     Net enrollment in primary education by gender   
-   ======================================================================
+   ======================================================================  ===  
 
 
 There are no published figures and statistics available that are
@@ -503,7 +514,8 @@ published figures should be re-computed based on the anonymized dataset
 and compared to the published figures in Step 11. Large differences
 would reduce the credibility of the anonymized dataset.
 
-**Hierarchical (household) structure**
+Hierarchical (household) structure
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Our demo survey collects data on individuals in households. The
 household structure is important for data users and should be considered
@@ -547,9 +559,9 @@ Conversion of these variables to factors is also shown in :numref:`code97`.
    :name: code97
    
    ### Select variables (household level)
-   # Key variables (household level)*
-   selectedKeyVarsHH = **c('URBRUR', 'REGION', 'HHSIZE', 'OWNHOUSE',
-   'OWNAGLAND', 'RELIG')
+   # Key variables (household level)
+   selectedKeyVarsHH = c('URBRUR', 'REGION', 'HHSIZE', 'OWNHOUSE', 
+                         'OWNAGLAND', 'RELIG')
 
    # Changing variables to class factor
    file$URBRUR    <- as.factor(file$URBRUR)
@@ -559,17 +571,19 @@ Conversion of these variables to factors is also shown in :numref:`code97`.
    file$RELIG     <- as.factor(file$RELIG)
 
    # Numerical variables
-   numVarsHH = c('LANDSIZEHA', 'TANHHEXP', 'TFOODEXP', 'TALCHEXP',
-                 'TCLTHEXP', 'THOUSEXP', 'TFURNEXP', 'THLTHEXP', 'TTRANSEXP',
-                 'TCOMMEXP', 'TRECEXP', 'TEDUEXP', 'TRESHOTEXP', 'TMISCEXP',
-                 'INCTOTGROSSHH', 'INCRMT', 'INCWAGE', 'INCFARMBSN', 'INCNFARMBSN',
-                 'INCRENT', 'INCFIN', 'INCPENSN', 'INCOTHER')
+   numVarsHH = c('LANDSIZEHA', 'TANHHEXP',   'TFOODEXP',      'TALCHEXP',
+                 'TCLTHEXP',   'THOUSEXP',   'TFURNEXP',      'THLTHEXP',   
+                 'TTRANSEXP',  'TCOMMEXP',   'TRECEXP',       'TEDUEXP',  
+                 'TRESHOTEXP', 'TMISCEXP',   'INCTOTGROSSHH', 'INCRMT',   
+                 'INCWAGE',    'INCFARMBSN', 'INCNFARMBSN',   'INCRENT',       
+                 'INCFIN',     'INCPENSN',   'INCOTHER')
    # PRAM variables
    pramVarsHH = c('ROOF', 'TOILET', 'WATER', 'ELECTCON',
                   'FUELCOOK', 'OWNMOTORCYCLE', 'CAR', 'TV', 'LIVESTOCK')
 
    # sample weight (WGTPOP) (household)
    weightVarHH = c('WGTPOP')
+   
    # All household level variables
    HHVars <- c('HID', selectedKeyVarsHH, pramVarsHH, numVarsHH, weightVarHH)
 
@@ -588,7 +602,8 @@ is further explained in the Section `Household structure <sdcMicro.html#Househol
    # Create subset of file with households and HH variables
    fileHH <- file[,HHVars]
    
-   # Remove duplicated rows based on IDH, select uniques, one row per household in fileHH
+   # Remove duplicated rows based on IDH, select uniques, 
+   # one row per household in fileHH
    fileHH <- fileHH[which(!duplicated(fileHH$IDH)),]
 
    dim(fileHH)
@@ -611,13 +626,14 @@ This leads us to Step 6a.
    :caption: Creating a *sdcMicro* object for the household variables
    :name: code99
    
-   # Create initial SDC object for household level variables*
+   # Create initial SDC object for household level variables
    sdcHH <- createSdcObj(dat = fileHH, keyVars = selectedKeyVarsHH, pramVars = pramVarsHH,
                          weightVar = weightVarHH, numVars = numVarsHH)
 
    numHH <- length(fileHH[,1]) # number of households
 
-**Step 6a: Assessing disclosure risk (household level)**
+Step 6a: Assessing disclosure risk (household level)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 As a first measure, we evaluate the number of households violating
 k-anonymity at the levels 2, 3 and 5.
@@ -645,12 +661,11 @@ frequencies smaller than the k-anonymity threshold, as shown in :numref:`code910
 
 .. code-block:: R
    :linenos:
-   :caption: Showing number of households violating k-anonymity for levels 2,3 and 5
+   :caption: Showing number of households violating k-anonymity for levels 2, 3 and 5
    :name: code910
    
-   # Number of observations violating k-anonymity (thresholds 2 and 3)*
+   # Number of observations violating k-anonymity (thresholds 2 and 3)
    print(sdcHH)
-
    ## Infos on 2/3-Anonymity:
    ##
    ## Number of observations violating
@@ -673,10 +688,10 @@ frequencies smaller than the k-anonymity threshold, as shown in :numref:`code910
    ## [1] 0.2445
 
 It is often useful to view the values for the household(s) that violate
-k-anonymity. This might help clarify which variables cause the
+:math:`k`-anonymity. This might help clarify which variables cause the
 uniqueness of these households; this can then be used later when
 choosing appropriate SDC methods. :numref:`code911` shows how to assess the
-values of the households violating 3 and 5-anonymity. It seems that
+values of the households violating 3- and 5-anonymity. It seems that
 among the categorical key variables, the variable HHSIZE is responsible
 for many of the unique combinations and the origin of much of the risk.
 Having determined this, we can flag HHSIZE as a possible first variable
@@ -694,12 +709,11 @@ neighbor scenario.
 
 .. code-block:: R
    :linenos:
-   :caption: Showing households that violate k-anonymity
+   :caption: Showing households that violate :math:`k`-anonymity
    :name: code911
    
-   # Show values of key variable of records that violate k-anonymity*
+   # Show values of key variable of records that violate k-anonymity
    fileHH[sdcHH@risk$individual[,2] < 3, selectedKeyVarsHH] # for 3-anonymity
-
    fileHH[sdcHH@risk$individual[,2] < 5, selectedKeyVarsHH] # for 5-anonymity
 
 We also assess the disclosure risk of the categorical variables with the
@@ -832,7 +846,9 @@ plots need extra protection, as discussed in Step 8a.
     161.88    182.11    246.86    263.05    283.29    404.69    404.69    607.04    809.39    1214.08   
    ========  ========  ========  ========  ========  ========  ========  ========  ========  =========  
 
-**Step 7a: Assessing utility measures (household level)**
+
+Step 7a: Assessing utility measures (household level)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The utility of the data does not only depend on the household level
 variables, but on the combination of household-level and
@@ -848,7 +864,8 @@ appears that the data utility has been significantly decreased by the
 suppression of some household level variables, we can return to this
 step.
 
-**Step 8a: Choice and application of SDC methods (household variables)**
+Step 8a: Choice and application of SDC methods (household variables)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 This step is divided into the anonymization of the variable HHSIZE, as
 this is a special case, the anonymization of the other selected
@@ -913,7 +930,8 @@ and recreate the *sdcMicro* object.
    fileHHnew <- fileHH[!fileHH[,'HHSIZE'] >= 14,]
 
    # Create new sdcMicro object based on the file without the removed households
-   sdcHH <- createSdcObj(dat=fileHHnew, keyVars=selectedKeyVarsHH, pramVars=pramVarsHH, weightVar=weightVarHH, numVars = numVarsHH)
+   sdcHH <- createSdcObj(dat=fileHHnew, keyVars=selectedKeyVarsHH, pramVars=pramVarsHH, 
+                         weightVar=weightVarHH, numVars = numVarsHH)
 
 **Categorical variables**
 
@@ -1006,7 +1024,6 @@ undolast() function can only be used to go one step back.
    # importance on HHSIZE (1), REGION (2) and URBRUR (3)
 
    print(sdcHH, "ls")
-
    ## Local Suppression:
    ##     KeyVar | Suppressions (#) | Suppressions (%)
    ##     URBRUR |                6 |            0.304
@@ -1110,12 +1127,19 @@ and, for this particular case, shown in :numref:`code918`.
    :caption: Anonymizing the variable LANDSIZEHA
    :name: code918
    
-   # Rounding values of LANDSIZEHA to 1 digit for plots smaller than 1 and to 0 digits for plots larger than 1
-   sdcHH@manipNumVars$LANDSIZEHA[sdcHH@manipNumVars$LANDSIZEHA <= 1 & !\ is.na(sdcHH@manipNumVars$LANDSIZEHA)] <-
-		round(sdcHH@manipNumVars$LANDSIZEHA[sdcHH@manipNumVars$LANDSIZEHA <= 1 & !is.na(sdcHH@manipNumVars$LANDSIZEHA)], digits = 1)
+   # Rounding values of LANDSIZEHA to 1 digit for plots smaller than 1 and 
+   # to 0 digits for plots larger than 1
+   sdcHH@manipNumVars$LANDSIZEHA[sdcHH@manipNumVars$LANDSIZEHA <= 1 & 
+                                 !is.na(sdcHH@manipNumVars$LANDSIZEHA)] <-
+		round(sdcHH@manipNumVars$LANDSIZEHA[sdcHH@manipNumVars$LANDSIZEHA <= 1 & 
+		                                    !is.na(sdcHH@manipNumVars$LANDSIZEHA)], 
+		      digits = 1)
 
-   sdcHH@manipNumVars$LANDSIZEHA[sdcHH@manipNumVars$LANDSIZEHA > 1 & !is.na(sdcHH@manipNumVars$LANDSIZEHA)] <-
-		round(sdcHH@manipNumVars$LANDSIZEHA[sdcHH@manipNumVars$LANDSIZEHA > 1 & !is.na(sdcHH@manipNumVars$LANDSIZEHA)], digits = 0)
+   sdcHH@manipNumVars$LANDSIZEHA[sdcHH@manipNumVars$LANDSIZEHA > 1 & 
+                                 !is.na(sdcHH@manipNumVars$LANDSIZEHA)] <-
+		round(sdcHH@manipNumVars$LANDSIZEHA[sdcHH@manipNumVars$LANDSIZEHA > 1 & 
+		                                    !is.na(sdcHH@manipNumVars$LANDSIZEHA)], 
+		      digits = 0)
 
    # Grouping values of LANDSIZEHA into intervals 5-19, 20-39
    sdcHH@manipNumVars$LANDSIZEHA[sdcHH@manipNumVars$LANDSIZEHA >= 5 &
@@ -1163,7 +1187,8 @@ components in the data and apply noise addition to each component
 separately. This allows to apply a lower level of noise than when
 applying noise only to the aggregates. A noise level of 0.01 seems to be
 sufficient with extra noise of 0.05 added to the outliers. The outliers
-are defined by a robust Mahalanobis distance (<anon_methods.html#Noise addition>`__). After
+are defined by a robust Mahalanobis distance 
+(see the Section `Noise addition <anon_methods.html#Noise addition>`__). After
 adding noise to the components, we recomputed the aggregates as the sum
 of the perturbed components. 
 
@@ -1187,7 +1212,7 @@ random number generator. This allows us to reproduce the results.
                 "TRESHOTEXP", "TMISCEXP")
    set.seed(123)
 
-   # Add noise to expenditure variables*
+   # Add noise to expenditure variables
    sdcHH <- addNoise(noise = 0.01, obj = sdcHH, variables = compExp, method = "additive")
 
    # Add noise to outliers
@@ -1207,10 +1232,11 @@ random number generator. This allows us to reproduce the results.
    # Sum over income categories to obtain consistent totals
    sdcHH@manipNumVars[,'INCTOTGROSSHH'] <- rowSums(sdcHH@manipNumVars[,compInc])
 
-   # recalculate risks after manually changing values in sdcMicro object*
+   # recalculate risks after manually changing values in sdcMicro object
    calcRisks(sdcHH)
 
-**Step 9a: Re-measure risk**
+Step 9a: Re-measure risk
+~~~~~~~~~~~~~~~~~~~~~~~~
 
 For the categorical variables, we conclude that we have achieved
 2-anonymity in the data with local suppression. Only 104 households, or
@@ -1287,7 +1313,8 @@ the data utility of the noise addition.
    dRisk(sdcHH@origData[,compExp], xm = sdcHH@manipNumVars[,compExp], k = 0.05)
    [1] 1
 
-**Step 10a: Re-measure utility**
+Step 10a: Re-measure utility
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 None of the variables has been recoded and the original level of detail
 in the data is kept, except for the variable LANDSIZEHA. As described in
@@ -1319,26 +1346,26 @@ frequencies of the PRAMmed variables with REGION are preserved.
    :widths: auto
    :align: center
    
-  =================  =======  =======  =======  =======  =======  =======  =======  =======  =======  =======  ========
-                        0        1        2        3        4        5        6        7        8        9        NA   
-  =================  =======  =======  =======  =======  =======  =======  =======  =======  =======  =======  ========
-   ROOF                        27       1        914      307      711                                 10       1      
-   ROOF.m                      25       1        907      319      712                                 6        1      
-   TOILET                      76       594      817      481                                          3               
-   TOILET.m                    71       597      816      483                                          4               
-   WATER                       128      323      304      383      562      197      18       21       35              
-   WATER.m                     134      319      308      378      573      188      16       21       34              
-   ELECTCON           768      216      8        2                                                              977    
-   ELECTCON.m         761      218      8        3                                                              981    
-   FUELCOOK                    1289     21       376      55       36                                  139      55     
-   FUELCOOK.m                  1284     22       383      50       39                                  143      50     
-   OWNMOTORCYCLE      1883     86                                                                               2      
-   OWNMOTORCYCLE.m    1882     86                                                                               2      
-   CAR                963      31                                                                               977    
-   CAR.m              966      25                                                                                      
-   TV                 1216     264                                                                              491    
-   TV.m               1203     272                                                                              496    
-  =================  =======  =======  =======  =======  =======  =======  =======  =======  =======  =======  ========
+   =================  =======  =======  =======  =======  =======  =======  =======  =======  =======  =======  ========
+     .                   0        1        2        3        4        5        6        7        8        9        NA   
+   =================  =======  =======  =======  =======  =======  =======  =======  =======  =======  =======  ========
+    ROOF                        27       1        914      307      711                                 10       1      
+    ROOF.m                      25       1        907      319      712                                 6        1      
+    TOILET                      76       594      817      481                                          3               
+    TOILET.m                    71       597      816      483                                          4               
+    WATER                       128      323      304      383      562      197      18       21       35              
+    WATER.m                     134      319      308      378      573      188      16       21       34              
+    ELECTCON           768      216      8        2                                                              977    
+    ELECTCON.m         761      218      8        3                                                              981    
+    FUELCOOK                    1289     21       376      55       36                                  139      55     
+    FUELCOOK.m                  1284     22       383      50       39                                  143      50     
+    OWNMOTORCYCLE      1883     86                                                                               2      
+    OWNMOTORCYCLE.m    1882     86                                                                               2      
+    CAR                963      31                                                                               977    
+    CAR.m              966      25                                                                                      
+    TV                 1216     264                                                                              491    
+    TV.m               1203     272                                                                              496    
+   =================  =======  =======  =======  =======  =======  =======  =======  =======  =======  =======  ========
 
 .. _tab910:
 
@@ -1347,7 +1374,7 @@ frequencies of the PRAMmed variables with REGION are preserved.
    :align: center
 
    =============  =======  =======  =======  =======  =======  =======  =======  =======  =======
-                     1        2        3        4        5        6        7        8        9   
+       .             1        2        3        4        5        6        7        8        9   
    =============  =======  =======  =======  =======  =======  =======  =======  =======  =======
     WATER/URB      11       49       270      306      432      183      12       15       21    
     WATER/RUR      114      274      32       76       130      14       6        6        14    
@@ -1381,7 +1408,7 @@ based on the positive expenditure values before and after anonymization.
    :align: center
    
    ===================   ============   =========== 
-                            before         after    
+         .                  before         after    
    ===================   ============   =========== 
     Point estimate        0.510          0.508      
     Left bound of CI      0.476          0.476      
@@ -1407,7 +1434,7 @@ distortions to the MME and slightly larger changes to the MMI.
    :align: center
    
    ===========  ============  ===========
-                   before        after   
+       .           before        after   
    ===========  ============  ===========
     MME rural    400.5         398.5     
     MME urban    457.3         459.9     
@@ -1439,7 +1466,9 @@ variables before and after anonymization.
 Anonymization for the creation of a SUF will inevitably lead to some
 degree of utility loss. It is important to describe this loss in the
 external report, so that users are aware of the changes in the data.
-This is described in Step 11 and presented in Appendix A. Appendix A
+This is described in Step 11 and presented in 
+`Appendix C <appendices.html#Appendix C: Internal and External Reports for Case Studies>`__.
+`Appendix C <appendices.html#Appendix C: Internal and External Reports for Case Studies>`__
 also shows summary statistics and tabulations of the household level
 variables before and after anonymization.
 
@@ -1463,10 +1492,13 @@ for the individual-level variables.
    # Key variables (individual level)
    selectedKeyVarsIND = c('GENDER', 'REL', 'MARITAL', 'AGEYRS',
                           'EDUCY', 'ATSCHOOL', 'INDUSTRY1') # list of selected key variables
+   
    # Sample weight (WGTHH, individual weight)
    selectedWeightVarIND = c('WGTHH')
+   
    # Household ID
    selectedHouseholdID = c('IDH')
+   
    # No strata
    
    # Recombining anonymized HH datasets and individual level variables
@@ -1484,12 +1516,12 @@ for the individual-level variables.
    dim(fileCombined)
 
    # SDC objects with all variables and treated HH vars for
-   anonymization of individual level variables*
-   sdcCombined <- createSdcObj(dat = fileCombined, keyVars = 
-                               selectedKeyVarsIND, weightVar = selectedWeightVarIND, hhId =
-                               selectedHouseholdID)
+   # anonymization of individual level variables
+   sdcCombined <- createSdcObj(dat = fileCombined, keyVars = selectedKeyVarsIND, 
+                               weightVar = selectedWeightVarIND, hhId = selectedHouseholdID)
 
-**Step 6b: Assessing disclosure risk (individual level)**
+Step 6b: Assessing disclosure risk (individual level)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 All key variables at the individual level are categorical. Therefore, we
 can use k-anonymity and the individual and global risk measures (see
@@ -1523,8 +1555,8 @@ The global risk measures can be found using *R* as illustrated in
 :numref:`code922`. The global risk is 0.24%, which corresponds to 24 expected
 re-identifications. Accounting for the hierarchical structure, this
 rises to 1.26%, or 127 expected re-identifications. The global risk
-measures are low compared to the number of k-anonymity violators due to
-the low sampling weights. The high number of k-anonymity violators is
+measures are low compared to the number of :math:`k`-anonymity violators due to
+the low sampling weights. The high number of :math:`k`-anonymity violators is
 mainly due to the very detailed age variable. The risk measures are
 based only on the individual level variables, since we assume that the
 individual and household level variables are be used simultaneously by
@@ -1539,7 +1571,6 @@ account here. This would results in a high number of key variables.
    :name: code922
    
    print(sdcCombined, 'risk')
-
    ## Risk measures:
    ##
    ## Number of observations with higher risk than the main part of the data: 0
@@ -1548,14 +1579,16 @@ account here. This would results in a high number of key variables.
    ## Information on hierarchical risk:
    ## Expected number of re-identifications: 127.12 (1.26 %)
 
-**Step 7b: Assessing utility (individual level)**
+Step 7b: Assessing utility (individual level)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 We evaluate the utility measures selected in Step 5 besides some general
 utility measures. The values computed from the raw data are presented in
 step 10b to allow for direct comparison with the values computed from
 the anonymized data.
 
-**Step 8b: Choice and application of SDC methods (individual level)**
+Step 8b: Choice and application of SDC methods (individual level)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 We use the same approach for the anonymization of the individual-level
 categorical key variables as for the household level categorical
@@ -1579,11 +1612,11 @@ individuals with high (rare) age values.
 
 .. code-block:: R
    :linenos:
-   :caption: Recoding age in 10-year intervals in the range 15 – 65 anD top code age over 65 years
+   :caption: Recoding age in 10-year intervals in the range 15 – 65 and top code age over 65 years
    :name: code923
    
    # Recoding age and top coding age (top code 65), below that 10 year age
-   groups, children aged under 1 are recoded 0 (previously in months)*
+   # groups, children aged under 1 are recoded 0 (previously in months)
 
    sdcCombined@manipKeyVars$AGEYRS[sdcCombined@manipKeyVars$AGEYRS >= 0 &
    sdcCombined@manipKeyVars$AGEYRS < 1] <- 0
@@ -1596,7 +1629,7 @@ individuals with high (rare) age values.
    sdcCombined@manipKeyVars$AGEYRS[sdcCombined@manipKeyVars$AGEYRS >= 55 &
    sdcCombined@manipKeyVars$AGEYRS < 66] <- 60
 
-   #topBotCoding also recalculates risk based on manual recoding above*
+   # topBotCoding also recalculates risk based on manual recoding above
    sdcCombined <- **topBotCoding(obj = sdcCombined, value = 65,
    replacement = 65, kind = 'top', column = 'AGEYRS')
 
@@ -1654,7 +1687,7 @@ specifying an importance vector, the variable REL has many suppressions
    impVec2[match('AGEYRS', selectedKeyVarsIND)] <- 1 # AGEYRS
    impVec2[match('GENDER', selectedKeyVarsIND)] <- 2 # GENDER
 
-   # Local suppression without importance vector*
+   # Local suppression without importance vector
    sdcCombined <- localSuppression(sdcCombined, k = 2, importance = impVec1)
 
    # Number of suppressions per variable
@@ -1714,7 +1747,8 @@ specifying an importance vector, the variable REL has many suppressions
     k = 2, imp on AGEYRS            0         323      0          0         0        0             0            0     
    ==============================  ========  =======  =========  ========  =======  ============= ==========  ===========
 
-**Step 9b: Re-measure risk (individual level)**
+Step 9b: Re-measure risk (individual level)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 We re-evaluate the risk measures selected in Step 6b. :numref:`tab916` shows
 that local suppression, not surprisingly, has reduced the number of
@@ -1739,7 +1773,8 @@ The hierarchical global risk was reduced to 0.11%, which corresponds to
 re-identification risk is 1.21%. These risk levels would seem acceptable
 for a SUF.
 
-**Step 10b: Re-measure utility (individual level)**
+Step 10b: Re-measure utility (individual level)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 We selected two utility measures for the individual variables: primary
 and secondary education enrollment, both also by gender. These two
@@ -1747,7 +1782,9 @@ measures are sensitive to changes in the variables gender (GENDER), age
 (AGEYRS) and education (EDUCY and EDYRSATCURR), and therefore give a
 good overview of the impact of the anonymization. As shown in :numref:`tab917`
 the anonymization did not change the results. The results of the
-tabulations in Appendix A confirm these results.
+tabulations in 
+`Appendix C <appendices.html#Appendix C: Internal and External Reports for Case Studies>`__
+confirm these results.
 
 .. _tab917:
 
@@ -1764,7 +1801,8 @@ tabulations in Appendix A confirm these results.
     After       72.6%    74.2%    70.9%       42.0%     44.8%    39.1%   
    =========   =======  =======  =========   ========  =======  =========
 
-**Step 11: Audit and reporting**
+Step 11: Audit and reporting
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 In the audit step, we check whether the data allow for reproduction of
 published figures from the original dataset and relationships between
@@ -1802,7 +1840,8 @@ methods (PRAM). This is described in the previous steps.
 	information and it is very important for the users to be aware of these
 	changes and release them in a report that accompanies the data.
 	
-Appendix A provides examples of an internal and external report of the
+`Appendix C <appendices.html#Appendix C: Internal and External Reports for Case Studies>`__
+provides examples of an internal and external report of the
 anonymization process of this dataset. Depending on the users and
 readers of the reports, the content may differ. The code to this case
 study shows how to obtain the information for the reports. Some measures
@@ -1818,14 +1857,14 @@ all households for sdcHH.
    
    # Create reports with sdcMicro report() function
    report(sdcHH, internal = F) # external (brief) report
-
    report(sdcHH, internal = T) # internal (extended) report
 
-   # Create reports with sdcMicro report() function*
+   # Create reports with sdcMicro report() function
    report(sdcCombined, internal = F) # external (brief) report
    report(sdcCombined, internal = T) # internal (extended) report
 
-**Step 12: Data release**
+Step 12: Data release
+~~~~~~~~~~~~~~~~~~~~~
 
 The final step is the release of the anonymized dataset together with
 the external report. :numref:`code926` shows how to collect the data from the
@@ -1842,9 +1881,9 @@ presents functions for exporting files in other data formats.
    
    # Anonymized dataset
    # Household variables and individual variables
-   dataAnon <- extractManipData(sdcCombined, ignoreKeyVars = F,
-   ignorePramVars = F, ignoreNumVars = F, ignoreStrataVar = F)
-   # extracts all variables, not just the manipulated ones*
+   # extracts all variables, not just the manipulated ones
+   dataAnon <- extractManipData(sdcCombined, ignoreKeyVars = F, ignorePramVars = F, 
+                                ignoreNumVars = F, ignoreStrataVar = F)
 
    # Create STATA file
    write.dta(dataframe = dataAnon, file= 'Case1DataAnon.dta', convert.dates=TRUE)
@@ -1877,10 +1916,11 @@ anonymization process.
 	The choices of methods and parameters in this case study are based on this particular dataset and the results and
 	choices might be different for other datasets.
 
-This case study follows the steps of the SDC process outlined in Chapter
-8.
+This case study follows the steps of the SDC process outlined in 
+`The SDC Process <process.html>`__.
 
-**Step 1: Need for disclosure control**
+Step 1: Need for disclosure control
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The same reasoning as in case study 1 applies: the SUF dataset produced
 in case study 1 contains data on individuals and households and some
@@ -1893,7 +1933,8 @@ with a different set of disclosure scenarios based on the
 characteristics of a PUF release (see Step 4). This leads to different
 risk measures, lower accepted risk levels and different SDC methods.
 
-**Step 2: Data preparation and exploring data characteristics**
+Step 2: Data preparation and exploring data characteristics
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 In order to guarantee consistency between the released PUF and SUF
 files, which is required to prevent intruders from using the datasets
@@ -1918,9 +1959,9 @@ and a description of the variables in both files, we refer to Step 2 of
    :caption: Loading required packages and datasets
    :name: code927
    
-   # Load required packages*
-   library(foreign) *# for read/write function for STATA
-   library(sdcMicro) *# sdcMicro package*
+   # Load required packages
+   library(foreign)  # for read/write function for STATA
+   library(sdcMicro) # sdcMicro package
 
    # Set working directory - set to the path on your machine
    setwd("/Users/CaseStudy2")
@@ -2095,8 +2136,8 @@ and expenditure components in the dataset.
 
 The variables related to education are available only for individuals in
 the appropriate age groups and missing for other individuals. In
-addition, the household-level variables (cf. fourth column of Table
-9.18) have the same values for all members in any particular household.
+addition, the household-level variables (cf. fourth column of :numref:`tab918`) 
+have the same values for all members in any particular household.
 The value of household size corresponds to the actual number of
 individuals belonging to that household in the dataset. As we proceed,
 we have to take care that these relationships and structures are
@@ -2114,11 +2155,12 @@ indicators). There are no strata variables available in the data. We
 will use “WGTPOP” for the anonymization of the household variables and
 “WGTHH” for the anonymization of the individual-level variables.
 
-**Step 3: Type of release**
+Step 3: Type of release
+~~~~~~~~~~~~~~~~~~~~~~~
 
 In this case study, we assume that the file will be released as a PUF,
 which will be freely available to anyone interested in the data (see
-the Section `Conditions for PUFs <release_types.html#Conditions for PUFs `__ 
+the Section `Conditions for PUFs <release_types.html#Conditions for PUFs>`__ 
 for the conditions and more information on the release of
 PUFs). The PUF release is intended for users with lower information
 requirements (e.g., students) and researchers interested in the
@@ -2131,7 +2173,8 @@ prevents them from using the data to re-identify individuals and hence
 the accepted risk level is much lower than in the case of the SUF and
 the set of released variables is limited.
 
-**Step 4: Intruder scenarios and choice of key variables**
+Step 4: Intruder scenarios and choice of key variables
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Next, based on the release type, we reformulate the intruder scenarios
 for the PUF release. This leads to the selection of a set of
@@ -2191,9 +2234,9 @@ presented in :numref:`tab919`.
    :widths: auto
    :align: center
    
-   =================  ======================  =======================
+   =================  ======================  =============================
     Variable name      Variable description    Measurement level     
-   =================  ======================  =======================
+   =================  ======================  =============================
     REGION             region                  Household,            
                                                categorical           
     URBRUR             area of residence       Household,            
@@ -2209,13 +2252,12 @@ presented in :numref:`tab919`.
     MARITAL            marital status          Individual,           
                                                categorical           
     AGEYRS             age in completed        Individual,           
-                       years                   semi-continuous/categ 
-                                               orical                
+                       years                   semi-continuous/categorical 
     EDUCY              highest level of        Individual,           
                        education completed     categorical           
     INDUSTRY1          industry                Individual,           
                        classification          categorical           
-   =================  ======================  =======================
+   =================  ======================  =============================
 
 The decision to release the dataset as a PUF means the level of
 anonymization will be relatively high and consequently, the variables
@@ -2235,7 +2277,8 @@ easily observable and known by neighbors such as “ROOF”, “TOILET”,
 community, since a user might be able to identify persons (s)he knows.
 This is called the nosy-neighbor scenario.
 
-**Step 5: Data key uses and selection of utility measures**
+Step 5: Data key uses and selection of utility measures
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 A PUF file contains less information and the file is generally used by
 students as a teaching file, by researchers to get an idea about the
@@ -2297,19 +2340,24 @@ how these steps are done in *R* (see also the Section
    
    # Categorical key variables at household level
    selectedKeyVarsHH <- c('URBRUR', 'REGION', 'HHSIZE')
+   
    # Continuous key variables
    numVarsHH <- c('TANHHEXP', 'INCTOTGROSSHH')
+   
    # PRAM variables
    pramVarsHH <- c('ROOF', 'TOILET', 'WATER', 'ELECTCON',
                    'FUELCOOK', 'OWNMOTORCYCLE', 'CAR', 'TV', 'LIVESTOCK')
+                   
    # Household weight
    weightVarHH <- c('WGTPOP')
+   
    # Variables not suitable for release in PUF (HH level)
    varsNotToBeReleasedHH <- c("OWNAGLAND", "RELIG", "LANDSIZEHA")
+   
    # Vector with names of all HH level variables
    HHVars <- c('IDH', selectedKeyVarsHH, pramVarsHH, numVarsHH, weightVarHH)
 
-   # Create subset of file with only HH level variables*
+   # Create subset of file with only HH level variables
    fileHH <- file[,HHVars]
 
 Every household has the same number of entries as it has members (e.g.,
@@ -2329,8 +2377,8 @@ utility measures from the raw data respectively.
    :name: code930
    
    # Remove duplicated rows based on IDH, one row per household in fileHH
-   fileHH <- fileHH[\ which(!duplicated(fileHH$IDH)),] # SUF file
-   fileOrigHH <- fileOrig[\ which(!duplicated(fileOrig$IDH)),] # original dataset
+   fileHH <- fileHH[which(!duplicated(fileHH$IDH)),] # SUF file
+   fileOrigHH <- fileOrig[which(!duplicated(fileOrig$IDH)),] # original dataset
    
    # Dimensions of fileHH
    dim(fileHH)
@@ -2361,8 +2409,8 @@ This leads us to Step 6a.
                          pramVars = pramVarsHH, weightVar = weightVarHH, numVars = numVarsHH)
    numHH <- length(fileHH[,1]) # number of households
 
-**Step 6a: Assessing disclosure risk (household level)**
-
+Step 6a: Assessing disclosure risk (household level)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Based on the key variables selected in the disclosure scenarios, we can
 evaluate the risk at the household level. The PUF risk measures show a
 lower risk level than in the SUF file after anonymization in case study
@@ -2438,11 +2486,10 @@ large households for the SUF release.
    
    # Show values of key variable of records that violate k-anonymity
    fileHH[sdcHH@risk$individual[,2] < 3, selectedKeyVarsHH] # for 3-anonymity
-
    fileHH[sdcHH@risk$individual[,2] < 5, selectedKeyVarsHH] # for 5-anonymity
 
 We also assess the disclosure risk of the categorical variables with the
-individual and global risk measures as described in the Sections 4.5 
+individual and global risk measures as described in the Sections 
 `Individual risk <measure_risk.html#Individual risk>`__ 
 and `Global risk <measure_risk.html#Global risk>`__. 
 In “fileHH” every entry represents a household. Therefore, we use
@@ -2503,7 +2550,8 @@ Therefore, we exclude these variables from the risk calculations now We
 take these variables into account while remeasuring risk after
 anonymization.
 
-**Step 7a: Assessing utility measures (household level)**
+Step 7a: Assessing utility measures (household level)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The utility of the data does not only depend on the household level
 variables, but on the combination of household-level and
@@ -2530,7 +2578,8 @@ set of utility measures we use to evaluate the information loss in the
 PUF file consists of measures that need less detailed variables. This
 reflects the lower requirements a PUF user has on the dataset.
 
-**Step 8a: Choice and application of SDC methods (household level)**
+Step 8a: Choice and application of SDC methods (household level)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 This step is divided into the anonymization of the categorical key
 variables and the continuous key variables, since different methods are
@@ -2622,7 +2671,7 @@ third option. This leads to more suppressions, but no suppressions in
    ==============  ======================  ===================================  ===================================
     Key variable    Number of suppressions and proportion of total      
    --------------  ------------------------------------------------------------------------------------------------
-                    No importance vector    Importance HHSIZE, URBRUR, REGION    Importance HHSIZE, REGION, URBRUR  
+    .               No importance vector    Importance HHSIZE, URBRUR, REGION    Importance HHSIZE, REGION, URBRUR  
    ==============  ======================  ===================================  ===================================
     URBRUR           0 (0.0 %)                2 (0.1 %)                           61 (3.1 %)      
     REGION           0 (0.0 %)                42 (2.1 %)                          12 (0.6 %)      
@@ -2637,7 +2686,6 @@ third option. This leads to more suppressions, but no suppressions in
    # Local suppression to achieve 5-anonimity
    sdcHH <- localSuppression(sdcHH, k = 5, importance = NULL) # no importance vector
    print(sdcHH, "ls")
-
    ## Local Suppression:
    ##  KeyVar | Suppressions (#) | Suppressions (%)
    ##  URBRUR |                0 |            0.000
@@ -2645,7 +2693,9 @@ third option. This leads to more suppressions, but no suppressions in
    ##  HHSIZE |               39 |            1.980
    ## ---------------------------------------------------------------------------
 
-   sdcHH <- undolast(sdcHH) # undo suppressions to see the effect of an importance vector
+   # Undo suppressions to see the effect of an importance vector
+   sdcHH <- undolast(sdcHH) 
+   
    # Redo local suppression minimizing the number of suppressions in HHSIZE
    sdcHH <- localSuppression(sdcHH, k = 5, importance = c(2, 3, 1))
    
@@ -2657,11 +2707,13 @@ third option. This leads to more suppressions, but no suppressions in
    ##  HHSIZE |                0 |            0.000
    ## ---------------------------------------------------------------------------
 
-   sdcHH <- undolast(sdcHH) # undo suppressions to see the effect of a different importance vector
+   # Undo suppressions to see the effect of a different importance vector
+   sdcHH <- undolast(sdcHH) 
+   
    # Redo local suppression minimizing the number of suppressions in HHSIZE
    sdcHH <- localSuppression*(sdcHH, k = 5, importance = c(3, 2, 1))
-   print(sdcHH, "ls")
 
+   print(sdcHH, "ls")
    ## Local Suppression:
    ##  KeyVar | Suppressions (#) | Suppressions (%)
    ##  URBRUR |               61 |            3.096
@@ -2678,7 +2730,7 @@ matching. Values can be easily observed or be known to neighbors,
 however, and therefore are important, together with other variables, for
 the nosy neighbor scenario. For the PUF release we would like to level
 of uncertainty by increasing the number of changes. Therefore, we redo
-PRAM with a different transition matrix. As discussed in Section
+PRAM with a different transition matrix. As discussed in the Section
 `PRAM (Post RAndomization Method) <anon_methods.html#PRAM (Post RAndomization Method)>`__,
 the invariant PRAM method has the property that the univariate
 distributions do not change. To maintain this property, we reapply PRAM
@@ -2714,6 +2766,7 @@ transition matrix).
    
    # PRAM
    set.seed(10987)
+   
    # Replace PRAM variables in sdcMicro object sdcHH with the original raw values
    sdcHH@origData[,pramVarsHH] <- fileHH[match(fileHH$IDH, fileOrigHH$IDH), pramVarsHH]
    sdcHH@manipPramVars <- fileHH[match(fileHH$IDH, fileOrigHH$IDH), pramVarsHH]
@@ -2733,7 +2786,7 @@ transition matrix).
 
 PRAM has changed values within the variables according to the invariant
 transition matrices. Since we used the invariant PRAM method (see
-the Section `PRAM (Post RAndomization Method) <anon_methods.html#PRAM (Post RAndomization Method)`__), 
+the Section `PRAM (Post RAndomization Method) <anon_methods.html#PRAM (Post RAndomization Method)>`__), 
 the absolute univariate frequencies remain approximately
 unchanged. This is not the case for the multivariate frequencies. In
 Step 10a we compare the multivariate frequencies before and after
@@ -2758,7 +2811,7 @@ data and replace the values for total income and total expenditures with
 the mean of the respective decile. In this way the mean of both
 variables does not change. This approach can be interpreted as
 univariate microaggregation with very large groups (group size n/10)
-with the mean as replacement value (see Section 5.3.2 
+with the mean as replacement value (see the Section 
 `Microaggregation <anon_methods.html#Microaggregation>`__).
 
 The information in the income and expenditure variables by component is
@@ -2776,30 +2829,47 @@ shown in :numref:`code938`.
    
    # Create bands (deciles) for income and expenditure variables
    (aggregates) based on the original data
-   decExp <- as.numeric(cut(fileOrigHH[match(fileHH$IDH, fileOrigHH$IDH), "TANHHEXP"], quantile(fileOrigHH[match(fileHH$IDH, fileOrigHH$IDH),
-   "TANHHEXP"], (0:10)/10, na.rm = T), include.lowest = TRUE, labels = c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)))
-    decInc <- as.numeric(cut(fileOrigHH[match(fileHH$IDH, fileOrigHH$IDH), "INCTOTGROSSHH"], quantile(fileOrigHH[match(fileHH$IDH, fileOrigHH$IDH),
-   "INCTOTGROSSHH"], (0:10)/10, na.rm = T), include.lowest = TRUE, labels  = c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)))
+   decExp <- as.numeric(cut(fileOrigHH[match(fileHH$IDH, fileOrigHH$IDH), "TANHHEXP"], 
+                            quantile(fileOrigHH[match(fileHH$IDH, fileOrigHH$IDH), "TANHHEXP"], 
+                                     (0:10)/10, na.rm = T), 
+                            include.lowest = TRUE, labels = c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)))
+    decInc <- as.numeric(cut(fileOrigHH[match(fileHH$IDH, fileOrigHH$IDH), "INCTOTGROSSHH"], 
+                             quantile(fileOrigHH[match(fileHH$IDH, fileOrigHH$IDH), "INCTOTGROSSHH"], 
+                                      (0:10)/10, na.rm = T), 
+                             include.lowest = TRUE, labels  = c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)))
 
    # Mean values of deciles
-   decExpMean <- round(sapply(split(fileOrigHH[match(fileHH$IDH, fileOrigHH$IDH), "TANHHEXP"], decExp), mean))
-   decIncMean <- round(sapply(split(fileOrigHH[match(fileHH$IDH, fileOrigHH$IDH), "INCTOTGROSSHH"], decInc), mean))
+   decExpMean <- round(sapply(split(fileOrigHH[match(fileHH$IDH, fileOrigHH$IDH), "TANHHEXP"], 
+                                    decExp), mean))
+   decIncMean <- round(sapply(split(fileOrigHH[match(fileHH$IDH, fileOrigHH$IDH), "INCTOTGROSSHH"], 
+                                   decInc), mean))
+                                   
    # Replace with mean value of decile
    sdcHH@manipNumVars$TANHHEXP <- decExpMean[match(decExp,names(decExpMean))]
    sdcHH@manipNumVars$INCTOTGROSSHH <- decIncMean[\ match(decInc, names(decIncMean))]
+   
    # Recalculate risks after manually changing values in sdcMicro object calcRisks(sdcHH)
+   calcRisks(sdcHH)
 
    # Extract data from sdcHH
    HHmanip <- extractManipData(sdcHH) # manipulated variables HH
-   # Keep components of expenditure and income as share of total, use original data since previous data was perturbed*
+   
+   # Keep components of expenditure and income as share of total, 
+   # use original data since previous data was perturbed
    compExp <- c('TFOODEXP', 'TALCHEXP', 'TCLTHEXP', 'THOUSEXP',
-                'TFURNEXP', 'THLTHEXP', 'TTRANSEXP', 'TCOMMEXP', 'TRECEXP', 'TEDUEXP', 'TRESTHOTEXP', 'TMISCEXP')
-   compInc <- c('INCRMT', 'INCWAGE', 'INCFARMBSN', 'INCNFARMBSN',
-                'INCRENT', 'INCFIN', 'INCPENSN', 'INCOTHER')
-   HHmanip <- cbind(HHmanip, round(fileOrigHH[match(fileHH$IDH, fileOrigHH$IDH), compExp] / fileOrigHH[match(fileHH$IDH, fileOrigHH$IDH), "TANHHEXP"], 2))
-   HHmanip <- cbind(HHmanip, round(fileOrigHH[match(fileHH$IDH, fileOrigHH$IDH), compInc] / fileOrigHH[match(fileHH$IDH, fileOrigHH$IDH), "INCTOTGROSSHH"], 2))
+                'TFURNEXP', 'THLTHEXP', 'TTRANSEXP', 'TCOMMEXP', 
+                'TRECEXP', 'TEDUEXP', 'TRESTHOTEXP', 'TMISCEXP')
+   compInc <- c('INCRMT',  'INCWAGE', 'INCFARMBSN', 'INCNFARMBSN',
+                'INCRENT', 'INCFIN',  'INCPENSN',   'INCOTHER')
+   HHmanip <- cbind(HHmanip, round(fileOrigHH[match(fileHH$IDH, fileOrigHH$IDH), compExp] / 
+                                   fileOrigHH[match(fileHH$IDH, fileOrigHH$IDH), 
+                                              "TANHHEXP"], 2))
+   HHmanip <- cbind(HHmanip, round(fileOrigHH[match(fileHH$IDH, fileOrigHH$IDH), compInc] / 
+                                   fileOrigHH[match(fileHH$IDH, fileOrigHH$IDH), 
+                                              "INCTOTGROSSHH"], 2))
 
-**Step 9a: Re-measure risk (household level)**
+Step 9a: Re-measure risk (household level)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 For the categorical variables, we conclude that we have achieved
 5-anonymity in the data with local suppression. 5-anonymity also implies
@@ -2851,16 +2921,20 @@ component).
    :name: code939
    
    # Risk evaluation continuous variables
-   dRisk(sdcHH@origData[,c("TANHHEXP", "INCTOTGROSSHH")], xm = sdcHH@manipNumVars[,c("TANHHEXP", "INCTOTGROSSHH")], k = 0.01)
+   dRisk(sdcHH@origData[,c("TANHHEXP", "INCTOTGROSSHH")], 
+         xm = sdcHH@manipNumVars[,c("TANHHEXP", "INCTOTGROSSHH")], k = 0.01)
    ## [1] 0.4619289
 
-   dRisk(sdcHH@origData[,c("TANHHEXP", "INCTOTGROSSHH")], xm = sdcHH@manipNumVars[,c("TANHHEXP", "INCTOTGROSSHH")], k = 0.02)
+   dRisk(sdcHH@origData[,c("TANHHEXP", "INCTOTGROSSHH")], 
+         xm = sdcHH@manipNumVars[,c("TANHHEXP", "INCTOTGROSSHH")], k = 0.02)
    ## [1] 0.642132
 
-   dRisk(sdcHH@origData[,c("TANHHEXP", "INCTOTGROSSHH")], xm = sdcHH@manipNumVars[,c("TANHHEXP", "INCTOTGROSSHH")], k = 0.05)
+   dRisk(sdcHH@origData[,c("TANHHEXP", "INCTOTGROSSHH")], 
+         xm = sdcHH@manipNumVars[,c("TANHHEXP", "INCTOTGROSSHH")], k = 0.05)
    ## [1] 0.8258883
 
-**Step 10a Re-measure utility (household level)**
+Step 10a Re-measure utility (household level)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The utility in the data has decreased compared to the raw data, mainly
 because variables were completely removed. Many of the utility measures
@@ -2898,10 +2972,12 @@ are small and mainly due to the removed households.
    
    # Decile dispersion ratio
    # raw data
-   mean(tail(sort(fileOrigHH$INCTOTGROSSHH), n = 200)) / mean(head(sort(fileOrigHH$INCTOTGROSSHH), n = 200))
+   mean(tail(sort(fileOrigHH$INCTOTGROSSHH), n = 200)) / 
+     mean(head(sort(fileOrigHH$INCTOTGROSSHH), n = 200))
    ## [1] 24.12152
 
-   mean(tail(sort(HHmanip$INCTOTGROSSHH), n = 197)) / mean(head(sort(HHmanip$INCTOTGROSSHH), n = 197))
+   mean(tail(sort(HHmanip$INCTOTGROSSHH), n = 197)) / 
+     mean(head(sort(HHmanip$INCTOTGROSSHH), n = 197))
    ## [1] 23.54179
 
    # Share of total consumption by the poorest decile households
@@ -2936,15 +3012,21 @@ variables.
    :name: code941
    
    ### Select variables (individual level)
-   selectedKeyVarsIND = c('GENDER', 'REL', 'MARITAL', 'AGEYRS', 'EDUCY', 'INDUSTRY1') # list of selected key variables
+   selectedKeyVarsIND = c('GENDER', 'REL', 'MARITAL', 
+                          'AGEYRS', 'EDUCY', 'INDUSTRY1') # list of selected key variables
+   
    # sample weight (WGTHH, individual weight)
    selectedWeightVarIND = c('WGTHH')
+   
    # Household ID
    selectedHouseholdID = c('IDH')
+   
    # Variables not suitable for release in PUF (IND level)
    varsNotToBeReleasedIND <- c("ATSCHOOL", "EDYRSCURRAT")
+   
    # All individual level variables
    INDVars <- c(selectedKeyVarsIND)
+   
    # Recombining anonymized HH data sets and individual level variables
    indVars <- c("IDH", "IDP", selectedKeyVarsIND, "WGTHH") # HID and all non HH vars
    fileInd <- file[indVars] # subset of file without HHVars
@@ -2955,12 +3037,16 @@ variables.
    ## [1] 10068    44
 
    # SDC objects with only IND level variables
-   sdcCombined <- createSdcObj(dat = fileCombined, keyVars = c(selectedKeyVarsIND), weightVar = selectedWeightVarIND, hhId = selectedHouseholdID)
+   sdcCombined <- createSdcObj(dat = fileCombined, keyVars = c(selectedKeyVarsIND), 
+                               weightVar = selectedWeightVarIND, hhId = selectedHouseholdID)
 
    # SDC objects with both HH and IND level variables
-   sdcCombinedAll <- createSdcObj(dat = fileCombined, keyVars = c(selectedKeyVarsIND, selectedKeyVarsHH ), weightVar = selectedWeightVarIND, hhId = selectedHouseholdID)
+   sdcCombinedAll <- createSdcObj(dat = fileCombined, 
+                                  keyVars = c(selectedKeyVarsIND, selectedKeyVarsHH ), 
+                                  weightVar = selectedWeightVarIND, hhId = selectedHouseholdID)
 
-**Step 6b: Assessing disclosure risk (individual level)**
+Step 6b: Assessing disclosure risk (individual level)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 As first measure, we evaluate the number of records violating
 :math:`k`-anonymity at the levels 2, 3 and 5. :numref:`tab923` shows the
@@ -2978,7 +3064,7 @@ individuals.
 
 .. _tab923:
 
-.. table:: Number of records violating k-anonimity
+.. table:: Number of records violating :math:`k`-anonimity
    :widths: auto
    :align: center
    
@@ -3053,14 +3139,16 @@ these records. :numref:`code942` shows how to retrieve these measures in *R*.
    max(sdcCombined@risk$individual[, "hier_risk"])
    ## [1] 0.01169091
 
-**Step 7b: Assessing utility measures (individual level)**
+Step 7b: Assessing utility measures (individual level)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 We evaluate the utility measures as discussed in Step 5 based on the raw
 data (before applying any anonymization measures). The results are
 presented in Step 10b together with the values after anonymization to
 allow for direct comparison.
 
-**Step 8b: Choice and application of SDC methods (individual level)**
+Step 8b: Choice and application of SDC methods (individual level)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 In this step, we discuss four different techniques used for
 anonymization: 1) removing variables from the dataset to be released, 2)
@@ -3156,8 +3244,10 @@ variables before and after recoding.
 
    # 1 - Head, 2 - Spouse, 3 - Child, 4 - Father/Mother, 5 - Grandchild, 6 - Son/Daughter in law
    # 7 - Other relative, 8 - Domestic help, 9 - Non-relative
-   sdcCombined <- groupVars(sdcCombined, var = "REL", before = c("4", "5", "6", "7"), after = c("7", "7", "7", "7")) # other relative
-   sdcCombined <- groupVars(sdcCombined, var = "REL", before = c("8", "9"), after = c("9", "9")) # other
+   sdcCombined <- groupVars(sdcCombined, var = "REL", before = c("4", "5", "6", "7"), 
+                            after = c("7", "7", "7", "7")) # other relative
+   sdcCombined <- groupVars(sdcCombined, var = "REL", before = c("8", "9"), 
+                            after = c("9", "9")) # other
    
    table(sdcCombined@manipKeyVars$REL, useNA = "ifany")
    ##
@@ -3172,9 +3262,12 @@ variables before and after recoding.
    ## 3542 2141  415  295  330  329 3016
 
    # 1 - Never married, 2 - Married monogamous, 3 - Married polygamous,
-   # 4 - Common law, union coutumiere, union libre, living together, 5 - Divorced/Separated, 6 - Widowed
-   sdcCombined <- groupVars(sdcCombined, var = "MARITAL", before = c("2", "3", "4"), after = c("2", "2", "2")) # married/living together
-   sdcCombined <- groupVars(sdcCombined, var = "MARITAL", before = c("5", "6"), after = c("9", "9")) # divorced/seperated/widowed*
+   # 4 - Common law, union coutumiere, union libre, living together, 5 - Divorced/Separated, 
+   # 6 - Widowed
+   sdcCombined <- groupVars(sdcCombined, var = "MARITAL", before = c("2", "3", "4"), 
+                            after = c("2", "2", "2")) # married/living together
+   sdcCombined <- groupVars(sdcCombined, var = "MARITAL", before = c("5", "6"), 
+                            after = c("9", "9")) # divorced/seperated/widowed*
    
    table(sdcCombined@manipKeyVars$MARITAL, useNA = "ifany")
    ##
@@ -3189,7 +3282,10 @@ variables before and after recoding.
    ##   20   30   40   50   60   65 <NA>
    ## 1847 1220  889  554  314  325  188
 
-   sdcCombined <- groupVars(sdcCombined, var = "AGEYRS", before = c("0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14"), after = rep("7", 15))
+   sdcCombined <- groupVars(sdcCombined, var = "AGEYRS", 
+                            before = c("0", "1", "2", "3", "4", "5", "6", "7", "8", "9", 
+                                       "10", "11", "12", "13", "14"), 
+                            after = rep("7", 15))
    
    table(sdcCombined@manipKeyVars$AGEYRS, useNA = "ifany")
    ##
@@ -3203,11 +3299,15 @@ variables before and after recoding.
    ##    0    1    2    3    4    5    6 <NA>
    ## 1582 4755 1062  330  139   46  104 2050
 
-   # 0 - No education, 1 - Pre-school/ Primary not completed, 2 -  Completed primary, but less than completed lower secondary*
-   # 3 - Completed lower secondary (or post-primary vocational education) but less than completed upper secondary*
-   # 4 - Completed upper secondary (or extended vocational/technical education), 5 - Post secondary technical*
+   # 0 - No education, 1 - Pre-school/ Primary not completed, 
+   # 2 -  Completed primary, but less than completed lower secondary
+   # 3 - Completed lower secondary (or post-primary vocational education) 
+   #     but less than completed upper secondary
+   # 4 - Completed upper secondary (or extended vocational/technical education), 
+   # 5 - Post secondary technical
    # 6 - University and higher
-   sdcCombined <- groupVars(sdcCombined, var = "EDUCY", before = c("3", "4", "5", "6"), after = c("3", "3", "3", "3")) # completed lower secondary or higher
+   sdcCombined <- groupVars(sdcCombined, var = "EDUCY", before = c("3", "4", "5", "6"), 
+                            after = c("3", "3", "3", "3")) # completed lower secondary or higher
    table(sdcCombined@manipKeyVars$EDUCY, useNA = "ifany")
    ##
    ##    0    1    2    3 <NA>
@@ -3222,9 +3322,12 @@ variables before and after recoding.
    # 1 - Agriculture and Fishing, 2 - Mining, 3 - Manufacturing, 4 -  Electricity and Utilities
    # 5 - Construction, 6 - Commerce, 7 - Transportation, Storage and  Communication, 8 - Financial, Insurance and Real Estate
    # 9 - Services: Public Administration, 10 - Other Services, 11 - Unspecified
-   sdcCombined <- groupVars(sdcCombined, var = "INDUSTRY1", before = c("1", "2"), after = c("1", "1")) # primary
-   sdcCombined <- groupVars(sdcCombined, var = "INDUSTRY1", before = c("3", "4", "5"), after = c("2", "2", "2")) # secondary
-   sdcCombined <- groupVars(sdcCombined, var = "INDUSTRY1", before = c("6", "7", "8", "9", "10"), after = c("3", "3", "3", "3", "3")) # tertiary
+   sdcCombined <- groupVars(sdcCombined, var = "INDUSTRY1", before = c("1", "2"), 
+                            after = c("1", "1")) # primary
+   sdcCombined <- groupVars(sdcCombined, var = "INDUSTRY1", before = c("3", "4", "5"), 
+                            after = c("2", "2", "2")) # secondary
+   sdcCombined <- groupVars(sdcCombined, var = "INDUSTRY1", before = c("6", "7", "8", "9", "10"), 
+                            after = c("3", "3", "3", "3", "3")) # tertiary
    table(sdcCombined@manipKeyVars$INDUSTRY1, useNA = "ifany")
    ##
    ##    1    2    3 <NA>
@@ -3253,9 +3356,9 @@ the variable “AGEYRS”.
    
    # Local suppression without importance vector
    sdcCombined <- localSuppression(sdcCombined, k = 5, importance = NULL)
+ 
    # Number of suppressions per variable
    print(sdcCombined, "ls")
-
    ## Local Suppression:
    ##     KeyVar | Suppressions (#) | Suppressions (%)
    ##     GENDER |                0 |            0.000
@@ -3275,7 +3378,7 @@ we randomly reorder the records within the regions. :numref:`code945` shows
 how to do this in *R*. We first count the number of records per region
 
 .. NOTE:: 
-	Some records have their region value suppressed, so we include the count of NAs*. 
+	Some records have their region value suppressed, so we include the count of NAs. 
 	
 Subsequently, we draw randomly household IDs, in
 such way that the regional division is respected. Finally, we sort the
@@ -3296,11 +3399,16 @@ object “sdcCombined” as shown in :numref:`code945`.
    dataAnon <- dataAnon[order(dataAnon$REGION),]
 
    # Number of households per region
-   hhperregion <- table(dataAnon[match(unique(dataAnon$IDH), dataAnon$IDH), "REGION"], useNA = "ifany")
+   hhperregion <- table(dataAnon[match(unique(dataAnon$IDH), dataAnon$IDH), "REGION"], 
+                        useNA = "ifany")
+   
    # Randomized IDH (household ID)
-   randomHHid <- c(sample(1:hhperregion[1], hhperregion[1]), unlist(lapply(1:(length(hhperregion)-1), function(i){sample((sum(hhperregion[1:i]) + 1): sum(hhperregion[1:(i+1)]), hhperregion[(i+1)])})))
+   randomHHid <- c(sample(1:hhperregion[1], hhperregion[1]), 
+                   unlist(lapply(1:(length(hhperregion)-1), 
+                                 function(i){sample((sum(hhperregion[1:i]) + 1): sum(hhperregion[1:(i+1)]), hhperregion[(i+1)])})))
 
-   dataAnon$IDH <- rep(randomHHid, table(dataAnon$IDH)[match(unique(dataAnon$IDH),  as.numeric(names(table(dataAnon$IDH))))])
+   dataAnon$IDH <- rep(randomHHid, table(dataAnon$IDH)[match(unique(dataAnon$IDH),  
+                                         as.numeric(names(table(dataAnon$IDH))))])
    
    # Sort by IDH (and region)
    dataAnon <- dataAnon[order(dataAnon$IDH),]
@@ -3353,7 +3461,8 @@ specified, it is not guaranteed that the required level for
 :math:`k`-anonymity is automatically achieved on the complete set of key
 variables. It is therefore important to check the results.
 
-**Step 9b: Re-measure risk**
+Step 9b: Re-measure risk
+~~~~~~~~~~~~~~~~~~~~~~~~
 
 We re-evaluate the risk measures selected in Step 6. :numref:`tab925` shows
 that local suppression, not surprisingly, has reduced the number of
@@ -3380,7 +3489,8 @@ combinations in the data.
     5                0                             0.0 %        
    =============  =============================  ============
 
-**Step 10b: Re-measure utility**
+Step 10b: Re-measure utility
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 We compare (cross-)tabulations before and after anonymization, which are
 illustrated in the *R* code to this case study. We note that due to the
@@ -3388,7 +3498,8 @@ recoding in Step 8b, the detail in the variables is reduced. This
 reduces the number of necessary suppressions and is acceptable for a
 public use file.
 
-**Step 11: Audit and reporting**
+Step 11: Audit and reporting
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 In the audit step, we check whether the data allow for reproduction of
 published figures from the original dataset and relationships between
@@ -3422,7 +3533,8 @@ methods (PRAM). This is described in the previous steps.
 	information and it is very important for the users to be aware of these
 	changes and release them in a report that accompanies the data.
 
-Appendix C provides examples of an internal and external report of the
+`Appendix C <appendices.html#Appendix C: Internal and External Reports for Case Studies>`__
+provides examples of an internal and external report of the
 anonymization process of this dataset. Depending on the users and
 readers of the reports, the content may differ. 
 
@@ -3432,7 +3544,8 @@ readers of the reports, the content may differ.
 However, the report should contain the entire process, including the measures applied
 in case study 1.
 
-**Step 12: Data release**
+Step 12: Data release
+~~~~~~~~~~~~~~~~~~~~~
 
 The final step is the release of the anonymized dataset together with
 the external report. :numref:`code946` shows how to export the anonymized
