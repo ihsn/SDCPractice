@@ -208,18 +208,16 @@ Source: `DuBo10`_
 Appendix C: Internal and External Reports for Case Studies
 -----------------------------------------------------------------------------------
 
-This appendix provides example for internal and external reports on the
+This appendix provides examples of internal and external reports for the
 anonymization process for the case studies in the Section 
 `Case studies <case_studies.html>`__. The internal
-report consists of two parts: the first is on the anonymization of the
-household-level variables and the second is on the anonymization of the
+report consists of two parts: the first is for the anonymization of the
+household-level variables and the second is for the anonymization of the
 individual-level variables.
 
 Case study 1 - Internal report
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-To be added
 
-..
    **SDC report (adapted from the report function in sdcMicro)**
    
    The dataset consists of 10,574 observations (i.e., 10,574 individuals in 2,000 households).
@@ -236,7 +234,7 @@ To be added
    
    Selected (key) variables:
    
-   .. table::
+      table::
       :widths: auto
       :align: center
    
@@ -287,7 +285,7 @@ To be added
    
    10 combinations of categories with highest risk:
    
-   .. table::
+      table::
       :widths: auto
       :align: center
       
