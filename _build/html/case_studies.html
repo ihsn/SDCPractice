@@ -3868,8 +3868,8 @@ respectively, and these variables are aggregations of existing income
 and expenditure components in the dataset.</p>
 <p>The variables related to education are available only for individuals in
 the appropriate age groups and missing for other individuals. In
-addition, the household-level variables (cf. fourth column of Table
-9.18) have the same values for all members in any particular household.
+addition, the household-level variables (cf. fourth column of <a class="reference internal" href="#tab918"><span class="std std-numref">Table 18</span></a>)
+have the same values for all members in any particular household.
 The value of household size corresponds to the actual number of
 individuals belonging to that household in the dataset. As we proceed,
 we have to take care that these relationships and structures are
@@ -4006,8 +4006,7 @@ categorical</td>
 <td>age in completed
 years</td>
 <td>Individual,
-semi-continuous/categ
-orical</td>
+semi-continuous/categorical</td>
 </tr>
 <tr class="row-odd"><td>EDUCY</td>
 <td>highest level of
@@ -4131,7 +4130,7 @@ varsNotToBeReleasedHH <span class="o">&lt;-</span> <span class="kt">c</span><spa
 <span class="c1"># Vector with names of all HH level variables</span>
 HHVars <span class="o">&lt;-</span> <span class="kt">c</span><span class="p">(</span><span class="s">&#39;IDH&#39;</span><span class="p">,</span> selectedKeyVarsHH<span class="p">,</span> pramVarsHH<span class="p">,</span> numVarsHH<span class="p">,</span> weightVarHH<span class="p">)</span>
 
-<span class="c1"># Create subset of file with only HH level variables*</span>
+<span class="c1"># Create subset of file with only HH level variables</span>
 fileHH <span class="o">&lt;-</span> <span class="kp">file</span><span class="p">[,</span>HHVars<span class="p">]</span>
 </pre></div>
 </td></tr></table></div>
@@ -4293,16 +4292,14 @@ large households for the SUF release.</p>
 <div class="code-block-caption"><span class="caption-number">Listing 33 </span><span class="caption-text">Showing records of households that violate <span class="math notranslate nohighlight">\(k\)</span>-anonymity</span><a class="headerlink" href="#code933" title="Permalink to this code">¶</a></div>
 <div class="highlight-R notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
-3
-4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># Show values of key variable of records that violate k-anonymity</span>
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># Show values of key variable of records that violate k-anonymity</span>
 fileHH<span class="p">[</span>sdcHH<span class="o">@</span>risk<span class="o">$</span>individual<span class="p">[,</span><span class="m">2</span><span class="p">]</span> <span class="o">&lt;</span> <span class="m">3</span><span class="p">,</span> selectedKeyVarsHH<span class="p">]</span> <span class="c1"># for 3-anonymity</span>
-
 fileHH<span class="p">[</span>sdcHH<span class="o">@</span>risk<span class="o">$</span>individual<span class="p">[,</span><span class="m">2</span><span class="p">]</span> <span class="o">&lt;</span> <span class="m">5</span><span class="p">,</span> selectedKeyVarsHH<span class="p">]</span> <span class="c1"># for 5-anonymity</span>
 </pre></div>
 </td></tr></table></div>
 </div>
 <p>We also assess the disclosure risk of the categorical variables with the
-individual and global risk measures as described in the Sections 4.5
+individual and global risk measures as described in the Sections
 <a class="reference external" href="measure_risk.html#Individualrisk">Individual risk</a>
 and <a class="reference external" href="measure_risk.html#Globalrisk">Global risk</a>.
 In “fileHH” every entry represents a household. Therefore, we use
@@ -4474,10 +4471,10 @@ third option. This leads to more suppressions, but no suppressions in
 <tr class="row-odd"><th class="head">Key variable</th>
 <th class="head" colspan="3">Number of suppressions and proportion of total</th>
 </tr>
-<tr class="row-even"><th class="head">&#160;</th>
-<th class="head">&#160;</th>
-<th class="head">&#160;</th>
-<th class="head">&#160;</th>
+<tr class="row-even"><th class="head">.</th>
+<th class="head">No importance vector</th>
+<th class="head">Importance HHSIZE, URBRUR, REGION</th>
+<th class="head">Importance HHSIZE, REGION, URBRUR</th>
 </tr>
 </thead>
 <tbody valign="top">
@@ -4585,7 +4582,7 @@ matching. Values can be easily observed or be known to neighbors,
 however, and therefore are important, together with other variables, for
 the nosy neighbor scenario. For the PUF release we would like to level
 of uncertainty by increasing the number of changes. Therefore, we redo
-PRAM with a different transition matrix. As discussed in Section
+PRAM with a different transition matrix. As discussed in the Section
 <a class="reference external" href="anon_methods.html#PRAM(PostRAndomizationMethod)">PRAM (Post RAndomization Method)</a>,
 the invariant PRAM method has the property that the univariate
 distributions do not change. To maintain this property, we reapply PRAM
@@ -5019,7 +5016,7 @@ assume that these variables are not available in the same dataset and
 can therefore not simultaneously be used by an intruder to re-identify
 individuals.</p>
 <span id="tab923"></span><table border="1" class="colwidths-auto docutils align-center" id="id38">
-<caption><span class="caption-number">Table 23 </span><span class="caption-text">Number of records violating k-anonimity</span><a class="headerlink" href="#id38" title="Permalink to this table">¶</a></caption>
+<caption><span class="caption-number">Table 23 </span><span class="caption-text">Number of records violating <span class="math notranslate nohighlight">\(k\)</span>-anonimity</span><a class="headerlink" href="#id38" title="Permalink to this table">¶</a></caption>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">.</th>
 <th class="head" colspan="2">sdcCombined</th>
@@ -5503,7 +5500,7 @@ we randomly reorder the records within the regions. <a class="reference internal
 how to do this in <em>R</em>. We first count the number of records per region</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">Some records have their region value suppressed, so we include the count of NAs*.</p>
+<p class="last">Some records have their region value suppressed, so we include the count of NAs.</p>
 </div>
 <p>Subsequently, we draw randomly household IDs, in
 such way that the regional division is respected. Finally, we sort the
@@ -5676,7 +5673,8 @@ methods (PRAM). This is described in the previous steps.</p>
 information and it is very important for the users to be aware of these
 changes and release them in a report that accompanies the data.</p>
 </div>
-<p>Appendix C provides examples of an internal and external report of the
+<p><a class="reference external" href="appendices.html#AppendixC:InternalandExternalReportsforCaseStudies">Appendix C</a>
+provides examples of an internal and external report of the
 anonymization process of this dataset. Depending on the users and
 readers of the reports, the content may differ.</p>
 <div class="admonition note">

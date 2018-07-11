@@ -2136,8 +2136,8 @@ and expenditure components in the dataset.
 
 The variables related to education are available only for individuals in
 the appropriate age groups and missing for other individuals. In
-addition, the household-level variables (cf. fourth column of Table
-9.18) have the same values for all members in any particular household.
+addition, the household-level variables (cf. fourth column of :numref:`tab918`) 
+have the same values for all members in any particular household.
 The value of household size corresponds to the actual number of
 individuals belonging to that household in the dataset. As we proceed,
 we have to take care that these relationships and structures are
@@ -2234,9 +2234,9 @@ presented in :numref:`tab919`.
    :widths: auto
    :align: center
    
-   =================  ======================  =======================
+   =================  ======================  =============================
     Variable name      Variable description    Measurement level     
-   =================  ======================  =======================
+   =================  ======================  =============================
     REGION             region                  Household,            
                                                categorical           
     URBRUR             area of residence       Household,            
@@ -2252,13 +2252,12 @@ presented in :numref:`tab919`.
     MARITAL            marital status          Individual,           
                                                categorical           
     AGEYRS             age in completed        Individual,           
-                       years                   semi-continuous/categ 
-                                               orical                
+                       years                   semi-continuous/categorical 
     EDUCY              highest level of        Individual,           
                        education completed     categorical           
     INDUSTRY1          industry                Individual,           
                        classification          categorical           
-   =================  ======================  =======================
+   =================  ======================  =============================
 
 The decision to release the dataset as a PUF means the level of
 anonymization will be relatively high and consequently, the variables
@@ -2358,7 +2357,7 @@ how these steps are done in *R* (see also the Section
    # Vector with names of all HH level variables
    HHVars <- c('IDH', selectedKeyVarsHH, pramVarsHH, numVarsHH, weightVarHH)
 
-   # Create subset of file with only HH level variables*
+   # Create subset of file with only HH level variables
    fileHH <- file[,HHVars]
 
 Every household has the same number of entries as it has members (e.g.,
@@ -2487,11 +2486,10 @@ large households for the SUF release.
    
    # Show values of key variable of records that violate k-anonymity
    fileHH[sdcHH@risk$individual[,2] < 3, selectedKeyVarsHH] # for 3-anonymity
-
    fileHH[sdcHH@risk$individual[,2] < 5, selectedKeyVarsHH] # for 5-anonymity
 
 We also assess the disclosure risk of the categorical variables with the
-individual and global risk measures as described in the Sections 4.5 
+individual and global risk measures as described in the Sections 
 `Individual risk <measure_risk.html#Individual risk>`__ 
 and `Global risk <measure_risk.html#Global risk>`__. 
 In “fileHH” every entry represents a household. Therefore, we use
@@ -2673,7 +2671,7 @@ third option. This leads to more suppressions, but no suppressions in
    ==============  ======================  ===================================  ===================================
     Key variable    Number of suppressions and proportion of total      
    --------------  ------------------------------------------------------------------------------------------------
-                    No importance vector    Importance HHSIZE, URBRUR, REGION    Importance HHSIZE, REGION, URBRUR  
+    .               No importance vector    Importance HHSIZE, URBRUR, REGION    Importance HHSIZE, REGION, URBRUR  
    ==============  ======================  ===================================  ===================================
     URBRUR           0 (0.0 %)                2 (0.1 %)                           61 (3.1 %)      
     REGION           0 (0.0 %)                42 (2.1 %)                          12 (0.6 %)      
@@ -2732,7 +2730,7 @@ matching. Values can be easily observed or be known to neighbors,
 however, and therefore are important, together with other variables, for
 the nosy neighbor scenario. For the PUF release we would like to level
 of uncertainty by increasing the number of changes. Therefore, we redo
-PRAM with a different transition matrix. As discussed in Section
+PRAM with a different transition matrix. As discussed in the Section
 `PRAM (Post RAndomization Method) <anon_methods.html#PRAM (Post RAndomization Method)>`__,
 the invariant PRAM method has the property that the univariate
 distributions do not change. To maintain this property, we reapply PRAM
@@ -3066,7 +3064,7 @@ individuals.
 
 .. _tab923:
 
-.. table:: Number of records violating k-anonimity
+.. table:: Number of records violating :math:`k`-anonimity
    :widths: auto
    :align: center
    
@@ -3380,7 +3378,7 @@ we randomly reorder the records within the regions. :numref:`code945` shows
 how to do this in *R*. We first count the number of records per region
 
 .. NOTE:: 
-	Some records have their region value suppressed, so we include the count of NAs*. 
+	Some records have their region value suppressed, so we include the count of NAs. 
 	
 Subsequently, we draw randomly household IDs, in
 such way that the regional division is respected. Finally, we sort the
@@ -3535,7 +3533,8 @@ methods (PRAM). This is described in the previous steps.
 	information and it is very important for the users to be aware of these
 	changes and release them in a report that accompanies the data.
 
-Appendix C provides examples of an internal and external report of the
+`Appendix C <appendices.html#Appendix C: Internal and External Reports for Case Studies>`__
+provides examples of an internal and external report of the
 anonymization process of this dataset. Depending on the users and
 readers of the reports, the content may differ. 
 
