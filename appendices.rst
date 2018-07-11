@@ -312,7 +312,8 @@ Case study 1 - Internal report
  
 Case study 1 - External report
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-to do
+ to do
+
 .. ..
 
    This case study microdata set has been treated to protect confidentiality. Several methods have been applied to protect the confidentiality: removing variables from the original dataset, removing records from the dataset, reducing detail in variables by recoding and top-coding, removing particular values of individuals at risk (local suppression) and perturbing values of certain variables.
