@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2016.1.11)  11 JUL 2018 10:29
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2016.1.11)  11 JUL 2018 10:40
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1652,337 +1652,297 @@ File: blanketagreement.pdf Graphic file (type pdf)
 Package pdftex.def Info: blanketagreement.pdf used on input line 11621.
 (pdftex.def)             Requested size: 469.75502pt x 510.34877pt.
  [116] [117 <./blanketagreement.pdf>]
-Underfull \hbox (badness 10000) in paragraph at lines 11764--11764
-[]\T1/phv/m/n/10 House-hold
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 11764--11764
-[]\T1/ptm/m/n/10 LAND-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 11764--11764
-[]\T1/ptm/m/n/10 TAN-HH-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 11764--11764
-[]\T1/ptm/m/n/10 TFURN-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 11764--11764
-[]\T1/ptm/m/n/10 TRESHOT-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 11764--11764
-[]\T1/ptm/m/n/10 INC-TOT-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 11764--11764
-[]\T1/ptm/m/n/10 IN-C-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 11764--11764
-[]\T1/ptm/m/n/10 IN-C-N-
- []
-
-[118] [119] [120] <image22.png, id=1900, 1660.2025pt x 2346.7675pt>
+<image22.png, id=1884, 1660.2025pt x 2346.7675pt>
 File: image22.png Graphic file (type png)
-
-<use image22.png>
-Package pdftex.def Info: image22.png used on input line 12106.
+ <use image22.png>
+Package pdftex.def Info: image22.png used on input line 11662.
 (pdftex.def)             Requested size: 469.75502pt x 664.00151pt.
 
 
-LaTeX Warning: Float too large for page by 13.5715pt on input line 12107.
+LaTeX Warning: Float too large for page by 13.5715pt on input line 11663.
 
-<image23.png, id=1901, 807.015pt x 810.77907pt>
+<image23.png, id=1885, 807.015pt x 810.77907pt>
 File: image23.png Graphic file (type png)
  <use image23.png>
-Package pdftex.def Info: image23.png used on input line 12113.
+Package pdftex.def Info: image23.png used on input line 11669.
 (pdftex.def)             Requested size: 469.75502pt x 471.94708pt.
- [121]
-[122 <./image22.png>] [123 <./image23.png>] [124
-
-]
+ [118]
+[119 <./image22.png>] [120 <./image23.png>]
 Chapter 11.
-[125] [126
+[121
+
+] [122
 
 ]
 Chapter 12.
-[127] [128]
-Overfull \hbox (216.7598pt too wide) in alignment at lines 12355--12372
+[123] [124]
+Overfull \hbox (216.7598pt too wide) in alignment at lines 11911--11928
  [] [] [] [] [] [] 
  []
 
 
-Overfull \hbox (216.7598pt too wide) in alignment at lines 12372--12391
+Overfull \hbox (216.7598pt too wide) in alignment at lines 11928--11947
  [] [] [] [] [] [] 
  []
 
 
-Overfull \hbox (216.7598pt too wide) in alignment at lines 12391--12395
+Overfull \hbox (216.7598pt too wide) in alignment at lines 11947--11951
  [] [] [] [] [] [] 
  []
 
 
-Overfull \hbox (216.7598pt too wide) in alignment at lines 12395--12397
+Overfull \hbox (216.7598pt too wide) in alignment at lines 11951--11953
  [] [] [] [] [] [] 
  []
 
 
-Overfull \hbox (216.7598pt too wide) in alignment at lines 12397--12658
+Overfull \hbox (216.7598pt too wide) in alignment at lines 11953--12214
  [] [] [] [] [] [] 
  []
 
 
-Overfull \hbox (216.7598pt too wide) in alignment at lines 12658--12923
+Overfull \hbox (216.7598pt too wide) in alignment at lines 12214--12479
  [] [] [] [] [] [] 
  []
 
-[129]
-Overfull \hbox (216.7598pt too wide) in alignment at lines 12923--13150
+[125]
+Overfull \hbox (216.7598pt too wide) in alignment at lines 12479--12706
  [] [] [] [] [] [] 
  []
 
 
-Overfull \hbox (216.7598pt too wide) in alignment at lines 13150--13242
+Overfull \hbox (216.7598pt too wide) in alignment at lines 12706--12798
  [] [] [] [] [] [] 
  []
 
-[130] [131] [132] [133]
-Overfull \vbox (1.68349pt too high) detected at line 13630
+[126] [127] [128] [129]
+Overfull \vbox (1.68349pt too high) detected at line 13186
  []
 
-[134] [135] [136] [137] [138] [139] [140] [141] [142] [143] [144]
-<image21.png, id=2170, 803.0pt x 401.5pt>
+[130] [131] [132] [133] [134] [135] [136] [137] [138] [139] [140]
+<image21.png, id=2153, 803.0pt x 401.5pt>
 File: image21.png Graphic file (type png)
  <use image21.png>
-Package pdftex.def Info: image21.png used on input line 15153.
+Package pdftex.def Info: image21.png used on input line 14709.
 (pdftex.def)             Requested size: 469.75502pt x 234.88573pt.
- [145] [146 <./image21.png>] [147] [148]
-Underfull \vbox (badness 1303) detected at line 15626
+ [141] [142 <./image21.png>] [143] [144]
+Underfull \vbox (badness 1303) detected at line 15182
  []
 
-[149]
-Underfull \hbox (badness 10000) in paragraph at lines 15694--15694
+[145]
+Underfull \hbox (badness 10000) in paragraph at lines 15250--15250
 []\T1/phv/m/n/10 GEN-
  []
 
 
-Overfull \hbox (4.45349pt too wide) in paragraph at lines 15694--15694
+Overfull \hbox (4.45349pt too wide) in paragraph at lines 15250--15250
 []\T1/phv/m/n/10 REL| 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 15694--15694
+Underfull \hbox (badness 10000) in paragraph at lines 15250--15250
 []\T1/phv/m/n/10 MAR-I-
  []
 
 
-Overfull \hbox (10.55707pt too wide) in paragraph at lines 15694--15694
+Overfull \hbox (10.55707pt too wide) in paragraph at lines 15250--15250
 []\T1/phv/m/n/10 AGEYRS| 
  []
 
 
-Overfull \hbox (8.92938pt too wide) in paragraph at lines 15694--15694
+Overfull \hbox (8.92938pt too wide) in paragraph at lines 15250--15250
 []\T1/phv/m/n/10 EDUCY| 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 15694--15694
+Underfull \hbox (badness 10000) in paragraph at lines 15250--15250
 []\T1/phv/m/n/10 EDYRSCU-
  []
 
 
-Overfull \hbox (13.72827pt too wide) in paragraph at lines 15694--15694
+Overfull \hbox (13.72827pt too wide) in paragraph at lines 15250--15250
 []\T1/phv/m/n/10 ATSCHOOL| 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 15694--15694
+Underfull \hbox (badness 10000) in paragraph at lines 15250--15250
 []\T1/phv/m/n/10 IN-DUS-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 15694--15694
+Underfull \hbox (badness 10000) in paragraph at lines 15250--15250
 []\T1/ptm/m/n/10 k = 2, imp on
  []
 
-[150] [151] [152] [153]
-Overfull \hbox (102.7614pt too wide) in alignment at lines 16067--16084
+[146] [147] [148] [149]
+Overfull \hbox (102.7614pt too wide) in alignment at lines 15623--15640
  [] [] [] [] [] [] 
  []
 
 
-Overfull \hbox (102.7614pt too wide) in alignment at lines 16084--16103
+Overfull \hbox (102.7614pt too wide) in alignment at lines 15640--15659
  [] [] [] [] [] [] 
  []
 
 
-Overfull \hbox (102.7614pt too wide) in alignment at lines 16103--16107
+Overfull \hbox (102.7614pt too wide) in alignment at lines 15659--15663
  [] [] [] [] [] [] 
  []
 
 
-Overfull \hbox (102.7614pt too wide) in alignment at lines 16107--16109
+Overfull \hbox (102.7614pt too wide) in alignment at lines 15663--15665
  [] [] [] [] [] [] 
  []
 
 
-Overfull \hbox (102.7614pt too wide) in alignment at lines 16109--16377
+Overfull \hbox (102.7614pt too wide) in alignment at lines 15665--15933
  [] [] [] [] [] [] 
  []
 
 
-Overfull \hbox (102.7614pt too wide) in alignment at lines 16377--16613
+Overfull \hbox (102.7614pt too wide) in alignment at lines 15933--16169
  [] [] [] [] [] [] 
  []
 
-[154]
-Overfull \hbox (102.7614pt too wide) in alignment at lines 16613--16727
+[150]
+Overfull \hbox (102.7614pt too wide) in alignment at lines 16169--16283
  [] [] [] [] [] [] 
  []
 
-[155] [156] [157]
-Underfull \hbox (badness 5161) in paragraph at lines 17026--17026
+[151] [152] [153]
+Underfull \hbox (badness 5161) in paragraph at lines 16582--16582
 []\T1/ptm/m/n/10 Listing 12.29: |[]Selecting the vari-ables for the household-l
 evel
  []
 
-[158] [159] [160] [161]
-Underfull \hbox (badness 10000) in paragraph at lines 17437--17437
+[154] [155] [156] [157]
+Underfull \hbox (badness 10000) in paragraph at lines 16993--16993
 []\T1/phv/m/n/10 No im-por-tance
  []
 
-[162] [163]
-Overfull \vbox (8.12575pt too high) detected at line 17630
+[158] [159]
+Overfull \vbox (8.12575pt too high) detected at line 17186
  []
 
-[164] [165] [166] [167]
-Underfull \hbox (badness 10000) in paragraph at lines 17924--17924
+[160] [161] [162] [163]
+Underfull \hbox (badness 10000) in paragraph at lines 17480--17480
 []\T1/phv/m/n/10 k-
  []
 
 
-Overfull \hbox (4.40343pt too wide) in paragraph at lines 17924--17924
+Overfull \hbox (4.40343pt too wide) in paragraph at lines 17480--17480
 \T1/phv/m/n/10 anonymity| 
  []
 
-[168] [169]
-Underfull \hbox (badness 10000) in paragraph at lines 18103--18103
+[164] [165]
+Underfull \hbox (badness 10000) in paragraph at lines 17659--17659
 []\T1/ptm/m/n/10 REL (re-la-tion
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 18103--18103
+Underfull \hbox (badness 10000) in paragraph at lines 17659--17659
 \T1/ptm/m/n/10 to house-hold
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 18103--18103
+Underfull \hbox (badness 10000) in paragraph at lines 17659--17659
 []\T1/ptm/m/n/10 MAR-I-TAL
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 18103--18103
+Underfull \hbox (badness 10000) in paragraph at lines 17659--17659
 \T1/ptm/m/n/10 in com-pleted
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 18103--18103
+Underfull \hbox (badness 10000) in paragraph at lines 17659--17659
 \T1/ptm/m/n/10 est level of
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 18103--18103
+Underfull \hbox (badness 10000) in paragraph at lines 17659--17659
 \T1/ptm/m/n/10 ed-u-ca-tion
  []
 
-[170]
-Underfull \vbox (badness 10000) detected at line 18207
+[166]
+Underfull \vbox (badness 10000) detected at line 17763
  []
 
 
-Overfull \vbox (2.68169pt too high) detected at line 18207
+Overfull \vbox (2.68169pt too high) detected at line 17763
  []
 
-[171] [172] [173] [174] [175] [176
+[167] [168] [169] [170] [171] [172
 
-] [177
+] [173
 
 pdfTeX warning (ext4): destination with the same identifier (name{cite.DuBo10})
  has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.18545 \bibitem[TMKC14]{\detokenize{TMKC14}}
+l.18101 \bibitem[TMKC14]{\detokenize{TMKC14}}
                                              {\phantomsection\label{\detoken...
 pdfTeX warning (ext4): destination with the same identifier (name{cite.HDFG12})
  has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.18545 \bibitem[TMKC14]{\detokenize{TMKC14}}
+l.18101 \bibitem[TMKC14]{\detokenize{TMKC14}}
                                              {\phantomsection\label{\detoken...
 ]pdfTeX warning (ext4): destination with the same identifier (name{cite.HDFG12}
 ) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.18580 \bibitem[HDFG12]{\detokenize{HDFG12}}
+l.18136 \bibitem[HDFG12]{\detokenize{HDFG12}}
                                              {\phantomsection\label{\detoken...
 pdfTeX warning (ext4): destination with the same identifier (name{cite.HDFG12})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.18619 \bibitem[HDFG12]{\detokenize{HDFG12}}
+l.18175 \bibitem[HDFG12]{\detokenize{HDFG12}}
                                              {\phantomsection\label{\detoken...
 pdfTeX warning (ext4): destination with the same identifier (name{cite.HDFG12})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.18634 \bibitem[HDFG12]{\detokenize{HDFG12}}
+l.18190 \bibitem[HDFG12]{\detokenize{HDFG12}}
                                              {\phantomsection\label{\detoken...
-[178pdfTeX warning (ext4): destination with the same identifier (name{cite.TeMK
+[174pdfTeX warning (ext4): destination with the same identifier (name{cite.TeMK
 14}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.18639 \bibitem[DuBo10]{\detokenize{DuBo10}}
+l.18195 \bibitem[DuBo10]{\detokenize{DuBo10}}
                                              {\phantomsection\label{\detoken...
 pdfTeX warning (ext4): destination with the same identifier (name{cite.TMKC14})
  has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.18639 \bibitem[DuBo10]{\detokenize{DuBo10}}
+l.18195 \bibitem[DuBo10]{\detokenize{DuBo10}}
                                              {\phantomsection\label{\detoken...
 pdfTeX warning (ext4): destination with the same identifier (name{cite.TMKC14})
  has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.18639 \bibitem[DuBo10]{\detokenize{DuBo10}}
+l.18195 \bibitem[DuBo10]{\detokenize{DuBo10}}
                                              {\phantomsection\label{\detoken...
 ]pdfTeX warning (ext4): destination with the same identifier (name{cite.DuBo10}
 ) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.18639 \bibitem[DuBo10]{\detokenize{DuBo10}}
+l.18195 \bibitem[DuBo10]{\detokenize{DuBo10}}
                                              {\phantomsection\label{\detoken...
 (./SDCPracticeGuide.ind)
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 18650.
- [179]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 18650.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 18206.
+ [175]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 18206.
  (./SDCPracticeGuide.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 18650.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 18206.
 
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 18650
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 18206
 .
 Package rerunfilecheck Info: File `SDCPracticeGuide.out' has not changed.
 (rerunfilecheck)             Checksum: 2EA0017978361A90154D5D10F02AD1FF;15072.
@@ -1990,11 +1950,11 @@ Package rerunfilecheck Info: File `SDCPracticeGuide.out' has not changed.
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 18650.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 18206.
  ) 
 Here is how much of TeX's memory you used:
- 14901 strings out of 493089
- 211034 string characters out of 6134842
+ 14897 strings out of 493089
+ 211002 string characters out of 6134842
  500837 words of memory out of 5000000
  17335 multiletter control sequences out of 15000+600000
  80995 words of font info for 109 fonts, out of 8000000 for 9000
@@ -2021,10 +1981,10 @@ pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/
 local/texlive/2015/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/local/tex
 live/2015/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2015/
 texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on SDCPracticeGuide.pdf (183 pages, 1861353 bytes).
+Output written on SDCPracticeGuide.pdf (179 pages, 1851479 bytes).
 PDF statistics:
- 2783 PDF objects out of 2984 (max. 8388607)
- 2475 compressed objects within 25 object streams
- 679 named destinations out of 1000 (max. 500000)
+ 2764 PDF objects out of 2984 (max. 8388607)
+ 2460 compressed objects within 25 object streams
+ 675 named destinations out of 1000 (max. 500000)
  706 words of extra memory for PDF output out of 10000 (max. 10000000)
 

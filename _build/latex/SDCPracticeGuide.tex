@@ -72,7 +72,7 @@
 
 
 \chapter{Introduction}
-\label{\detokenize{intro:introduction}}\label{\detokenize{intro:statistical-disclosure-control-for-microdata-a-practice-guide}}\label{\detokenize{intro::doc}}
+\label{\detokenize{intro::doc}}\label{\detokenize{intro:introduction}}\label{\detokenize{intro:statistical-disclosure-control-for-microdata-a-practice-guide}}
 National statistics agencies are mandated to collect
 microdata %
 \begin{footnote}[1]\sphinxAtStartFootnote
@@ -3560,7 +3560,7 @@ August 1. Accessed July 6, 2018.
 
 
 \chapter{Anonymization Methods}
-\label{\detokenize{anon_methods:anonymization-methods}}\label{\detokenize{anon_methods::doc}}
+\label{\detokenize{anon_methods::doc}}\label{\detokenize{anon_methods:anonymization-methods}}
 This Section describes the SDC methods most commonly used. All methods
 are implementable in \sphinxstyleemphasis{R} by using the \sphinxstyleemphasis{sdcMicro} package. We discuss for
 every method for what type of data the method is suitable, both in terms
@@ -10841,7 +10841,7 @@ Files; Principles, Procedures and Practices.} IHSN Working Paper No.
 
 
 \chapter{Appendices}
-\label{\detokenize{appendices:appendices}}\label{\detokenize{appendices::doc}}
+\label{\detokenize{appendices::doc}}\label{\detokenize{appendices:appendices}}
 
 \section{Appendix A: Overview of Case Study Variables}
 \label{\detokenize{appendices:appendix-a-overview-of-case-study-variables}}
@@ -11636,466 +11636,22 @@ individual-level variables.
 
 \subsection{Case study 1 - Internal report}
 \label{\detokenize{appendices:case-study-1-internal-report}}
-\sphinxstylestrong{SDC report (adapted from the report function in sdcMicro)}
-
-The dataset consists of 10,574 observations (i.e., 10,574 individuals in 2,000 households).
-
-Household-level variables
-
-Anonymization methods applied to household-level variables:
-\begin{itemize}
-\item {} 
-Removing households of size larger than 13 (29 households)
-
-\item {} 
-Local suppression to achieve 2-anonymity, with importance vector to prevent suppressing values of the variables HHSIZE, REGION and URBRUR
-
-\item {} 
-Recoding the variable LANDSIZEHA: rounding to one digit for values smaller than 1, rounding to zero digits for other values, grouping values 5-19 and 20-40, topcoding at 40
-
-\item {} 
-PRAMming the variables ROOF, TOILET, WATER, ELECTCON, FUELCOOK, OWNMOTORCYCLE, CAR, TV and LIVESTOCK
-
-\item {} 
-Noise addition (level 0.01 and 0.05 for outliers) to the income and expenditure components, replacing aggregates by sum of perturbed components
-
-\end{itemize}
-
-Selected (key) variables:
-
-
-\begin{savenotes}\sphinxattablestart
-\centering
-\begin{tabulary}{\linewidth}[t]{|T|T|T|T|T|T|}
-\hline
-\sphinxstyletheadfamily 
-Household level
-&\sphinxstyletheadfamily &\sphinxstyletheadfamily &\sphinxstyletheadfamily &\sphinxstyletheadfamily &\sphinxstyletheadfamily \\
-\hline
-categorical
-&
-URBRUR
-&
-REGION
-&
-HHSIZE
-&
-OWNAGLAND
-&
-RELIG
-\\
-\hline
-continuous
-&
-LANDSIZEHA
-&
-TANHHEXP
-&
-TFOODEXP
-&
-TALCHEXP
-&
-TCLTHEXP
-\\
-\hline
-.
-&
-THOUSEXP
-&
-TFURNEXP
-&
-THLTHEXP
-&
-TTRANSEXP
-&
-TCOMMEXP
-\\
-\hline
-.
-&
-TRECEXP
-&
-TEDUEXP
-&
-TRESHOTEXP
-&
-TMISCEXP
-&
-INCTOTGROSSHH
-\\
-\hline
-.
-&
-INCRMT
-&
-INCWAGE
-&
-INCFARMBSN
-&
-INCNFARMBSN
-&
-INCRENT
-\\
-\hline
-.
-&
-INCFIN
-&
-INCPENSN
-&
-INCOTHER
-&&\\
-\hline
-weight
-&
-WGTPOP
-&&&&\\
-\hline
-hhID
-&
-not defined
-&&&&\\
-\hline
-strata
-&
-not defined
-&&&&\\
-\hline
-\end{tabulary}
-\par
-\sphinxattableend\end{savenotes}
-\begin{itemize}
-\item {} 
-Modifications on categorical key variables: TRUE
-
-\item {} 
-Modifications on continuous key variables: TRUE
-
-\item {} 
-Modifications using PRAM: TRUE
-
-\item {} 
-Local suppressions: TRUE
-
-\end{itemize}
-
-\sphinxstylestrong{Disclosure risk (household-level variables):}
-
-Frequency analysis for categorical key variables: 181
-
-Number of observations violating
-2-Anonymity: 0 (unmodified data: 103)
-
-3-Anonymity: 104 (unmodified data: 229)
-
-5-Anonymity: 374 (unmodified data: 489)
-
-Percentage of observations violating
-
-2-Anonymity: 0\% (unmodified data: 5.15\%)
-
-3-Anonymity: 5.28\% (unmodified data: 11.45\%)
-
-5-Anonymity: 18.7\% (unmodified data: 24.45\%)
-
-Disclosure risk categorical variables:
-
-Expected Percentage of Re-identifications: 0.05161614\% (\textasciitilde{} 1.0 observations)
-
-(unmodified data: 0.001820465\% (\textasciitilde{} 0.36 observations))
-
-10 combinations of categories with highest risk:
-
-
-\begin{savenotes}\sphinxattablestart
-\centering
-\begin{tabulary}{\linewidth}[t]{|T|T|T|T|T|T|T|T|}
-\hline
-\sphinxstyletheadfamily 
-.
-&\sphinxstyletheadfamily 
-URBRUR
-&\sphinxstyletheadfamily 
-REGION
-&\sphinxstyletheadfamily 
-HHSIZE
-&\sphinxstyletheadfamily 
-OWNAGLAND
-&\sphinxstyletheadfamily 
-RELIG
-&\sphinxstyletheadfamily 
-fk
-&\sphinxstyletheadfamily 
-Fk
-\\
-\hline
-1
-&
-2
-&
-6
-&
-2
-&
-3
-&
-7
-&
-1
-&
-372.37
-\\
-\hline
-2
-&
-1
-&
-5
-&
-1
-&
-1
-&
-6
-&
-1
-&
-226.35
-\\
-\hline
-3
-&
-2
-&
-5
-&
-2
-&
-3
-&
-6
-&
-1
-&
-430.21
-\\
-\hline
-4
-&
-2
-&
-2
-&
-1
-&
-1
-&
-NA
-&
-1
-&
-173.05
-\\
-\hline
-5
-&
-2
-&
-6
-&
-1
-&
-1
-&
-5
-&
-1
-&
-80.05
-\\
-\hline
-6
-&
-1
-&
-6
-&
-1
-&
-3
-&
-5
-&
-1
-&
-343.27
-\\
-\hline
-7
-&
-2
-&
-5
-&
-1
-&
-2
-&
-NA
-&
-1
-&
-140.60
-\\
-\hline
-8
-&
-2
-&
-6
-&
-1
-&
-3
-&
-7
-&
-1
-&
-230.29
-\\
-\hline
-9
-&
-2
-&
-5
-&
-12
-&
-1
-&
-9
-&
-1
-&
-475.01
-\\
-\hline
-10
-&
-2
-&
-6
-&
-3
-&
-1
-&
-1
-&
-1
-&
-338.57
-\\
-\hline
-\end{tabulary}
-\par
-\sphinxattableend\end{savenotes}
+To be added
 
 
 \subsection{Case study 1 - External report}
 \label{\detokenize{appendices:case-study-1-external-report}}
-This case study microdata set has been treated to protect confidentiality. Several methods have been applied to protect the confidentiality: removing variables from the original dataset, removing records from the dataset, reducing detail in variables by recoding and top-coding, removing particular values of individuals at risk (local suppression) and perturbing values of certain variables.
-
-\sphinxstyleemphasis{Removing variables}
-
-The released microdata set has only a selected number of variables contained in the initial survey. Not all variables could be released in this SUF without breaching confidentiality rules.
-
-\sphinxstyleemphasis{Removing records}
-
-To protect confidentiality, records of households larger than 13 were removed. Thirty households out of a total of 2,000 households in the dataset were removed.
-Reducing detail in variables by recoding and top-coding
-The variable LANDSIZEHA was rounded to one digit for values smaller than 1, rounded to zero digits for other values, grouped for values 5-19 and 20-40 and topcoded at 40. The variable AGEYRS was recoded to ten-year age intervals for values in the age range 15 \textendash{} 65.
-
-\sphinxstyleemphasis{Local suppression}
-
-Values of certain variables for particular households and individuals were deleted. In total, six values of the variable URBRUR, one of the REGION variable, 48 for the OWNAGLAND variable, 16 for the RELIG variable and 323 values of the variable REL were deleted.
-
-\sphinxstyleemphasis{Perturbing values}
-
-Uncertainty was introduced in the variables ROOF, TOILET, WATER, ELECTCON, FUELCOOK, OWNMOTORCYCLE, CAR, TV and LIVESTOCK by using the PRAM method. This method changes a certain percentage of values of variables within each variable. Here invariant PRAM was used, which guarantees that the univariate tabulations stay unchanged. Multivariate tabulations may be changed. Unfortunately, the transition matrix cannot be published.
-The income and expenditure variables were perturbed by adding noise (adding small random values to the original values). The noise added was 0.01 times the standard deviation in the original data and 0.05 for outliers. Noise was added to the components and the aggregates were recomputed to guarantee that the proportions of the different components did not change.
+To be added
 
 
 \subsection{Case study 2 - Internal report}
 \label{\detokenize{appendices:case-study-2-internal-report}}
-\sphinxstylestrong{SDC report (adapted from the report function in sdcMicro)}
-
-This report describes the anonymization measures for the PUF release additional to those already taken in the first case study. Therefore, this report should be read in conjunction with the internal report for case study 1. The original dataset consists of 10,574 observations (i.e., 10,574 individuals in 2,000 households). The dataset used for the anonymization of the PUF file is the anonymized SUF file from case study 1. This dataset consists of 10.068 observations in 1,970 households. The difference is due to the removal of large households and sensitive or identifying variables in the first case study.
-
-Household-level variables
-
-Anonymization methods applied to household-level variables:
-\begin{itemize}
-\item {} \begin{description}
-\item[{For SUF release (see case study 1):}] \leavevmode\begin{itemize}
-\item {} 
-Removing households of size larger than 13 (29 households)
-
-\item {} 
-Local suppression to achieve 2-anonymity, with importance vector to prevent suppressing values of the variables HHSIZE, REGION and URBRUR
-
-\end{itemize}
-
-\end{description}
-
-\item {} \begin{description}
-\item[{For PUF release:}] \leavevmode\begin{itemize}
-\item {} 
-Remove variables OWNLANDAG, RELIG and LANDSIZEHA
-
-\item {} 
-Local suppression to achieve 5-anonymity, with importance vector to prevent suppressing values of the variables HHSIZE and REGION
-
-\item {} 
-PRAMming the variables ROOF, TOILET, WATER, ELECTCON, FUELCOOK, OWNMOTORCYCLE, CAR, TV and LIVESTOCK
-
-\item {} 
-Create deciles for aggregate income and expenditure (TANNEXP and INCTOTGROSSHH) and replace the actual values with the mean of the corresponding decile. Replace income and expenditure components with the proportion of original totals.
-
-\end{itemize}
-
-\end{description}
-
-\end{itemize}
-
-Selected (key) variables:
+To be added
 
 
 \subsection{Case study 2 - External report}
 \label{\detokenize{appendices:case-study-2-external-report}}
-This case study microdata set has been treated to protect confidentiality. Several methods have been applied to protect the confidentiality: removing variables from the original dataset, removing records from the dataset, reducing detail in variables by recoding and top-coding, removing particular values of individuals at risk (local suppression) and perturbing values of certain variables.
-
-\sphinxstyleemphasis{Removing variables}
-
-The released microdata set has only a selected number of variables contained in the initial survey. Not all variables could be released in this PUF without breaching confidentiality rules.
-
-\sphinxstyleemphasis{Removing records}
-
-To protect confidentiality, records of households larger than 13 were removed. Twenty-nine households out of a total of 2,000 households in the dataset were removed.
-
-\sphinxstyleemphasis{Reducing detail in variables by recoding and top-coding}
-
-The variable AGEYRS was recoded to ten-year age intervals for values in the age range 15 \textendash{} 65 and bottom- and top-coded at 15 and 65. The variables REL, MARITAL, EDUCY and INDUSTRY1 were recoded to less detailed categories. The total income and expenditure variables were recoded to the mean of the corresponding deciles and the income and expenditure components to the proportion of the totals.
-
-\sphinxstyleemphasis{Local suppression}
-
-Values of certain variables for particular households and individuals were deleted. In total, 67 values of the variable URBRUR, 126 of the REGION variable, 91 for the AGEYRS variable and 323 values of the variable REL were deleted.
-
-\sphinxstyleemphasis{Perturbing values}
-
-Uncertainty was introduced in the variables ROOF, TOILET, WATER, ELECTCON, FUELCOOK, OWNMOTORCYCLE, CAR, TV and LIVESTOCK by using the PRAM method. This method changes a certain percentage of values of variables within each variable. Here invariant PRAM was used, which guarantees that the univariate tabulations stay unchanged. Multivariate tabulations may be changed. Unfortunately, the transition matrix cannot be published.
+To be added
 
 
 \section{Appendix D: Execution Times for Multiple Scenarios Tested using Selected Sample Data}
@@ -12144,7 +11700,7 @@ Household Survey and Accelerated Data Program \textendash{} TF071804/TF011722.
 
 
 \chapter{Case Studies (Illustrating the SDC Process)}
-\label{\detokenize{case_studies:case-studies-illustrating-the-sdc-process}}\label{\detokenize{case_studies::doc}}
+\label{\detokenize{case_studies::doc}}\label{\detokenize{case_studies:case-studies-illustrating-the-sdc-process}}
 In order to evaluate the use of different SDC methods on different types
 of survey datasets, we compared the results of the different methods
 applied to 75 datasets from 52 countries representing six geographic
