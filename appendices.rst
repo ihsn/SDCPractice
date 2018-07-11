@@ -234,7 +234,7 @@ Case study 1 - Internal report
    
    Selected (key) variables:
    
-      table::
+   .. table::
       :widths: auto
       :align: center
    
@@ -285,7 +285,7 @@ Case study 1 - Internal report
    
    10 combinations of categories with highest risk:
    
-      table::
+   .. table::
       :widths: auto
       :align: center
       
@@ -307,9 +307,7 @@ Case study 1 - Internal report
  
 Case study 1 - External report
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-To be added
 
-..
    This case study microdata set has been treated to protect confidentiality. Several methods have been applied to protect the confidentiality: removing variables from the original dataset, removing records from the dataset, reducing detail in variables by recoding and top-coding, removing particular values of individuals at risk (local suppression) and perturbing values of certain variables.
    
    *Removing variables*
@@ -333,9 +331,6 @@ To be added
    
 Case study 2 - Internal report
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-To be added
-
-..
    **SDC report (adapted from the report function in sdcMicro)**
    
    This report describes the anonymization measures for the PUF release additional to those already taken in the first case study. Therefore, this report should be read in conjunction with the internal report for case study 1. The original dataset consists of 10,574 observations (i.e., 10,574 individuals in 2,000 households). The dataset used for the anonymization of the PUF file is the anonymized SUF file from case study 1. This dataset consists of 10.068 observations in 1,970 households. The difference is due to the removal of large households and sensitive or identifying variables in the first case study.
@@ -358,9 +353,7 @@ To be added
 
 Case study 2 - External report
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-To be added
 
-..
    This case study microdata set has been treated to protect confidentiality. Several methods have been applied to protect the confidentiality: removing variables from the original dataset, removing records from the dataset, reducing detail in variables by recoding and top-coding, removing particular values of individuals at risk (local suppression) and perturbing values of certain variables.
    
    *Removing variables*
