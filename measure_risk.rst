@@ -383,31 +383,6 @@ frequency.
     10   Urban        Female    Secondary incomplete    Non-LF          76        2                262              0.0074 
    ====  ==========  ========  ======================  ==============  ========  ===============  ===============  ========
 
-In :numref:`code41`, we show how to use the *sdcMicro* package to create a
-list of sample frequencies :math:`f_{k}` for each record in a dataset.
-This is done by using the *sdcMicro* function freq(). A value of 2 for
-an observation means that in the sample, there is one more individual
-with exactly the same combination of values for the selected key
-variables. In :numref:`code41`, the function freq() is applied to
-“sdcInitial”, which is an *sdcMicro* object. Footnote [#foot25]_ 
-shows how to initialize the *sdcMicro* object for
-this example. For a complete discussion of *sdcMicro* objects as well as
-instructions on how to create *sdcMicro* objects, we refer to 
-the section `Objects of class sdcMicroObj <sdcMicro.html#Objects of class *sdcMicroObj*>`__. 
-*sdcMicro* objects are used when doing SDC with *sdcMicro*. The
-function freq() displays the sample frequency for the keys constructed
-on a defined set of quasi-identifiers. :numref:`code41` corresponds to the
-data in :numref:`tab41`.
-
-.. code-block:: R
-   :linenos:
-   :caption: Calculating :math:`f_{k}` using *sdcMicro*
-   :name: code41
-
-    # Frequency of the particular combination of key variables (keys) for each record in the sample
-    freq(sdcInitial, type = 'fk')
-    2 2 1 2 1 2 1 1 2 2
-
 For sample data, it is more interesting to look at :math:`F_{k}`, the
 population frequency of a combination of quasi-identifiers (key)
 :math:`k`, which is the number of individuals in the population with the
@@ -438,28 +413,6 @@ special attention. :numref:`tab41` also shows :math:`F_{k}` for the example
 dataset. This is further discussed in the case studies the Section 
 `Case Studies <case_studies.html>`__.
 
-Besides :math:`f_{k}`, the sample frequency of key
-:math:`k` (i.e., the number of individuals in the sample with
-the combination of quasi-identifiers corresponding to the combination
-specified in key :math:`k`) and :math:`F_{k}`, the estimated population
-frequency of key :math:`k`, can be displayed in *sdcMicro*. :numref:`code42` 
-illustrates how to return lists of length :math:`n` of frequencies for all
-individuals. The frequencies are displayed for each individual and not
-for each key.
-
-.. code-block:: R
-   :linenos:
-   :caption: Calculating the sample and population frequencies using *sdcMicro*
-   :name: code42
-
-    # Sample frequency of individual’s key
-    freq(sdcInitial, type = 'fk')
-    2 2 1 2 1 2 1 1 2 2
-
-    # Population frequency of individual’s key
-    freq(sdcInitial, type = 'Fk')
-    360 360 215 152 186 152 180 215 262 262
-
 In practice, this approach leads to conservative risk estimates, as it
 does not adequately take the sampling methods into account. In this
 case, the estimates of re-identification risk may be estimated too high.
@@ -470,6 +423,8 @@ recommended, where the posterior distribution of :math:`F_{k}` is used
 (see e.g., `HDFG12`_) to estimate an individual risk
 measure :math:`r_{k}` for each key :math:`k`.
 
+ADD: more info on the exact computation of r_k
+
 The risk measure :math:`r_{k}` is, as :math:`f_{k}` and :math:`F_{k}`,
 the same for all individuals sharing the same pattern of values of key
 variables and is referred to as individual risk. The values
@@ -478,36 +433,13 @@ for the individuals or as the probability for a successful match with
 individuals chosen at random from an external data file with the same
 values of the key variables. This risk measure is based on certain
 assumptions [#foot26]_, which are strict and may lead to a
-relatively conservative risk measure. In *sdcMicro*, the risk measure
-:math:`r_{k}` is automatically computed when creating an *sdcMicro*
-object and saved in the “risk” slot [#foot27]_. :numref:`code43`
-shows how to retrieve the risk measures using *sdcMicro* for our
-example. The risk measures are also presented in :numref:`tab41`.
-
-.. code-block:: R
-   :linenos:
-   :caption: The individual risk slot in the *sdcMicro* object
-   :name: code43
-   
-	sdcInitial@risk$individual 
-	
-	         risk           fk    Fk 
-	[1,]     0.005424520    2     360 
-	[2,]     0.005424520    2     360 
-	[3,]     0.025096439    1     215 
-	[4,]     0.012563425    2     152 
-	[5,]     0.028247279    1     186 
-	[6,]     0.012563425    2     152 
-	[7,]     0.029010932    1     180 
-	[8,]     0.025096439    1     215 
-	[9,]     0.007403834    2     262 
-	[10,]    0.007403834    2     262
+relatively conservative risk measure. The risk measures are also presented in :numref:`tab41`.
 
 The main factors influencing the individual risk are the sample
 frequencies :math:`f_{k}` and the sampling design weights :math:`w_{i}`.
 If an individual is at relatively high risk of disclosure, in our
-example this would be individuals 3, 5, 7 and 8 in :numref:`tab41` and 
-:numref:`code43`, the probability that a potential intruder correctly matches these
+example this would be individuals 3, 5, 7 and 8 in :numref:`tab41`, 
+the probability that a potential intruder correctly matches these
 individuals with an external data file is high **relative to the other
 individuals in the released data.** In our example, the reason for the
 high risk is the fact that these individuals are sample uniques
@@ -543,7 +475,7 @@ where :math:`I` is the indicator function and :math:`i` refers to the
 :math:`i`\ :sup:`th` record. This is simply a count of the number of
 individuals with a sample frequency of their key lower than :math:`k`.
 The count is higher for larger :math:`k`, since if a record satisfies
-:math:`k`-anonimity, it also satisfies :math:`(k + 1)`-anonimity. The
+:math:`k`-anonymity, it also satisfies :math:`(k + 1)`-anonymity. The
 risk measure :math:`k`-anonymity does not consider the sample weights,
 but it is important to consider the sample weights when determining the
 required level of :math:`k`-anonymity. If the sample weights are large,
@@ -555,36 +487,13 @@ record with the same key is smaller than in a larger dataset. This
 probability is related to the number of records in the population with a
 particular key through the sample weights.
 
-In *sdcMicro* we can display the number of observations violating a
-given :math:`k`-anonymity threshold. In :numref:`code44`, we use *sdcMicro*
-to calculate the number of violators for the thresholds :math:`k = 2`
-and :math:`k = 3`. Both the absolute number of violators and the
-relative number as percentage of the number of individuals in the sample
-are given. In the example, four observations violate 2-anonimity and all
-10 observations violate 3-anonymity.
 
-.. code-block:: R
-   :linenos:
-   :caption: Using the print() function to display observations violating :math:`k`-anonymity
-   :name: code44
-   
-    print(sdcInitial, 'kAnon')
-
-    Number of observations violating
-    -  2-anonymity: 4
-    -  3-anonymity: 10
-    --------------------------
-    Percentage of observations violating
-    -  2-anonymity: 40 %
-    -  3-anonymity: 100 %
-
+Assuming that the example dataset in :numref:`tab41` represents the full
+sample, we find that four observations violate 2-anonymity (:math:`f_{k} < 2`)
+and all 10 observations violate 3-anonymity (:math:`f_{k} < 3`). The relative
+number of 2-anonymity and 3-anonymity violators are resp. 40% and 100%. 
 For other levels of :math:`k`-anonymity, it is possible to compute the
-number of violating individuals by using the sample frequency counts in
-the *sdcMicro* object. The number of violators is the number of
-individuals with sample frequency counts smaller than the specified
-threshold :math:`k`. In :numref:`code45`, we show an example of how to
-calculate any threshold for :math:`k` using the already-stored risk
-measures available after setting up an *sdcMicro* object in *R*.
+number of violating individuals by using the sample frequency counts.
 :math:`k` can be replaced with any required threshold. The choice of the
 required threshold that all individuals in the microdata file should
 satisfy depends on many factors and is discussed further in the Section 
@@ -592,18 +501,10 @@ satisfy depends on many factors and is discussed further in the Section
 on local suppression. In many institutions, typically required
 thresholds for :math:`k`-anonymity are 3 and 5.
 
-.. code-block:: R
-   :linenos:
-   :caption: Computing :math:`k`-anonymity violations for other values of k
-   :name: code45
-   
-    sum(sdcInitial@risk$individual[,2] < k)
-
-It is important to note that missing values (‘NA’s in
-*R* [#foot28]_) are treated as if they were any other value.
-Two individuals with keys {‘Male’, NA, ‘Employed’} and {‘Male’,
+It is important to note that missing values are treated as if they were any other value.
+Two individuals with keys {‘Male’, missing, ‘Employed’} and {‘Male’,
 ‘Secondary complete’, ‘Employed’} share the same key, and similarly,
-{‘Male’, NA, ‘Employed’} and {‘Male’, ‘Secondary incomplete’,
+{‘Male’, missing, ‘Employed’} and {‘Male’, ‘Secondary incomplete’,
 ‘Employed’} also share the same key. Therefore, the missing value in the
 first key is first interpreted as ‘Secondary complete’, and then as
 ‘Secondary incomplete’. This is illustrated in :numref:`tab42`. 
@@ -615,6 +516,8 @@ first key is first interpreted as ‘Secondary complete’, and then as
 This principle is used when applying local suppression to achieve a certain level of
 :math:`k`-anonymity (see the Section `Local suppression <anon_methods.html#Local suppression>`__) 
 and is based on the fact that the value NA could replace any value.
+
+ADD: parameter alpha and treating missing values
 
 .. _tab42:
 
@@ -702,39 +605,7 @@ take. If the sensitive variable is a binary variable, the highest level
 if :math:`l`-diversity that can be achieved is 2. A sample unique will
 always only satisfy 1-diversity.
 
-To compute :math:`l`-diversity for sensitive variables in *sdcMicro*,
-the function ldiversity() can be used. This is illustrated in :numref:`code46`.
-As arguments, we specify the names of the sensitive
-variables [#foot29]_ in the file as well as a constant for
-recursive :math:`l`-diversity, [#foot30]_ and the code for
-missing values in the data. The output is saved in the “risk” slot of
-the *sdcMicro* object. The result shows the minimum, maximum, mean and
-quantiles of the :math:`l`-diversity scores for all individuals in the
-sample. The output in :numref:`code46` reproduces the results based on the
-data in :numref:`tab43`.
-
-
-.. code-block:: R
-   :linenos:
-   :caption:  :math:`l`-diversity function in *sdcMicro*
-   :name: code46
-   
-    # Computing l-diversity
-
-    sdcInitial <- ldiversity(obj = sdcInitial, ldiv_index = c("Health"), l_recurs_c = 2, missing = NA)
-    # Output for l-diversity
-    sdcInitial@risk$ldiversity
-
-    --------------------------
-    L-Diversity Measures
-    --------------------------
-    Min.  1st Qu.  Median    Mean   3rd Qu.    Max.
-    1.0   1.0      1.0       1.4    2.0        2.0
-
-    # l-diversity score for each record
-    sdcInitial@risk$ldiversity[,'Health_Distinct_Ldiversity']
-
-    [1] 1 1 1 2 1 2 1 1 2 2
+ADD: recursive l-diversity and parameter l_recurs_c in ldiversity()
 
 :math:`l`-diversity is useful if the data contains categorical sensitive
 variables that are not quasi-identifiers themselves. It is not possible
@@ -917,9 +788,11 @@ special uniques and are assigned the score 0.
     10    Urban        Female    Secondary incomplete    Non-LF          76        2                0             0.0000   
    ====  ===========  ========  ======================  ==============  ========  ===============  ============  ==========
 
+ADD: compare with values in code block 4.7
+
 To estimate record-level disclosure risks, SUDA scores can be used in
-combination with the Data Intrusion Simulation (DIS) metric (`ElMa03`_)
-, a method for assessing disclosure risks for the entire
+combination with the Data Intrusion Simulation (DIS) metric (`ElMa03`_), 
+a method for assessing disclosure risks for the entire
 dataset (i.e., file-level disclosure risks). Roughly speaking, the
 DIS-SUDA method distributes the file-level risk measure generated by the
 DIS metric between records according to the SUDA scores of each record.
@@ -944,81 +817,12 @@ as a complementary method. As mentioned earlier, DIS-SUDA is
 particularly useful in situations where taking an inventory of all
 already available datasets and their variables is difficult.
 
-Application of SUDA, DIS-SUDA using *sdcMicro*
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Both SUDA and DIS-SUDA scores can be computed using *sdcMicro* (`TMKC14`_
-). Given that the search for MSUs with the SUDA algorithm can
-be computationally demanding, *sdcMicro* uses an improved SUDA2
-algorithm, which more effectively locates the boundaries of the search
-space for MSUs (`MaHK08`_).
-
-SUDA scores can be calculated using the suda2() function in *sdcMicro*.
-It is important to specify the missing argument in suda2(). This should
-match the code for missing values in your dataset. In *R* this is most
-likely the *R* standard missing value, NA. We mention this because **the
-default missing value code in the sdcMicro suda2() function is -999 and
-will most likely need to be changed to ‘NA’ when using most R
-datasets.** The scores are saved in the risk slot of the *sdcMicro*
-object. The syntax in :numref:`code47` shows how to retrieve the output.
-
-.. code-block:: R
-   :linenos:
-   :caption: Evaluating SUDA scores
-   :name: code47
-   
-    # Evaluating SUDA scores for the specified variables
-    sdcInitial <- suda2(obj = sdcInitial, missing = NA)
-
-    # The results are saved in the risk slot of the sdcMicro object
-    # SUDA scores
-    sdcInitial@risk$suda2$score
-    [1] 0.00 0.00 1.75 0.00 3.25 0.00 1.75 2.75 0.00 0.00
-
-    # DIS-SUDA scores
-    sdcInitial@risk$suda2$disScore
-    [1] 0.000000000 0.000000000 0.005120313 0.000000000 0.010702061
-    [6] 0.000000000 0.005120313 0.008775093 0.000000000 0.000000000
-
-    # Summary of DIS-SUDA scores
-    sdcInitial@risk$suda2
-
-    Dis suda scores table:
-    - - - - - - - - - - -
-    thresholds number
-    1        > 0      6
-    2      > 0.1      4
-    3      > 0.2      0
-    4      > 0.3      0
-    5      > 0.4      0
-    6      > 0.5      0
-    7      > 0.6      0
-    8      > 0.7      0
-    - - - - - - - - - - -
-
-To compare DIS scores before and after applying SDC methods, it may be
-useful to use histograms or density plots of these scores. :numref:`code48`
-shows how to generate histograms of the SUDA scores summarized in
-:numref:`code47`. The histogram is shown in :numref:`fig2`. All outputs relate to
-the data used in the example. In our case, we have not applied any SDC
-method to the data yet and thus have only the plots for the initial
-values. Typically, after applying SDC methods, one would recalculate the
+ADD: why use SUDA: (Typically, after applying SDC methods, one would recalculate the
 SUDA scores and compare them to the original values. One way to quickly
 see the differences would be to rerun these visualizations and compare
-them to the base for risk changes.
+them to the base for risk changes.)
 
-.. code-block:: R
-   :linenos:
-   :caption: Histogram and density plots of DIS-SUDA scores
-   :name: code48
-   
-    # Plot a histogram of disScore
-    hist(sdcInitial@risk$suda2$disScore, main = 'Histogram of DIS-SUDA scores')
-
-    # Density plot
-    density <- density(sdcInitial@risk$suda2$disScore)
-    plot(density, main = 'Density plot of DIS-SUDA scores')
-
+ADD: reference to fig2
 
 .. _fig2:
 
@@ -1095,26 +899,14 @@ interval. Values that are within the interval around the initial value
 after perturbation are considered too close to the initial value and
 hence unsafe and need more perturbation. Values that are outside of the
 intervals are considered safe. The size of the intervals is based on the
-standard deviation of the observations and a scaling parameter. This
-method is implemented in the function dRisk() in *sdcMicro*. :numref:`code49`
-shows how to print or display the risk value computed by *sdcMicro* by
-comparing the income variables before and after anonymization. “sdcObj”
-is an *sdcMicro* object and “compExp“ is a vector containing the names
-of the income variables. The size of the intervals is :math:`k` times
-the standard deviation, where :math:`k` is a parameter in the function
-dRisk(). The larger :math:`k`, the larger the intervals are, and hence
+standard deviation of the observations and a scaling parameter :math:`k`. 
+
+ADD: size of interval
+
+The size of the intervals is :math:`k` times
+the standard deviation. The larger :math:`k`, the larger the intervals are, and hence
 the larger the number of observations within the interval constructed
-around their original values and the higher the risk measure. The result
-1 indicates that all (100 percent) the observations are outside the
-interval of 0.1 times the standard deviation around the original values.
-
-.. code-block:: R
-   :linenos:
-   :caption: Example with the function dRisk()
-   :name: code49
-
-    dRisk(obj = sdcObj@origData[,compExp], xm = sdcObj@manipNumVars[,compExp], k = 0.1)
-    [1] 1
+around their original values and the higher the risk measure. 
 
 For most values, this is a satisfactory approach. It is not a sufficient
 measure for outliers, however. After perturbation, outliers will stay
@@ -1146,22 +938,6 @@ predetermined :math:`p\%`-percentile might help identify outliers, and
 thus units at greater risk of identification. The value of :math:`p`
 depends on the skewness of the data.
 
-We can calculate the :math:`p\%`-percentile of a continuous variable in
-*R* and show the individuals who have income larger than this
-percentile. :numref:`code410` provides an illustration for the 90\ :sup:`th`
-percentile.
-
-.. code-block:: R
-   :linenos:
-   :caption: Computing 90 % percentile of variable income
-   :name: code410
-   
-    # Compute the 90 % percentile for the variable income
-    perc90 <- quantile(file[,'income'], 0.90, na.rm = TRUE)
-
-    # Show the ID of observations with values for income larger than the 90 % percentile
-    file[(file[, 'income'] >= perc90), 'ID']
-
 A second approach for outlier detection is a posteriori measure
 comparing the treated and raw data. An interval is constructed around
 the perturbed values as described in the previous section. If the
@@ -1174,9 +950,8 @@ intervals. They construct the intervals based on the squared Robust
 Mahalanobis Distance (RMD) of the individual values. The intervals are
 scaled by the RMD such that outliers obtain larger intervals and hence
 need to have a larger perturbation in order to be considered safe than
-values that are not outliers. This method is implemented in *sdcMicro*
-in the function dRiskRMD(), which is an extension of the dRisk()
-function. This method is illustrated in the Section `Case Studies <case_studies.html>`__.
+values that are not outliers. This method is illustrated in the Section 
+`Case Studies <case_studies.html>`__.
 
 Global risk 
 ------------
@@ -1200,27 +975,12 @@ frequencies of these keys and dividing by the sample size :math:`n`:
 :math:`r_{k}` is the individual risk of key :math:`k` that the
 :math:`i`\ :sup:`th` individual shares (see the Section
 `Categorical key variables and frequency counts`_). 
-This measure
-is reported as global risk in *sdcMicro*, is stored in the “risk” slot
-and can be displayed as shown in :numref:`code411`. It indicates that the
-average re-identification probability is 0.01582 or 0.1582 %.
-
-.. code-block:: R
-   :linenos:
-   :caption: Computation of the global risk measure
-   :name: code411
-   
-    # Global risk (average re-identification probability)
-    sdcInitial@risk$global$risk
-    [1] 0.01582
 
 The global risk in the example data in :numref:`tab41` is 0.01582, which is
 the expected proportion of all individuals in the sample that could be
 re-identified by an intruder. Another way of expressing the global risk
 is the number of expected re-identifications, :math:`n*R_{1}`, which is
-in the example 10 \* 0.01582. The expected number of re-identifications
-is also saved in the *sdcMicro* object. :numref:`code412` shows how to
-display this.
+in the example 10 \* 0.01582.
 
 .. NOTE:: 
 	This global risk measure should be used with
@@ -1231,16 +991,6 @@ An easy way to check for this is to look at the distribution of the individual r
 values or the number of individuals with risk values above a certain
 threshold, as shown in the next section.
 
-.. code-block:: R
-   :linenos:
-   :caption: Computation of expected number of re-identifications
-   :name: code412
-   
-    # Global risk (expected number of reidentifications)
-    sdcInitial@risk$global$risk_ER
-    [1] 0.1582
-
-
 Count of individuals with risks larger than a certain threshold
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -1250,23 +1000,12 @@ the total number of observations that exceed a certain threshold of
 individual risk. Setting the threshold can be absolute (e.g., all those
 individuals who have a disclosure risk higher than 0.05 or 5%) or
 relative (e.g., all those individuals with risks higher than the upper
-quartile of individual risk). :numref:`code413` shows how, using *R*, one
-would count the number of observations with an individual
-re-identification risk higher than 5%. In the example, no individual has
+quartile of individual risk). In the example, no individual has
 a higher disclosure risk than 0.05.
 
-.. code-block:: R
-   :linenos:
-   :caption: Number of individuals with individual risk higher than the threshold 0.05
-   :name: code413
-   
-    sum(sdcInitial@risk$individual[,1] > 0.05)
-    [1] 0
-
 These calculations can then be used to treat data for individuals whose
-risk values are above a predetermined threshold. We will see later that
-there are methods in *sdcMicro*, such as localSupp(), that can be used
-to suppress values of certain key variables for those individuals with
+risk values are above a predetermined threshold. For example, one could
+suppress values of certain key variables for those individuals with
 risk above a specified threshold. This is explained further in the Section
 `Local suppression <anon_methods.html#Local suppression>`__ .
 
@@ -1297,21 +1036,7 @@ The hierarchical or household risk cannot be lower than the individual
 risk, and the household risk is always the same for all household
 members. The household risk should be used in cases where the data
 contain a hierarchical structure, i.e., where a household structure is
-present in the data. Using *sdcMicro*, if a household identifier is
-specified (in the argument *hhId* in the function createSdcObj()) while
-creating an *sdcMicro* object, the household risk will automatically be
-computed. :numref:`code414` shows how to display these risk measures.
-
-.. code-block:: R
-   :linenos:
-   :caption: Computation of household risk and expected number of re-identifications
-   :name: code414
-   
-    # Household risk
-    sdcInitial@risk$global$hier_risk
-
-    # Household risk (expected number of reidentifications
-    sdcInitial@risk$global$hier_risk_ER
+present in the data. 
 
 .. NOTE::
 	The size of a household is an important identifier itself,
@@ -1381,34 +1106,6 @@ computed. :numref:`code414` shows how to display these risk measures.
    some countries, whereas in other countries this variable is measured
    at the individual level and mixed-religion households exist.
 
-.. [#foot25]
-   The code examples in this guide are based on *sdcMicro* objects. An
-   *sdcMicro* object contains, amongst others, the data and identifies
-   all the specified key variables. The code below creates a data.frame
-   with the data from :numref:`tab41` and the *sdcMicro* objects “sdcInitial”
-   used in most examples in this section.
-
-   .. code-block:: R
-   
-       library(sdcMicro)
-       
-       # Set up dataset
-       data <- as.data.frame(cbind(as.factor(c('Urban', 'Urban', 'Urban', 'Urban', 'Rural', 'Urban', 'Urban', 'Urban',
-                                            'Urban', 'Urban')),
-                                   as.factor(c('Female', 'Female', 'Female', 'Male',
-                                            'Female', 'Male', 'Female', 'Male', 'Female', 'Female')),
-                                   as.factor(c('Sec in', 'Sec in', 'Prim in', 'Sec com', 'Sec com', 'Sec com', 'Prim com', 'Post-sec', 'Sec in', 'Sec in')), 
-                                   as.factor(c('Emp', 'Emp', 'Non-LF', 'Emp', 'Unemp', 'Emp', 'Non-LF', 'Unemp', 'Non-LF','Non-LF')),
-                                   as.factor(c('yes', 'yes', 'yes', 'yes', 'yes', 'no', 'no', 'yes', 'no', 'yes')),
-                                  c(180, 180, 215, 76, 186, 76, 180, 215, 186, 76)
-                                  ))
-       
-       # Specify variable names
-       names(data) <- c('Residence', 'Gender', 'Educ', 'Lstat', 'Health', 'Weights')
-       
-       # Set up sdcMicro object with specified quasi-identifiers and weight variable
-       sdcInitial <- createSdcObj(dat = data, keyVars = c('Residence', 'Gender', 'Educ', 'Lstat'), weightVar = 'Weights')
-
 .. [#foot26]
    The assumptions for this risk measure are strict and the risk is
    estimated in many cases higher than the actual risk. Among other
@@ -1425,31 +1122,6 @@ computed. :numref:`code414` shows how to display these risk measures.
    points in time and records have changed. This could happen when
    people move or change jobs and makes correct matching impossible. The
    assumptions assume a worst-case scenario.
-
-.. [#foot27]
-   See the Section `Objects of class sdcMicroObj <sdcMicro.html#Objects of class sdcMicroObj>`__ 
-   for more information on slots and the *sdcMicro*
-   object structure.
-
-.. [#foot28]
-   In *sdcMicro* it is important to use the standard missing value code
-   NA instead of other codes, such as 9999 or strings. In 
-   the Section
-   `Missing values <sdcMicro.html#Missing values>`__, 
-   we further discuss how to set other missing value codes to NA in *R*.
-   This is necessary to ensure that the methods in *sdcMicro* function
-   properly. When missing values have codes other than NA, the missing
-   value codes are interpreted as a distinct factor level in the case of
-   categorical variables.
-
-.. [#foot29]
-   Alternatively, the sensitive variables can be specified when
-   creating the *sdcMicro* object using the function createSdcObj() in
-   the *sensibleVar* argument. This is further explained in the Section
-   `Objects of class sdcMicroObj <sdcMicro.html#Objects of class sdcMicroObj>`__ .
-   In that case, the argument *ldiv_index* does not have to be specified
-   in the ldiversity() function. and the variables in the *sensibleVar*
-   argument will automatically be used to compute :math:`l`-diversity.
 
 .. [#foot30]
    Besides distinct :math:`l`-diversity, there are other

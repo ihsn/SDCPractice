@@ -27,6 +27,7 @@
   
     <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/theme_overrides.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="SDC with sdcMicro in R: Setting Up Your Data and more" href="sdcMicro.html" />
@@ -286,12 +287,12 @@ data. Missing values are often introduced after suppression and more
 suppressions indicate a higher degree of information loss. After using
 the local suppression function on an <em>sdcMicro</em> object, the number of
 suppressions for each categorical key variable can be retrieved with the
-print() function, which is illustrated in <a class="reference internal" href="#code61"><span class="std std-numref">Listing 39</span></a> <a class="footnote-reference" href="#foot59" id="id2">[2]</a>.
+print() function, which is illustrated in <a class="reference internal" href="#code61"><span class="std std-numref">Listing 25</span></a> <a class="footnote-reference" href="#foot59" id="id2">[2]</a>.
 The argument ‘ls’ in the print() function
 stands for local suppression. The output shows both the absolute and
 relative number of suppressions.</p>
 <div class="literal-block-wrapper docutils container" id="code61">
-<div class="code-block-caption"><span class="caption-number">Listing 39 </span><span class="caption-text">Using the print() function to retrieve the total number of suppressions for each categorical key variable</span><a class="headerlink" href="#code61" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 25 </span><span class="caption-text">Using the print() function to retrieve the total number of suppressions for each categorical key variable</span><a class="headerlink" href="#code61" title="Permalink to this code">¶</a></div>
 <div class="highlight-R notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -319,7 +320,7 @@ relative number of suppressions.</p>
 <p>More generally, it is possible to count and compare the number of
 missing values in the original data and the treated data. This can be
 useful to see the proportional increase in the number of missing values.
-Missing values can also have other sources, such as nonresponse. <a class="reference internal" href="#code62"><span class="std std-numref">Listing 40</span></a>
+Missing values can also have other sources, such as nonresponse. <a class="reference internal" href="#code62"><span class="std std-numref">Listing 26</span></a>
 shows how to display the number of missing values for each of the
 categorical key variables in an <em>sdcMicro</em> object. Here it is assumed
 that all missing values are coded ‘NA’. If the missing values are not
@@ -329,7 +330,7 @@ missing values introduced by local suppression in the previous example,
 but also shows that the variable “RELIG” has 1,000 missing values in the
 original data.</p>
 <div class="literal-block-wrapper docutils container" id="code62">
-<div class="code-block-caption"><span class="caption-number">Listing 40 </span><span class="caption-text">Displaying the number of missing values for each categorical key variable in an <em>sdcMicro</em> object</span><a class="headerlink" href="#code62" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 26 </span><span class="caption-text">Displaying the number of missing values for each categorical key variable in an <em>sdcMicro</em> object</span><a class="headerlink" href="#code62" title="Permalink to this code">¶</a></div>
 <div class="highlight-R notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -377,10 +378,10 @@ NAcount
 These can be counted in a similar way as the missing values and include
 suppressions (i.e., changes to missing/’NA’ in <em>R</em>). The number of
 records changed gives a good indication of the impact of the
-anonymization methods on the data. <a class="reference internal" href="#code63"><span class="std std-numref">Listing 41</span></a> illustrates how to
+anonymization methods on the data. <a class="reference internal" href="#code63"><span class="std std-numref">Listing 27</span></a> illustrates how to
 compute the number of records changed for the PRAMmed variables.</p>
 <div class="literal-block-wrapper docutils container" id="code63">
-<div class="code-block-caption"><span class="caption-number">Listing 41 </span><span class="caption-text">Computing number of records changed per variable</span><a class="headerlink" href="#code63" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 27 </span><span class="caption-text">Computing number of records changed per variable</span><a class="headerlink" href="#code63" title="Permalink to this code">¶</a></div>
 <div class="highlight-R notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -439,12 +440,12 @@ compare univariate tabulations and, more interestingly, contingency
 tables (also cross tabulations or two-way tables) between pairs of
 variables. To maintain the analytical validity of a dataset, the
 contingency tables should stay approximately the same. The function
-table() produces contingency tables of one or more variables. <a class="reference internal" href="#code64"><span class="std std-numref">Listing 42</span></a>
+table() produces contingency tables of one or more variables. <a class="reference internal" href="#code64"><span class="std std-numref">Listing 28</span></a>
 creates a contingency table of the variables “REGION” and “URBRUR”.
 We observe small differences between the tables before and after
 anonymization.</p>
 <div class="literal-block-wrapper docutils container" id="code64">
-<div class="code-block-caption"><span class="caption-number">Listing 42 </span><span class="caption-text">Comparing contingency tables of categorical variables</span><a class="headerlink" href="#code64" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 28 </span><span class="caption-text">Comparing contingency tables of categorical variables</span><a class="headerlink" href="#code64" title="Permalink to this code">¶</a></div>
 <div class="highlight-R notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -518,13 +519,13 @@ Following are a few examples in <em>R</em>.</p>
 <p>To compute the mean of each numerical variable we use the function
 colMeans(). To ignore missing values, it is necessary to use the option
 na.rm = TRUE. “numVars” is a vector with the names of the numerical
-variables. <a class="reference internal" href="#code65"><span class="std std-numref">Listing 43</span></a> shows how to compute the means for all numeric
+variables. <a class="reference internal" href="#code65"><span class="std std-numref">Listing 29</span></a> shows how to compute the means for all numeric
 variables. The untreated data is extracted from the ‘origData’ slot of
 the <em>sdcMicro</em> object and the anonymized data from the ‘manipNumVars’
 slot, which contains the manipulated numeric variables. We observe small
 changes in each of the three variables.</p>
 <div class="literal-block-wrapper docutils container" id="code65">
-<div class="code-block-caption"><span class="caption-number">Listing 43 </span><span class="caption-text">Comparing the means of continuous variables</span><a class="headerlink" href="#code65" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 29 </span><span class="caption-text">Comparing the means of continuous variables</span><a class="headerlink" href="#code65" title="Permalink to this code">¶</a></div>
 <div class="highlight-R notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -547,7 +548,7 @@ changes in each of the three variables.</p>
 </div>
 <p>In the same way, one can compute the covariance and correlation matrices
 of the numerical variables in the <em>sdcMicro</em> object from the untreated
-and anonymized data. This is shown in <a class="reference internal" href="#code66"><span class="std std-numref">Listing 44</span></a>. We observe that the
+and anonymized data. This is shown in <a class="reference internal" href="#code66"><span class="std std-numref">Listing 30</span></a>. We observe that the
 variance of each variable (the diagonal elements in the covariance
 matrix) have increased by the anonymization. These functions also allow
 computing confidence intervals in the case of samples. The means and
@@ -555,7 +556,7 @@ covariances of subsets in the data also should not differ. An example is
 the mean of income by gender, by age group or by region. These
 characteristics of the data are important for analysis.</p>
 <div class="literal-block-wrapper docutils container" id="code66">
-<div class="code-block-caption"><span class="caption-number">Listing 44 </span><span class="caption-text">Comparing covariance structure and correlation matrices of numeric variables</span><a class="headerlink" href="#code66" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 30 </span><span class="caption-text">Comparing covariance structure and correlation matrices of numeric variables</span><a class="headerlink" href="#code66" title="Permalink to this code">¶</a></div>
 <div class="highlight-R notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -636,13 +637,13 @@ anonymization for variable <span class="math notranslate nohighlight">\(j\)</spa
 original data (<a class="reference internal" href="#yawc02">YaWC02</a>).</p>
 <p>When using <em>sdcMicro</em>, the IL1s data utility measure can be computed for
 all numerical quasi-identifiers with the function dUtility(), which is
-illustrated in <a class="reference internal" href="#code67"><span class="std std-numref">Listing 45</span></a>. If required, the measure can also be
+illustrated in <a class="reference internal" href="#code67"><span class="std std-numref">Listing 31</span></a>. If required, the measure can also be
 computed on subsets of the complete set of numerical quasi-identifiers.
 The function is called dUtility(), but returns a measure of information
 loss. The result is saved in the utility slot of the <em>sdcMicro</em> object.
-<a class="reference internal" href="#code67"><span class="std std-numref">Listing 45</span></a> also illustrates how to call the result.</p>
+<a class="reference internal" href="#code67"><span class="std std-numref">Listing 31</span></a> also illustrates how to call the result.</p>
 <div class="literal-block-wrapper docutils container" id="code67">
-<div class="code-block-caption"><span class="caption-number">Listing 45 </span><span class="caption-text">Using dUtility() to compute IL1s data utility measure in <em>sdcMicro</em></span><a class="headerlink" href="#code67" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 31 </span><span class="caption-text">Using dUtility() to compute IL1s data utility measure in <em>sdcMicro</em></span><a class="headerlink" href="#code67" title="Permalink to this code">¶</a></div>
 <div class="highlight-R notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -684,7 +685,7 @@ of re-identification.</p>
 <div class="section" id="eigenvalues">
 <h4>Eigenvalues<a class="headerlink" href="#eigenvalues" title="Permalink to this headline">¶</a></h4>
 <p>Another way to evaluate the information loss is to compare the robust
-eigenvalues of the data before and after anonymization. <a class="reference internal" href="#code68"><span class="std std-numref">Listing 46</span></a>
+eigenvalues of the data before and after anonymization. <a class="reference internal" href="#code68"><span class="std std-numref">Listing 32</span></a>
 illustrates how to use this approach with <em>sdcMicro</em>. Here “contVars” is
 a vector with the names of the continuous variables in which we are
 interested. “obj” is the argument that specifies the untreated data and
@@ -693,7 +694,7 @@ output is the difference in eigenvalues. Therefore, the minimum value is
 0. Again, the main use is to compare different methods. The greater the
 value, the greater the changes in the data and the information loss.</p>
 <div class="literal-block-wrapper docutils container" id="code68">
-<div class="code-block-caption"><span class="caption-number">Listing 46 </span><span class="caption-text">Using dUtility() to compute eigenvalues in <em>sdcMicro</em></span><a class="headerlink" href="#code68" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 32 </span><span class="caption-text">Using dUtility() to compute eigenvalues in <em>sdcMicro</em></span><a class="headerlink" href="#code68" title="Permalink to this code">¶</a></div>
 <div class="highlight-R notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -749,14 +750,14 @@ packages have functions to compute the GINI coefficient. We chose the
 between the 45-degree line and the Lorenz curve. To use the gini()
 function, we first have to install and load the <em>laeken</em> library. To
 calculate the GINI coefficient for the variable income, we use the
-sample weights in the data. This is shown in <a class="reference internal" href="#code69"><span class="std std-numref">Listing 47</span></a>. The GINI
+sample weights in the data. This is shown in <a class="reference internal" href="#code69"><span class="std std-numref">Listing 33</span></a>. The GINI
 coefficient of sample data is a random variable. Therefore, it is useful
 to construct a confidence interval around the coefficient to evaluate
 the significance of any change in the coefficient after anonymization.
 The gini() function computes a 1-alpha confidence interval for the GINI
 coefficient by using bootstrap.</p>
 <div class="literal-block-wrapper docutils container" id="code69">
-<div class="code-block-caption"><span class="caption-number">Listing 47 </span><span class="caption-text">Computing the GINI coefficient from the income variable to determine income inequality</span><a class="headerlink" href="#code69" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 33 </span><span class="caption-text">Computing the GINI coefficient from the income variable to determine income inequality</span><a class="headerlink" href="#code69" title="Permalink to this code">¶</a></div>
 <div class="highlight-R notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -802,12 +803,12 @@ other factors influencing wage.</p>
 <p>The parameter of interest here is <span class="math notranslate nohighlight">\(\beta_{1}\)</span>, the effect of
 gender on the log wage. X is a matrix with several other factors
 influencing wage and <span class="math notranslate nohighlight">\(\beta\)</span> the coefficients of these factors.
-<a class="reference internal" href="#code610"><span class="std std-numref">Listing 48</span></a> illustrates how to run a Mincer regression in <em>R</em> using the
+<a class="reference internal" href="#code610"><span class="std std-numref">Listing 34</span></a> illustrates how to run a Mincer regression in <em>R</em> using the
 function lm() and evaluate the coefficients and confidence intervals
 around the coefficients. We run the regression as specified for paid
 employees with a positive wage in the age groups 15 – 65 years.</p>
 <div class="literal-block-wrapper docutils container" id="code610">
-<div class="code-block-caption"><span class="caption-number">Listing 48 </span><span class="caption-text">Estimating the Mincer equation (regression) to evaluate data utility before and after anonymization</span><a class="headerlink" href="#code610" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 34 </span><span class="caption-text">Estimating the Mincer equation (regression) to evaluate data utility before and after anonymization</span><a class="headerlink" href="#code610" title="Permalink to this code">¶</a></div>
 <div class="highlight-R notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -997,7 +998,7 @@ the kernel that is chosen and whether the data fits the kernel well.
 Nevertheless, density plots are a good tool to illustrate the change of
 values and value ranges of continuous variables.</p>
 <p>Histograms can be plotted with function hist() and kernel densities with
-the functions plot() and density() in <em>R</em>. <a class="reference internal" href="#code611"><span class="std std-numref">Listing 49</span></a> provides
+the functions plot() and density() in <em>R</em>. <a class="reference internal" href="#code611"><span class="std std-numref">Listing 35</span></a> provides
 examples of how to use these functions to illustrate the changes in the
 variable ”INC”, an income variable. The function hist() needs as
 argument the break points for the histogram. The results are shown in
@@ -1009,7 +1010,7 @@ increased and the shape of the distribution has changed.</p>
 <p class="last">The vertical axes of the histograms have different scales.</p>
 </div>
 <div class="literal-block-wrapper docutils container" id="code611">
-<div class="code-block-caption"><span class="caption-number">Listing 49 </span><span class="caption-text">Plotting histograms and kernel densities</span><a class="headerlink" href="#code611" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 35 </span><span class="caption-text">Plotting histograms and kernel densities</span><a class="headerlink" href="#code611" title="Permalink to this code">¶</a></div>
 <div class="highlight-R notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -1060,14 +1061,14 @@ plot<span class="p">(</span>density<span class="p">(</span>sdcInitial<span class
 <div class="section" id="box-plots">
 <h3>Box plots<a class="headerlink" href="#box-plots" title="Permalink to this headline">¶</a></h3>
 <p>Box plots give a quick overview of the changes in the spread and
-outliers of continuous variables before and after anonymization. <a class="reference internal" href="#code612"><span class="std std-numref">Listing 50</span></a>
+outliers of continuous variables before and after anonymization. <a class="reference internal" href="#code612"><span class="std std-numref">Listing 36</span></a>
 shows how to generate box plots in <em>R</em> with the function boxplot().
 The result in <a class="reference internal" href="#fig65"><span class="std std-numref">Fig. 16</span></a> shows an example for an expenditure variable
 after adding noise. The box plot shows clearly that the variability in
 the expenditure variable increased as a result of the anonymization
 methods applied.</p>
 <div class="literal-block-wrapper docutils container" id="code612">
-<div class="code-block-caption"><span class="caption-number">Listing 50 </span><span class="caption-text">Creating boxplots for continuous variables</span><a class="headerlink" href="#code612" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 36 </span><span class="caption-text">Creating boxplots for continuous variables</span><a class="headerlink" href="#code612" title="Permalink to this code">¶</a></div>
 <div class="highlight-R notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3</pre></div></td><td class="code"><div class="highlight"><pre><span></span>boxplot<span class="p">(</span>sdcObj<span class="o">@</span>origData<span class="o">$</span>TOTFOOD<span class="p">,</span> sdcObj<span class="o">@</span>manipNumVars<span class="o">$</span>TOTFOOD<span class="p">,</span>
@@ -1092,7 +1093,7 @@ we can, for instance, quickly see the effect of different levels of
 local suppression algorithm (see the Section <a class="reference external" href="anon_methods.html#Localsuppression">Local suppression</a>).</p>
 <p>We illustrate the changes in tabulations with an example of the variable
 “WATER” before and after applying PRAM. We can use mosaic plots to
-quickly see the changes for each category. <a class="reference internal" href="#code613"><span class="std std-numref">Listing 51</span></a> shows the code
+quickly see the changes for each category. <a class="reference internal" href="#code613"><span class="std std-numref">Listing 37</span></a> shows the code
 in <em>R</em>. The function mosaicplot() is available in base <em>R</em>. To plot a
 tabulation, first the tabulation must be made with the table() function.
 To show the labels in the mosaicplot(), we change the class of the
@@ -1101,7 +1102,7 @@ variables to ‘factor’ (see the Section
 the mosaic plot in <a class="reference internal" href="#fig66"><span class="std std-numref">Fig. 17</span></a> we see invariant PRAM has virtually no
 influence on the univariate distribution.</p>
 <div class="literal-block-wrapper docutils container" id="code613">
-<div class="code-block-caption"><span class="caption-number">Listing 51 </span><span class="caption-text">Creating univariate mosaic plots</span><a class="headerlink" href="#code613" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 37 </span><span class="caption-text">Creating univariate mosaic plots</span><a class="headerlink" href="#code613" title="Permalink to this code">¶</a></div>
 <div class="highlight-R notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -1227,12 +1228,12 @@ and occupation variables</td>
 univariate distributions. Therefore, in this case it is more interesting
 to look at the multivariate mosaic plots. Mosaic plots are also a
 powerful tool to show changes in cross-tabulations/contingency tables.
-<a class="reference internal" href="#code614"><span class="std std-numref">Listing 52</span></a> shows how to generate mosaic plots for two variables. To
+<a class="reference internal" href="#code614"><span class="std std-numref">Listing 38</span></a> shows how to generate mosaic plots for two variables. To
 compare the changes, we need to compare two different plots. <a class="reference internal" href="#fig68"><span class="std std-numref">Fig. 19</span></a>
 and <a class="reference internal" href="#fig69"><span class="std std-numref">Fig. 20</span></a> illustrate that (invariant) PRAM does not preserve the
 two-way tables in this case.</p>
 <div class="literal-block-wrapper docutils container" id="code614">
-<div class="code-block-caption"><span class="caption-number">Listing 52 </span><span class="caption-text">Creating multivariate mosaic plots</span><a class="headerlink" href="#code614" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 38 </span><span class="caption-text">Creating multivariate mosaic plots</span><a class="headerlink" href="#code614" title="Permalink to this code">¶</a></div>
 <div class="highlight-R notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3

@@ -8,8 +8,7 @@ regions: Latin America and the Caribbean (LAC), Sub-Saharan Africa
 (AFR), South Asia (SA), Europe and Central Asia (ECA), Middle East and
 North Africa (MENA) as well as East Asia and the Pacific (EAP). The
 datasets chosen were from a mix of datasets that are already publically
-available, as well as data made available only to the World Bank for
-official business. The surveys used included, amongst others, household,
+available, as well as data made available to the World Bank. The surveys used included, amongst others, household,
 demographic, and health surveys. The variables from these surveys used
 for the experiments were selected based on their relevance for users
 (e.g., for indicators, MDGs), their sensitivity, and their classification

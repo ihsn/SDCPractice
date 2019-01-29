@@ -27,6 +27,7 @@
   
     <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/theme_overrides.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Measuring Utility and Information Loss" href="utility.html" />
@@ -595,7 +596,7 @@ reduce the detail in continuous variables.</p>
 <p>Assume that an object of class <em>sdcMicro</em> was created, which is called
 “sdcInitial” <a class="footnote-reference" href="#foot35" id="id2">[2]</a> (see the Section
 <a class="reference external" href="sdcMicro.html#ObjectsofclasssdcMicroObj">Objects of class sdcMicroObj</a>)
-how to create objects of class <em>sdcMicro</em>). In <a class="reference internal" href="#code51"><span class="std std-numref">Listing 15</span></a>, the variable “sizeRes” has
+how to create objects of class <em>sdcMicro</em>). In <a class="reference internal" href="#code51"><span class="std std-numref">Listing 1</span></a>, the variable “sizeRes” has
 four different categories: ‘capital, large city’, ‘small city’, town’,
 and ‘countryside’). The first three are recoded or regrouped as ‘urban’
 and the category ‘countryside’ is renamed ‘rural’. In the function
@@ -611,7 +612,7 @@ different values that are recoded to ‘urban’.</p>
 <p>We refer to the Section <a class="reference external" href="sdcMicro.html#ClassesinR">Classes in R</a>
 on how to change the class of a variable.</p>
 <div class="literal-block-wrapper docutils container" id="code51">
-<div class="code-block-caption"><span class="caption-number">Listing 15 </span><span class="caption-text">Using the sdcMicro function groupVars() to recode a categorical variable</span><a class="headerlink" href="#code51" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 1 </span><span class="caption-text">Using the sdcMicro function groupVars() to recode a categorical variable</span><a class="headerlink" href="#code51" title="Permalink to this code">¶</a></div>
 <div class="highlight-R notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -666,7 +667,7 @@ categories (‘small city’ and ‘town’) have disappeared.</p>
 a vector with the break points between the intervals. Recoding a
 continuous variable changes it into a categorical variable. One can
 additionally specify a vector of labels for the new categories. By
-default, the labels are the intervals, e.g., “(0, 10]”. <a class="reference internal" href="#code52"><span class="std std-numref">Listing 16</span></a>
+default, the labels are the intervals, e.g., “(0, 10]”. <a class="reference internal" href="#code52"><span class="std std-numref">Listing 2</span></a>
 shows how to recode the variable age in 10-year intervals for age values
 between 0 and 100.</p>
 <div class="admonition note">
@@ -675,7 +676,7 @@ between 0 and 100.</p>
 </div>
 <p>Therefore, the intervals should cover the entire value range of the variable.</p>
 <div class="literal-block-wrapper docutils container" id="code52">
-<div class="code-block-caption"><span class="caption-number">Listing 16 </span><span class="caption-text">Using the <em>sdcMicro</em> function globalRecode() to recode a continuous variable (age)</span><a class="headerlink" href="#code52" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 2 </span><span class="caption-text">Using the <em>sdcMicro</em> function globalRecode() to recode a continuous variable (age)</span><a class="headerlink" href="#code52" title="Permalink to this code">¶</a></div>
 <div class="highlight-R notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -698,7 +699,7 @@ between 0 and 100.</p>
 <p class="caption"><span class="caption-number">Fig. 5 </span><span class="caption-text">Age variable before and after recoding</span></p>
 </div>
 <p>Instead of creating intervals of equal width, we can also create
-intervals of unequal width. This is illustrated in <a class="reference internal" href="#code53"><span class="std std-numref">Listing 17</span></a>, where we
+intervals of unequal width. This is illustrated in <a class="reference internal" href="#code53"><span class="std std-numref">Listing 3</span></a>, where we
 use the age groups 1-5, 6-11, 12-17, 18-21, 22-25, 26-49, 50-64 and 65+.
 In this example, this is a useful step, since even after recoding in
 10-year intervals, the categories with high age values have low
@@ -708,7 +709,7 @@ such that the data can still be used for common research on education
 and employment. <a class="reference internal" href="#fig53"><span class="std std-numref">Fig. 6</span></a> shows the effect of recoding the variable
 “age”.</p>
 <div class="literal-block-wrapper docutils container" id="code53">
-<div class="code-block-caption"><span class="caption-number">Listing 17 </span><span class="caption-text">Using globalRecode() to create intervals of unequal width</span><a class="headerlink" href="#code53" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 3 </span><span class="caption-text">Using globalRecode() to create intervals of unequal width</span><a class="headerlink" href="#code53" title="Permalink to this code">¶</a></div>
 <div class="highlight-R notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -755,10 +756,10 @@ subtracting 0.1 from each interval forces globalRecode() to include 0
 in the lowest interval and allow for breaks where we want them. We
 set the upper interval boundary to be larger than the maximum value
 for the “age” variable. We can use the option <em>labels</em> to define
-clear labels for the new categories. This is illustrated in <a class="reference internal" href="#code54"><span class="std std-numref">Listing 18</span></a>.</li>
+clear labels for the new categories. This is illustrated in <a class="reference internal" href="#code54"><span class="std std-numref">Listing 4</span></a>.</li>
 </ul>
 <div class="literal-block-wrapper docutils container" id="code54">
-<div class="code-block-caption"><span class="caption-number">Listing 18 </span><span class="caption-text">Constructing right-open intervals for semi-continuous variables using built-in <em>sdcMicro</em> function globalRecode()</span><a class="headerlink" href="#code54" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 4 </span><span class="caption-text">Constructing right-open intervals for semi-continuous variables using built-in <em>sdcMicro</em> function globalRecode()</span><a class="headerlink" href="#code54" title="Permalink to this code">¶</a></div>
 <div class="highlight-R notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3</pre></div></td><td class="code"><div class="highlight"><pre><span></span>sdcInitial <span class="o">&lt;-</span> globalRecode<span class="p">(</span>sdcInitial<span class="p">,</span> column <span class="o">=</span> <span class="kt">c</span><span class="p">(</span><span class="s">&#39;age&#39;</span><span class="p">),</span>
@@ -775,10 +776,10 @@ automatically recalculated, but if recoded manually it is not. In
 this case, we need to take an extra step and recalculate the risk
 after manually changing the variables in the <em>sdcMicro</em> object. This
 approach is also valid for continuous variables and is illustrated in
-<a class="reference internal" href="#code55"><span class="std std-numref">Listing 19</span></a>.</li>
+<a class="reference internal" href="#code55"><span class="std std-numref">Listing 5</span></a>.</li>
 </ul>
 <div class="literal-block-wrapper docutils container" id="code55">
-<div class="code-block-caption"><span class="caption-number">Listing 19 </span><span class="caption-text">Constructing intervals for semi-continuous and continuous variables using manual recoding in <em>R</em></span><a class="headerlink" href="#code55" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 5 </span><span class="caption-text">Constructing intervals for semi-continuous and continuous variables using manual recoding in <em>R</em></span><a class="headerlink" href="#code55" title="Permalink to this code">¶</a></div>
 <div class="highlight-R notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -858,14 +859,14 @@ the example, we consider this and code all age higher than 64.</li>
 </div>
 <p>Top and bottom coding can be easily done with the function
 topBotCoding() in <em>sdcMicro</em>. Top coding and bottom coding cannot be
-done simultaneously in <em>sdcMicro</em>. <a class="reference internal" href="#code56"><span class="std std-numref">Listing 20</span></a> illustrates how to recode
+done simultaneously in <em>sdcMicro</em>. <a class="reference internal" href="#code56"><span class="std std-numref">Listing 6</span></a> illustrates how to recode
 values of age higher than 64 and values of age lower than 5; 65 and 5
 replace the values respectively. To construct several top or bottom
 coding categories, e.g., age 65 – 80 and higher than age 80, one can use
 the groupVars() function in <em>sdcMicro</em> or manual recoding as described
 in the previous subsection.</p>
 <div class="literal-block-wrapper docutils container" id="code56">
-<div class="code-block-caption"><span class="caption-number">Listing 20 </span><span class="caption-text">Top coding and bottom coding in <em>sdcMicro</em> using topBotCoding() function</span><a class="headerlink" href="#code56" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 6 </span><span class="caption-text">Top coding and bottom coding in <em>sdcMicro</em> using topBotCoding() function</span><a class="headerlink" href="#code56" title="Permalink to this code">¶</a></div>
 <div class="highlight-R notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -1052,7 +1053,7 @@ The algorithm seeks to apply fewer suppressions to variables of high
 importance than to variables with lower importance. Nevertheless,
 suppressions in the variables with high importance might be inevitable
 to achieve the required level of <span class="math notranslate nohighlight">\(k\)</span>-anonymity.</p>
-<p>In <a class="reference internal" href="#code57"><span class="std std-numref">Listing 21</span></a>, local suppression is applied to achieve the
+<p>In <a class="reference internal" href="#code57"><span class="std std-numref">Listing 7</span></a>, local suppression is applied to achieve the
 <span class="math notranslate nohighlight">\(k\)</span>-anonymity threshold of 5 on the quasi-identifiers “gender”,
 “region”, “religion”, “age” and “ethnicity” <a class="footnote-reference" href="#foot39" id="id5">[6]</a>.
 Without ranking the importance of the variables, the value of the
@@ -1088,7 +1089,7 @@ suppressed values has increased from 88 to 166.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">Fewer suppressions in one variable increase the number of necessary
-suppressions in other variables (cf. <a class="reference internal" href="#code57"><span class="std std-numref">Listing 21</span></a>).</p>
+suppressions in other variables (cf. <a class="reference internal" href="#code57"><span class="std std-numref">Listing 7</span></a>).</p>
 </div>
 <p>Generally, the total number of suppressed values needed to achieve the required level
 of <span class="math notranslate nohighlight">\(k\)</span>-anonymity increases when specifying an importance vector,
@@ -1097,7 +1098,7 @@ pattern. The importance vector should be specified only in cases where
 the variables with many categories play an important role in data
 utility for the data users <a class="footnote-reference" href="#foot40" id="id6">[7]</a>.</p>
 <div class="literal-block-wrapper docutils container" id="code57">
-<div class="code-block-caption"><span class="caption-number">Listing 21 </span><span class="caption-text">Application of local suppression with and without importance vector</span><a class="headerlink" href="#code57" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 7 </span><span class="caption-text">Application of local suppression with and without importance vector</span><a class="headerlink" href="#code57" title="Permalink to this code">¶</a></div>
 <div class="highlight-R notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -1314,10 +1315,10 @@ the complete dataset. It is also possible to specify different values
 for <span class="math notranslate nohighlight">\(k\)</span> for each subset size in the ‘k’ argument. If we would want to
 achieve 5-anonimity on the subsets of size 3 and subsequently
 3-anonimity on the subsets of size 9, we would set the ‘k’ argument to
-c(5,3). <a class="reference internal" href="#code58"><span class="std std-numref">Listing 22</span></a> illustrates the use of the all-<span class="math notranslate nohighlight">\(m\)</span> approach
+c(5,3). <a class="reference internal" href="#code58"><span class="std std-numref">Listing 8</span></a> illustrates the use of the all-<span class="math notranslate nohighlight">\(m\)</span> approach
 in <em>sdcMicro</em>.</p>
 <div class="literal-block-wrapper docutils container" id="code58">
-<div class="code-block-caption"><span class="caption-number">Listing 22 </span><span class="caption-text">The all-<span class="math notranslate nohighlight">\(m\)</span> approach in sdcMicro</span><a class="headerlink" href="#code58" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 8 </span><span class="caption-text">The all-<span class="math notranslate nohighlight">\(m\)</span> approach in sdcMicro</span><a class="headerlink" href="#code58" title="Permalink to this code">¶</a></div>
 <div class="highlight-R notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -1493,13 +1494,13 @@ employment status. For example, if region 1 is completely urban, and all
 other regions are only semi-urban or rural, a suppression in the
 variable region for a record in region 1 can be simply reconstructed by
 the rural/urban variable. Therefore, it is useful to suppress the values
-corresponding to the suppressions in those linked variables. <a class="reference internal" href="#code59"><span class="std std-numref">Listing 23</span></a>
+corresponding to the suppressions in those linked variables. <a class="reference internal" href="#code59"><span class="std std-numref">Listing 9</span></a>
 illustrates how to suppress the values in the variable “rururb”
 corresponding to the suppressions in the region variable. All values of
 “rururb”, which correspond to a suppressed value (NA) in the variable
 “region” are suppressed (set to NA).</p>
 <div class="literal-block-wrapper docutils container" id="code59">
-<div class="code-block-caption"><span class="caption-number">Listing 23 </span><span class="caption-text">Manually suppressing values in linked variables</span><a class="headerlink" href="#code59" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 9 </span><span class="caption-text">Manually suppressing values in linked variables</span><a class="headerlink" href="#code59" title="Permalink to this code">¶</a></div>
 <div class="highlight-R notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3</pre></div></td><td class="code"><div class="highlight"><pre><span></span> <span class="c1"># Suppress values of rururb in file if region is suppressed</span>
@@ -1511,10 +1512,10 @@ corresponding to the suppressions in the region variable. All values of
 <p>Alternatively, the linked variables can be specified when creating the
 <em>sdcMicro</em> object. The linked variables are called ghost variables. Any
 suppression in the key variable will lead to a suppression in the
-variables linked to that key variable. <a class="reference internal" href="#code510"><span class="std std-numref">Listing 24</span></a> shows how to specify
+variables linked to that key variable. <a class="reference internal" href="#code510"><span class="std std-numref">Listing 10</span></a> shows how to specify
 the linkage between “region” and “rururb” with ghost variables.</p>
 <div class="literal-block-wrapper docutils container" id="code510">
-<div class="code-block-caption"><span class="caption-number">Listing 24 </span><span class="caption-text">Suppressing values in linked variables by specifying ghost variables</span><a class="headerlink" href="#code510" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 10 </span><span class="caption-text">Suppressing values in linked variables by specifying ghost variables</span><a class="headerlink" href="#code510" title="Permalink to this code">¶</a></div>
 <div class="highlight-R notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -1559,12 +1560,12 @@ values that should not be released for individuals with high risks of
 re-identification. What is considered high re-identification probability
 depends on legal requirements. In the following example, the values of
 the variable “education” are suppressed for all individuals whose
-individual risk is higher than 0.1, which is illustrated in <a class="reference internal" href="#code511"><span class="std std-numref">Listing 25</span></a>.
+individual risk is higher than 0.1, which is illustrated in <a class="reference internal" href="#code511"><span class="std std-numref">Listing 11</span></a>.
 For an overview of the individual risk values, it can be useful to
 look at the summary statistics of the individual risk values as well as
 the number of suppressions.</p>
 <div class="literal-block-wrapper docutils container" id="code511">
-<div class="code-block-caption"><span class="caption-number">Listing 25 </span><span class="caption-text">Application of built-in <em>sdcMicro</em> function localSupp()</span><a class="headerlink" href="#code511" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 11 </span><span class="caption-text">Application of built-in <em>sdcMicro</em> function localSupp()</span><a class="headerlink" href="#code511" title="Permalink to this code">¶</a></div>
 <div class="highlight-R notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -1796,7 +1797,7 @@ for invariant PRAM.</p>
 <p class="last">Invariant does not guarantee that
 cross-tabulations of variables (unlike univariate tabulations) stay the same.</p>
 </div>
-<p>In <a class="reference internal" href="#code512"><span class="std std-numref">Listing 26</span></a>, we give an example of invariant PRAM using
+<p>In <a class="reference internal" href="#code512"><span class="std std-numref">Listing 12</span></a>, we give an example of invariant PRAM using
 <em>sdcMicro</em>. <a class="footnote-reference" href="#foot44" id="id10">[11]</a> PRAM is a probabilistic method and the
 results can differ every time we apply PRAM to the same variables of a
 dataset. To overcome this and make the results reproducible, it is good
@@ -1804,7 +1805,7 @@ practice to set a seed for the random number generator in <em>R</em>, so the
 same random numbers will be generated every time. <a class="footnote-reference" href="#foot45" id="id11">[12]</a>
 The number of changed records per variable is also shown.</p>
 <div class="literal-block-wrapper docutils container" id="code512">
-<div class="code-block-caption"><span class="caption-number">Listing 26 </span><span class="caption-text">Producing reproducible PRAM results by using set.seed()</span><a class="headerlink" href="#code512" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 12 </span><span class="caption-text">Producing reproducible PRAM results by using set.seed()</span><a class="headerlink" href="#code512" title="Permalink to this code">¶</a></div>
 <div class="highlight-R notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -1927,14 +1928,14 @@ on <em>sdcMicro</em> objects for more details).</p>
 <p>Alternatively, PRAM
 can also be applied to variables that are not specified in the
 <em>sdcMicro</em> object as PRAM variables, such as key variables, which is
-shown in <a class="reference internal" href="#code513"><span class="std std-numref">Listing 27</span></a>. In that case, however, the risk measures that are
+shown in <a class="reference internal" href="#code513"><span class="std std-numref">Listing 13</span></a>. In that case, however, the risk measures that are
 automatically computed will not be correct anymore, since the variables
 are perturbed. Therefore, if during the SDC process PRAM will be applied
 to some key variables, it is recommended to create a new <em>sdcMicro</em>
 object where the variables to be PRAMmed are selected as PRAM variables
 in the function createSdcObj().</p>
 <div class="literal-block-wrapper docutils container" id="code513">
-<div class="code-block-caption"><span class="caption-number">Listing 27 </span><span class="caption-text">Selecting the variable “toilet” to apply PRAM</span><a class="headerlink" href="#code513" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 13 </span><span class="caption-text">Selecting the variable “toilet” to apply PRAM</span><a class="headerlink" href="#code513" title="Permalink to this code">¶</a></div>
 <div class="highlight-R notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -1962,7 +1963,7 @@ same after applying PRAM. Setting the minimum value to 1 will yield no
 changes to this category. By default, this value is 0.8, which applies
 for all categories. It is also possible to specify a vector with value
 for each diagonal element of the transformation matrix/category. In
-<a class="reference internal" href="#code514"><span class="std std-numref">Listing 28</span></a> values of the first region are less likely to change than
+<a class="reference internal" href="#code514"><span class="std std-numref">Listing 14</span></a> values of the first region are less likely to change than
 values of the other regions.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
@@ -1973,7 +1974,7 @@ that the transition matrix has a unit eigenvalue.</p>
 restrictions can therefore be used (e.g., the minimum value 1 on any of
 the categories).</p>
 <div class="literal-block-wrapper docutils container" id="code514">
-<div class="code-block-caption"><span class="caption-number">Listing 28 </span><span class="caption-text">Specifying minimum values for diagonal entries in PRAM transition matrix</span><a class="headerlink" href="#code514" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 14 </span><span class="caption-text">Specifying minimum values for diagonal entries in PRAM transition matrix</span><a class="headerlink" href="#code514" title="Permalink to this code">¶</a></div>
 <div class="highlight-R notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -2011,7 +2012,7 @@ range within 6 to 18 years and only such changes are allowed. In
 <em>sdcMicro</em> the transition matrix cannot be exactly specified. A useful
 alternative is constructing strata and applying PRAM within the strata.
 In this way, the changes between variables will only be applied within
-the strata. <a class="reference internal" href="#code515"><span class="std std-numref">Listing 29</span></a> illustrates this by applying PRAM to the
+the strata. <a class="reference internal" href="#code515"><span class="std std-numref">Listing 15</span></a> illustrates this by applying PRAM to the
 variable “toilet” within the strata generated by the “region” education.
 This prevents changes in the variable “toilet”, where toilet types in a
 particular region are exchanged with those in other regions. For
@@ -2021,7 +2022,7 @@ PRAMming. Values are only changed with those that are available in the
 same strata. Strata can be formed by any categorical variable, e.g.,
 gender, age groups, education level.</p>
 <div class="literal-block-wrapper docutils container" id="code515">
-<div class="code-block-caption"><span class="caption-number">Listing 29 </span><span class="caption-text">Minimizing unlikely combinations by applying PRAM within strata</span><a class="headerlink" href="#code515" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 15 </span><span class="caption-text">Minimizing unlikely combinations by applying PRAM within strata</span><a class="headerlink" href="#code515" title="Permalink to this code">¶</a></div>
 <div class="highlight-R notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -2092,7 +2093,7 @@ microaggregation. The argument ‘aggr’ specifies the group size. Forming
 groups is easier if all groups – except maybe the last group of
 remainders – have the same size. This is the case in the implementation
 in <em>sdcMicro</em> as it is not possible to have groups of different sizes.
-<a class="reference internal" href="#code516"><span class="std std-numref">Listing 30</span></a> shows how to use the function microaggregation() in
+<a class="reference internal" href="#code516"><span class="std std-numref">Listing 16</span></a> shows how to use the function microaggregation() in
 <em>sdcMicro</em>. <a class="footnote-reference" href="#foot49" id="id16">[16]</a> The default group size is 3 but the
 user can specify any desired group size. Choice of group size depends on
 the homogeneity within the groups and the required level of protection.
@@ -2104,7 +2105,7 @@ low income (e.g., 832 and 966) and four individuals have a high income
 (e.g., (832 + 966 + 2,987) / 3 = 1,595 and (3,088 + 3,211 + 3,313) / 3 =
 3,204) would represent neither the low nor the high income.</p>
 <div class="literal-block-wrapper docutils container" id="code516">
-<div class="code-block-caption"><span class="caption-number">Listing 30 </span><span class="caption-text">Applying univariate microaggregation with <em>sdcMicro</em> function microaggregation()</span><a class="headerlink" href="#code516" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 16 </span><span class="caption-text">Applying univariate microaggregation with <em>sdcMicro</em> function microaggregation()</span><a class="headerlink" href="#code516" title="Permalink to this code">¶</a></div>
 <div class="highlight-R notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2</pre></div></td><td class="code"><div class="highlight"><pre><span></span>sdcInitial <span class="o">&lt;-</span> microaggregation<span class="p">(</span>obj <span class="o">=</span> sdcInitial<span class="p">,</span> variables <span class="o">=</span> <span class="s">&#39;INC&#39;</span><span class="p">,</span>
                                aggr <span class="o">=</span> <span class="m">3</span><span class="p">,</span> method <span class="o">=</span> mafast<span class="p">,</span> measure <span class="o">=</span> <span class="s">&quot;mean&quot;</span><span class="p">)</span>
@@ -2305,10 +2306,10 @@ dataset is then computed by replacing each record in the original
 dataset by the average values of the group to which it belongs. Equal
 group sizes, however, may not be ideal for data characterized by greater
 variability. In <em>sdcMicro</em> multivariate microaggregation is also
-implemented in the function microaggregation(). <a class="reference internal" href="#code517"><span class="std std-numref">Listing 31</span></a> shows how
+implemented in the function microaggregation(). <a class="reference internal" href="#code517"><span class="std std-numref">Listing 17</span></a> shows how
 to choose the MDAV algorithm in <em>sdcMicro</em>.</p>
 <div class="literal-block-wrapper docutils container" id="code517">
-<div class="code-block-caption"><span class="caption-number">Listing 31 </span><span class="caption-text">Multivariate microaggregation with the Maximum Distance to Average Vector (MDAV) algorithm in <em>sdcMicro</em></span><a class="headerlink" href="#code517" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 17 </span><span class="caption-text">Multivariate microaggregation with the Maximum Distance to Average Vector (MDAV) algorithm in <em>sdcMicro</em></span><a class="headerlink" href="#code517" title="Permalink to this code">¶</a></div>
 <div class="highlight-R notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3</pre></div></td><td class="code"><div class="highlight"><pre><span></span>sdcInitial <span class="o">&lt;-</span> microaggregation<span class="p">(</span>obj <span class="o">=</span> sdcInitial<span class="p">,</span>
@@ -2321,9 +2322,9 @@ to choose the MDAV algorithm in <em>sdcMicro</em>.</p>
 the computation time and adds an extra layer of protection to the data,
 because of the greater uncertainty produced <a class="footnote-reference" href="#foot50" id="id17">[17]</a>. In
 <em>sdcMicro</em> this can be achieved by specifying the strata variables, as
-shown in <a class="reference internal" href="#code518"><span class="std std-numref">Listing 32</span></a>.</p>
+shown in <a class="reference internal" href="#code518"><span class="std std-numref">Listing 18</span></a>.</p>
 <div class="literal-block-wrapper docutils container" id="code518">
-<div class="code-block-caption"><span class="caption-number">Listing 32 </span><span class="caption-text">Specifying strata variables for microaggregation</span><a class="headerlink" href="#code518" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 18 </span><span class="caption-text">Specifying strata variables for microaggregation</span><a class="headerlink" href="#code518" title="Permalink to this code">¶</a></div>
 <div class="highlight-R notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3</pre></div></td><td class="code"><div class="highlight"><pre><span></span>sdcInitial <span class="o">&lt;-</span> microaggregation<span class="p">(</span>obj <span class="o">=</span> sdcInitial<span class="p">,</span>
@@ -2475,13 +2476,13 @@ data users.</p>
 The algorithm and parameter can be specified as arguments in the
 function addNoise(). Simple noise addition is implemented in the
 function addNoise() with the value “additive” for the argument ‘method’.
-<a class="reference internal" href="#code519"><span class="std std-numref">Listing 33</span></a> shows how to use <em>sdcMicro</em> to add uncorrelated noise to
+<a class="reference internal" href="#code519"><span class="std std-numref">Listing 19</span></a> shows how to use <em>sdcMicro</em> to add uncorrelated noise to
 expenditure variables, where the standard deviation of the added noise
 equals half the standard deviation of the original
 variables. <a class="footnote-reference" href="#foot52" id="id19">[19]</a> Noise is added to all selected
 variables.</p>
 <div class="literal-block-wrapper docutils container" id="code519">
-<div class="code-block-caption"><span class="caption-number">Listing 33 </span><span class="caption-text">Uncorrelated noise addition</span><a class="headerlink" href="#code519" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 19 </span><span class="caption-text">Uncorrelated noise addition</span><a class="headerlink" href="#code519" title="Permalink to this code">¶</a></div>
 <div class="highlight-R notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -2559,11 +2560,11 @@ addition can be used by specifying the methods ‘correlated’ or
 ‘correlated2’. The method “correlated” assumes that the variables are
 approximately normally distributed. The method ‘correlated2’ is a
 version of the method ‘correlated’, which is robust against the
-normality assumption. <a class="reference internal" href="#code520"><span class="std std-numref">Listing 34</span></a> shows how to use the ‘correlated2’
+normality assumption. <a class="reference internal" href="#code520"><span class="std std-numref">Listing 20</span></a> shows how to use the ‘correlated2’
 method. The normality of variables can be investigated in <em>R</em>, with, for
 instance, a Jarque-Bera or Shapiro-Wilk test <a class="footnote-reference" href="#foot53" id="id20">[20]</a>.</p>
 <div class="literal-block-wrapper docutils container" id="code520">
-<div class="code-block-caption"><span class="caption-number">Listing 34 </span><span class="caption-text">Correlated noise addition</span><a class="headerlink" href="#code520" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 20 </span><span class="caption-text">Correlated noise addition</span><a class="headerlink" href="#code520" title="Permalink to this code">¶</a></div>
 <div class="highlight-R notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -2580,13 +2581,13 @@ instance, a Jarque-Bera or Shapiro-Wilk test <a class="footnote-reference" href=
 </div>
 <p>In many cases, only the outliers have to be protected, or have to be
 protected more. The method ‘outdect’ adds noise only to the outliers,
-which is illustrated in <a class="reference internal" href="#code521"><span class="std std-numref">Listing 35</span></a>. The outliers are identified with
+which is illustrated in <a class="reference internal" href="#code521"><span class="std std-numref">Listing 21</span></a>. The outliers are identified with
 univariate and robust multivariate procedures based on a robust
 Mahalanobis distance calculated by the MCD estimator (<a class="reference internal" href="#tmkc14">TMKC14</a>).
 Nevertheless, noise addition is not the most suitable method for
 outlier protection.</p>
 <div class="literal-block-wrapper docutils container" id="code521">
-<div class="code-block-caption"><span class="caption-number">Listing 35 </span><span class="caption-text">Noise addition for outliers using the ‘outdect’ method</span><a class="headerlink" href="#code521" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 21 </span><span class="caption-text">Noise addition for outliers using the ‘outdect’ method</span><a class="headerlink" href="#code521" title="Permalink to this code">¶</a></div>
 <div class="highlight-R notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -2610,13 +2611,13 @@ components. After adding noise to their components (e.g., different
 expenditure categories), however, their new aggregates will not
 necessarily match the sum of the categories anymore. One way to keep
 this structure is to add noise only to the aggregates and release the
-components as ratio of the perturbed aggregates. <a class="reference internal" href="#code522"><span class="std std-numref">Listing 36</span></a>
+components as ratio of the perturbed aggregates. <a class="reference internal" href="#code522"><span class="std std-numref">Listing 22</span></a>
 illustrates this by adding noise to the total of expenditures.
 Subsequently, the ratios of the initial expenditure categories are used
 for each individual to reconstruct the perturbed values for each
 expenditure category.</p>
 <div class="literal-block-wrapper docutils container" id="code522">
-<div class="code-block-caption"><span class="caption-number">Listing 36 </span><span class="caption-text">Noise addition to aggregates and their components</span><a class="headerlink" href="#code522" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 22 </span><span class="caption-text">Noise addition to aggregates and their components</span><a class="headerlink" href="#code522" title="Permalink to this code">¶</a></div>
 <div class="highlight-R notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -2704,15 +2705,15 @@ probabilistic method, i.e., the swapping depends on a random number
 generating mechanism, specifying a seed for the random number generator
 before using rank swapping is recommended to guarantee reproducibility
 of results. The seed can also be specified as a function argument in the
-function rankSwap(). <a class="reference internal" href="#code523"><span class="std std-numref">Listing 37</span></a> shows how to apply rank swapping with
+function rankSwap(). <a class="reference internal" href="#code523"><span class="std std-numref">Listing 23</span></a> shows how to apply rank swapping with
 <em>sdcMicro</em>. If the variables contain missing values (NA in <em>R</em>), the
 function rankSwap() will automatically recode those to the value
 specified in the ‘missing’ argument. This value should not be in the
 value range of any of the variables. After using the function
 rankSwap(), these values should be recoded NA. This is shown in the
-<a class="reference internal" href="#code523"><span class="std std-numref">Listing 37</span></a>.</p>
+<a class="reference internal" href="#code523"><span class="std std-numref">Listing 23</span></a>.</p>
 <div class="literal-block-wrapper docutils container" id="code523">
-<div class="code-block-caption"><span class="caption-number">Listing 37 </span><span class="caption-text">Rank swapping using <em>sdcMicro</em></span><a class="headerlink" href="#code523" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 23 </span><span class="caption-text">Rank swapping using <em>sdcMicro</em></span><a class="headerlink" href="#code523" title="Permalink to this code">¶</a></div>
 <div class="highlight-R notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -2876,7 +2877,7 @@ that are captured by the linear regression model used for shuffling.
 Following is an example for shuffling expenditure variables, which are
 predicted by total household expenditures and household size.</p>
 <div class="literal-block-wrapper docutils container" id="code524">
-<div class="code-block-caption"><span class="caption-number">Listing 38 </span><span class="caption-text">Shuffling using a specified regression equation</span><a class="headerlink" href="#code524" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 24 </span><span class="caption-text">Shuffling using a specified regression equation</span><a class="headerlink" href="#code524" title="Permalink to this code">¶</a></div>
 <div class="highlight-R notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3

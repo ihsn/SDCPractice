@@ -27,6 +27,7 @@
   
     <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/theme_overrides.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="prev" title="Acknowledgements" href="acknowledgements.html" /> 
@@ -211,8 +212,7 @@ regions: Latin America and the Caribbean (LAC), Sub-Saharan Africa
 (AFR), South Asia (SA), Europe and Central Asia (ECA), Middle East and
 North Africa (MENA) as well as East Asia and the Pacific (EAP). The
 datasets chosen were from a mix of datasets that are already publically
-available, as well as data made available only to the World Bank for
-official business. The surveys used included, amongst others, household,
+available, as well as data made available to the World Bank. The surveys used included, amongst others, household,
 demographic, and health surveys. The variables from these surveys used
 for the experiments were selected based on their relevance for users
 (e.g., for indicators, MDGs), their sensitivity, and their classification
@@ -287,7 +287,7 @@ used later for the computation of the utility measures. If these
 packages are not yet installed, you should do so before trying to load
 them. The <em>R</em> code for this case study demonstrates how to do this.</p>
 <div class="literal-block-wrapper docutils container" id="code91">
-<div class="code-block-caption"><span class="caption-number">Listing 69 </span><span class="caption-text">Loading required packages</span><a class="headerlink" href="#code91" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 55 </span><span class="caption-text">Loading required packages</span><a class="headerlink" href="#code91" title="Permalink to this code">¶</a></div>
 <div class="highlight-R notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -308,7 +308,7 @@ them. The <em>R</em> code for this case study demonstrates how to do this.</p>
 file is stored, we load the data into the object called <em>file</em>. All
 output, unless otherwise specified, is saved in the working directory.</p>
 <div class="literal-block-wrapper docutils container" id="code92">
-<div class="code-block-caption"><span class="caption-number">Listing 70 </span><span class="caption-text">Loading the data</span><a class="headerlink" href="#code92" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 56 </span><span class="caption-text">Loading the data</span><a class="headerlink" href="#code92" title="Permalink to this code">¶</a></div>
 <div class="highlight-R notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -328,9 +328,9 @@ file <span class="o">&lt;-</span> read.dta<span class="p">(</span>fname<span cla
 </td></tr></table></div>
 </div>
 <p>We check the number of variables, number of observations and variable
-names, as shown in <a class="reference internal" href="#code93"><span class="std std-numref">Listing 71</span></a>.</p>
+names, as shown in <a class="reference internal" href="#code93"><span class="std std-numref">Listing 57</span></a>.</p>
 <div class="literal-block-wrapper docutils container" id="code93">
-<div class="code-block-caption"><span class="caption-number">Listing 71 </span><span class="caption-text">Number of individuals and variables and variable names</span><a class="headerlink" href="#code93" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 57 </span><span class="caption-text">Number of individuals and variables and variable names</span><a class="headerlink" href="#code93" title="Permalink to this code">¶</a></div>
 <div class="highlight-R notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -383,7 +383,7 @@ we will see in Steps 6a and 6b.</p>
 <p>To get an overview of the values of the variables, we use tabulations
 and cross-tabulations for categorical variables and summary statistics
 for continuous variables. To include the number of missing values (NA or
-other), we use the option useNA = “ifany” in the table() function (see <a class="reference internal" href="#code94"><span class="std std-numref">Listing 72</span></a>).</p>
+other), we use the option useNA = “ifany” in the table() function (see <a class="reference internal" href="#code94"><span class="std std-numref">Listing 58</span></a>).</p>
 <p>In <a class="reference internal" href="#tab91"><span class="std std-numref">Table 27</span></a> the variables in the dataset are listed along with concise
 descriptions of the variables, the level at which they are collected
 (individual (IND), household (HH)), the measurement type (continuous,
@@ -407,7 +407,7 @@ they were present, would need to be removed at this stage. Examples of
 direct identifiers would be names, telephone numbers, geographical
 location coordinates, etc.</p>
 <div class="literal-block-wrapper docutils container" id="code94">
-<div class="code-block-caption"><span class="caption-number">Listing 72 </span><span class="caption-text">Tabulation of the variable ‘gender’ and summary statistics for the variable ‘total annual expenditures’ in <em>R</em></span><a class="headerlink" href="#code94" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 58 </span><span class="caption-text">Tabulation of the variable ‘gender’ and summary statistics for the variable ‘total annual expenditures’ in <em>R</em></span><a class="headerlink" href="#code94" title="Permalink to this code">¶</a></div>
 <div class="highlight-R notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -960,7 +960,7 @@ standard missing value code NA. Before proceeding, we need to recode
 these to NA so <em>R</em> interprets them correctly. The missing value codes
 are resp. 99999, 99 and 9999 for these three variables. These are
 genuine missing value codes and not caused by the variables being not
-applicable to the individual. <a class="reference internal" href="#code95"><span class="std std-numref">Listing 73</span></a> shows how to make these
+applicable to the individual. <a class="reference internal" href="#code95"><span class="std std-numref">Listing 59</span></a> shows how to make these
 changes.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
@@ -969,7 +969,7 @@ for users, it is relatively easy to change these values back to their
 original missing value code.</p>
 </div>
 <div class="literal-block-wrapper docutils container" id="code95">
-<div class="code-block-caption"><span class="caption-number">Listing 73 </span><span class="caption-text">Recoding missing value codes</span><a class="headerlink" href="#code95" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 59 </span><span class="caption-text">Recoding missing value codes</span><a class="headerlink" href="#code95" title="Permalink to this code">¶</a></div>
 <div class="highlight-R notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -991,10 +991,10 @@ methods in <em>R</em>. It is always possible to add these variables back into
 the dataset to be released at the end of the anonymization process. It
 is useful to reduce the dataset to those variables and records relevant
 for the anonymization process. This guarantees the best results in <em>R</em>
-and fewer errors. In <a class="reference internal" href="#code96"><span class="std std-numref">Listing 74</span></a> we drop the variables that contain all
+and fewer errors. In <a class="reference internal" href="#code96"><span class="std std-numref">Listing 60</span></a> we drop the variables that contain all
 missing values.</p>
 <div class="literal-block-wrapper docutils container" id="code96">
-<div class="code-block-caption"><span class="caption-number">Listing 74 </span><span class="caption-text">Dropping variables with only missing values</span><a class="headerlink" href="#code96" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 60 </span><span class="caption-text">Dropping variables with only missing values</span><a class="headerlink" href="#code96" title="Permalink to this code">¶</a></div>
 <div class="highlight-R notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># Drop variables containing only missings</span>
 file <span class="o">&lt;-</span> <span class="kp">file</span><span class="p">[,</span><span class="o">!</span><span class="kp">names</span><span class="p">(</span><span class="kp">file</span><span class="p">)</span> <span class="o">%in%</span> <span class="kt">c</span><span class="p">(</span><span class="s">&#39;LANGUAGE&#39;</span><span class="p">,</span> <span class="s">&#39;ETHNICITY&#39;</span><span class="p">)]</span>
@@ -1209,7 +1209,7 @@ continuous key variables and any variables selected for use in PRAM
 routines, as well as household-level sampling weights. We extract these
 selected household variables and the households from the dataset and
 save them as <em>fileHH</em>. The choice of PRAM variables is further explained
-in Step 8a. <a class="reference internal" href="#code97"><span class="std std-numref">Listing 75</span></a> illustrates how these steps are done in <em>R</em> (see
+in Step 8a. <a class="reference internal" href="#code97"><span class="std std-numref">Listing 61</span></a> illustrates how these steps are done in <em>R</em> (see
 also the Section <a class="reference external" href="sdcMicro.html#Householdstructure">Household structure</a>).</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
@@ -1217,9 +1217,9 @@ also the Section <a class="reference external" href="sdcMicro.html#Householdstru
 factors. sdcMicro requires that these be converted to factors before
 proceeding.</p>
 </div>
-<p>Conversion of these variables to factors is also shown in <a class="reference internal" href="#code97"><span class="std std-numref">Listing 75</span></a>.</p>
+<p>Conversion of these variables to factors is also shown in <a class="reference internal" href="#code97"><span class="std std-numref">Listing 61</span></a>.</p>
 <div class="literal-block-wrapper docutils container" id="code97">
-<div class="code-block-caption"><span class="caption-number">Listing 75 </span><span class="caption-text">Selecting the variables for the household-level anonymization</span><a class="headerlink" href="#code97" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 61 </span><span class="caption-text">Selecting the variables for the household-level anonymization</span><a class="headerlink" href="#code97" title="Permalink to this code">¶</a></div>
 <div class="highlight-R notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -1282,10 +1282,10 @@ HHVars <span class="o">&lt;-</span> <span class="kt">c</span><span class="p">(</
 contains all variables. Every household has the same number of entries
 as it has members (e.g., a household of three will be repeated three
 times in <em>fileHH</em>). Before analyzing the household-level variables, we
-select only one entry per household, as illustrated in <a class="reference internal" href="#code98"><span class="std std-numref">Listing 76</span></a>. This
+select only one entry per household, as illustrated in <a class="reference internal" href="#code98"><span class="std std-numref">Listing 62</span></a>. This
 is further explained in the Section <a class="reference external" href="sdcMicro.html#Householdstructure">Household structure</a>.</p>
 <div class="literal-block-wrapper docutils container" id="code98">
-<div class="code-block-caption"><span class="caption-number">Listing 76 </span><span class="caption-text">Taking a subset with only households</span><a class="headerlink" href="#code98" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 62 </span><span class="caption-text">Taking a subset with only households</span><a class="headerlink" href="#code98" title="Permalink to this code">¶</a></div>
 <div class="highlight-R notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -1308,9 +1308,9 @@ fileHH <span class="o">&lt;-</span> fileHH<span class="p">[</span><span class="k
 </div>
 <p>The file <em>fileHH</em> contains 2,000 households and 39 variables. We are now
 ready to create our <em>sdcMicro</em> object with the corresponding variables
-we selected in <a class="reference internal" href="#code97"><span class="std std-numref">Listing 75</span></a>. For our case study, we will create an
+we selected in <a class="reference internal" href="#code97"><span class="std std-numref">Listing 61</span></a>. For our case study, we will create an
 <em>sdcMicro</em> object called <em>sdcHH</em> based on the data in <em>fileHH</em>, which we
-will use for steps 6a – 10a (see <a class="reference internal" href="#code99"><span class="std std-numref">Listing 77</span></a>).</p>
+will use for steps 6a – 10a (see <a class="reference internal" href="#code99"><span class="std std-numref">Listing 63</span></a>).</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">When the sdcMicro object is created, the sdcMicro package automatically calculates and
@@ -1318,7 +1318,7 @@ stores the risk measures for the data.</p>
 </div>
 <p>This leads us to Step 6a.</p>
 <div class="literal-block-wrapper docutils container" id="code99">
-<div class="code-block-caption"><span class="caption-number">Listing 77 </span><span class="caption-text">Creating a <em>sdcMicro</em> object for the household variables</span><a class="headerlink" href="#code99" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 63 </span><span class="caption-text">Creating a <em>sdcMicro</em> object for the household variables</span><a class="headerlink" href="#code99" title="Permalink to this code">¶</a></div>
 <div class="highlight-R notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -1337,11 +1337,11 @@ numHH <span class="o">&lt;-</span> <span class="kp">length</span><span class="p"
 <p>As a first measure, we evaluate the number of households violating
 k-anonymity at the levels 2, 3 and 5.</p>
 <p><a class="reference internal" href="#tab94"><span class="std std-numref">Table 30</span></a> shows the number of violating households as well as the
-percentage of the total number of households. <a class="reference internal" href="#code910"><span class="std std-numref">Listing 78</span></a> illustrates
+percentage of the total number of households. <a class="reference internal" href="#code910"><span class="std std-numref">Listing 64</span></a> illustrates
 how to find these values with <em>sdcMicro</em>. The print() function in
 <em>sdcMicro</em> shows only the values for thresholds 2 and 3. Values for
 other thresholds can be calculated manually by summing up the
-frequencies smaller than the k-anonymity threshold, as shown in <a class="reference internal" href="#code910"><span class="std std-numref">Listing 78</span></a>.</p>
+frequencies smaller than the k-anonymity threshold, as shown in <a class="reference internal" href="#code910"><span class="std std-numref">Listing 64</span></a>.</p>
 <span id="tab94"></span><table border="1" class="colwidths-auto docutils align-center" id="id18">
 <caption><span class="caption-number">Table 30 </span><span class="caption-text">Number and proportion of households violating k-anonymity</span><a class="headerlink" href="#id18" title="Permalink to this table">¶</a></caption>
 <thead valign="bottom">
@@ -1366,7 +1366,7 @@ frequencies smaller than the k-anonymity threshold, as shown in <a class="refere
 </tbody>
 </table>
 <div class="literal-block-wrapper docutils container" id="code910">
-<div class="code-block-caption"><span class="caption-number">Listing 78 </span><span class="caption-text">Showing number of households violating k-anonymity for levels 2, 3 and 5</span><a class="headerlink" href="#code910" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 64 </span><span class="caption-text">Showing number of households violating k-anonymity for levels 2, 3 and 5</span><a class="headerlink" href="#code910" title="Permalink to this code">¶</a></div>
 <div class="highlight-R notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -1416,7 +1416,7 @@ kAnon5 <span class="o">/</span> numHH
 <p>It is often useful to view the values for the household(s) that violate
 <span class="math notranslate nohighlight">\(k\)</span>-anonymity. This might help clarify which variables cause the
 uniqueness of these households; this can then be used later when
-choosing appropriate SDC methods. <a class="reference internal" href="#code911"><span class="std std-numref">Listing 79</span></a> shows how to assess the
+choosing appropriate SDC methods. <a class="reference internal" href="#code911"><span class="std std-numref">Listing 65</span></a> shows how to assess the
 values of the households violating 3- and 5-anonymity. It seems that
 among the categorical key variables, the variable HHSIZE is responsible
 for many of the unique combinations and the origin of much of the risk.
@@ -1433,7 +1433,7 @@ households easily identifiable based on the number of household members
 and at high risk of re-identification, also in the context of the nosy
 neighbor scenario.</p>
 <div class="literal-block-wrapper docutils container" id="code911">
-<div class="code-block-caption"><span class="caption-number">Listing 79 </span><span class="caption-text">Showing households that violate <span class="math notranslate nohighlight">\(k\)</span>-anonymity</span><a class="headerlink" href="#code911" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 65 </span><span class="caption-text">Showing households that violate <span class="math notranslate nohighlight">\(k\)</span>-anonymity</span><a class="headerlink" href="#code911" title="Permalink to this code">¶</a></div>
 <div class="highlight-R notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># Show values of key variable of records that violate k-anonymity</span>
@@ -1452,17 +1452,17 @@ in this case to a household. <em>fileHH</em> contains only households and has
 no hierarchical structure. In Step 6b, we evaluate the hierarchical risk
 in <em>file</em>, the dataset containing both households and individuals. The
 individual and global risk measures automatically take into
-consideration the household weights, which we defined in <a class="reference internal" href="#code97"><span class="std std-numref">Listing 75</span></a>. In
+consideration the household weights, which we defined in <a class="reference internal" href="#code97"><span class="std std-numref">Listing 61</span></a>. In
 our file, the global risk measure calculated using the chosen key
 variables is 0.05%. This percentage is extremely low and corresponds to
-1.03 expected re-identifications. The results are also shown in <a class="reference internal" href="#code912"><span class="std std-numref">Listing 80</span></a>.
+1.03 expected re-identifications. The results are also shown in <a class="reference internal" href="#code912"><span class="std std-numref">Listing 66</span></a>.
 This low figure can be explained by the relatively small sample
 size of 0.25% of the total population. Furthermore, one should keep in
 mind that this risk measure is based only on the categorical
-quasi-identifiers at the household level. <a class="reference internal" href="#code912"><span class="std std-numref">Listing 80</span></a> illustrates how
+quasi-identifiers at the household level. <a class="reference internal" href="#code912"><span class="std std-numref">Listing 66</span></a> illustrates how
 to print the global risk measure.</p>
 <div class="literal-block-wrapper docutils container" id="code912">
-<div class="code-block-caption"><span class="caption-number">Listing 80 </span><span class="caption-text">Printing global risk measures</span><a class="headerlink" href="#code912" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 66 </span><span class="caption-text">Printing global risk measures</span><a class="headerlink" href="#code912" title="Permalink to this code">¶</a></div>
 <div class="highlight-R notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -1482,11 +1482,11 @@ the individual risk measures. There might be a few households with
 relatively high risk, while the global (average) risk is low. It is
 therefore useful as a next step to inspect the observations with
 relatively high risk. The highest risk is 5.5% and only 14 households
-have risk larger than 1%. <a class="reference internal" href="#code913"><span class="std std-numref">Listing 81</span></a> shows how to display those
+have risk larger than 1%. <a class="reference internal" href="#code913"><span class="std std-numref">Listing 67</span></a> shows how to display those
 households with risk over a certain threshold. Here the threshold is
 0.01 (1%).</p>
 <div class="literal-block-wrapper docutils container" id="code913">
-<div class="code-block-caption"><span class="caption-number">Listing 81 </span><span class="caption-text">Observations with individual risk higher than 1%</span><a class="headerlink" href="#code913" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 67 </span><span class="caption-text">Observations with individual risk higher than 1%</span><a class="headerlink" href="#code913" title="Permalink to this code">¶</a></div>
 <div class="highlight-R notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># Observations with risk above certain threshold (0.01)</span>
 fileHH<span class="p">[</span>sdcHH<span class="o">@</span>risk<span class="o">$</span>individual<span class="p">[,</span> <span class="s">&quot;risk&quot;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="m">0.01</span><span class="p">,]</span>
@@ -1524,7 +1524,7 @@ LANDSIZEHA high values are rare and can lead to re-identification. An
 example is a large landowner in a specific region. To evaluate the
 distribution of the variable LANDSIZEHA, we look at the percentiles.
 Every percentile represents approximately 20 households. In addition, we
-look at the values of the largest 50 plots. <a class="reference internal" href="#code914"><span class="std std-numref">Listing 82</span></a> shows how to
+look at the values of the largest 50 plots. <a class="reference internal" href="#code914"><span class="std std-numref">Listing 68</span></a> shows how to
 use <em>R</em> to display the quantiles and the largest landplots. <a class="reference internal" href="#tab95"><span class="std std-numref">Table 31</span></a>
 shows the 90<sup>th</sup> – 100<sup>th</sup> percentiles and <a class="reference internal" href="#tab96"><span class="std std-numref">Table 32</span></a>
 displays the largest 50 values for LANDSIZEHA. Based on these values, we
@@ -1532,7 +1532,7 @@ conclude that values of LANDSIZEHA over 40 make the household very
 identifiable. These large households and households with large land
 plots need extra protection, as discussed in Step 8a.</p>
 <div class="literal-block-wrapper docutils container" id="code914">
-<div class="code-block-caption"><span class="caption-number">Listing 82 </span><span class="caption-text">Percentiles of LANDSIZE and listing the sizes of the largest 50 plots</span><a class="headerlink" href="#code914" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 68 </span><span class="caption-text">Percentiles of LANDSIZE and listing the sizes of the largest 50 plots</span><a class="headerlink" href="#code914" title="Permalink to this code">¶</a></div>
 <div class="highlight-R notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -1688,7 +1688,7 @@ relatively small number of removed households in comparison to the total
 number of 2,000 households. Removing the households is primarily to
 protect these specific households, not to reduce the global risk.</p>
 <p>Changes, such as removing records, cannot be done in the
-<em>sdcMicro</em> object. <a class="reference internal" href="#code915"><span class="std std-numref">Listing 83</span></a> illustrates the way to remove households
+<em>sdcMicro</em> object. <a class="reference internal" href="#code915"><span class="std std-numref">Listing 69</span></a> illustrates the way to remove households
 and recreate the <em>sdcMicro</em> object.</p>
 <span id="tab97"></span><table border="1" class="colwidths-auto docutils align-center" id="id21">
 <caption><span class="caption-number">Table 33 </span><span class="caption-text">Frequencies of variable HHSIZE (household size)</span><a class="headerlink" href="#id21" title="Permalink to this table">¶</a></caption>
@@ -1752,7 +1752,7 @@ and recreate the <em>sdcMicro</em> object.</p>
 </tbody>
 </table>
 <div class="literal-block-wrapper docutils container" id="code915">
-<div class="code-block-caption"><span class="caption-number">Listing 83 </span><span class="caption-text">Removing households with large (rare) household sizes</span><a class="headerlink" href="#code915" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 69 </span><span class="caption-text">Removing households with large (rare) household sizes</span><a class="headerlink" href="#code915" title="Permalink to this code">¶</a></div>
 <div class="highlight-R notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -1817,7 +1817,7 @@ variables.</p>
 important and less important for making small changes (see also the Section
 <a class="reference external" href="anon_methods.html#Localsuppression">Local suppression</a>).
 To prevent HHSIZE being suppressed, we set the importance of
-HHSIZE in the importance vectors to the highest (i.e., 1). <a class="reference internal" href="#code916"><span class="std std-numref">Listing 84</span></a>
+HHSIZE in the importance vectors to the highest (i.e., 1). <a class="reference internal" href="#code916"><span class="std std-numref">Listing 70</span></a>
 shows how to apply local suppression and put importance on the variable
 HHSIZE. The variable REGION is the type of variable that should not have
 any suppressions either. We also set the importance of REGION to 2 and
@@ -1834,7 +1834,7 @@ remove the one household with the suppressed value of HHSIZE (13) to
 protect this household.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">In <a class="reference internal" href="#code916"><span class="std std-numref">Listing 84</span></a> we use the undolast() function in sdcMicro to go one step back after we had first
+<p class="last">In <a class="reference internal" href="#code916"><span class="std std-numref">Listing 70</span></a> we use the undolast() function in sdcMicro to go one step back after we had first
 applied local suppression with no importance vector.</p>
 </div>
 <p>The undolast() function restores the <em>sdcMicro</em> object back to the previous state
@@ -1842,7 +1842,7 @@ applied local suppression with no importance vector.</p>
 the same command, but this time with an importance vector set. The
 undolast() function can only be used to go one step back.</p>
 <div class="literal-block-wrapper docutils container" id="code916">
-<div class="code-block-caption"><span class="caption-number">Listing 84 </span><span class="caption-text">Local suppression with and without importance vector</span><a class="headerlink" href="#code916" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 70 </span><span class="caption-text">Local suppression with and without importance vector</span><a class="headerlink" href="#code916" title="Permalink to this code">¶</a></div>
 <div class="highlight-R notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -1909,7 +1909,7 @@ TV and LIVESTOCK, where we treat LIVESTOCK as a semi-continuous variable
 due to the low number of different values.
 The Section <a class="reference external" href="anon_methods.html#PRAM(PostRAndomizationMethod)">PRAM (Post RAndomization Method)</a> provides more
 information on the PRAM method and its implementation in <em>sdcMicro</em>.
-<a class="reference internal" href="#code917"><span class="std std-numref">Listing 85</span></a> illustrates how to apply PRAM. We choose the parameter
+<a class="reference internal" href="#code917"><span class="std std-numref">Listing 71</span></a> illustrates how to apply PRAM. We choose the parameter
 <em>pd</em>, the lower bound for the probability that a value is not changed,
 to be relatively high at 0.8. We can choose a high value, because the
 variables themselves are not sensitive and we only want to introduce a
@@ -1933,7 +1933,7 @@ consistent statistical inference by correcting the statistical methods
 used if the researcher has knowledge about the PRAM method (at this
 point <em>sdcMicro</em> does not allow the retrieval of the transition matrix).</p>
 <div class="literal-block-wrapper docutils container" id="code917">
-<div class="code-block-caption"><span class="caption-number">Listing 85 </span><span class="caption-text">Applying PRAM</span><a class="headerlink" href="#code917" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 71 </span><span class="caption-text">Applying PRAM</span><a class="headerlink" href="#code917" title="Permalink to this code">¶</a></div>
 <div class="highlight-R notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -1988,13 +1988,13 @@ the values between 5 and 40 in the groups 5 – 19 and 20 – 39. After
 these steps, no household has a unique plot size and the number of
 households in the sample with the same plot size was increased to at
 least 7. This is shown by the tabulation of the variable LANDSIZEHA
-after manipulation in the last line of <a class="reference internal" href="#code918"><span class="std std-numref">Listing 86</span></a>. In addition, all
+after manipulation in the last line of <a class="reference internal" href="#code918"><span class="std std-numref">Listing 72</span></a>. In addition, all
 outliers have been removed by top coding the values. This has reduced
 the risk of spontaneous recognition as discussed in Step 6. How to
 recode values in <em>R</em> is introduced in the Section <a class="reference external" href="anon_methods.html#Recoding">Recoding</a>
-and, for this particular case, shown in <a class="reference internal" href="#code918"><span class="std std-numref">Listing 86</span></a>.</p>
+and, for this particular case, shown in <a class="reference internal" href="#code918"><span class="std std-numref">Listing 72</span></a>.</p>
 <div class="literal-block-wrapper docutils container" id="code918">
-<div class="code-block-caption"><span class="caption-number">Listing 86 </span><span class="caption-text">Anonymizing the variable LANDSIZEHA</span><a class="headerlink" href="#code918" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 72 </span><span class="caption-text">Anonymizing the variable LANDSIZEHA</span><a class="headerlink" href="#code918" title="Permalink to this code">¶</a></div>
 <div class="highlight-R notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -2090,11 +2090,11 @@ of the perturbed components.</p>
 <p class="first admonition-title">Note</p>
 <p class="last">This result is only based on the actual case study dataset and is not necessarily true for other datasets.</p>
 </div>
-<p>The noise addition is shown in <a class="reference internal" href="#code919"><span class="std std-numref">Listing 87</span></a>. Before applying
+<p>The noise addition is shown in <a class="reference internal" href="#code919"><span class="std std-numref">Listing 73</span></a>. Before applying
 probabilistic methods such as noise addition, we set a seed for the
 random number generator. This allows us to reproduce the results.</p>
 <div class="literal-block-wrapper docutils container" id="code919">
-<div class="code-block-caption"><span class="caption-number">Listing 87 </span><span class="caption-text">Anonymizing continuous variables</span><a class="headerlink" href="#code919" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 73 </span><span class="caption-text">Anonymizing continuous variables</span><a class="headerlink" href="#code919" title="Permalink to this code">¶</a></div>
 <div class="highlight-R notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -2208,7 +2208,7 @@ sources. Instead, datasets with similar values but not the exact same
 values could be used for matching. Here the main concern is that the
 values are sufficiently far from the original values, which is measured
 with an interval measure.</p>
-<p><a class="reference internal" href="#code920"><span class="std std-numref">Listing 88</span></a> shows how to evaluate the interval measure for each of the
+<p><a class="reference internal" href="#code920"><span class="std std-numref">Listing 74</span></a> shows how to evaluate the interval measure for each of the
 expenditure variables, which are contained in the vector
 <em>compExp</em> <a class="footnote-reference" href="#foot72" id="id2">[2]</a>. The different values of the parameter
 <em>k</em> in the function dRisk() define the size of the interval around the
@@ -2228,7 +2228,7 @@ perspective and based on the interval measure, the chosen levels of
 noise are acceptable. In the next step, we will look at the impact on
 the data utility of the noise addition.</p>
 <div class="literal-block-wrapper docutils container" id="code920">
-<div class="code-block-caption"><span class="caption-number">Listing 88 </span><span class="caption-text">Measuring risk of re-identification of continuous variables</span><a class="headerlink" href="#code920" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 74 </span><span class="caption-text">Measuring risk of re-identification of continuous variables</span><a class="headerlink" href="#code920" title="Permalink to this code">¶</a></div>
 <div class="highlight-R notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -2713,14 +2713,14 @@ variables before and after anonymization.</p>
 <p><strong>Merging the household- and individual-level variables</strong></p>
 <p>The next step is to merge the treated household variables with the
 untreated individual variables for the anonymization of the individual
-level variables. <a class="reference internal" href="#code921"><span class="std std-numref">Listing 89</span></a> shows the steps to merge these files. This
+level variables. <a class="reference internal" href="#code921"><span class="std std-numref">Listing 75</span></a> shows the steps to merge these files. This
 also includes the selection of variables used in the anonymization of
 the individual-level variables. We create the <em>sdcMicro</em> object for the
 anonymization of the individual variables in the same way as for the
-household variable in <a class="reference internal" href="#code99"><span class="std std-numref">Listing 77</span></a>. Subsequently, we repeat Steps 6-10
+household variable in <a class="reference internal" href="#code99"><span class="std std-numref">Listing 63</span></a>. Subsequently, we repeat Steps 6-10
 for the individual-level variables.</p>
 <div class="literal-block-wrapper docutils container" id="code921">
-<div class="code-block-caption"><span class="caption-number">Listing 89 </span><span class="caption-text">Merging the files with household and individual-level variables and creating an <em>sdcMicro</em> object for the anonymization of the individual-level variables</span><a class="headerlink" href="#code921" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 75 </span><span class="caption-text">Merging the files with household and individual-level variables and creating an <em>sdcMicro</em> object for the anonymization of the individual-level variables</span><a class="headerlink" href="#code921" title="Permalink to this code">¶</a></div>
 <div class="highlight-R notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -2826,7 +2826,7 @@ Therefore, we are more interested in the individual and global hierarchical risk
 </tbody>
 </table>
 <p>The global risk measures can be found using <em>R</em> as illustrated in
-<a class="reference internal" href="#code922"><span class="std std-numref">Listing 90</span></a>. The global risk is 0.24%, which corresponds to 24 expected
+<a class="reference internal" href="#code922"><span class="std std-numref">Listing 76</span></a>. The global risk is 0.24%, which corresponds to 24 expected
 re-identifications. Accounting for the hierarchical structure, this
 rises to 1.26%, or 127 expected re-identifications. The global risk
 measures are low compared to the number of <span class="math notranslate nohighlight">\(k\)</span>-anonymity violators due to
@@ -2839,7 +2839,7 @@ variables are used simultaneously by an intruder to re-identify
 individuals, the household level variables should also be taken into
 account here. This would results in a high number of key variables.</p>
 <div class="literal-block-wrapper docutils container" id="code922">
-<div class="code-block-caption"><span class="caption-number">Listing 90 </span><span class="caption-text">Global risk of the individual-level variables</span><a class="headerlink" href="#code922" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 76 </span><span class="caption-text">Global risk of the individual-level variables</span><a class="headerlink" href="#code922" title="Permalink to this code">¶</a></div>
 <div class="highlight-R notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -2883,11 +2883,11 @@ the age variables by recoding the age values (see the Section
 intervals. Since some indicators related to education are computed from
 the survey dataset, our first approach is not to recode the age range 0
 – 15 years. For children under the age of 1 year, we reduce the level of
-detail and recode these to 0 years. These recodes are shown in <a class="reference internal" href="#code923"><span class="std std-numref">Listing 91</span></a>.
+detail and recode these to 0 years. These recodes are shown in <a class="reference internal" href="#code923"><span class="std std-numref">Listing 77</span></a>.
 We also top-code age at the age of 65 years. This protects
 individuals with high (rare) age values.</p>
 <div class="literal-block-wrapper docutils container" id="code923">
-<div class="code-block-caption"><span class="caption-number">Listing 91 </span><span class="caption-text">Recoding age in 10-year intervals in the range 15 – 65 and top code age over 65 years</span><a class="headerlink" href="#code923" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 77 </span><span class="caption-text">Recoding age in 10-year intervals in the range 15 – 65 and top code age over 65 years</span><a class="headerlink" href="#code923" title="Permalink to this code">¶</a></div>
 <div class="highlight-R notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -2945,7 +2945,7 @@ the utility of the data for some users. Therefore, we decide to look
 first at the number of suppressions needed in local suppression after
 this limited recoding. If the number of suppressions is too high, we can
 go back and recode age in the range 1 – 14 years.</p>
-<p>In <a class="reference internal" href="#code924"><span class="std std-numref">Listing 92</span></a> we demonstrate how one might experiment with local
+<p>In <a class="reference internal" href="#code924"><span class="std std-numref">Listing 78</span></a> we demonstrate how one might experiment with local
 suppression to find the best option. We use local suppression to achieve
 3-anonymity (see the Section <a class="reference external" href="anon_methods.html#Localsuppression">Local suppression</a> . On the first
 attempt, we do not specify any importance vector; this leads to many
@@ -2969,7 +2969,7 @@ variables are suppressed and the total number of suppressions. After
 specifying an importance vector, the variable REL has many suppressions
 (see <a class="reference internal" href="#tab915"><span class="std std-numref">Table 41</span></a>, second row). We choose this second option.</p>
 <div class="literal-block-wrapper docutils container" id="code924">
-<div class="code-block-caption"><span class="caption-number">Listing 92 </span><span class="caption-text">Experimenting with different options in local suppression</span><a class="headerlink" href="#code924" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 78 </span><span class="caption-text">Experimenting with different options in local suppression</span><a class="headerlink" href="#code924" title="Permalink to this code">¶</a></div>
 <div class="highlight-R notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -3243,11 +3243,11 @@ anonymization process of this dataset. Depending on the users and
 readers of the reports, the content may differ. The code to this case
 study shows how to obtain the information for the reports. Some measures
 are also available in the standard reports generated with the report()
-function. This is shown in <a class="reference internal" href="#code925"><span class="std std-numref">Listing 93</span></a>. The report() function will only
+function. This is shown in <a class="reference internal" href="#code925"><span class="std std-numref">Listing 79</span></a>. The report() function will only
 use the data available in the <em>sdcMicro</em> object, which does not contain
 all households for sdcHH.</p>
 <div class="literal-block-wrapper docutils container" id="code925">
-<div class="code-block-caption"><span class="caption-number">Listing 93 </span><span class="caption-text">Using the report() function for internal and external reports</span><a class="headerlink" href="#code925" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 79 </span><span class="caption-text">Using the report() function for internal and external reports</span><a class="headerlink" href="#code925" title="Permalink to this code">¶</a></div>
 <div class="highlight-R notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -3268,14 +3268,14 @@ report<span class="p">(</span>sdcCombined<span class="p">,</span> internal <span
 <div class="section" id="step-12-data-release">
 <h3>Step 12: Data release<a class="headerlink" href="#step-12-data-release" title="Permalink to this headline">¶</a></h3>
 <p>The final step is the release of the anonymized dataset together with
-the external report. <a class="reference internal" href="#code926"><span class="std std-numref">Listing 94</span></a> shows how to collect the data from the
+the external report. <a class="reference internal" href="#code926"><span class="std std-numref">Listing 80</span></a> shows how to collect the data from the
 <em>sdcMicro</em> object with the extractManipData() function. Before releasing
 the file, we add an individual ID to the file (line number in
 household). We export the anonymized dataset in as <em>STATA</em> file. The Section
 <a class="reference external" href="sdcMicro.html#ReadfunctionsinR">Read functions in R</a>
 presents functions for exporting files in other data formats.</p>
 <div class="literal-block-wrapper docutils container" id="code926">
-<div class="code-block-caption"><span class="caption-number">Listing 94 </span><span class="caption-text">Exporting the anonymized dataset</span><a class="headerlink" href="#code926" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 80 </span><span class="caption-text">Exporting the anonymized dataset</span><a class="headerlink" href="#code926" title="Permalink to this code">¶</a></div>
 <div class="highlight-R notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -3349,7 +3349,7 @@ In this way all information in the PUF file is also contained in the
 SUF, and the PUF does not provide additional information to an intruder
 with access to the SUF. We load the required packages to read the data
 (<em>foreign</em> package for <em>STATA</em> files) and load the SUF dataset into
-“file” as illustrated in <a class="reference internal" href="#code927"><span class="std std-numref">Listing 95</span></a>. We also load the original data
+“file” as illustrated in <a class="reference internal" href="#code927"><span class="std std-numref">Listing 81</span></a>. We also load the original data
 file (raw data) as “fileOrig”. We need the raw data to undo perturbative
 methods used in case study 1 (see Step 8) and to compare data utility
 measures (see Step 5). To evaluate the utility loss in the PUF, we have
@@ -3358,7 +3358,7 @@ information in the raw data. For an overview of the data characteristics
 and a description of the variables in both files, we refer to Step 2 of
 <a class="reference internal" href="#case-study-1-suf">Case study 1- SUF</a> .</p>
 <div class="literal-block-wrapper docutils container" id="code927">
-<div class="code-block-caption"><span class="caption-number">Listing 95 </span><span class="caption-text">Loading required packages and datasets</span><a class="headerlink" href="#code927" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 81 </span><span class="caption-text">Loading required packages and datasets</span><a class="headerlink" href="#code927" title="Permalink to this code">¶</a></div>
 <div class="highlight-R notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -3394,12 +3394,12 @@ fileOrig <span class="o">&lt;-</span> read.dta<span class="p">(</span>fnameOrig<
 </td></tr></table></div>
 </div>
 <p>We check the number of variables and number of observations of both
-files and the variable names of the SUF file, as shown in <a class="reference internal" href="#code928"><span class="std std-numref">Listing 96</span></a>.
+files and the variable names of the SUF file, as shown in <a class="reference internal" href="#code928"><span class="std std-numref">Listing 82</span></a>.
 The PUF file has fewer records and fewer variables than the original
 data file, since we removed large households and several variables to
 generate the SUF file.</p>
 <div class="literal-block-wrapper docutils container" id="code928">
-<div class="code-block-caption"><span class="caption-number">Listing 96 </span><span class="caption-text">Number of individuals and variables and variable names</span><a class="headerlink" href="#code928" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 82 </span><span class="caption-text">Number of individuals and variables and variable names</span><a class="headerlink" href="#code928" title="Permalink to this code">¶</a></div>
 <div class="highlight-R notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -4086,11 +4086,11 @@ collect the variable names of the variables that will not be released.
 The PRAM variables are variables select for the PRAM routine, which we
 discuss further in Step 8a. We extract these selected household
 variables from the SUF dataset and save them as “fileHH”. The choice of
-PRAM variables is further explained in Step 8a. <a class="reference internal" href="#code929"><span class="std std-numref">Listing 97</span></a> illustrates
+PRAM variables is further explained in Step 8a. <a class="reference internal" href="#code929"><span class="std std-numref">Listing 83</span></a> illustrates
 how these steps are done in <em>R</em> (see also the Section
 <a class="reference external" href="sdcMicro.html#Householdstructure">Household structure</a>).</p>
 <div class="literal-block-wrapper docutils container" id="code929">
-<div class="code-block-caption"><span class="caption-number">Listing 97 </span><span class="caption-text">Selecting the variables for the household-level anonymization</span><a class="headerlink" href="#code929" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 83 </span><span class="caption-text">Selecting the variables for the household-level anonymization</span><a class="headerlink" href="#code929" title="Permalink to this code">¶</a></div>
 <div class="highlight-R notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -4138,7 +4138,7 @@ fileHH <span class="o">&lt;-</span> <span class="kp">file</span><span class="p">
 <p>Every household has the same number of entries as it has members (e.g.,
 a household of three will be repeated three times in “fileHH”). Before
 analyzing the household-level variables, we select only one entry per
-household, as illustrated in <a class="reference internal" href="#code930"><span class="std std-numref">Listing 98</span></a>. This is further explained in
+household, as illustrated in <a class="reference internal" href="#code930"><span class="std std-numref">Listing 84</span></a>. This is further explained in
 the Section <a class="reference external" href="sdcMicro.html#Householdstructure">Household structure</a>.
 In the same way we extract “fileOrigHH” from “fileOrig”.
 “fileOrigHH” contains all variables from the raw data, but contains
@@ -4146,7 +4146,7 @@ every household only once. We need “fileOrigHH” in Steps 8a and 10a for
 undoing some perturbative methods used in the SUF file and computing
 utility measures from the raw data respectively.</p>
 <div class="literal-block-wrapper docutils container" id="code930">
-<div class="code-block-caption"><span class="caption-number">Listing 98 </span><span class="caption-text">Taking a subset with only households</span><a class="headerlink" href="#code930" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 84 </span><span class="caption-text">Taking a subset with only households</span><a class="headerlink" href="#code930" title="Permalink to this code">¶</a></div>
 <div class="highlight-R notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -4171,9 +4171,9 @@ fileOrigHH <span class="o">&lt;-</span> fileOrig<span class="p">[</span><span cl
 </div>
 <p>The file “fileHH” contains 1,970 households and 16 variables. We are now
 ready to create our <em>sdcMicro</em> object with the corresponding variables
-we selected in <a class="reference internal" href="#code928"><span class="std std-numref">Listing 96</span></a>. For our case study, we will create an
+we selected in <a class="reference internal" href="#code928"><span class="std std-numref">Listing 82</span></a>. For our case study, we will create an
 <em>sdcMicro</em> object called “sdcHH” based on the data in “fileHH”, which we
-will use for steps 6a – 10a (see <a class="reference internal" href="#code934"><span class="std std-numref">Listing 102</span></a>).</p>
+will use for steps 6a – 10a (see <a class="reference internal" href="#code934"><span class="std std-numref">Listing 88</span></a>).</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">When the sdcMicro object is created, the sdcMicro package automatically
@@ -4181,7 +4181,7 @@ calculates and stores the risk measures for the data.</p>
 </div>
 <p>This leads us to Step 6a.</p>
 <div class="literal-block-wrapper docutils container" id="code931">
-<div class="code-block-caption"><span class="caption-number">Listing 99 </span><span class="caption-text">Creating a <em>sdcMicro</em> object for the household variables</span><a class="headerlink" href="#code931" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 85 </span><span class="caption-text">Creating a <em>sdcMicro</em> object for the household variables</span><a class="headerlink" href="#code931" title="Permalink to this code">¶</a></div>
 <div class="highlight-R notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -4204,11 +4204,11 @@ reduces the risk, and it is one of the most straightforward SDC methods.</p>
 <p>As a first measure, we evaluate the number of households violating
 <span class="math notranslate nohighlight">\(k\)</span>-anonymity at the levels 2, 3 and 5. <a class="reference internal" href="#tab920"><span class="std std-numref">Table 46</span></a> shows the
 number of violating households as well as the percentage of the total
-number of households. <a class="reference internal" href="#code932"><span class="std std-numref">Listing 100</span></a> illustrates how to find these values
+number of households. <a class="reference internal" href="#code932"><span class="std std-numref">Listing 86</span></a> illustrates how to find these values
 with <em>sdcMicro</em>. The print() function in <em>sdcMicro</em> shows only the
 values for thresholds 2 and 3. Values for other thresholds can be
 calculated manually by summing up the frequencies smaller than the
-<span class="math notranslate nohighlight">\(k\)</span>-anonymity threshold, as shown in <a class="reference internal" href="#code932"><span class="std std-numref">Listing 100</span></a>. The number of
+<span class="math notranslate nohighlight">\(k\)</span>-anonymity threshold, as shown in <a class="reference internal" href="#code932"><span class="std std-numref">Listing 86</span></a>. The number of
 violators is already at a low level, due to the prior anonymization of
 the SUF file and the reduced set of key variables.</p>
 <span id="tab920"></span><table border="1" class="colwidths-auto docutils align-center" id="id35">
@@ -4235,7 +4235,7 @@ the SUF file and the reduced set of key variables.</p>
 </tbody>
 </table>
 <div class="literal-block-wrapper docutils container" id="code932">
-<div class="code-block-caption"><span class="caption-number">Listing 100 </span><span class="caption-text">Showing number of households violating <span class="math notranslate nohighlight">\(k\)</span>-anonymity for levels 2, 3 and 5</span><a class="headerlink" href="#code932" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 86 </span><span class="caption-text">Showing number of households violating <span class="math notranslate nohighlight">\(k\)</span>-anonymity for levels 2, 3 and 5</span><a class="headerlink" href="#code932" title="Permalink to this code">¶</a></div>
 <div class="highlight-R notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -4283,13 +4283,13 @@ kAnon5 <span class="o">/</span> numHH
 <p>It is often useful to view the records of the household(s) that violate
 <span class="math notranslate nohighlight">\(k\)</span>-anonymity. This might help to find which variables cause the
 uniqueness of these households; this can then be used later when
-choosing appropriate SDC methods. <a class="reference internal" href="#code932"><span class="std std-numref">Listing 100</span></a> shows how to access the
+choosing appropriate SDC methods. <a class="reference internal" href="#code932"><span class="std std-numref">Listing 86</span></a> shows how to access the
 values of the households violating 3 and 5-anonymity. Not surprisingly,
 the variable “HHSIZE” is responsible for many of the unique combinations
 and the origin of much of the risk. This is even the case after removing
 large households for the SUF release.</p>
 <div class="literal-block-wrapper docutils container" id="code933">
-<div class="code-block-caption"><span class="caption-number">Listing 101 </span><span class="caption-text">Showing records of households that violate <span class="math notranslate nohighlight">\(k\)</span>-anonymity</span><a class="headerlink" href="#code933" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 87 </span><span class="caption-text">Showing records of households that violate <span class="math notranslate nohighlight">\(k\)</span>-anonymity</span><a class="headerlink" href="#code933" title="Permalink to this code">¶</a></div>
 <div class="highlight-R notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># Show values of key variable of records that violate k-anonymity</span>
@@ -4310,17 +4310,17 @@ dataset, no hierarchical structure. In Step 6b, we evaluate the
 hierarchical risk in the dataset “file”, the dataset containing both
 households and individuals. The individual and global risk measures
 automatically take into consideration the household weights, which we
-defined in <a class="reference internal" href="#code929"><span class="std std-numref">Listing 97</span></a>. In our file, the global risk measure calculated
+defined in <a class="reference internal" href="#code929"><span class="std std-numref">Listing 83</span></a>. In our file, the global risk measure calculated
 using the chosen key variables is lower than 0.01% (the smallest
 reported value is 0.01%, in fact the global risk is 0.0000642 %). This
 percentage is extremely low and corresponds to 0.13 expected
-re-identifications. The results are also shown in <a class="reference internal" href="#code934"><span class="std std-numref">Listing 102</span></a>. This low
+re-identifications. The results are also shown in <a class="reference internal" href="#code934"><span class="std std-numref">Listing 88</span></a>. This low
 figure can be explained by the relatively small sample size of 0.25% of
 the total population (see case study 1). Furthermore, one should keep in
 mind that this risk measure is based only on the categorical
 quasi-identifiers at the household level.</p>
 <div class="literal-block-wrapper docutils container" id="code934">
-<div class="code-block-caption"><span class="caption-number">Listing 102 </span><span class="caption-text">Printing global risk measures</span><a class="headerlink" href="#code934" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 88 </span><span class="caption-text">Printing global risk measures</span><a class="headerlink" href="#code934" title="Permalink to this code">¶</a></div>
 <div class="highlight-R notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -4336,11 +4336,11 @@ quasi-identifiers at the household level.</p>
 <p>The global risk measure does not provide information about the spread of
 the individual risk measures. There might be a few households with
 relatively high risk, while the global (average) risk is low. Therefore
-we check the highest individual risk as shown in <a class="reference internal" href="#code935"><span class="std std-numref">Listing 103</span></a>. The
+we check the highest individual risk as shown in <a class="reference internal" href="#code935"><span class="std std-numref">Listing 89</span></a>. The
 individual risk of the household with the highest risk is 0.1 %, which
 is still very low.</p>
 <div class="literal-block-wrapper docutils container" id="code935">
-<div class="code-block-caption"><span class="caption-number">Listing 103 </span><span class="caption-text">Determining the highest individual risk</span><a class="headerlink" href="#code935" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 89 </span><span class="caption-text">Determining the highest individual risk</span><a class="headerlink" href="#code935" title="Permalink to this code">¶</a></div>
 <div class="highlight-R notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># Highest individual risk</span>
@@ -4442,11 +4442,11 @@ To prevent values of the variable “HHSIZE” being suppressed, we
 set the importance of “HHSIZE” in the importance vectors to the highest
 (i.e., 1). We try two different importance vectors: the first where
 “REGION” is more important than “URBRUR” and the second with the
-importance of “REGION” and “URBRUR” swapped. <a class="reference internal" href="#code936"><span class="std std-numref">Listing 104</span></a> shows how to
+importance of “REGION” and “URBRUR” swapped. <a class="reference internal" href="#code936"><span class="std std-numref">Listing 90</span></a> shows how to
 apply local suppression and put importance on the variable “HHSIZE”.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">In <a class="reference internal" href="#code936"><span class="std std-numref">Listing 104</span></a> we use the undolast() function in sdcMicro
+<p class="last">In <a class="reference internal" href="#code936"><span class="std std-numref">Listing 90</span></a> we use the undolast() function in sdcMicro
 to go one step back after we had first applied local suppression with no
 importance vector.</p>
 </div>
@@ -4496,7 +4496,7 @@ third option. This leads to more suppressions, but no suppressions in
 </tbody>
 </table>
 <div class="literal-block-wrapper docutils container" id="code936">
-<div class="code-block-caption"><span class="caption-number">Listing 104 </span><span class="caption-text">Local suppression with and without importance vector</span><a class="headerlink" href="#code936" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 90 </span><span class="caption-text">Local suppression with and without importance vector</span><a class="headerlink" href="#code936" title="Permalink to this code">¶</a></div>
 <div class="highlight-R notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -4588,14 +4588,14 @@ the invariant PRAM method has the property that the univariate
 distributions do not change. To maintain this property, we reapply PRAM
 to the raw data, rather than to the already PRAMmed variables in the SUF
 file.</p>
-<p><a class="reference internal" href="#code937"><span class="std std-numref">Listing 105</span></a> illustrates how to apply PRAM. We use the original values
+<p><a class="reference internal" href="#code937"><span class="std std-numref">Listing 91</span></a> illustrates how to apply PRAM. We use the original values
 to apply PRAM and replace the values in the <em>sdcMicro</em> object with these
 values. We choose the parameter ‘pd’, the lower bound for the
 probability that a value is not changed, to be relatively low at 0.6.
 This is a lower value than the 0.8 used in the SUF file and will lead to
-a higher number of changes (cf. <a class="reference internal" href="#code917"><span class="std std-numref">Listing 85</span></a>). This is
+a higher number of changes (cf. <a class="reference internal" href="#code917"><span class="std std-numref">Listing 71</span></a>). This is
 acceptable for a PUF file and introduces more uncertainty as required
-for a PUF release. <a class="reference internal" href="#code937"><span class="std std-numref">Listing 105</span></a> also shows the number of changed records
+for a PUF release. <a class="reference internal" href="#code937"><span class="std std-numref">Listing 91</span></a> also shows the number of changed records
 per variables. Because PRAM is a probabilistic method, we set a seed for
 the random number generator before applying PRAM to ensure
 reproducibility of the results.</p>
@@ -4610,7 +4610,7 @@ the statistical methods used if the researcher has knowledge about the
 PRAM method (at this point <em>sdcMicro</em> does not allow to retrieve the
 transition matrix).</p>
 <div class="literal-block-wrapper docutils container" id="code937">
-<div class="code-block-caption"><span class="caption-number">Listing 105 </span><span class="caption-text">Applying PRAM</span><a class="headerlink" href="#code937" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 91 </span><span class="caption-text">Applying PRAM</span><a class="headerlink" href="#code937" title="Permalink to this code">¶</a></div>
 <div class="highlight-R notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -4683,9 +4683,9 @@ allow an intruder to reconstruct the totals. PUF users might however be
 interested in the shares. Therefore, we decide to keep the income and
 expenditure components as proportions of the raw totals, rounded to two
 digits. The anonymization of the income and expenditure variables is
-shown in <a class="reference internal" href="#code938"><span class="std std-numref">Listing 106</span></a>.</p>
+shown in <a class="reference internal" href="#code938"><span class="std std-numref">Listing 92</span></a>.</p>
 <div class="literal-block-wrapper docutils container" id="code938">
-<div class="code-block-caption"><span class="caption-number">Listing 106 </span><span class="caption-text">Anonymization of income and expenditure variables</span><a class="headerlink" href="#code938" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 92 </span><span class="caption-text">Anonymization of income and expenditure variables</span><a class="headerlink" href="#code938" title="Permalink to this code">¶</a></div>
 <div class="highlight-R notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -4798,7 +4798,7 @@ sources. Instead, datasets with similar values but not the exact same
 values could be used for matching. Here the main concern is that the
 values are sufficiently far from the original values, which is measured
 with an interval measure.</p>
-<p><a class="reference internal" href="#code939"><span class="std std-numref">Listing 107</span></a> shows how to evaluate the interval measure for the
+<p><a class="reference internal" href="#code939"><span class="std std-numref">Listing 93</span></a> shows how to evaluate the interval measure for the
 variables “INCTOTGROSSHH” and “TANHHEXP” (total income and expenditure).
 The different values of the parameter <span class="math notranslate nohighlight">\(k\)</span> in the function dRisk()
 define the size of the interval around the original value as a function
@@ -4813,7 +4813,7 @@ Looking at the proportions of the components, we do not detect any
 outliers (households with an unusual high or low spending pattern in one
 component).</p>
 <div class="literal-block-wrapper docutils container" id="code939">
-<div class="code-block-caption"><span class="caption-number">Listing 107 </span><span class="caption-text">Measuring risk of re-identification of continuous variables</span><a class="headerlink" href="#code939" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 93 </span><span class="caption-text">Measuring risk of re-identification of continuous variables</span><a class="headerlink" href="#code939" title="Permalink to this code">¶</a></div>
 <div class="highlight-R notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -4853,7 +4853,7 @@ based on the raw data.</p>
 <p>We select two additional utility measures: the decile dispersion ratio
 and the share of total consumption by the poorest decile. The decile
 dispersion ratio is the ratio of the average income of the top decile
-and the average income of the bottom decile. <a class="reference internal" href="#code940"><span class="std std-numref">Listing 108</span></a> shows how to
+and the average income of the bottom decile. <a class="reference internal" href="#code940"><span class="std std-numref">Listing 94</span></a> shows how to
 compute these from the raw data and the household variables after
 anonymization. <a class="reference internal" href="#tab922"><span class="std std-numref">Table 48</span></a> presents the estimated values. The differences
 are small and mainly due to the removed households.</p>
@@ -4877,7 +4877,7 @@ are small and mainly due to the removed households.</p>
 </tbody>
 </table>
 <div class="literal-block-wrapper docutils container" id="code940">
-<div class="code-block-caption"><span class="caption-number">Listing 108 </span><span class="caption-text">Computation of decile dispersion ratio and share of total consumption by the poorest decile</span><a class="headerlink" href="#code940" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 94 </span><span class="caption-text">Computation of decile dispersion ratio and share of total consumption by the poorest decile</span><a class="headerlink" href="#code940" title="Permalink to this code">¶</a></div>
 <div class="highlight-R notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -4915,11 +4915,11 @@ are small and mainly due to the removed households.</p>
 <p><strong>Merging the household- and individual-level variables</strong></p>
 <p>The next step is to merge the treated household variables with the
 untreated individual variables for the anonymization of the individual
-level variables. <a class="reference internal" href="#code941"><span class="std std-numref">Listing 109</span></a> shows the steps to merge these files. This
+level variables. <a class="reference internal" href="#code941"><span class="std std-numref">Listing 95</span></a> shows the steps to merge these files. This
 also includes the selection of variables used in the anonymization of
 the individual-level variables. We create the <em>sdcMicro</em> object for the
 anonymization of the individual variables in the same way as for the
-household variable in <a class="reference internal" href="#code931"><span class="std std-numref">Listing 99</span></a>. Generally, at this stage, the
+household variable in <a class="reference internal" href="#code931"><span class="std std-numref">Listing 85</span></a>. Generally, at this stage, the
 household level and individual level variables should be combined and
 quasi-identifiers at both levels be used (see the Section <a class="reference external" href="measur_risk.html#Levelsofrisk">Levels of risk</a>).
 Unfortunately, in our dataset, this leads to long computation times.
@@ -4930,7 +4930,7 @@ and in Step 8b we discuss alternative approaches to keeping the complete
 set of variables. We now repeat Steps 6-10 for the individual-level
 variables.</p>
 <div class="literal-block-wrapper docutils container" id="code941">
-<div class="code-block-caption"><span class="caption-number">Listing 109 </span><span class="caption-text">Merging the files with household and individual-level variables and creating an <em>sdcMicro</em> object for the anonymization of the individual-level variables</span><a class="headerlink" href="#code941" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 95 </span><span class="caption-text">Merging the files with household and individual-level variables and creating an <em>sdcMicro</em> object for the anonymization of the individual-level variables</span><a class="headerlink" href="#code941" title="Permalink to this code">¶</a></div>
 <div class="highlight-R notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -5067,9 +5067,9 @@ number of <span class="math notranslate nohighlight">\(k\)</span>-anonymity viol
 weights, which protect the data already to a large extent. Only 24
 observations have an individual hierarchical risk higher than 1%, with a
 maximum of 1.17%. This is mainly because of the lower sample weights of
-these records. <a class="reference internal" href="#code942"><span class="std std-numref">Listing 110</span></a> shows how to retrieve these measures in <em>R</em>.</p>
+these records. <a class="reference internal" href="#code942"><span class="std std-numref">Listing 96</span></a> shows how to retrieve these measures in <em>R</em>.</p>
 <div class="literal-block-wrapper docutils container" id="code942">
-<div class="code-block-caption"><span class="caption-number">Listing 110 </span><span class="caption-text">Risk measures before anonymization</span><a class="headerlink" href="#code942" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 96 </span><span class="caption-text">Risk measures before anonymization</span><a class="headerlink" href="#code942" title="Permalink to this code">¶</a></div>
 <div class="highlight-R notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -5199,7 +5199,7 @@ sufficient for a PUF release. Therefore, we recode most of the
 categorical key variables from <a class="reference internal" href="#tab919"><span class="std std-numref">Table 45</span></a> to reduce the risk and number
 of necessary suppressions by local suppression. <a class="reference internal" href="#tab924"><span class="std std-numref">Table 50</span></a> gives an
 overview of the recodes made. All new categories are formed with the
-needs of the data user in mind. <a class="reference internal" href="#code943"><span class="std std-numref">Listing 111</span></a> shows how to do this in <em>R</em>
+needs of the data user in mind. <a class="reference internal" href="#code943"><span class="std std-numref">Listing 97</span></a> shows how to do this in <em>R</em>
 and also shows value labels and the univariate tabulations of these
 variables before and after recoding.</p>
 <span id="tab924"></span><table border="1" class="colwidths-auto docutils align-center" id="id39">
@@ -5252,7 +5252,7 @@ and ‘tertiary’</td>
 </tbody>
 </table>
 <div class="literal-block-wrapper docutils container" id="code943">
-<div class="code-block-caption"><span class="caption-number">Listing 111 </span><span class="caption-text">Recoding the categorical and continuous variables</span><a class="headerlink" href="#code943" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 97 </span><span class="caption-text">Recoding the categorical and continuous variables</span><a class="headerlink" href="#code943" title="Permalink to this code">¶</a></div>
 <div class="highlight-R notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -5451,7 +5451,7 @@ sdcCombined <span class="o">&lt;-</span> groupVars<span class="p">(</span>sdcCom
 <p>The recoding has reduced the risk already considerably. We use local
 suppression to achieve the required level of <span class="math notranslate nohighlight">\(k\)</span>-anonymity.
 Generally, the required level of <span class="math notranslate nohighlight">\(k\)</span>-anonymity for PUF files is 3
-or 5. In this case study, we require 5-anonimity. <a class="reference internal" href="#code944"><span class="std std-numref">Listing 112</span></a> shows the
+or 5. In this case study, we require 5-anonimity. <a class="reference internal" href="#code944"><span class="std std-numref">Listing 98</span></a> shows the
 suppression pattern without specifying an importance vector. All
 suppressions are made in the variable “AGEYRS”. This is the variable
 with the highest number of different values, and hence considered first
@@ -5462,7 +5462,7 @@ total number of suppressions. Less than 1 percent suppression in the age
 variable is acceptable. We could reduce this number by further recoding
 the variable “AGEYRS”.</p>
 <div class="literal-block-wrapper docutils container" id="code944">
-<div class="code-block-caption"><span class="caption-number">Listing 112 </span><span class="caption-text">Local suppression to reach 5-anonimity</span><a class="headerlink" href="#code944" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 98 </span><span class="caption-text">Local suppression to reach 5-anonimity</span><a class="headerlink" href="#code944" title="Permalink to this code">¶</a></div>
 <div class="highlight-R notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -5496,7 +5496,7 @@ sdcCombined <span class="o">&lt;-</span> localSuppression<span class="p">(</span
 is a certain geographical order of the households within the regions,
 due to the way the households IDs were assigned. Intruders could
 reconstruct suppressed values by using this structure. To prevent this,
-we randomly reorder the records within the regions. <a class="reference internal" href="#code945"><span class="std std-numref">Listing 113</span></a> shows
+we randomly reorder the records within the regions. <a class="reference internal" href="#code945"><span class="std std-numref">Listing 99</span></a> shows
 how to do this in <em>R</em>. We first count the number of records per region</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
@@ -5507,9 +5507,9 @@ such way that the regional division is respected. Finally, we sort the
 file by the new, randomized, individual ID (“IDP”). Households with
 suppressed values for “REGION” will be last in the reordered file.
 Before randomizing the order, we extract the data from the <em>sdcMicro</em>
-object “sdcCombined” as shown in <a class="reference internal" href="#code945"><span class="std std-numref">Listing 113</span></a>.</p>
+object “sdcCombined” as shown in <a class="reference internal" href="#code945"><span class="std std-numref">Listing 99</span></a>.</p>
 <div class="literal-block-wrapper docutils container" id="code945">
-<div class="code-block-caption"><span class="caption-number">Listing 113 </span><span class="caption-text">Randomizing the order of records within regions</span><a class="headerlink" href="#code945" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 99 </span><span class="caption-text">Randomizing the order of records within regions</span><a class="headerlink" href="#code945" title="Permalink to this code">¶</a></div>
 <div class="highlight-R notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -5688,11 +5688,11 @@ in case study 1.</p>
 <div class="section" id="id14">
 <h3>Step 12: Data release<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h3>
 <p>The final step is the release of the anonymized dataset together with
-the external report. <a class="reference internal" href="#code946"><span class="std std-numref">Listing 114</span></a> shows how to export the anonymized
+the external report. <a class="reference internal" href="#code946"><span class="std std-numref">Listing 100</span></a> shows how to export the anonymized
 dataset as <em>STATA</em> file. The Section <a class="reference external" href="sdcMicro.html#ReadfunctionsinR">Read functions in R</a>
 presents functions for exporting files in other data formats.</p>
 <div class="literal-block-wrapper docutils container" id="code946">
-<div class="code-block-caption"><span class="caption-number">Listing 114 </span><span class="caption-text">Exporting the anonymized PUF file</span><a class="headerlink" href="#code946" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 100 </span><span class="caption-text">Exporting the anonymized PUF file</span><a class="headerlink" href="#code946" title="Permalink to this code">¶</a></div>
 <div class="highlight-R notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># Create STATA file</span>
 write.dta<span class="p">(</span>dataframe <span class="o">=</span> dataAnon<span class="p">,</span> file<span class="o">=</span> <span class="s">&#39;Case2DataAnon.dta&#39;</span><span class="p">,</span> convert.dates<span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span>
