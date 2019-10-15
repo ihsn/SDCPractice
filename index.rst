@@ -1,4 +1,4 @@
-Statistical Disclosure Control for Microdata: A Practice Guide
+Statistical Disclosure Control for Microdata: A Practice Guide for sdcMicro
 ===========================================================================
 
 .. toctree::

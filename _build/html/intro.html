@@ -1,174 +1,51 @@
 
-
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
-<head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>Introduction &mdash; SDC Practice Guide  documentation</title>
-  
 
-  
-  
-  
-  
-
-  
-
-  
-  
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Introduction &#8212; SDC Practice Guide  documentation</title>
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/theme_overrides.css" />
     
-
-  
-
-  
-    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Glossary and list of acronyms" href="glossary_acr.html" />
     <link rel="prev" title="Statistical Disclosure Control for Microdata: A Practice Guide" href="index.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="glossary_acr.html" title="Glossary and list of acronyms"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Statistical Disclosure Control for Microdata: A Practice Guide"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">SDC Practice Guide  documentation</a> &#187;</li> 
+      </ul>
+    </div>  
 
-  
-  <script src="_static/js/modernizr.min.js"></script>
-
-</head>
-
-<body class="wy-body-for-nav">
-
-   
-  <div class="wy-grid-for-nav">
-
-    
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
-          
-
-          
-            <a href="index.html" class="icon icon-home"> SDC Practice Guide
-          
-
-          
-          </a>
-
-          
-            
-            
-          
-
-          
-<div role="search">
-  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
-  </form>
-</div>
-
-          
-        </div>
-
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <p class="caption"><span class="caption-text">Table of Content</span></p>
-<ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Introduction</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#building-a-knowledge-base">Building a knowledge base</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#using-this-guide">Using this guide</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#outline-of-this-guide">Outline of this guide</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="glossary_acr.html">Glossary and list of acronyms</a></li>
-<li class="toctree-l1"><a class="reference internal" href="SDC_intro.html">Statistical Disclosure Control (SDC): An Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="release_types.html">Release Types</a></li>
-<li class="toctree-l1"><a class="reference internal" href="measure_risk.html">Measuring Risk</a></li>
-<li class="toctree-l1"><a class="reference internal" href="anon_methods.html">Anonymization Methods</a></li>
-<li class="toctree-l1"><a class="reference internal" href="utility.html">Measuring Utility and Information Loss</a></li>
-<li class="toctree-l1"><a class="reference internal" href="sdcMicro.html">SDC with <em>sdcMicro</em> in <em>R</em>: Setting Up Your Data and more</a></li>
-<li class="toctree-l1"><a class="reference internal" href="process.html">The SDC Process</a></li>
-<li class="toctree-l1"><a class="reference internal" href="appendices.html">Appendices</a></li>
-<li class="toctree-l1"><a class="reference internal" href="acknowledgements.html">Acknowledgements</a></li>
-</ul>
-<p class="caption"><span class="caption-text">Case studies</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="case_studies.html">Case Studies (Illustrating the SDC Process)</a></li>
-</ul>
-
-            
-          
-        </div>
-      </div>
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">SDC Practice Guide</a>
-        
-      </nav>
-
-
-      <div class="wy-nav-content">
-        
-        <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
-  <ul class="wy-breadcrumbs">
-    
-      <li><a href="index.html">Docs</a> &raquo;</li>
-        
-      <li>Introduction</li>
-    
-    
-      <li class="wy-breadcrumbs-aside">
-        
-            
-            <a href="_sources/intro.rst.txt" rel="nofollow"> View page source</a>
-          
-        
-      </li>
-    
-  </ul>
-
-  
-  <hr/>
-</div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           <div itemprop="articleBody">
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
             
   <div class="section" id="introduction">
 <h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
 <p>National statistics agencies are mandated to collect
-microdata <a class="footnote-reference" href="#foot13" id="id1">[1]</a> from surveys and censuses to inform and
+microdata <a class="footnote-reference brackets" href="#foot13" id="id1">1</a> from surveys and censuses to inform and
 measure policy effectiveness. In almost all countries, statistics acts
 and privacy laws govern these activities. These laws require that
 agencies protect the identity of respondents, but may also require that
@@ -217,11 +94,11 @@ solutions that meet their obligations towards both privacy protection
 and the release of data useful for policy monitoring and evaluation.
 This practice guide attempts to fill this critical gap by:</p>
 <ol class="lowerroman simple">
-<li>consolidating knowledge gained at the World Bank through
+<li><p>consolidating knowledge gained at the World Bank through
 experiments conducted during a large-scale evaluation of
-anonymization techniques</li>
-<li>translating the experience and key results into practical
-guidelines</li>
+anonymization techniques</p></li>
+<li><p>translating the experience and key results into practical
+guidelines</p></li>
 </ol>
 <p>It should be stressed that SDC is only one part of the data release
 process, and its application must be considered within the complete data
@@ -272,8 +149,8 @@ common development indicators. We used the experience from this
 large-scale experimentation to inform our discussion of the processes
 and methods in this guide.</p>
 <div class="admonition-important admonition">
-<p class="first admonition-title">Important</p>
-<p class="last">At no point was any attempt made to re-identify, through
+<p class="admonition-title">Important</p>
+<p>At no point was any attempt made to re-identify, through
 matching or any other method, any respondents in the surveys we used in
 building our knowledge base. All risk assessments were based on
 frequencies and probabilities.</p>
@@ -298,7 +175,7 @@ program the methods in statistical software of their choice.</p>
 for SDC called <em>sdcMicro</em> as well as the statistical software <em>R</em>.
 <em>sdcMicro</em> is an add-on package to the statistical software <em>R</em>. The
 package was developed and is maintained by Matthias Templ, Alexander
-Kowarik and Bernhard Meindl. <a class="footnote-reference" href="#foot14" id="id2">[2]</a> The statistical software <em>R</em> and the <em>sdcMicro</em>
+Kowarik and Bernhard Meindl. <a class="footnote-reference brackets" href="#foot14" id="id2">2</a> The statistical software <em>R</em> and the <em>sdcMicro</em>
 package, as well as any other packages needed for the SDC process, are
 freely available from the Comprehensive R Archive Network (CRAN) mirrors
 (<a class="reference external" href="http://cran.r-project.org/">http://cran.r-project.org/</a>). The software is available for Linux,
@@ -312,48 +189,47 @@ we support.</p>
 implementing the SDC process. Our concern is more with providing
 practical insight into the application of the methods. We would,
 however, like to highlight one particular other software package that is
-commonly used by agencies: μ-ARGUS <a class="footnote-reference" href="#foot15" id="id3">[3]</a>. μ-ARGUS is
+commonly used by agencies: μ-ARGUS <a class="footnote-reference brackets" href="#foot15" id="id3">3</a>. μ-ARGUS is
 developed by Statistics Netherlands. <em>sdcMicro</em> and μ-ARGUS are both
 widely used in statistics offices in the European Union and implement
 many of the same methods.</p>
 <p>The user needs some knowledge of <em>R</em> to use <em>sdcMicro</em>. It is beyond the
 scope of this guide to teach the use of <em>R</em>, but we do provide
 throughout the guide code examples on how to implement the necessary
-routines in <em>R</em>. <a class="footnote-reference" href="#foot16" id="id4">[4]</a> We also present a number of case
+routines in <em>R</em>. <a class="footnote-reference brackets" href="#foot16" id="id4">4</a> We also present a number of case
 studies that include the code for the anonymization of a number of demo
 datasets using <em>R</em>. Through these case studies, we demonstrate a number
-of approaches to the anonymization process in <em>R</em>. <a class="footnote-reference" href="#foot17" id="id5">[5]</a></p>
+of approaches to the anonymization process in <em>R</em>. <a class="footnote-reference brackets" href="#foot17" id="id5">5</a></p>
 </div>
 <div class="section" id="outline-of-this-guide">
 <h2>Outline of this guide<a class="headerlink" href="#outline-of-this-guide" title="Permalink to this headline">¶</a></h2>
 <p>This guide is divided into the following main sections:</p>
 <ol class="lowerroman simple">
-<li>the Section <a class="reference external" href="SDC_intro.html">Statistical Disclosure Control (SDC): An Introduction</a> is a primer on SDC.</li>
-<li>the Section <a class="reference external" href="release_types.html">Release Types</a> gives an introduction to different release types for
-microdata.</li>
-<li>the Sections <a class="reference external" href="anon_methods.html">Anonymization Methods</a> , <a class="reference external" href="measure_risk.html">Measuring Risk</a> and <a class="reference external" href="utility.html">Measuring Utility and Information Loss</a> cover SDC methods, risk and utility measurement.
-Here the goal is to provide knowledge that allows the reader to
+<li><p>the Section <a class="reference external" href="SDC_intro.html">Statistical Disclosure Control (SDC): An Introduction</a> is a primer on SDC.</p></li>
+<li><p>the Section <a class="reference external" href="release_types.html">Release Types</a> gives an introduction to different release types for
+microdata.</p></li>
+<li><p>the Sections <a class="reference external" href="anon_methods.html">Anonymization Methods</a> , <a class="reference external" href="measure_risk.html">Measuring Risk</a> and <a class="reference external" href="utility.html">Measuring Utility and Information Loss</a> cover SDC methods, risk and utility measurement.
+The goal here is to provide knowledge that allows the reader to
 independently apply and execute the SDC process. This section is
 enriched with real examples as well as code snippets from the
 <em>sdcMicro</em> package. The interested reader can also find more
 information in the references and recommended readings at the end
-of each section.</li>
-<li>the Section <a class="reference external" href="sdcMicro.html">SDC with sdcMicro in R: Setting Up Your Data and more</a> gives an overview of issues encountered when carrying
+of each section.</p></li>
+<li><p>the Section <a class="reference external" href="sdcMicro.html">SDC with sdcMicro in R: Setting Up Your Data and more</a> gives an overview of issues encountered when carrying
 out anonymization with the <em>sdcMicro</em> package in <em>R</em>, which exceed
 basic <em>R</em> knowledge. This section also includes tips and solutions
 to some of the common issues and problems that might be
-encountered when applying SDC methods in <em>R</em> with <em>sdcMicro.</em></li>
-<li>the Section <a class="reference external" href="process.html">The SDC Process</a> provides a step-by-step guide to disclosure control,
-which draws upon the knowledge presented in the previous sections.</li>
-<li>the Section <a class="reference external" href="case_studies.html">Case Studies (Illustrating the SDC Process)</a> presents a number of detailed case studies that
+encountered when applying SDC methods in <em>R</em> with <em>sdcMicro.</em></p></li>
+<li><p>the Section <a class="reference external" href="process.html">The SDC Process</a> provides a step-by-step guide to disclosure control,
+which draws upon the knowledge presented in the previous sections.</p></li>
+<li><p>the Section <a class="reference external" href="case_studies.html">Case Studies (Illustrating the SDC Process)</a> presents a number of detailed case studies that
 demonstrate the use of the methods, their implementation in
 <em>sdcMicro</em> and the process that should be followed to reach the
-optimal risk-utility solution.</li>
+optimal risk-utility solution.</p></li>
 </ol>
-<table class="docutils footnote" frame="void" id="foot13" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>Microdata are unit-level data obtained from sample surveys, censuses
+<dl class="footnote brackets">
+<dt class="label" id="foot13"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p>Microdata are unit-level data obtained from sample surveys, censuses
 and administrative systems. They provide information about
 characteristics of individual people or entities such as households,
 business enterprises, facilities, farms or even geographical areas
@@ -362,111 +238,93 @@ socio-economic issues by studying relationships and interactions
 among phenomena. Microdata are thus key to designing projects and
 formulating policies, targeting interventions and monitoring and
 measuring the impact and results of projects, interventions and
-policies.</td></tr>
-</tbody>
-</table>
-<table class="docutils footnote" frame="void" id="foot14" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id2">[2]</a></td><td>See <a class="reference external" href="http://cran.r-project.org/web/packages/sdcMicro/index.html">http://cran.r-project.org/web/packages/sdcMicro/index.html</a> and the GitHub
+policies.</p>
+</dd>
+<dt class="label" id="foot14"><span class="brackets"><a class="fn-backref" href="#id2">2</a></span></dt>
+<dd><p>See <a class="reference external" href="http://cran.r-project.org/web/packages/sdcMicro/index.html">http://cran.r-project.org/web/packages/sdcMicro/index.html</a> and the GitHub
 <a class="reference external" href="https://github.com/sdcTools/sdcMicro">https://github.com/sdcTools/sdcMicro</a> of the developers. The
-GitHub repository can also be used to submit bugs found in the package.</td></tr>
-</tbody>
-</table>
-<table class="docutils footnote" frame="void" id="foot15" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id3">[3]</a></td><td>μ-ARGUS is available at: <a class="reference external" href="http://neon.vb.cbs.nl/casc/mu.htm">http://neon.vb.cbs.nl/casc/mu.htm</a>. The
-software was recently ported to open source.</td></tr>
-</tbody>
-</table>
-<table class="docutils footnote" frame="void" id="foot16" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id4">[4]</a></td><td>There are many free resources for learning <em>R</em> available on the web.
+GitHub repository can also be used to submit bugs found in the package.</p>
+</dd>
+<dt class="label" id="foot15"><span class="brackets"><a class="fn-backref" href="#id3">3</a></span></dt>
+<dd><p>μ-ARGUS is available at: <a class="reference external" href="http://neon.vb.cbs.nl/casc/mu.htm">http://neon.vb.cbs.nl/casc/mu.htm</a>. The
+software was recently ported to open source.</p>
+</dd>
+<dt class="label" id="foot16"><span class="brackets"><a class="fn-backref" href="#id4">4</a></span></dt>
+<dd><p>There are many free resources for learning <em>R</em> available on the web.
 One place to start would be the CRAN <em>R</em> Project page:
-<a class="reference external" href="http://cran.r-project.org/other-docs.html">http://cran.r-project.org/other-docs.html</a></td></tr>
-</tbody>
-</table>
-<table class="docutils footnote" frame="void" id="foot17" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id5">[5]</a></td><td>The developers of <em>sdcMicro</em> have also developed a graphical user
+<a class="reference external" href="http://cran.r-project.org/other-docs.html">http://cran.r-project.org/other-docs.html</a></p>
+</dd>
+<dt class="label" id="foot17"><span class="brackets"><a class="fn-backref" href="#id5">5</a></span></dt>
+<dd><p>The developers of <em>sdcMicro</em> have also developed a graphical user
 interface (GUI) for the package, which is contained in the <em>sdcMicro</em> package available from the CRAN mirrors. The GUI,
 however, does not implement the full functionality of the <em>sdcMicro</em>
-package and is not discussed in this guide. The GUI can be called after loading sdcMicro by typing sdcApp() at the prompt.</td></tr>
-</tbody>
-</table>
+package and is not discussed in this guide. The GUI can be called after loading sdcMicro by typing sdcApp() at the prompt.</p>
+</dd>
+</dl>
 </div>
 </div>
 
 
-           </div>
-           
           </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="glossary_acr.html" class="btn btn-neutral float-right" title="Glossary and list of acronyms" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="index.html" class="btn btn-neutral" title="Statistical Disclosure Control for Microdata: A Practice Guide" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
-    </div>
-  
-
-  <hr/>
-
-  <div role="contentinfo">
-    <p>
-        &copy; Copyright 2018, Thijs Benschop, Cathrine Machingauta, Matthew Welch.
-
-    </p>
-  </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
-
-</footer>
-
         </div>
       </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Introduction</a><ul>
+<li><a class="reference internal" href="#building-a-knowledge-base">Building a knowledge base</a></li>
+<li><a class="reference internal" href="#using-this-guide">Using this guide</a></li>
+<li><a class="reference internal" href="#outline-of-this-guide">Outline of this guide</a></li>
+</ul>
+</li>
+</ul>
 
-    </section>
-
-  </div>
-  
-
-
-  
-
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'./',
-            VERSION:'',
-            LANGUAGE:'None',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="_static/jquery.js"></script>
-      <script type="text/javascript" src="_static/underscore.js"></script>
-      <script type="text/javascript" src="_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-
-  
-
-  
-  
-    <script type="text/javascript" src="_static/js/theme.js"></script>
-  
-
-  <script type="text/javascript">
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
-      });
-  </script> 
-
-</body>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="index.html"
+                        title="previous chapter">Statistical Disclosure Control for Microdata: A Practice Guide</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="glossary_acr.html"
+                        title="next chapter">Glossary and list of acronyms</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/intro.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="glossary_acr.html" title="Glossary and list of acronyms"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Statistical Disclosure Control for Microdata: A Practice Guide"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">SDC Practice Guide  documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2018, Thijs Benschop, Cathrine Machingauta, Matthew Welch.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.1.2.
+    </div>
+  </body>
 </html>
