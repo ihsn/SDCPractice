@@ -20,7 +20,7 @@
 # -- Project information -----------------------------------------------------
 
 project = 'SDC Practice Guide'
-copyright = '2018, Thijs Benschop, Cathrine Machingauta, Matthew Welch'
+copyright = '2019, International Household Survey Network'
 author = 'Thijs Benschop, Cathrine Machingauta, Matthew Welch'
 
 # The short X.Y version
