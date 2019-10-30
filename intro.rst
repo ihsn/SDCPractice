@@ -205,6 +205,11 @@ This guide is divided into the following main sections:
       *sdcMicro* and the process that should be followed to reach the
       optimal risk-utility solution.
 
+.. rubric:: References
+
+.. [TKM15]	Matthias Templ, Alexander Kowarik, Bernhard Meindl (2015). 
+	Statistical Disclosure Control for Micro-Data Using the R Package sdcMicro. 
+	**Journal of Statistical Software**, 67(4), 1-36.<doi:10.18637/jss.v067.i04>
 
 .. [#foot13]
    Microdata are unit-level data obtained from sample surveys, censuses
