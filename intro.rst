@@ -39,7 +39,7 @@ remove some of these obstacles.
 Working with the IHSN, PARIS21 (OECD), Statistics Austria and the Vienna
 University of Technology, the World Bank has contributed to the
 development of an open source software package for SDC, called
-*sdcMicro*. The package was developed for use with the open source *R*
+*sdcMicro* `TKM15`_. The package was developed for use with the open source *R*
 statistical software, available from the Comprehensive R Archive Network
 (CRAN) at http://cran.us.r-project.org. The package includes numerous
 methods for the assessment and reduction of disclosure risk in
