@@ -13,6 +13,8 @@ as examples from practice.
 **Acknowledgments:** The authors thank Olivier Dupriez and Cathrine Machingauta (The World Bank) 
 for their technical comments and inputs throughout the process.
 
+**Preferred citation of this guide:** Benschop, T. and Welch, M. (n.d.) Statistical Disclosure Control for Microdata: A Practice Guide. Retrieved (insert date), from  https://sdcpractice.readthedocs.io/en/latest/
+
 The production of this guide was made possible through a World Bank Knowledge 
 for Change II Grant: KCP II - A microdata dissemination challenge: 
 Balancing data protection and data utility. Grant number: TF 015043, 
