@@ -1,178 +1,46 @@
 
-
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
-<head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>The SDC Process &mdash; SDC Practice Guide  documentation</title>
-  
 
-  
-  
-  
-  
-
-  
-
-  
-  
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>The SDC Process &#8212; SDC Practice Guide  documentation</title>
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/theme_overrides.css" />
     
-
-  
-
-  
-    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Appendices" href="appendices.html" />
     <link rel="prev" title="SDC with sdcMicro in R: Setting Up Your Data and more" href="sdcMicro.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="appendices.html" title="Appendices"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="sdcMicro.html" title="SDC with sdcMicro in R: Setting Up Your Data and more"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">SDC Practice Guide  documentation</a> &#187;</li> 
+      </ul>
+    </div>  
 
-  
-  <script src="_static/js/modernizr.min.js"></script>
-
-</head>
-
-<body class="wy-body-for-nav">
-
-   
-  <div class="wy-grid-for-nav">
-
-    
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
-          
-
-          
-            <a href="index.html" class="icon icon-home"> SDC Practice Guide
-          
-
-          
-          </a>
-
-          
-            
-            
-          
-
-          
-<div role="search">
-  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
-  </form>
-</div>
-
-          
-        </div>
-
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <p class="caption"><span class="caption-text">Table of Content</span></p>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="glossary_acr.html">Glossary and list of acronyms</a></li>
-<li class="toctree-l1"><a class="reference internal" href="SDC_intro.html">Statistical Disclosure Control (SDC): An Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="release_types.html">Release Types</a></li>
-<li class="toctree-l1"><a class="reference internal" href="measure_risk.html">Measuring Risk</a></li>
-<li class="toctree-l1"><a class="reference internal" href="anon_methods.html">Anonymization Methods</a></li>
-<li class="toctree-l1"><a class="reference internal" href="utility.html">Measuring Utility and Information Loss</a></li>
-<li class="toctree-l1"><a class="reference internal" href="sdcMicro.html">SDC with <em>sdcMicro</em> in <em>R</em>: Setting Up Your Data and more</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">The SDC Process</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#step-1-need-for-confidentiality-protection">Step 1: Need for confidentiality protection</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#step-2-data-preparation-and-exploring-data-characteristics">Step 2: Data preparation and exploring data characteristics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#step-3-type-of-release">Step 3: Type of release</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#step-4-intruder-scenarios-and-choice-of-key-variables">Step 4: Intruder scenarios and choice of key variables</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#step-5-data-key-uses-and-selection-of-utility-measures">Step 5: Data key uses and selection of utility measures</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#step-6-assessing-disclosure-risk">Step 6: Assessing disclosure risk</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#step-7-assessing-utility-measures">Step 7: Assessing utility measures</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#step-8-choice-and-application-of-sdc-methods">Step 8: Choice and application of SDC methods</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#step-9-re-measure-risk">Step 9: Re-measure risk</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#step-10-re-measure-utility">Step 10: Re-measure utility</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#step-11-audit-and-reporting">Step 11: Audit and Reporting</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#step-12-data-release">Step 12: Data release</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="appendices.html">Appendices</a></li>
-<li class="toctree-l1"><a class="reference internal" href="acknowledgements.html">Acknowledgements</a></li>
-</ul>
-<p class="caption"><span class="caption-text">Case studies</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="case_studies.html">Case Studies (Illustrating the SDC Process)</a></li>
-</ul>
-
-            
-          
-        </div>
-      </div>
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">SDC Practice Guide</a>
-        
-      </nav>
-
-
-      <div class="wy-nav-content">
-        
-        <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
-  <ul class="wy-breadcrumbs">
-    
-      <li><a href="index.html">Docs</a> &raquo;</li>
-        
-      <li>The SDC Process</li>
-    
-    
-      <li class="wy-breadcrumbs-aside">
-        
-            
-            <a href="_sources/process.rst.txt" rel="nofollow"> View page source</a>
-          
-        
-      </li>
-    
-  </ul>
-
-  
-  <hr/>
-</div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           <div itemprop="articleBody">
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
             
   <div class="section" id="the-sdc-process">
 <h1>The SDC Process<a class="headerlink" href="#the-sdc-process" title="Permalink to this headline">¶</a></h1>
@@ -305,69 +173,69 @@ process by trying to treat more variables than is necessary. This
 approach also guarantees that the relationships between the variables
 are preserved (e.g., no individuals will be employed in several
 sectors).</p>
-<span id="tab81"></span><table border="1" class="colwidths-auto docutils align-center" id="id1">
+<span id="tab81"></span><table class="colwidths-auto docutils align-center" id="id1">
 <caption><span class="caption-number">Table 26 </span><span class="caption-text">Illustration of merging variables without information loss for SDC process</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head" colspan="5">Before</th>
-<th class="head" colspan="2">After</th>
+<thead>
+<tr class="row-odd"><th class="head" colspan="5"><p>Before</p></th>
+<th class="head" colspan="2"><p>After</p></th>
 </tr>
-<tr class="row-even"><th class="head">In labor force</th>
-<th class="head">Employed</th>
-<th class="head">Sector A</th>
-<th class="head">Sector B</th>
-<th class="head">Sector C</th>
-<th class="head">In labor force</th>
-<th class="head">Employed</th>
+<tr class="row-even"><th class="head"><p>In labor force</p></th>
+<th class="head"><p>Employed</p></th>
+<th class="head"><p>Sector A</p></th>
+<th class="head"><p>Sector B</p></th>
+<th class="head"><p>Sector C</p></th>
+<th class="head"><p>In labor force</p></th>
+<th class="head"><p>Employed</p></th>
 </tr>
 </thead>
-<tbody valign="top">
-<tr class="row-odd"><td>Yes</td>
-<td>Yes</td>
-<td>Missing</td>
-<td>Yes</td>
-<td>Missing</td>
-<td>Yes</td>
-<td>B</td>
+<tbody>
+<tr class="row-odd"><td><p>Yes</p></td>
+<td><p>Yes</p></td>
+<td><p>Missing</p></td>
+<td><p>Yes</p></td>
+<td><p>Missing</p></td>
+<td><p>Yes</p></td>
+<td><p>B</p></td>
 </tr>
-<tr class="row-even"><td>No</td>
-<td>No</td>
-<td>Missing</td>
-<td>Missing</td>
-<td>Missing</td>
-<td>No</td>
-<td>No</td>
+<tr class="row-even"><td><p>No</p></td>
+<td><p>No</p></td>
+<td><p>Missing</p></td>
+<td><p>Missing</p></td>
+<td><p>Missing</p></td>
+<td><p>No</p></td>
+<td><p>No</p></td>
 </tr>
-<tr class="row-odd"><td>Yes</td>
-<td>Yes</td>
-<td>Yes</td>
-<td>Missing</td>
-<td>Missing</td>
-<td>Yes</td>
-<td>A</td>
+<tr class="row-odd"><td><p>Yes</p></td>
+<td><p>Yes</p></td>
+<td><p>Yes</p></td>
+<td><p>Missing</p></td>
+<td><p>Missing</p></td>
+<td><p>Yes</p></td>
+<td><p>A</p></td>
 </tr>
-<tr class="row-even"><td>Yes</td>
-<td>Yes</td>
-<td>Missing</td>
-<td>Yes</td>
-<td>Missing</td>
-<td>Yes</td>
-<td>B</td>
+<tr class="row-even"><td><p>Yes</p></td>
+<td><p>Yes</p></td>
+<td><p>Missing</p></td>
+<td><p>Yes</p></td>
+<td><p>Missing</p></td>
+<td><p>Yes</p></td>
+<td><p>B</p></td>
 </tr>
-<tr class="row-odd"><td>Yes</td>
-<td>Yes</td>
-<td>Missing</td>
-<td>Missing</td>
-<td>Yes</td>
-<td>Yes</td>
-<td>C</td>
+<tr class="row-odd"><td><p>Yes</p></td>
+<td><p>Yes</p></td>
+<td><p>Missing</p></td>
+<td><p>Missing</p></td>
+<td><p>Yes</p></td>
+<td><p>Yes</p></td>
+<td><p>C</p></td>
 </tr>
-<tr class="row-even"><td>Yes</td>
-<td>No</td>
-<td>Missing</td>
-<td>Missing</td>
-<td>Missing</td>
-<td>Yes</td>
-<td>No</td>
+<tr class="row-even"><td><p>Yes</p></td>
+<td><p>No</p></td>
+<td><p>Missing</p></td>
+<td><p>Missing</p></td>
+<td><p>Missing</p></td>
+<td><p>Yes</p></td>
+<td><p>No</p></td>
 </tr>
 </tbody>
 </table>
@@ -404,13 +272,13 @@ target groups (the Section
 provides more information on different release
 types):</p>
 <ul class="simple">
-<li>PUF: The data is directly available to anyone interested, e.g., on
-the website of the statistical agency</li>
-<li>SUF: The data is available to accredited researchers, who have to
+<li><p>PUF: The data is directly available to anyone interested, e.g., on
+the website of the statistical agency</p></li>
+<li><p>SUF: The data is available to accredited researchers, who have to
 file their research proposals beforehand and have to sign a contract;
-this is also known as licensed file or microdata under contract</li>
-<li>Available in a controlled research data center: only on-site access
-to data on special computers; this is also known as data enclave</li>
+this is also known as licensed file or microdata under contract</p></li>
+<li><p>Available in a controlled research data center: only on-site access
+to data on special computers; this is also known as data enclave</p></li>
 </ul>
 <p>There are other data access possibilities besides these, such as
 teaching files or files for other specific purposes. Obviously, the
@@ -422,8 +290,8 @@ the latter case.</p>
 <p>Besides the applicable legislation, the choice of the type of release
 depends on the type of the data and the content.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Not every microdata set is suitable for release in any release type, even after SDC.</p>
+<p class="admonition-title">Note</p>
+<p>Not every microdata set is suitable for release in any release type, even after SDC.</p>
 </div>
 <p>Some data cannot be protected sufficiently – it might always
 contain information that is too sensitive to be published as SUF or PUF.
@@ -441,8 +309,8 @@ the PUF file is also contained in the SUF file and the PUF file does not
 provide any additional information for users that have access to the SUF
 file.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">The anonymization process is an iterative process where steps
+<p class="admonition-title">Note</p>
+<p>The anonymization process is an iterative process where steps
 can be revisited, whereas the publication of an anonymized dataset is a
 one-shot process.</p>
 </div>
@@ -465,8 +333,8 @@ disclosure. This leads to the specification of quasi-identifiers, which
 are a set of variables that are available both in the dataset to be
 released and in auxiliary datasets and need protection.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">If the number of quasi-identifiers is high, it is recommended to reduce the set
+<p class="admonition-title">Note</p>
+<p>If the number of quasi-identifiers is high, it is recommended to reduce the set
 of quasi-identifiers by removing some variables from the dataset for
 release.</p>
 </div>
@@ -480,8 +348,8 @@ disclosure. Examples of such auxiliary data files are population
 registers and electoral rolls, as well as data collected by specialized
 firms.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">External datasets can come from many sources (e.g., other
+<p class="admonition-title">Note</p>
+<p>External datasets can come from many sources (e.g., other
 institutions, private companies) and it is sometimes difficult to make a
 full list of external data sources.</p>
 </div>
@@ -508,22 +376,22 @@ example. A few examples of disclosure scenarios are (see the Section
 <a class="reference external" href="measure_risk.html#Disclosurescenarios">Disclosure scenarios</a> for
 more information):</p>
 <ul class="simple">
-<li>Matching: The intruder uses auxiliary data, e.g., data on region,
+<li><p>Matching: The intruder uses auxiliary data, e.g., data on region,
 marital status and age from a population register, and matches them
 to released microdata. Individuals from the two datasets that match
 and are unique are successfully identified. This principle is used as
 an assumption in several disclosure risk measures, such as
 <span class="math notranslate nohighlight">\(k\)</span>-anonymity, individual and global risk, as described in
 the Section <a class="reference external" href="measure_risk.html">Measuring Risk</a>.
-This scenario can apply to both PUFs and SUFs.</li>
-<li>Spontaneous recognition: This scenario should be considered for SUF
+This scenario can apply to both PUFs and SUFs.</p></li>
+<li><p>Spontaneous recognition: This scenario should be considered for SUF
 files, but is especially important for data available in research
 data centers where outliers are present in the data and data is often
 not strongly anonymized. The researcher might (unintentionally)
 recognize some individuals he knows (e.g., his colleagues, neighbors,
 family members, public figures, famous persons or large companies),
 while inspecting the data. This is especially true for rare
-combinations of values, such as outliers or unlikely combinations.</li>
+combinations of values, such as outliers or unlikely combinations.</p></li>
 </ul>
 </div>
 <div class="section" id="step-5-data-key-uses-and-selection-of-utility-measures">
@@ -551,8 +419,8 @@ methods.</p>
 <p>The uses of the data depend on the release type, too. Researchers using
 SUF files require a higher level of detail in the data than PUF users.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Anonymization will always lead to information loss and a PUF
+<p class="admonition-title">Note</p>
+<p>Anonymization will always lead to information loss and a PUF
 file will have reduced utility. If certain users require a high level of
 detail, release types other than PUF should be considered, such as SUF
 or release through a research data center.</p>
@@ -589,8 +457,8 @@ files for different users. This problem occurs especially in
 multi-purpose studies. For more details on utility measures, refer to
 the Section <a class="reference external" href="utility.html">Measuring Utility and Information Loss</a>.</p>
 <div class="admonition-note-on-steps-6-to-10 admonition">
-<p class="first admonition-title">Note on Steps 6 to 10</p>
-<p class="last">The following Steps 6 through 10 should be repeated if the data has
+<p class="admonition-title">Note on Steps 6 to 10</p>
+<p>The following Steps 6 through 10 should be repeated if the data has
 quasi-identifiers that are on different hierarchical levels, e.g.,
 individual and household. In that case, variables on the higher
 hierarchical level should be anonymized first, and then merged with the
@@ -646,8 +514,8 @@ compute the utility measures selected in Step 6 using the raw data. This
 creates a base for comparison of results obtained when using the
 anonymized data – i.e., in Step 10.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">If the raw data is a sample,
+<p class="admonition-title">Note</p>
+<p>If the raw data is a sample,
 the utility measures are an estimate with a variance and therefore it is
 useful to construct confidence intervals in addition to the point
 estimates for the utility measures.</p>
@@ -712,8 +580,8 @@ and/or special characteristics, combinations of values or outliers in
 the data. If the risk is not at an acceptable level, Steps 6 to 10
 should be repeated with different methods and/or parameters.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Risk measures based on frequency counts
+<p class="admonition-title">Note</p>
+<p>Risk measures based on frequency counts
 (<span class="math notranslate nohighlight">\(k\)</span>-anonymity, individual risk, global risk and
 household risk) cannot be used after applying perturbative methods since
 their risk estimates are not valid.</p>
@@ -737,8 +605,8 @@ important if perturbative methods have been applied. If the data does
 not meet the user requirements and deviations are too large, repeat
 Steps 6 to 10 with different methods and/or different parameters.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Anonymization will always lead to at least some information loss.</p>
+<p class="admonition-title">Note</p>
+<p>Anonymization will always lead to at least some information loss.</p>
 </div>
 </div>
 <div class="section" id="step-11-audit-and-reporting">
@@ -770,8 +638,8 @@ information on the anonymization methods that allow researchers to do
 valid analysis (e.g., amount of noise added, transition matrix for
 PRAM).</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Care should be taken that this information cannot be used
+<p class="admonition-title">Note</p>
+<p>Care should be taken that this information cannot be used
 for re-identification (e.g., no release of random seed for PRAM).</p>
 </div>
 <p>The metadata must be updated to comply with the anonymized data. Variable
@@ -787,95 +655,97 @@ data. This step depends on the type of release chosen in Step 3. Changes
 to the variables made under Step 2, such a merging variables, can be
 undone to generate a dataset useful for users.</p>
 <div class="admonition-recommended-reading-material-on-risk-measurement admonition">
-<p class="first admonition-title">Recommended Reading Material on Risk Measurement</p>
-<p class="last">Dupriez, Olivier, and Ernie Boyko. 2010. <em>Dissemination of Microdata
+<p class="admonition-title">Recommended Reading Material on Risk Measurement</p>
+<p>Dupriez, Olivier, and Ernie Boyko. 2010. <em>Dissemination of Microdata
 Files; Principles, Procedures and Practices.</em> IHSN Working Paper No.
 005, International Household Survey Network (IHSN).
 <a class="reference external" href="http://www.ihsn.org/HOME/sites/default/files/resources/IHSN-WP005.pdf">http://www.ihsn.org/HOME/sites/default/files/resources/IHSN-WP005.pdf</a></p>
 </div>
 <div class="figure align-center" id="id2">
 <span id="fig81"></span><img alt="_images/image20.png" src="_images/image20.png" />
-<p class="caption"><span class="caption-number">Fig. 21 </span><span class="caption-text">Overview of the SDC process</span></p>
+<p class="caption"><span class="caption-number">Fig. 21 </span><span class="caption-text">Overview of the SDC process</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
 </div>
 <p class="rubric">References</p>
-<table class="docutils citation" frame="void" id="hdfg12" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label">[HDFG12]</td><td>Hundepool, A., Domingo-Ferrer, J., Franconi, L., Giessing, S., Nordholt, E. S., Spicer, K., et al. (2012).
+<dl class="citation">
+<dt class="label" id="hdfg12"><span class="brackets">HDFG12</span></dt>
+<dd><p>Hundepool, A., Domingo-Ferrer, J., Franconi, L., Giessing, S., Nordholt, E. S., Spicer, K., et al. (2012).
 <strong>Statistical Disclosure Control.</strong>
-Chichester, UK: John Wiley &amp; Sons Ltd.</td></tr>
-</tbody>
-</table>
+Chichester, UK: John Wiley &amp; Sons Ltd.</p>
+</dd>
+</dl>
 </div>
 </div>
 
 
-           </div>
-           
           </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="appendices.html" class="btn btn-neutral float-right" title="Appendices" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="sdcMicro.html" class="btn btn-neutral" title="SDC with sdcMicro in R: Setting Up Your Data and more" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
-    </div>
-  
-
-  <hr/>
-
-  <div role="contentinfo">
-    <p>
-        &copy; Copyright 2018, Thijs Benschop, Cathrine Machingauta, Matthew Welch.
-
-    </p>
-  </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
-
-</footer>
-
         </div>
       </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">The SDC Process</a><ul>
+<li><a class="reference internal" href="#step-1-need-for-confidentiality-protection">Step 1: Need for confidentiality protection</a></li>
+<li><a class="reference internal" href="#step-2-data-preparation-and-exploring-data-characteristics">Step 2: Data preparation and exploring data characteristics</a></li>
+<li><a class="reference internal" href="#step-3-type-of-release">Step 3: Type of release</a></li>
+<li><a class="reference internal" href="#step-4-intruder-scenarios-and-choice-of-key-variables">Step 4: Intruder scenarios and choice of key variables</a></li>
+<li><a class="reference internal" href="#step-5-data-key-uses-and-selection-of-utility-measures">Step 5: Data key uses and selection of utility measures</a></li>
+<li><a class="reference internal" href="#step-6-assessing-disclosure-risk">Step 6: Assessing disclosure risk</a></li>
+<li><a class="reference internal" href="#step-7-assessing-utility-measures">Step 7: Assessing utility measures</a></li>
+<li><a class="reference internal" href="#step-8-choice-and-application-of-sdc-methods">Step 8: Choice and application of SDC methods</a></li>
+<li><a class="reference internal" href="#step-9-re-measure-risk">Step 9: Re-measure risk</a></li>
+<li><a class="reference internal" href="#step-10-re-measure-utility">Step 10: Re-measure utility</a></li>
+<li><a class="reference internal" href="#step-11-audit-and-reporting">Step 11: Audit and Reporting</a></li>
+<li><a class="reference internal" href="#step-12-data-release">Step 12: Data release</a></li>
+</ul>
+</li>
+</ul>
 
-    </section>
-
-  </div>
-  
-
-
-  
-
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'./',
-            VERSION:'',
-            LANGUAGE:'None',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="_static/jquery.js"></script>
-      <script type="text/javascript" src="_static/underscore.js"></script>
-      <script type="text/javascript" src="_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-
-  
-
-  
-  
-    <script type="text/javascript" src="_static/js/theme.js"></script>
-  
-
-  <script type="text/javascript">
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
-      });
-  </script> 
-
-</body>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="sdcMicro.html"
+                        title="previous chapter">SDC with <em>sdcMicro</em> in <em>R</em>: Setting Up Your Data and more</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="appendices.html"
+                        title="next chapter">Appendices</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/process.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="appendices.html" title="Appendices"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="sdcMicro.html" title="SDC with sdcMicro in R: Setting Up Your Data and more"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">SDC Practice Guide  documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2018, Thijs Benschop, Cathrine Machingauta, Matthew Welch.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.1.2.
+    </div>
+  </body>
 </html>

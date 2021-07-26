@@ -446,7 +446,7 @@ Step 7: Assessing utility measures
 ----------------------------------
 
 To quantify the information loss due to the anonymization, we first
-compute the utility measures selected in Step 6 using the raw data. This
+compute the utility measures selected in Step 5 using the raw data. This
 creates a base for comparison of results obtained when using the
 anonymized data – i.e., in Step 10. 
 

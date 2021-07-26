@@ -20,7 +20,7 @@
 # -- Project information -----------------------------------------------------
 
 project = 'SDC Practice Guide'
-copyright = '2018, Thijs Benschop, Cathrine Machingauta, Matthew Welch'
+copyright = '2019, International Household Survey Network'
 author = 'Thijs Benschop, Cathrine Machingauta, Matthew Welch'
 
 # The short X.Y version
@@ -83,6 +83,7 @@ pygments_style = 'sphinx'
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
+#html_theme = 'classic'
 html_theme = 'sphinx_rtd_theme'
 
 # Theme options are theme-specific and customize the look and feel of a theme

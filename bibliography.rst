@@ -90,6 +90,9 @@ Bibliography
 .. [TeMK14] Templ, M., Meindl, B., & Kowarik, A. (2014, August). 
 	**Tutorial for SDCMicroGUI.**
 	Retrieved from International Household Survey Network (IHSN): http://www.ihsn.org/home/software/disclosure-control-toolbox
+.. [TKM15]	Matthias Templ, Alexander Kowarik, Bernhard Meindl (2015). 
+	Statistical Disclosure Control for Micro-Data Using the R Package sdcMicro. 
+	**Journal of Statistical Software**, 67(4), 1-36.<doi:10.18637/jss.v067.i04>
 .. [TMKC14] Templ, M., Meindl, B., Kowarik, A., & Chen, S. (2014, August 1). 
 	**Introduction to Statistical Disclosure Control (SDC).**
 	Retrieved November 13, 2014, from http://www.ihsn.org/home/software/disclosure-control-toolbox.

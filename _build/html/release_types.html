@@ -1,169 +1,46 @@
 
-
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
-<head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>Release Types &mdash; SDC Practice Guide  documentation</title>
-  
 
-  
-  
-  
-  
-
-  
-
-  
-  
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Release Types &#8212; SDC Practice Guide  documentation</title>
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/theme_overrides.css" />
     
-
-  
-
-  
-    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Measuring Risk" href="measure_risk.html" />
     <link rel="prev" title="Statistical Disclosure Control (SDC): An Introduction" href="SDC_intro.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="measure_risk.html" title="Measuring Risk"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="SDC_intro.html" title="Statistical Disclosure Control (SDC): An Introduction"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">SDC Practice Guide  documentation</a> &#187;</li> 
+      </ul>
+    </div>  
 
-  
-  <script src="_static/js/modernizr.min.js"></script>
-
-</head>
-
-<body class="wy-body-for-nav">
-
-   
-  <div class="wy-grid-for-nav">
-
-    
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
-          
-
-          
-            <a href="index.html" class="icon icon-home"> SDC Practice Guide
-          
-
-          
-          </a>
-
-          
-            
-            
-          
-
-          
-<div role="search">
-  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
-  </form>
-</div>
-
-          
-        </div>
-
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <p class="caption"><span class="caption-text">Table of Content</span></p>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="glossary_acr.html">Glossary and list of acronyms</a></li>
-<li class="toctree-l1"><a class="reference internal" href="SDC_intro.html">Statistical Disclosure Control (SDC): An Introduction</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Release Types</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#conditions-for-pufs">Conditions for PUFs</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#conditions-for-sufs">Conditions for SUFs</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#conditions-for-microdata-available-in-a-controlled-research-data-center">Conditions for microdata available in a controlled research data center</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="measure_risk.html">Measuring Risk</a></li>
-<li class="toctree-l1"><a class="reference internal" href="anon_methods.html">Anonymization Methods</a></li>
-<li class="toctree-l1"><a class="reference internal" href="utility.html">Measuring Utility and Information Loss</a></li>
-<li class="toctree-l1"><a class="reference internal" href="sdcMicro.html">SDC with <em>sdcMicro</em> in <em>R</em>: Setting Up Your Data and more</a></li>
-<li class="toctree-l1"><a class="reference internal" href="process.html">The SDC Process</a></li>
-<li class="toctree-l1"><a class="reference internal" href="appendices.html">Appendices</a></li>
-<li class="toctree-l1"><a class="reference internal" href="acknowledgements.html">Acknowledgements</a></li>
-</ul>
-<p class="caption"><span class="caption-text">Case studies</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="case_studies.html">Case Studies (Illustrating the SDC Process)</a></li>
-</ul>
-
-            
-          
-        </div>
-      </div>
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">SDC Practice Guide</a>
-        
-      </nav>
-
-
-      <div class="wy-nav-content">
-        
-        <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
-  <ul class="wy-breadcrumbs">
-    
-      <li><a href="index.html">Docs</a> &raquo;</li>
-        
-      <li>Release Types</li>
-    
-    
-      <li class="wy-breadcrumbs-aside">
-        
-            
-            <a href="_sources/release_types.rst.txt" rel="nofollow"> View page source</a>
-          
-        
-      </li>
-    
-  </ul>
-
-  
-  <hr/>
-</div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           <div itemprop="articleBody">
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
             
   <div class="section" id="release-types">
 <h1>Release Types<a class="headerlink" href="#release-types" title="Permalink to this headline">¶</a></h1>
@@ -171,11 +48,11 @@
 already been conducted through the World Bank and its partners at the
 IHSN, this section extracts from an excellent guide published by <a class="reference internal" href="#dubo10">DuBo10</a>.</p>
 <p>The trade-off between risk and utility in the anonymization process
-depends greatly on who the users are <a class="footnote-reference" href="#foot19" id="id1">[1]</a> and under
+depends greatly on who the users are <a class="footnote-reference brackets" href="#foot19" id="id1">1</a> and under
 what conditions a microdata file is released. Generally, three types of
 data release methods are practiced and apply to different target groups.</p>
 <ul class="simple">
-<li><strong>Public Use File (PUF)</strong>: the data “are available to anyone agreeing
+<li><p><strong>Public Use File (PUF)</strong>: the data “are available to anyone agreeing
 to respect a core set of easy-to-meet conditions. Such conditions
 relate to what cannot be done with the data (e.g. the data cannot be
 sold), upon gaining access to the data. In some cases PUFs are
@@ -200,8 +77,8 @@ using data perturbation techniques [(see the Section
 anonymization methods)]. PUFs are typically generated from census
 data files using a sub-set [or sample] of records rather than the
 entire file and [from sample surveys, such as] household surveys.”
-(<a class="reference internal" href="#dubo10">DuBo10</a>).</li>
-<li><strong>Scientific Use File (SUF)</strong> (also known as a licensed file,
+(<a class="reference internal" href="#dubo10">DuBo10</a>).</p></li>
+<li><p><strong>Scientific Use File (SUF)</strong> (also known as a licensed file,
 microdata under contract or research file): the “dissemination is
 restricted to users who have received authorization to access them
 after submitting a documented application and signing an agreement
@@ -217,7 +94,7 @@ licensed files, the recommendation is to establish and sign an
 agreement between the data producer and external bona fide users –
 trustworthy users with legitimate need to access the data. Such an
 agreement should govern access and use of such microdata
-files <a class="footnote-reference" href="#foot20" id="id2">[2]</a>. Sometimes, licensing agreements are only
+files <a class="footnote-reference brackets" href="#foot20" id="id2">2</a>. Sometimes, licensing agreements are only
 entered into with users affiliated to an appropriate sponsoring
 institution. i.e., research centers, universities or development
 partners. It is further recommended that, before entering into a data
@@ -227,8 +104,8 @@ licensed file (instead of the PUF version, if available) for a stated
 statistical or research purpose” (<a class="reference internal" href="#dubo10">DuBo10</a>). This also
 allows the data producer to learn which characteristics of the data
 are important for the users, which is valuable information for
-optimizing future anonymization processes.</li>
-<li><strong>Microdata available in a controlled research data center</strong> (also
+optimizing future anonymization processes.</p></li>
+<li><p><strong>Microdata available in a controlled research data center</strong> (also
 known as data enclave): “Some files may be offered to users under
 strict conditions in a data enclave. This is a facility [(often on
 the premises of the data provider)] equipped with computers not
@@ -253,7 +130,7 @@ process and manage file servers. Because of the substantial operating
 costs and technical skills required, some statistical agencies or
 other official data producers opt to collaborate with academic
 institutions or research centres to establish and manage data
-enclaves.”</li>
+enclaves.”</p></li>
 </ul>
 <p>There are other data access possibilities besides these, such as
 teaching files, files for other specific purposes, remote execution or
@@ -289,18 +166,18 @@ the application of rules or principles. [The info-box] below [taken from
 <a class="reference internal" href="#dubo10">DuBo10</a>] shows basic principles normally applying to
 PUFs.” (<a class="reference internal" href="#dubo10">DuBo10</a>).</p>
 <div class="admonition-info-box-conditions-for-accessing-and-using-pufs admonition">
-<p class="first admonition-title">Info-box - Conditions for accessing and using PUFs</p>
+<p class="admonition-title">Info-box - Conditions for accessing and using PUFs</p>
 <ol class="arabic simple">
-<li>Data and other material provided by the NSO will not be redistributed or sold to other individuals, institutions or organisations without the NSO’s written agreement.</li>
-<li>Data will be used for statistical and scientific research purposes only. They will be employed solely for reporting aggregated information, including modelling, and not for investigating specific individuals or organisations.</li>
-<li>No attempt will be made to re-identify respondents, and there will be no use of the identity of any person or establishment discovered inadvertently. Any such discovery will be reported immediately to the NSO.</li>
-<li>No attempt will be made to produce links between datasets provided by the NSO or between NSO data and other datasets that could identify individuals or organisations.</li>
-<li>Any books, articles, conference papers, theses, dissertations, reports or other publications employing data obtained from the NSO will cite the source, in line with the citation requirement provided with the dataset.</li>
-<li>An electronic copy of all publications based on the requested data will be sent to the NSO.</li>
-<li>The original collector of the data, the NSO, and the relevant funding agencies bear no responsibility for the data’s use or interpretation or inferences based upon it.</li>
+<li><p>Data and other material provided by the NSO will not be redistributed or sold to other individuals, institutions or organisations without the NSO’s written agreement.</p></li>
+<li><p>Data will be used for statistical and scientific research purposes only. They will be employed solely for reporting aggregated information, including modelling, and not for investigating specific individuals or organisations.</p></li>
+<li><p>No attempt will be made to re-identify respondents, and there will be no use of the identity of any person or establishment discovered inadvertently. Any such discovery will be reported immediately to the NSO.</p></li>
+<li><p>No attempt will be made to produce links between datasets provided by the NSO or between NSO data and other datasets that could identify individuals or organisations.</p></li>
+<li><p>Any books, articles, conference papers, theses, dissertations, reports or other publications employing data obtained from the NSO will cite the source, in line with the citation requirement provided with the dataset.</p></li>
+<li><p>An electronic copy of all publications based on the requested data will be sent to the NSO.</p></li>
+<li><p>The original collector of the data, the NSO, and the relevant funding agencies bear no responsibility for the data’s use or interpretation or inferences based upon it.</p></li>
 </ol>
 <p>Note: Items 3 and 6 in the list require that users be provided with an easy way to communicate with the data provider. It is good practice to provide a contact number, an email address, and possibly an on-line “feedback provision” system.</p>
-<p class="last">Source: <a class="reference internal" href="#dubo10">DuBo10</a></p>
+<p>Source: <a class="reference internal" href="#dubo10">DuBo10</a></p>
 </div>
 </div>
 <div class="section" id="conditions-for-sufs">
@@ -327,22 +204,22 @@ is only granted when there is a legally-registered sponsoring agency,
 e.g., government ministry, university, research centre or national or
 international organization” (<a class="reference internal" href="#dubo10">DuBo10</a>).</p>
 <div class="admonition-info-box-conditions-for-accessing-and-using-sufs admonition">
-<p class="first admonition-title">Info-box - Conditions for accessing and using SUFs</p>
+<p class="admonition-title">Info-box - Conditions for accessing and using SUFs</p>
 <p>Note: Items 1 to 8 below are similar to the conditions for use of public use files in the info-box above. Items 9 and 10 would have to be adapted in the case of a blanket agreement.</p>
 <ol class="arabic simple">
-<li>Data and other material provided by the NSO will not be redistributed or sold to other individuals, institutions or organisations without the NSO’s written agreement.</li>
-<li>Data will be used for statistical and scientific research purposes only. They will be employed solely for reporting aggregated information, including modelling, and not for investigating specific individuals or organisations.</li>
-<li>No attempt will be made to re-identify respondents, and there will be no use of the identity of any person or establishment discovered inadvertently. Any such discovery will be reported immediately to the NSO.</li>
-<li>No attempt will be made to produce links between datasets provided by the NSO or between NSO data and other datasets that could identify individuals or organisations.</li>
-<li>Any books, articles, conference papers, theses, dissertations, reports or other publications employing data obtained from the NSO will cite the source, in line with the citation requirement provided with the dataset.</li>
-<li>An electronic copy of all publications based on therequested data will be sent to the NSO.</li>
-<li>The NSO and the relevant funding agencies bear no responsibility the data’s use or for interpretation or inferences based upon it.</li>
-<li>An electronic copy of all publications based on the requested data will be sent to the NSO.</li>
-<li>The researcher’s organisation must be identified, as must the principal and other researchers involved in using the data must be identified. The principal researcher must sign the licence on behalf of the organization. If the principal researcher is not authorized to sign on behalf of the receiving organization, a suitable representative must be identified.</li>
-<li>The intended use of the data, including a list of expected outputs and the organisation’s dissemination policy must be identified.</li>
+<li><p>Data and other material provided by the NSO will not be redistributed or sold to other individuals, institutions or organisations without the NSO’s written agreement.</p></li>
+<li><p>Data will be used for statistical and scientific research purposes only. They will be employed solely for reporting aggregated information, including modelling, and not for investigating specific individuals or organisations.</p></li>
+<li><p>No attempt will be made to re-identify respondents, and there will be no use of the identity of any person or establishment discovered inadvertently. Any such discovery will be reported immediately to the NSO.</p></li>
+<li><p>No attempt will be made to produce links between datasets provided by the NSO or between NSO data and other datasets that could identify individuals or organisations.</p></li>
+<li><p>Any books, articles, conference papers, theses, dissertations, reports or other publications employing data obtained from the NSO will cite the source, in line with the citation requirement provided with the dataset.</p></li>
+<li><p>An electronic copy of all publications based on therequested data will be sent to the NSO.</p></li>
+<li><p>The NSO and the relevant funding agencies bear no responsibility the data’s use or for interpretation or inferences based upon it.</p></li>
+<li><p>An electronic copy of all publications based on the requested data will be sent to the NSO.</p></li>
+<li><p>The researcher’s organisation must be identified, as must the principal and other researchers involved in using the data must be identified. The principal researcher must sign the licence on behalf of the organization. If the principal researcher is not authorized to sign on behalf of the receiving organization, a suitable representative must be identified.</p></li>
+<li><p>The intended use of the data, including a list of expected outputs and the organisation’s dissemination policy must be identified.</p></li>
 </ol>
 <p>(Conditions 9 to 11 may be waved in the case of educational institutions)</p>
-<p class="last">Source: <a class="reference internal" href="#dubo10">DuBo10</a></p>
+<p>Source: <a class="reference internal" href="#dubo10">DuBo10</a></p>
 </div>
 <p><em>Blanket agreement to an organization</em></p>
 <p>“In the case of a blanket agreement, where it is agreed the data can be
@@ -382,104 +259,93 @@ are sworn in under the statistics’ acts in the same way as regular NSO
 employees. This approach tends to favour researchers who live near NSO
 headquarters.” (<a class="reference internal" href="#dubo10">DuBo10</a>)</p>
 <div class="admonition-recommended-reading-material-on-release-types admonition">
-<p class="first admonition-title">Recommended Reading Material on Release Types</p>
-<p class="last">Dupriez, O., &amp; Boyko, E. (2010). <em>Dissemination of Microdata Files;
+<p class="admonition-title">Recommended Reading Material on Release Types</p>
+<p>Dupriez, O., &amp; Boyko, E. (2010). <em>Dissemination of Microdata Files;
 Principles, Procedures and Practices.</em> International Household Survey
 Network (IHSN).</p>
 </div>
-<table class="docutils footnote" frame="void" id="foot19" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>See Section 5 in <a class="reference internal" href="#dubo10">DuBo10</a> as to who the users of
-microdata are and to whom microdata should be made available.</td></tr>
-</tbody>
-</table>
-<table class="docutils footnote" frame="void" id="foot20" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id2">[2]</a></td><td><a class="reference external" href="appendices.html#AppendixB:ExampleofBlanketAgreementforSUF">Appendix B</a>
-provides an example of a blanket agreement.</td></tr>
-</tbody>
-</table>
+<dl class="footnote brackets">
+<dt class="label" id="foot19"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p>See Section 5 in <a class="reference internal" href="#dubo10">DuBo10</a> as to who the users of
+microdata are and to whom microdata should be made available.</p>
+</dd>
+<dt class="label" id="foot20"><span class="brackets"><a class="fn-backref" href="#id2">2</a></span></dt>
+<dd><p><a class="reference external" href="appendices.html#AppendixB:ExampleofBlanketAgreementforSUF">Appendix B</a>
+provides an example of a blanket agreement.</p>
+</dd>
+</dl>
 <p class="rubric">References</p>
-<table class="docutils citation" frame="void" id="dubo10" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label">[DuBo10]</td><td>Dupriez, O., &amp; Boyko, E. (2010).
+<dl class="citation">
+<dt class="label" id="dubo10"><span class="brackets">DuBo10</span></dt>
+<dd><p>Dupriez, O., &amp; Boyko, E. (2010).
 <strong>Dissemination of Microdata Files; Principles, Procedures and Practices.</strong>
-International Household Survey Network (IHSN).</td></tr>
-</tbody>
-</table>
+International Household Survey Network (IHSN).</p>
+</dd>
+</dl>
 </div>
 </div>
 
 
-           </div>
-           
           </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="measure_risk.html" class="btn btn-neutral float-right" title="Measuring Risk" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="SDC_intro.html" class="btn btn-neutral" title="Statistical Disclosure Control (SDC): An Introduction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
-    </div>
-  
-
-  <hr/>
-
-  <div role="contentinfo">
-    <p>
-        &copy; Copyright 2018, Thijs Benschop, Cathrine Machingauta, Matthew Welch.
-
-    </p>
-  </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
-
-</footer>
-
         </div>
       </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Release Types</a><ul>
+<li><a class="reference internal" href="#conditions-for-pufs">Conditions for PUFs</a></li>
+<li><a class="reference internal" href="#conditions-for-sufs">Conditions for SUFs</a></li>
+<li><a class="reference internal" href="#conditions-for-microdata-available-in-a-controlled-research-data-center">Conditions for microdata available in a controlled research data center</a></li>
+</ul>
+</li>
+</ul>
 
-    </section>
-
-  </div>
-  
-
-
-  
-
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'./',
-            VERSION:'',
-            LANGUAGE:'None',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="_static/jquery.js"></script>
-      <script type="text/javascript" src="_static/underscore.js"></script>
-      <script type="text/javascript" src="_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-
-  
-
-  
-  
-    <script type="text/javascript" src="_static/js/theme.js"></script>
-  
-
-  <script type="text/javascript">
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
-      });
-  </script> 
-
-</body>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="SDC_intro.html"
+                        title="previous chapter">Statistical Disclosure Control (SDC): An Introduction</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="measure_risk.html"
+                        title="next chapter">Measuring Risk</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/release_types.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="measure_risk.html" title="Measuring Risk"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="SDC_intro.html" title="Statistical Disclosure Control (SDC): An Introduction"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">SDC Practice Guide  documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2018, Thijs Benschop, Cathrine Machingauta, Matthew Welch.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.1.2.
+    </div>
+  </body>
 </html>

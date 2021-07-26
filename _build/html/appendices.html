@@ -1,209 +1,79 @@
 
-
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
-<head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>Appendices &mdash; SDC Practice Guide  documentation</title>
-  
 
-  
-  
-  
-  
-
-  
-
-  
-  
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Appendices &#8212; SDC Practice Guide  documentation</title>
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/theme_overrides.css" />
     
-
-  
-
-  
-    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Acknowledgements" href="acknowledgements.html" />
     <link rel="prev" title="The SDC Process" href="process.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="acknowledgements.html" title="Acknowledgements"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="process.html" title="The SDC Process"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">SDC Practice Guide  documentation</a> &#187;</li> 
+      </ul>
+    </div>  
 
-  
-  <script src="_static/js/modernizr.min.js"></script>
-
-</head>
-
-<body class="wy-body-for-nav">
-
-   
-  <div class="wy-grid-for-nav">
-
-    
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
-          
-
-          
-            <a href="index.html" class="icon icon-home"> SDC Practice Guide
-          
-
-          
-          </a>
-
-          
-            
-            
-          
-
-          
-<div role="search">
-  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
-  </form>
-</div>
-
-          
-        </div>
-
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <p class="caption"><span class="caption-text">Table of Content</span></p>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="glossary_acr.html">Glossary and list of acronyms</a></li>
-<li class="toctree-l1"><a class="reference internal" href="SDC_intro.html">Statistical Disclosure Control (SDC): An Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="release_types.html">Release Types</a></li>
-<li class="toctree-l1"><a class="reference internal" href="measure_risk.html">Measuring Risk</a></li>
-<li class="toctree-l1"><a class="reference internal" href="anon_methods.html">Anonymization Methods</a></li>
-<li class="toctree-l1"><a class="reference internal" href="utility.html">Measuring Utility and Information Loss</a></li>
-<li class="toctree-l1"><a class="reference internal" href="sdcMicro.html">SDC with <em>sdcMicro</em> in <em>R</em>: Setting Up Your Data and more</a></li>
-<li class="toctree-l1"><a class="reference internal" href="process.html">The SDC Process</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Appendices</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#appendix-a-overview-of-case-study-variables">Appendix A: Overview of Case Study Variables</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#appendix-b-example-of-blanket-agreement-for-suf">Appendix B: Example of Blanket Agreement for SUF</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#appendix-c-internal-and-external-reports-for-case-studies">Appendix C: Internal and External Reports for Case Studies</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#case-study-1-internal-report">Case study 1 - Internal report</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#case-study-1-external-report">Case study 1 - External report</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#case-study-2-internal-report">Case study 2 - Internal report</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#case-study-2-external-report">Case study 2 - External report</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#appendix-d-execution-times-for-multiple-scenarios-tested-using-selected-sample-data">Appendix D: Execution Times for Multiple Scenarios Tested using Selected Sample Data</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="acknowledgements.html">Acknowledgements</a></li>
-</ul>
-<p class="caption"><span class="caption-text">Case studies</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="case_studies.html">Case Studies (Illustrating the SDC Process)</a></li>
-</ul>
-
-            
-          
-        </div>
-      </div>
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">SDC Practice Guide</a>
-        
-      </nav>
-
-
-      <div class="wy-nav-content">
-        
-        <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
-  <ul class="wy-breadcrumbs">
-    
-      <li><a href="index.html">Docs</a> &raquo;</li>
-        
-      <li>Appendices</li>
-    
-    
-      <li class="wy-breadcrumbs-aside">
-        
-            
-            <a href="_sources/appendices.rst.txt" rel="nofollow"> View page source</a>
-          
-        
-      </li>
-    
-  </ul>
-
-  
-  <hr/>
-</div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           <div itemprop="articleBody">
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
             
   <div class="section" id="appendices">
 <h1>Appendices<a class="headerlink" href="#appendices" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="appendix-a-overview-of-case-study-variables">
 <h2>Appendix A: Overview of Case Study Variables<a class="headerlink" href="#appendix-a-overview-of-case-study-variables" title="Permalink to this headline">¶</a></h2>
-<table border="1" class="colwidths-auto docutils align-center">
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">.</th>
-<th class="head">Variable</th>
-<th class="head">Description</th>
-<th class="head">Type</th>
+<table class="colwidths-auto docutils align-center">
+<thead>
+<tr class="row-odd"><th class="head"><p>.</p></th>
+<th class="head"><p>Variable</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Type</p></th>
 </tr>
 </thead>
-<tbody valign="top">
-<tr class="row-even"><td>1</td>
-<td>REGION</td>
-<td>Region</td>
-<td>HH</td>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>REGION</p></td>
+<td><p>Region</p></td>
+<td><p>HH</p></td>
 </tr>
-<tr class="row-odd"><td>2</td>
-<td>DIST</td>
-<td>District</td>
-<td>HH</td>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>DIST</p></td>
+<td><p>District</p></td>
+<td><p>HH</p></td>
 </tr>
-<tr class="row-even"><td>3</td>
-<td>URBRUR</td>
-<td>Area of
-residence</td>
-<td>HH</td>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>URBRUR</p></td>
+<td><p>Area of
+residence</p></td>
+<td><p>HH</p></td>
 </tr>
-<tr class="row-odd"><td>4</td>
-<td>WGTHH</td>
-<td>Individual
+<tr class="row-odd"><td><p>4</p></td>
+<td><p>WGTHH</p></td>
+<td><p>Individual
 weighting
 coefficient
 (country-specific
@@ -211,471 +81,3962 @@ weighting
 co-efficient to
 derive
 individual-level
-indicators)</td>
-<td>HH</td>
+indicators)</p></td>
+<td><p>HH</p></td>
 </tr>
-<tr class="row-even"><td>5</td>
-<td>WGTPOP</td>
-<td>Population
+<tr class="row-even"><td><p>5</p></td>
+<td><p>WGTPOP</p></td>
+<td><p>Population
 weighting
 coefficient
 (weighting
 co-efficient
 to derive
 population-level
-indicators)</td>
-<td>HH</td>
+indicators)</p></td>
+<td><p>HH</p></td>
 </tr>
-<tr class="row-odd"><td>6</td>
-<td>IDH</td>
-<td>Household
+<tr class="row-odd"><td><p>6</p></td>
+<td><p>IDH</p></td>
+<td><p>Household
 unique
-identification</td>
-<td>HH</td>
+identification</p></td>
+<td><p>HH</p></td>
 </tr>
-<tr class="row-even"><td>7</td>
-<td>IDP</td>
-<td>Individual
-identification</td>
-<td>HH</td>
+<tr class="row-even"><td><p>7</p></td>
+<td><p>IDP</p></td>
+<td><p>Individual
+identification</p></td>
+<td><p>HH</p></td>
 </tr>
-<tr class="row-odd"><td>8</td>
-<td>HHSIZE</td>
-<td>Household
-members</td>
-<td>HH</td>
+<tr class="row-odd"><td><p>8</p></td>
+<td><p>HHSIZE</p></td>
+<td><p>Household
+members</p></td>
+<td><p>HH</p></td>
 </tr>
-<tr class="row-even"><td>9</td>
-<td>GENDER</td>
-<td>Sex</td>
-<td>IND</td>
+<tr class="row-even"><td><p>9</p></td>
+<td><p>GENDER</p></td>
+<td><p>Sex</p></td>
+<td><p>IND</p></td>
 </tr>
-<tr class="row-odd"><td>10</td>
-<td>REL</td>
-<td>Relationship to
-household head</td>
-<td>IND</td>
+<tr class="row-odd"><td><p>10</p></td>
+<td><p>REL</p></td>
+<td><p>Relationship to
+household head</p></td>
+<td><p>IND</p></td>
 </tr>
-<tr class="row-even"><td>11</td>
-<td>MARITAL</td>
-<td>Marital status</td>
-<td>IND</td>
+<tr class="row-even"><td><p>11</p></td>
+<td><p>MARITAL</p></td>
+<td><p>Marital status</p></td>
+<td><p>IND</p></td>
 </tr>
-<tr class="row-odd"><td>12</td>
-<td>AGEYRS</td>
-<td>Age in
-completed years</td>
-<td>IND</td>
+<tr class="row-odd"><td><p>12</p></td>
+<td><p>AGEYRS</p></td>
+<td><p>Age in
+completed years</p></td>
+<td><p>IND</p></td>
 </tr>
-<tr class="row-even"><td>13</td>
-<td>AGEMTH</td>
-<td>Age of child in
+<tr class="row-even"><td><p>13</p></td>
+<td><p>AGEMTH</p></td>
+<td><p>Age of child in
 completed
-months</td>
-<td>IND</td>
+months</p></td>
+<td><p>IND</p></td>
 </tr>
-<tr class="row-odd"><td>14</td>
-<td>RELIG</td>
-<td>Religion of
-household head</td>
-<td>HH</td>
+<tr class="row-odd"><td><p>14</p></td>
+<td><p>RELIG</p></td>
+<td><p>Religion of
+household head</p></td>
+<td><p>HH</p></td>
 </tr>
-<tr class="row-even"><td>15</td>
-<td>ETHNICITY</td>
-<td>Ethnicity</td>
-<td>IND</td>
+<tr class="row-even"><td><p>15</p></td>
+<td><p>ETHNICITY</p></td>
+<td><p>Ethnicity</p></td>
+<td><p>IND</p></td>
 </tr>
-<tr class="row-odd"><td>16</td>
-<td>LANGUAGE</td>
-<td>Language</td>
-<td>IND</td>
+<tr class="row-odd"><td><p>16</p></td>
+<td><p>LANGUAGE</p></td>
+<td><p>Language</p></td>
+<td><p>IND</p></td>
 </tr>
-<tr class="row-even"><td>17</td>
-<td>MORBID</td>
-<td>Morbidity last
-x weeks</td>
-<td>IND</td>
+<tr class="row-even"><td><p>17</p></td>
+<td><p>MORBID</p></td>
+<td><p>Morbidity last
+x weeks</p></td>
+<td><p>IND</p></td>
 </tr>
-<tr class="row-odd"><td>18</td>
-<td>MEASLES</td>
-<td>Child immunized
-against Measles</td>
-<td>IND</td>
+<tr class="row-odd"><td><p>18</p></td>
+<td><p>MEASLES</p></td>
+<td><p>Child immunized
+against Measles</p></td>
+<td><p>IND</p></td>
 </tr>
-<tr class="row-even"><td>19</td>
-<td>MEDATT</td>
-<td>Sought medical
-attention</td>
-<td>IND</td>
+<tr class="row-even"><td><p>19</p></td>
+<td><p>MEDATT</p></td>
+<td><p>Sought medical
+attention</p></td>
+<td><p>IND</p></td>
 </tr>
-<tr class="row-odd"><td>20</td>
-<td>CHWEIGHTKG</td>
-<td>Weight of the
-child (Kg)</td>
-<td>IND</td>
+<tr class="row-odd"><td><p>20</p></td>
+<td><p>CHWEIGHTKG</p></td>
+<td><p>Weight of the
+child (Kg)</p></td>
+<td><p>IND</p></td>
 </tr>
-<tr class="row-even"><td>21</td>
-<td>CHHEIGHTCM</td>
-<td>Height of the
-child (cms)</td>
-<td>IND</td>
+<tr class="row-even"><td><p>21</p></td>
+<td><p>CHHEIGHTCM</p></td>
+<td><p>Height of the
+child (cms)</p></td>
+<td><p>IND</p></td>
 </tr>
-<tr class="row-odd"><td>22</td>
-<td>ATSCHOOL</td>
-<td>Current school
-enrolment</td>
-<td>IND</td>
+<tr class="row-odd"><td><p>22</p></td>
+<td><p>ATSCHOOL</p></td>
+<td><p>Current school
+enrolment</p></td>
+<td><p>IND</p></td>
 </tr>
-<tr class="row-even"><td>23</td>
-<td>EDUCY</td>
-<td>Highest level
+<tr class="row-even"><td><p>23</p></td>
+<td><p>EDUCY</p></td>
+<td><p>Highest level
 of education
-completed</td>
-<td>IND</td>
+completed</p></td>
+<td><p>IND</p></td>
 </tr>
-<tr class="row-odd"><td>24</td>
-<td>EDYRS</td>
-<td>Years of
-education</td>
-<td>IND</td>
+<tr class="row-odd"><td><p>24</p></td>
+<td><p>EDYRS</p></td>
+<td><p>Years of
+education</p></td>
+<td><p>IND</p></td>
 </tr>
-<tr class="row-even"><td>25</td>
-<td>EDYRSCURRAT</td>
-<td>Years of
+<tr class="row-even"><td><p>25</p></td>
+<td><p>EDYRSCURRAT</p></td>
+<td><p>Years of
 education for
 currently
-enrolled</td>
-<td>IND</td>
+enrolled</p></td>
+<td><p>IND</p></td>
 </tr>
-<tr class="row-odd"><td>26</td>
-<td>SCHTYP</td>
-<td>Type of school
-attending</td>
-<td>IND</td>
+<tr class="row-odd"><td><p>26</p></td>
+<td><p>SCHTYP</p></td>
+<td><p>Type of school
+attending</p></td>
+<td><p>IND</p></td>
 </tr>
-<tr class="row-even"><td>27</td>
-<td>LITERACY</td>
-<td>Literacy status</td>
-<td>IND</td>
+<tr class="row-even"><td><p>27</p></td>
+<td><p>LITERACY</p></td>
+<td><p>Literacy status</p></td>
+<td><p>IND</p></td>
 </tr>
-<tr class="row-odd"><td>28</td>
-<td>EMPTYP1</td>
-<td>Type of
+<tr class="row-odd"><td><p>28</p></td>
+<td><p>EMPTYP1</p></td>
+<td><p>Type of
 employment,
-Primary job</td>
-<td>IND</td>
+Primary job</p></td>
+<td><p>IND</p></td>
 </tr>
-<tr class="row-even"><td>29</td>
-<td>UNEMP1</td>
-<td>Unemployed</td>
-<td>IND</td>
+<tr class="row-even"><td><p>29</p></td>
+<td><p>UNEMP1</p></td>
+<td><p>Unemployed</p></td>
+<td><p>IND</p></td>
 </tr>
-<tr class="row-odd"><td>30</td>
-<td>INDUSTRY1</td>
-<td>1 digit
+<tr class="row-odd"><td><p>30</p></td>
+<td><p>INDUSTRY1</p></td>
+<td><p>1 digit
 industry
 classification,
-Primary job</td>
-<td>IND</td>
+Primary job</p></td>
+<td><p>IND</p></td>
 </tr>
-<tr class="row-even"><td>31</td>
-<td>EMPCAT1</td>
-<td>Employment
+<tr class="row-even"><td><p>31</p></td>
+<td><p>EMPCAT1</p></td>
+<td><p>Employment
 categories,
-Primary job</td>
-<td>IND</td>
+Primary job</p></td>
+<td><p>IND</p></td>
 </tr>
-<tr class="row-odd"><td>32</td>
-<td>WHOURSWEEK1</td>
-<td>Hours worked
+<tr class="row-odd"><td><p>32</p></td>
+<td><p>WHOURSWEEK1</p></td>
+<td><p>Hours worked
 last week,
-Primary job</td>
-<td>IND</td>
+Primary job</p></td>
+<td><p>IND</p></td>
 </tr>
-<tr class="row-even"><td>33</td>
-<td>OWNHOUSE</td>
-<td>Ownership of
-dwelling unit</td>
-<td>HH</td>
+<tr class="row-even"><td><p>33</p></td>
+<td><p>OWNHOUSE</p></td>
+<td><p>Ownership of
+dwelling unit</p></td>
+<td><p>HH</p></td>
 </tr>
-<tr class="row-odd"><td>34</td>
-<td>ROOF</td>
-<td>Main material
-used for roof</td>
-<td>HH</td>
+<tr class="row-odd"><td><p>34</p></td>
+<td><p>ROOF</p></td>
+<td><p>Main material
+used for roof</p></td>
+<td><p>HH</p></td>
 </tr>
-<tr class="row-even"><td>35</td>
-<td>TOILET</td>
-<td>Main toilet
-facility</td>
-<td>HH</td>
+<tr class="row-even"><td><p>35</p></td>
+<td><p>TOILET</p></td>
+<td><p>Main toilet
+facility</p></td>
+<td><p>HH</p></td>
 </tr>
-<tr class="row-odd"><td>36</td>
-<td>ELECTCON</td>
-<td>Connection of
+<tr class="row-odd"><td><p>36</p></td>
+<td><p>ELECTCON</p></td>
+<td><p>Connection of
 electricity in
-dwelling</td>
-<td>HH</td>
+dwelling</p></td>
+<td><p>HH</p></td>
 </tr>
-<tr class="row-even"><td>37</td>
-<td>FUELCOOK</td>
-<td>Main cooking
-fuel</td>
-<td>HH</td>
+<tr class="row-even"><td><p>37</p></td>
+<td><p>FUELCOOK</p></td>
+<td><p>Main cooking
+fuel</p></td>
+<td><p>HH</p></td>
 </tr>
-<tr class="row-odd"><td>38</td>
-<td>WATER</td>
-<td>Main source of
-water</td>
-<td>HH</td>
+<tr class="row-odd"><td><p>38</p></td>
+<td><p>WATER</p></td>
+<td><p>Main source of
+water</p></td>
+<td><p>HH</p></td>
 </tr>
-<tr class="row-even"><td>39</td>
-<td>OWNAGLAND</td>
-<td>Ownership of
+<tr class="row-even"><td><p>39</p></td>
+<td><p>OWNAGLAND</p></td>
+<td><p>Ownership of
 agricultural
-land</td>
-<td>HH</td>
+land</p></td>
+<td><p>HH</p></td>
 </tr>
-<tr class="row-odd"><td>40</td>
-<td>LANDSIZEHA</td>
-<td>Land size owned
+<tr class="row-odd"><td><p>40</p></td>
+<td><p>LANDSIZEHA</p></td>
+<td><p>Land size owned
 by household
-(ha)</td>
-<td>HH</td>
+(ha)</p></td>
+<td><p>HH</p></td>
 </tr>
-<tr class="row-even"><td>41</td>
-<td>OWNMOTORCYCLE</td>
-<td>Ownership of
-motorcycle</td>
-<td>HH</td>
+<tr class="row-even"><td><p>41</p></td>
+<td><p>OWNMOTORCYCLE</p></td>
+<td><p>Ownership of
+motorcycle</p></td>
+<td><p>HH</p></td>
 </tr>
-<tr class="row-odd"><td>42</td>
-<td>CAR</td>
-<td>Ownership of
-car</td>
-<td>HH</td>
+<tr class="row-odd"><td><p>42</p></td>
+<td><p>CAR</p></td>
+<td><p>Ownership of
+car</p></td>
+<td><p>HH</p></td>
 </tr>
-<tr class="row-even"><td>43</td>
-<td>TV</td>
-<td>Ownership of
-television</td>
-<td>HH</td>
+<tr class="row-even"><td><p>43</p></td>
+<td><p>TV</p></td>
+<td><p>Ownership of
+television</p></td>
+<td><p>HH</p></td>
 </tr>
-<tr class="row-odd"><td>44</td>
-<td>LIVESTOCK</td>
-<td>Number of
+<tr class="row-odd"><td><p>44</p></td>
+<td><p>LIVESTOCK</p></td>
+<td><p>Number of
 large-sized
-livestock owned</td>
-<td>HH</td>
+livestock owned</p></td>
+<td><p>HH</p></td>
 </tr>
-<tr class="row-even"><td>45</td>
-<td>INCRMT</td>
-<td>Total amount of
+<tr class="row-even"><td><p>45</p></td>
+<td><p>INCRMT</p></td>
+<td><p>Total amount of
 remittances
 received from
 remittance
-sending members</td>
-<td>HH</td>
+sending members</p></td>
+<td><p>HH</p></td>
 </tr>
-<tr class="row-odd"><td>46</td>
-<td>INCWAGE</td>
-<td>Wage and
-salaries (annual)</td>
-<td>HH</td>
+<tr class="row-odd"><td><p>46</p></td>
+<td><p>INCWAGE</p></td>
+<td><p>Wage and
+salaries (annual)</p></td>
+<td><p>HH</p></td>
 </tr>
-<tr class="row-even"><td>47</td>
-<td>INCBONSOCALL</td>
-<td>Bonus and
+<tr class="row-even"><td><p>47</p></td>
+<td><p>INCBONSOCALL</p></td>
+<td><p>Bonus and
 social
 allowance from
 wage
-job (annual)</td>
-<td>HH</td>
+job (annual)</p></td>
+<td><p>HH</p></td>
 </tr>
-<tr class="row-odd"><td>48</td>
-<td>INCFARMBSN</td>
-<td>Gross income
+<tr class="row-odd"><td><p>48</p></td>
+<td><p>INCFARMBSN</p></td>
+<td><p>Gross income
 from household
 farm
-businesses (annual)</td>
-<td>HH</td>
+businesses (annual)</p></td>
+<td><p>HH</p></td>
 </tr>
-<tr class="row-even"><td>49</td>
-<td>INCNFARMBSN</td>
-<td>Gross income
+<tr class="row-even"><td><p>49</p></td>
+<td><p>INCNFARMBSN</p></td>
+<td><p>Gross income
 from household
 non-farm
-businesses (annual)</td>
-<td>HH</td>
+businesses (annual)</p></td>
+<td><p>HH</p></td>
 </tr>
-<tr class="row-odd"><td>50</td>
-<td>INCRENT</td>
-<td>Rental
-income (annual)</td>
-<td>HH</td>
+<tr class="row-odd"><td><p>50</p></td>
+<td><p>INCRENT</p></td>
+<td><p>Rental
+income (annual)</p></td>
+<td><p>HH</p></td>
 </tr>
-<tr class="row-even"><td>51</td>
-<td>INCFIN</td>
-<td>Financial
+<tr class="row-even"><td><p>51</p></td>
+<td><p>INCFIN</p></td>
+<td><p>Financial
 income from
 savings, loans,
 tax refunds,
 maturity
 payments on
-insurance</td>
-<td>HH</td>
+insurance</p></td>
+<td><p>HH</p></td>
 </tr>
-<tr class="row-odd"><td>52</td>
-<td>INCPENSN</td>
-<td>Pension and
+<tr class="row-odd"><td><p>52</p></td>
+<td><p>INCPENSN</p></td>
+<td><p>Pension and
 other social
-assistance (annual)</td>
-<td>HH</td>
+assistance (annual)</p></td>
+<td><p>HH</p></td>
 </tr>
-<tr class="row-even"><td>53</td>
-<td>INCOTHER</td>
-<td>Other
-income(annual)</td>
-<td>HH</td>
+<tr class="row-even"><td><p>53</p></td>
+<td><p>INCOTHER</p></td>
+<td><p>Other
+income(annual)</p></td>
+<td><p>HH</p></td>
 </tr>
-<tr class="row-odd"><td>54</td>
-<td>INCTOTGROSSHH</td>
-<td>Total gross
+<tr class="row-odd"><td><p>54</p></td>
+<td><p>INCTOTGROSSHH</p></td>
+<td><p>Total gross
 household
-income (annual)</td>
-<td>HH</td>
+income (annual)</p></td>
+<td><p>HH</p></td>
 </tr>
-<tr class="row-even"><td>55</td>
-<td>FARMEMP</td>
-<td>Farm employment</td>
-<td>HH</td>
+<tr class="row-even"><td><p>55</p></td>
+<td><p>FARMEMP</p></td>
+<td><p>Farm employment</p></td>
+<td><p>HH</p></td>
 </tr>
-<tr class="row-odd"><td>56</td>
-<td>THOUSEXP</td>
-<td>Total
+<tr class="row-odd"><td><p>56</p></td>
+<td><p>THOUSEXP</p></td>
+<td><p>Total
 expenditure on
-housing</td>
-<td>HH</td>
+housing</p></td>
+<td><p>HH</p></td>
 </tr>
-<tr class="row-even"><td>57</td>
-<td>TFOODEXP</td>
-<td>Total food
-expenditure</td>
-<td>HH</td>
+<tr class="row-even"><td><p>57</p></td>
+<td><p>TFOODEXP</p></td>
+<td><p>Total food
+expenditure</p></td>
+<td><p>HH</p></td>
 </tr>
-<tr class="row-odd"><td>58</td>
-<td>TALCHEXP</td>
-<td>Total alcohol
-expenditure</td>
-<td>HH</td>
+<tr class="row-odd"><td><p>58</p></td>
+<td><p>TALCHEXP</p></td>
+<td><p>Total alcohol
+expenditure</p></td>
+<td><p>HH</p></td>
 </tr>
-<tr class="row-even"><td>59</td>
-<td>TCLTHEXP</td>
-<td>Total
+<tr class="row-even"><td><p>59</p></td>
+<td><p>TCLTHEXP</p></td>
+<td><p>Total
 expenditure on
 clothing and
-footwear</td>
-<td>HH</td>
+footwear</p></td>
+<td><p>HH</p></td>
 </tr>
-<tr class="row-odd"><td>60</td>
-<td>TFURNEXP</td>
-<td>Total
+<tr class="row-odd"><td><p>60</p></td>
+<td><p>TFURNEXP</p></td>
+<td><p>Total
 expenditure on
-furnishing</td>
-<td>HH</td>
+furnishing</p></td>
+<td><p>HH</p></td>
 </tr>
-<tr class="row-even"><td>61</td>
-<td>THLTHEXP</td>
-<td>Total
+<tr class="row-even"><td><p>61</p></td>
+<td><p>THLTHEXP</p></td>
+<td><p>Total
 expenditure on
-health</td>
-<td>HH</td>
+health</p></td>
+<td><p>HH</p></td>
 </tr>
-<tr class="row-odd"><td>62</td>
-<td>TTRANSEXP</td>
-<td>Total
+<tr class="row-odd"><td><p>62</p></td>
+<td><p>TTRANSEXP</p></td>
+<td><p>Total
 expenditure on
-transport</td>
-<td>HH</td>
+transport</p></td>
+<td><p>HH</p></td>
 </tr>
-<tr class="row-even"><td>63</td>
-<td>TCOMMEXP</td>
-<td>Total
+<tr class="row-even"><td><p>63</p></td>
+<td><p>TCOMMEXP</p></td>
+<td><p>Total
 expenditure on
-communications</td>
-<td>HH</td>
+communications</p></td>
+<td><p>HH</p></td>
 </tr>
-<tr class="row-odd"><td>64</td>
-<td>TRECEXP</td>
-<td>Total
+<tr class="row-odd"><td><p>64</p></td>
+<td><p>TRECEXP</p></td>
+<td><p>Total
 expenditure on
-recreation</td>
-<td>HH</td>
+recreation</p></td>
+<td><p>HH</p></td>
 </tr>
-<tr class="row-even"><td>65</td>
-<td>TEDUEXP</td>
-<td>Total
+<tr class="row-even"><td><p>65</p></td>
+<td><p>TEDUEXP</p></td>
+<td><p>Total
 expenditure on
-education</td>
-<td>HH</td>
+education</p></td>
+<td><p>HH</p></td>
 </tr>
-<tr class="row-odd"><td>66</td>
-<td>TRESTHOTEXP</td>
-<td>Total
+<tr class="row-odd"><td><p>66</p></td>
+<td><p>TRESTHOTEXP</p></td>
+<td><p>Total
 expenditure on
 restaurants and
-hotel</td>
-<td>HH</td>
+hotel</p></td>
+<td><p>HH</p></td>
 </tr>
-<tr class="row-even"><td>67</td>
-<td>TMISCEXP</td>
-<td>Total
+<tr class="row-even"><td><p>67</p></td>
+<td><p>TMISCEXP</p></td>
+<td><p>Total
 miscellaneous
-expenditure</td>
-<td>HH</td>
+expenditure</p></td>
+<td><p>HH</p></td>
 </tr>
-<tr class="row-odd"><td>68</td>
-<td>TANHHEXP</td>
-<td>Total annual
+<tr class="row-odd"><td><p>68</p></td>
+<td><p>TANHHEXP</p></td>
+<td><p>Total annual
 nominal
 household
-expenditures</td>
-<td>HH</td>
+expenditures</p></td>
+<td><p>HH</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="section" id="appendix-b-example-of-blanket-agreement-for-suf">
 <h2>Appendix B: Example of Blanket Agreement for SUF<a class="headerlink" href="#appendix-b-example-of-blanket-agreement-for-suf" title="Permalink to this headline">¶</a></h2>
-<div class="figure align-center">
-<img alt="_images/blanketagreement.pdf" src="_images/blanketagreement.pdf" />
-</div>
+<p><strong>Agreement between [providing agency] and [receiving agency] regarding
+the deposit and use of microdata</strong></p>
+<p><strong>A. This agreement relates to the following microdatasets:</strong></p>
+<ol class="arabic simple">
+<li><p>_______________________________________________________</p></li>
+<li><p>_______________________________________________________</p></li>
+<li><p>_______________________________________________________</p></li>
+<li><p>_______________________________________________________</p></li>
+<li><p>_______________________________________________________</p></li>
+</ol>
+<ol class="upperalpha simple" start="2">
+<li><p>Terms of the agreement:</p></li>
+</ol>
+<p>As the owner of the copyright in the materials listed in section A, or
+as duly authorized by the owner of the copyright in the materials, the
+representative of [providing agency] grants the [receiving agency]
+permission for the datasets listed in section A to be used by [receiving
+agency] employees, subject to the following conditions:</p>
+<ol class="arabic simple">
+<li><p>Microdata (including subsets of the datasets) and copyrighted
+materials provided by the [providing agency] will not be
+redistributed or sold to other individuals, institutions or
+organisations without the [providing agency]’s written agreement.
+Non-copyrighted materials which do not contain microdata (such as
+survey questionnaires, manuals, codebooks, or data dictionaries) may
+be distributed without further authorization. The ownership of all
+materials provided by the [providing agency] remains with the
+[providing agency].</p></li>
+<li><p>Data will be used for statistical and scientific research purposes
+only. They will be employed solely for reporting aggregated
+information, including modeling, and not for investigating specific
+individuals or organisations.</p></li>
+<li><p>No attempt will be made to re-identify respondents, and there will
+be no use of the identity of any person or establishment discovered
+inadvertently. Any such discovery will be reported immediately to
+the [providing agency].</p></li>
+<li><p>No attempt will be made to produce links between datasets provided
+by the [providing agency] or between [providing agency] data and
+other datasets that could identify individuals or organisations.</p></li>
+<li><p>Any books, articles, conference papers, theses, dissertations,
+reports or other publications employing data obtained from the
+[providing agency] will cite the source, in line with the citation
+requirement provided with the dataset.</p></li>
+<li><p>An electronic copy of all publications based on the requested data
+will be sent to the [providing agency].</p></li>
+<li><p>The [providing agency] and the relevant funding agencies bear no
+responsibility the data’s use or for interpretation or inferences
+based upon it.</p></li>
+<li><p>An electronic copy of all publications based on the requested data
+will be sent to the [providing agency].</p></li>
+<li><p>Data will be stored in a secure environment, with adequate access
+restrictions. The [providing agency] may at any time request
+information on the storage and dissemination facilities in place.</p></li>
+<li><p>The [recipient agency] will provide an annual report on uses and
+users of the listed microdatasets to the [providing agency], with
+information on the number of researchers having accessed each
+dataset, and on the output of this research.</p></li>
+<li><p>This access is granted for a period of [provide information on this
+period, or state that the agreement is open ended].</p></li>
+</ol>
+<ol class="upperalpha simple" start="3">
+<li><p>Communications:</p></li>
+</ol>
+<p>The [receiving organisation] will appoint a contact person who</p>
+<p>will act as unique focal person for this agreement. Should the focal
+person be replaced, the [recipient agency] will immediately communicate
+the name and coordinates of the new contact person to the [providing
+agency]. Communications for administrative and procedural purposes may
+be made by email, fax or letter as follows:</p>
+<p>Communications made by [providing agency] to [recipient agency] will be
+directed to:</p>
+<p>Name of contact person:</p>
+<p>Title of contact person:</p>
+<p>Address of the recipient agency:</p>
+<p>Email:</p>
+<p>Tel:</p>
+<p>Fax:</p>
+<p>Communications made by [recipient agency] to [depositor agency]</p>
+<p>will be directed to:</p>
+<p>Name of contact person:</p>
+<p>Title of contact person:</p>
+<p>Address of the recipient agency:</p>
+<p>Email:</p>
+<p>Tel:</p>
+<p>Fax:</p>
+<p><strong>D. Signatories</strong></p>
+<p>The following signatories have read and agree with the Agreement as
+presented above:</p>
+<p><strong>Representative of the [providing agency]</strong></p>
+<p>Name ____________________________________________________</p>
+<p>Signature _______________________________ Date ______________</p>
+<p><strong>Representative of the [recipient agency]</strong></p>
+<p>Name ____________________________________________________</p>
+<p>Signature _______________________________ Date ______________</p>
 <p>Source: <a class="reference internal" href="#dubo10">DuBo10</a></p>
 </div>
 <div class="section" id="appendix-c-internal-and-external-reports-for-case-studies">
 <h2>Appendix C: Internal and External Reports for Case Studies<a class="headerlink" href="#appendix-c-internal-and-external-reports-for-case-studies" title="Permalink to this headline">¶</a></h2>
-<p>This appendix provides example for internal and external reports on the
-anonymization process for the case studies in the Section
-<a class="reference external" href="case_studies.html">Case studies</a>. The internal
-report consists of two parts: the first is on the anonymization of the
-household-level variables and the second is on the anonymization of the
+<p>This appendix provides example of internal and external reports on the
+anonymization process for the case studies in Section 9.1. The internal
+report consists of two parts: the first is for the anonymization of the
+household-level variables and the second is for the anonymization of the
 individual-level variables.</p>
+</div>
 <div class="section" id="case-study-1-internal-report">
-<h3>Case study 1 - Internal report<a class="headerlink" href="#case-study-1-internal-report" title="Permalink to this headline">¶</a></h3>
-<p>To be added</p>
+<h2><strong>Case study 1 - Internal report</strong><a class="headerlink" href="#case-study-1-internal-report" title="Permalink to this headline">¶</a></h2>
+<p><strong>SDC report</strong> (adapted from the report function in <em>sdcMicro</em>)</p>
+<p>The dataset consists of 10,574 observations (i.e., 10,574 individuals in
+2,000 households).</p>
+<p>Household-level variables</p>
+<p>Anonymization methods applied to household-level variables:</p>
+<ul class="simple">
+<li><p>Removing households of size larger than 13 (29 households)</p></li>
+<li><p>Local suppression to achieve 2-anonymity, with importance vector to
+prevent suppressing values of the variables HHSIZE, REGION and URBRUR</p></li>
+<li><p>Recoding the variable LANDSIZEHA: rounding to one digit for values
+smaller than 1, rounding to zero digits for other values, grouping
+values 5-19 and 20-40, topcoding at 40</p></li>
+<li><p>PRAMming the variables ROOF, TOILET, WATER, ELECTCON, FUELCOOK,
+OWNMOTORCYCLE, CAR, TV and LIVESTOCK</p></li>
+<li><p>Noise addition (level 0.01 and 0.05 for outliers) to the income and
+expenditure components, replacing aggregates by sum of perturbed
+components</p></li>
+</ul>
+<p>Selected (key) variables:</p>
+<ul class="simple">
+<li><p>Modifications on categorical key variables: <strong>TRUE</strong></p></li>
+<li><p>Modifications on continuous key variables: <strong>TRUE</strong></p></li>
+<li><p>Modifications using PRAM: <strong>TRUE</strong></p></li>
+<li><p>Local suppressions: <strong>TRUE</strong></p></li>
+</ul>
+<p>Disclosure risk (household-level variables):</p>
+<p>Frequency analysis for categorical key variables:</p>
+<p>Number of observations violating</p>
+<p>2-Anonymity: 0 (unmodified data: 103)</p>
+<p>3-Anonymity: 104 (unmodified data: 229)</p>
+<p>5-Anonymity: 374 (unmodified data: 489)</p>
+<p>Percentage of observations violating</p>
+<p>2-Anonymity: 0% (unmodified data: 5.15%)</p>
+<p>3-Anonymity: 5.28% (unmodified data: 11.45%)</p>
+<p>5-Anonymity: 18.7% (unmodified data: 24.45%)</p>
+<p>Disclosure risk categorical variables:</p>
+<p>Expected Percentage of Re-identifications: 0.05161614% (~ 1.0
+observations)</p>
+<p>(unmodified data: 0.001820465% (~ 0.36 observations))</p>
+<p>10 combinations of categories with highest risk:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 5%" />
+<col style="width: 15%" />
+<col style="width: 15%" />
+<col style="width: 15%" />
+<col style="width: 18%" />
+<col style="width: 13%" />
+<col style="width: 10%" />
+<col style="width: 10%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"></th>
+<th class="head"><p>URBRUR</p></th>
+<th class="head"><p>REGION</p></th>
+<th class="head"><p>HHSIZE</p></th>
+<th class="head"><p>OWNAGLAND</p></th>
+<th class="head"><p>RELIG</p></th>
+<th class="head"><p>fk</p></th>
+<th class="head"><p>Fk</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>2</p></td>
+<td><p>6</p></td>
+<td><p>2</p></td>
+<td><p>3</p></td>
+<td><p>7</p></td>
+<td><p>1</p></td>
+<td><p>372.37</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>1</p></td>
+<td><p>5</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>6</p></td>
+<td><p>1</p></td>
+<td><p>226.35</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>2</p></td>
+<td><p>5</p></td>
+<td><p>2</p></td>
+<td><p>3</p></td>
+<td><p>6</p></td>
+<td><p>1</p></td>
+<td><p>430.21</p></td>
+</tr>
+<tr class="row-odd"><td><p>4</p></td>
+<td><p>2</p></td>
+<td><p>2</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>NA</p></td>
+<td><p>1</p></td>
+<td><p>173.05</p></td>
+</tr>
+<tr class="row-even"><td><p>5</p></td>
+<td><p>2</p></td>
+<td><p>6</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>5</p></td>
+<td><p>1</p></td>
+<td><p>80.05</p></td>
+</tr>
+<tr class="row-odd"><td><p>6</p></td>
+<td><p>1</p></td>
+<td><p>6</p></td>
+<td><p>1</p></td>
+<td><p>3</p></td>
+<td><p>5</p></td>
+<td><p>1</p></td>
+<td><p>343.27</p></td>
+</tr>
+<tr class="row-even"><td><p>7</p></td>
+<td><p>2</p></td>
+<td><p>5</p></td>
+<td><p>1</p></td>
+<td><p>2</p></td>
+<td><p>NA</p></td>
+<td><p>1</p></td>
+<td><p>140.60</p></td>
+</tr>
+<tr class="row-odd"><td><p>8</p></td>
+<td><p>2</p></td>
+<td><p>6</p></td>
+<td><p>1</p></td>
+<td><p>3</p></td>
+<td><p>7</p></td>
+<td><p>1</p></td>
+<td><p>230.29</p></td>
+</tr>
+<tr class="row-even"><td><p>9</p></td>
+<td><p>2</p></td>
+<td><p>5</p></td>
+<td><p>12</p></td>
+<td><p>1</p></td>
+<td><p>9</p></td>
+<td><p>1</p></td>
+<td><p>475.01</p></td>
+</tr>
+<tr class="row-odd"><td><p>10</p></td>
+<td><p>2</p></td>
+<td><p>6</p></td>
+<td><p>3</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>338.57</p></td>
+</tr>
+</tbody>
+</table>
+<p>Disclosure risk continuous scaled variables:</p>
+<p>Distance-based Disclosure Risk for Continuous Key Variables:</p>
+<p>Disclosure Risk is between 0% and 100% in the modified data. In the
+original data, the risk is approximately 100%.</p>
+<p>Data Utility (household-level variables):</p>
+<p><strong>29 households have been removed due to their household sizes</strong></p>
+<p><strong>Frequencies categorical key variables</strong></p>
+<p><strong>URBRUR</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 46%" />
+<col style="width: 21%" />
+<col style="width: 18%" />
+<col style="width: 14%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>categories1</p></th>
+<th class="head"><p>1</p></th>
+<th class="head"><p>2</p></th>
+<th class="head"><p>NA</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>orig</p></td>
+<td><p>1316</p></td>
+<td><p>684</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td><p>categories2</p></td>
+<td><p>1</p></td>
+<td><p>2</p></td>
+<td><p>NA</p></td>
+</tr>
+<tr class="row-even"><td><p>recoded</p></td>
+<td><p>1299</p></td>
+<td><p>666</p></td>
+<td><p>6</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>REGION</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 28%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 9%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>categories1</p></th>
+<th class="head"><p>1</p></th>
+<th class="head"><p>2</p></th>
+<th class="head"><p>3</p></th>
+<th class="head"><p>4</p></th>
+<th class="head"><p>5</p></th>
+<th class="head"><p>6</p></th>
+<th class="head"><p>NA</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>orig</p></td>
+<td><p>324</p></td>
+<td><p>334</p></td>
+<td><p>371</p></td>
+<td><p>375</p></td>
+<td><p>260</p></td>
+<td><p>336</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td><p>categories2</p></td>
+<td><p>1</p></td>
+<td><p>2</p></td>
+<td><p>3</p></td>
+<td><p>4</p></td>
+<td><p>5</p></td>
+<td><p>6</p></td>
+<td><p>NA</p></td>
+</tr>
+<tr class="row-even"><td><p>recoded</p></td>
+<td><p>315</p></td>
+<td><p>328</p></td>
+<td><p>370</p></td>
+<td><p>370</p></td>
+<td><p>257</p></td>
+<td><p>330</p></td>
+<td><p>1</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>HHSIZE</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 19%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 6%" />
+<col style="width: 6%" />
+<col style="width: 6%" />
+<col style="width: 6%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>categories1</p></th>
+<th class="head"><p>1</p></th>
+<th class="head"><p>2</p></th>
+<th class="head"><p>3</p></th>
+<th class="head"><p>4</p></th>
+<th class="head"><p>5</p></th>
+<th class="head"><p>6</p></th>
+<th class="head"><p>7</p></th>
+<th class="head"><p>8</p></th>
+<th class="head"><p>9</p></th>
+<th class="head"><p>10</p></th>
+<th class="head"><p>11</p></th>
+<th class="head"><p>12</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>orig</p></td>
+<td><p>152</p></td>
+<td><p>194</p></td>
+<td><p>238</p></td>
+<td><p>295</p></td>
+<td><p>276</p></td>
+<td><p>252</p></td>
+<td><p>214</p></td>
+<td><p>134</p></td>
+<td><p>84</p></td>
+<td><p>66</p></td>
+<td><p>34</p></td>
+<td><p>21</p></td>
+</tr>
+<tr class="row-odd"><td><p>categories1</p></td>
+<td><p>13</p></td>
+<td><p>14</p></td>
+<td><p>15</p></td>
+<td><p>16</p></td>
+<td><p>17</p></td>
+<td><p>18</p></td>
+<td><p>19</p></td>
+<td><p>20</p></td>
+<td><p>21</p></td>
+<td><p>22</p></td>
+<td><p>33</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>orig</p></td>
+<td><p>11</p></td>
+<td><p>6</p></td>
+<td><p>6</p></td>
+<td><p>5</p></td>
+<td><p>4</p></td>
+<td><p>2</p></td>
+<td><p>1</p></td>
+<td><p>2</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>categories2</p></td>
+<td><p>1</p></td>
+<td><p>2</p></td>
+<td><p>3</p></td>
+<td><p>4</p></td>
+<td><p>5</p></td>
+<td><p>6</p></td>
+<td><p>7</p></td>
+<td><p>8</p></td>
+<td><p>9</p></td>
+<td><p>10</p></td>
+<td><p>11</p></td>
+<td><p>12</p></td>
+</tr>
+<tr class="row-even"><td><p>recoded</p></td>
+<td><p>152</p></td>
+<td><p>194</p></td>
+<td><p>238</p></td>
+<td><p>295</p></td>
+<td><p>276</p></td>
+<td><p>252</p></td>
+<td><p>214</p></td>
+<td><p>134</p></td>
+<td><p>84</p></td>
+<td><p>66</p></td>
+<td><p>34</p></td>
+<td><p>21</p></td>
+</tr>
+<tr class="row-odd"><td><p>categories2</p></td>
+<td><p>13</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>recoded</p></td>
+<td><p>10</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>OWNAGLAND</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 39%" />
+<col style="width: 15%" />
+<col style="width: 15%" />
+<col style="width: 15%" />
+<col style="width: 15%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>categories1</p></th>
+<th class="head"><p>1</p></th>
+<th class="head"><p>2</p></th>
+<th class="head"><p>3</p></th>
+<th class="head"><p>NA</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>orig</p></td>
+<td><p>763</p></td>
+<td><p>500</p></td>
+<td><p>332</p></td>
+<td><p>405</p></td>
+</tr>
+<tr class="row-odd"><td><p>categories2</p></td>
+<td><p>1</p></td>
+<td><p>2</p></td>
+<td><p>3</p></td>
+<td><p>NA</p></td>
+</tr>
+<tr class="row-even"><td><p>recoded</p></td>
+<td><p>735</p></td>
+<td><p>482</p></td>
+<td><p>310</p></td>
+<td><p>444</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>RELIG</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 31%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 7%" />
+<col style="width: 12%" />
+<col style="width: 14%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>categories1</p></th>
+<th class="head"><p>1</p></th>
+<th class="head"><p>5</p></th>
+<th class="head"><p>6</p></th>
+<th class="head"><p>7</p></th>
+<th class="head"><p>9</p></th>
+<th class="head"><p>NA</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>orig</p></td>
+<td><p>179</p></td>
+<td><p>383</p></td>
+<td><p>267</p></td>
+<td><p>7</p></td>
+<td><p>154</p></td>
+<td><p>1010</p></td>
+</tr>
+<tr class="row-odd"><td><p>categories2</p></td>
+<td><p>1</p></td>
+<td><p>5</p></td>
+<td><p>6</p></td>
+<td><p>7</p></td>
+<td><p>9</p></td>
+<td><p>NA</p></td>
+</tr>
+<tr class="row-even"><td><p>recoded</p></td>
+<td><p>175</p></td>
+<td><p>380</p></td>
+<td><p>260</p></td>
+<td><p>5</p></td>
+<td><p>148</p></td>
+<td><p>1003</p></td>
+</tr>
+</tbody>
+</table>
+<p>Local suppressions</p>
+<p>Number of local suppressions:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 17%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"></th>
+<th class="head"><p>URBRUR</p></th>
+<th class="head"><p>REGION</p></th>
+<th class="head"><p>HHSIZE</p></th>
+<th class="head"><p>OWNAGLAND</p></th>
+<th class="head"><p>RELIG</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>absolute</p></td>
+<td><p>6</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>48</p></td>
+<td><p>16</p></td>
+</tr>
+<tr class="row-odd"><td><p>relative
+(in
+percent)</p></td>
+<td><p>0.304%</p></td>
+<td><p>0.051%</p></td>
+<td><p>0.051%</p></td>
+<td><p>2.435%</p></td>
+<td><p>0.812%</p></td>
+</tr>
+</tbody>
+</table>
+<p>Data utility of continuous scaled key variables:</p>
+<p><strong>Univariate summary:</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 14%" />
+<col style="width: 14%" />
+<col style="width: 14%" />
+<col style="width: 14%" />
+<col style="width: 14%" />
+<col style="width: 14%" />
+<col style="width: 14%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"></th>
+<th class="head"><p>Min.</p></th>
+<th class="head"><p>1st Qu</p></th>
+<th class="head"><p>Median</p></th>
+<th class="head"><p>Mean</p></th>
+<th class="head"><p>3rd Qu</p></th>
+<th class="head"><p>Max.</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>TANHHEX
+P</p></td>
+<td><p>0</p></td>
+<td><p>0,2</p></td>
+<td><p>1</p></td>
+<td><p>6,689</p></td>
+<td><p>2,421</p></td>
+<td><p>1214</p></td>
+</tr>
+<tr class="row-odd"><td><p>TANHHEX
+P.m</p></td>
+<td><p>0</p></td>
+<td><p>0,2</p></td>
+<td><p>1</p></td>
+<td><p>3,427</p></td>
+<td><p>2</p></td>
+<td><p>40</p></td>
+</tr>
+<tr class="row-even"><td><p>TFOODEX
+P</p></td>
+<td><p>498</p></td>
+<td><p>15170</p></td>
+<td><p>17090</p></td>
+<td><p>24340</p></td>
+<td><p>23260</p></td>
+<td><p>353200</p></td>
+</tr>
+<tr class="row-odd"><td><p>TFOODEX
+P.m</p></td>
+<td><p>127,1</p></td>
+<td><p>15100</p></td>
+<td><p>17060</p></td>
+<td><p>23410</p></td>
+<td><p>22110</p></td>
+<td><p>275300</p></td>
+</tr>
+<tr class="row-even"><td><p>TALCHEX
+P</p></td>
+<td><p>0</p></td>
+<td><p>8438</p></td>
+<td><p>11890</p></td>
+<td><p>12920</p></td>
+<td><p>13070</p></td>
+<td><p>127900</p></td>
+</tr>
+<tr class="row-odd"><td><p>TALCHEX
+P.m</p></td>
+<td><p>-209,7</p></td>
+<td><p>8377</p></td>
+<td><p>11880</p></td>
+<td><p>12570</p></td>
+<td><p>13030</p></td>
+<td><p>124800</p></td>
+</tr>
+<tr class="row-even"><td><p>TCLTHEX
+P</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>401,7</p></td>
+<td><p>0</p></td>
+<td><p>85280</p></td>
+</tr>
+<tr class="row-odd"><td><p>TCLTHEX
+P.m</p></td>
+<td><p>-77,53</p></td>
+<td><p>-13,59</p></td>
+<td><p>6,42</p></td>
+<td><p>404,7</p></td>
+<td><p>30,69</p></td>
+<td><p>85280</p></td>
+</tr>
+<tr class="row-even"><td><p>THOUSEX
+P</p></td>
+<td><p>0</p></td>
+<td><p>121</p></td>
+<td><p>131</p></td>
+<td><p>733,8</p></td>
+<td><p>672,8</p></td>
+<td><p>28400</p></td>
+</tr>
+<tr class="row-odd"><td><p>THOUSEX
+P.m</p></td>
+<td><p>-54,65</p></td>
+<td><p>111,4</p></td>
+<td><p>138,8</p></td>
+<td><p>706,1</p></td>
+<td><p>618,9</p></td>
+<td><p>28410</p></td>
+</tr>
+<tr class="row-even"><td><p>TFURNEX
+P</p></td>
+<td><p>0</p></td>
+<td><p>1211</p></td>
+<td><p>1340</p></td>
+<td><p>2233</p></td>
+<td><p>1970</p></td>
+<td><p>197500</p></td>
+</tr>
+<tr class="row-odd"><td><p>TFURNEX
+P.m</p></td>
+<td><p>-39,54</p></td>
+<td><p>1198</p></td>
+<td><p>1340</p></td>
+<td><p>2066</p></td>
+<td><p>1933</p></td>
+<td><p>49230</p></td>
+</tr>
+<tr class="row-even"><td><p>THLTHEX
+P</p></td>
+<td><p>0</p></td>
+<td><p>153,8</p></td>
+<td><p>167</p></td>
+<td><p>479,8</p></td>
+<td><p>302</p></td>
+<td><p>17780</p></td>
+</tr>
+<tr class="row-odd"><td><p>THLTHEX
+P.m</p></td>
+<td><p>-18,79</p></td>
+<td><p>146,8</p></td>
+<td><p>168,6</p></td>
+<td><p>453,1</p></td>
+<td><p>295,2</p></td>
+<td><p>15720</p></td>
+</tr>
+<tr class="row-even"><td><p>TTRANSE
+XP</p></td>
+<td><p>0</p></td>
+<td><p>1</p></td>
+<td><p>634</p></td>
+<td><p>961</p></td>
+<td><p>687</p></td>
+<td><p>49650</p></td>
+</tr>
+<tr class="row-odd"><td><p>TTANSEX
+P.m</p></td>
+<td><p>-80,58</p></td>
+<td><p>26,66</p></td>
+<td><p>627,1</p></td>
+<td><p>917,2</p></td>
+<td><p>692,4</p></td>
+<td><p>49640</p></td>
+</tr>
+<tr class="row-even"><td><p>TCOMMEX
+P</p></td>
+<td><p>0</p></td>
+<td><p>146</p></td>
+<td><p>241</p></td>
+<td><p>1158</p></td>
+<td><p>434</p></td>
+<td><p>91920</p></td>
+</tr>
+<tr class="row-odd"><td><p>TCOMMEX
+P.m</p></td>
+<td><p>-115,2</p></td>
+<td><p>139,1</p></td>
+<td><p>238,3</p></td>
+<td><p>1104</p></td>
+<td><p>403,2</p></td>
+<td><p>91920</p></td>
+</tr>
+<tr class="row-even"><td><p>TRECEXP</p></td>
+<td><p>0</p></td>
+<td><p>3</p></td>
+<td><p>95</p></td>
+<td><p>577,2</p></td>
+<td><p>107</p></td>
+<td><p>34000</p></td>
+</tr>
+<tr class="row-odd"><td><p>TRECEXP
+.m</p></td>
+<td><p>-61,27</p></td>
+<td><p>21,35</p></td>
+<td><p>92,28</p></td>
+<td><p>555,4</p></td>
+<td><p>128,8</p></td>
+<td><p>33960</p></td>
+</tr>
+<tr class="row-even"><td><p>TEDUEXP</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>123,7</p></td>
+<td><p>0</p></td>
+<td><p>15880</p></td>
+</tr>
+<tr class="row-odd"><td><p>TEDUEXP
+.m</p></td>
+<td><p>-29,23</p></td>
+<td><p>-5,06</p></td>
+<td><p>1,213</p></td>
+<td><p>121,8</p></td>
+<td><p>9,748</p></td>
+<td><p>15860</p></td>
+</tr>
+<tr class="row-even"><td><p>TRESHOT
+EXP</p></td>
+<td><p>0</p></td>
+<td><p>154</p></td>
+<td><p>722</p></td>
+<td><p>2730</p></td>
+<td><p>784</p></td>
+<td><p>240300</p></td>
+</tr>
+<tr class="row-odd"><td><p>TRESHOT
+EXP.m</p></td>
+<td><p>-396,1</p></td>
+<td><p>190,5</p></td>
+<td><p>671,6</p></td>
+<td><p>2568</p></td>
+<td><p>872</p></td>
+<td><p>240400</p></td>
+</tr>
+<tr class="row-even"><td><p>TMISCEX
+P</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>467</p></td>
+<td><p>875,1</p></td>
+<td><p>528</p></td>
+<td><p>63700</p></td>
+</tr>
+<tr class="row-odd"><td><p>TMISCEX
+P.m</p></td>
+<td><p>-93,39</p></td>
+<td><p>0,7588</p></td>
+<td><p>442,7</p></td>
+<td><p>860,7</p></td>
+<td><p>531,9</p></td>
+<td><p>63680</p></td>
+</tr>
+<tr class="row-even"><td><p>INCTOTG
+ROSSHH</p></td>
+<td><p>0</p></td>
+<td><p>444</p></td>
+<td><p>1041</p></td>
+<td><p>1148</p></td>
+<td><p>1126</p></td>
+<td><p>67420</p></td>
+</tr>
+<tr class="row-odd"><td><p>INCTOTG
+ROSSHH.
+m</p></td>
+<td><p>-24,92</p></td>
+<td><p>446</p></td>
+<td><p>1041</p></td>
+<td><p>1087</p></td>
+<td><p>1124</p></td>
+<td><p>14940</p></td>
+</tr>
+<tr class="row-even"><td><p>INCRMT</p></td>
+<td><p>5000</p></td>
+<td><p>12400</p></td>
+<td><p>13390</p></td>
+<td><p>30840</p></td>
+<td><p>24200</p></td>
+<td><p>683900</p></td>
+</tr>
+<tr class="row-odd"><td><p>INCRMT.
+m</p></td>
+<td><p>4069</p></td>
+<td><p>9071</p></td>
+<td><p>17000</p></td>
+<td><p>33040</p></td>
+<td><p>36680</p></td>
+<td><p>570000</p></td>
+</tr>
+<tr class="row-even"><td><p>INCWAGE</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>1276</p></td>
+<td><p>0</p></td>
+<td><p>300000</p></td>
+</tr>
+<tr class="row-odd"><td><p>INCWAGE
+.m</p></td>
+<td><p>-295,1</p></td>
+<td><p>-46,95</p></td>
+<td><p>20,93</p></td>
+<td><p>1261</p></td>
+<td><p>114,4</p></td>
+<td><p>300100</p></td>
+</tr>
+<tr class="row-even"><td><p>INCFARM
+BSN</p></td>
+<td><p>0</p></td>
+<td><p>9262</p></td>
+<td><p>12950</p></td>
+<td><p>23460</p></td>
+<td><p>14570</p></td>
+<td><p>683900</p></td>
+</tr>
+<tr class="row-odd"><td><p>INCFARM
+BSN.m</p></td>
+<td><p>-1466</p></td>
+<td><p>9336</p></td>
+<td><p>12980</p></td>
+<td><p>23420</p></td>
+<td><p>14750</p></td>
+<td><p>684000</p></td>
+</tr>
+<tr class="row-even"><td><p>INCNFAR
+MBSN</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>3809</p></td>
+<td><p>3900</p></td>
+<td><p>165400</p></td>
+</tr>
+<tr class="row-odd"><td><p>INCNFAR
+MBSN.m</p></td>
+<td><p>-232,4</p></td>
+<td><p>-10,69</p></td>
+<td><p>142,6</p></td>
+<td><p>3415</p></td>
+<td><p>3846</p></td>
+<td><p>160100</p></td>
+</tr>
+<tr class="row-even"><td><p>INCRENT</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>827,5</p></td>
+<td><p>9166</p></td>
+<td><p>7307</p></td>
+<td><p>400000</p></td>
+</tr>
+<tr class="row-odd"><td><p>INCRENT
+.m</p></td>
+<td><p>-757,4</p></td>
+<td><p>43,89</p></td>
+<td><p>783,7</p></td>
+<td><p>8637</p></td>
+<td><p>7267</p></td>
+<td><p>394800</p></td>
+</tr>
+<tr class="row-even"><td><p>INCFIN</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>1783</p></td>
+<td><p>0</p></td>
+<td><p>120000</p></td>
+</tr>
+<tr class="row-odd"><td><p>INCFIN.
+m</p></td>
+<td><p>-248,5</p></td>
+<td><p>-56,57</p></td>
+<td><p>11,54</p></td>
+<td><p>1608</p></td>
+<td><p>90,27</p></td>
+<td><p>120000</p></td>
+</tr>
+<tr class="row-even"><td><p>INCPENS
+N</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>74,58</p></td>
+<td><p>0</p></td>
+<td><p>14400</p></td>
+</tr>
+<tr class="row-odd"><td><p>INCPENS
+N.m</p></td>
+<td><p>-20,2</p></td>
+<td><p>-4,591</p></td>
+<td><p>0,1964</p></td>
+<td><p>76,62</p></td>
+<td><p>5,796</p></td>
+<td><p>14380</p></td>
+</tr>
+<tr class="row-even"><td><p>INCOTHE
+R</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>331,3</p></td>
+<td><p>0</p></td>
+<td><p>60000</p></td>
+</tr>
+<tr class="row-odd"><td><p>INCOTHE
+R.m</p></td>
+<td><p>-123,3</p></td>
+<td><p>-24,78</p></td>
+<td><p>-0,0261
+7</p></td>
+<td><p>331,1</p></td>
+<td><p>26,75</p></td>
+<td><p>60050</p></td>
+</tr>
+<tr class="row-even"><td><p>LANDSIZ
+EHA</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>549,1</p></td>
+<td><p>0</p></td>
+<td><p>82300</p></td>
+</tr>
+<tr class="row-odd"><td><p>LANDSIZ
+EHA.m</p></td>
+<td><p>-126,2</p></td>
+<td><p>-21,91</p></td>
+<td><p>3,4</p></td>
+<td><p>486,7</p></td>
+<td><p>30,88</p></td>
+<td><p>79670</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Information loss:</strong></p>
+<p>Criteria IL1: 0.01219892</p>
+<p><strong>Individual-level variables</strong></p>
+<ul class="simple">
+<li><p>Modifications on categorical key variables: <strong>TRUE</strong></p></li>
+<li><p>Modifications on continuous key variables: <strong>FALSE</strong></p></li>
+<li><p>Modifications using PRAM: <strong>FALSE</strong></p></li>
+<li><p>Local suppressions: <strong>TRUE</strong></p></li>
+</ul>
+<p>Disclosure risk (individual-level variables):</p>
+<p>Anonymization methods applied to individual-level variables:</p>
+<ul class="simple">
+<li><p>Recoding AGEYRS from months to years for age under 1, and to ten-year
+intervals for age values between 15 and 65, topcoding age at 65</p></li>
+<li><p>Local suppression to achieve 2-anonymity</p></li>
+</ul>
+<p>Frequency analysis for categorical key variables:</p>
+<p>Number of observations violating</p>
+<p>2-Anonymity: 0 (unmodified data: 998)</p>
+<p>3-Anonymity: 0 (unmodified data: 1384)</p>
+<p>5-Anonymity: 935 (unmodified data: 2194)</p>
+<p>Percentage of observations violating</p>
+<p>2-Anonymity: 0% (unmodified data: 9.91%)</p>
+<p>3-Anonymity: 0% (unmodified data: 13.75%)</p>
+<p>5-Anonymity: 6.23% (unmodified data: 21.79%)</p>
+<p>Disclosure risk categorical variables:</p>
+<p>Expected Percentage of Reidentifications: 0.02% (~ 2.66 observations)</p>
+<p>(unmodified data: 0.24% (~23.98 observations))</p>
+<p>Expected Percentage of Reidentifications (hierarchical risk): 0.1% (~
+15.34 observations)</p>
+<p>(unmodified data: 1.26 % (~ 127.12 observations))</p>
+<p>10 combinations of categories with highest risk:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 5%" />
+<col style="width: 10%" />
+<col style="width: 5%" />
+<col style="width: 12%" />
+<col style="width: 9%" />
+<col style="width: 9%" />
+<col style="width: 16%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"></th>
+<th class="head"><p>GENDER</p></th>
+<th class="head"><p>REL</p></th>
+<th class="head"><p>MARITAL</p></th>
+<th class="head"><p>AGEYRS</p></th>
+<th class="head"><p>EDUCY</p></th>
+<th class="head"><p>EDYRSATCURRAT</p></th>
+<th class="head"><p>ATSCHOOL</p></th>
+<th class="head"><p>INDUSTRY1</p></th>
+<th class="head"><p>fk</p></th>
+<th class="head"><p>Fk</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>3</p></td>
+<td><p>38</p></td>
+<td><p>6</p></td>
+<td><p>NA</p></td>
+<td><p>0</p></td>
+<td><p>9</p></td>
+<td><p>1</p></td>
+<td><p>73.
+31</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>3</p></td>
+<td><p>20</p></td>
+<td><p>1</p></td>
+<td><p>NA</p></td>
+<td><p>0</p></td>
+<td><p>6</p></td>
+<td><p>1</p></td>
+<td><p>69.
+53</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>2</p></td>
+<td><p>39</p></td>
+<td><p>2</p></td>
+<td><p>NA</p></td>
+<td><p>0</p></td>
+<td><p>5</p></td>
+<td><p>1</p></td>
+<td><p>54.
+63</p></td>
+</tr>
+<tr class="row-odd"><td><p>4</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>36</p></td>
+<td><p>6</p></td>
+<td><p>NA</p></td>
+<td><p>0</p></td>
+<td><p>9</p></td>
+<td><p>1</p></td>
+<td><p>73.
+31</p></td>
+</tr>
+<tr class="row-even"><td><p>5</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>3</p></td>
+<td><p>42</p></td>
+<td><p>2</p></td>
+<td><p>NA</p></td>
+<td><p>0</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>39.
+58</p></td>
+</tr>
+<tr class="row-odd"><td><p>6</p></td>
+<td><p>0</p></td>
+<td><p>1</p></td>
+<td><p>6</p></td>
+<td><p>74</p></td>
+<td><p>1</p></td>
+<td><p>NA</p></td>
+<td><p>0</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>58.
+12</p></td>
+</tr>
+<tr class="row-even"><td><p>7</p></td>
+<td><p>0</p></td>
+<td><p>1</p></td>
+<td><p>6</p></td>
+<td><p>34</p></td>
+<td><p>2</p></td>
+<td><p>NA</p></td>
+<td><p>0</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>57.
+40</p></td>
+</tr>
+<tr class="row-odd"><td><p>8</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>26</p></td>
+<td><p>4</p></td>
+<td><p>NA</p></td>
+<td><p>0</p></td>
+<td><p>5</p></td>
+<td><p>1</p></td>
+<td><p>66.
+21</p></td>
+</tr>
+<tr class="row-even"><td><p>9</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>4</p></td>
+<td><p>35</p></td>
+<td><p>1</p></td>
+<td><p>NA</p></td>
+<td><p>0</p></td>
+<td><p>10</p></td>
+<td><p>1</p></td>
+<td><p>57.
+13</p></td>
+</tr>
+<tr class="row-odd"><td><p>10</p></td>
+<td><p>1</p></td>
+<td><p>6</p></td>
+<td><p>1</p></td>
+<td><p>12</p></td>
+<td><p>1</p></td>
+<td><p>NA</p></td>
+<td><p>0</p></td>
+<td><p>5</p></td>
+<td><p>1</p></td>
+<td><p>57.
+13</p></td>
+</tr>
+</tbody>
+</table>
+<p>Data utility (individual-level variables):</p>
+<p><strong>Frequencies categorical key variables</strong></p>
+<p><strong>GENDER</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 45%" />
+<col style="width: 21%" />
+<col style="width: 21%" />
+<col style="width: 14%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>categories1</p></th>
+<th class="head"><p>0</p></th>
+<th class="head"><p>1</p></th>
+<th class="head"><p>NA</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>orig</p></td>
+<td><p>5197</p></td>
+<td><p>4871</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td><p>categories2</p></td>
+<td><p>0</p></td>
+<td><p>1</p></td>
+<td><p>NA</p></td>
+</tr>
+<tr class="row-even"><td><p>recoded</p></td>
+<td><p>5197</p></td>
+<td><p>4871</p></td>
+<td><p>0</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>REL</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 21%" />
+<col style="width: 10%" />
+<col style="width: 10%" />
+<col style="width: 10%" />
+<col style="width: 6%" />
+<col style="width: 8%" />
+<col style="width: 6%" />
+<col style="width: 8%" />
+<col style="width: 6%" />
+<col style="width: 6%" />
+<col style="width: 8%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>categories1</p></th>
+<th class="head"><p>1</p></th>
+<th class="head"><p>2</p></th>
+<th class="head"><p>3</p></th>
+<th class="head"><p>4</p></th>
+<th class="head"><p>5</p></th>
+<th class="head"><p>6</p></th>
+<th class="head"><p>7</p></th>
+<th class="head"><p>8</p></th>
+<th class="head"><p>9</p></th>
+<th class="head"><p>NA</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>orig</p></td>
+<td><p>1970</p></td>
+<td><p>1319</p></td>
+<td><p>4933</p></td>
+<td><p>57</p></td>
+<td><p>765</p></td>
+<td><p>89</p></td>
+<td><p>817</p></td>
+<td><p>51</p></td>
+<td><p>63</p></td>
+<td><p>4</p></td>
+</tr>
+<tr class="row-odd"><td><p>categories2</p></td>
+<td><p>1</p></td>
+<td><p>2</p></td>
+<td><p>3</p></td>
+<td><p>4</p></td>
+<td><p>5</p></td>
+<td><p>6</p></td>
+<td><p>7</p></td>
+<td><p>8</p></td>
+<td><p>9</p></td>
+<td><p>NA</p></td>
+</tr>
+<tr class="row-even"><td><p>recoded</p></td>
+<td><p>1698</p></td>
+<td><p>1319</p></td>
+<td><p>4933</p></td>
+<td><p>52</p></td>
+<td><p>765</p></td>
+<td><p>54</p></td>
+<td><p>817</p></td>
+<td><p>40</p></td>
+<td><p>63</p></td>
+<td><p>327</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>MARITAL</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 10%" />
+<col style="width: 10%" />
+<col style="width: 10%" />
+<col style="width: 10%" />
+<col style="width: 12%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>categories1</p></th>
+<th class="head"><p>1</p></th>
+<th class="head"><p>2</p></th>
+<th class="head"><p>3</p></th>
+<th class="head"><p>4</p></th>
+<th class="head"><p>5</p></th>
+<th class="head"><p>6</p></th>
+<th class="head"><p>NA</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>orig</p></td>
+<td><p>3542</p></td>
+<td><p>2141</p></td>
+<td><p>415</p></td>
+<td><p>295</p></td>
+<td><p>330</p></td>
+<td><p>329</p></td>
+<td><p>3016</p></td>
+</tr>
+<tr class="row-odd"><td><p>categories2</p></td>
+<td><p>1</p></td>
+<td><p>2</p></td>
+<td><p>3</p></td>
+<td><p>4</p></td>
+<td><p>5</p></td>
+<td><p>6</p></td>
+<td><p>NA</p></td>
+</tr>
+<tr class="row-even"><td><p>recoded</p></td>
+<td><p>3542</p></td>
+<td><p>2141</p></td>
+<td><p>415</p></td>
+<td><p>295</p></td>
+<td><p>330</p></td>
+<td><p>329</p></td>
+<td><p>3016</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>AGEYRS</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 17%" />
+<col style="width: 9%" />
+<col style="width: 9%" />
+<col style="width: 8%" />
+<col style="width: 8%" />
+<col style="width: 8%" />
+<col style="width: 8%" />
+<col style="width: 8%" />
+<col style="width: 8%" />
+<col style="width: 8%" />
+<col style="width: 8%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>categories1</p></th>
+<th class="head"><p>0</p></th>
+<th class="head"><p>1/12</p></th>
+<th class="head"><p>2/12</p></th>
+<th class="head"><p>3/12</p></th>
+<th class="head"><p>4/12</p></th>
+<th class="head"><p>5/12</p></th>
+<th class="head"><p>6/12</p></th>
+<th class="head"><p>7/12</p></th>
+<th class="head"><p>8/12</p></th>
+<th class="head"><p>9/12</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>orig</p></td>
+<td><p>178</p></td>
+<td><p>8</p></td>
+<td><p>1</p></td>
+<td><p>14</p></td>
+<td><p>15</p></td>
+<td><p>19</p></td>
+<td><p>17</p></td>
+<td><p>21</p></td>
+<td><p>18</p></td>
+<td><p>7</p></td>
+</tr>
+<tr class="row-odd"><td><p>categories1</p></td>
+<td><p>10/12</p></td>
+<td><p>11/12</p></td>
+<td><p>1</p></td>
+<td><p>2</p></td>
+<td><p>3</p></td>
+<td><p>4</p></td>
+<td><p>5</p></td>
+<td><p>6</p></td>
+<td><p>7</p></td>
+<td><p>8</p></td>
+</tr>
+<tr class="row-even"><td><p>orig</p></td>
+<td><p>5</p></td>
+<td><p>8</p></td>
+<td><p>367</p></td>
+<td><p>340</p></td>
+<td><p>332</p></td>
+<td><p>260</p></td>
+<td><p>334</p></td>
+<td><p>344</p></td>
+<td><p>297</p></td>
+<td><p>344</p></td>
+</tr>
+<tr class="row-odd"><td><p>categories1</p></td>
+<td><p>9</p></td>
+<td><p>10</p></td>
+<td><p>11</p></td>
+<td><p>12</p></td>
+<td><p>13</p></td>
+<td><p>14</p></td>
+<td><p>15</p></td>
+<td><p>16</p></td>
+<td><p>17</p></td>
+<td><p>18</p></td>
+</tr>
+<tr class="row-even"><td><p>orig</p></td>
+<td><p>281</p></td>
+<td><p>336</p></td>
+<td><p>297</p></td>
+<td><p>326</p></td>
+<td><p>299</p></td>
+<td><p>263</p></td>
+<td><p>243</p></td>
+<td><p>231</p></td>
+<td><p>196</p></td>
+<td><p>224</p></td>
+</tr>
+<tr class="row-odd"><td><p>categories1</p></td>
+<td><p>19</p></td>
+<td><p>20</p></td>
+<td><p>21</p></td>
+<td><p>22</p></td>
+<td><p>23</p></td>
+<td><p>24</p></td>
+<td><p>25</p></td>
+<td><p>26</p></td>
+<td><p>27</p></td>
+<td><p>28</p></td>
+</tr>
+<tr class="row-even"><td><p>orig</p></td>
+<td><p>202</p></td>
+<td><p>182</p></td>
+<td><p>136</p></td>
+<td><p>146</p></td>
+<td><p>150</p></td>
+<td><p>137</p></td>
+<td><p>128</p></td>
+<td><p>139</p></td>
+<td><p>117</p></td>
+<td><p>152</p></td>
+</tr>
+<tr class="row-odd"><td><p>categories1</p></td>
+<td><p>29</p></td>
+<td><p>30</p></td>
+<td><p>31</p></td>
+<td><p>32</p></td>
+<td><p>33</p></td>
+<td><p>34</p></td>
+<td><p>35</p></td>
+<td><p>36</p></td>
+<td><p>37</p></td>
+<td><p>38</p></td>
+</tr>
+<tr class="row-even"><td><p>orig</p></td>
+<td><p>111</p></td>
+<td><p>143</p></td>
+<td><p>96</p></td>
+<td><p>123</p></td>
+<td><p>104</p></td>
+<td><p>107</p></td>
+<td><p>148</p></td>
+<td><p>91</p></td>
+<td><p>109</p></td>
+<td><p>87</p></td>
+</tr>
+<tr class="row-odd"><td><p>categories1</p></td>
+<td><p>39</p></td>
+<td><p>40</p></td>
+<td><p>41</p></td>
+<td><p>42</p></td>
+<td><p>43</p></td>
+<td><p>44</p></td>
+<td><p>45</p></td>
+<td><p>46</p></td>
+<td><p>47</p></td>
+<td><p>48</p></td>
+</tr>
+<tr class="row-even"><td><p>orig</p></td>
+<td><p>89</p></td>
+<td><p>93</p></td>
+<td><p>58</p></td>
+<td><p>78</p></td>
+<td><p>72</p></td>
+<td><p>64</p></td>
+<td><p>84</p></td>
+<td><p>74</p></td>
+<td><p>48</p></td>
+<td><p>60</p></td>
+</tr>
+<tr class="row-odd"><td><p>categories1</p></td>
+<td><p>49</p></td>
+<td><p>50</p></td>
+<td><p>51</p></td>
+<td><p>52</p></td>
+<td><p>53</p></td>
+<td><p>54</p></td>
+<td><p>55</p></td>
+<td><p>56</p></td>
+<td><p>57</p></td>
+<td><p>58</p></td>
+</tr>
+<tr class="row-even"><td><p>orig</p></td>
+<td><p>58</p></td>
+<td><p>66</p></td>
+<td><p>50</p></td>
+<td><p>55</p></td>
+<td><p>29</p></td>
+<td><p>30</p></td>
+<td><p>34</p></td>
+<td><p>38</p></td>
+<td><p>33</p></td>
+<td><p>44</p></td>
+</tr>
+<tr class="row-odd"><td><p>categories1</p></td>
+<td><p>59</p></td>
+<td><p>60</p></td>
+<td><p>61</p></td>
+<td><p>62</p></td>
+<td><p>63</p></td>
+<td><p>64</p></td>
+<td><p>65</p></td>
+<td><p>66</p></td>
+<td><p>67</p></td>
+<td><p>68</p></td>
+</tr>
+<tr class="row-even"><td><p>orig</p></td>
+<td><p>35</p></td>
+<td><p>36</p></td>
+<td><p>25</p></td>
+<td><p>33</p></td>
+<td><p>21</p></td>
+<td><p>15</p></td>
+<td><p>30</p></td>
+<td><p>18</p></td>
+<td><p>13</p></td>
+<td><p>29</p></td>
+</tr>
+<tr class="row-odd"><td><p>categories1</p></td>
+<td><p>69</p></td>
+<td><p>70</p></td>
+<td><p>71</p></td>
+<td><p>72</p></td>
+<td><p>73</p></td>
+<td><p>74</p></td>
+<td><p>75</p></td>
+<td><p>76</p></td>
+<td><p>77</p></td>
+<td><p>78</p></td>
+</tr>
+<tr class="row-even"><td><p>orig</p></td>
+<td><p>26</p></td>
+<td><p>36</p></td>
+<td><p>17</p></td>
+<td><p>16</p></td>
+<td><p>12</p></td>
+<td><p>3</p></td>
+<td><p>16</p></td>
+<td><p>10</p></td>
+<td><p>8</p></td>
+<td><p>18</p></td>
+</tr>
+<tr class="row-odd"><td><p>categories1</p></td>
+<td><p>79</p></td>
+<td><p>80</p></td>
+<td><p>81</p></td>
+<td><p>82</p></td>
+<td><p>83</p></td>
+<td><p>84</p></td>
+<td><p>85</p></td>
+<td><p>86</p></td>
+<td><p>87</p></td>
+<td><p>88</p></td>
+</tr>
+<tr class="row-even"><td><p>orig</p></td>
+<td><p>11</p></td>
+<td><p>13</p></td>
+<td><p>5</p></td>
+<td><p>2</p></td>
+<td><p>7</p></td>
+<td><p>7</p></td>
+<td><p>7</p></td>
+<td><p>3</p></td>
+<td><p>2</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-odd"><td><p>categories1</p></td>
+<td><p>89</p></td>
+<td><p>90</p></td>
+<td><p>91</p></td>
+<td><p>92</p></td>
+<td><p>93</p></td>
+<td><p>95</p></td>
+<td><p>NA</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>orig</p></td>
+<td><p>4</p></td>
+<td><p>4</p></td>
+<td><p>3</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>188</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>categories2</p></td>
+<td><p>0</p></td>
+<td><p>1</p></td>
+<td><p>2</p></td>
+<td><p>3</p></td>
+<td><p>4</p></td>
+<td><p>5</p></td>
+<td><p>6</p></td>
+<td><p>7</p></td>
+<td><p>8</p></td>
+<td><p>9</p></td>
+</tr>
+<tr class="row-even"><td><p>recoded</p></td>
+<td><p>311</p></td>
+<td><p>367</p></td>
+<td><p>340</p></td>
+<td><p>332</p></td>
+<td><p>260</p></td>
+<td><p>334</p></td>
+<td><p>344</p></td>
+<td><p>297</p></td>
+<td><p>344</p></td>
+<td><p>281</p></td>
+</tr>
+<tr class="row-odd"><td><p>categories2</p></td>
+<td><p>10</p></td>
+<td><p>11</p></td>
+<td><p>12</p></td>
+<td><p>13</p></td>
+<td><p>14</p></td>
+<td><p>20</p></td>
+<td><p>30</p></td>
+<td><p>40</p></td>
+<td><p>50</p></td>
+<td><p>60</p></td>
+</tr>
+<tr class="row-even"><td><p>recoded</p></td>
+<td><p>336</p></td>
+<td><p>297</p></td>
+<td><p>326</p></td>
+<td><p>299</p></td>
+<td><p>263</p></td>
+<td><p>1847</p></td>
+<td><p>1220</p></td>
+<td><p>889</p></td>
+<td><p>554</p></td>
+<td><p>314</p></td>
+</tr>
+<tr class="row-odd"><td><p>categories2</p></td>
+<td><p>65</p></td>
+<td><p>NA</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>recoded</p></td>
+<td><p>325</p></td>
+<td><p>188</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>EDUCY</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 23%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 9%" />
+<col style="width: 9%" />
+<col style="width: 7%" />
+<col style="width: 9%" />
+<col style="width: 11%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>categories1</p></th>
+<th class="head"><p>0</p></th>
+<th class="head"><p>1</p></th>
+<th class="head"><p>2</p></th>
+<th class="head"><p>3</p></th>
+<th class="head"><p>4</p></th>
+<th class="head"><p>5</p></th>
+<th class="head"><p>6</p></th>
+<th class="head"><p>NA</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>orig</p></td>
+<td><p>1582</p></td>
+<td><p>4755</p></td>
+<td><p>1062</p></td>
+<td><p>330</p></td>
+<td><p>139</p></td>
+<td><p>46</p></td>
+<td><p>104</p></td>
+<td><p>2050</p></td>
+</tr>
+<tr class="row-odd"><td><p>categories2</p></td>
+<td><p>0</p></td>
+<td><p>1</p></td>
+<td><p>2</p></td>
+<td><p>3</p></td>
+<td><p>4</p></td>
+<td><p>5</p></td>
+<td><p>6</p></td>
+<td><p>NA</p></td>
+</tr>
+<tr class="row-even"><td><p>recoded</p></td>
+<td><p>1582</p></td>
+<td><p>4755</p></td>
+<td><p>1062</p></td>
+<td><p>330</p></td>
+<td><p>139</p></td>
+<td><p>46</p></td>
+<td><p>104</p></td>
+<td><p>2050</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>EDYRSATCURR</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 8%" />
+<col style="width: 8%" />
+<col style="width: 8%" />
+<col style="width: 8%" />
+<col style="width: 8%" />
+<col style="width: 8%" />
+<col style="width: 8%" />
+<col style="width: 9%" />
+<col style="width: 8%" />
+<col style="width: 8%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>categories1</p></th>
+<th class="head"><p>0</p></th>
+<th class="head"><p>1</p></th>
+<th class="head"><p>2</p></th>
+<th class="head"><p>3</p></th>
+<th class="head"><p>4</p></th>
+<th class="head"><p>5</p></th>
+<th class="head"><p>6</p></th>
+<th class="head"><p>7</p></th>
+<th class="head"><p>8</p></th>
+<th class="head"><p>9</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>orig</p></td>
+<td><p>177</p></td>
+<td><p>482</p></td>
+<td><p>445</p></td>
+<td><p>446</p></td>
+<td><p>354</p></td>
+<td><p>352</p></td>
+<td><p>289</p></td>
+<td><p>266</p></td>
+<td><p>132</p></td>
+<td><p>127</p></td>
+</tr>
+<tr class="row-odd"><td><p>categories1</p></td>
+<td><p>10</p></td>
+<td><p>11</p></td>
+<td><p>12</p></td>
+<td><p>13</p></td>
+<td><p>15</p></td>
+<td><p>16</p></td>
+<td><p>18</p></td>
+<td><p>NA</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>orig</p></td>
+<td><p>143</p></td>
+<td><p>58</p></td>
+<td><p>46</p></td>
+<td><p>27</p></td>
+<td><p>18</p></td>
+<td><p>10</p></td>
+<td><p>54</p></td>
+<td><p>6642</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>categories2</p></td>
+<td><p>0</p></td>
+<td><p>1</p></td>
+<td><p>2</p></td>
+<td><p>3</p></td>
+<td><p>4</p></td>
+<td><p>5</p></td>
+<td><p>6</p></td>
+<td><p>7</p></td>
+<td><p>8</p></td>
+<td><p>9</p></td>
+</tr>
+<tr class="row-even"><td><p>recode</p></td>
+<td><p>177</p></td>
+<td><p>482</p></td>
+<td><p>445</p></td>
+<td><p>446</p></td>
+<td><p>354</p></td>
+<td><p>352</p></td>
+<td><p>289</p></td>
+<td><p>266</p></td>
+<td><p>132</p></td>
+<td><p>127</p></td>
+</tr>
+<tr class="row-odd"><td><p>categories2</p></td>
+<td><p>10</p></td>
+<td><p>11</p></td>
+<td><p>12</p></td>
+<td><p>13</p></td>
+<td><p>15</p></td>
+<td><p>16</p></td>
+<td><p>18</p></td>
+<td><p>NA</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>recode</p></td>
+<td><p>143</p></td>
+<td><p>58</p></td>
+<td><p>46</p></td>
+<td><p>27</p></td>
+<td><p>18</p></td>
+<td><p>10</p></td>
+<td><p>54</p></td>
+<td><p>6642</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>ATSCHOOL</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 42%" />
+<col style="width: 19%" />
+<col style="width: 19%" />
+<col style="width: 19%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>categories1</p></th>
+<th class="head"><p>0</p></th>
+<th class="head"><p>1</p></th>
+<th class="head"><p>NA</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>orig</p></td>
+<td><p>4696</p></td>
+<td><p>3427</p></td>
+<td><p>1945</p></td>
+</tr>
+<tr class="row-odd"><td><p>categories2</p></td>
+<td><p>0</p></td>
+<td><p>1</p></td>
+<td><p>NA</p></td>
+</tr>
+<tr class="row-even"><td><p>recoded</p></td>
+<td><p>4696</p></td>
+<td><p>3427</p></td>
+<td><p>1945</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>INDUSTRY1</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 21%" />
+<col style="width: 10%" />
+<col style="width: 6%" />
+<col style="width: 8%" />
+<col style="width: 5%" />
+<col style="width: 6%" />
+<col style="width: 8%" />
+<col style="width: 6%" />
+<col style="width: 6%" />
+<col style="width: 6%" />
+<col style="width: 8%" />
+<col style="width: 10%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>categories1</p></th>
+<th class="head"><p>1</p></th>
+<th class="head"><p>2</p></th>
+<th class="head"><p>3</p></th>
+<th class="head"><p>4</p></th>
+<th class="head"><p>5</p></th>
+<th class="head"><p>6</p></th>
+<th class="head"><p>7</p></th>
+<th class="head"><p>8</p></th>
+<th class="head"><p>9</p></th>
+<th class="head"><p>10</p></th>
+<th class="head"><p>NA</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>orig</p></td>
+<td><p>5300</p></td>
+<td><p>16</p></td>
+<td><p>153</p></td>
+<td><p>2</p></td>
+<td><p>93</p></td>
+<td><p>484</p></td>
+<td><p>95</p></td>
+<td><p>17</p></td>
+<td><p>70</p></td>
+<td><p>292</p></td>
+<td><p>3546</p></td>
+</tr>
+<tr class="row-odd"><td><p>categories2</p></td>
+<td><p>1</p></td>
+<td><p>2</p></td>
+<td><p>3</p></td>
+<td><p>4</p></td>
+<td><p>5</p></td>
+<td><p>6</p></td>
+<td><p>7</p></td>
+<td><p>8</p></td>
+<td><p>9</p></td>
+<td><p>10</p></td>
+<td><p>NA</p></td>
+</tr>
+<tr class="row-even"><td><p>recoded</p></td>
+<td><p>5300</p></td>
+<td><p>16</p></td>
+<td><p>153</p></td>
+<td><p>2</p></td>
+<td><p>93</p></td>
+<td><p>484</p></td>
+<td><p>95</p></td>
+<td><p>17</p></td>
+<td><p>70</p></td>
+<td><p>292</p></td>
+<td><p>3546</p></td>
+</tr>
+</tbody>
+</table>
+<p>Local suppressions</p>
+<p>Number of local suppressions:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 29%" />
+<col style="width: 15%" />
+<col style="width: 11%" />
+<col style="width: 16%" />
+<col style="width: 15%" />
+<col style="width: 14%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"></th>
+<th class="head"><p>GENDER</p></th>
+<th class="head"><p>REL</p></th>
+<th class="head"><p>MARITAL</p></th>
+<th class="head"><p>AGEYRS</p></th>
+<th class="head"><p>EDUCY</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>absolute</p></td>
+<td><p>0</p></td>
+<td><p>323</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td><p>relative (in percent)</p></td>
+<td><p>0</p></td>
+<td><p>3.21%</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 32%" />
+<col style="width: 23%" />
+<col style="width: 19%" />
+<col style="width: 21%" />
+<col style="width: 3%" />
+<col style="width: 3%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"></th>
+<th class="head"><p>EDYRSATCURR</p></th>
+<th class="head"><p>ATSCHOOL</p></th>
+<th class="head"><p>INDUSTRY1</p></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>absolute</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>relative (in percent)</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="section" id="case-study-1-external-report">
-<h3>Case study 1 - External report<a class="headerlink" href="#case-study-1-external-report" title="Permalink to this headline">¶</a></h3>
-<p>To be added</p>
+<h2><strong>Case study 1 - External report</strong><a class="headerlink" href="#case-study-1-external-report" title="Permalink to this headline">¶</a></h2>
+<p>This case study microdata set has been treated to protect
+confidentiality. Several methods have been applied to protect the
+confidentiality: removing variables from the original dataset, removing
+records from the dataset, reducing detail in variables by recoding and
+top-coding, removing particular values of individuals at risk (local
+suppression) and perturbing values of certain variables.</p>
+<p><em>Removing</em> <em>variables</em></p>
+<p>The released microdata set has only a selected number of variables
+contained in the initial survey. Not all variables could be released in
+this SUF without breaching confidentiality rules.</p>
+<p><em>Removing</em> <em>records</em></p>
+<p>To protect confidentiality, records of households larger than 13 were
+removed. Thirty households out of a total of 2,000 households in the
+dataset were removed.</p>
+<p><em>Reducing detail in variables by recoding and top-coding</em></p>
+<p>The variable LANDSIZEHA was rounded to one digit for values smaller than
+1, rounded to zero digits for other values, grouped for values 5-19 and
+20-40 and topcoded at 40. The variable AGEYRS was recoded to ten-year
+age intervals for values in the age range 15 ΓÇô 65.</p>
+<p><em>Local suppression</em></p>
+<p>Values of certain variables for particular households and individuals
+were deleted. In total, six values of the variable URBRUR, one of the
+REGION variable, 48 for the OWNAGLAND variable, 16 for the RELIG
+variable and 323 values of the variable REL were deleted.</p>
+<p><em>Perturbing values</em></p>
+<p>Uncertainty was introduced in the variables ROOF, TOILET, WATER,
+ELECTCON, FUELCOOK, OWNMOTORCYCLE, CAR, TV and LIVESTOCK by using the
+PRAM method. This method changes a certain percentage of values of
+variables within each variable. Here invariant PRAM was used, which
+guarantees that the univariate tabulations stay unchanged. Multivariate
+tabulations may be changed. Unfortunately, the transition matrix cannot
+be published.</p>
+<p>The income and expenditure variables were perturbed by adding noise
+(adding small random values to the original values). The noise added was
+0.01 times the standard deviation in the original data and 0.05 for
+outliers. Noise was added to the components and the aggregates were
+recomputed to guarantee that the proportions of the different components
+did not change.</p>
 </div>
 <div class="section" id="case-study-2-internal-report">
-<h3>Case study 2 - Internal report<a class="headerlink" href="#case-study-2-internal-report" title="Permalink to this headline">¶</a></h3>
-<p>To be added</p>
+<h2><strong>Case study 2 - Internal report</strong><a class="headerlink" href="#case-study-2-internal-report" title="Permalink to this headline">¶</a></h2>
+<p><strong>SDC report</strong> (adapted from the report function in <em>sdcMicro</em>)</p>
+<p>This report describes the anonymization measures for the PUF release
+additional to those already taken in the first case study. Therefore,
+this report should be read in conjunction with the internal report for
+case study 1. The original dataset consists of 10,574 observations
+(i.e., 10,574 individuals in 2,000 households). The dataset used for the
+anonymization of the PUF file is the anonymized SUF file from case study
+1. This dataset consists of 10.068 observations in 1,970 households. The
+difference is due to the removal of large households and sensitive or
+identifying variables in the first case study.</p>
+<p>Household-level variables</p>
+<p>Anonymization methods applied to household-level variables:</p>
+<ul class="simple">
+<li><p>For SUF release (see case study 1):</p>
+<ul>
+<li><p>Removing households of size larger than 13 (29 households)</p></li>
+<li><p>Local suppression to achieve 2-anonymity, with importance vector
+to prevent suppressing values of the variables HHSIZE, REGION and
+URBRUR</p></li>
+</ul>
+</li>
+<li><p>For PUF release:</p>
+<ul>
+<li><p>Remove variables OWNLANDAG, RELIG and LANDSIZEHA</p></li>
+<li><p>Local suppression to achieve 5-anonymity, with importance vector
+to prevent suppressing values of the variables HHSIZE and REGION</p></li>
+<li><p>PRAMming the variables ROOF, TOILET, WATER, ELECTCON, FUELCOOK,
+OWNMOTORCYCLE, CAR, TV and LIVESTOCK</p></li>
+<li><p>Create deciles for aggregate income and expenditure (TANNEXP and
+INCTOTGROSSHH) and replace the actual values with the mean of the
+corresponding decile. Replace income and expenditure components
+with the proportion of original totals.</p></li>
+</ul>
+</li>
+</ul>
+<p>Selected (key) variables:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 29%" />
+<col style="width: 25%" />
+<col style="width: 29%" />
+<col style="width: 16%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p><em>categorical</em></p></th>
+<th class="head"><p>URBRUR</p></th>
+<th class="head"><p>REGION</p></th>
+<th class="head"><p>HHSIZE</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><em>continuous</em></p></td>
+<td><p>TANHHEXP</p></td>
+<td><p>INCTOTGROSSHH</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><em>weight</em></p></td>
+<td><p>WGTPOP</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><em>hhID</em></p></td>
+<td><p>not defined</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><em>strata</em></p></td>
+<td><p>not defined</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<ul class="simple">
+<li><p>Modifications on categorical key variables: <strong>TRUE</strong></p></li>
+<li><p>Modifications on continuous key variables: <strong>TRUE</strong></p></li>
+<li><p>Modifications using PRAM: <strong>TRUE</strong></p></li>
+<li><p>Local suppressions: <strong>TRUE</strong></p></li>
+</ul>
+<p>Disclosure risk (household-level variables):</p>
+<p>Frequency analysis for categorical key variables:</p>
+<p>Number of observations violating</p>
+<p>2-Anonymity: 0 (PUF file: 0, unmodified data: 103)</p>
+<p>3-Anonymity: 0 (PUF file: 18, unmodified data: 229)</p>
+<p>5-Anonymity: 0 (PUF file: 92, unmodified data: 489)</p>
+<p>Percentage of observations violating</p>
+<p>2-Anonymity: 0.00% (PUF file: 0.00%, unmodified data: 5.15%)</p>
+<p>3-Anonymity: 0.00% (PUF file: 0.91%, unmodified data: 11.45%)</p>
+<p>5-Anonymity: 0.00% (PUF file: 4.67%, unmodified data: 24.45%)</p>
+<p>Disclosure risk categorical variables:</p>
+<p>Expected Percentage of Re-identifications: 0.0000526% (~ 0.10
+observations),</p>
+<p>PUF file: 0.0000642% (~ 0.13 observations), unmodified data:
+0.001820465% (~ 0.36 observations)</p>
+<p>11 combinations of categories with highest risk in PUF file:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 7%" />
+<col style="width: 21%" />
+<col style="width: 21%" />
+<col style="width: 21%" />
+<col style="width: 14%" />
+<col style="width: 17%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"></th>
+<th class="head"><p>URBRUR</p></th>
+<th class="head"><p>REGION</p></th>
+<th class="head"><p>HHSIZE</p></th>
+<th class="head"><p>fk</p></th>
+<th class="head"><p>Fk</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>2</p></td>
+<td><p>4</p></td>
+<td><p>1</p></td>
+<td><p>7</p></td>
+<td><p>1152.084</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>2</p></td>
+<td><p>4</p></td>
+<td><p>1</p></td>
+<td><p>7</p></td>
+<td><p>1152.084</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>2</p></td>
+<td><p>2</p></td>
+<td><p>9</p></td>
+<td><p>2</p></td>
+<td><p>2356.926</p></td>
+</tr>
+<tr class="row-odd"><td><p>4</p></td>
+<td><p>2</p></td>
+<td><p>4</p></td>
+<td><p>1</p></td>
+<td><p>7</p></td>
+<td><p>1152.084</p></td>
+</tr>
+<tr class="row-even"><td><p>5</p></td>
+<td><p>2</p></td>
+<td><p>4</p></td>
+<td><p>1</p></td>
+<td><p>7</p></td>
+<td><p>1152.084</p></td>
+</tr>
+<tr class="row-odd"><td><p>6</p></td>
+<td><p>2</p></td>
+<td><p>4</p></td>
+<td><p>1</p></td>
+<td><p>7</p></td>
+<td><p>1152.084</p></td>
+</tr>
+<tr class="row-even"><td><p>7</p></td>
+<td><p>2</p></td>
+<td><p>5</p></td>
+<td><p>12</p></td>
+<td><p>2</p></td>
+<td><p>2978.454</p></td>
+</tr>
+<tr class="row-odd"><td><p>8</p></td>
+<td><p>2</p></td>
+<td><p>4</p></td>
+<td><p>1</p></td>
+<td><p>7</p></td>
+<td><p>1152.084</p></td>
+</tr>
+<tr class="row-even"><td><p>9</p></td>
+<td><p>2</p></td>
+<td><p>4</p></td>
+<td><p>1</p></td>
+<td><p>7</p></td>
+<td><p>1152.084</p></td>
+</tr>
+<tr class="row-odd"><td><p>10</p></td>
+<td><p>2</p></td>
+<td><p>5</p></td>
+<td><p>12</p></td>
+<td><p>2</p></td>
+<td><p>2978.454</p></td>
+</tr>
+<tr class="row-even"><td><p>11</p></td>
+<td><p>2</p></td>
+<td><p>2</p></td>
+<td><p>9</p></td>
+<td><p>2</p></td>
+<td><p>2356.926</p></td>
+</tr>
+</tbody>
+</table>
+<p>Disclosure risk continuous scaled variables:</p>
+<p>Distance-based Disclosure Risk for Continuous Key Variables:</p>
+<p>Disclosure Risk is between 0% and 100% in the modified data. In the
+original data, the risk is approximately 100%.</p>
+<p>Data Utility (household-level variables):</p>
+<p><strong>Frequencies categorical key variables</strong></p>
+<p><strong>URBRUR</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 46%" />
+<col style="width: 21%" />
+<col style="width: 18%" />
+<col style="width: 14%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>categories1</p></th>
+<th class="head"><p>1</p></th>
+<th class="head"><p>2</p></th>
+<th class="head"><p>NA</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>orig</p></td>
+<td><p>1316</p></td>
+<td><p>684</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td><p>categories2</p></td>
+<td><p>1</p></td>
+<td><p>2</p></td>
+<td><p>NA</p></td>
+</tr>
+<tr class="row-even"><td><p>recoded</p></td>
+<td><p>1280</p></td>
+<td><p>623</p></td>
+<td><p>67</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>REGION</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 28%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 9%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>categories1</p></th>
+<th class="head"><p>1</p></th>
+<th class="head"><p>2</p></th>
+<th class="head"><p>3</p></th>
+<th class="head"><p>4</p></th>
+<th class="head"><p>5</p></th>
+<th class="head"><p>6</p></th>
+<th class="head"><p>NA</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>orig</p></td>
+<td><p>324</p></td>
+<td><p>334</p></td>
+<td><p>371</p></td>
+<td><p>375</p></td>
+<td><p>260</p></td>
+<td><p>336</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td><p>categories2</p></td>
+<td><p>1</p></td>
+<td><p>2</p></td>
+<td><p>3</p></td>
+<td><p>4</p></td>
+<td><p>5</p></td>
+<td><p>6</p></td>
+<td><p>NA</p></td>
+</tr>
+<tr class="row-even"><td><p>recoded</p></td>
+<td><p>311</p></td>
+<td><p>325</p></td>
+<td><p>369</p></td>
+<td><p>370</p></td>
+<td><p>253</p></td>
+<td><p>329</p></td>
+<td><p>13</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>HHSIZE</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 19%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 6%" />
+<col style="width: 6%" />
+<col style="width: 6%" />
+<col style="width: 6%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>categories1</p></th>
+<th class="head"><p>1</p></th>
+<th class="head"><p>2</p></th>
+<th class="head"><p>3</p></th>
+<th class="head"><p>4</p></th>
+<th class="head"><p>5</p></th>
+<th class="head"><p>6</p></th>
+<th class="head"><p>7</p></th>
+<th class="head"><p>8</p></th>
+<th class="head"><p>9</p></th>
+<th class="head"><p>10</p></th>
+<th class="head"><p>11</p></th>
+<th class="head"><p>12</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>orig</p></td>
+<td><p>152</p></td>
+<td><p>194</p></td>
+<td><p>238</p></td>
+<td><p>295</p></td>
+<td><p>276</p></td>
+<td><p>252</p></td>
+<td><p>214</p></td>
+<td><p>134</p></td>
+<td><p>84</p></td>
+<td><p>66</p></td>
+<td><p>34</p></td>
+<td><p>21</p></td>
+</tr>
+<tr class="row-odd"><td><p>categories1</p></td>
+<td><p>13</p></td>
+<td><p>14</p></td>
+<td><p>15</p></td>
+<td><p>16</p></td>
+<td><p>17</p></td>
+<td><p>18</p></td>
+<td><p>19</p></td>
+<td><p>20</p></td>
+<td><p>21</p></td>
+<td><p>22</p></td>
+<td><p>33</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>orig</p></td>
+<td><p>11</p></td>
+<td><p>6</p></td>
+<td><p>6</p></td>
+<td><p>5</p></td>
+<td><p>4</p></td>
+<td><p>2</p></td>
+<td><p>1</p></td>
+<td><p>2</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>categories2</p></td>
+<td><p>1</p></td>
+<td><p>2</p></td>
+<td><p>3</p></td>
+<td><p>4</p></td>
+<td><p>5</p></td>
+<td><p>6</p></td>
+<td><p>7</p></td>
+<td><p>8</p></td>
+<td><p>9</p></td>
+<td><p>10</p></td>
+<td><p>11</p></td>
+<td><p>12</p></td>
+</tr>
+<tr class="row-even"><td><p>recoded</p></td>
+<td><p>152</p></td>
+<td><p>194</p></td>
+<td><p>238</p></td>
+<td><p>295</p></td>
+<td><p>276</p></td>
+<td><p>252</p></td>
+<td><p>214</p></td>
+<td><p>134</p></td>
+<td><p>84</p></td>
+<td><p>66</p></td>
+<td><p>34</p></td>
+<td><p>21</p></td>
+</tr>
+<tr class="row-odd"><td><p>categories2</p></td>
+<td><p>13</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>recoded</p></td>
+<td><p>10</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Local suppressions</p>
+<p>Number of local suppressions:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 39%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"></th>
+<th class="head"><p>URBRUR</p></th>
+<th class="head"><p>REGION</p></th>
+<th class="head"><p>HHSIZE</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>absolute</p></td>
+<td><p>61</p></td>
+<td><p>125</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td><p>relative (in percent)</p></td>
+<td><p>3.096%</p></td>
+<td><p>0.609%</p></td>
+<td><p>0.000%</p></td>
+</tr>
+</tbody>
+</table>
+<p>Data utility of continuous scaled key variables:</p>
+<p><strong>Univariate summary:</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 14%" />
+<col style="width: 14%" />
+<col style="width: 14%" />
+<col style="width: 14%" />
+<col style="width: 14%" />
+<col style="width: 14%" />
+<col style="width: 14%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"></th>
+<th class="head"><p>Min.</p></th>
+<th class="head"><p>1st Qu</p></th>
+<th class="head"><p>Median</p></th>
+<th class="head"><p>Mean</p></th>
+<th class="head"><p>3rd Qu</p></th>
+<th class="head"><p>Max.</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>TANHHEX
+P</p></td>
+<td><p>498</p></td>
+<td><p>15,170</p></td>
+<td><p>17,090</p></td>
+<td><p>24,340</p></td>
+<td><p>23,260</p></td>
+<td><p>353,230</p></td>
+</tr>
+<tr class="row-odd"><td><p>TANHHEX
+P.m</p></td>
+<td><p>827</p></td>
+<td><p>14,700</p></td>
+<td><p>17,060</p></td>
+<td><p>23,420</p></td>
+<td><p>22,750</p></td>
+<td><p>83,963</p></td>
+</tr>
+<tr class="row-even"><td><p>INCTOTG
+ROSSHH</p></td>
+<td><p>5,000</p></td>
+<td><p>12,400</p></td>
+<td><p>13,390</p></td>
+<td><p>30,840</p></td>
+<td><p>24,200</p></td>
+<td><p>683,900</p></td>
+</tr>
+<tr class="row-odd"><td><p>INCTOTG
+ROSSHH.
+m</p></td>
+<td><p>6353</p></td>
+<td><p>12,390</p></td>
+<td><p>13,400</p></td>
+<td><p>30,250</p></td>
+<td><p>24,240</p></td>
+<td><p>149,561</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Information loss:</strong></p>
+<p>Criteria IL1: 0.2422625</p>
+<p>Disclosure risk (individual-level variables):</p>
+<p>Anonymization methods applied to individual-level variables:</p>
+<ul class="simple">
+<li><p>For SUF release (see case study 1):</p>
+<ul>
+<li><p>Recoding AGEYRS from months to years for age under 1, and to
+ten-year intervals for age values between 15 and 65, topcoding age
+at 65</p></li>
+<li><p>Local suppression to achieve 2-anonymity</p></li>
+</ul>
+</li>
+<li><p>For PUF release:</p>
+<ul>
+<li><p>Remove variable EDYRSCURRAT</p></li>
+<li><p>Recode REL to ‘Head’, ‘Spouse’, ‘Child’, ‘Other relative’, ‘Other’</p></li>
+<li><p>Recode MARITAL to ‘Never married’, ‘Married/Living together’,
+‘Divorced/Separated/Widowed’</p></li>
+<li><p>Recode AGEYRS for values under 15 to 7</p></li>
+<li><p>Recode EDUCY to ‘No education’, ‘Pre-school/ Primary not completed’, ‘Completed lower secondary or higher’</p></li>
+<li><p>Recode INDUSTRY1 to ‘Primary sector’, ‘Secondary sector’, ‘Tertiary sector’</p></li>
+</ul>
+</li>
+</ul>
+<p>Frequency analysis for categorical key variables:</p>
+<p>Number of observations violating</p>
+<p>2-Anonymity: 0 (PUF file: 0, unmodified data: 998)</p>
+<p>3-Anonymity: 0 (PUF file: 167, unmodified data: 1384)</p>
+<p>5-Anonymity: 0 (PUF file: 463, unmodified data: 2194)</p>
+<p>Percentage of observations violating</p>
+<p>2-Anonymity: 0.00% (PUF file: 0.00%, unmodified data: 9.91%)</p>
+<p>3-Anonymity: 0.00% (PUF file: 1.66%, unmodified data: 13.75%)</p>
+<p>5-Anonymity: 0.00% (PUF file: 4.60%, unmodified data: 21.79%)</p>
+<p>Disclosure risk categorical variables:</p>
+<p>Expected Percentage of Re-identifications: 0.00% (~0.41 observations)</p>
+<p>(PUF file: 0.02 % (~ 1.69 observations), unmodified data: 0.24% (~23.98
+observations))</p>
+<p>Expected Percentage of Re-identifications (hierarchical risk): 0.02%
+(~2.29 observations)</p>
+<p>(PUF file: 0.10 % (~ 9.57 observations), unmodified data: 1.26 % (~
+127.12 observations))</p>
+<p>10 combinations of categories with highest risk:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"></th>
+<th class="head"><p>GEDNER</p></th>
+<th class="head"><p>REL</p></th>
+<th class="head"><p>MARIT
+AL</p></th>
+<th class="head"><p>AGEYR
+S</p></th>
+<th class="head"><p>EDUCY</p></th>
+<th class="head"><p>INDUS
+TRY1</p></th>
+<th class="head"><p>fk</p></th>
+<th class="head"><p>Fk</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>2</p></td>
+<td><p>50</p></td>
+<td><p>1</p></td>
+<td><p>7</p></td>
+<td><p>2</p></td>
+<td><p>324.9
+275</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>0</p></td>
+<td><p>1</p></td>
+<td><p>3</p></td>
+<td><p>40</p></td>
+<td><p>3</p></td>
+<td><p>6</p></td>
+<td><p>2</p></td>
+<td><p>330.0
+521</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>0</p></td>
+<td><p>1</p></td>
+<td><p>6</p></td>
+<td><p>60</p></td>
+<td><p>0</p></td>
+<td><p>3</p></td>
+<td><p>2</p></td>
+<td><p>350.5
+000</p></td>
+</tr>
+<tr class="row-odd"><td><p>4</p></td>
+<td><p>0</p></td>
+<td><p>1</p></td>
+<td><p>3</p></td>
+<td><p>40</p></td>
+<td><p>3</p></td>
+<td><p>6</p></td>
+<td><p>2</p></td>
+<td><p>330.0
+521</p></td>
+</tr>
+<tr class="row-even"><td><p>5</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>2</p></td>
+<td><p>30</p></td>
+<td><p>4</p></td>
+<td><p>5</p></td>
+<td><p>2</p></td>
+<td><p>253.7
+431</p></td>
+</tr>
+<tr class="row-odd"><td><p>6</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>2</p></td>
+<td><p>50</p></td>
+<td><p>1</p></td>
+<td><p>7</p></td>
+<td><p>2</p></td>
+<td><p>324.9
+275</p></td>
+</tr>
+<tr class="row-even"><td><p>7</p></td>
+<td><p>0</p></td>
+<td><p>1</p></td>
+<td><p>6</p></td>
+<td><p>50</p></td>
+<td><p>1</p></td>
+<td><p>6</p></td>
+<td><p>2</p></td>
+<td><p>255.6
+142</p></td>
+</tr>
+<tr class="row-odd"><td><p>8</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>4</p></td>
+<td><p>40</p></td>
+<td><p>1</p></td>
+<td><p>10</p></td>
+<td><p>2</p></td>
+<td><p>175.0
+797</p></td>
+</tr>
+<tr class="row-even"><td><p>9</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>4</p></td>
+<td><p>40</p></td>
+<td><p>1</p></td>
+<td><p>10</p></td>
+<td><p>2</p></td>
+<td><p>175.0
+797</p></td>
+</tr>
+<tr class="row-odd"><td><p>10</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>3</p></td>
+<td><p>30</p></td>
+<td><p>1</p></td>
+<td><p>6</p></td>
+<td><p>2</p></td>
+<td><p>323.4
+879</p></td>
+</tr>
+</tbody>
+</table>
+<p>Data utility (individual-level variables):</p>
+<p><strong>Frequencies categorical key variables</strong></p>
+<p><strong>GENDER</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 42%" />
+<col style="width: 23%" />
+<col style="width: 23%" />
+<col style="width: 13%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>categories1</p></th>
+<th class="head"><p>0</p></th>
+<th class="head"><p>1</p></th>
+<th class="head"><p>NA</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>orig</p></td>
+<td><p>5,197</p></td>
+<td><p>4,871</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td><p>categories2</p></td>
+<td><p>0</p></td>
+<td><p>1</p></td>
+<td><p>NA</p></td>
+</tr>
+<tr class="row-even"><td><p>recoded</p></td>
+<td><p>5,197</p></td>
+<td><p>4,871</p></td>
+<td><p>0</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>REL</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 19%" />
+<col style="width: 10%" />
+<col style="width: 10%" />
+<col style="width: 10%" />
+<col style="width: 10%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 6%" />
+<col style="width: 6%" />
+<col style="width: 6%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>categories1</p></th>
+<th class="head"><p>1</p></th>
+<th class="head"><p>2</p></th>
+<th class="head"><p>3</p></th>
+<th class="head"><p>4</p></th>
+<th class="head"><p>5</p></th>
+<th class="head"><p>6</p></th>
+<th class="head"><p>7</p></th>
+<th class="head"><p>8</p></th>
+<th class="head"><p>9</p></th>
+<th class="head"><p>NA</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>orig</p></td>
+<td><p>1,970</p></td>
+<td><p>1,319</p></td>
+<td><p>4,933</p></td>
+<td><p>57</p></td>
+<td><p>765</p></td>
+<td><p>89</p></td>
+<td><p>817</p></td>
+<td><p>51</p></td>
+<td><p>63</p></td>
+<td><p>4</p></td>
+</tr>
+<tr class="row-odd"><td><p>categories2</p></td>
+<td><p>1</p></td>
+<td><p>2</p></td>
+<td><p>3</p></td>
+<td><p>7</p></td>
+<td><p>9</p></td>
+<td><p>NA</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>recoded</p></td>
+<td><p>1,698</p></td>
+<td><p>1,319</p></td>
+<td><p>4,933</p></td>
+<td><p>1,688</p></td>
+<td><p>103</p></td>
+<td><p>327</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>MARITAL</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 23%" />
+<col style="width: 13%" />
+<col style="width: 13%" />
+<col style="width: 9%" />
+<col style="width: 13%" />
+<col style="width: 9%" />
+<col style="width: 9%" />
+<col style="width: 13%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>categories1</p></th>
+<th class="head"><p>1</p></th>
+<th class="head"><p>2</p></th>
+<th class="head"><p>3</p></th>
+<th class="head"><p>4</p></th>
+<th class="head"><p>5</p></th>
+<th class="head"><p>6</p></th>
+<th class="head"><p>NA</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>orig</p></td>
+<td><p>3,542</p></td>
+<td><p>2,141</p></td>
+<td><p>415</p></td>
+<td><p>295</p></td>
+<td><p>330</p></td>
+<td><p>329</p></td>
+<td><p>3,016</p></td>
+</tr>
+<tr class="row-odd"><td><p>categories2</p></td>
+<td><p>1</p></td>
+<td><p>2</p></td>
+<td><p>9</p></td>
+<td><p>NA</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>recoded</p></td>
+<td><p>3,542</p></td>
+<td><p>2,851</p></td>
+<td><p>659</p></td>
+<td><p>3,016</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>AGEYRS</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 17%" />
+<col style="width: 9%" />
+<col style="width: 9%" />
+<col style="width: 9%" />
+<col style="width: 8%" />
+<col style="width: 8%" />
+<col style="width: 8%" />
+<col style="width: 8%" />
+<col style="width: 8%" />
+<col style="width: 8%" />
+<col style="width: 8%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>categories1</p></th>
+<th class="head"><p>0</p></th>
+<th class="head"><p>1/12</p></th>
+<th class="head"><p>2/12</p></th>
+<th class="head"><p>3/12</p></th>
+<th class="head"><p>4/12</p></th>
+<th class="head"><p>5/12</p></th>
+<th class="head"><p>6/12</p></th>
+<th class="head"><p>7/12</p></th>
+<th class="head"><p>8/12</p></th>
+<th class="head"><p>9/12</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>orig</p></td>
+<td><p>178</p></td>
+<td><p>8</p></td>
+<td><p>1</p></td>
+<td><p>14</p></td>
+<td><p>15</p></td>
+<td><p>19</p></td>
+<td><p>17</p></td>
+<td><p>21</p></td>
+<td><p>18</p></td>
+<td><p>7</p></td>
+</tr>
+<tr class="row-odd"><td><p>categories1</p></td>
+<td><p>10/12</p></td>
+<td><p>11/12</p></td>
+<td><p>1</p></td>
+<td><p>2</p></td>
+<td><p>3</p></td>
+<td><p>4</p></td>
+<td><p>5</p></td>
+<td><p>6</p></td>
+<td><p>7</p></td>
+<td><p>8</p></td>
+</tr>
+<tr class="row-even"><td><p>orig</p></td>
+<td><p>5</p></td>
+<td><p>8</p></td>
+<td><p>367</p></td>
+<td><p>340</p></td>
+<td><p>332</p></td>
+<td><p>260</p></td>
+<td><p>334</p></td>
+<td><p>344</p></td>
+<td><p>297</p></td>
+<td><p>344</p></td>
+</tr>
+<tr class="row-odd"><td><p>categories1</p></td>
+<td><p>9</p></td>
+<td><p>10</p></td>
+<td><p>11</p></td>
+<td><p>12</p></td>
+<td><p>13</p></td>
+<td><p>14</p></td>
+<td><p>15</p></td>
+<td><p>16</p></td>
+<td><p>17</p></td>
+<td><p>18</p></td>
+</tr>
+<tr class="row-even"><td><p>orig</p></td>
+<td><p>281</p></td>
+<td><p>336</p></td>
+<td><p>297</p></td>
+<td><p>326</p></td>
+<td><p>299</p></td>
+<td><p>263</p></td>
+<td><p>243</p></td>
+<td><p>231</p></td>
+<td><p>196</p></td>
+<td><p>224</p></td>
+</tr>
+<tr class="row-odd"><td><p>categories1</p></td>
+<td><p>19</p></td>
+<td><p>20</p></td>
+<td><p>21</p></td>
+<td><p>22</p></td>
+<td><p>23</p></td>
+<td><p>24</p></td>
+<td><p>25</p></td>
+<td><p>26</p></td>
+<td><p>27</p></td>
+<td><p>28</p></td>
+</tr>
+<tr class="row-even"><td><p>orig</p></td>
+<td><p>202</p></td>
+<td><p>182</p></td>
+<td><p>136</p></td>
+<td><p>146</p></td>
+<td><p>150</p></td>
+<td><p>137</p></td>
+<td><p>128</p></td>
+<td><p>139</p></td>
+<td><p>117</p></td>
+<td><p>152</p></td>
+</tr>
+<tr class="row-odd"><td><p>categories1</p></td>
+<td><p>29</p></td>
+<td><p>30</p></td>
+<td><p>31</p></td>
+<td><p>32</p></td>
+<td><p>33</p></td>
+<td><p>34</p></td>
+<td><p>35</p></td>
+<td><p>36</p></td>
+<td><p>37</p></td>
+<td><p>38</p></td>
+</tr>
+<tr class="row-even"><td><p>orig</p></td>
+<td><p>111</p></td>
+<td><p>143</p></td>
+<td><p>96</p></td>
+<td><p>123</p></td>
+<td><p>104</p></td>
+<td><p>107</p></td>
+<td><p>148</p></td>
+<td><p>91</p></td>
+<td><p>109</p></td>
+<td><p>87</p></td>
+</tr>
+<tr class="row-odd"><td><p>categories1</p></td>
+<td><p>39</p></td>
+<td><p>40</p></td>
+<td><p>41</p></td>
+<td><p>42</p></td>
+<td><p>43</p></td>
+<td><p>44</p></td>
+<td><p>45</p></td>
+<td><p>46</p></td>
+<td><p>47</p></td>
+<td><p>48</p></td>
+</tr>
+<tr class="row-even"><td><p>orig</p></td>
+<td><p>89</p></td>
+<td><p>93</p></td>
+<td><p>58</p></td>
+<td><p>78</p></td>
+<td><p>72</p></td>
+<td><p>64</p></td>
+<td><p>84</p></td>
+<td><p>74</p></td>
+<td><p>48</p></td>
+<td><p>60</p></td>
+</tr>
+<tr class="row-odd"><td><p>categories1</p></td>
+<td><p>49</p></td>
+<td><p>50</p></td>
+<td><p>51</p></td>
+<td><p>52</p></td>
+<td><p>53</p></td>
+<td><p>54</p></td>
+<td><p>55</p></td>
+<td><p>56</p></td>
+<td><p>57</p></td>
+<td><p>58</p></td>
+</tr>
+<tr class="row-even"><td><p>orig</p></td>
+<td><p>58</p></td>
+<td><p>66</p></td>
+<td><p>50</p></td>
+<td><p>55</p></td>
+<td><p>29</p></td>
+<td><p>30</p></td>
+<td><p>34</p></td>
+<td><p>38</p></td>
+<td><p>33</p></td>
+<td><p>44</p></td>
+</tr>
+<tr class="row-odd"><td><p>categories1</p></td>
+<td><p>59</p></td>
+<td><p>60</p></td>
+<td><p>61</p></td>
+<td><p>62</p></td>
+<td><p>63</p></td>
+<td><p>64</p></td>
+<td><p>65</p></td>
+<td><p>66</p></td>
+<td><p>67</p></td>
+<td><p>68</p></td>
+</tr>
+<tr class="row-even"><td><p>orig</p></td>
+<td><p>35</p></td>
+<td><p>36</p></td>
+<td><p>25</p></td>
+<td><p>33</p></td>
+<td><p>21</p></td>
+<td><p>15</p></td>
+<td><p>30</p></td>
+<td><p>18</p></td>
+<td><p>13</p></td>
+<td><p>29</p></td>
+</tr>
+<tr class="row-odd"><td><p>categories1</p></td>
+<td><p>69</p></td>
+<td><p>70</p></td>
+<td><p>71</p></td>
+<td><p>72</p></td>
+<td><p>73</p></td>
+<td><p>74</p></td>
+<td><p>75</p></td>
+<td><p>76</p></td>
+<td><p>77</p></td>
+<td><p>78</p></td>
+</tr>
+<tr class="row-even"><td><p>orig</p></td>
+<td><p>26</p></td>
+<td><p>36</p></td>
+<td><p>17</p></td>
+<td><p>16</p></td>
+<td><p>12</p></td>
+<td><p>3</p></td>
+<td><p>16</p></td>
+<td><p>10</p></td>
+<td><p>8</p></td>
+<td><p>18</p></td>
+</tr>
+<tr class="row-odd"><td><p>categories1</p></td>
+<td><p>79</p></td>
+<td><p>80</p></td>
+<td><p>81</p></td>
+<td><p>82</p></td>
+<td><p>83</p></td>
+<td><p>84</p></td>
+<td><p>85</p></td>
+<td><p>86</p></td>
+<td><p>87</p></td>
+<td><p>88</p></td>
+</tr>
+<tr class="row-even"><td><p>orig</p></td>
+<td><p>11</p></td>
+<td><p>13</p></td>
+<td><p>5</p></td>
+<td><p>2</p></td>
+<td><p>7</p></td>
+<td><p>7</p></td>
+<td><p>7</p></td>
+<td><p>3</p></td>
+<td><p>2</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-odd"><td><p>categories1</p></td>
+<td><p>89</p></td>
+<td><p>90</p></td>
+<td><p>91</p></td>
+<td><p>92</p></td>
+<td><p>93</p></td>
+<td><p>95</p></td>
+<td><p>NA</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>orig</p></td>
+<td><p>4</p></td>
+<td><p>4</p></td>
+<td><p>3</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>188</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>categories2</p></td>
+<td><p>7</p></td>
+<td><p>20</p></td>
+<td><p>30</p></td>
+<td><p>40</p></td>
+<td><p>50</p></td>
+<td><p>60</p></td>
+<td><p>65</p></td>
+<td><p>NA</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>recoded</p></td>
+<td><p>4,731</p></td>
+<td><p>1,847</p></td>
+<td><p>1,220</p></td>
+<td><p>889</p></td>
+<td><p>554</p></td>
+<td><p>314</p></td>
+<td><p>325</p></td>
+<td><p>188</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>EDUCY</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 22%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 8%" />
+<col style="width: 8%" />
+<col style="width: 7%" />
+<col style="width: 8%" />
+<col style="width: 12%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>categories1</p></th>
+<th class="head"><p>0</p></th>
+<th class="head"><p>1</p></th>
+<th class="head"><p>2</p></th>
+<th class="head"><p>3</p></th>
+<th class="head"><p>4</p></th>
+<th class="head"><p>5</p></th>
+<th class="head"><p>6</p></th>
+<th class="head"><p>NA</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>orig</p></td>
+<td><p>1582</p></td>
+<td><p>4755</p></td>
+<td><p>1062</p></td>
+<td><p>330</p></td>
+<td><p>139</p></td>
+<td><p>46</p></td>
+<td><p>104</p></td>
+<td><p>2050</p></td>
+</tr>
+<tr class="row-odd"><td><p>categories2</p></td>
+<td><p>0</p></td>
+<td><p>1</p></td>
+<td><p>2</p></td>
+<td><p>3</p></td>
+<td><p>4</p></td>
+<td><p>5</p></td>
+<td><p>6</p></td>
+<td><p>NA</p></td>
+</tr>
+<tr class="row-even"><td><p>recoded</p></td>
+<td><p>1,582</p></td>
+<td><p>4,755</p></td>
+<td><p>1,062</p></td>
+<td><p>330</p></td>
+<td><p>139</p></td>
+<td><p>46</p></td>
+<td><p>104</p></td>
+<td><p>2,050</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>INDUSTRY1</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 19%" />
+<col style="width: 10%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 10%" />
+<col style="width: 6%" />
+<col style="width: 7%" />
+<col style="width: 6%" />
+<col style="width: 6%" />
+<col style="width: 6%" />
+<col style="width: 7%" />
+<col style="width: 10%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>categories1</p></th>
+<th class="head"><p>1</p></th>
+<th class="head"><p>2</p></th>
+<th class="head"><p>3</p></th>
+<th class="head"><p>4</p></th>
+<th class="head"><p>5</p></th>
+<th class="head"><p>6</p></th>
+<th class="head"><p>7</p></th>
+<th class="head"><p>8</p></th>
+<th class="head"><p>9</p></th>
+<th class="head"><p>10</p></th>
+<th class="head"><p>NA</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>orig</p></td>
+<td><p>5,300</p></td>
+<td><p>16</p></td>
+<td><p>153</p></td>
+<td><p>2</p></td>
+<td><p>93</p></td>
+<td><p>484</p></td>
+<td><p>95</p></td>
+<td><p>17</p></td>
+<td><p>70</p></td>
+<td><p>292</p></td>
+<td><p>3,546</p></td>
+</tr>
+<tr class="row-odd"><td><p>categories2</p></td>
+<td><p>1</p></td>
+<td><p>2</p></td>
+<td><p>3</p></td>
+<td><p>NA</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>recoded</p></td>
+<td><p>5,316</p></td>
+<td><p>248</p></td>
+<td><p>958</p></td>
+<td><p>3,546</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Local suppressions</p>
+<p>Number of local suppressions:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 14%" />
+<col style="width: 14%" />
+<col style="width: 14%" />
+<col style="width: 14%" />
+<col style="width: 14%" />
+<col style="width: 14%" />
+<col style="width: 16%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"></th>
+<th class="head"><p>GENDER</p></th>
+<th class="head"><p>REL</p></th>
+<th class="head"><p>MARITAL</p></th>
+<th class="head"><p>AGEYRS</p></th>
+<th class="head"><p>EDUCY</p></th>
+<th class="head"><p>INDUSTRY1</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>absolut
+e</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>91</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td><p>relativ
+e
+(in
+percent
+)</p></td>
+<td><p>0.00%</p></td>
+<td><p>0.00%</p></td>
+<td><p>0.00%</p></td>
+<td><p>0.90%</p></td>
+<td><p>0.00%</p></td>
+<td><p>0.00%</p></td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="section" id="case-study-2-external-report">
-<h3>Case study 2 - External report<a class="headerlink" href="#case-study-2-external-report" title="Permalink to this headline">¶</a></h3>
-<p>To be added</p>
-</div>
+<h2><strong>Case study 2- External report</strong><a class="headerlink" href="#case-study-2-external-report" title="Permalink to this headline">¶</a></h2>
+<p>This case study microdata set has been treated to protect
+confidentiality. Several methods have been applied to protect the
+confidentiality: removing variables from the original dataset, removing
+records from the dataset, reducing detail in variables by recoding and
+top-coding, removing particular values of individuals at risk (local
+suppression) and perturbing values of certain variables.</p>
+<p><em>Removing</em> <em>variables</em></p>
+<p>The released microdata set has only a selected number of variables
+contained in the initial survey. Not all variables could be released in
+this PUF without breaching confidentiality rules.</p>
+<p><em>Removing</em> <em>records</em></p>
+<p>To protect confidentiality, records of households larger than 13 were
+removed. Twenty-nine households out of a total of 2,000 households in
+the dataset were removed.</p>
+<p><em>Reducing detail in variables by recoding and top-coding</em></p>
+<p>The variable AGEYRS was recoded to ten-year age intervals for values in
+the age range 15 ΓÇô 65 and bottom- and top-coded at 15 and 65. The
+variables REL, MARITAL, EDUCY and INDUSTRY1 were recoded to less
+detailed categories. The total income and expenditure variables were
+recoded to the mean of the corresponding deciles and the income and
+expenditure components to the proportion of the totals.</p>
+<p><em>Local suppression</em></p>
+<p>Values of certain variables for particular households and individuals
+were deleted. In total, 67 values of the variable URBRUR, 126 of the
+REGION variable, 91 for the AGEYRS variable and 323 values of the
+variable REL were deleted.</p>
+<p><em>Perturbing values</em></p>
+<p>Uncertainty was introduced in the variables ROOF, TOILET, WATER,
+ELECTCON, FUELCOOK, OWNMOTORCYCLE, CAR, TV and LIVESTOCK by using the
+PRAM method. This method changes a certain percentage of values of
+variables within each variable. Here invariant PRAM was used, which
+guarantees that the univariate tabulations stay unchanged. Multivariate
+tabulations may be changed. Unfortunately, the transition matrix cannot
+be published.</p>
 </div>
 <div class="section" id="appendix-d-execution-times-for-multiple-scenarios-tested-using-selected-sample-data">
 <h2>Appendix D: Execution Times for Multiple Scenarios Tested using Selected Sample Data<a class="headerlink" href="#appendix-d-execution-times-for-multiple-scenarios-tested-using-selected-sample-data" title="Permalink to this headline">¶</a></h2>
@@ -684,87 +4045,85 @@ individual-level variables.</p>
 </div>
 <div class="figure align-center" id="id1">
 <img alt="_images/image23.png" src="_images/image23.png" />
-<p class="caption"><span class="caption-number">Fig. 22 </span><span class="caption-text">Description of anonymization scenarios</span></p>
+<p class="caption"><span class="caption-number">Fig. 22 </span><span class="caption-text">Description of anonymization scenarios</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
 </div>
 <p class="rubric">References</p>
-<table class="docutils citation" frame="void" id="dubo10" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label">[DuBo10]</td><td>Dupriez, O., &amp; Boyko, E. (2010).
+<dl class="citation">
+<dt class="label" id="dubo10"><span class="brackets">DuBo10</span></dt>
+<dd><p>Dupriez, O., &amp; Boyko, E. (2010).
 <strong>Dissemination of Microdata Files; Principles, Procedures and Practices.</strong>
-International Household Survey Network (IHSN).</td></tr>
-</tbody>
-</table>
+International Household Survey Network (IHSN).</p>
+</dd>
+</dl>
 </div>
 </div>
 
 
-           </div>
-           
           </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="acknowledgements.html" class="btn btn-neutral float-right" title="Acknowledgements" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="process.html" class="btn btn-neutral" title="The SDC Process" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
-    </div>
-  
-
-  <hr/>
-
-  <div role="contentinfo">
-    <p>
-        &copy; Copyright 2018, Thijs Benschop, Cathrine Machingauta, Matthew Welch.
-
-    </p>
-  </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
-
-</footer>
-
         </div>
       </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Appendices</a><ul>
+<li><a class="reference internal" href="#appendix-a-overview-of-case-study-variables">Appendix A: Overview of Case Study Variables</a></li>
+<li><a class="reference internal" href="#appendix-b-example-of-blanket-agreement-for-suf">Appendix B: Example of Blanket Agreement for SUF</a></li>
+<li><a class="reference internal" href="#appendix-c-internal-and-external-reports-for-case-studies">Appendix C: Internal and External Reports for Case Studies</a></li>
+<li><a class="reference internal" href="#case-study-1-internal-report"><strong>Case study 1 - Internal report</strong></a></li>
+<li><a class="reference internal" href="#case-study-1-external-report"><strong>Case study 1 - External report</strong></a></li>
+<li><a class="reference internal" href="#case-study-2-internal-report"><strong>Case study 2 - Internal report</strong></a></li>
+<li><a class="reference internal" href="#case-study-2-external-report"><strong>Case study 2- External report</strong></a></li>
+<li><a class="reference internal" href="#appendix-d-execution-times-for-multiple-scenarios-tested-using-selected-sample-data">Appendix D: Execution Times for Multiple Scenarios Tested using Selected Sample Data</a></li>
+</ul>
+</li>
+</ul>
 
-    </section>
-
-  </div>
-  
-
-
-  
-
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'./',
-            VERSION:'',
-            LANGUAGE:'None',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="_static/jquery.js"></script>
-      <script type="text/javascript" src="_static/underscore.js"></script>
-      <script type="text/javascript" src="_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-
-  
-
-  
-  
-    <script type="text/javascript" src="_static/js/theme.js"></script>
-  
-
-  <script type="text/javascript">
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
-      });
-  </script> 
-
-</body>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="process.html"
+                        title="previous chapter">The SDC Process</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="acknowledgements.html"
+                        title="next chapter">Acknowledgements</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/appendices.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="acknowledgements.html" title="Acknowledgements"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="process.html" title="The SDC Process"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">SDC Practice Guide  documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2018, Thijs Benschop, Cathrine Machingauta, Matthew Welch.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.1.2.
+    </div>
+  </body>
 </html>

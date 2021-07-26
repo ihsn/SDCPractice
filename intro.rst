@@ -39,7 +39,7 @@ remove some of these obstacles.
 Working with the IHSN, PARIS21 (OECD), Statistics Austria and the Vienna
 University of Technology, the World Bank has contributed to the
 development of an open source software package for SDC, called
-*sdcMicro*. The package was developed for use with the open source *R*
+*sdcMicro* `TKM15`_. The package was developed for use with the open source *R*
 statistical software, available from the Comprehensive R Archive Network
 (CRAN) at http://cran.us.r-project.org. The package includes numerous
 methods for the assessment and reduction of disclosure risk in
@@ -205,6 +205,11 @@ This guide is divided into the following main sections:
       *sdcMicro* and the process that should be followed to reach the
       optimal risk-utility solution.
 
+.. rubric:: References
+
+.. [TKM15]	Matthias Templ, Alexander Kowarik, Bernhard Meindl (2015). 
+	Statistical Disclosure Control for Micro-Data Using the R Package sdcMicro. 
+	**Journal of Statistical Software**, 67(4), 1-36.<doi:10.18637/jss.v067.i04>
 
 .. [#foot13]
    Microdata are unit-level data obtained from sample surveys, censuses

@@ -1,0 +1,1666 @@
+---
+title: "Examples for guide"
+author: "Thijs"
+date: "27 oktober 2015"
+output: word_document
+---
+
+----------------------------------------------------
+```{r, include = TRUE}
+library(sdcMicro)
+# Set up dataset
+data4 <- as.data.frame(cbind(as.factor(c('Urban', 'Urban', 'Urban', 'Urban', 'Rural', 'Urban', 'Urban', 'Urban', 'Urban', 'Urban')),
+                             as.factor(c('Female', 'Female', 'Female', 'Male', 'Female', 'Male', 'Female', 'Male', 'Female', 'Female')),
+                             as.factor(c('Sec in', 'Sec in', 'Prim in', 'Sec com', 'Sec com', 'Sec com', 'Prim com', 'Post-sec', 'Sec in', 'Sec in')),
+                             as.factor(c('Emp', 'Emp', 'Non-LF', 'Emp', 'Unemp', 'Emp', 'Non-LF', 'Unemp', 'Non-LF','Non-LF')),
+                             as.factor(c('yes', 'yes', 'yes', 'yes','yes', 'no', 'no', 'yes', 'no', 'yes')),
+                            c(180, 180, 215, 76, 186, 76, 180, 215, 186, 76)
+                            ))
+
+names(data4) <- c('Residence', 'Gender', 'Educ', 'Lstat', 'Health', 'Weights')
+sdcInitial <- createSdcObj(dat = data4, keyVars = c('Residence', 'Gender', 'Educ', 'Lstat'), weightVar = 'Weights')
+k=3
+```
+
+Example 4.1: Calculating  f_k using sdcMicro
+----------------------------------------------------
+```{r}
+# Frequency of the particular combination of key variables (keys) in the sample
+freq(sdcInitial, type = 'fk')
+
+``` 
+
+
+Example 4.2: Calculating the sample and population frequencies using sdcMicro
+----------------------------------------------------
+```{r, results="hide"}
+# Sample frequency of individual's key
+freq(sdcInitial, type = 'fk')
+# Population frequency of individual's key
+freq(sdcInitial, type = 'Fk')
+``` 
+
+Example 4.3: The individual risk slot within the sdcMicro object
+----------------------------------------------------
+```{r}
+sdcInitial@risk$individual
+```
+
+----------------------------------------------------
+```{r, include = FALSE}
+sdcInitial <- localSuppression(sdcInitial, k = 1)
+```
+  
+Example 4.4: Using the print() function to display observations violating k-anonymity 
+----------------------------------------------------
+```{r}
+print(sdcInitial, 'kAnon')
+```
+ 
+Example 4.5: Computing k-anonymity violations for other values of k
+----------------------------------------------------
+```{r}
+k=3
+sum(sdcInitial@risk$individual[,2] < k)
+```
+ 
+ Example 4.6: l-diversity function in sdcMicro
+----------------------------------------------------
+```{r}
+# Computing l-diversity 
+sdcInitial <- ldiversity(obj = sdcInitial,  ldiv_index = c("Health"), l_recurs_c = 2, missing = NA)
+
+# Output for l-diversity
+sdcInitial@risk$ldiversity
+```
+ 
+ Example 4.7: Evaluating SUDA Scores for specified variables
+----------------------------------------------------
+```{r}
+# Evaluating SUDA scores for the specified variables
+sdcInitial <- suda2(obj = sdcInitial, missing = NA)
+
+# The results are saved in the risk slot of the sdcMicro object
+# SUDA scores
+sdcInitial@risk$suda2$score
+
+# DIS-SUDA scores
+sdcInitial@risk$suda2$disScore
+
+# Summary of DIS-SUDA scores
+sdcInitial@risk$suda2
+
+```
+ 
+ Example 4.8: Histogram and density plots of DIS-SUDA scores
+----------------------------------------------------
+```{r, results='hide'}
+# Plot a histogram of disScore
+hist(sdcInitial@risk$suda2$disScore, main = 'Histogram of DIS-SUDA scores')
+
+# Density plot
+density <- density(sdcInitial@risk$suda2$disScore)
+plot(density, main = 'Density plot of DIS-SUDA scores')
+
+```
+ 
+```{r, include = FALSE}
+# Set up dataset
+file <- as.data.frame(cbind(c(100, 150, 200), c(1,3,2)))
+names(file) <- c('income', 'income2')
+sdcObj <- createSdcObj(dat = file, keyVars =c('income', 'income2'), numVars = c('income', 'income2'))
+compExp <- c('income', 'income2')
+sdcObj@manipNumVars[,'income'] <- c(100, 200, 290)
+
+``` 
+ 
+ Example 4.9: Example with the function dRisk()
+----------------------------------------------------
+```{r}
+dRisk(obj = sdcObj@origData[,compExp], xm = sdcObj@manipNumVars[,compExp], k = 0.1)
+```
+ 
+ Example 4.10: Computing 90 % quantile of variable income
+----------------------------------------------------
+```{r, results = 'hide'}
+# Compute the 90 % quantile for the variable income
+quant90 <- quantile(file[,'income'], 0.90, na.rm = TRUE)
+# Show the ID of observations with values for income larger than the 90 % quantile 
+file[(file[, 'income'] >= quant90), 'ID']
+```
+ 
+ Example 4.11: Computation of individual risk measures
+----------------------------------------------------
+```{r}
+# Global risk (average reidentification probability) 
+sdcInitial@risk$global$risk
+```
+ 
+ Example 4.12: Computation of expected number of re-identifications
+----------------------------------------------------
+```{r}
+# Global risk (expected number of reidentifications)
+sdcInitial@risk$global$risk_ER
+```
+ 
+ Example 4.13: Number of individuals with individual risk higher than the threshold 0.05
+----------------------------------------------------
+```{r}
+sum(sdcInitial@risk$individual[,1] >= 0.05)
+```
+ 
+Example 4.14: Computation of household risk and expected number of re-identifications
+----------------------------------------------------
+```{r, results = 'hide'}
+# Household risk
+sdcInitial@risk$global$hier_risk
+# Household risk (expected number of reidentifications
+sdcInitial@risk$global$hier_risk_ER
+```
+
+```{r, include = FALSE}
+rm(list = ls())
+library(sdcMicro)
+library(foreign)
+fname <- "/Users/thijsbenschop/Copy/World Bank/DHS/Complete/KAZ_1999_DHS_v01_M_subset.dta"
+file51 <- read.dta(fname, missing.type = TRUE, convert.factors = TRUE)
+file51 <- file51[1:2500,]
+names(file51)[which(names(file51) == "HV026")] <- "sizeRes"
+names(file51)[which(names(file51) == "HV105")] <- "age"
+names(file51)[which(names(file51) == "HV104")] <- "gender"
+names(file51)[which(names(file51) == "HV023")] <- "region"
+names(file51)[which(names(file51) == "HV003")] <- "ethnicity"
+
+sdcInitial <- createSdcObj(dat = file51, keyVars = c('sizeRes', 'age', 'gender', 'region', 'ethnicity'))
+sdcInitialCopy <- sdcInitial
+```
+
+Example 5.1: Using the sdcMicro function groupVars() to recode a categorical variable 
+----------------------------------------------------
+```{r}
+table(sdcInitial@manipKeyVars$sizeRes)
+sdcInitial  <-  groupVars(obj = sdcInitial, var = c("sizeRes"), before = c("capital, large city", "small city", "town"), after = c("urban", "urban", "urban"))
+sdcInitial  <-  groupVars(obj = sdcInitial, var = c("sizeRes"), before = c("countryside"), after = c("rural"))
+table(sdcInitial@manipKeyVars$sizeRes)
+```
+
+```{r, include = FALSE}
+sdcInitial <- sdcInitialCopy
+```
+
+Example 5.2: Using the sdcMicro function  globalRecode to recode a continuous variable (age)
+----------------------------------------------------
+```{r}
+sdcInitial <- globalRecode(sdcInitial, column = c('age'), breaks = 10 * c(0:10))
+table(sdcInitial@manipKeyVars$age)
+```
+
+```{r, include = FALSE}
+sdcInitial <- sdcInitialCopy
+```
+ 
+ Example 5.3: Using globalRecode() to create intervals of unequal width 
+----------------------------------------------------
+```{r}
+sdcInitial <- globalRecode(sdcInitial, column = c('age'), breaks = c(0, 5, 11, 17, 21, 25, 49, 65, 100))
+table(sdcInitial@manipKeyVars$age)
+```
+ 
+```{r, include = FALSE}
+sdcInitial <- sdcInitialCopy
+```
+
+Example 5.4: Constructing right-open intervals for semi-continuous variables using built-in sdcMicro function globalRecode()
+----------------------------------------------------
+```{r, results='hide'}
+sdcInitial <- globalRecode(sdcInitial, column = c('age'), breaks = c(-0.1, 14.9, 65.9, 99.9), labels = c('[0,14)', '[15,65)', '[66,100)'))
+table(sdcInitial@manipKeyVars$age)
+```
+ 
+```{r, include = FALSE}
+sdcInitial <- sdcInitialCopy
+```
+
+Example 5.6: Constructing intervals for semi continuous and continuous variables using manual recoding in R 
+----------------------------------------------------
+```{r, results='hide'}
+sdcInitial@manipKeyVars$age[sdcInitial@manipKeyVars$age >= 0 & 
+sdcInitial@manipKeyVars$age < 15] <- 0
+
+sdcInitial@manipKeyVars$age[sdcInitial@manipKeyVars$age >= 15 &
+sdcInitial@manipKeyVars$age < 66] <- 1
+
+sdcInitial@manipKeyVars$age[sdcInitial@manipKeyVars$age >= 66 &
+sdcInitial@manipKeyVars$age <= 100] <- 2
+
+# Add labels for the new values
+sdcInitial@manipKeyVars$age <-ordered(sdcInitial@manipKeyVars$age,
+levels = c(0,1,2), labels = c("0-14", "15-65", "66-100")) 
+
+# Recalculate risk after manual manipulation
+sdcInitial <- calcRisks(sdcInitial)
+
+table(sdcInitial@manipKeyVars$age)
+```
+ 
+```{r, include = FALSE}
+sdcInitial <- sdcInitialCopy
+```
+
+Example 5.7: Top coding and bottom coding in sdcMicro using topBotCoding() function
+----------------------------------------------------
+```{r, results='hide'}
+#top coding
+sdcInitial <- topBotCoding(obj = sdcInitial, value = 65, replacement = 65, kind = 'top', column = 'age')
+
+#bottom coding
+sdcInitial <- topBotCoding(obj = sdcInitial, value = 5, replacement = 5, kind = 'bottom', column = 'age')
+```
+ 
+```{r, include = FALSE}
+sdcInitial <- sdcInitialCopy
+#rm(list=ls())
+```
+
+Example 5.8: Application of local suppression with and without importance vector 
+----------------------------------------------------
+```{r, error=TRUE}
+# local suppression without importance vector 
+sdcInitial <- localSuppression(sdcInitial, k=5)
+print(sdcInitial, 'ls')
+## 
+## gender ....... 0 [ 0 %]
+## 
+## region ....... 0 [ 0 %]
+## 
+## religion ..... 0 [ 0 %]
+## 
+## age .......... 161 [ 1.422 %]
+## 
+## ethnicity..... 0 [ 0 %]
+# Undoing the supressions
+sdcInitial <- undolast(sdcInitial)
+
+# Local suppression with importance vector to avoid suppressions in the first (gender) and fourth (age) variables
+sdcInitial <- localSuppression(sdcInitial, importance = c(5, 1, 1, 5, 5), k = 5)
+print(sdcInitial, 'ls')
+## 
+## gender ....... 2 [ 0.018 %]
+## 
+## region ....... 260 [ 2.296 %]
+## 
+## religion ..... 25 [ 0.221 %]
+## 
+## age .......... 0 [ 0 %]
+## 
+## ethnicity..... 8 [ 0.071 %]
+
+```
+
+```{r, include=FALSE}
+sdcInitial <- sdcInitialCopy
+```
+
+ Example 5.9: Application of built-in sdcMicro function localSupp()
+----------------------------------------------------
+```{r, error=TRUE}
+# Summary statistics 
+summary(sdcInitial@risk$individual[,1])
+# Number of individuals with individual risk higher than 0.1
+sum(sdcInitial@risk$individual[,1] > 0.1)
+# local suppression
+localSupp(sdcInitial, threshold = 0.1, keyVar = 'ethnicity')
+```
+ 
+```{r, include=FALSE}
+#rm(list = ls())
+library(sdcMicro)
+library(foreign)
+fname <- "/Users/thijsbenschop/Copy/World Bank/Guidelines/Case studies/caseA.dta"
+file <- read.dta(fname, missing.type = TRUE, convert.factors = TRUE)
+selectedKeyVarsHH = c('URBRUR', 'REGION', 'HHSIZE', 'OWNAGLAND', 'RELIG') 
+file$URBRUR    <- as.factor(file$URBRUR)
+file$REGION    <- as.factor(file$REGION)
+file$OWNHOUSE  <- as.factor(file$OWNHOUSE)
+file$OWNAGLAND <- as.factor(file$OWNAGLAND)
+file$RELIG     <- as.factor(file$RELIG)
+numVarsHH = c('LANDSIZEHA', 'TANHHEXP', 'TFOODEXP', 'TALCHEXP', 'TCLTHEXP', 'THOUSEXP', 'TFURNEXP', 'THLTHEXP', 'TTRANSEXP', 'TCOMMEXP', 'TRECEXP', 'TEDUEXP', 'TRESTHOTEXP', 'TMISCEXP', 
+              'INCTOTGROSSHH', 'INCRMT', 'INCWAGE', 'INCFARMBSN', 'INCNFARMBSN', 'INCRENT', 'INCFIN', 'INCPENSN', 'INCOTHER')
+pramVarsHH = c('ROOF', 'TOILET', 'WATER', 'ELECTCON', 'FUELCOOK', 'OWNMOTORCYCLE', 'CAR', 'TV', 'LIVESTOCK')
+weightVarHH = c('WGTPOP')
+HHVars <- c('IDH', selectedKeyVarsHH, pramVarsHH, numVarsHH, weightVarHH)
+fileHH <- file[,HHVars]
+fileHH <- fileHH[which(!duplicated(fileHH$IDH)),]
+sdcHH <- createSdcObj(dat=fileHH, keyVars=selectedKeyVarsHH, pramVars=pramVarsHH, weightVar=weightVarHH, numVars = numVarsHH)
+
+sdcInitial <- sdcHH
+```
+
+```{r, include = FALSE}
+sdcInitial <- sdcInitialCopy
+```
+
+Example 5.9: Manually suppressing values in linked variables
+----------------------------------------------------
+```{r, error=TRUE}
+# Suppress values of rururb in file if region is suppressed
+file[is.na(sdcInitial@manipKeyVars$region) & !is.na(sdcInitial@origData$region),'sizRes'] <- NA
+```
+
+```{r, include = FALSE}
+sdcInitial <- sdcInitialCopy
+```
+
+Example 5.10: Suppressing values in linked variables by specifying ghost variables
+----------------------------------------------------
+```{r, error=TRUE}
+# Ghost vars are specified as a list of linkages
+ghostVars <- list()
+# Each linkage is a list, with the first element the key variable and the second element the linked variable(s)
+ghostVars[[1]] <- list()
+ghostVars[[1]][[1]] <- "region"
+ghostVars[[1]][[2]] <- c("sizeRes")
+
+## create the sdcMicroObj
+sdcInitial <- createSdcObj(file, keyVars = keyVars, numVars = numVars, w = w, ghostVars = ghostVars)
+
+# The manpulated ghost variables are in the slot manipGhostVars
+sdcInitial@manipGhostVars
+```
+
+```{r, include = FALSE}
+sdcInitial <- sdcHH
+```
+
+Example 5.10: Producing reproducible PRAM results by using set.seed()
+----------------------------------------------------
+```{r, error=TRUE}
+# set seed for random number generation
+set.seed(123) 
+sdcInitial <- pram(obj = sdcInitial)
+```
+ 
+Example 5.11: Selecting variables to apply PRAM
+----------------------------------------------------
+```{r, error=TRUE}
+set.seed(123) # set seed for random number generation
+sdcInitial <- pram(obj = sdcInitial, variables = c ("TOILET"))
+```
+ 
+ Example 5.12: Specifying minimum values for diagonal entries in PRAM transition matrix 
+----------------------------------------------------
+```{r, error=TRUE}
+sdcInitial <- pram(obj = sdcInitial, variables = c("TOILET"), pd = c(1, 0, 0, 0))
+```
+ 
+ Example 5.13: Minimizing unlikely combinations by applying PRAM within strata
+----------------------------------------------------
+```{r, error=TRUE}
+#Applying PRAM within the strata formed by the variable educ
+sdcInitial <- pram(obj = sdcInitial, variables = c("TOILET"), strata_variables = c("REGION"))
+```
+ 
+ Example 5.14: Applying microaggregation with sdcMicro function microaggregation()
+----------------------------------------------------
+```{r, error=TRUE}
+sdcInitial <- microaggregation(obj = sdcInitial, variables = 'INCTOTGROSSHH', aggr = 3, method = mafast, measure = "mean")
+```
+ 
+ Example 5.15: Microaggregation with the Maximum Distance to Average Vector (MDAV) algorithm in sdcMicro
+----------------------------------------------------
+```{r, error=TRUE}
+sdcInitial <- microaggregation(obj = sdcInitial, variables = c("INCTOTGROSSHH", "TANHHEXP"), method = "mdav")
+```
+ 
+ Example 5.16: Specifying strata variables for microaggregation
+----------------------------------------------------
+```{r, error=TRUE}
+sdcInitial <- microaggregation(obj = sdcInitial, variables = c("INCTOTGROSSHH", "TANHHEXP"), method = "mdav", strata_variables = c("REGION"))
+```
+ 
+ Example 5.17: Uncorrelated noise addition
+----------------------------------------------------
+```{r, error=TRUE}
+sdcInitial <- addNoise(obj = sdcInitial, variables = c('TFOODEXP', 'TALCHEXP', 'TCLTHEXP', 'THOUSEXP', 'TFURNEXP', 'THLTHEXP', 'TTRANSEXP', 'TCOMMEXP', 'TRECEXP', 'TEDUEXP', 'TRESTHOTEXP', 'TMISCEXP'), noise = 0.5, method = "additive")
+```
+ 
+ Example 5.18: Correlated noise addition 
+----------------------------------------------------
+```{r, error=TRUE}
+sdcInitial <- addNoise(obj = sdcInitial, variables = c('TFOODEXP', 'TALCHEXP', 'TCLTHEXP', 'THOUSEXP', 'TFURNEXP', 'THLTHEXP', 'TTRANSEXP', 'TCOMMEXP', 'TRECEXP', 'TEDUEXP', 'TRESTHOTEXP', 'TMISCEXP'), noise = 0.5, method = "correlated2")
+```
+ 
+ Example 5.19: Noise addition for outliers using the ëoutdectí method
+----------------------------------------------------
+```{r, error=TRUE}
+sdcInitial <- addNoise(obj = sdcInitial, variables = c('TFOODEXP', 'TALCHEXP', 'TCLTHEXP', 'THOUSEXP', 'TFURNEXP', 'THLTHEXP', 'TTRANSEXP', 'TCOMMEXP', 'TRECEXP', 'TEDUEXP', 'TRESTHOTEXP', 'TMISCEXP'), noise = 0.5, method = "outdect")
+```
+ 
+ Example 5.20:  Noise addition to aggregates and their components
+----------------------------------------------------
+```{r, error=TRUE}
+# add noise to totals (income / expenditures)
+sdcInital <- addNoise(noise = 0.5, obj = sdcInitial, variables=c("TANHHEXP", "INCTOTGROSSHH"), method="additive") 
+
+# multiply anonymized totals with ratios to obtain anonymized components
+compExp <-  c('TFOODEXP', 'TALCHEXP', 'TCLTHEXP', 'THOUSEXP', 'TFURNEXP', 'THLTHEXP', 'TTRANSEXP', 'TCOMMEXP', 'TRECEXP', 'TEDUEXP', 'TRESTHOTEXP', 'TMISCEXP') 
+sdcInital@manipNumVars[,compExp] <- sdcInital @manipNumVars[,"TANHHEXP"] * sdcInital @origData[,compExp]/ sdcInital@origData[,"TANHHEXP"]
+
+# recalculate risks after manually changing values in sdcMicro object
+calcRisks(sdcInital)
+```
+ 
+ Example 5.21: Rank swapping using sdcMicro
+----------------------------------------------------
+```{r, error=TRUE}
+# set seed for random number generator 
+set.seed(12345) 
+
+# check correlation structure between the variables
+cor(file$THOUSEXP, file$TFOODEXP)
+
+# apply rank swapping
+rankSwap(sdcInitial, variables = c("TOTHOUS", "TOTFOOD"), missing = NA) 
+```
+ 
+ Example 5.22: Shuffling using a specified regression equation
+----------------------------------------------------
+```{r, error=TRUE}
+# Evaluate R-squared (goodness-of-fit) of the regression model
+summary(lm(file, form = TFOODEXP + TALCHEXP + TCLTHEXP + THOUSEXP + TFURNEXP + THLTHEXP + TTRANSEXP + TCOMMEXP + TRECEXP + TEDUEXP + TRESTHOTEXP + TMISCEXP ~ TANHHEXP + HHSIZE)) 
+
+# Shuffling using the specified regression equation
+sdcInitial <- shuffle(sdcInitial, method='ds', form = TFOODEXP + TALCHEXP + TCLTHEXP + THOUSEXP + TFURNEXP + THLTHEXP + TTRANSEXP + TCOMMEXP + TRECEXP + TEDUEXP + TRESTHOTEXP + TMISCEXP ~ TANHHEXP + HHSIZE) 
+```
+
+ 
+ Example 6.1: Using the print function to retrieve the total number of suppressions for each key variable
+----------------------------------------------------
+```{r, error=TRUE}
+sdcInitial <- localSuppression(sdcInitial, k = 5, importance = NULL)
+print(sdcInitial, 'ls')
+```
+ 
+ Example 6.2: Displaying the number of missing values for each categorical key variable in an sdcMicro object
+----------------------------------------------------
+```{r, error=TRUE}
+# Store the names of all categorical key variables in a vector 
+namesKeyVars       <- names(sdcInitial@manipKeyVars)
+ 
+# Matrix to store the number of missing values (NA) before and after anonymization
+NAcount            <- matrix(NA, nrow = 2, ncol = length(namesKeyVars))
+colnames(NAcount)  <- c(paste0('NA', namesKeyVars)) # column names
+rownames(NAcount)  <- c('initial', 'treated') # row names
+
+# NA count in all key variables (NOTE: only those coded NA are counted)
+for(i in 1:length(namesKeyVars))
+{
+  NAcount[1, i] <- sum(is.na(sdcInitial@origData[,namesKeyVars[i]]))
+  NAcount[2, i] <- sum(is.na(sdcInitial@manipKeyVars[,i]))
+}  
+```
+ 
+ Example 6.3: Computing number of records changed per variable
+----------------------------------------------------
+```{r, error=TRUE}
+# Dataframe to save the number of records changed
+recChanged         <- rep(0, length(namesKeyVars)) 
+names(recChanged)  <- c(paste0('RC', namesKeyVars))
+
+# Count number of records changed
+for(j in 1:length(namesKeyVars)) # for all key variables
+{
+  comp <- sdcInitial@origData[namesKeyVars[j]] != sdcInitial@manipKeyVars[namesKeyVars[j]]
+  temp1 <- sum(comp, na.rm = TRUE)     # all changed variables without NAs
+  temp2 <- sum(is.na(comp))             # if NA, changed, unless NA initially
+  temp3 <- sum(is.na(sdcInitial@origData[namesKeyVars[j]]) + is.na(sdcInitial@manipKeyVars[j])==2)   # both NA, no change, but counted in temp2
+  recChanged[j] <- temp1 + temp2 - temp3
+}
+```
+ 
+ Example 6.4: Using dUtility() to compute IL1s data utility measure in sdcMicro
+----------------------------------------------------
+```{r, error=TRUE}
+sdcInitial <- dUtility(sdcInitial) 
+```
+ 
+ Example 6.5: Calling the IL1S measure from the utility slot of the sdcMicro object ësdcInitialí
+----------------------------------------------------
+```{r, error=TRUE}
+sdcInitial@utility$il1
+#[1] 0.05108216
+```
+ 
+ Example 6.6: Using dUtility() to compute eigenvalues in sdcMicro
+----------------------------------------------------
+```{r, error=TRUE}
+# Comparison of eigenvalues of continuous variables
+dUtility(obj = sdcInitial@origData[,contVars], xm = sdcInitial@manipNumVars[,contVars], method = 'eigen')
+#[1] 1.811127e+13
+
+# Comparison of robust eigenvalues of continuous variables
+dUtility(obj = sdcInitial@origData[,contVars], xm = sdcInitial@manipNumVars[,contVars], method = 'robeigen')
+```
+ 
+ Example 6.7: Comparing the means of continuous variables 
+----------------------------------------------------
+```{r, error=TRUE}
+colMeans(sdcInitial@origData[, numVars], na.rm = TRUE)
+colMeans(sdcInitial@manipNumVars[, numVars], na.rm = TRUE)
+```
+ 
+ Example 6.8: Comparing covariances and correlation matrices of numeric variables
+----------------------------------------------------
+```{r, error=TRUE}
+# untreated data
+cov(sdcInitial@origData[, numVars])
+cor(sdcInitial@origData[, numVars])
+
+# anonymized data
+cov(sdcInitial@manipNumVars[, numVars])
+cor(sdcInitial@manipNumVars[, numVars])
+```
+ 
+ Example 6.9: Comparing cross tabulations of categorical variables 
+----------------------------------------------------
+```{r, error=TRUE}
+# Cross tabulation of the variables region and household size
+table(sdcInitial@origData[, c('REGION', 'HHSIZE')])
+table(sdcInitial@manipKeyVars[, c('REGION', 'HHSIZE')])
+```
+ 
+ Example 6.10: Loading the laeken package for computation of the Gini coefficient
+----------------------------------------------------
+```{r, error=TRUE}
+library(laeken)    # for Gini coefficient
+```
+ 
+ Example 6.11: Computing the Gini coefficient from the income variable to determine income inequality
+----------------------------------------------------
+```{r, error=TRUE}
+gini(inc = sdcInitial@origData[,sdcInitial@numVars[1]], weights = curW, na.rm=TRUE, alpha = 0.05)$value # Gini coefficient
+```
+ 
+ Example 6.12: Constructing a confidence interval around the Gini to evaluate significance of change after anonymization
+----------------------------------------------------
+```{r, error=TRUE}
+gini(inc = sdcInitial@origData[,sdcInitial@numVars[1]], weights = curW, na.rm=TRUE, alpha = 0.05)$ci # confidence interval, 1- alpha
+```
+ 
+ Example 6.13: Using regression to evaluate data utility before and after anonymization
+----------------------------------------------------
+```{r, error=TRUE}
+# Mincer equation
+# Specify regression formula
+Mformula <- 'Mlwage ~ Mgender + Mempstat + Meducy + Mexp + Mexp2'
+
+# Mincer equation variables
+Mlwage                   <- log(cursdc@manipNumVars$wage) # log wage
+Mlwage[Mlwage == NaN]    <- -Inf
+Mempstat              <- cursdc@manipKeyVars$empstat=='Paid employee'  # TRUE if 'paid employee', else FALSE or NA
+Mage  <- cursdc@manipKeyVars$age       # age in years
+Meducy          <- cursdc@origData$educy      # educy
+Mexp            <- Mage - Meducy - 6          # experience in years
+Mexp[Mexp <= 0] <- 0                          # set experience to 0 if negative
+Mexp2           <- Mexp^2                     # squared experience
+Mgender         <- cursdc@manipKeyVars$gender # gender dummy
+Mwgt            <- curW                       # weight variable for regression
+
+# Create data frame for regression containing the (modified) variables
+Mfile <- as.data.frame(cbind(Mlwage, Mempstat, Mexp, Mexp2, Meducy, Mgender, Mwgt, Mage))
+colnames(Mfile)[1]        <- 'Mlwage'
+
+# Regression for age 15-65
+mincer1565temp <- lm(Mformula, data = subset(Mfile, Mfile[,'Mage'] >= 15 & Mfile[,'Mage'] <= 65 & Mfile[,'Mempstat']==TRUE & Mfile[,'Mlwage'] != -Inf), na.action=na.exclude, weights = Mwgt)
+
+# Regression for age 15-25
+mincer1525temp <- lm(Mformula, data=subset(Mfile, Mfile[,'Mage'] >= 15 & Mfile[,'Mage'] <= 25 & Mfile[,'Mempstat']==TRUE & Mfile[,'Mlwage'] != -Inf), na.action=na.exclude, weights=Mwgt)
+# The objects mincer1565temp and mincer1565temp contain the results of the regressions. To see the coefficients of the regression
+mincer1525$coeffficients
+mincer1565$coefficients 
+
+# Compute the 95 percent confidence interval
+confint(obj = mincer1525, level = 0.95)
+confint(obj = mincer1565, level = 0.95)
+```
+ 
+ Example 6.14: Plotting histograms and kernel densities
+----------------------------------------------------
+```{r, error=TRUE}
+# Plot histograms
+# Plot 2 histograms next to one another
+par(mfrow = c(1,2))
+# Plot histogram before anonymization
+hist(sdcObj@origData$INCOME, breaks = (-6:6)*1e7, main = "Hist orig")
+# Plot histogram after anonymization (noise addition)
+hist(sdcObj@manipNumVars$INCOME, breaks = (-6:6)*1e7, main = "Hist anon")
+
+# Plot densities
+# Plot 2 curves next to one another
+par(mfrow = c(1,2))
+# Plot original density curve
+plot(density(sdcObj@origData$INCOME), xlim = c(-6e7, 6e7), ylim = c(0, 6e-6), main = "Density orig")
+# Plot density curve after anonymization (noise addition)
+plot(density(sdcObj@manipNumVars$INCOME), xlim = c(-6e7, 6e7), lty = 2, main = "Density anon")
+```
+ 
+ Example 6.15: Creating boxplots for continuous variables
+----------------------------------------------------
+```{r, error=TRUE}
+boxplot(sdcObj@origData$TOTFOOD, sdcObj@manipNumVars$TOTFOOD, xaxt = 'n', ylab = "Expenditure")
+axis(1, at = c(1,2), labels = c('before', 'after'))
+```
+ 
+ Example 6.16: Creating multivariate mosaic plots
+----------------------------------------------------
+```{r, error=TRUE}
+# Collecting data of variable WATER before and after anonymization, assigning factor levels for labels in plot
+dataWater <- t(cbind(table(factor(sdcHH@origData$WATER, levels = c(1, 2, 3, 4, 5, 6, 7, 8, 9), 
+                    labels = c("Pipe (own tap)", "Public standpipe", "Borehole", "Wells
+                    (protected)", "Wells (unprotected)", "Surface water", "Rain water", 
+			"Vendor/truck", "Other"))), table(factor(sdcHH@manipPramVars$WATER, 
+			levels = c(1,2, 3, 4, 5, 6, 7, 8, 9), labels = c("Pipe (own tap)", 
+			"Public standpipe", "Borehole", "Wells (protected)", "Wells 
+			(unprotected)", "Surface water", "Rain water", "Vendor/truck", 
+			"Other")))))
+rownames(dataWater) <- c("before", "after")
+
+# Plotting mosaic plot
+mosaicplot(dataWater, main = "", color = 2:10, las = 2)
+```
+ 
+ Example 6.17: Creating multivariate mosaic plots
+----------------------------------------------------
+```{r, error=TRUE}
+# Mosaic plot multivariate
+par(mfrow = c(1,1))
+mosaicplot(t(table(factor(sdcHH@origData$ROOF, levels = c(1,2, 3, 4, 5, 9), 
+                          labels = c("Concrete/cement/ \n brick/stone", "Wood", 
+                                     "Bamboo/thatch", "Tiles/shingles", 
+                                     "Tin/metal sheets", "Other")), 
+                   factor(sdcHH@origData$TOILET, levels = c(1,2, 3, 4, 9), 
+                          labels = c("Flush \n toilet", "Improved \n pit \n latrine", 
+                                    "Pit \n latrine", "No \n facility", "Other")))), 
+           main = "Moisaic plot of the variables ROOF and TOILET (before)", las = 2, color = 
+           2:6)
+
+mosaicplot(t(table(factor(sdcHH@manipPramVars$ROOF, levels = c(1,2, 3, 4, 5, 9), 
+                          labels = c("Concrete/cement/ \n brick/stone", "Wood", 
+                                     "Bamboo/thatch", "Tiles/shingles", 
+                                     "Tin/metal sheets", "Other")), 
+                   factor(sdcHH@manipPramVars$TOILET, levels = c(1,2, 3, 4, 9), 
+                          labels = c("Flush \n toilet", "Improved \n pit \n latrine", 
+                                     "Pit \n latrine", "No \n facility", "Other")))), 
+           main = "Moisaic plot of the variables ROOF and TOILET (after)", las = 2, color = 2:6)
+```
+ 
+ Example 7.1: Loading required packages
+----------------------------------------------------
+```{r, error=TRUE}
+library(sdcMicro)    # loading the sdcMicro package	
+require(sdcMicro)    # loading the sdcMicro package	
+```
+ 
+ Example 7.2: Displaying help for functions
+----------------------------------------------------
+```{r, error=TRUE}
+?microaggregation # help for microaggregation function
+```
+ 
+ Example 7.3: Reading in a STATA file
+----------------------------------------------------
+```{r, error=TRUE}
+setwd("/Users/World Bank") #working directory with data file
+fname = "data.dta" # name of data file
+library(foreign) # loads required package for read/write function for STATA files  
+file <- read.dta(fname, missing.type = TRUE, convert.factors = F) 
+# reads the data into the data frame called file, factors as numeric code
+```
+ 
+ Example 7.4: Reading in an Excel file
+----------------------------------------------------
+```{r, error=TRUE}
+setwd("/Users/World Bank") #working directory with data file
+fname = "data.csv" # name of data file
+file <- read.csv(fname, header = TRUE, sep = ",", dec = ".") 
+# reads the data into the data frame called file
+```
+ 
+ Example 7.5: Reading in an SPSS file
+----------------------------------------------------
+```{r, error=TRUE}
+setwd("/Users/World Bank") #working directory with data file
+fname = "data.sav" # name of data file
+library(foreign) # loads required package for read/write function for STATA files  
+file <- read.spss(fname, use.value.labels = FALSE) 
+# reads the data into the data frame called file, factors as numeric code
+```
+ 
+ Example 7.6: Recoding missing values to NA
+----------------------------------------------------
+```{r, error=TRUE}
+file[file[,'toilet'] == 99,'toilet'] <- NA # Recode missing value code 99 to NA for variable toilet
+```
+ 
+ Example 7.7: Changing the class of a variable in R
+----------------------------------------------------
+```{r, error=TRUE}
+# Finding out the class of the variable region in the dataframeìfileî
+class(file$region)
+
+# Changing the class to factor
+file$region <- as.factor(file$region) 
+```
+ 
+ Example 7.8: Creating an object of class sdcMicroObj for the SDC process
+----------------------------------------------------
+```{r, error=TRUE}
+# Select variables for creating sdcMicro object
+# All variable names should correspond to the names in the data file
+
+# selected categorical key variables
+selectedKeyVars = c('age', 'gender', 'marital', 'empstat') 
+
+# selected linked variables (ghost variables)
+selectedGhostVars = c('age', '') 
+
+# selected categorical numerical variables
+selectedNumVar = c('wage', 'savings')                              
+
+# weight variable
+selectedWeightVar = c('wgt')                
+
+# selected pram variables
+selectedPramVars = NULL      
+
+# household id variable (cluster)
+selectedHouseholdID = c('idh')                  
+
+# stratification variable
+selectedStrataVar = c('strata')  
+
+# creating the sdcMicro object with the assigned variables
+sdcInitial <- createSdcObj(dat = file, keyVars = selectedKeyVars, ghostVars = selectedGhostVars, numVar = selectedNumVar, weightVar = selectedWeightVar, pramVars = selectedPramVars, hhId = selectedHouseholdID,  strataVar = selectedStrataVar)
+```
+ 
+ Example 7.9: Displaying slot names and accessing slots
+----------------------------------------------------
+```{r, error=TRUE}
+# List names of all slots of sdcMicro object
+slotNames(sdcInitial)
+##  [1] "origData"          "keyVars"           "pramVars"         
+##  [4] "numVars"           "weightVar"         "hhId"             
+##  [7] "strataVar"         "sensibleVar"       "manipKeyVars"     
+## [10] "manipPramVars"     "manipNumVars"      "manipStrataVar"   
+## [13] "originalRisk"      "risk"              "utility"          
+## [16] "pram"              "localSuppression"  "options"          
+## [19] "additionalResults" "set"               "prev"             
+## [22] "deletedVars"
+
+# Accessing the risk slot
+sdcInitial@risk
+
+# List names within the risk slot
+names(sdcInitial@risk)
+
+# Accessing the individual risk within the risk slot
+sdcInitial@risk$individual
+```
+ 
+ Example 7.10: Saving results of applying SDC methods
+----------------------------------------------------
+```{r, error=TRUE}
+# Applying local suppression and reassigning the results to the same sdcMicro object
+sdcInitial <- localSuppression(sdcInitial)
+
+# Applying local suppression and assigning the results a new sdcMicro object
+sdc1 <- localSuppression(sdcInitial)
+```
+ 
+ Example 7.11: Undo last step in SDC process
+----------------------------------------------------
+```{r, error=TRUE}
+# Undo last step in SDC process
+sdcInitial <- undolast(sdcInitial)
+```
+ 
+ Example 7.12: Create a household level file with unique records (remove duplicates)
+----------------------------------------------------
+```{r, error=TRUE}
+# Create subset of file with only variables measured at household level
+fileHH <- file[,HHVars] 
+
+# Remove duplicated rows based on the household ID, select uniques / only every household once in fileHH
+fileHH <- unique(fileHH, by = c('HID'))
+
+# Dimensions of fileHH (number of households)
+dim(fileHH) 
+```
+ 
+Example 7.13 Merging anonymized household level variables with individual level variables
+----------------------------------------------------
+```{r, error=TRUE}
+# Subtract manipulated household level variables from the SDC object
+HHmanip <- extractManipData(sdcHH)
+
+# Create subset of file with only variables measured at individual level
+fileIND <- file[,INDVars]
+
+# Merge the file by using the household ID
+fileCombined <- merge(HHmanip, fileIND, by = c('HID')) 
+```
+ 
+Example 7.14 Generating the variable household size
+----------------------------------------------------
+```{r, error=TRUE}
+# Sorted by HID
+rep(unname(table(file$HID)), unname(table(file$HID)))
+ 
+# Unsorted
+rep(diff(c(1, 1 + which(diff(file$HID) != 0), length(b)+1)), diff(c(1, 1 + which(diff(file$HID) != 0), length(file$HID)+1)))
+```
+ 
+ Example 7.15 Changing the order of individuals within households
+----------------------------------------------------
+```{r, error=TRUE}
+# List of householdsizes by household
+hhsize <- diff(c(1, 1 + which(diff(file$HID) != 0), length(file$HID) + 1))
+ 
+# Line numbers randomly assigned within each household
+set.seed(123)
+dataAnon$INDID <- unlist(lapply(hhsize, function(n){sample(1:n, n, replace = FALSE, prob = rep(1/n, n))}))
+ 
+# Order the file by HID and INDID (line number)
+dataAnon <- dataAnon[order(dataAnon$HID, dataAnon$INDID),]
+```
+
+ Example 7.16 Changing the order of individuals within households
+----------------------------------------------------
+```{r, error=TRUE}
+n <- length(file$HID) # number of households
+set.seed(123) # set seed
+file$HIDrandom <- sample(1:n, n, replace = FALSE, prob = rep(1/n, n)) # generate random HID
+file <- file1[order(file$regionid, file$HIDrandom),] # sort file by regionid and random HID
+file$HIDrandom <- 1:n # renumber the households in randomized order to 1-n
+```
+
+Example 9.1: Loading required packages
+----------------------------------------------------
+```{r, error=TRUE}
+# Load required packages
+library(foreign)     # for read/write function for SPSS
+library(sdcMicro)    # sdcMicro package with 
+```
+ 
+ Example 9.2: Loading the data
+----------------------------------------------------
+```{r, error=TRUE}
+# Set working directory 
+setwd("C:/WorldBank/CaseStudy1/") 
+
+# Specify file name
+fname      <- "case1.dta"
+
+# Read-in file from STATA file
+file <- read.dta(fname, convert.factors = F) # factors as numeric code
+```
+ 
+ Example 9.3: Number of individuals and number of variables
+----------------------------------------------------
+```{r, error=TRUE}
+dim(file) # Dimensions of file (observations, variables) 
+colnames(file) # Variable names
+```
+ 
+ Example 9.4: Tabulation and summary statistics
+----------------------------------------------------
+```{r, error=TRUE}
+table(file$GENDER, useNA = "ifany") #tabulation of variable gender
+summary(file$WSCORE) # summary statistics for variable WSCORE
+```
+ 
+ Example 9.5: Recoding missing values codes and ìdonít knowî values
+----------------------------------------------------
+```{r, error=TRUE}
+# Recoding missing values
+file[which(file$TOILET == 99), 'TOILET'] <- NA  
+file[which(file$LITERACY == 9), 'LITERACY'] <- NA  
+file[which(file$EDUC == 98 | file$EDUC == 99), 'EDUC'] <- NA 
+
+# ìDonít know values
+# Set "don't know" values to NA
+file[which(file$EDULEVEL == 8), 'EDULEVEL'] <- NA  
+file[which(file$ETHNICITY == 96), 'ETHNICITY'] <- NA  
+```
+ 
+ Example 9.6: Recoding the variable CHAGED to quarter of years and merging with the variable AGE
+----------------------------------------------------
+```{r, error=TRUE}
+# Supress all age under 5 and replace with CHAGED in quarter years
+file$AGE[file$AGE >= 0 & file$AGE < 5] <- floor(file$CHAGED[file$AGE >= 0 & file$AGE < 5] / 91)/4
+```
+ 
+ Example 9.7: Generating household size and tabulation
+----------------------------------------------------
+```{r, error=TRUE}
+# Create variable HHSIZE and check the size of households
+file$HHSIZE <- rep(unname(table(file$HID)), unname(table(file$HID)))
+
+#Tabulation of the variable HHSIZE
+table(file$HHSIZE) / as.numeric(names(table(file$HHSIZE)))  
+```
+ 
+ Example 9.8: Adding a household and individual ID
+----------------------------------------------------
+```{r, error=TRUE}
+# Create household id and individual id 
+# Household ID: CLUSTER (cluster number) and HHNO (household number)
+file$HID <- file$CLUSTER * 1000 + file$HHNO
+# Individual ID: CLUSTER (cluster number), HHNO (household number) and LINENOALL (line number)
+file$INDID <- file$HID * 100 + file$LINENOALL 
+```
+ 
+ Example 9.9: Selecting the variables for the household level anonymization
+----------------------------------------------------
+```{r, error=TRUE}
+# Categorical key variables
+selectedKeyVarsHH   <- c('AREA', 'REGION', 'RELIGION', 'LANGUAGE', 'ETHNICITY', 'TOILET') 
+
+# PRAM variables
+PRAMVarsHH           <- c('WSCORE')
+
+# Strata variable
+selectedStrataVarHH <- c('STRATA')
+
+# Sampling weights (household weight)
+weightVarHH         <- c('HHWGT')
+
+# All household level variables
+HHVars <- c('HID', selectedKeyVarsHH, pramVarsHH, weightVarHH, selectedStrataVarHH)
+```
+ 
+ Example 9.10: Taking a subset with only households
+----------------------------------------------------
+```{r, error=TRUE}
+# Take subset of file of only HH variables
+fileHH                <- file[,HHVars]
+
+# Remove duplicated rows based on HID, select uniques / only every household once in fileHH
+fileHH                <- unique(fileHH, by=c('INDID'))
+dim(fileHH)
+```
+ 
+ Example 9.11: Creating a sdcMicro object for the household variables
+----------------------------------------------------
+```{r, error=TRUE}
+# Create initial sdc object for household level variables
+sdcHH <- createSdcObj(dat = fileHH, keyVars = selectedKeyVarsHH, weightVar =  
+			weightVarHH, pramVars = PRAMVarsHH, strataVar = selectedStrataVarHH )
+```
+ 
+ Example 9.12: Showing number of households violating k-anonymity for levels 2,3 and 5
+----------------------------------------------------
+```{r, error=TRUE}
+# Number of observations violating k-anonymity (thresholds 2 and 3)
+print(sdcHH)
+
+# Calculate sample frequencies and count number of obs. violating k (5) - anonymity
+kAnon5 <- sum(sdcHH@risk$individual[,2] <5)
+kAnon5
+
+# As percentage of total
+kAnon5 / numHH
+```
+ 
+ Example 9.13: Showing households that violate k-anonymity
+----------------------------------------------------
+```{r, error=TRUE}
+# Show lines (households) that violate k-anonymity
+fileHH[sdcHH@risk$individual[,2] < 3,] # for 3-anonymity
+fileHH[sdcHH@risk$individual[,2] < 5,] # for 5-anonymity
+```
+ 
+ Example 9.14: Printing global risk measures
+----------------------------------------------------
+```{r, error=TRUE}
+print(sdcHH, "risk")
+```
+ 
+ Example 9.15: Display households with risk above threshold
+----------------------------------------------------
+```{r, error=TRUE}
+# Observations with risk above certain threshold (0.1)
+fileHH[sdcHH@risk$individual[, "risk"] > 0.1,]
+```
+ 
+ Example 9.16: Grouping values of the variable TOILET
+----------------------------------------------------
+```{r, error=TRUE}
+sdcHH <- groupVars(obj = sdcHH, var = 'TOILET', before = c("11", "12", "13", "21", "31"), after = 1) # improved facilities
+sdcHH <- groupVars(obj = sdcHH, var = 'TOILET', before = c("14", "15", "22", "23", "95", "96"), after = 2) # unimproved facilites                    
+table(sdcHH@manipKeyVars$TOILET) # tabulation to check results
+sdcHH <- calcRisks(sdcHH) # recalculate risk
+```
+ 
+Example 9.17: Show risk after recoding TOILET
+----------------------------------------------------
+```{r, error=TRUE}
+# Show risk measures after recoding the variable TOILET
+print(sdcHH)
+
+#Number of observations violating
+
+# -  2-anonymity:  17 (orig:  44 )
+# -  3-anonymity:  39 (orig:  89 )
+#--------------------------
+
+#Percentage of observations violating
+# -  2-anonymity:  0.57 %  (orig:  1.47 % )
+# -  3-anonymity:  1.3 %  (orig:  2.97 % )
+
+# Global risk
+print(sdcHH, 'risk')
+
+#--------------------------
+#0  (orig: 0 ) obs. with higher risk than the main part
+#Expected no. of re-identifications:
+# 98.08 [ 3.27 %]  (orig: 178.47 [ 5.95 %])
+#--------------------------
+```
+ 
+Example 9.18: Local suppression with and without importance vector
+----------------------------------------------------
+```{r, error=TRUE}
+sdcHH <- localSuppression(sdcHH, k = 5, importance = NULL) # local suppression 
+print(sdcHH, 'ls') # print suppressions
+sdcHH <- undolast(sdcHH) # undo last step
+sdcHH <- localSuppression(sdcHH, k=5, importance = c(5, 1, 5, 5, 5, 5)) # local suppression
+print(sdcHH, 'ls') # print suppressions
+sdcHH <- undolast(sdcHH) # undo last step
+```
+ 
+ Example 9.19: Comparing the tabulations of region before and after local suppression
+----------------------------------------------------
+```{r, error=TRUE}
+table(sdcHH@origData$REGION) # tabulation of original data 
+table(sdcHH@manipKeyVars$REGION) # tabulation after local suppression
+```
+ 
+ Example 9.20: Recoding WSCORE in deciles and applying PRAM
+----------------------------------------------------
+```{r, error=TRUE}
+# Construct deciles for variable WSCORE
+fileHH$WSCORE <- cut(fileHH$WSCORE, quantile(fileHH$WSCORE,(0:10)/10), include.lowest = TRUE, labels = c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10))
+fileHH$WSCORE <- as.integer(fileHH$WSCORE)
+
+# PRAM of decentiles of WSCORE
+sdcHH <- pram(sdcHH) # default values used
+```
+ 
+ Example 9.21: Remeasuring risk
+----------------------------------------------------
+```{r, error=TRUE}
+# Number of observations violating k-anonimity
+numHH <- length(fileHH[,1]) # number of households
+
+# Number of observations violating k-anonimity
+print(sdcHH)
+
+# Calculate sample frequencies and count number of obs. violating k (3,5) - anonimity
+kAnon5 <- sum(sdcHH@risk$individual[,2] <5)
+kAnon5
+
+# As percentage of total
+kAnon5 / numHH
+```
+ 
+ Example 9.22: Merging the files with household and individual level variables and creating an sdcMicro object for the anonymization of the individual level variables
+----------------------------------------------------
+```{r, error=TRUE}
+### Select variables (individual level)
+
+# GENDER                                    gender, 1 - male, 2 - female
+# AGE                                       age in years 0 - maximum age  
+# LITERACY                                  literacy, can read part of the sentence
+# RELATHEAD                                 relationship to the head of family (1-14)
+# EDULEVEL                                  highest level of education attended
+# EDUC                                      level of education attended current school year, when attended school during current school year (2010-2011))
+# CURRGRADE                                 Grade of education attended current school year
+# DELIV                                     Assistance at delivery
+selectedKeyVarsIND        <- c('GENDER', 'AGE', 'LITERACY', 'RELATHEAD', 'EDULEVEL', 'EDUC', 'CURRGRADE') # list of selected key variables
+
+# Pram variables
+# MOTHERALIVE      Is natural mother alive
+# FATHERALIVE      Is natural father alive
+# AGIM      Age at measles immunization in months
+selectedPramVarsIND       <- c('MOTHERALIVE', 'FATHERALIVE', 'AGIM')
+
+# Household ID
+selectedHouseholdID       <- c('HID')
+
+# Strata variable
+selectedStrataVar         <- c('STRATA')
+
+# Other variables (no anonymization or treatment, weight variables)
+# WFAZNCHS       Weight for age z-score NCHS
+# WFAZWHO        Weight for age z-score WHO
+# HFAZWHO        Height for age z-score WHO
+# WFHZWHO        Weight for height z-score WHO
+# WFAFWHO        Weight for age flag WHO
+# HFAFWHO        Height for age flag WHO
+# WFHFWHO        Weight for height flag WHO
+# WMWGT          Women's sample weight
+# CHWGT          Children's sample weight
+otherVarsIND    <- c('WFAZNCHS', 'WFAZWHO', 'HFAZWHO', 'HFAZWHO', 'WFAFWHO', 'HFAFWHO',
+ 			'WFHFWHO', 'WMWGT', 'CHWGT') 
+
+selectedWeightVarIND <- c('HHWGT')
+
+# All individual level variables
+INDVars             <- c(selectedHouseholdID, selectedKeyVarsIND, selectedPramVarsIND, 
+			selectedStrataVar, otherVarsIND)
+
+# Merging anonymized HH datasets and individual level variables
+HHmanip              <- extractManipData(sdcHH) # manipulated variables HH
+HHmanip              <- HHmanip[, -which(names(HHmanip) == c('STRATA'))]
+fileIND              <- file[,INDVars] # subset of file without HHVars
+fileCombined         <- merge(HHmanip, fileIND, by = "HID") # merged dataset
+
+# SDC objects with all variables and treated HH vars for anonymization of indivual level variables
+sdcCombined <- createSdcObj(dat = fileCombined, keyVars = selectedKeyVarsIND, pramVars = selectedPramVarsIND, strataVar = selectedStrataVar, weightVar=selectedWeightVarIND, hhId = selectedHouseholdID)
+```
+ 
+ Example 9.23: Recoding age in 5 year intervals in the range 15 - 99
+----------------------------------------------------
+```{r, error=TRUE}
+# Create 5 year categories for age (15-99)
+sdcCombined@manipKeyVars$AGE [sdcCombined@manipKeyVars$AGE >= 15 & 
+				sdcCombined@manipKeyVars$AGE < 20] <- 17
+sdcCombined@manipKeyVars$AGE [sdcCombined@manipKeyVars$AGE >= 20 & 
+				sdcCombined@manipKeyVars$AGE < 25] <- 22
+sdcCombined@manipKeyVars$AGE [sdcCombined@manipKeyVars$AGE >= 25 &
+ 				sdcCombined@manipKeyVars$AGE < 30] <- 27
+
+#. . .
+
+sdcCombined@manipKeyVars$AGE[sdcCombined@manipKeyVars$HL6 >= 95 & 
+				SdcCombined@manipKeyVars$AGE < 100] <- 97
+
+# Recalculate risk after manual recoding
+sdcCombined <- calcRisks(sdcCombined)
+sdcCombined@risk$global
+print(sdcCombined, 'risk')
+```
+ 
+ Example 9.24: Experimenting with different options in local suppression
+----------------------------------------------------
+```{r, error=TRUE}
+# Local suppression, required level of k-anonymity 5, default importance
+sdcCombined <- localSuppression(sdcCombined, k=5, importance=NULL)
+print(sdcHH2, 'ls')
+sdcCombined <- undolast(sdcCombined)
+
+# Local suppression, required level of k-anonymity 5, with importance on AGE
+sdcCombined <- localSuppression(sdcCombined, k=3, importance= c(6, 1, 6, 6, 6, 6))
+```
+ 
+ Example 9.25: Pram of variables relating to health
+----------------------------------------------------
+```{r, error=TRUE}
+# Pram
+set.seed(123) # set seed for probabilistic method
+sdcCombined <- pram(sdcCombined, variables = c('MOTHERALIVE', 'FATHERALIVE'))
+sdcCombined <- pram(sdcCombined, variables = c('AGIM'))
+```
+ 
+ Example 9.26: Top coding age and re-applying local suppression
+----------------------------------------------------
+```{r, error=TRUE}
+sdcCombined <- sdcCombinedSave # Restore
+
+# Top coding age
+sdcCombined@manipKeyVars$HL6[sdcCombined@manipKeyVars$HL6 >= 65 & 
+				dcCombined@manipKeyVars$HL6 < 99] <- 65
+sdcCombined <- localSuppression(sdcCombined, k = 5)
+```
+ 
+ Example 9.27: Exporting the anonymized dataset
+----------------------------------------------------
+```{r, error=TRUE}
+# Export results
+# Anonymised dataset
+dataAnon <- extractManipData(sdcCombined, ignoreKeyVars = F, ignorePramVars = F, ignoreStrataVar = F) #extracts all variables, not just the manipulated ones
+names(dataAnon)
+
+# Replace HID with values 1-3000 to prevent unintended release of cluster numbers
+dataAnon$HID <- rep(1:3000, diff(c(1, 1 + which(diff(dataAnon$HID) != 0), length(dataAnon$HID) + 1)))
+
+# Create (anonymized) individual ID (line number in household)
+dataAnon <- cbind(dataAnon$HID, unlist(sapply(rle(dataAnon$HID)$lengths, seq)), dataAnon[,-1])
+colnames(dataAnon)[1] <- 'HID'
+colnames(dataAnon)[2] <- 'INDID'
+
+# Check names and dimensions
+names(dataAnon)
+dim(dataAnon)
+
+# Data is written to working directory as Case1Anon.sav 
+write.foreign(df = as.data.frame(dataAnon), codefile ='Case1Anon.txt', 
+			datafile='Case1Anon.sav', package="SPSS")
+```
+ 
+ Example 9.28: Loading required packages
+----------------------------------------------------
+```{r, error=TRUE}
+# Load required packages
+library(foreign)     # for read/write function for STATA files
+library(sdcMicro)    # sdcMicro package with functions for the SDC process
+```
+ 
+ Example 9.29: Loading the data
+----------------------------------------------------
+```{r, error=TRUE}
+setwd("C:/WorldBank/CaseStudy2/") # Set working directory
+
+# Specify file name
+fname <- "case2.dta"
+  
+# Read-in file
+file <- read.dta(fname, convert.factors = F) # factors as numeric code
+```
+ 
+ Example 9.30: Number of individuals and number of variables
+----------------------------------------------------
+```{r, error=TRUE}
+dim(file) # Dimensions of file (observations, variables) 
+colnames(file) # Variable names
+```
+ 
+ Example 9.32: Cross-tabulation of the variables region and area of residence
+----------------------------------------------------
+```{r, error=TRUE}
+# Cross tabulation of the variables region (rows) and area of residence (columns)
+table(file$URBRUR, file$REGION)
+   
+#     1    2    3    4    5    6    7    8    9   10   11   12   13   14   15   16   17   18
+#1  316  315  618  884  419  291  328  348  262 1624    0 1700    0 1543    0 1601    0    0
+#2  243  158  335  203  108  274  344  254  317  361 1288    0  324    0  445    0  397  139
+```
+ 
+ Example 9.33: Recoding missing value codes 
+----------------------------------------------------
+```{r, error=TRUE}
+# Recoding missing values
+# Set different NA codes to R missing value NA
+file[,'EMPTYPEWB1'][file[,'EMPTYPEWB1'] == 99] <- NA  
+```
+ 
+ Example 9.34: Dropping variables with only missing values
+----------------------------------------------------
+```{r, error=TRUE}
+# Drop variables containing only missings
+file <-  file[,!names(file) %in% c('RELIGION', 'ETHNICITY', 'INC_STUDY', ëINC_SOCA)]
+```
+ 
+ Example 9.35: Destringing the individual ID
+----------------------------------------------------
+```{r, error=TRUE}
+# Destring individual ID
+file$INDID <- as.numeric(file$INDID)
+```
+ 
+ Example 9.36: Selecting the variables for the household level anonymization
+----------------------------------------------------
+```{r, error=TRUE}
+### Select variables (household level)
+# Key variables (household level)
+selectedKeyVarsHH = c('URBRUR', 'REGION', 'HHSIZE', 'OWNHOUSE') 
+file$URBRUR   <- as.factor(file$URBRUR)
+file$REGION   <- as.factor(file$REGION)
+file$OWNHOUSE <- as.factor(file$OWNHOUSE)
+
+# Numerical variables
+numVarsHH = c('LANDSIZEHA', 'TANHHEXP', 'TFOODEXP', 'TALCHEXP', 'TCLTHEXP', 'THOUSEXP', 'TFURNEXP', 'THLTHEXP', 'TTRANSEXP', 'TCOMMEXP', 'TRECEXP', 'TEDUEXP', 'TRESHOTEXP', 'TMISCEXP', 'INCTOTGROSSHH', 'INCRMT', 'INCWAGE', 'INCFARMBSN', 'INCNFARMBSN', 'INCRENT', 'INCFIN', 'INCPENSN', 'INCOTHER')
+
+# PRAM variables
+pramVarsHH = c('ROOF', 'TOILET', 'WATER')
+
+# sample weight (WGTPOP)
+weightVarHH = c('WGTPOP')
+
+# All household level variables
+HHVars <- c('HID', selectedKeyVarsHH, pramVarsHH, numVarsHH, weightVarHH)
+```
+ 
+ Example 9.37: Taking a subset with only households
+----------------------------------------------------
+```{r, error=TRUE}
+# Create subset of file with households and HH variables
+fileHH <- file[,HHVars]
+# Remove duplicated rows based on HID, select uniques / only every household once in fileHH
+fileHH <- unique(fileHH, by=c('INDID'))
+dim(fileHH)
+```
+ 
+ Example 9.38: Creating a sdcMicro object for the household variables
+----------------------------------------------------
+```{r, error=TRUE}
+# Create initial sdc object for household level variables
+sdcHH <- createSdcObj(dat = fileHH, keyVars = selectedKeyVarsHH, pramVars = pramVarsHH, weightVar = weightVarHH, numVars = numVarsHH)
+numHH <- length(fileHH[,1]) # number of households	
+```
+ 
+ Example 9.39: Showing number of households violating k-anonymity for levels 2,3 and 5
+----------------------------------------------------
+```{r, error=TRUE}
+# Number of observations violating k-anonymity (thresholds 2 and 3)
+print(sdcHH)
+
+# Calculate sample frequencies and count number of obs. violating k (5) - anonymity
+kAnon5 <- sum(sdcHH@risk$individual[,2] < 5)
+kAnon5
+
+# As percentage of total
+kAnon5 / numHH
+```
+ 
+ Example 9.40: Showing households that violate k-anonymity
+----------------------------------------------------
+```{r, error=TRUE}
+# Show lines (households) that violate k-anonymity
+fileHH[sdcHH@risk$individual[,2] < 3,] # for 3-anonymity
+fileHH[sdcHH@risk$individual[,2] < 5,] # for 5-anonymity
+```
+ 
+ Example 9.41: Printing global risk measures
+----------------------------------------------------
+```{r, error=TRUE}
+print(sdcHH, "risk")
+#--------------------------
+#0 obs. with higher risk than the main part
+#Expected no. of re-identifications:
+# 1.3 [ 0.04 %]
+#--------------------------
+```
+ 
+ Example 9.42: Observations with individual risk higher than 1 percent
+----------------------------------------------------
+```{r, error=TRUE}
+# Observations with risk above certain threshold (0.01)
+fileHH[sdcHH@risk$individual[, "risk"] > 0.01,]
+```
+ 
+ Example 9.43 Percentiles of LANDSIZE and listing the sizes of the largest 50 plots
+----------------------------------------------------
+```{r, error=TRUE}
+# 1st - 100th percentiles of landsize
+quantile(fileHH$LANDSIZEHA, probs = (1:100)/100 , na.rm= TRUE)
+
+# Values of landsize for largest 50 plots
+tail(sort(fileHH$LANDSIZEHA), n = 50)
+```
+ 
+ Example 9.44: Removing households with large (rare) household sizes
+----------------------------------------------------
+```{r, error=TRUE}
+# Tabulation of variable HHSIZE
+table(sdcHH@manipKeyVars$HHSIZE)
+
+# Remove large households (14 or more household members) from file and fileHH
+file   <- file[!file[,'HHSIZE'] >= 14,]
+fileHH <- fileHH[!fileHH[,'HHSIZE'] >= 14,]
+
+# Create new sdcMicro object based on the file without the remowed households
+sdcHH <- createSdcObj(dat=fileHH, keyVars=selectedKeyVarsHH, pramVars=pramVarsHH, weightVar=weightVarHH, numVars = numVarsHH)
+```
+ 
+ Example 9.45: Recoding the variable REGION
+----------------------------------------------------
+```{r, error=TRUE}
+# Recode region in N, E, S, W
+table(fileHH$REGION)
+sdcHH <- groupVars(obj = sdcHH, var = 'REGION', before = c("1", "2", "3", "4", "5"), after = c("N")) 
+sdcHH <- groupVars(obj = sdcHH, var = 'REGION', before = c("6", "7", "8", "9", "10"), after = c("E")) 
+sdcHH <- groupVars(obj = sdcHH, var = 'REGION', before = c("11", "12", "13"), after = c("W")) 
+sdcHH <- groupVars(obj = sdcHH, var = 'REGION', before = c("14", "15", "16", "17", "18"), after = c("S")) 
+
+# Tabulation to check the result
+table(sdcHH@manipKeyVars$REGION) 
+```
+ 
+ Example 9.46: Local suppression with and without importance vector
+----------------------------------------------------
+```{r, error=TRUE}
+# Local suppression
+sdcHH <- localSuppression(sdcHH, k=3, importance = NULL)      # no importance vector
+sdcHH <- undolast(sdcHH)
+sdcHH <- localSuppression(sdcHH, k=3, importance = c(4, 4, 1, 4)) # importance on HHSIZE, the third categorical key variable
+```
+ 
+ Example 9.47: Applying PRAM
+----------------------------------------------------
+```{r, error=TRUE}
+# Pram
+set.seed(1234)	
+sdcHH <- pram(sdcHH, variables = c("ROOF"), pd = 0.8)
+sdcHH <- pram(sdcHH, variables = c("WATER", "TOILET"), pd = 0.8)
+```
+ 
+ Example 9.48: Anonymizing the variable LANDSIZEHA
+----------------------------------------------------
+```{r, error=TRUE}
+# Rounding values of LANDSIZEHA to 1 digits for plots smaller than 2 and to no digits plots of size 2-9
+sdcHH@manipNumVars$LANDSIZEHA[sdcHH@manipNumVars$LANDSIZEHA < 2 & !is.na(sdcHH@manipNumVars$LANDSIZEHA)] <- round(sdcHH@manipNumVars$LANDSIZEHA[sdcHH@manipNumVars$LANDSIZEHA < 2 & !is.na(sdcHH@manipNumVars$LANDSIZEHA)], digits = 1)
+sdcHH@manipNumVars$LANDSIZEHA[sdcHH@manipNumVars$LANDSIZEHA >= 2 & !is.na(sdcHH@manipNumVars$LANDSIZEHA)] <- round(sdcHH@manipNumVars$LANDSIZEHA[sdcHH@manipNumVars$LANDSIZEHA >= 2 & !is.na(sdcHH@manipNumVars$LANDSIZEHA)], digits = 0)
+
+# Grouping values of LANDSIZEHA in intervals 10-19, 20-39, 40-59 and 60-79
+sdcHH@manipNumVars$LANDSIZEHA[sdcHH@manipNumVars$LANDSIZEHA >= 10 & sdcHH@manipNumVars$LANDSIZEHA  < 20 & !is.na(sdcHH@manipNumVars$LANDSIZEHA)] <- 15
+sdcHH@manipNumVars$LANDSIZEHA[sdcHH@manipNumVars$LANDSIZEHA >= 20 & sdcHH@manipNumVars$LANDSIZEHA  < 40 & !is.na(sdcHH@manipNumVars$LANDSIZEHA)] <- 30
+sdcHH@manipNumVars$LANDSIZEHA[sdcHH@manipNumVars$LANDSIZEHA >= 40 & sdcHH@manipNumVars$LANDSIZEHA  < 60 & !is.na(sdcHH@manipNumVars$LANDSIZEHA)] <- 50
+sdcHH@manipNumVars$LANDSIZEHA[sdcHH@manipNumVars$LANDSIZEHA >= 60 & sdcHH@manipNumVars$LANDSIZEHA  < 80 & !is.na(sdcHH@manipNumVars$LANDSIZEHA)] <- 70
+
+# Topcoding values of LANDSIZEHA larger than 80 
+sdcHH <- topBotCoding(sdcHH, value = 80, replacement = 80, kind = 'top', column = 'LANDSIZEHA')
+
+# Results for LANDSIZEHA
+table(sdcHH@manipNumVars$LANDSIZEHA)
+```
+ 
+ Example 9.49: Anonymizing continuous variables
+----------------------------------------------------
+```{r, error=TRUE}
+# Try and compare six approaches for the anonymization of expenditure and income variables
+# 1) adding noise to components of income and expenditures (noise level 0.25)
+sdcHH1 <- sdcHH
+sdcHH1 <- addNoise(noise  = 0.25, obj=sdcHH1, variables=c('TFOODEXP', 'THLTHEXP', 'TALCHEXP', 'TCLTHEXP', 'THOUSEXP', 'TFURNEXP', 'TTRANSEXP', 'TCOMMEXP', 'TRECEXP', 'TEDUEXP', 'TRESHOTEXP', 'TMISCEXP'))
+sdcHH1 <- addNoise(noise = 0.25, obj=sdcHH1, variables=c('INCRMT', 'INCWAGE', 'INCFARMBSN', 'INCNFARMBSN', 'INCRENT', 'INCFIN', 'INCPENSN', 'INCOTHER'))
+
+# 2) adding noise to components of income and expenditures (noise level 0.5)
+sdcHH2 <- sdcHH
+sdcHH2 <- addNoise(noise  = 0.5, obj=sdcHH2, variables=c('TFOODEXP', 'THLTHEXP', 'TALCHEXP', 'TCLTHEXP', 'THOUSEXP', 'TFURNEXP', 'TTRANSEXP', 'TCOMMEXP', 'TRECEXP', 'TEDUEXP', 'TRESHOTEXP', 'TMISCEXP'))
+sdcHH2 <- addNoise(noise = 0.5, obj=sdcHH2, variables=c('INCRMT', 'INCWAGE', 'INCFARMBSN', 'INCNFARMBSN', 'INCRENT', 'INCFIN', 'INCPENSN', 'INCOTHER'))
+
+# 3) adding noise to components of income and expenditures (noise level 0.25, cut off negative values)
+sdcHH3 <- sdcHH
+sdcHH3 <- addNoise(noise = 0.25, obj=sdcHH3, variables=c('TFOODEXP', 'THLTHEXP', 'TALCHEXP', 'TCLTHEXP', 'THOUSEXP', 'TFURNEXP', 'TTRANSEXP', 'TCOMMEXP', 'TRECEXP', 'TEDUEXP', 'TRESHOTEXP', 'TMISCEXP'))
+sdcHH3 <- addNoise(noise = 0.25, obj=sdcHH3, variables=c('INCRMT', 'INCWAGE', 'INCFARMBSN', 'INCNFARMBSN', 'INCRENT', 'INCFIN', 'INCPENSN', 'INCOTHER'))
+
+# 4) shuffling
+sdcHH4 <- sdcHH
+sdcHH4 <- shuffle(sdcHH4, method='ds', form = TFOODEXP  + TALCHEXP + TCLTHEXP + THOUSEXP + TFURNEXP + THLTHEXP  + TTRANSEXP + TCOMMEXP + TRECEXP + TEDUEXP + TRESHOTEXP + TMISCEXP ~ TANHHEXP + HHSIZE) 
+sdcHH4 <- shuffle(sdcHH4, method='ds', form = INCRMT + INCWAGE + INCFARMBSN + INCNFARMBSN + INCRENT + INCFIN + INCPENSN + INCOTHER ~ INCTOTGROSSHH + HHSIZE) 
+
+# 5) adding noise to totals (noise level 0.25)
+sdcHH5 <- sdcHH
+# Anonymize totals
+sdcHH5 <- addNoise(noise = 0.25, obj = sdcHH5, variables=c("TANHHEXP", "INCTOTGROSSHH"), method="additive")
+# Multiply anonymized totals with ratios to obtain anonymized components
+compExp <-  c("TFOODEXP",  "TALCHEXP",  "TCLTHEXP",  "THOUSEXP",  "TFURNEXP",  "THLTHEXP",  "TTRANSEXP",  "TCOMMEXP", "TRECEXP",  "TEDUEXP",  "TRESHOTEXP",  "TMISCEXP") 
+sdcHH5@manipNumVars[,compExp] <- sdcHH5@manipNumVars[,"TANHHEXP"] * sdcHH5@origData[,compExp]/sdcHH5@origData[,"TANHHEXP"]
+compInc <- c('INCRMT', 'INCWAGE', 'INCFARMBSN', 'INCNFARMBSN', 'INCRENT', 'INCFIN', 'INCPENSN', 'INCOTHER')
+sdcHH5@manipNumVars[,compInc] <- sdcHH5@manipNumVars[,"INCTOTGROSSHH"] * sdcHH5@origData[,compInc]/sdcHH5@origData[,"INCTOTGROSSHH"]
+calcRisks(sdcHH5) # recalculate risks
+
+# 6) adding noise to totals (noise level 0.5) 
+sdcHH6 <- sdcHH
+# Anonymize totals
+sdcHH6 <- addNoise(noise = 0.5, obj = sdcHH6, variables=c("TANHHEXP", "INCTOTGROSSHH"), method="additive")
+# Multiply anonymized totals with ratios to obtain anonymized components
+compExp <-  c("TFOODEXP",  "TALCHEXP",  "TCLTHEXP",  "THOUSEXP",  "TFURNEXP",  "THLTHEXP",  "TTRANSEXP",  "TCOMMEXP", "TRECEXP",  "TEDUEXP",  "TRESHOTEXP",  "TMISCEXP") 
+sdcHH6@manipNumVars[,compExp] <- sdcHH6@manipNumVars[,"TANHHEXP"] * sdcHH6@origData[,compExp]/sdcHH6@origData[,"TANHHEXP"]
+compInc <- c('INCRMT', 'INCWAGE', 'INCFARMBSN', 'INCNFARMBSN', 'INCRENT', 'INCFIN', 'INCPENSN', 'INCOTHER')
+sdcHH6@manipNumVars[,compInc] <- sdcHH6@manipNumVars[,"INCTOTGROSSHH"] * sdcHH6@origData[,compInc]/sdcHH6@origData[,"INCTOTGROSSHH"]
+calcRisks(sdcHH6) # recalculate risks 
+```
+ 
+ Example 9.50: Measuring risk of re-identification of continuous variables
+----------------------------------------------------
+```{r, error=TRUE}
+dRisk(sdcHH@origData[,compExp], xm = sdcHH@manipNumVars[,compExp], k = 0.05)
+dRisk(sdcHH@origData[,compExp], xm = sdcHH@manipNumVars[,compExp], k = 0.1)
+dRisk(sdcHH@origData[,compExp], xm = sdcHH@manipNumVars[,compExp], k = 0.15)
+dRisk(sdcHH@origData[,compExp], xm = sdcHH@manipNumVars[,compExp], k = 0.25)
+```
+ 
+ Example 9.51: Selecting the fifth sdcMicro object
+----------------------------------------------------
+```{r, error=TRUE}
+# Pick sdcHH5 after evaluating risk and utility
+sdcHH <- sdcHH5
+# Deleting the other objects to free memory space
+rm(sdcHH1, sdcHH2, sdcHH3, sdcHH4, sdcHH6)
+```
+ 
+ Example 9.52: Merging the files with household and individual level variables and creating an sdcMicro object for the anonymization of the individual level variables
+----------------------------------------------------
+```{r, error=TRUE}
+### Select variables (individual level)
+
+# Key variables (individual level)
+selectedKeyVarsIND = c('GENDER', 'REL', 'MARITAL', 'AGEYRS', 'EDUCY', 'EDYRSCURRAT', 'EMPTYPEWB1', 'LITERACY', 'INDUSTRY1', 'ATSCHOOL')# list of selected key variables
+
+# Sample weight (WTA_HH, individual weight)
+selectedWeightVarIND = c('WGTHH')
+  
+# Household ID
+selectedHouseholdID = c('HID')
+
+# No strata 
+ 
+# All individual level variables
+INDVars <- c(selectedKeyVarsIND)
+
+# Recombining anonymized HH datasets and individual level variables
+indVars <- c("HID", "INDID", selectedKeyVarsIND, "WTA_HH") # HID and all non HH vars
+fileInd <- file[indVars] # subset of file without HHVars
+HHmanip <- extractManipData(sdcHH) # manipulated variables HH
+fileCombined <- merge(HHmanip, fileInd, by.x=c('HID'))
+fileCombined <- fileCombined[order(fileCombined[,'HID'], fileCombined[,'INDID']),]
+dim(fileCombined)
+
+# SDC objects with all variables and treated HH vars for anonymization of indivual level variables
+sdcCombined <- createSdcObj(dat = fileCombined, keyVars = selectedKeyVarsIND, weightVar = selectedWeightVarIND, hhId = selectedHouseholdID)
+```
+ 
+Example 9.53: Global risk of the individual level variables
+----------------------------------------------------
+```{r, error=TRUE}
+print(sdcCombined, 'risk')
+
+#--------------------------
+#0 obs. with higher risk than the main part
+#Expected no. of re-identifications:
+# 37.67 [ 0.25 %]
+#--------------------------
+#--------------------------
+#Hierarchical risk 
+#--------------------------
+#Expected no. of re-identifications:
+# 197.39 [ 1.32 %]  
+```
+ 
+Example 9.54: Recoding age in 5 year intervals in the range 15 ñ 65 and top code age over 65 years
+----------------------------------------------------
+```{r, error=TRUE}
+# Recoding age and top coding age (top code 65), below that 5 year age groups
+sdcCombined@manipKeyVars$AGEYRS[sdcCombined@manipKeyVars$AGEYRS >= 0 & sdcCombined@manipKeyVars$AGEYRS < 1] <- 0
+
+sdcCombined@manipKeyVars$AGEYRS[sdcCombined@manipKeyVars$AGEYRS >= 15 & sdcCombined@manipKeyVars$AGEYRS < 20] <- 17
+sdcCombined@manipKeyVars$AGEYRS[sdcCombined@manipKeyVars$AGEYRS >= 20 & sdcCombined@manipKeyVars$AGEYRS < 25] <- 22
+...
+sdcCombined@manipKeyVars$AGEYRS[sdcCombined@manipKeyVars$AGEYRS >= 55 & sdcCombined@manipKeyVars$AGEYRS < 60] <- 57
+sdcCombined@manipKeyVars$AGEYRS[sdcCombined@manipKeyVars$AGEYRS >= 60 & sdcCombined@manipKeyVars$AGEYRS < 65] <- 62
+
+#topBotCoding also recalculates risk based on manual recoding above
+sdcCombined <- topBotCoding(obj = sdcCombined, value = 65, replacement = 65, kind = 'top', column = 'AGEYRS')
+```
+ 
+Example 9.55: Experimenting with different options in local suppression
+----------------------------------------------------
+```{r, error=TRUE}
+# Copy of sdcMicro object to later undo steps
+sdcCopy <- sdcCombined
+
+# Importance vectors for local suppression (depending on utility measures)
+impVec1 <- NULL # for optimal suppression
+impVec2 <- rep(length(selectedKeyVarsIND), length(selectedKeyVarsIND))
+impVec2[match('AGEYRS', selectedKeyVarsIND)] <- 1  # AGEYRS
+
+# Local suppression without importance vector
+sdcCombined <- localSuppression(sdcCombined, k = 3, importance = impVec1)
+# Number of suppressions per variable
+print(sdcCombined, "ls")
+# Number of suppressions per for each value of 
+table(sdcCopy@manipKeyVars$AGEYRS) - table(sdcCombined@manipKeyVars$AGEYRS)
+# Undo local suppression
+sdcCombined <- undolast(sdcCombined)
+
+# Local suppression with importance vector on AGEY
+sdcCombined <- localSuppression(sdcCombined, k = 3, importance = impVec1)
+# Number of suppressions per variable
+print(sdcCombined, "ls")
+# Number of suppressions per for each value of 
+table(sdcCopy@manipKeyVars$AGEYRS) - table(sdcCombined@manipKeyVars$AGEYRS)
+# Undo local suppression
+sdcCombined <- undolast(sdcCombined)
+
+# Further recoding AGEY into age intervals of 10 years for age values in the range 15-65
+sdcCombined@manipKeyVars$AGEYRS[sdcCombined@manipKeyVars$AGEYRS >= 15 & sdcCombined@manipKeyVars$AGEYRS < 25] <- 20
+sdcCombined@manipKeyVars$AGEYRS[sdcCombined@manipKeyVars$AGEYRS >= 25 & sdcCombined@manipKeyVars$AGEYRS < 35] <- 30
+sdcCombined@manipKeyVars$AGEYRS[sdcCombined@manipKeyVars$AGEYRS >= 35 & sdcCombined@manipKeyVars$AGEYRS < 45] <- 40
+sdcCombined@manipKeyVars$AGEYRS[sdcCombined@manipKeyVars$AGEYRS >= 45 & sdcCombined@manipKeyVars$AGEYRS < 55] <- 50
+sdcCombined@manipKeyVars$AGEYRS[sdcCombined@manipKeyVars$AGEYRS >= 55 & sdcCombined@manipKeyVars$AGEYRS < 65] <- 60
+sdcCombined@manipKeyVars$AGEYRS[sdcCombined@manipKeyVars$AGEYRS >= 60 & sdcCombined@manipKeyVars$AGEYRS < 65] <- 62
+
+# Local suppression without importance vector after additional recoding
+sdcCombined <- localSuppression(sdcCombined, k = 3, importance = impVec1)
+# Number of suppressions per variable
+print(sdcCombined, "ls")
+
+# Reapply final choice by using the sdcCopy object
+sdcCombined <- sdcCopy
+sdcCombined <- localSuppression(sdcCombined, k = 3, importance = impVec1)
+```
+ 
+Example 9.56: Exporting the anonymized dataset
+----------------------------------------------------
+```{r, error=TRUE}
+# Anonymized dataset
+# Household variables and individual variables
+dataAnon <- extractManipData(sdcCombined, ignoreKeyVars = F, ignorePramVars = F, ignoreNumVars = F, ignoreStrataVar = F) #extracts all variables, not just the manipulated ones
+
+# Create (anonymized) individual ID (line number)
+dataAnon <- cbind(dataAnon$HID, unlist(sapply(rle(dataAnon$HID)$lengths, seq)), dataAnon[,-1])
+colnames(dataAnon)[1] <- 'HID'
+colnames(dataAnon)[2] <- 'INDID'
+
+# Create STATA file
+write.dta(dataframe = dataAnon, file= 'Case2DataAnon.dta', convert.dates=TRUE)
+```
+
+
+
+ 
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
