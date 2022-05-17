@@ -383,6 +383,58 @@ frequency.
     10   Urban        Female    Secondary incomplete    Non-LF          76        2                262              0.0074 
    ====  ==========  ========  ======================  ==============  ========  ===============  ===============  ========
 
+In the calculation of frequencies, missing values (‘NA’s in R [8]) are treated as if they
+were any other valid value in the variable under consideration. :numref:`tab46` reproduces 
+the records from :numref:`tab41`. However, in record 4, the values for the variables
+Education level and Labor status are recorded as missing. The sample frequencies :math:`f_{k}`
+for the records 4 and 8 change as a result of the missing values. Record 4 could 
+have the same key as record 6 and record 8, depending on the true value of the recorded 
+missing values. Therefore, the sample frequency :math:`f_{k}` of record 4 increases to 3. 
+The key of record 8 could coincide with the key of record 4, based on the missing values. The 
+sample frequency :math:`f_{k}` of record 8 changes to 2.
+
+This treatment of missing values in the calculation of sample frequencies may lead 
+to an overestimation of the sample frequencies. The value for the variable
+Education level of record 
+4 is once interpreted as Secondary incomplete and once as Post-secondary.
+However, record 3 has only one true (unknown) value for the variable Education level. The same
+holds true for the variable Labor status.
+In order to take this observation into account, it is possible to count matches of keys
+that are based on one or more missing values in the keys with a value less than 1.
+This reflects the probability distribution of the the true value.
+
+The parameter alpha specifies the weight of a match based on missing values
+in the sample frequencies. Alpha can be a value between 0 and 1 with the default at 1. 
+The same value for the parameter 
+alpha applies to the frequency calculation of all key variables
+in the complete dataset. The last column in :numref:`tab46` shows the sample 
+frequencies with alpha equal 0.5. The 
+other risk measures, such as population frequencies and individual risk, 
+are calculated based on the adapted sample frequencies :math:`f_{k}`.
+
+.. _tab46:
+
+.. table:: Example dataset showing sample frequencies, 
+		   	population frequencies and individual disclosure risk
+   :widths: auto
+   :align: center
+
+   
+   ====  ==========  ========  ======================  ==============  ===============  ==================================
+    No   Residence    Gender    Education level         Labor status    :math:`f_{k}`    :math:`f_{k}` with  alpha = 0.5
+   ====  ==========  ========  ======================  ==============  ===============  ==================================
+    1    Urban        Female    Secondary incomplete    Employed        2                2             
+    2    Urban        Female    Secondary incomplete    Employed        2                2             
+    3    Urban        Female    Primary incomplete      Non-LF          1                1             
+    4    Urban        Male      NA/missing              NA/missing      **3**            3        
+    5    Rural        Female    Secondary complete      Unemployed      1                1             
+    6    Urban        Male      Secondary complete      Employed        2                1.5             
+    7    Urban        Female    Primary complete        Non-LF          1                1             
+    8    Urban        Male      Post-secondary          Unemployed      **2**            1.5          
+    9    Urban        Female    Secondary incomplete    Non-LF          2                2             
+    10   Urban        Female    Secondary incomplete    Non-LF          2                2             
+   ====  ==========  ========  ======================  ==============  ===============  ==================================
+
 In :numref:`code41`, we show how to use the *sdcMicro* package to create a
 list of sample frequencies :math:`f_{k}` for each record in a dataset.
 This is done by using the *sdcMicro* function freq(). A value of 2 for

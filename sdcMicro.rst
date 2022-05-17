@@ -292,6 +292,10 @@ sufficient to write the name of the object.
    # sensitive variables for l-diversity computation 
    selectedSensibleVar = c('health') 
    
+   # Options
+   alphaVal <- 1     # parameter alpha for frequency calculation
+   seedVal  <- 12345 # seed
+   
    # creating the sdcMicro object with the assigned variables 
    sdcInitial <- createSdcObj(dat         = file, 
    						   keyVars     = selectedKeyVars,
@@ -300,8 +304,10 @@ sufficient to write the name of the object.
    					       weightVar   = selectedWeightVar,
    					       pramVars    = selectedPramVars,
    					       hhId        = selectedHouseholdID,
-                              strataVar   = selectedStrataVar, 
-                              sensibleVar = selectedSensibleVar) 
+                           strataVar   = selectedStrataVar, 
+                           sensibleVar = selectedSensibleVar,
+                           alpha       = alphaVal,
+                           seed        = seedVal) 
    
    # Summary of object 
    sdcInitial 
