@@ -81,7 +81,7 @@ the *sdcMicro* package.
     Method                   Classification of SDC method      Data Type                     Function in sdcMicro                                                                           
    =======================  ================================  ============================  ==============================================================================================================
     Global recoding          non-perturbative, determinitic    continuous and categorical    `globalRecode <http://www.rdocumentation.org/packages/sdcMicro/functions/globalrecode/>`_ ,       
-                                                                                             `groupVars <http://www.rdocumentation.org/packages/sdcMicro/functions/groupVars-methods/>`_       
+                                                                                             `groupAndRename <http://www.rdocumentation.org/packages/sdcMicro/functions/groupAndRename/>`_       
     Top and bottom coding    non-perturbative, determinitic    continuous and categorical    `topBotCoding <http://www.rdocumentation.org/packages/sdcMicro/functions/topBotCoding/>`_         
     Local suppression        non-perturbative, determinitic    categorical                   `localSuppression <http://www.rdocumentation.org/packages/sdcMicro/functions/localSuppression/>`_, localSupp
     PRAM                     perturbative, probabilistic       categorical                   `pram <http://www.rdocumentation.org/packages/sdcMicro/functions/pram/>`_                         
@@ -275,12 +275,12 @@ methods such as perturbative methods might work better.
 
 In *sdcMicro* there are different options for global recoding. In the
 following paragraphs, we give examples of global recoding with the
-functions groupVars() and globalRecode(). The function groupVars() is
+functions groupAndRename() and globalRecode(). The function groupAndRename() is
 generally used for categorical variables and the function globalRecode()
 for continuous variables. Finally, we discuss the use of rounding to
 reduce the detail in continuous variables.
 
-Recoding a categorical variable using the sdcMicro function groupVars()
+Recoding a categorical variable using the sdcMicro function groupAndRename()
 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
 Assume that an object of class *sdcMicro* was created, which is called
@@ -297,14 +297,14 @@ repeat ‘urban’ three times in the “after” vector to match the three
 different values that are recoded to ‘urban’. 
 
 .. NOTE::
- 	The function groupVars() works only for variables of class factor.
+ 	The function groupAndRename() works only for variables of class factor.
 
 We refer to the Section `Classes in R <sdcMicro.html#Classes in R>`__
 on how to change the class of a variable.
 
 .. code-block:: R
    :linenos:
-   :caption:  Using the sdcMicro function groupVars() to recode a categorical variable
+   :caption:  Using the sdcMicro function groupAndRename() to recode a categorical variable
    :name: code51
 
    # Frequencies of sizeRes before recoding
@@ -313,12 +313,12 @@ on how to change the class of a variable.
    ##                 686                 310              146              1358
 
    # Recode urban
-   sdcInitial  <-  groupVars(obj = sdcInitial, var = c("sizeRes"), 
+   sdcInitial  <-  groupAndRename(obj = sdcInitial, var = c("sizeRes"), 
                              before = c("capital, large city", "small city", "town"), 
                              after = c("urban", "urban", "urban"))
 
    # Recode rural
-   sdcInitial  <-  groupVars(obj = sdcInitial, var = c("sizeRes"), 
+   sdcInitial  <-  groupAndRename(obj = sdcInitial, var = c("sizeRes"), 
                              before = c("countryside"), after = c("rural"))
 
    # Frequencies of sizeRes before recoding
@@ -531,7 +531,7 @@ done simultaneously in *sdcMicro*. :numref:`code56` illustrates how to recode
 values of age higher than 64 and values of age lower than 5; 65 and 5
 replace the values respectively. To construct several top or bottom
 coding categories, e.g., age 65 – 80 and higher than age 80, one can use
-the groupVars() function in *sdcMicro* or manual recoding as described
+the groupAndRename() function in *sdcMicro* or manual recoding as described
 in the previous subsection. 
 
 .. code-block:: R
