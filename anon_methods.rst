@@ -80,10 +80,10 @@ the *sdcMicro* package.
    =======================  ================================  ============================  ==============================================================================================================
     Method                   Classification of SDC method      Data Type                     Function in sdcMicro                                                                           
    =======================  ================================  ============================  ==============================================================================================================
-    Global recoding          non-perturbative, determinitic    continuous and categorical    `globalRecode <http://www.rdocumentation.org/packages/sdcMicro/functions/globalrecode/>`_ ,       
+    Global recoding          non-perturbative, deterministic    continuous and categorical    `globalRecode <http://www.rdocumentation.org/packages/sdcMicro/functions/globalrecode/>`_ ,       
                                                                                              `groupAndRename <http://www.rdocumentation.org/packages/sdcMicro/functions/groupAndRename/>`_       
-    Top and bottom coding    non-perturbative, determinitic    continuous and categorical    `topBotCoding <http://www.rdocumentation.org/packages/sdcMicro/functions/topBotCoding/>`_         
-    Local suppression        non-perturbative, determinitic    categorical                   `localSuppression <http://www.rdocumentation.org/packages/sdcMicro/functions/localSuppression/>`_, localSupp
+    Top and bottom coding    non-perturbative, deterministic    continuous and categorical    `topBotCoding <http://www.rdocumentation.org/packages/sdcMicro/functions/topBotCoding/>`_         
+    Local suppression        non-perturbative, deterministic    categorical                   `localSuppression <http://www.rdocumentation.org/packages/sdcMicro/functions/localSuppression/>`_, localSupp
     PRAM                     perturbative, probabilistic       categorical                   `pram <http://www.rdocumentation.org/packages/sdcMicro/functions/pram/>`_                         
     Micro aggregation        perturbative, probabilistic       continuous                    `microaggregation <http://www.rdocumentation.org/packages/sdcMicro/functions/microaggregation/>`_ 
     Noise addition           perturbative, probabilistic       continuous                    `addNoise <http://www.rdocumentation.org/packages/sdcMicro/functions/addNoise/>`_                 
@@ -132,7 +132,7 @@ into provinces, municipalities into districts, or clean water categories
 together. Grouping all small regions without geographical proximity
 together is not necessarily the best option from the utility
 perspective. :numref:`tab52` illustrates this with a very simplified example
-dataset. Before recoding, three individuals have distinct keys, whereas
+dataset. Before recoding, two individuals have distinct keys, whereas
 after recoding (grouping ‘Region 1’ and ‘Region 2’ into ‘North’, ‘Region
 3’ into ‘Central’ and ‘Region 4’ and ‘Region 5’ into ‘South’), the
 number of distinct keys is reduced to four and the frequency of every
@@ -158,7 +158,7 @@ on the selected key variables.
     2                  Region 2    Female    Catholic      2                North       Female    Catholic      3   
     3                  Region 2    Female    Catholic      2                North       Female    Catholic      3   
     4                  Region 3    Female    Protestant    2                Central     Female    Protestant    2   
-    5                  Region 3    Male      Protestant    1                Central     Male      Protestant    2   
+    5                  Region 3    Male      Protestant    2                Central     Male      Protestant    2   
     6                  Region 3    Female    Protestant    2                Central     Female    Protestant    2   
     7                  Region 3    Male      Protestant    2                Central     Male      Protestant    2   
     8                  Region 4    Male      Muslim        2                South       Male      Muslim        3   
